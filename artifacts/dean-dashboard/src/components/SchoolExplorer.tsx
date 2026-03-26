@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CHART_COLORS, NEXT_ROLE_LABELS, ORIGIN_LABELS } from "@/data/types";
 import USMap from "./USMap";
 import SchoolAnalytics from "./SchoolAnalytics";
 import DeanTimeline from "./DeanTimeline";
@@ -33,13 +32,8 @@ export default function SchoolExplorer() {
     return idx >= 0 ? idx : deans.length - 1;
   }, [deans]);
 
-  const [selectedDeanIdx, setSelectedDeanIdx] = useState<number | null>(null);
-  const displayIdx = selectedDeanIdx ?? currentDeanIdx;
-  const selectedDean = displayIdx !== null ? deans[displayIdx] : null;
-
   const handleSchoolChange = (school: string) => {
     setSelectedSchool(school);
-    setSelectedDeanIdx(null);
   };
 
   return (
@@ -111,68 +105,20 @@ export default function SchoolExplorer() {
       <Card>
         <CardHeader>
           {selectedInfo && (
-            <p className="text-sm font-semibold text-muted-foreground">
+            <p className="text-xl font-bold">
               {selectedInfo.university} – {selectedSchool}
             </p>
           )}
           <CardTitle className="text-lg">Dean Tenure Timeline</CardTitle>
-          <p className="text-sm text-muted-foreground">Click a row to view the dean's full profile. Bars show prior title and discipline.</p>
+          <p className="text-sm text-muted-foreground">Hover over a bar to view the dean's profile. Bars show prior title and discipline.</p>
         </CardHeader>
         <CardContent>
           <DeanTimeline
             deans={deans}
-            selectedIdx={displayIdx}
-            onSelect={setSelectedDeanIdx}
+            selectedIdx={currentDeanIdx}
           />
         </CardContent>
       </Card>
-
-      {selectedDean && (
-        <Card className="border-2 border-primary/20">
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-3">
-              {selectedDean.dean}
-              <div className="flex gap-1.5 flex-wrap">
-                {selectedDean.gender === "F" && <Badge className="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">Female</Badge>}
-                {selectedDean.isInterim && <Badge variant="outline">Interim</Badge>}
-                {selectedDean.isFirstTimeDean && <Badge variant="secondary">First-Time Dean</Badge>}
-                {selectedDean.isInternal && !selectedDean.isInterim && <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Internal</Badge>}
-                {selectedDean.isExternal && !selectedDean.isInterim && <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">External</Badge>}
-              </div>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <ProfileField label="Tenure" value={`${selectedDean.startYear || "?"} – ${selectedDean.endYear || "Present"} (${selectedDean.tenureLength ? selectedDean.tenureLength + " years" : "ongoing"})`} />
-              <ProfileField label="Origin" value={ORIGIN_LABELS[selectedDean.origin] || selectedDean.origin} />
-              <ProfileField label="Discipline" value={selectedDean.disciplineBroad || selectedDean.discipline} />
-              <ProfileField label="Prior Position" value={selectedDean.priorTitle || "Unknown"} />
-              <ProfileField label="Prior Institution" value={selectedDean.priorInstitution || "Unknown"} />
-              <ProfileField label="Career Background" value={selectedDean.careerBackground} />
-              <ProfileField label="Has PhD" value={selectedDean.hasPhd ? "Yes" : "No"} />
-              <ProfileField label="Industry Experience" value={selectedDean.hasIndustryExp ? "Yes" : "No"} />
-              <ProfileField label="Prior Dean Experience" value={selectedDean.hasPriorDeanExp ? "Yes" : "No"} />
-              <ProfileField label="Prior Assoc. Dean" value={selectedDean.hadAssocDeanRole ? "Yes" : "No"} />
-              <ProfileField label="From Elite Institution" value={selectedDean.fromEliteInstitution ? "Yes" : "No"} />
-              <ProfileField label="Post-Dean Role" value={NEXT_ROLE_LABELS[selectedDean.nextRole] || selectedDean.nextRole || "Unknown"} />
-              {selectedDean.involuntary && <ProfileField label="Departure" value="Involuntary" />}
-            </div>
-            {(selectedDean.avgAnnualGifts || selectedDean.avgEndowment) && (
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 p-3 bg-muted rounded-lg">
-                <ProfileField label="Avg Annual Gifts" value={selectedDean.avgAnnualGifts ? `$${(selectedDean.avgAnnualGifts / 1e6).toFixed(1)}M` : "–"} />
-                <ProfileField label="Total Gifts During Tenure" value={selectedDean.totalGifts ? `$${(selectedDean.totalGifts / 1e6).toFixed(1)}M` : "–"} />
-                <ProfileField label="Avg Endowment" value={selectedDean.avgEndowment ? `$${(selectedDean.avgEndowment / 1e9).toFixed(2)}B` : "–"} />
-              </div>
-            )}
-            {selectedDean.notes && (
-              <div className="mt-4 p-3 bg-muted rounded-lg">
-                <p className="text-xs font-medium text-muted-foreground mb-1">Notes</p>
-                <p className="text-sm">{selectedDean.notes}</p>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      )}
 
       {deans.length > 0 && (
         <>
@@ -184,11 +130,3 @@ export default function SchoolExplorer() {
   );
 }
 
-function ProfileField({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <p className="text-xs font-medium text-muted-foreground">{label}</p>
-      <p className="text-sm font-medium mt-0.5">{value}</p>
-    </div>
-  );
-}

@@ -10,10 +10,14 @@ const CLUSTER_THRESHOLD = 0.15;
 function getDeanCountColor(count: number, maxCount: number): string {
   if (count === 0) return "hsl(0, 0%, 75%)";
   const t = Math.min(count / maxCount, 1);
-  const h = 220 - t * 180;
-  const s = 50 + t * 40;
-  const l = 65 - t * 30;
-  return `hsl(${h}, ${s}%, ${l}%)`;
+  if (t < 0.5) {
+    const r = Math.round(255 * (t * 2));
+    return `rgb(${50 + Math.round(t * 2 * 150)}, ${160 + Math.round((1 - t * 2) * 40)}, 50)`;
+  }
+  const t2 = (t - 0.5) * 2;
+  const r = 200 + Math.round(t2 * 55);
+  const g = 160 - Math.round(t2 * 140);
+  return `rgb(${r}, ${g}, 30)`;
 }
 
 function spreadOverlappingMarkers(
@@ -99,7 +103,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
         ...s,
         deanSchoolName,
         deanCount,
-        radius: Math.max(6, Math.min(14, 6 + deanCount * 0.6)),
+        radius: Math.max(4, Math.min(14, s.totalFaculty / 20)),
       };
     });
 
@@ -247,7 +251,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
         </ZoomableGroup>
       </ComposableMap>
       <div className="px-3 pb-2 flex gap-4 text-xs text-muted-foreground justify-center flex-wrap items-center">
-        <span>Drag to pan · Scroll to zoom</span>
+        <span>Drag to pan · Scroll to zoom · Bubble size = faculty count</span>
         <span className="flex items-center gap-1">
           <span className="text-xs">Deans:</span>
           {legendSteps.map((s) => (

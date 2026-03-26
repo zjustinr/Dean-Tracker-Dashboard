@@ -1,11 +1,11 @@
-import { useMemo } from "react";
+import { useMemo, useState, useRef } from "react";
 import type { Dean } from "@/data/types";
-import { CHART_COLORS } from "@/data/types";
+import { CHART_COLORS, ORIGIN_LABELS, NEXT_ROLE_LABELS } from "@/data/types";
 
 interface Props {
   deans: Dean[];
   selectedIdx: number | null;
-  onSelect: (idx: number) => void;
+  onSelect?: (idx: number) => void;
 }
 
 function getBarColor(gender: string, isInterim: boolean): string {
@@ -14,11 +14,9 @@ function getBarColor(gender: string, isInterim: boolean): string {
   return CHART_COLORS[0];
 }
 
-
 export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
   const { minYear, maxYear, yearSpan } = useMemo(() => {
     const starts = deans.map((d) => d.startYear).filter(Boolean) as number[];
-    const ends = deans.map((d) => d.endYear || 2026);
     const min = starts.length ? Math.min(...starts) - 1 : 1990;
     const max = 2026;
     return { minYear: min, maxYear: max, yearSpan: max - min };
@@ -32,12 +30,18 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
     return ticks;
   }, [minYear, maxYear]);
 
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
   if (deans.length === 0) {
     return <p className="text-muted-foreground text-sm py-8 text-center">No data available for this school.</p>;
   }
 
+  const hoveredDean = hoveredIdx !== null ? deans[hoveredIdx] : null;
+
   return (
-    <div className="space-y-0">
+    <div className="space-y-0 relative" ref={containerRef}>
       {deans.map((dean, idx) => {
         const startY = dean.startYear || minYear;
         const endY = dean.endYear || 2026;
@@ -59,7 +63,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
           <div
             key={dean.id}
             className="flex items-center gap-3 py-2 px-2 rounded-lg cursor-pointer transition-all hover:bg-accent/40"
-            onClick={() => onSelect(idx)}
+            onClick={() => onSelect?.(idx)}
           >
             <div className="shrink-0 w-56 min-w-0">
               <p
@@ -87,6 +91,20 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                   outlineOffset: 2,
                   boxShadow: isSelected ? "0 0 0 1px hsl(var(--background))" : "none",
                 }}
+                onMouseEnter={(e) => {
+                  setHoveredIdx(idx);
+                  if (containerRef.current) {
+                    const rect = containerRef.current.getBoundingClientRect();
+                    setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                  }
+                }}
+                onMouseMove={(e) => {
+                  if (containerRef.current) {
+                    const rect = containerRef.current.getBoundingClientRect();
+                    setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                  }
+                }}
+                onMouseLeave={() => setHoveredIdx(null)}
               >
                 <span
                   className="text-[10px] text-white font-medium px-2 whitespace-nowrap overflow-hidden text-ellipsis"
@@ -99,6 +117,52 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
           </div>
         );
       })}
+
+      {hoveredDean && (
+        <div
+          className="absolute z-50 pointer-events-none bg-card border border-border rounded-xl shadow-xl px-4 py-3 text-sm max-w-sm"
+          style={{
+            left: Math.min(tooltipPos.x + 16, (containerRef.current?.offsetWidth || 800) - 340),
+            top: tooltipPos.y - 120,
+          }}
+        >
+          <p className="font-bold text-base">{hoveredDean.dean}</p>
+          <div className="flex gap-1.5 flex-wrap mt-1 mb-2">
+            {hoveredDean.gender === "F" && <span className="text-[10px] px-1.5 py-0.5 rounded bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 font-medium">Female</span>}
+            {hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded border border-border font-medium">Interim</span>}
+            {hoveredDean.isInternal && !hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-medium">Internal</span>}
+            {hoveredDean.isExternal && !hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 font-medium">External</span>}
+            {hoveredDean.isFirstTimeDean && <span className="text-[10px] px-1.5 py-0.5 rounded bg-muted font-medium">First-Time Dean</span>}
+          </div>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs">
+            <span className="text-muted-foreground">Tenure</span>
+            <span>{hoveredDean.startYear || "?"} – {hoveredDean.endYear || "Present"} ({hoveredDean.tenureLength ? `${hoveredDean.tenureLength} yrs` : "ongoing"})</span>
+            <span className="text-muted-foreground">Origin</span>
+            <span>{ORIGIN_LABELS[hoveredDean.origin] || hoveredDean.origin}</span>
+            <span className="text-muted-foreground">Discipline</span>
+            <span>{hoveredDean.disciplineBroad || hoveredDean.discipline || "–"}</span>
+            <span className="text-muted-foreground">Prior Position</span>
+            <span>{hoveredDean.priorTitle || "–"}</span>
+            <span className="text-muted-foreground">Prior Institution</span>
+            <span>{hoveredDean.priorInstitution || "–"}</span>
+            <span className="text-muted-foreground">Background</span>
+            <span>{hoveredDean.careerBackground || "–"}</span>
+            <span className="text-muted-foreground">PhD</span>
+            <span>{hoveredDean.hasPhd ? "Yes" : "No"}</span>
+            <span className="text-muted-foreground">Post-Dean</span>
+            <span>{NEXT_ROLE_LABELS[hoveredDean.nextRole] || hoveredDean.nextRole || "–"}</span>
+          </div>
+          {(hoveredDean.avgAnnualGifts || hoveredDean.avgEndowment) && (
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs mt-2 pt-2 border-t border-border">
+              {hoveredDean.avgAnnualGifts && <><span className="text-muted-foreground">Avg Gifts/yr</span><span>${(hoveredDean.avgAnnualGifts / 1e6).toFixed(1)}M</span></>}
+              {hoveredDean.avgEndowment && <><span className="text-muted-foreground">Avg Endowment</span><span>${(hoveredDean.avgEndowment / 1e9).toFixed(2)}B</span></>}
+            </div>
+          )}
+          {hoveredDean.notes && (
+            <p className="text-[10px] text-muted-foreground mt-2 pt-1 border-t border-border italic">{hoveredDean.notes}</p>
+          )}
+        </div>
+      )}
 
       <div className="relative h-5 ml-[236px] mt-1">
         {yearTicks.map((y) => {
