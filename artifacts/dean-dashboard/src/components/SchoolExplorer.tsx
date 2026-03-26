@@ -4,10 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { CHART_COLORS, NEXT_ROLE_LABELS, ORIGIN_LABELS } from "@/data/types";
 import USMap from "./USMap";
 import SchoolAnalytics from "./SchoolAnalytics";
+import DeanTimeline from "./DeanTimeline";
 
 type SortMode = "rank" | "alpha";
 
@@ -27,38 +27,12 @@ export default function SchoolExplorer() {
 
   const selectedInfo = useMemo(() => schools.find((s) => s.school === selectedSchool), [schools, selectedSchool]);
 
-  const minYear = useMemo(() => {
-    const starts = deans.map((d) => d.startYear).filter(Boolean) as number[];
-    return starts.length ? Math.min(...starts) - 1 : 1990;
-  }, [deans]);
-  const maxYear = 2026;
-
-  const timelineData = useMemo(() => {
-    return deans.map((d, i) => ({
-      name: d.dean,
-      start: d.startYear || minYear,
-      end: d.endYear || 2026,
-      duration: (d.endYear || 2026) - (d.startYear || minYear),
-      offset: (d.startYear || minYear) - minYear,
-      gender: d.gender,
-      isInterim: d.isInterim,
-      origin: d.origin,
-      index: i,
-    }));
-  }, [deans, minYear]);
-
   const [selectedDeanIdx, setSelectedDeanIdx] = useState<number | null>(null);
   const selectedDean = selectedDeanIdx !== null ? deans[selectedDeanIdx] : null;
 
   const handleSchoolChange = (school: string) => {
     setSelectedSchool(school);
     setSelectedDeanIdx(null);
-  };
-
-  const getBarColor = (entry: typeof timelineData[0]) => {
-    if (entry.isInterim) return "hsl(var(--muted-foreground))";
-    if (entry.gender === "F") return CHART_COLORS[4];
-    return CHART_COLORS[0];
   };
 
   return (
@@ -130,72 +104,14 @@ export default function SchoolExplorer() {
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">Dean Tenure Timeline</CardTitle>
-          <p className="text-sm text-muted-foreground">Click a bar to view the dean's profile. Colors: blue = male, pink = female, gray = interim</p>
+          <p className="text-sm text-muted-foreground">Click a row to view the dean's full profile. Bars show prior title and discipline.</p>
         </CardHeader>
         <CardContent>
-          {timelineData.length > 0 ? (
-            <ResponsiveContainer width="100%" height={Math.max(200, timelineData.length * 48 + 40)}>
-              <BarChart
-                data={timelineData}
-                layout="vertical"
-                margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
-                barCategoryGap={8}
-              >
-                <XAxis
-                  type="number"
-                  domain={[0, maxYear - minYear]}
-                  tickFormatter={(v) => String(v + minYear)}
-                  fontSize={12}
-                />
-                <YAxis
-                  type="category"
-                  dataKey="name"
-                  width={160}
-                  fontSize={12}
-                  tick={{ fill: "hsl(var(--foreground))" }}
-                />
-                <Tooltip
-                  content={({ active, payload }) => {
-                    if (!active || !payload?.length) return null;
-                    const d = payload[0].payload;
-                    return (
-                      <div className="bg-card border border-border rounded-lg p-3 text-sm">
-                        <p className="font-semibold">{d.name}</p>
-                        <p>{d.start} – {d.end === 2026 ? "Present" : d.end}</p>
-                        <p>{d.duration} years</p>
-                        <p className="text-muted-foreground">{d.isInterim ? "Interim" : d.origin}</p>
-                      </div>
-                    );
-                  }}
-                />
-                <Bar dataKey="offset" stackId="a" fill="transparent" />
-                <Bar
-                  dataKey="duration"
-                  stackId="a"
-                  radius={[0, 4, 4, 0]}
-                  cursor="pointer"
-                  onClick={(_, idx) => setSelectedDeanIdx(idx)}
-                >
-                  {timelineData.map((entry, i) => (
-                    <Cell
-                      key={i}
-                      fill={getBarColor(entry)}
-                      opacity={selectedDeanIdx === i ? 1 : selectedDeanIdx !== null ? 0.4 : 0.85}
-                      stroke={selectedDeanIdx === i ? "hsl(var(--foreground))" : "none"}
-                      strokeWidth={selectedDeanIdx === i ? 2 : 0}
-                    />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          ) : (
-            <p className="text-muted-foreground text-sm py-8 text-center">No data available for this school.</p>
-          )}
-          <div className="flex gap-4 mt-2 text-xs text-muted-foreground justify-center">
-            <span className="flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded" style={{ background: CHART_COLORS[0] }} /> Male</span>
-            <span className="flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded" style={{ background: CHART_COLORS[4] }} /> Female</span>
-            <span className="flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded bg-muted-foreground" /> Interim</span>
-          </div>
+          <DeanTimeline
+            deans={deans}
+            selectedIdx={selectedDeanIdx}
+            onSelect={setSelectedDeanIdx}
+          />
         </CardContent>
       </Card>
 
