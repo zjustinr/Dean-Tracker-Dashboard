@@ -8,19 +8,6 @@ interface Props {
   onSelect: (idx: number) => void;
 }
 
-function getInitials(name: string): string {
-  const parts = name.split(/\s+/).filter(Boolean);
-  if (parts.length === 0) return "?";
-  if (parts.length === 1) return parts[0][0].toUpperCase();
-  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-}
-
-function getAvatarColor(name: string, gender: string, isInterim: boolean): string {
-  if (isInterim) return "hsl(var(--muted-foreground))";
-  if (gender === "F") return CHART_COLORS[4];
-  return CHART_COLORS[0];
-}
-
 function getBarColor(gender: string, isInterim: boolean): string {
   if (isInterim) return "hsl(var(--muted-foreground))";
   if (gender === "F") return CHART_COLORS[4];
@@ -64,7 +51,6 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
         const isSelected = selectedIdx === idx;
         const isDimmed = selectedIdx !== null && !isSelected;
         const barColor = getBarColor(dean.gender, dean.isInterim);
-        const avatarColor = getAvatarColor(dean.dean, dean.gender, dean.isInterim);
 
         const subtitle = [
           dean.priorTitle ? truncate(dean.priorTitle, 40) : "",
@@ -88,13 +74,6 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
             style={{ opacity: isDimmed ? 0.35 : 1 }}
             onClick={() => onSelect(idx)}
           >
-            <div
-              className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm"
-              style={{ background: avatarColor }}
-            >
-              {getInitials(dean.dean)}
-            </div>
-
             <div className="shrink-0 w-48 min-w-0">
               <p
                 className="text-sm font-semibold leading-tight truncate"
@@ -133,7 +112,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
         );
       })}
 
-      <div className="relative h-5 ml-[252px] mt-1">
+      <div className="relative h-5 ml-[204px] mt-1">
         {yearTicks.map((y) => {
           const pct = ((y - minYear) / yearSpan) * 100;
           return (
