@@ -57,7 +57,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
         return (
           <div
             key={dean.id}
-            className={`flex items-center gap-3 py-2 px-2 rounded-lg cursor-pointer transition-all hover:bg-accent/40 ${isSelected ? "bg-accent/60 ring-2 ring-primary/40" : ""}`}
+            className="flex items-center gap-3 py-2 px-2 rounded-lg cursor-pointer transition-all hover:bg-accent/40"
             onClick={() => onSelect(idx)}
           >
             <div className="shrink-0 w-56 min-w-0">
@@ -82,8 +82,9 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                   width: `${Math.max(widthPct, 2)}%`,
                   background: barColor,
                   opacity: isSelected ? 1 : 0.8,
-                  outline: isSelected ? "2px solid hsl(var(--foreground))" : "none",
-                  outlineOffset: 1,
+                  outline: isSelected ? "3px solid hsl(var(--foreground))" : "none",
+                  outlineOffset: 2,
+                  boxShadow: isSelected ? "0 0 0 1px hsl(var(--background))" : "none",
                 }}
               >
                 <span
