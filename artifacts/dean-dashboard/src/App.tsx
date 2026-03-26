@@ -30,18 +30,18 @@ function App() {
           <Tabs defaultValue="explorer" className="space-y-6">
             <TabsList className="grid w-full max-w-lg grid-cols-3">
               <TabsTrigger value="explorer">School Explorer</TabsTrigger>
-              <TabsTrigger value="analysis">Cross-School Analysis</TabsTrigger>
               <TabsTrigger value="trends">Aggregate Trends</TabsTrigger>
+              <TabsTrigger value="analysis">Correlation Analysis</TabsTrigger>
             </TabsList>
 
             <TabsContent value="explorer">
               <SchoolExplorer />
             </TabsContent>
-            <TabsContent value="analysis">
-              <CrossSchoolAnalysis />
-            </TabsContent>
             <TabsContent value="trends">
               <AggregateTrends />
+            </TabsContent>
+            <TabsContent value="analysis">
+              <CrossSchoolAnalysis />
             </TabsContent>
           </Tabs>
         </main>

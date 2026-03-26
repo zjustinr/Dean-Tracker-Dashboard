@@ -32,22 +32,22 @@ export default function CrossSchoolAnalysis() {
         <Switch id="top50" checked={top50Only} onCheckedChange={setTop50Only} />
         <Label htmlFor="top50" className="text-sm">Top 50 schools only</Label>
       </div>
-      <Tabs defaultValue="scatter">
+      <Tabs defaultValue="crosstab">
         <TabsList>
-          <TabsTrigger value="scatter">Scatter Plot</TabsTrigger>
           <TabsTrigger value="crosstab">Cross-Tabulation</TabsTrigger>
           <TabsTrigger value="grouped">Grouped Bar Chart</TabsTrigger>
+          <TabsTrigger value="scatter">Scatter Plot</TabsTrigger>
         </TabsList>
-        <TabsContent value="scatter"><ScatterView data={data} /></TabsContent>
         <TabsContent value="crosstab"><CrosstabView data={data} /></TabsContent>
         <TabsContent value="grouped"><GroupedBarView data={data} /></TabsContent>
+        <TabsContent value="scatter"><ScatterView data={data} /></TabsContent>
       </Tabs>
     </div>
   );
 }
 
 function ScatterView({ data }: { data: Dean[] }) {
-  const [xField, setXField] = useState<NumericField>("startYear");
+  const [xField, setXField] = useState<NumericField>("rank");
   const [yField, setYField] = useState<NumericField>("tenureLength");
   const [colorField, setColorField] = useState<CategoricalField>("gender");
 

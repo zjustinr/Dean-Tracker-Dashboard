@@ -61,7 +61,10 @@ export type CategoricalField =
 export type NumericField =
   | "tenureLength"
   | "rank"
-  | "startYear";
+  | "avgAnnualGifts"
+  | "totalGifts"
+  | "maxAnnualGifts"
+  | "avgEndowment";
 
 export type BooleanField =
   | "isFemale"
@@ -90,7 +93,10 @@ export const CATEGORICAL_LABELS: Record<CategoricalField, string> = {
 export const NUMERIC_LABELS: Record<NumericField, string> = {
   tenureLength: "Tenure Length (years)",
   rank: "US News Rank (2025)",
-  startYear: "Appointment Year",
+  avgAnnualGifts: "Avg Annual Gifts ($M)",
+  totalGifts: "Total Gifts ($M)",
+  maxAnnualGifts: "Max Annual Gifts ($M)",
+  avgEndowment: "Avg Endowment ($M)",
 };
 
 export const BOOLEAN_LABELS: Record<BooleanField, string> = {
