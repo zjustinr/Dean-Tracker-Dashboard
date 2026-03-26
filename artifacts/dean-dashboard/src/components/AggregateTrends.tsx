@@ -132,6 +132,118 @@ export default function AggregateTrends() {
     return { total: data.length, avgTenure, femalePct, internalPct, interimPct, firstTimePct };
   }, [data]);
 
+  const interimConversion = useMemo(() => {
+    const interims = data.filter((d) => d.isInterim);
+    const converted = interims.filter((interim) =>
+      data.some(
+        (d) =>
+          !d.isInterim &&
+          d.dean === interim.dean &&
+          d.school === interim.school &&
+          d.id !== interim.id &&
+          d.startYear != null &&
+          interim.startYear != null &&
+          d.startYear >= interim.startYear
+      )
+    );
+    const total = interims.length;
+    const convertedCount = converted.length;
+    const rate = total ? Math.round((convertedCount / total) * 1000) / 10 : 0;
+
+    const byEra: Record<string, { interims: number; converted: number }> = {};
+    for (const interim of interims) {
+      const era = interim.era || "Unknown";
+      if (!byEra[era]) byEra[era] = { interims: 0, converted: 0 };
+      byEra[era].interims++;
+      if (
+        data.some(
+          (d) =>
+            !d.isInterim &&
+            d.dean === interim.dean &&
+            d.school === interim.school &&
+            d.id !== interim.id &&
+            d.startYear != null &&
+            interim.startYear != null &&
+            d.startYear >= interim.startYear
+        )
+      ) {
+        byEra[era].converted++;
+      }
+    }
+    const byEraData = Object.entries(byEra)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([era, v]) => ({
+        era,
+        interims: v.interims,
+        converted: v.converted,
+        notConverted: v.interims - v.converted,
+        rate: v.interims ? Math.round((v.converted / v.interims) * 1000) / 10 : 0,
+      }));
+
+    const byTier: Record<string, { interims: number; converted: number }> = {};
+    for (const interim of interims) {
+      const tier = interim.tier || "Unknown";
+      if (!byTier[tier]) byTier[tier] = { interims: 0, converted: 0 };
+      byTier[tier].interims++;
+      if (
+        data.some(
+          (d) =>
+            !d.isInterim &&
+            d.dean === interim.dean &&
+            d.school === interim.school &&
+            d.id !== interim.id &&
+            d.startYear != null &&
+            interim.startYear != null &&
+            d.startYear >= interim.startYear
+        )
+      ) {
+        byTier[tier].converted++;
+      }
+    }
+    const byTierData = Object.entries(byTier)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([tier, v]) => ({
+        tier: tier.replace(/\s*\(.*\)/, ""),
+        interims: v.interims,
+        converted: v.converted,
+        notConverted: v.interims - v.converted,
+        rate: v.interims ? Math.round((v.converted / v.interims) * 1000) / 10 : 0,
+      }));
+
+    const byGender: Record<string, { interims: number; converted: number }> = {};
+    for (const interim of interims) {
+      const g = interim.gender || "Unknown";
+      if (!byGender[g]) byGender[g] = { interims: 0, converted: 0 };
+      byGender[g].interims++;
+      if (
+        data.some(
+          (d) =>
+            !d.isInterim &&
+            d.dean === interim.dean &&
+            d.school === interim.school &&
+            d.id !== interim.id &&
+            d.startYear != null &&
+            interim.startYear != null &&
+            d.startYear >= interim.startYear
+        )
+      ) {
+        byGender[g].converted++;
+      }
+    }
+    const byGenderData = Object.entries(byGender)
+      .filter(([g]) => g !== "Unknown")
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([gender, v]) => ({
+        gender,
+        interims: v.interims,
+        converted: v.converted,
+        notConverted: v.interims - v.converted,
+        rate: v.interims ? Math.round((v.converted / v.interims) * 1000) / 10 : 0,
+      }));
+
+    return { total, convertedCount, rate, byEraData, byTierData, byGenderData };
+  }, [data]);
+
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
@@ -285,6 +397,84 @@ export default function AggregateTrends() {
           </CardContent>
         </Card>
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">Interim-to-Permanent Dean Conversion</CardTitle>
+          <p className="text-sm text-muted-foreground">
+            How often do interim deans get appointed as the permanent dean at the same school?
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <KPICard label="Total Interim Deans" value={String(interimConversion.total)} />
+            <KPICard label="Converted to Permanent" value={String(interimConversion.convertedCount)} />
+            <KPICard label="Not Converted" value={String(interimConversion.total - interimConversion.convertedCount)} />
+            <KPICard label="Conversion Rate" value={`${interimConversion.rate}%`} />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <Card className="border-dashed">
+              <CardHeader><CardTitle className="text-sm">Conversion Rate by Era</CardTitle></CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={250}>
+                  <BarChart data={interimConversion.byEraData} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="era" fontSize={10} />
+                    <YAxis fontSize={11} unit="%" />
+                    <Tooltip
+                      contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8 }}
+                      formatter={(value: number, name: string) => {
+                        if (name === "Conversion Rate") return [`${value}%`, name];
+                        return [value, name];
+                      }}
+                    />
+                    <Bar dataKey="rate" fill={CHART_COLORS[6]} radius={[4, 4, 0, 0]} name="Conversion Rate" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            <Card className="border-dashed">
+              <CardHeader><CardTitle className="text-sm">Conversion Rate by Tier</CardTitle></CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={250}>
+                  <BarChart data={interimConversion.byTierData} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="tier" fontSize={10} />
+                    <YAxis fontSize={11} unit="%" />
+                    <Tooltip
+                      contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8 }}
+                      formatter={(value: number, name: string) => {
+                        if (name === "Conversion Rate") return [`${value}%`, name];
+                        return [value, name];
+                      }}
+                    />
+                    <Bar dataKey="rate" fill={CHART_COLORS[2]} radius={[4, 4, 0, 0]} name="Conversion Rate" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            <Card className="border-dashed">
+              <CardHeader><CardTitle className="text-sm">Conversion by Gender</CardTitle></CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={250}>
+                  <BarChart data={interimConversion.byGenderData} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="gender" fontSize={11} />
+                    <YAxis fontSize={11} />
+                    <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8 }} />
+                    <Bar dataKey="converted" stackId="a" fill={CHART_COLORS[2]} name="Converted" />
+                    <Bar dataKey="notConverted" stackId="a" fill={CHART_COLORS[3]} radius={[4, 4, 0, 0]} name="Not Converted" />
+                    <Legend wrapperStyle={{ fontSize: 11 }} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
