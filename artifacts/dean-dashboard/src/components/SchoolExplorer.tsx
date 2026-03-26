@@ -27,8 +27,15 @@ export default function SchoolExplorer() {
 
   const selectedInfo = useMemo(() => schools.find((s) => s.school === selectedSchool), [schools, selectedSchool]);
 
+  const currentDeanIdx = useMemo(() => {
+    if (!deans.length) return null;
+    const idx = deans.findIndex((d) => !d.endYear || d.endYear >= 2025);
+    return idx >= 0 ? idx : deans.length - 1;
+  }, [deans]);
+
   const [selectedDeanIdx, setSelectedDeanIdx] = useState<number | null>(null);
-  const selectedDean = selectedDeanIdx !== null ? deans[selectedDeanIdx] : null;
+  const displayIdx = selectedDeanIdx ?? currentDeanIdx;
+  const selectedDean = displayIdx !== null ? deans[displayIdx] : null;
 
   const handleSchoolChange = (school: string) => {
     setSelectedSchool(school);
@@ -109,7 +116,7 @@ export default function SchoolExplorer() {
         <CardContent>
           <DeanTimeline
             deans={deans}
-            selectedIdx={selectedDeanIdx}
+            selectedIdx={displayIdx}
             onSelect={setSelectedDeanIdx}
           />
         </CardContent>
@@ -160,12 +167,6 @@ export default function SchoolExplorer() {
             )}
           </CardContent>
         </Card>
-      )}
-
-      {!selectedDean && deans.length > 0 && (
-        <div className="text-center py-6 text-muted-foreground text-sm border border-dashed border-border rounded-lg">
-          Click on a bar in the timeline above to view a dean's detailed profile
-        </div>
       )}
 
       {deans.length > 0 && (
