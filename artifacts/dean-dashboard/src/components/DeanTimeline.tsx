@@ -14,10 +14,6 @@ function getBarColor(gender: string, isInterim: boolean): string {
   return CHART_COLORS[0];
 }
 
-function truncate(str: string, max: number): string {
-  if (!str || str.length <= max) return str || "";
-  return str.slice(0, max - 1) + "…";
-}
 
 export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
   const { minYear, maxYear, yearSpan } = useMemo(() => {
@@ -53,19 +49,11 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
         const barColor = getBarColor(dean.gender, dean.isInterim);
 
         const subtitle = [
-          dean.priorTitle ? truncate(dean.priorTitle, 40) : "",
+          dean.priorTitle || "",
           dean.disciplineBroad || dean.discipline || "",
         ]
           .filter(Boolean)
           .join(" · ");
-
-        const barLabel = [
-          `${startY}–${endY === 2026 ? "Present" : endY}`,
-          dean.isInterim ? "Interim" : "",
-          dean.priorTitle ? truncate(dean.priorTitle, 28) : "",
-        ]
-          .filter(Boolean)
-          .join(" | ");
 
         return (
           <div
@@ -74,7 +62,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
             style={{ opacity: isDimmed ? 0.35 : 1 }}
             onClick={() => onSelect(idx)}
           >
-            <div className="shrink-0 w-48 min-w-0">
+            <div className="shrink-0 w-56 min-w-0">
               <p
                 className="text-sm font-semibold leading-tight truncate"
                 style={{ color: isSelected ? "hsl(var(--primary))" : undefined }}
@@ -82,7 +70,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                 {dean.dean}
               </p>
               {subtitle && (
-                <p className="text-[10px] text-muted-foreground leading-tight truncate mt-0.5">
+                <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">
                   {subtitle}
                 </p>
               )}
@@ -104,7 +92,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                   className="text-[10px] text-white font-medium px-2 whitespace-nowrap overflow-hidden text-ellipsis"
                   style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
                 >
-                  {widthPct > 12 ? barLabel : `${startY}–${endY === 2026 ? "Now" : endY}`}
+                  {`${startY}–${endY === 2026 ? "Present" : endY}`}
                 </span>
               </div>
             </div>
@@ -112,7 +100,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
         );
       })}
 
-      <div className="relative h-5 ml-[204px] mt-1">
+      <div className="relative h-5 ml-[236px] mt-1">
         {yearTicks.map((y) => {
           const pct = ((y - minYear) / yearSpan) * 100;
           return (
