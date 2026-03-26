@@ -2,11 +2,19 @@ import { useMemo, useState, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 import { useAllDeans } from "@/data/useData";
 import { SCHOOL_INFO, SCHOOL_NAME_MAP } from "@/data/schools";
-import { CHART_COLORS } from "@/data/types";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 const CLUSTER_THRESHOLD = 0.15;
+
+function getDeanCountColor(count: number, maxCount: number): string {
+  if (count === 0) return "hsl(0, 0%, 75%)";
+  const t = Math.min(count / maxCount, 1);
+  const h = 220 - t * 180;
+  const s = 50 + t * 40;
+  const l = 65 - t * 30;
+  return `hsl(${h}, ${s}%, ${l}%)`;
+}
 
 function spreadOverlappingMarkers(
   markers: { lat: number; lng: number; shortName: string; [k: string]: any }[]
@@ -59,6 +67,8 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
     coordinates: [-96, 38],
     zoom: 1,
   });
+  const [hoveredSchool, setHoveredSchool] = useState<string | null>(null);
+  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const handleMoveEnd = useCallback((pos: { coordinates: [number, number]; zoom: number }) => {
     setPosition(pos);
@@ -89,15 +99,39 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
         ...s,
         deanSchoolName,
         deanCount,
-        radius: Math.max(4, Math.min(14, s.totalFaculty / 20)),
+        radius: Math.max(6, Math.min(14, 6 + deanCount * 0.6)),
       };
     });
 
     return spreadOverlappingMarkers(raw);
   }, [allDeans]);
 
+  const maxDeanCount = useMemo(
+    () => Math.max(...schoolMarkers.map((m) => m.deanCount), 1),
+    [schoolMarkers]
+  );
+
+  const hoveredMarker = useMemo(
+    () => (hoveredSchool ? schoolMarkers.find((m) => m.shortName === hoveredSchool) : null),
+    [hoveredSchool, schoolMarkers]
+  );
+
+  const legendSteps = useMemo(() => {
+    const steps = [1, Math.round(maxDeanCount / 3), Math.round((maxDeanCount * 2) / 3), maxDeanCount];
+    return [...new Set(steps)].map((count) => ({
+      count,
+      color: getDeanCountColor(count, maxDeanCount),
+    }));
+  }, [maxDeanCount]);
+
   return (
-    <div className="w-full max-w-3xl mx-auto border border-border rounded-lg overflow-hidden bg-card relative">
+    <div
+      className="w-full max-w-3xl mx-auto border border-border rounded-lg overflow-hidden bg-card relative"
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      }}
+    >
       <div className="absolute top-2 right-2 z-10 flex flex-col gap-1">
         <button
           onClick={handleZoomIn}
@@ -121,6 +155,23 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
           ⟲
         </button>
       </div>
+
+      {hoveredMarker && (
+        <div
+          className="absolute z-20 pointer-events-none bg-card border border-border rounded-lg shadow-lg px-3 py-2 text-sm"
+          style={{
+            left: tooltipPos.x + 12,
+            top: tooltipPos.y - 10,
+            transform: tooltipPos.x > 500 ? "translateX(-110%)" : undefined,
+          }}
+        >
+          <p className="font-semibold">{hoveredMarker.fullName}</p>
+          <p className="text-muted-foreground text-xs">
+            Rank #{hoveredMarker.rank} · {hoveredMarker.deanCount} deans on record
+          </p>
+        </div>
+      )}
+
       <ComposableMap
         projection="geoAlbersUsa"
         projectionConfig={{ scale: 1000 }}
@@ -154,44 +205,68 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
           </Geographies>
           {schoolMarkers.map((marker) => {
             const isSelected = marker.deanSchoolName === selectedSchool;
+            const isHovered = marker.shortName === hoveredSchool;
             const scaledRadius = marker.radius / position.zoom;
+            const fillColor = isSelected
+              ? "hsl(330, 81%, 60%)"
+              : getDeanCountColor(marker.deanCount, maxDeanCount);
+            const fontSize = Math.max(4, 7 / position.zoom);
+
             return (
               <Marker
                 key={marker.shortName}
                 coordinates={[marker.adjLng, marker.adjLat]}
                 onClick={() => onSelectSchool(marker.deanSchoolName)}
+                onMouseEnter={() => setHoveredSchool(marker.shortName)}
+                onMouseLeave={() => setHoveredSchool(null)}
                 style={{ cursor: "pointer" }}
               >
                 <circle
                   r={scaledRadius}
-                  fill={isSelected ? CHART_COLORS[4] : CHART_COLORS[0]}
-                  opacity={isSelected ? 1 : 0.7}
-                  stroke={isSelected ? "hsl(var(--foreground))" : "white"}
-                  strokeWidth={isSelected ? 2 / position.zoom : 1 / position.zoom}
+                  fill={fillColor}
+                  opacity={isSelected || isHovered ? 1 : 0.85}
+                  stroke={isSelected ? "hsl(var(--foreground))" : isHovered ? "hsl(var(--foreground))" : "white"}
+                  strokeWidth={isSelected || isHovered ? 2 / position.zoom : 0.5 / position.zoom}
                 />
-                {(isSelected || position.zoom >= 3) && (
-                  <text
-                    textAnchor="middle"
-                    y={-scaledRadius - 3 / position.zoom}
-                    style={{
-                      fontSize: Math.max(6, 10 / position.zoom),
-                      fontWeight: 600,
-                      fill: "hsl(var(--foreground))",
-                      pointerEvents: "none",
-                    }}
-                  >
-                    {marker.shortName}
-                  </text>
-                )}
+                <text
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  style={{
+                    fontSize,
+                    fontWeight: 700,
+                    fill: "white",
+                    pointerEvents: "none",
+                    textShadow: "0 0 2px rgba(0,0,0,0.5)",
+                  }}
+                >
+                  {marker.rank}
+                </text>
               </Marker>
             );
           })}
         </ZoomableGroup>
       </ComposableMap>
-      <div className="px-3 pb-2 flex gap-4 text-xs text-muted-foreground justify-center flex-wrap">
-        <span>Drag to pan · Scroll to zoom · Circle size = faculty count</span>
-        <span className="flex items-center gap-1"><span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: CHART_COLORS[0] }} /> School</span>
-        <span className="flex items-center gap-1"><span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: CHART_COLORS[4] }} /> Selected</span>
+      <div className="px-3 pb-2 flex gap-4 text-xs text-muted-foreground justify-center flex-wrap items-center">
+        <span>Drag to pan · Scroll to zoom</span>
+        <span className="flex items-center gap-1">
+          <span className="text-xs">Deans:</span>
+          {legendSteps.map((s) => (
+            <span key={s.count} className="flex items-center gap-0.5">
+              <span
+                className="inline-block w-3 h-3 rounded-full border border-white/50"
+                style={{ background: s.color }}
+              />
+              <span className="text-[10px]">{s.count}</span>
+            </span>
+          ))}
+        </span>
+        <span className="flex items-center gap-1">
+          <span
+            className="inline-block w-3 h-3 rounded-full border border-white/50"
+            style={{ background: "hsl(330, 81%, 60%)" }}
+          />
+          Selected
+        </span>
       </div>
     </div>
   );
