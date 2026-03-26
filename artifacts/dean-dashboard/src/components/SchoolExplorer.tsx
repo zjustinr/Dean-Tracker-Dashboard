@@ -19,7 +19,7 @@ export default function SchoolExplorer() {
   const sortedSchools = useMemo(() => {
     const list = [...schools];
     if (sortMode === "alpha") {
-      list.sort((a, b) => a.school.localeCompare(b.school));
+      list.sort((a, b) => a.university.localeCompare(b.university) || a.school.localeCompare(b.school));
     }
     return list;
   }, [schools, sortMode]);
