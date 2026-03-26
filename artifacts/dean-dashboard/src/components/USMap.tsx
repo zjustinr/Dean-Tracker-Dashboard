@@ -6,6 +6,48 @@ import { CHART_COLORS } from "@/data/types";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
+const CLUSTER_THRESHOLD = 0.15;
+
+function spreadOverlappingMarkers(
+  markers: { lat: number; lng: number; shortName: string; [k: string]: any }[]
+) {
+  const result = markers.map((m) => ({ ...m, adjLat: m.lat, adjLng: m.lng }));
+
+  const clusters: number[][] = [];
+  const visited = new Set<number>();
+
+  for (let i = 0; i < result.length; i++) {
+    if (visited.has(i)) continue;
+    const cluster = [i];
+    visited.add(i);
+    for (let j = i + 1; j < result.length; j++) {
+      if (visited.has(j)) continue;
+      const dLat = Math.abs(result[i].lat - result[j].lat);
+      const dLng = Math.abs(result[i].lng - result[j].lng);
+      if (dLat < CLUSTER_THRESHOLD && dLng < CLUSTER_THRESHOLD) {
+        cluster.push(j);
+        visited.add(j);
+      }
+    }
+    if (cluster.length > 1) clusters.push(cluster);
+  }
+
+  for (const cluster of clusters) {
+    const centerLat = cluster.reduce((s, i) => s + result[i].lat, 0) / cluster.length;
+    const centerLng = cluster.reduce((s, i) => s + result[i].lng, 0) / cluster.length;
+    const angleStep = (2 * Math.PI) / cluster.length;
+    const spread = 0.3 + cluster.length * 0.08;
+
+    cluster.forEach((idx, ci) => {
+      const angle = angleStep * ci - Math.PI / 2;
+      result[idx].adjLat = centerLat + Math.sin(angle) * spread;
+      result[idx].adjLng = centerLng + Math.cos(angle) * spread * 1.3;
+    });
+  }
+
+  return result;
+}
+
 interface Props {
   selectedSchool: string;
   onSelectSchool: (school: string) => void;
@@ -40,10 +82,9 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
       deanCounts.set(d.school, (deanCounts.get(d.school) || 0) + 1);
     }
 
-    return SCHOOL_INFO.map((s) => {
+    const raw = SCHOOL_INFO.map((s) => {
       const deanSchoolName = SCHOOL_NAME_MAP[s.shortName] || s.shortName;
       const deanCount = deanCounts.get(deanSchoolName) || 0;
-
       return {
         ...s,
         deanSchoolName,
@@ -51,28 +92,30 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
         radius: Math.max(4, Math.min(14, s.totalFaculty / 20)),
       };
     });
+
+    return spreadOverlappingMarkers(raw);
   }, [allDeans]);
 
   return (
-    <div className="w-full border border-border rounded-lg overflow-hidden bg-card relative">
+    <div className="w-full max-w-3xl mx-auto border border-border rounded-lg overflow-hidden bg-card relative">
       <div className="absolute top-2 right-2 z-10 flex flex-col gap-1">
         <button
           onClick={handleZoomIn}
-          className="w-8 h-8 rounded-md bg-card border border-border text-foreground hover:bg-muted flex items-center justify-center text-lg font-bold shadow-sm"
+          className="w-7 h-7 rounded-md bg-card border border-border text-foreground hover:bg-muted flex items-center justify-center text-sm font-bold shadow-sm"
           aria-label="Zoom in"
         >
           +
         </button>
         <button
           onClick={handleZoomOut}
-          className="w-8 h-8 rounded-md bg-card border border-border text-foreground hover:bg-muted flex items-center justify-center text-lg font-bold shadow-sm"
+          className="w-7 h-7 rounded-md bg-card border border-border text-foreground hover:bg-muted flex items-center justify-center text-sm font-bold shadow-sm"
           aria-label="Zoom out"
         >
           −
         </button>
         <button
           onClick={handleReset}
-          className="w-8 h-8 rounded-md bg-card border border-border text-foreground hover:bg-muted flex items-center justify-center text-xs font-medium shadow-sm"
+          className="w-7 h-7 rounded-md bg-card border border-border text-foreground hover:bg-muted flex items-center justify-center text-xs font-medium shadow-sm"
           aria-label="Reset zoom"
         >
           ⟲
@@ -115,7 +158,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
             return (
               <Marker
                 key={marker.shortName}
-                coordinates={[marker.lng, marker.lat]}
+                coordinates={[marker.adjLng, marker.adjLat]}
                 onClick={() => onSelectSchool(marker.deanSchoolName)}
                 style={{ cursor: "pointer" }}
               >
@@ -145,7 +188,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
           })}
         </ZoomableGroup>
       </ComposableMap>
-      <div className="px-3 pb-2 flex gap-4 text-xs text-muted-foreground justify-center">
+      <div className="px-3 pb-2 flex gap-4 text-xs text-muted-foreground justify-center flex-wrap">
         <span>Drag to pan · Scroll to zoom · Circle size = faculty count</span>
         <span className="flex items-center gap-1"><span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: CHART_COLORS[0] }} /> School</span>
         <span className="flex items-center gap-1"><span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: CHART_COLORS[4] }} /> Selected</span>
