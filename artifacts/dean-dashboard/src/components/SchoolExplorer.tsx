@@ -53,7 +53,7 @@ export default function SchoolExplorer() {
         <TabsContent value="dropdown" className="mt-4">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-end">
             <div className="flex gap-2 items-end">
-              <div className="w-80">
+              <div className="w-[480px]">
                 <label className="text-sm font-medium text-muted-foreground mb-1.5 block">Select a Business School</label>
                 <Select value={selectedSchool} onValueChange={handleSchoolChange}>
                   <SelectTrigger className="w-full">
@@ -63,7 +63,7 @@ export default function SchoolExplorer() {
                     {sortedSchools.map((s) => (
                       <SelectItem key={s.school} value={s.school}>
                         {sortMode === "rank" && s.rank ? `#${s.rank} ` : ""}
-                        {s.school}
+                        {s.university} – {s.school}
                         {sortMode === "alpha" && s.rank ? ` (#${s.rank})` : ""}
                       </SelectItem>
                     ))}

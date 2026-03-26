@@ -45,7 +45,6 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
         const leftPct = ((startY - minYear) / yearSpan) * 100;
         const widthPct = (duration / yearSpan) * 100;
         const isSelected = selectedIdx === idx;
-        const isDimmed = selectedIdx !== null && !isSelected;
         const barColor = getBarColor(dean.gender, dean.isInterim);
 
         const subtitle = [
@@ -58,8 +57,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
         return (
           <div
             key={dean.id}
-            className="flex items-center gap-3 py-2 px-2 rounded-lg cursor-pointer transition-all hover:bg-accent/40"
-            style={{ opacity: isDimmed ? 0.35 : 1 }}
+            className={`flex items-center gap-3 py-2 px-2 rounded-lg cursor-pointer transition-all hover:bg-accent/40 ${isSelected ? "bg-accent/60 ring-2 ring-primary/40" : ""}`}
             onClick={() => onSelect(idx)}
           >
             <div className="shrink-0 w-56 min-w-0">
