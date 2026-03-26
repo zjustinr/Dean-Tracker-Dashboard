@@ -49,6 +49,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
 
         const subtitle = [
           dean.priorTitle || "",
+          dean.priorInstitution || "",
           dean.disciplineBroad || dean.discipline || "",
         ]
           .filter(Boolean)
