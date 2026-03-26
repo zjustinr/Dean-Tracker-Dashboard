@@ -110,6 +110,11 @@ export default function SchoolExplorer() {
 
       <Card>
         <CardHeader>
+          {selectedInfo && (
+            <p className="text-sm font-semibold text-muted-foreground">
+              {selectedInfo.university} – {selectedSchool}
+            </p>
+          )}
           <CardTitle className="text-lg">Dean Tenure Timeline</CardTitle>
           <p className="text-sm text-muted-foreground">Click a row to view the dean's full profile. Bars show prior title and discipline.</p>
         </CardHeader>
