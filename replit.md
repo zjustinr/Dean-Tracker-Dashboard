@@ -49,20 +49,39 @@ Interactive data visualization dashboard for studying leadership changes at top 
 - Data is embedded client-side — no API needed for this visualization
 
 ### Features
-1. **School Explorer** — Select a school, see dean tenure timeline (Gantt-style bar chart), click bars to view dean profiles
+1. **School Explorer**
+   - List View: dropdown school selector with rank/alpha sort toggle, school info badges
+   - Map View: interactive US map with clickable school markers (sized by faculty count) via react-simple-maps
+   - Dean tenure timeline (Gantt-style bar chart, color-coded: blue=male, pink=female, gray=interim)
+   - Click bars to view detailed dean profiles including financial data when available
+   - School-Level Analytics: KPIs (total deans, avg tenure, female %, internal %, interim %), gender/origin/discipline pie charts, tenure bars, post-dean roles, fundraising table
 2. **Cross-School Analysis** — Scatter plots (pick x/y numeric variables, color by category), cross-tabulation tables, grouped bar charts
-3. **Aggregate Trends** — KPI cards, stacked area charts (gender over time), bar charts (tenure by era, female % by decade, internal vs external), pie charts (disciplines, origins), post-dean career paths
+3. **Aggregate Trends** — KPI cards (including interim %), stacked area charts (gender over time), bar charts (tenure by era, female % by decade, internal/external/interim by decade), pie charts (disciplines, origins), post-dean career paths
 
 ### Key Fields
 - Demographics: gender, discipline, career background
 - Career: prior dean experience, assoc. dean role, PhD, industry exp
-- Appointment: origin (internal/external/interim), era, tenure length
+- Appointment: origin (internal/external/interim — interim always a separate category, never merged), era, tenure length
+- Financial: avgAnnualGifts, totalGifts, maxAnnualGifts, avgEndowment (82/617 records have this data)
 - Post-dean: next role (faculty, another deanship, provost, retirement, etc.)
 - School: US News rank, tier, elite institution status
+
+### Key Components
+- `SchoolExplorer.tsx` — Main school exploration view with list/map toggle
+- `USMap.tsx` — Interactive US map component using react-simple-maps
+- `SchoolAnalytics.tsx` — Per-school analytics charts and KPIs
+- `CrossSchoolAnalysis.tsx` — Multi-variable analysis tools
+- `AggregateTrends.tsx` — Dataset-wide trend charts
+
+### Data Files
+- `schools.ts` — SCHOOL_INFO array (50 schools with lat/lng, faculty, type, departments) + SCHOOL_NAME_MAP for deterministic matching between map markers and dean data school names
+- `types.ts` — Dean interface, field types, color constants, label maps
+- `useData.ts` — React hooks for dean data access
 
 ### Tech
 - React + Vite + Tailwind CSS v4 + shadcn/ui
 - Recharts for all charts
+- react-simple-maps for US map
 - Static data (no backend API needed)
 - Dark mode toggle
 

@@ -42,6 +42,11 @@ export interface Dean {
   hadPriorConnection: boolean;
   hasInstitutionalLink: boolean;
   priorAssocOrAsstDean: boolean;
+  avgAnnualGifts: number | null;
+  totalGifts: number | null;
+  maxAnnualGifts: number | null;
+  avgEndowment: number | null;
+  fundraisingYears: number;
 }
 
 export type CategoricalField =

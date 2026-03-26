@@ -22,9 +22,9 @@ export default function AggregateTrends() {
       if (!decades[decade]) decades[decade] = { total: 0, female: 0, internal: 0, external: 0, interim: 0, firstTime: 0 };
       decades[decade].total++;
       if (d.isFemale) decades[decade].female++;
-      if (d.isInternal) decades[decade].internal++;
-      if (d.isExternal) decades[decade].external++;
       if (d.isInterim) decades[decade].interim++;
+      else if (d.isInternal) decades[decade].internal++;
+      else if (d.isExternal) decades[decade].external++;
       if (d.isFirstTimeDean) decades[decade].firstTime++;
     }
     return Object.entries(decades)
@@ -35,6 +35,7 @@ export default function AggregateTrends() {
         femalePct: v.total ? Math.round((v.female / v.total) * 100) : 0,
         internalPct: v.total ? Math.round((v.internal / v.total) * 100) : 0,
         externalPct: v.total ? Math.round((v.external / v.total) * 100) : 0,
+        interimPct: v.total ? Math.round((v.interim / v.total) * 100) : 0,
       }));
   }, [data]);
 
@@ -125,9 +126,10 @@ export default function AggregateTrends() {
     const tenures = data.filter((d) => d.tenureLength).map((d) => d.tenureLength!);
     const avgTenure = tenures.length ? Math.round((tenures.reduce((s, v) => s + v, 0) / tenures.length) * 10) / 10 : 0;
     const femalePct = data.length ? Math.round((data.filter((d) => d.isFemale).length / data.length) * 100) : 0;
-    const internalPct = data.length ? Math.round((data.filter((d) => d.isInternal).length / data.length) * 100) : 0;
+    const internalPct = data.length ? Math.round((data.filter((d) => d.isInternal && !d.isInterim).length / data.length) * 100) : 0;
+    const interimPct = data.length ? Math.round((data.filter((d) => d.isInterim).length / data.length) * 100) : 0;
     const firstTimePct = data.length ? Math.round((data.filter((d) => d.isFirstTimeDean).length / data.length) * 100) : 0;
-    return { total: data.length, avgTenure, femalePct, internalPct, firstTimePct };
+    return { total: data.length, avgTenure, femalePct, internalPct, interimPct, firstTimePct };
   }, [data]);
 
   return (
@@ -137,11 +139,12 @@ export default function AggregateTrends() {
         <Label htmlFor="top50agg" className="text-sm">Top 50 schools only</Label>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         <KPICard label="Total Deans" value={String(kpis.total)} />
         <KPICard label="Avg Tenure" value={`${kpis.avgTenure} yrs`} />
         <KPICard label="Female" value={`${kpis.femalePct}%`} />
         <KPICard label="Internal Hire" value={`${kpis.internalPct}%`} />
+        <KPICard label="Interim" value={`${kpis.interimPct}%`} />
         <KPICard label="First-Time Dean" value={`${kpis.firstTimePct}%`} />
       </div>
 
@@ -199,7 +202,7 @@ export default function AggregateTrends() {
         </Card>
 
         <Card>
-          <CardHeader><CardTitle className="text-base">Internal vs External by Decade</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="text-base">Internal / External / Interim by Decade</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={appointmentsByDecade} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
@@ -209,6 +212,7 @@ export default function AggregateTrends() {
                 <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8 }} />
                 <Bar dataKey="internalPct" fill={CHART_COLORS[0]} radius={[4, 4, 0, 0]} name="% Internal" />
                 <Bar dataKey="externalPct" fill={CHART_COLORS[2]} radius={[4, 4, 0, 0]} name="% External" />
+                <Bar dataKey="interimPct" fill={CHART_COLORS[5]} radius={[4, 4, 0, 0]} name="% Interim" />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
               </BarChart>
             </ResponsiveContainer>
