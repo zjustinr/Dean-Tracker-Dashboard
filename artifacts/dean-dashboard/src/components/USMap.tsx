@@ -7,14 +7,6 @@ const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 const CLUSTER_THRESHOLD = 0.15;
 
-function getStateFill(geoId: string): string {
-  let hash = 0;
-  for (let i = 0; i < geoId.length; i++) {
-    hash = ((hash << 5) - hash + geoId.charCodeAt(i)) | 0;
-  }
-  const lightness = 78 + (Math.abs(hash) % 15);
-  return `hsl(0, 0%, ${lightness}%)`;
-}
 
 function getDeanCountColor(count: number, maxCount: number): string {
   if (count === 0) return "hsl(0, 0%, 75%)";
@@ -200,24 +192,20 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }: { geographies: any[] }) =>
-              geographies.map((geo: any) => {
-                const stateId = geo.id || geo.properties?.name || geo.rsmKey || "";
-                const baseFill = getStateFill(String(stateId));
-                return (
-                  <Geography
-                    key={geo.rsmKey || geo.id}
-                    geography={geo}
-                    fill={baseFill}
-                    stroke="#ffffff"
-                    strokeWidth={0.6}
-                    style={{
-                      default: { outline: "none" },
-                      hover: { outline: "none", fill: "#b8d4e8" },
-                      pressed: { outline: "none" },
-                    }}
-                  />
-                );
-              })
+              geographies.map((geo: any) => (
+                <Geography
+                  key={geo.rsmKey || geo.id}
+                  geography={geo}
+                  fill="#5a5a5a"
+                  stroke="#ffffff"
+                  strokeWidth={0.8}
+                  style={{
+                    default: { outline: "none" },
+                    hover: { outline: "none", fill: "#6e6e6e" },
+                    pressed: { outline: "none" },
+                  }}
+                />
+              ))
             }
           </Geographies>
           {schoolMarkers.map((marker) => {
