@@ -10,9 +10,9 @@ const CLUSTER_THRESHOLD = 0.15;
 
 const DEAN_TIERS = [
   { min: 1, max: 5, color: "#22c55e", label: "1–5" },
-  { min: 6, max: 15, color: "#eab308", label: "6–15" },
-  { min: 16, max: 25, color: "#f97316", label: "16–25" },
-  { min: 26, max: Infinity, color: "#ef4444", label: "25+" },
+  { min: 6, max: 10, color: "#eab308", label: "6–10" },
+  { min: 11, max: 15, color: "#f97316", label: "11–15" },
+  { min: 16, max: Infinity, color: "#ef4444", label: "15+" },
 ];
 
 function getDeanCountColor(count: number): string {
