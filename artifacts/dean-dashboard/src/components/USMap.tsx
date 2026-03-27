@@ -7,25 +7,13 @@ const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 const CLUSTER_THRESHOLD = 0.15;
 
-const STATE_PALETTE = [
-  "#a8d5a2", "#8ec5db", "#e6c9a0", "#c4a8de", "#7cc5b0",
-  "#d4bb8e", "#93b8d9", "#e0c4a8", "#8dd4b4", "#bfa8d4",
-  "#d9c78e", "#82c8c0", "#c8a8d6", "#9ed4a0", "#dcc09c",
-  "#89c4cc", "#d6a8a8", "#a0d8b8", "#b8a0c8", "#8cc8a0",
-  "#d4b0b4", "#90d0c8", "#c8bc90", "#a0b4d8", "#d8c898",
-  "#88c8c4", "#c0a8cc", "#98c8a0", "#ccb0bc", "#8cc0b0",
-  "#d8bc9c", "#94bcd0", "#c8c098", "#a4b0cc", "#c8d09c",
-  "#9cc4b4", "#cca8a4", "#98d0c4", "#b4a8c8", "#a4c8a0",
-  "#ccb8b0", "#88c4c0", "#c0b898", "#98b0cc", "#d0c498",
-  "#8cc0b8", "#c0a8bc", "#9cc4a4", "#c8b4b0", "#94bcb4",
-];
-
 function getStateFill(geoId: string): string {
   let hash = 0;
   for (let i = 0; i < geoId.length; i++) {
     hash = ((hash << 5) - hash + geoId.charCodeAt(i)) | 0;
   }
-  return STATE_PALETTE[Math.abs(hash) % STATE_PALETTE.length];
+  const lightness = 78 + (Math.abs(hash) % 15);
+  return `hsl(0, 0%, ${lightness}%)`;
 }
 
 function getDeanCountColor(count: number, maxCount: number): string {
@@ -124,7 +112,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
         ...s,
         deanSchoolName,
         deanCount,
-        radius: Math.max(4, Math.min(14, s.totalFaculty / 20)),
+        radius: Math.max(8, Math.min(18, s.totalFaculty / 12)),
       };
     });
 
@@ -239,7 +227,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
             const fillColor = isSelected
               ? "hsl(330, 81%, 60%)"
               : getDeanCountColor(marker.deanCount, maxDeanCount);
-            const fontSize = Math.max(4, 7 / position.zoom);
+            const fontSize = Math.max(5, 9 / position.zoom);
 
             return (
               <Marker
@@ -276,7 +264,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
         </ZoomableGroup>
       </ComposableMap>
       <div className="px-3 pb-2 flex gap-4 text-xs text-muted-foreground justify-center flex-wrap items-center">
-        <span>Drag to pan · Scroll to zoom · Bubble size = faculty count</span>
+        <span>Drag to pan · Scroll to zoom · Bubble size = faculty count · Number = US News rank</span>
         <span className="flex items-center gap-1">
           <span className="text-xs">Deans:</span>
           {legendSteps.map((s) => (
