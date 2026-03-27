@@ -8,17 +8,19 @@ const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 const CLUSTER_THRESHOLD = 0.15;
 
 
-function getDeanCountColor(count: number, maxCount: number): string {
+const DEAN_TIERS = [
+  { min: 1, max: 5, color: "#22c55e", label: "1–5" },
+  { min: 6, max: 15, color: "#eab308", label: "6–15" },
+  { min: 16, max: 25, color: "#f97316", label: "16–25" },
+  { min: 26, max: Infinity, color: "#ef4444", label: "25+" },
+];
+
+function getDeanCountColor(count: number): string {
   if (count === 0) return "hsl(0, 0%, 75%)";
-  const t = Math.min(count / maxCount, 1);
-  if (t < 0.5) {
-    const r = Math.round(255 * (t * 2));
-    return `rgb(${50 + Math.round(t * 2 * 150)}, ${160 + Math.round((1 - t * 2) * 40)}, 50)`;
+  for (const tier of DEAN_TIERS) {
+    if (count >= tier.min && count <= tier.max) return tier.color;
   }
-  const t2 = (t - 0.5) * 2;
-  const r = 200 + Math.round(t2 * 55);
-  const g = 160 - Math.round(t2 * 140);
-  return `rgb(${r}, ${g}, 30)`;
+  return DEAN_TIERS[DEAN_TIERS.length - 1].color;
 }
 
 function spreadOverlappingMarkers(
@@ -104,30 +106,18 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
         ...s,
         deanSchoolName,
         deanCount,
-        radius: Math.max(8, Math.min(18, s.totalFaculty / 12)),
+        radius: Math.max(10, Math.min(22, s.totalFaculty / 8)),
       };
     });
 
     return spreadOverlappingMarkers(raw);
   }, [allDeans]);
 
-  const maxDeanCount = useMemo(
-    () => Math.max(...schoolMarkers.map((m) => m.deanCount), 1),
-    [schoolMarkers]
-  );
-
   const hoveredMarker = useMemo(
     () => (hoveredSchool ? schoolMarkers.find((m) => m.shortName === hoveredSchool) : null),
     [hoveredSchool, schoolMarkers]
   );
 
-  const legendSteps = useMemo(() => {
-    const steps = [1, Math.round(maxDeanCount / 3), Math.round((maxDeanCount * 2) / 3), maxDeanCount];
-    return [...new Set(steps)].map((count) => ({
-      count,
-      color: getDeanCountColor(count, maxDeanCount),
-    }));
-  }, [maxDeanCount]);
 
   return (
     <div
@@ -214,7 +204,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
             const scaledRadius = marker.radius / position.zoom;
             const fillColor = isSelected
               ? "hsl(330, 81%, 60%)"
-              : getDeanCountColor(marker.deanCount, maxDeanCount);
+              : getDeanCountColor(marker.deanCount);
             const fontSize = Math.max(5, 9 / position.zoom);
 
             return (
@@ -255,13 +245,13 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
         <span>Drag to pan · Scroll to zoom · Bubble size = faculty count · Number = US News rank</span>
         <span className="flex items-center gap-1">
           <span className="text-xs">Deans:</span>
-          {legendSteps.map((s) => (
-            <span key={s.count} className="flex items-center gap-0.5">
+          {DEAN_TIERS.map((tier) => (
+            <span key={tier.label} className="flex items-center gap-0.5">
               <span
                 className="inline-block w-3 h-3 rounded-full border border-white/50"
-                style={{ background: s.color }}
+                style={{ background: tier.color }}
               />
-              <span className="text-[10px]">{s.count}</span>
+              <span className="text-[10px]">{tier.label}</span>
             </span>
           ))}
         </span>
