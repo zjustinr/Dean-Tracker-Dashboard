@@ -293,50 +293,57 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
 
             {hasMultiplePositions && (
               <div className="mt-5 pt-4 border-t border-border">
-                <h4 className="text-sm font-bold mb-4 flex items-center gap-2">
+                <h4 className="text-sm font-bold mb-3 flex items-center gap-2">
                   <span>Career Trajectory</span>
                   <Badge variant="outline" className="text-[10px]">{careerPositions.length} positions across {new Set(careerPositions.map(p => p.school)).size} schools</Badge>
                 </h4>
-                <div className="flex items-stretch gap-0 overflow-x-auto pb-2">
+                <div className="relative ml-1">
                   {careerPositions.map((pos, i) => {
                     const isCurrent = pos.id === clickedDean.id;
                     const isLast = i === careerPositions.length - 1;
-                    const cardBg = isCurrent ? "hsl(var(--primary))" : getBarColor(pos.gender, pos.isInterim);
                     return (
-                      <div key={pos.id} className="flex items-stretch shrink-0">
-                        <div
-                          className="relative rounded-xl px-4 py-3 text-white min-w-[180px] max-w-[220px] flex flex-col justify-center"
-                          style={{
-                            background: cardBg,
-                            boxShadow: isCurrent ? "0 4px 16px rgba(0,0,0,0.18)" : "0 2px 8px rgba(0,0,0,0.10)",
-                            border: isCurrent ? "2px solid hsl(var(--primary))" : "none",
-                          }}
-                        >
-                          {isCurrent && (
-                            <span className="absolute -top-2.5 left-3 text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary text-primary-foreground shadow">
-                              Current View
-                            </span>
-                          )}
-                          <p className="text-[11px] font-bold leading-tight" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
-                            {pos.university}
-                          </p>
-                          <p className="text-[10px] opacity-90 leading-tight mt-0.5">{pos.school}</p>
-                          <p className="text-xs font-semibold mt-2" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}>
-                            {pos.startYear || "?"} – {pos.endYear || "Present"}
-                          </p>
-                          <p className="text-[10px] opacity-80 mt-0.5">
-                            {pos.tenureLength ? `${pos.tenureLength} yrs` : "ongoing"}
-                            {pos.isInterim ? " · Interim" : ""}
-                          </p>
-                          <p className="text-[9px] opacity-70 mt-1">
-                            {ORIGIN_LABELS[pos.origin] || pos.origin || ""}
-                          </p>
+                      <div key={pos.id}>
+                        <div className="flex items-start gap-3 relative">
+                          <div className="flex flex-col items-center shrink-0">
+                            <div
+                              className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold z-10 border-2"
+                              style={{
+                                background: isCurrent ? "hsl(var(--primary))" : getBarColor(pos.gender, pos.isInterim),
+                                color: "white",
+                                borderColor: isCurrent ? "hsl(var(--primary))" : "hsl(var(--border))",
+                              }}
+                            >
+                              {i + 1}
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-3 flex-1 min-w-0">
+                            <div className="shrink-0 text-right w-[90px]">
+                              <p className="text-sm font-bold tabular-nums" style={{ color: isCurrent ? "hsl(var(--primary))" : undefined }}>
+                                {pos.startYear || "?"} – {pos.endYear || "Pres."}
+                              </p>
+                              <p className="text-[10px] text-muted-foreground">
+                                {pos.tenureLength ? `${pos.tenureLength} yrs` : "ongoing"}
+                              </p>
+                            </div>
+                            <div className={`flex-1 rounded-lg px-3 py-2 ${isCurrent ? "bg-primary/10 border border-primary/30" : "bg-background border border-border"}`}>
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="text-sm font-semibold">{pos.university}</span>
+                                <span className="text-xs text-muted-foreground">– {pos.school}</span>
+                                {pos.isInterim && <Badge variant="outline" className="text-[10px] py-0">Interim</Badge>}
+                                {isCurrent && <Badge className="text-[10px] py-0 bg-primary text-primary-foreground">Current View</Badge>}
+                              </div>
+                              <p className="text-[11px] text-muted-foreground mt-0.5">
+                                {ORIGIN_LABELS[pos.origin] || pos.origin || ""}
+                                {pos.priorTitle ? ` · ${pos.priorTitle}` : ""}
+                              </p>
+                            </div>
+                          </div>
                         </div>
                         {!isLast && (
-                          <div className="flex items-center px-1 shrink-0">
-                            <svg width="32" height="40" viewBox="0 0 32 40" fill="none" className="shrink-0">
-                              <path d="M0 20 H20" stroke="hsl(var(--muted-foreground))" strokeWidth="2" strokeDasharray="4 3" />
-                              <path d="M16 12 L26 20 L16 28" fill="hsl(var(--muted-foreground))" />
+                          <div className="flex items-center ml-[13px] py-0.5">
+                            <svg width="2" height="28" viewBox="0 0 2 28" fill="none">
+                              <path d="M1 0 V18" stroke="hsl(var(--muted-foreground))" strokeWidth="2" strokeDasharray="3 3" />
+                              <path d="M-3 18 L1 26 L5 18" fill="hsl(var(--muted-foreground))" />
                             </svg>
                           </div>
                         )}
