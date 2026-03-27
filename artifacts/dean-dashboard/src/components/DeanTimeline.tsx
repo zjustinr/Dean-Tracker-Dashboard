@@ -1,6 +1,8 @@
 import { useMemo, useState, useRef } from "react";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS, ORIGIN_LABELS, NEXT_ROLE_LABELS } from "@/data/types";
+import { useDeanCareer } from "@/data/useData";
+import { Badge } from "@/components/ui/badge";
 
 interface Props {
   deans: Dean[];
@@ -12,6 +14,13 @@ function getBarColor(gender: string, isInterim: boolean): string {
   if (isInterim) return "hsl(var(--muted-foreground))";
   if (gender === "F") return CHART_COLORS[4];
   return CHART_COLORS[0];
+}
+
+function formatMoney(val: number | null): string {
+  if (!val) return "–";
+  if (val >= 1e9) return `$${(val / 1e9).toFixed(2)}B`;
+  if (val >= 1e6) return `$${(val / 1e6).toFixed(1)}M`;
+  return `$${(val / 1e3).toFixed(0)}K`;
 }
 
 export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
@@ -32,7 +41,12 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
 
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [clickedIdx, setClickedIdx] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const clickedDean = clickedIdx !== null ? deans[clickedIdx] : null;
+  const careerPositions = useDeanCareer(clickedDean?.dean ?? null);
+  const hasMultiplePositions = careerPositions.length > 1;
 
   if (deans.length === 0) {
     return <p className="text-muted-foreground text-sm py-8 text-center">No data available for this school.</p>;
@@ -40,129 +54,136 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
 
   const hoveredDean = hoveredIdx !== null ? deans[hoveredIdx] : null;
 
+  const handleBarClick = (idx: number) => {
+    setClickedIdx(clickedIdx === idx ? null : idx);
+    onSelect?.(idx);
+  };
+
   return (
-    <div className="space-y-0 relative" ref={containerRef}>
-      {deans.map((dean, idx) => {
-        const startY = dean.startYear || minYear;
-        const endY = dean.endYear || 2026;
-        const duration = endY - startY;
-        const leftPct = ((startY - minYear) / yearSpan) * 100;
-        const widthPct = (duration / yearSpan) * 100;
-        const isSelected = selectedIdx === idx;
-        const barColor = getBarColor(dean.gender, dean.isInterim);
+    <div className="space-y-0">
+      <div className="relative" ref={containerRef}>
+        {deans.map((dean, idx) => {
+          const startY = dean.startYear || minYear;
+          const endY = dean.endYear || 2026;
+          const duration = endY - startY;
+          const leftPct = ((startY - minYear) / yearSpan) * 100;
+          const widthPct = (duration / yearSpan) * 100;
+          const isSelected = clickedIdx === idx;
+          const barColor = getBarColor(dean.gender, dean.isInterim);
 
-        const subtitle = [
-          dean.priorTitle || "",
-          dean.priorInstitution || "",
-          dean.disciplineBroad || dean.discipline || "",
-        ]
-          .filter(Boolean)
-          .join(" · ");
+          const subtitle = [
+            dean.priorTitle || "",
+            dean.priorInstitution || "",
+            dean.disciplineBroad || dean.discipline || "",
+          ]
+            .filter(Boolean)
+            .join(" · ");
 
-        return (
-          <div
-            key={dean.id}
-            className="flex items-center gap-3 py-2 px-2 rounded-lg cursor-pointer transition-all hover:bg-accent/40"
-            onClick={() => onSelect?.(idx)}
-          >
-            <div className="shrink-0 w-56 min-w-0">
-              <p
-                className="text-sm font-semibold leading-tight truncate"
-                style={{ color: isSelected ? "hsl(var(--primary))" : undefined }}
-              >
-                {dean.dean}
-              </p>
-              {subtitle && (
-                <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">
-                  {subtitle}
-                </p>
-              )}
-            </div>
-
-            <div className="flex-1 relative h-8 min-w-0">
-              <div
-                className="absolute top-0 h-full rounded-md transition-all flex items-center overflow-hidden"
-                style={{
-                  left: `${leftPct}%`,
-                  width: `${Math.max(widthPct, 2)}%`,
-                  background: barColor,
-                  opacity: isSelected ? 1 : 0.8,
-                  outline: isSelected ? "3px solid hsl(var(--foreground))" : "none",
-                  outlineOffset: 2,
-                  boxShadow: isSelected ? "0 0 0 1px hsl(var(--background))" : "none",
-                }}
-                onMouseEnter={(e) => {
-                  setHoveredIdx(idx);
-                  if (containerRef.current) {
-                    const rect = containerRef.current.getBoundingClientRect();
-                    setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-                  }
-                }}
-                onMouseMove={(e) => {
-                  if (containerRef.current) {
-                    const rect = containerRef.current.getBoundingClientRect();
-                    setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-                  }
-                }}
-                onMouseLeave={() => setHoveredIdx(null)}
-              >
-                <span
-                  className="text-[10px] text-white font-medium px-2 whitespace-nowrap overflow-hidden text-ellipsis"
-                  style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+          return (
+            <div
+              key={dean.id}
+              className="flex items-center gap-3 py-2 px-2 rounded-lg cursor-pointer transition-all hover:bg-accent/40"
+              onClick={() => handleBarClick(idx)}
+            >
+              <div className="shrink-0 w-56 min-w-0">
+                <p
+                  className="text-sm font-semibold leading-tight truncate"
+                  style={{ color: isSelected ? "hsl(var(--primary))" : undefined }}
                 >
-                  {`${startY}–${endY === 2026 ? "Present" : endY}`}
-                </span>
+                  {dean.dean}
+                </p>
+                {subtitle && (
+                  <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">
+                    {subtitle}
+                  </p>
+                )}
+              </div>
+
+              <div className="flex-1 relative h-8 min-w-0">
+                <div
+                  className="absolute top-0 h-full rounded-md transition-all flex items-center overflow-hidden"
+                  style={{
+                    left: `${leftPct}%`,
+                    width: `${Math.max(widthPct, 2)}%`,
+                    background: barColor,
+                    opacity: isSelected ? 1 : 0.8,
+                    outline: isSelected ? "3px solid hsl(var(--foreground))" : "none",
+                    outlineOffset: 2,
+                    boxShadow: isSelected ? "0 0 0 1px hsl(var(--background))" : "none",
+                  }}
+                  onMouseEnter={(e) => {
+                    setHoveredIdx(idx);
+                    if (containerRef.current) {
+                      const rect = containerRef.current.getBoundingClientRect();
+                      setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                    }
+                  }}
+                  onMouseMove={(e) => {
+                    if (containerRef.current) {
+                      const rect = containerRef.current.getBoundingClientRect();
+                      setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                    }
+                  }}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                >
+                  <span
+                    className="text-[10px] text-white font-medium px-2 whitespace-nowrap overflow-hidden text-ellipsis"
+                    style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+                  >
+                    {`${startY}–${endY === 2026 ? "Present" : endY}`}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
 
-      {hoveredDean && (
-        <div
-          className="absolute z-50 pointer-events-none bg-card border border-border rounded-xl shadow-xl px-4 py-3 text-sm max-w-sm"
-          style={{
-            left: Math.min(tooltipPos.x + 16, (containerRef.current?.offsetWidth || 800) - 340),
-            top: tooltipPos.y - 120,
-          }}
-        >
-          <p className="font-bold text-base">{hoveredDean.dean}</p>
-          <div className="flex gap-1.5 flex-wrap mt-1 mb-2">
-            {hoveredDean.gender === "F" && <span className="text-[10px] px-1.5 py-0.5 rounded bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 font-medium">Female</span>}
-            {hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded border border-border font-medium">Interim</span>}
-            {hoveredDean.isInternal && !hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-medium">Internal</span>}
-            {hoveredDean.isExternal && !hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 font-medium">External</span>}
-            {hoveredDean.isFirstTimeDean && <span className="text-[10px] px-1.5 py-0.5 rounded bg-muted font-medium">First-Time Dean</span>}
-          </div>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs">
-            <span className="text-muted-foreground">Tenure</span>
-            <span>{hoveredDean.startYear || "?"} – {hoveredDean.endYear || "Present"} ({hoveredDean.tenureLength ? `${hoveredDean.tenureLength} yrs` : "ongoing"})</span>
-            <span className="text-muted-foreground">Origin</span>
-            <span>{ORIGIN_LABELS[hoveredDean.origin] || hoveredDean.origin}</span>
-            <span className="text-muted-foreground">Discipline</span>
-            <span>{hoveredDean.disciplineBroad || hoveredDean.discipline || "–"}</span>
-            <span className="text-muted-foreground">Prior Position</span>
-            <span>{hoveredDean.priorTitle || "–"}</span>
-            <span className="text-muted-foreground">Prior Institution</span>
-            <span>{hoveredDean.priorInstitution || "–"}</span>
-            <span className="text-muted-foreground">Background</span>
-            <span>{hoveredDean.careerBackground || "–"}</span>
-            <span className="text-muted-foreground">PhD</span>
-            <span>{hoveredDean.hasPhd ? "Yes" : "No"}</span>
-            <span className="text-muted-foreground">Post-Dean</span>
-            <span>{NEXT_ROLE_LABELS[hoveredDean.nextRole] || hoveredDean.nextRole || "–"}</span>
-          </div>
-          {(hoveredDean.avgAnnualGifts || hoveredDean.avgEndowment) && (
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs mt-2 pt-2 border-t border-border">
-              {hoveredDean.avgAnnualGifts && <><span className="text-muted-foreground">Avg Gifts/yr</span><span>${(hoveredDean.avgAnnualGifts / 1e6).toFixed(1)}M</span></>}
-              {hoveredDean.avgEndowment && <><span className="text-muted-foreground">Avg Endowment</span><span>${(hoveredDean.avgEndowment / 1e9).toFixed(2)}B</span></>}
+        {hoveredDean && (
+          <div
+            className="absolute z-50 pointer-events-none bg-card border border-border rounded-xl shadow-xl px-4 py-3 text-sm max-w-sm"
+            style={{
+              left: Math.min(tooltipPos.x + 16, (containerRef.current?.offsetWidth || 800) - 340),
+              top: tooltipPos.y - 120,
+            }}
+          >
+            <p className="font-bold text-base">{hoveredDean.dean}</p>
+            <div className="flex gap-1.5 flex-wrap mt-1 mb-2">
+              {hoveredDean.gender === "F" && <span className="text-[10px] px-1.5 py-0.5 rounded bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 font-medium">Female</span>}
+              {hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded border border-border font-medium">Interim</span>}
+              {hoveredDean.isInternal && !hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-medium">Internal</span>}
+              {hoveredDean.isExternal && !hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 font-medium">External</span>}
+              {hoveredDean.isFirstTimeDean && <span className="text-[10px] px-1.5 py-0.5 rounded bg-muted font-medium">First-Time Dean</span>}
             </div>
-          )}
-          {hoveredDean.notes && (
-            <p className="text-[10px] text-muted-foreground mt-2 pt-1 border-t border-border italic">{hoveredDean.notes}</p>
-          )}
-        </div>
-      )}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs">
+              <span className="text-muted-foreground">Tenure</span>
+              <span>{hoveredDean.startYear || "?"} – {hoveredDean.endYear || "Present"} ({hoveredDean.tenureLength ? `${hoveredDean.tenureLength} yrs` : "ongoing"})</span>
+              <span className="text-muted-foreground">Origin</span>
+              <span>{ORIGIN_LABELS[hoveredDean.origin] || hoveredDean.origin}</span>
+              <span className="text-muted-foreground">Discipline</span>
+              <span>{hoveredDean.disciplineBroad || hoveredDean.discipline || "–"}</span>
+              <span className="text-muted-foreground">Prior Position</span>
+              <span>{hoveredDean.priorTitle || "–"}</span>
+              <span className="text-muted-foreground">Prior Institution</span>
+              <span>{hoveredDean.priorInstitution || "–"}</span>
+              <span className="text-muted-foreground">Background</span>
+              <span>{hoveredDean.careerBackground || "–"}</span>
+              <span className="text-muted-foreground">PhD</span>
+              <span>{hoveredDean.hasPhd ? "Yes" : "No"}</span>
+              <span className="text-muted-foreground">Post-Dean</span>
+              <span>{NEXT_ROLE_LABELS[hoveredDean.nextRole] || hoveredDean.nextRole || "–"}</span>
+            </div>
+            {(hoveredDean.avgAnnualGifts || hoveredDean.avgEndowment) && (
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs mt-2 pt-2 border-t border-border">
+                {hoveredDean.avgAnnualGifts && <><span className="text-muted-foreground">Avg Gifts/yr</span><span>${(hoveredDean.avgAnnualGifts / 1e6).toFixed(1)}M</span></>}
+                {hoveredDean.avgEndowment && <><span className="text-muted-foreground">Avg Endowment</span><span>${(hoveredDean.avgEndowment / 1e9).toFixed(2)}B</span></>}
+              </div>
+            )}
+            {hoveredDean.notes && (
+              <p className="text-[10px] text-muted-foreground mt-2 pt-1 border-t border-border italic">{hoveredDean.notes}</p>
+            )}
+          </div>
+        )}
+      </div>
 
       <div className="relative h-5 ml-[236px] mt-1">
         {yearTicks.map((y) => {
@@ -190,6 +211,138 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
           <span className="inline-block w-3 h-3 rounded bg-muted-foreground" /> Interim
         </span>
       </div>
+
+      {clickedDean && (
+        <div className="mt-6 border-t border-border pt-5">
+          <div className="bg-accent/30 rounded-xl p-5">
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <h3 className="text-lg font-bold">{clickedDean.dean}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {clickedDean.startYear || "?"} – {clickedDean.endYear || "Present"}
+                  {clickedDean.tenureLength ? ` · ${clickedDean.tenureLength} years` : ""}
+                </p>
+              </div>
+              <button
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setClickedIdx(null)}
+              >
+                ✕ Close
+              </button>
+            </div>
+
+            <div className="flex gap-1.5 flex-wrap mb-4">
+              {clickedDean.gender === "F" && <Badge className="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 border-0">Female</Badge>}
+              {clickedDean.gender === "M" && <Badge variant="secondary">Male</Badge>}
+              {clickedDean.isInterim && <Badge variant="outline">Interim</Badge>}
+              {clickedDean.isInternal && !clickedDean.isInterim && <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 border-0">Internal</Badge>}
+              {clickedDean.isExternal && !clickedDean.isInterim && <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 border-0">External</Badge>}
+              {clickedDean.isFirstTimeDean && <Badge variant="secondary">First-Time Dean</Badge>}
+              {clickedDean.hasPriorDeanExp && <Badge variant="secondary">Prior Dean Experience</Badge>}
+              {clickedDean.hasPhd && <Badge variant="secondary">PhD</Badge>}
+              {clickedDean.hasIndustryExp && <Badge variant="secondary">Industry Experience</Badge>}
+              {clickedDean.hasConsultingBg && <Badge variant="secondary">Consulting Background</Badge>}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+              <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
+                <span className="text-muted-foreground font-medium">Origin</span>
+                <span>{ORIGIN_LABELS[clickedDean.origin] || clickedDean.origin}</span>
+                <span className="text-muted-foreground font-medium">Background</span>
+                <span>{clickedDean.careerBackground || "–"}</span>
+                <span className="text-muted-foreground font-medium">Discipline</span>
+                <span>{clickedDean.disciplineBroad || clickedDean.discipline || "–"}</span>
+                <span className="text-muted-foreground font-medium">PhD Field</span>
+                <span>{clickedDean.phdField || "–"}</span>
+                <span className="text-muted-foreground font-medium">Prior Position</span>
+                <span>{clickedDean.priorTitle || "–"}</span>
+                <span className="text-muted-foreground font-medium">Prior Institution</span>
+                <span>{clickedDean.priorInstitution || "–"}</span>
+              </div>
+              <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
+                <span className="text-muted-foreground font-medium">Post-Dean Role</span>
+                <span>{NEXT_ROLE_LABELS[clickedDean.nextRole] || clickedDean.nextRole || "–"}</span>
+                <span className="text-muted-foreground font-medium">Involuntary Exit</span>
+                <span>{clickedDean.involuntary ? "Yes" : "No"}</span>
+                <span className="text-muted-foreground font-medium">Had Prior Link</span>
+                <span>{clickedDean.hadPriorConnection ? "Yes" : "No"}</span>
+                {clickedDean.avgAnnualGifts && (
+                  <>
+                    <span className="text-muted-foreground font-medium">Avg Gifts/yr</span>
+                    <span>{formatMoney(clickedDean.avgAnnualGifts)}</span>
+                  </>
+                )}
+                {clickedDean.totalGifts && (
+                  <>
+                    <span className="text-muted-foreground font-medium">Total Gifts</span>
+                    <span>{formatMoney(clickedDean.totalGifts)}</span>
+                  </>
+                )}
+                {clickedDean.avgEndowment && (
+                  <>
+                    <span className="text-muted-foreground font-medium">Avg Endowment</span>
+                    <span>{formatMoney(clickedDean.avgEndowment)}</span>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {clickedDean.notes && (
+              <p className="text-xs text-muted-foreground mt-3 pt-2 border-t border-border italic">{clickedDean.notes}</p>
+            )}
+
+            {hasMultiplePositions && (
+              <div className="mt-5 pt-4 border-t border-border">
+                <h4 className="text-sm font-bold mb-3 flex items-center gap-2">
+                  <span>Career Trajectory</span>
+                  <Badge variant="outline" className="text-[10px]">{careerPositions.length} positions across {new Set(careerPositions.map(p => p.school)).size} schools</Badge>
+                </h4>
+                <div className="relative">
+                  <div className="absolute left-[14px] top-3 bottom-3 w-0.5 bg-border" />
+                  <div className="space-y-0">
+                    {careerPositions.map((pos, i) => {
+                      const isCurrent = pos.id === clickedDean.id;
+                      return (
+                        <div key={pos.id} className="flex items-start gap-3 relative py-2">
+                          <div
+                            className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold z-10 border-2"
+                            style={{
+                              background: isCurrent ? "hsl(var(--primary))" : getBarColor(pos.gender, pos.isInterim),
+                              color: "white",
+                              borderColor: isCurrent ? "hsl(var(--primary))" : "hsl(var(--border))",
+                            }}
+                          >
+                            {i + 1}
+                          </div>
+                          <div className={`flex-1 rounded-lg px-3 py-2 ${isCurrent ? "bg-primary/10 border border-primary/30" : "bg-background border border-border"}`}>
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="text-sm font-semibold">{pos.university}</span>
+                              <span className="text-xs text-muted-foreground">– {pos.school}</span>
+                              {pos.isInterim && <Badge variant="outline" className="text-[10px] py-0">Interim</Badge>}
+                              {isCurrent && <Badge className="text-[10px] py-0 bg-primary text-primary-foreground">Current View</Badge>}
+                            </div>
+                            <p className="text-xs text-muted-foreground mt-0.5">
+                              {pos.startYear || "?"} – {pos.endYear || "Present"}
+                              {pos.tenureLength ? ` · ${pos.tenureLength} yrs` : ""}
+                              {pos.origin ? ` · ${ORIGIN_LABELS[pos.origin] || pos.origin}` : ""}
+                            </p>
+                            {pos.priorTitle && (
+                              <p className="text-[11px] text-muted-foreground mt-0.5 italic">
+                                Prior: {pos.priorTitle}
+                                {pos.priorInstitution ? ` (${pos.priorInstitution})` : ""}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

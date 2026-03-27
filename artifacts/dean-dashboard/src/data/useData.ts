@@ -33,6 +33,15 @@ export function useSchoolDeans(schoolName: string): Dean[] {
   }, [schoolName]);
 }
 
+export function useDeanCareer(deanName: string | null): Dean[] {
+  return useMemo(() => {
+    if (!deanName) return [];
+    return allDeans
+      .filter((d) => d.dean === deanName)
+      .sort((a, b) => (a.startYear || 0) - (b.startYear || 0));
+  }, [deanName]);
+}
+
 export function useFilteredDeans(options: { top50Only?: boolean; top100Only?: boolean } = {}) {
   return useMemo(() => {
     let filtered = allDeans;

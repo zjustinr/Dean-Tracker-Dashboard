@@ -110,7 +110,7 @@ export default function SchoolExplorer() {
             </p>
           )}
           <CardTitle className="text-lg">Dean Tenure Timeline</CardTitle>
-          <p className="text-sm text-muted-foreground">Hover over a bar to view the dean's profile. Bars show prior title and discipline.</p>
+          <p className="text-sm text-muted-foreground">Click a dean to view their full profile. Hover over a bar for a quick summary.</p>
         </CardHeader>
         <CardContent>
           <DeanTimeline
