@@ -1,7 +1,7 @@
 import { useMemo, useState, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
-import { useAllDeans } from "@/data/useData";
-import { SCHOOL_INFO, SCHOOL_NAME_MAP } from "@/data/schools";
+import { useAllDeans, makeSchoolKey } from "@/data/useData";
+import { SCHOOL_INFO, SCHOOL_DEAN_MAP } from "@/data/schools";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
@@ -64,11 +64,11 @@ function spreadOverlappingMarkers(
 }
 
 interface Props {
-  selectedSchool: string;
-  onSelectSchool: (school: string) => void;
+  selectedSchoolKey: string;
+  onSelectSchool: (key: string) => void;
 }
 
-export default function USMap({ selectedSchool, onSelectSchool }: Props) {
+export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
   const allDeans = useAllDeans();
   const [position, setPosition] = useState<{ coordinates: [number, number]; zoom: number }>({
     coordinates: [-96, 38],
@@ -94,17 +94,26 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
   }, []);
 
   const schoolMarkers = useMemo(() => {
+    const universityForSchool = new Map<string, string>();
     const deanCounts = new Map<string, number>();
     for (const d of allDeans) {
-      deanCounts.set(d.school, (deanCounts.get(d.school) || 0) + 1);
+      const key = makeSchoolKey(d.university, d.school);
+      deanCounts.set(key, (deanCounts.get(key) || 0) + 1);
+      if (!universityForSchool.has(d.school)) {
+        universityForSchool.set(d.school, d.university);
+      }
     }
 
     const raw = SCHOOL_INFO.map((s) => {
-      const deanSchoolName = SCHOOL_NAME_MAP[s.shortName] || s.shortName;
-      const deanCount = deanCounts.get(deanSchoolName) || 0;
+      const mapping = SCHOOL_DEAN_MAP[s.shortName];
+      const deanUniversity = mapping?.university || s.fullName.split(" – ")[0] || "";
+      const deanSchoolName = mapping?.school || s.shortName;
+      const schoolKey = makeSchoolKey(deanUniversity, deanSchoolName);
+      const deanCount = deanCounts.get(schoolKey) || 0;
       return {
         ...s,
         deanSchoolName,
+        schoolKey,
         deanCount,
         radius: Math.max(10, Math.min(22, s.totalFaculty / 8)),
       };
@@ -199,7 +208,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
             }
           </Geographies>
           {schoolMarkers.map((marker) => {
-            const isSelected = marker.deanSchoolName === selectedSchool;
+            const isSelected = marker.schoolKey === selectedSchoolKey;
             const isHovered = marker.shortName === hoveredSchool;
             const scaledRadius = marker.radius / position.zoom;
             const fillColor = isSelected
@@ -211,7 +220,7 @@ export default function USMap({ selectedSchool, onSelectSchool }: Props) {
               <Marker
                 key={marker.shortName}
                 coordinates={[marker.adjLng, marker.adjLat]}
-                onClick={() => onSelectSchool(marker.deanSchoolName)}
+                onClick={() => onSelectSchool(marker.schoolKey)}
                 onMouseEnter={() => setHoveredSchool(marker.shortName)}
                 onMouseLeave={() => setHoveredSchool(null)}
                 style={{ cursor: "pointer" }}

@@ -4,16 +4,26 @@ import type { Dean } from "./types";
 
 const allDeans: Dean[] = rawData as Dean[];
 
+export function makeSchoolKey(university: string, school: string): string {
+  return `${university}|||${school}`;
+}
+
+export function parseSchoolKey(key: string): { university: string; school: string } {
+  const [university, school] = key.split("|||");
+  return { university, school };
+}
+
 export function useAllDeans(): Dean[] {
   return allDeans;
 }
 
 export function useSchoolList() {
   return useMemo(() => {
-    const schoolMap = new Map<string, { university: string; school: string; rank: number | null; tier: string }>();
+    const schoolMap = new Map<string, { university: string; school: string; key: string; rank: number | null; tier: string }>();
     for (const d of allDeans) {
-      if (!schoolMap.has(d.school)) {
-        schoolMap.set(d.school, { university: d.university, school: d.school, rank: d.rank, tier: d.tier });
+      const key = makeSchoolKey(d.university, d.school);
+      if (!schoolMap.has(key)) {
+        schoolMap.set(key, { university: d.university, school: d.school, key, rank: d.rank, tier: d.tier });
       }
     }
     return Array.from(schoolMap.values()).sort((a, b) => {
@@ -25,12 +35,13 @@ export function useSchoolList() {
   }, []);
 }
 
-export function useSchoolDeans(schoolName: string): Dean[] {
+export function useSchoolDeans(schoolKey: string): Dean[] {
   return useMemo(() => {
+    const { university, school } = parseSchoolKey(schoolKey);
     return allDeans
-      .filter((d) => d.school === schoolName)
+      .filter((d) => d.university === university && d.school === school)
       .sort((a, b) => (a.startYear || 0) - (b.startYear || 0));
-  }, [schoolName]);
+  }, [schoolKey]);
 }
 
 export function useDeanCareer(deanName: string | null): Dean[] {

@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useSchoolList, useSchoolDeans } from "@/data/useData";
+import { useSchoolList, useSchoolDeans, parseSchoolKey } from "@/data/useData";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
@@ -12,9 +12,9 @@ type SortMode = "rank" | "alpha";
 
 export default function SchoolExplorer() {
   const schools = useSchoolList();
-  const [selectedSchool, setSelectedSchool] = useState(schools[0]?.school || "");
+  const [selectedKey, setSelectedKey] = useState(schools[0]?.key || "");
   const [sortMode, setSortMode] = useState<SortMode>("rank");
-  const deans = useSchoolDeans(selectedSchool);
+  const deans = useSchoolDeans(selectedKey);
 
   const sortedSchools = useMemo(() => {
     const list = [...schools];
@@ -24,7 +24,8 @@ export default function SchoolExplorer() {
     return list;
   }, [schools, sortMode]);
 
-  const selectedInfo = useMemo(() => schools.find((s) => s.school === selectedSchool), [schools, selectedSchool]);
+  const selectedInfo = useMemo(() => schools.find((s) => s.key === selectedKey), [schools, selectedKey]);
+  const parsed = useMemo(() => parseSchoolKey(selectedKey), [selectedKey]);
 
   const currentDeanIdx = useMemo(() => {
     if (!deans.length) return null;
@@ -32,8 +33,8 @@ export default function SchoolExplorer() {
     return idx >= 0 ? idx : deans.length - 1;
   }, [deans]);
 
-  const handleSchoolChange = (school: string) => {
-    setSelectedSchool(school);
+  const handleSchoolChange = (key: string) => {
+    setSelectedKey(key);
   };
 
   return (
@@ -49,13 +50,13 @@ export default function SchoolExplorer() {
             <div className="flex gap-2 items-end">
               <div className="w-[480px]">
                 <label className="text-sm font-medium text-muted-foreground mb-1.5 block">Select a Business School</label>
-                <Select value={selectedSchool} onValueChange={handleSchoolChange}>
+                <Select value={selectedKey} onValueChange={handleSchoolChange}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Choose a school..." />
                   </SelectTrigger>
                   <SelectContent className="max-h-80">
                     {sortedSchools.map((s) => (
-                      <SelectItem key={s.school} value={s.school}>
+                      <SelectItem key={s.key} value={s.key}>
                         {sortMode === "rank" && s.rank ? `#${s.rank} ` : ""}
                         {s.university} – {s.school}
                         {sortMode === "alpha" && s.rank ? ` (#${s.rank})` : ""}
@@ -90,11 +91,11 @@ export default function SchoolExplorer() {
 
         <TabsContent value="map" className="mt-4">
           <p className="text-sm text-muted-foreground mb-3">Click a school on the map to select it. Circle size reflects faculty count.</p>
-          <USMap selectedSchool={selectedSchool} onSelectSchool={handleSchoolChange} />
+          <USMap selectedSchoolKey={selectedKey} onSelectSchool={handleSchoolChange} />
           {selectedInfo && (
             <div className="flex gap-2 flex-wrap mt-3">
               <Badge variant="secondary">{selectedInfo.university}</Badge>
-              <Badge variant="secondary">{selectedSchool}</Badge>
+              <Badge variant="secondary">{parsed.school}</Badge>
               {selectedInfo.rank && <Badge variant="outline">Rank #{selectedInfo.rank}</Badge>}
               <Badge variant="outline">{selectedInfo.tier}</Badge>
             </div>
@@ -106,7 +107,7 @@ export default function SchoolExplorer() {
         <CardHeader>
           {selectedInfo && (
             <p className="text-xl font-bold">
-              {selectedInfo.university} – {selectedSchool}
+              {selectedInfo.university} – {parsed.school}
             </p>
           )}
           <CardTitle className="text-lg">Dean Tenure Timeline</CardTitle>
@@ -129,4 +130,3 @@ export default function SchoolExplorer() {
     </div>
   );
 }
-
