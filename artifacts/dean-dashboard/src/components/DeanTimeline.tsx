@@ -293,50 +293,56 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
 
             {hasMultiplePositions && (
               <div className="mt-5 pt-4 border-t border-border">
-                <h4 className="text-sm font-bold mb-3 flex items-center gap-2">
+                <h4 className="text-sm font-bold mb-4 flex items-center gap-2">
                   <span>Career Trajectory</span>
                   <Badge variant="outline" className="text-[10px]">{careerPositions.length} positions across {new Set(careerPositions.map(p => p.school)).size} schools</Badge>
                 </h4>
-                <div className="relative">
-                  <div className="absolute left-[14px] top-3 bottom-3 w-0.5 bg-border" />
-                  <div className="space-y-0">
-                    {careerPositions.map((pos, i) => {
-                      const isCurrent = pos.id === clickedDean.id;
-                      return (
-                        <div key={pos.id} className="flex items-start gap-3 relative py-2">
-                          <div
-                            className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold z-10 border-2"
-                            style={{
-                              background: isCurrent ? "hsl(var(--primary))" : getBarColor(pos.gender, pos.isInterim),
-                              color: "white",
-                              borderColor: isCurrent ? "hsl(var(--primary))" : "hsl(var(--border))",
-                            }}
-                          >
-                            {i + 1}
-                          </div>
-                          <div className={`flex-1 rounded-lg px-3 py-2 ${isCurrent ? "bg-primary/10 border border-primary/30" : "bg-background border border-border"}`}>
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <span className="text-sm font-semibold">{pos.university}</span>
-                              <span className="text-xs text-muted-foreground">– {pos.school}</span>
-                              {pos.isInterim && <Badge variant="outline" className="text-[10px] py-0">Interim</Badge>}
-                              {isCurrent && <Badge className="text-[10px] py-0 bg-primary text-primary-foreground">Current View</Badge>}
-                            </div>
-                            <p className="text-xs text-muted-foreground mt-0.5">
-                              {pos.startYear || "?"} – {pos.endYear || "Present"}
-                              {pos.tenureLength ? ` · ${pos.tenureLength} yrs` : ""}
-                              {pos.origin ? ` · ${ORIGIN_LABELS[pos.origin] || pos.origin}` : ""}
-                            </p>
-                            {pos.priorTitle && (
-                              <p className="text-[11px] text-muted-foreground mt-0.5 italic">
-                                Prior: {pos.priorTitle}
-                                {pos.priorInstitution ? ` (${pos.priorInstitution})` : ""}
-                              </p>
-                            )}
-                          </div>
+                <div className="flex items-stretch gap-0 overflow-x-auto pb-2">
+                  {careerPositions.map((pos, i) => {
+                    const isCurrent = pos.id === clickedDean.id;
+                    const isLast = i === careerPositions.length - 1;
+                    const cardBg = isCurrent ? "hsl(var(--primary))" : getBarColor(pos.gender, pos.isInterim);
+                    return (
+                      <div key={pos.id} className="flex items-stretch shrink-0">
+                        <div
+                          className="relative rounded-xl px-4 py-3 text-white min-w-[180px] max-w-[220px] flex flex-col justify-center"
+                          style={{
+                            background: cardBg,
+                            boxShadow: isCurrent ? "0 4px 16px rgba(0,0,0,0.18)" : "0 2px 8px rgba(0,0,0,0.10)",
+                            border: isCurrent ? "2px solid hsl(var(--primary))" : "none",
+                          }}
+                        >
+                          {isCurrent && (
+                            <span className="absolute -top-2.5 left-3 text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary text-primary-foreground shadow">
+                              Current View
+                            </span>
+                          )}
+                          <p className="text-[11px] font-bold leading-tight" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+                            {pos.university}
+                          </p>
+                          <p className="text-[10px] opacity-90 leading-tight mt-0.5">{pos.school}</p>
+                          <p className="text-xs font-semibold mt-2" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}>
+                            {pos.startYear || "?"} – {pos.endYear || "Present"}
+                          </p>
+                          <p className="text-[10px] opacity-80 mt-0.5">
+                            {pos.tenureLength ? `${pos.tenureLength} yrs` : "ongoing"}
+                            {pos.isInterim ? " · Interim" : ""}
+                          </p>
+                          <p className="text-[9px] opacity-70 mt-1">
+                            {ORIGIN_LABELS[pos.origin] || pos.origin || ""}
+                          </p>
                         </div>
-                      );
-                    })}
-                  </div>
+                        {!isLast && (
+                          <div className="flex items-center px-1 shrink-0">
+                            <svg width="32" height="40" viewBox="0 0 32 40" fill="none" className="shrink-0">
+                              <path d="M0 20 H20" stroke="hsl(var(--muted-foreground))" strokeWidth="2" strokeDasharray="4 3" />
+                              <path d="M16 12 L26 20 L16 28" fill="hsl(var(--muted-foreground))" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
