@@ -289,59 +289,73 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
 
             {(clickedDean.priorAssocOrAsstDean || clickedDean.hadDeptChairRole || clickedDean.hasPriorDeanExp || clickedDean.priorTitle) && (
               <div className="mt-4 pt-3 border-t border-border">
-                <h4 className="text-sm font-bold mb-2">Prior Leadership History</h4>
-                <div className="flex items-start gap-2">
-                  <div className="flex flex-col items-center shrink-0 mt-0.5">
-                    {(() => {
-                      const steps: { label: string; detail: string; active: boolean }[] = [];
-                      if (clickedDean.hadAssocDeanRole || clickedDean.priorAssocOrAsstDean) {
-                        steps.push({ label: "Assoc/Asst Dean", detail: "", active: true });
-                      }
-                      if (clickedDean.hadDeptChairRole) {
-                        steps.push({ label: "Dept. Chair", detail: "", active: true });
-                      }
-                      if (clickedDean.hasPriorDeanExp) {
-                        steps.push({ label: "Prior Deanship", detail: "", active: true });
-                      }
-                      if (clickedDean.priorTitle) {
-                        steps.push({
-                          label: "Immediate Prior Role",
-                          detail: `${clickedDean.priorTitle}${clickedDean.priorInstitution ? ` @ ${clickedDean.priorInstitution}` : ""}`,
-                          active: true,
-                        });
-                      }
-                      steps.push({ label: "Dean", detail: `${clickedDean.school} (${clickedDean.startYear || "?"})`, active: true });
-
-                      return (
-                        <div className="flex flex-wrap items-center gap-1">
-                          {steps.map((step, i) => (
-                            <div key={i} className="flex items-center gap-1">
-                              <div className="flex flex-col items-center">
-                                <div
-                                  className="rounded-md px-2.5 py-1.5 text-[11px] font-semibold text-white leading-tight text-center min-w-[90px]"
-                                  style={{
-                                    background: i === steps.length - 1 ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))",
-                                  }}
-                                >
-                                  {step.label}
-                                </div>
-                                {step.detail && (
-                                  <p className="text-[9px] text-muted-foreground mt-0.5 text-center max-w-[140px] leading-tight">{step.detail}</p>
-                                )}
+                <h4 className="text-sm font-bold mb-3">Prior Leadership History</h4>
+                {(() => {
+                  const steps: { label: string; detail: string; year: string; isFinal: boolean }[] = [];
+                  if (clickedDean.hadAssocDeanRole || clickedDean.priorAssocOrAsstDean) {
+                    steps.push({ label: "Associate / Assistant Dean", detail: "", year: "", isFinal: false });
+                  }
+                  if (clickedDean.hadDeptChairRole) {
+                    steps.push({ label: "Department Chair", detail: "", year: "", isFinal: false });
+                  }
+                  if (clickedDean.hasPriorDeanExp) {
+                    steps.push({ label: "Prior Deanship", detail: "", year: "", isFinal: false });
+                  }
+                  if (clickedDean.priorTitle) {
+                    steps.push({
+                      label: clickedDean.priorTitle,
+                      detail: clickedDean.priorInstitution || "",
+                      year: "",
+                      isFinal: false,
+                    });
+                  }
+                  steps.push({
+                    label: `Dean, ${clickedDean.school}`,
+                    detail: clickedDean.university,
+                    year: `${clickedDean.startYear || "?"} – ${clickedDean.endYear || "Present"}`,
+                    isFinal: true,
+                  });
+                  return (
+                    <div className="relative ml-1">
+                      {steps.map((step, i) => {
+                        const isLast = i === steps.length - 1;
+                        return (
+                          <div key={i} className="flex items-start gap-3 relative">
+                            <div className="flex flex-col items-center shrink-0" style={{ width: 28 }}>
+                              <div
+                                className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold z-10 border-2"
+                                style={{
+                                  background: step.isFinal ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))",
+                                  color: "white",
+                                  borderColor: step.isFinal ? "hsl(var(--primary))" : "hsl(var(--border))",
+                                }}
+                              >
+                                {i + 1}
                               </div>
-                              {i < steps.length - 1 && (
-                                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" className="shrink-0">
-                                  <path d="M0 8 H12" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" strokeDasharray="3 2" />
-                                  <path d="M10 3 L17 8 L10 13" fill="hsl(var(--muted-foreground))" />
+                              {!isLast && (
+                                <svg width="2" height="32" className="my-0.5">
+                                  <line x1="1" y1="0" x2="1" y2="24" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" strokeDasharray="3 2" />
+                                  <polygon points="0,24 2,24 1,30" fill="hsl(var(--muted-foreground))" />
                                 </svg>
                               )}
                             </div>
-                          ))}
-                        </div>
-                      );
-                    })()}
-                  </div>
-                </div>
+                            <div className="pb-2 min-h-[44px]">
+                              <div className="flex items-baseline gap-2">
+                                <span className={`text-sm font-semibold ${step.isFinal ? "text-primary" : ""}`}>{step.label}</span>
+                                {step.year && (
+                                  <span className="text-sm font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">{step.year}</span>
+                                )}
+                              </div>
+                              {step.detail && (
+                                <p className="text-xs text-muted-foreground mt-0.5">{step.detail}</p>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
               </div>
             )}
 
