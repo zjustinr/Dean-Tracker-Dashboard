@@ -44,9 +44,10 @@ artifacts-monorepo/
 Interactive data visualization dashboard for studying leadership changes at top business schools.
 
 ### Data
-- Source: `attached_assets/dean_appointments_FACTCHECKED_with_departures_multicoded_by_C_1774527122601.xlsx`
-- Processed JSON: `artifacts/dean-dashboard/src/data/deans.json` (617 records, 87 schools, 1967–2026)
+- Source: `attached_assets/dean_appointments_with_enrollment_(1)_1774727747372.xlsx`
+- Processed JSON: `artifacts/dean-dashboard/src/data/deans.json` (618 records, 87 schools, 1967–2026)
 - Data is embedded client-side — no API needed for this visualization
+- New fields: enrollment data (start/end/avg, grad enrollment, business %, estimated biz enrollment), pre-tenure gifts, gift growth, surprise departure flag
 
 ### Features
 1. **School Explorer**

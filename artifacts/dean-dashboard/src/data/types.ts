@@ -47,6 +47,20 @@ export interface Dean {
   maxAnnualGifts: number | null;
   avgEndowment: number | null;
   fundraisingYears: number;
+  preTenureGifts: number | null;
+  giftGrowthVsPre: number | null;
+  surpriseDeparture: boolean;
+  surpriseEvidence: string;
+  enrollmentStart: number | null;
+  enrollmentEnd: number | null;
+  enrollmentAvg: number | null;
+  gradEnrollmentStart: number | null;
+  gradEnrollmentEnd: number | null;
+  businessPctStart: number | null;
+  businessPctEnd: number | null;
+  estBizEnrollmentStart: number | null;
+  estBizEnrollmentEnd: number | null;
+  businessDegreesLatest: number | null;
 }
 
 export type CategoricalField =
