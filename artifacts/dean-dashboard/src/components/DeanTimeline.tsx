@@ -287,34 +287,60 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               </div>
             </div>
 
-            {(clickedDean.priorAssocOrAsstDean || clickedDean.hadDeptChairRole || clickedDean.hasPriorDeanExp || clickedDean.priorTitle) && (
+            {(clickedDean.priorAssocOrAsstDean || clickedDean.hadDeptChairRole || clickedDean.priorTitle) && (
               <div className="mt-4 pt-3 border-t border-border">
                 <h4 className="text-sm font-bold mb-3">Prior Leadership History</h4>
                 {(() => {
-                  const steps: { label: string; detail: string; year: string; isFinal: boolean }[] = [];
+                  const steps: { label: string; detail: string; year: string; isCurrent: boolean }[] = [];
+                  const earliest = careerPositions.length > 0 ? careerPositions[0] : clickedDean;
+
                   if (clickedDean.hadAssocDeanRole || clickedDean.priorAssocOrAsstDean) {
-                    steps.push({ label: "Associate / Assistant Dean", detail: "", year: "", isFinal: false });
+                    const assocInst = earliest.priorTitle?.toLowerCase().includes("associate") || earliest.priorTitle?.toLowerCase().includes("assistant")
+                      ? earliest.priorInstitution || ""
+                      : "";
+                    const assocTitle = earliest.priorTitle?.toLowerCase().includes("associate") || earliest.priorTitle?.toLowerCase().includes("assistant")
+                      ? earliest.priorTitle
+                      : "Associate / Assistant Dean";
+                    steps.push({ label: assocTitle, detail: assocInst, year: "", isCurrent: false });
                   }
+
                   if (clickedDean.hadDeptChairRole) {
-                    steps.push({ label: "Department Chair", detail: "", year: "", isFinal: false });
+                    const chairInst = earliest.priorTitle?.toLowerCase().includes("chair")
+                      ? earliest.priorInstitution || ""
+                      : "";
+                    const chairTitle = earliest.priorTitle?.toLowerCase().includes("chair")
+                      ? earliest.priorTitle
+                      : "Department Chair";
+                    steps.push({ label: chairTitle, detail: chairInst, year: "", isCurrent: false });
                   }
-                  if (clickedDean.hasPriorDeanExp) {
-                    steps.push({ label: "Prior Deanship", detail: "", year: "", isFinal: false });
-                  }
-                  if (clickedDean.priorTitle) {
+
+                  if (careerPositions.length > 1) {
+                    const currentIdx = careerPositions.findIndex(p => p.id === clickedDean.id);
+                    careerPositions.forEach((pos, i) => {
+                      if (i === currentIdx) return;
+                      steps.push({
+                        label: `Dean, ${pos.school}`,
+                        detail: pos.university,
+                        year: `${pos.startYear || "?"} – ${pos.endYear || "?"}`,
+                        isCurrent: false,
+                      });
+                    });
+                  } else if (!clickedDean.hadAssocDeanRole && !clickedDean.priorAssocOrAsstDean && !clickedDean.hadDeptChairRole && clickedDean.priorTitle) {
                     steps.push({
                       label: clickedDean.priorTitle,
                       detail: clickedDean.priorInstitution || "",
                       year: "",
-                      isFinal: false,
+                      isCurrent: false,
                     });
                   }
+
                   steps.push({
                     label: `Dean, ${clickedDean.school}`,
                     detail: clickedDean.university,
                     year: `${clickedDean.startYear || "?"} – ${clickedDean.endYear || "Present"}`,
-                    isFinal: true,
+                    isCurrent: true,
                   });
+
                   return (
                     <div className="relative ml-1">
                       {steps.map((step, i) => {
@@ -325,9 +351,9 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                               <div
                                 className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold z-10 border-2"
                                 style={{
-                                  background: step.isFinal ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))",
+                                  background: step.isCurrent ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))",
                                   color: "white",
-                                  borderColor: step.isFinal ? "hsl(var(--primary))" : "hsl(var(--border))",
+                                  borderColor: step.isCurrent ? "hsl(var(--primary))" : "hsl(var(--border))",
                                 }}
                               >
                                 {i + 1}
@@ -340,8 +366,8 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                               )}
                             </div>
                             <div className="pb-2 min-h-[44px]">
-                              <div className="flex items-baseline gap-2">
-                                <span className={`text-sm font-semibold ${step.isFinal ? "text-primary" : ""}`}>{step.label}</span>
+                              <div className="flex items-baseline gap-2 flex-wrap">
+                                <span className={`text-sm font-semibold ${step.isCurrent ? "text-primary" : ""}`}>{step.label}</span>
                                 {step.year && (
                                   <span className="text-sm font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">{step.year}</span>
                                 )}
