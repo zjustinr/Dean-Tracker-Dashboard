@@ -287,6 +287,64 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               </div>
             </div>
 
+            {(clickedDean.priorAssocOrAsstDean || clickedDean.hadDeptChairRole || clickedDean.hasPriorDeanExp || clickedDean.priorTitle) && (
+              <div className="mt-4 pt-3 border-t border-border">
+                <h4 className="text-sm font-bold mb-2">Prior Leadership History</h4>
+                <div className="flex items-start gap-2">
+                  <div className="flex flex-col items-center shrink-0 mt-0.5">
+                    {(() => {
+                      const steps: { label: string; detail: string; active: boolean }[] = [];
+                      if (clickedDean.hadAssocDeanRole || clickedDean.priorAssocOrAsstDean) {
+                        steps.push({ label: "Assoc/Asst Dean", detail: "", active: true });
+                      }
+                      if (clickedDean.hadDeptChairRole) {
+                        steps.push({ label: "Dept. Chair", detail: "", active: true });
+                      }
+                      if (clickedDean.hasPriorDeanExp) {
+                        steps.push({ label: "Prior Deanship", detail: "", active: true });
+                      }
+                      if (clickedDean.priorTitle) {
+                        steps.push({
+                          label: "Immediate Prior Role",
+                          detail: `${clickedDean.priorTitle}${clickedDean.priorInstitution ? ` @ ${clickedDean.priorInstitution}` : ""}`,
+                          active: true,
+                        });
+                      }
+                      steps.push({ label: "Dean", detail: `${clickedDean.school} (${clickedDean.startYear || "?"})`, active: true });
+
+                      return (
+                        <div className="flex flex-wrap items-center gap-1">
+                          {steps.map((step, i) => (
+                            <div key={i} className="flex items-center gap-1">
+                              <div className="flex flex-col items-center">
+                                <div
+                                  className="rounded-md px-2.5 py-1.5 text-[11px] font-semibold text-white leading-tight text-center min-w-[90px]"
+                                  style={{
+                                    background: i === steps.length - 1 ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))",
+                                  }}
+                                >
+                                  {step.label}
+                                </div>
+                                {step.detail && (
+                                  <p className="text-[9px] text-muted-foreground mt-0.5 text-center max-w-[140px] leading-tight">{step.detail}</p>
+                                )}
+                              </div>
+                              {i < steps.length - 1 && (
+                                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" className="shrink-0">
+                                  <path d="M0 8 H12" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" strokeDasharray="3 2" />
+                                  <path d="M10 3 L17 8 L10 13" fill="hsl(var(--muted-foreground))" />
+                                </svg>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    })()}
+                  </div>
+                </div>
+              </div>
+            )}
+
             {clickedDean.notes && (
               <p className="text-xs text-muted-foreground mt-3 pt-2 border-t border-border italic">{clickedDean.notes}</p>
             )}
