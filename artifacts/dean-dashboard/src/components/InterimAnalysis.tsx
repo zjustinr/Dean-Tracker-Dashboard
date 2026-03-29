@@ -62,10 +62,10 @@ export default function InterimAnalysis() {
       era: e, pct: byEra[e].interim / byEra[e].total * 100, count: byEra[e].interim, total: byEra[e].total,
     }));
 
-    function surpriseRate(records: Dean[]): number {
+    function involuntaryRate(records: Dean[]): number {
       const valid = records.filter(d => d.endYear);
       if (!valid.length) return 0;
-      return valid.filter(d => d.surpriseDeparture).length / valid.length * 100;
+      return valid.filter(d => d.involuntary).length / valid.length * 100;
     }
 
     function avgTenure(records: Dean[]): number {
@@ -88,11 +88,11 @@ export default function InterimAnalysis() {
       return growths.reduce((a, b) => a + b, 0) / growths.length;
     }
 
-    const surpriseData = [
-      { label: "Converted Interim", rate: surpriseRate(converted), color: COLORS.teal },
-      { label: "Non-conv. Interim", rate: surpriseRate(nonConvInterims), color: COLORS.gray },
-      { label: "External Hire", rate: surpriseRate(externals), color: COLORS.orange },
-      { label: "Internal Hire", rate: surpriseRate(internals), color: COLORS.coral },
+    const involuntaryData = [
+      { label: "Converted Interim", rate: involuntaryRate(converted), color: COLORS.teal },
+      { label: "Non-conv. Interim", rate: involuntaryRate(nonConvInterims), color: COLORS.gray },
+      { label: "External Hire", rate: involuntaryRate(externals), color: COLORS.orange },
+      { label: "Internal Hire", rate: involuntaryRate(internals), color: COLORS.coral },
     ];
 
     const enrollData = [
@@ -168,9 +168,10 @@ export default function InterimAnalysis() {
       convertedCount: converted.length,
       conversionRate: converted.length / interims.length * 100,
       era2020InterimPct: byEra["2020s"] ? byEra["2020s"].interim / byEra["2020s"].total * 100 : 0,
-      surpriseConverted: surpriseRate(converted),
+      involuntaryConverted: involuntaryRate(converted),
+      deptChairConvPct: deptChairInterims.length ? deptChairConverted.length / deptChairInterims.length * 100 : 0,
       eraData,
-      surpriseData,
+      involuntaryData,
       enrollData,
       deptChairConvRate: deptChairInterims.length ? deptChairConverted.length / deptChairInterims.length * 100 : 0,
       avgTenureConverted: avgTenure(converted),
@@ -195,7 +196,7 @@ export default function InterimAnalysis() {
         <div className="grid grid-cols-3 gap-6 mt-8 max-w-2xl mx-auto">
           <KpiCircle value={fmt(analysis.era2020InterimPct) + "%"} label="of 2020s appointments are interim" color="#E8634D" />
           <KpiCircle value={fmt(analysis.conversionRate) + "%"} label="of interim deans convert to permanent" color="#2AA198" />
-          <KpiCircle value={fmt(analysis.surpriseConverted) + "%"} label="surprise departures among converted interims" color="#27AE60" />
+          <KpiCircle value={fmt(analysis.deptChairConvPct, 0) + "%"} label="of interims with dept. chair experience convert" color="#27AE60" />
         </div>
       </div>
 
@@ -237,16 +238,16 @@ export default function InterimAnalysis() {
         </SectionCard>
       </div>
 
-      <SectionCard title="Screening Effectiveness: Surprise Departure Rates" color={COLORS.teal} subtitle="Lower surprise departure rates indicate better person-school fit">
+      <SectionCard title="Involuntary Departure Rates" color={COLORS.teal} subtitle="Percentage of completed tenures ending in forced/involuntary departure by appointment type">
         <div className="h-[180px]">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={analysis.surpriseData} layout="vertical" margin={{ left: 120, right: 80, top: 5, bottom: 5 }}>
+            <BarChart data={analysis.involuntaryData} layout="vertical" margin={{ left: 120, right: 80, top: 5, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" opacity={0.15} />
-              <XAxis type="number" domain={[0, 30]} tickFormatter={v => v + "%"} fontSize={11} />
+              <XAxis type="number" domain={[0, 'auto']} tickFormatter={v => v + "%"} fontSize={11} />
               <YAxis type="category" dataKey="label" fontSize={12} width={115} />
               <Tooltip formatter={(v: number) => fmt(v) + "%"} />
               <Bar dataKey="rate" radius={[0, 6, 6, 0]} barSize={22}>
-                {analysis.surpriseData.map((entry, i) => (
+                {analysis.involuntaryData.map((entry, i) => (
                   <Cell key={i} fill={entry.color} />
                 ))}
               </Bar>
@@ -366,7 +367,7 @@ export default function InterimAnalysis() {
           <p className="text-lg font-bold">Key Insight: Interim appointments function as a real-options mechanism</p>
           <p className="text-blue-200 text-sm mt-2 italic">
             Schools "try before they buy," reducing selection risk while preserving flexibility.
-            Converted interims show the strongest business enrollment growth and zero involuntary departures,
+            Converted interims show the strongest business enrollment growth and the lowest involuntary departure rates,
             suggesting the trial period effectively identifies strong leaders.
           </p>
         </div>
