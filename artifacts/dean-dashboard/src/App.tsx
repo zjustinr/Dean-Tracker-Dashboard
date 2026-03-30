@@ -5,6 +5,7 @@ import CrossSchoolAnalysis from "@/components/CrossSchoolAnalysis";
 import AggregateTrends from "@/components/AggregateTrends";
 import InterimAnalysis from "@/components/InterimAnalysis";
 import IndividualSearch from "@/components/IndividualSearch";
+import LiveJobMarket from "@/components/LiveJobMarket";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -30,12 +31,13 @@ function App() {
 
         <main className="max-w-[1400px] mx-auto px-4 py-6">
           <Tabs defaultValue="explorer" className="space-y-6">
-            <TabsList className="grid w-full max-w-3xl grid-cols-5">
+            <TabsList className="grid w-full max-w-4xl grid-cols-6">
               <TabsTrigger value="explorer">School Explorer</TabsTrigger>
               <TabsTrigger value="trends">Aggregate Trends</TabsTrigger>
               <TabsTrigger value="analysis">Correlation Analysis</TabsTrigger>
               <TabsTrigger value="interim">Interim Analysis</TabsTrigger>
               <TabsTrigger value="search">Individual Search</TabsTrigger>
+              <TabsTrigger value="jobmarket">Live Job Market</TabsTrigger>
             </TabsList>
 
             <TabsContent value="explorer">
@@ -52,6 +54,9 @@ function App() {
             </TabsContent>
             <TabsContent value="search">
               <IndividualSearch />
+            </TabsContent>
+            <TabsContent value="jobmarket">
+              <LiveJobMarket />
             </TabsContent>
           </Tabs>
         </main>

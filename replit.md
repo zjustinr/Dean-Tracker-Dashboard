@@ -59,6 +59,8 @@ Interactive data visualization dashboard for studying leadership changes at top 
 2. **Cross-School Analysis** — Scatter plots (pick x/y numeric variables, color by category), cross-tabulation tables, grouped bar charts
 3. **Aggregate Trends** — KPI cards (including interim %), stacked area charts (gender over time), bar charts (tenure by era, female % by decade, internal/external/interim by decade), pie charts (disciplines, origins), post-dean career paths
 4. **Interim Analysis** — "Try Before You Buy" infographic: hero KPIs (2020s interim %, conversion rate, surprise departure rate), interim trend by era, conversion by discipline, surprise departure comparison, enrollment growth performance, gender breakdown, tenure comparison, success stories cards, key insight footer
+5. **Individual Search** — Name-based dean lookup with combo box dropdowns (type-to-filter or browse alphabetically), results list with profile drill-down using shared DeanProfile component
+6. **Live Job Market** — Current dean openings from curated spreadsheet data (23 positions). KPI cards, searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`
 
 ### Key Fields
 - Demographics: gender, discipline, career background
