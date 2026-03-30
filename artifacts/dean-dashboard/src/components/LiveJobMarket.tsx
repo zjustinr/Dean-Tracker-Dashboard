@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 import jobData from "@/data/jobmarket.json";
 import { Badge } from "@/components/ui/badge";
@@ -215,6 +215,159 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
   );
 }
 
+interface PQArticle {
+  title: string;
+  url: string;
+  date: string;
+  summary: string;
+}
+
+interface PQNewsState {
+  articles: PQArticle[];
+  fetchedAt: string | null;
+  loading: boolean;
+  error: string | null;
+}
+
+function decodeHtmlEntities(text: string): string {
+  const el = document.createElement("textarea");
+  el.innerHTML = text;
+  return el.value;
+}
+
+function PQNewsFeed() {
+  const [state, setState] = useState<PQNewsState>({ articles: [], fetchedAt: null, loading: true, error: null });
+  const [expanded, setExpanded] = useState(true);
+
+  const fetchNews = useCallback(async (force = false) => {
+    setState(s => ({ ...s, loading: true, error: null }));
+    try {
+      const endpoint = force ? "/api/pq-news/refresh" : "/api/pq-news";
+      const res = await fetch(endpoint);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      setState({
+        articles: data.articles || [],
+        fetchedAt: data.fetchedAt || null,
+        loading: false,
+        error: null,
+      });
+    } catch (e: unknown) {
+      setState(s => ({ ...s, loading: false, error: e instanceof Error ? e.message : "Failed to load" }));
+    }
+  }, []);
+
+  useEffect(() => { fetchNews(); }, [fetchNews]);
+
+  const timeSince = useMemo(() => {
+    if (!state.fetchedAt) return "";
+    const diff = Date.now() - new Date(state.fetchedAt).getTime();
+    const mins = Math.floor(diff / 60000);
+    if (mins < 1) return "just now";
+    if (mins < 60) return `${mins}m ago`;
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return `${hrs}h ago`;
+    return `${Math.floor(hrs / 24)}d ago`;
+  }, [state.fetchedAt]);
+
+  return (
+    <div className="bg-card border border-border rounded-xl overflow-hidden">
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="w-full px-5 py-3 flex items-center justify-between hover:bg-muted/30 transition-colors"
+      >
+        <div className="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+            <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
+            <path d="M18 14h-8" /><path d="M15 18h-5" /><path d="M10 6h8v4h-8V6Z" />
+          </svg>
+          <span className="text-sm font-semibold">Latest Dean News</span>
+          <span className="text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded">Poets &amp; Quants</span>
+          {state.articles.length > 0 && (
+            <Badge variant="secondary" className="text-[10px]">{state.articles.length}</Badge>
+          )}
+        </div>
+        <div className="flex items-center gap-2">
+          {state.fetchedAt && (
+            <span className="text-[10px] text-muted-foreground">Updated {timeSince}</span>
+          )}
+          <svg
+            width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+      </button>
+
+      {expanded && (
+        <div className="border-t border-border">
+          {state.loading && (
+            <div className="px-5 py-4 flex items-center gap-2">
+              <div className="h-4 w-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+              <span className="text-xs text-muted-foreground">Scanning Poets &amp; Quants RSS feed...</span>
+            </div>
+          )}
+
+          {state.error && !state.articles.length && (
+            <div className="px-5 py-4 text-center">
+              <p className="text-xs text-red-500">Could not load news: {state.error}</p>
+              <button onClick={() => fetchNews()} className="text-xs text-primary hover:underline mt-1">Retry</button>
+            </div>
+          )}
+
+          {!state.loading && state.articles.length === 0 && !state.error && (
+            <div className="px-5 py-4 text-center">
+              <p className="text-xs text-muted-foreground">No dean-related articles found in recent P&amp;Q coverage.</p>
+            </div>
+          )}
+
+          {state.articles.length > 0 && (
+            <div className="divide-y divide-border">
+              {state.articles.map((article, i) => (
+                <a
+                  key={i}
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-5 py-3 hover:bg-muted/20 transition-colors"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-primary hover:underline leading-snug">
+                        {decodeHtmlEntities(article.title)}
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{decodeHtmlEntities(article.summary)}</p>
+                    </div>
+                    <span className="text-[10px] text-muted-foreground whitespace-nowrap mt-0.5">
+                      {article.date}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+
+          <div className="px-5 py-2 border-t border-border bg-muted/20 flex items-center justify-between">
+            <span className="text-[10px] text-muted-foreground">Auto-scans every 24 hours from P&amp;Q RSS feed</span>
+            <button
+              onClick={() => fetchNews(true)}
+              disabled={state.loading}
+              className="text-[10px] text-primary hover:underline disabled:opacity-50 flex items-center gap-1"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+              </svg>
+              Refresh now
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function LiveJobMarket() {
   const [search, setSearch] = useState("");
   const [firmFilter, setFirmFilter] = useState("all");
@@ -277,6 +430,8 @@ export default function LiveJobMarket() {
           <p className="text-xs text-muted-foreground mt-1">With News Coverage</p>
         </div>
       </div>
+
+      <PQNewsFeed />
 
       <div className="bg-card border border-border rounded-xl p-5">
         <div className="flex gap-4 flex-wrap items-end">

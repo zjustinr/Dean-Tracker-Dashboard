@@ -60,7 +60,7 @@ Interactive data visualization dashboard for studying leadership changes at top 
 3. **Aggregate Trends** — KPI cards (including interim %), stacked area charts (gender over time), bar charts (tenure by era, female % by decade, internal/external/interim by decade), pie charts (disciplines, origins), post-dean career paths
 4. **Interim Analysis** — "Try Before You Buy" infographic: hero KPIs (2020s interim %, conversion rate, surprise departure rate), interim trend by era, conversion by discipline, surprise departure comparison, enrollment growth performance, gender breakdown, tenure comparison, success stories cards, key insight footer
 5. **Individual Search** — Name-based dean lookup with combo box dropdowns (type-to-filter or browse alphabetically), results list with profile drill-down using shared DeanProfile component
-6. **Live Job Market** — Current dean openings from curated spreadsheet data (23 positions). KPI cards, searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`
+6. **Live Job Market** — Current dean openings from curated spreadsheet data (23 positions). KPI cards, searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours for dean-related articles via `/api/pq-news` endpoint. Collapsible UI with manual refresh (5-min cooldown). Vite dev proxy routes `/api` -> API server.
 
 ### Key Fields
 - Demographics: gender, discipline, career background
@@ -101,10 +101,13 @@ Every package extends `tsconfig.base.json` which sets `composite: true`. The roo
 ## Packages
 
 ### `artifacts/api-server` (`@workspace/api-server`)
-Express 5 API server. Routes live in `src/routes/` and use `@workspace/api-zod` for request and response validation and `@workspace/db` for persistence.
+Express 5 API server. Routes live in `src/routes/` and use `@workspace/api-zod` for request and response validation and `@workspace/db` for persistence. Key routes:
+- `GET /api/healthz` — health check
+- `GET /api/pq-news` — P&Q RSS feed scanner (24h cache, dean keyword filtering, `fast-xml-parser`)
+- `GET /api/pq-news/refresh` — force refresh (5-min cooldown)
 
 ### `artifacts/dean-dashboard` (`@workspace/dean-dashboard`)
-Data visualization dashboard. React + Vite frontend with embedded JSON data. No backend dependencies.
+Data visualization dashboard. React + Vite frontend with embedded JSON data. Vite proxy routes `/api` to the API server (port 8080) in development.
 
 ### `lib/db` (`@workspace/db`)
 Database layer using Drizzle ORM with PostgreSQL.
