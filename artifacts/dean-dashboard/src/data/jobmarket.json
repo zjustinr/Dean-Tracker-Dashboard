@@ -10,7 +10,14 @@
     "positionDescription": "Conducting listening sessions before creating position description",
     "positionUrl": null,
     "lat": 38.0336,
-    "lng": -78.5080
+    "lng": -78.5080,
+    "departingDean": "Scott C. Beardsley",
+    "reason": "Selected for university-level position",
+    "city": "Charlottesville",
+    "state": "VA",
+    "type": "Public",
+    "rank": 13,
+    "totalFaculty": 70
   },
   {
     "id": 2,
@@ -23,7 +30,14 @@
     "positionDescription": null,
     "positionUrl": "https://executivesearch.emory.edu/goizueta-dean/_includes/documents/sections/prospectus.pdf",
     "lat": 33.7925,
-    "lng": -84.3234
+    "lng": -84.3234,
+    "departingDean": "Gareth James",
+    "reason": "Hired away as dean of UCLA Anderson",
+    "city": "Atlanta",
+    "state": "GA",
+    "type": "Private",
+    "rank": 23,
+    "totalFaculty": 72
   },
   {
     "id": 3,
@@ -36,7 +50,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 30.4249,
-    "lng": -84.2838
+    "lng": -84.2838,
+    "departingDean": null,
+    "reason": "Has had interim dean since 2024",
+    "city": "Tallahassee",
+    "state": "FL",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 4,
@@ -49,7 +70,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 33.9940,
-    "lng": -81.0277
+    "lng": -81.0277,
+    "departingDean": null,
+    "reason": "Dean stepped down; interim Greg Niehaus appointed",
+    "city": "Columbia",
+    "state": "SC",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 5,
@@ -62,7 +90,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 43.1286,
-    "lng": -77.6284
+    "lng": -77.6284,
+    "departingDean": "Sevin Yeltekin",
+    "reason": "Left to become dean at George Washington University",
+    "city": "Rochester",
+    "state": "NY",
+    "type": "Private",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 6,
@@ -74,8 +109,15 @@
     "newsUrl": "https://poetsandquants.com/2025/11/26/toronto-rotman-dean-susan-christoffersen-to-step-down-after-1-term/",
     "positionDescription": null,
     "positionUrl": null,
-    "lat": 43.6592,
-    "lng": -79.3978
+    "lat": null,
+    "lng": null,
+    "departingDean": "Susan Christoffersen",
+    "reason": "Stepping down at end of 5-year term (June 30, 2026)",
+    "city": "Toronto",
+    "state": "ON",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 7,
@@ -88,7 +130,14 @@
     "positionDescription": null,
     "positionUrl": "https://leadership.ucdavis.edu/executive-recruitments/dean-graduate-school-management",
     "lat": 38.5382,
-    "lng": -121.7617
+    "lng": -121.7617,
+    "departingDean": "Rao Unnava",
+    "reason": "Stepping down June 2026",
+    "city": "Davis",
+    "state": "CA",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 8,
@@ -101,7 +150,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 30.2849,
-    "lng": -97.7341
+    "lng": -97.7341,
+    "departingDean": "Lillian Mills",
+    "reason": "Stepping down when term ends May 2026",
+    "city": "Austin",
+    "state": "TX",
+    "type": "Public",
+    "rank": 19,
+    "totalFaculty": 164
   },
   {
     "id": 9,
@@ -114,7 +170,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": null,
-    "lng": null
+    "lng": null,
+    "departingDean": "Soumitra Dutta",
+    "reason": "Stepped down after harassment findings (Sept 2025)",
+    "city": "Oxford",
+    "state": "UK",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 10,
@@ -127,7 +190,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 40.4433,
-    "lng": -79.9436
+    "lng": -79.9436,
+    "departingDean": "Isabelle Bajeux-Besnainou",
+    "reason": "Stepping down at end of first term (July 1, 2026)",
+    "city": "Pittsburgh",
+    "state": "PA",
+    "type": "Private",
+    "rank": 18,
+    "totalFaculty": 97
   },
   {
     "id": 11,
@@ -140,7 +210,14 @@
     "positionDescription": null,
     "positionUrl": "https://www.searchlink.cloud/public/website/searches/8685/file/871081",
     "lat": 43.0392,
-    "lng": -76.1351
+    "lng": -76.1351,
+    "departingDean": null,
+    "reason": "Has had interim dean since 2022",
+    "city": "Syracuse",
+    "state": "NY",
+    "type": "Private",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 12,
@@ -153,7 +230,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 41.8077,
-    "lng": -72.2540
+    "lng": -72.2540,
+    "departingDean": null,
+    "reason": "Has interim dean",
+    "city": "Storrs",
+    "state": "CT",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 13,
@@ -166,7 +250,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 40.5126,
-    "lng": -75.7785
+    "lng": -75.7785,
+    "departingDean": null,
+    "reason": null,
+    "city": "Kutztown",
+    "state": "PA",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 14,
@@ -179,7 +270,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 37.5741,
-    "lng": -77.5401
+    "lng": -77.5401,
+    "departingDean": null,
+    "reason": null,
+    "city": "Richmond",
+    "state": "VA",
+    "type": "Private",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 15,
@@ -192,7 +290,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 39.8646,
-    "lng": -75.3527
+    "lng": -75.3527,
+    "departingDean": null,
+    "reason": null,
+    "city": "Chester",
+    "state": "PA",
+    "type": "Private",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 16,
@@ -205,7 +310,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 40.7614,
-    "lng": -73.9776
+    "lng": -73.9776,
+    "departingDean": null,
+    "reason": null,
+    "city": "New York",
+    "state": "NY",
+    "type": "Private",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 17,
@@ -218,7 +330,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 45.2043,
-    "lng": -123.1971
+    "lng": -123.1971,
+    "departingDean": null,
+    "reason": null,
+    "city": "McMinnville",
+    "state": "OR",
+    "type": "Private",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 18,
@@ -231,7 +350,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 32.4225,
-    "lng": -81.7835
+    "lng": -81.7835,
+    "departingDean": null,
+    "reason": null,
+    "city": "Statesboro",
+    "state": "GA",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 19,
@@ -244,7 +370,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 40.9126,
-    "lng": -73.1234
+    "lng": -73.1234,
+    "departingDean": null,
+    "reason": null,
+    "city": "Stony Brook",
+    "state": "NY",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 20,
@@ -257,7 +390,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 38.4036,
-    "lng": -96.1819
+    "lng": -96.1819,
+    "departingDean": null,
+    "reason": null,
+    "city": "Emporia",
+    "state": "KS",
+    "type": "Public",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 21,
@@ -270,7 +410,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 41.5585,
-    "lng": -73.0515
+    "lng": -73.0515,
+    "departingDean": null,
+    "reason": null,
+    "city": "Waterbury",
+    "state": "CT",
+    "type": "Private",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 22,
@@ -283,7 +430,14 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 42.5660,
-    "lng": -70.8486
+    "lng": -70.8486,
+    "departingDean": null,
+    "reason": null,
+    "city": "Beverly",
+    "state": "MA",
+    "type": "Private",
+    "rank": null,
+    "totalFaculty": null
   },
   {
     "id": 23,
@@ -296,6 +450,13 @@
     "positionDescription": null,
     "positionUrl": null,
     "lat": 38.5936,
-    "lng": -90.3535
+    "lng": -90.3535,
+    "departingDean": null,
+    "reason": null,
+    "city": "Webster Groves",
+    "state": "MO",
+    "type": "Private",
+    "rank": null,
+    "totalFaculty": null
   }
 ]

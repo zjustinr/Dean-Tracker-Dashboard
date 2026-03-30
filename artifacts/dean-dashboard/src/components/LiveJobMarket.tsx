@@ -17,6 +17,13 @@ interface JobListing {
   positionUrl: string | null;
   lat: number | null;
   lng: number | null;
+  departingDean: string | null;
+  reason: string | null;
+  city: string | null;
+  state: string | null;
+  type: string | null;
+  rank: number | null;
+  totalFaculty: number | null;
 }
 
 const listings: JobListing[] = jobData as JobListing[];
@@ -63,6 +70,15 @@ const LEGEND_ITEMS = [
   { color: "#9ca3af", label: "Opening" },
 ];
 
+function getBubbleRadius(faculty: number | null, isSelected: boolean): number {
+  if (!faculty) return isSelected ? 7 : 5;
+  const minR = 5, maxR = 14;
+  const minF = 50, maxF = 200;
+  const clamped = Math.max(minF, Math.min(maxF, faculty));
+  const r = minR + ((clamped - minF) / (maxF - minF)) * (maxR - minR);
+  return isSelected ? r + 2 : r;
+}
+
 function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing[]; onSelect: (l: JobListing) => void; selectedId: number | null }) {
   const [tooltip, setTooltip] = useState<{ x: number; y: number; listing: JobListing } | null>(null);
 
@@ -70,15 +86,20 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
 
   return (
     <div className="bg-card border border-border rounded-xl overflow-hidden">
-      <div className="px-5 py-3 border-b border-border bg-muted/30 flex items-center justify-between">
+      <div className="px-5 py-3 border-b border-border bg-muted/30 flex items-center justify-between flex-wrap gap-2">
         <p className="text-sm font-medium">{mappable.length} of {filtered.length} positions on map</p>
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap items-center">
           {LEGEND_ITEMS.map(item => (
             <div key={item.label} className="flex items-center gap-1">
               <div className="w-3 h-3 rounded-full" style={{ background: item.color }} />
               <span className="text-[10px] text-muted-foreground">{item.label}</span>
             </div>
           ))}
+          <div className="flex items-center gap-1 ml-2 pl-2 border-l border-border">
+            <svg width="8" height="8"><circle cx="4" cy="4" r="3" fill="#9ca3af" /></svg>
+            <svg width="14" height="14"><circle cx="7" cy="7" r="6" fill="#9ca3af" /></svg>
+            <span className="text-[10px] text-muted-foreground">Faculty size</span>
+          </div>
         </div>
       </div>
       <div className="relative" style={{ height: 420 }}>
@@ -107,6 +128,7 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
             {mappable.map(listing => {
               const status = getStatusInfo(listing);
               const isSelected = selectedId === listing.id;
+              const r = getBubbleRadius(listing.totalFaculty, isSelected);
               return (
                 <Marker
                   key={listing.id}
@@ -122,11 +144,11 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
                   style={{ cursor: "pointer" }}
                 >
                   <circle
-                    r={isSelected ? 9 : 6}
+                    r={r}
                     fill={status.markerColor}
                     stroke={isSelected ? "#000" : "#fff"}
                     strokeWidth={isSelected ? 2.5 : 1.5}
-                    opacity={0.9}
+                    opacity={0.85}
                   />
                 </Marker>
               );
@@ -135,14 +157,37 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
         </ComposableMap>
         {tooltip && (
           <div
-            className="absolute pointer-events-none bg-card border border-border rounded-lg shadow-lg px-3 py-2 z-50"
+            className="absolute pointer-events-none bg-card border border-border rounded-lg shadow-lg px-3 py-2.5 z-50 min-w-[200px]"
             style={{ left: tooltip.x, top: tooltip.y, transform: "translate(-50%, -100%)" }}
           >
             <p className="text-xs font-bold">{tooltip.listing.university}</p>
             {tooltip.listing.school && <p className="text-[10px] text-muted-foreground">{tooltip.listing.school}</p>}
-            <p className="text-[10px] mt-0.5" style={{ color: getStatusInfo(tooltip.listing).markerColor }}>
-              {getStatusInfo(tooltip.listing).label}
-            </p>
+            <div className="mt-1.5 space-y-0.5">
+              <p className="text-[10px]" style={{ color: getStatusInfo(tooltip.listing).markerColor }}>
+                {getStatusInfo(tooltip.listing).label}
+              </p>
+              {tooltip.listing.city && tooltip.listing.state && (
+                <p className="text-[10px] text-muted-foreground">{tooltip.listing.city}, {tooltip.listing.state}</p>
+              )}
+              {tooltip.listing.type && (
+                <p className="text-[10px] text-muted-foreground">{tooltip.listing.type}{tooltip.listing.rank ? ` · Rank #${tooltip.listing.rank}` : ""}</p>
+              )}
+              {tooltip.listing.totalFaculty && (
+                <p className="text-[10px] text-muted-foreground">{tooltip.listing.totalFaculty} faculty</p>
+              )}
+              {tooltip.listing.departingDean && (
+                <p className="text-[10px] text-muted-foreground">Departing: {tooltip.listing.departingDean}</p>
+              )}
+              {tooltip.listing.reason && (
+                <p className="text-[10px] text-muted-foreground italic">{tooltip.listing.reason}</p>
+              )}
+              {tooltip.listing.searchFirm && (
+                <p className="text-[10px] text-muted-foreground">Firm: {tooltip.listing.searchFirm}</p>
+              )}
+              {tooltip.listing.dateStarted && (
+                <p className="text-[10px] text-muted-foreground">Search started: {formatDate(tooltip.listing.dateStarted)}</p>
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -309,12 +354,42 @@ export default function LiveJobMarket() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
               <div className="grid grid-cols-[130px_1fr] gap-y-1.5">
+                {listing.departingDean && (
+                  <>
+                    <span className="text-muted-foreground font-medium">Departing Dean</span>
+                    <span>{listing.departingDean}</span>
+                  </>
+                )}
+                {listing.reason && (
+                  <>
+                    <span className="text-muted-foreground font-medium">Reason</span>
+                    <span>{listing.reason}</span>
+                  </>
+                )}
                 <span className="text-muted-foreground font-medium">Search Firm</span>
                 <span>{listing.searchFirm || "Not stated"}</span>
                 <span className="text-muted-foreground font-medium">Search Started</span>
                 <span>{formatDate(listing.dateStarted)}</span>
               </div>
               <div className="grid grid-cols-[130px_1fr] gap-y-1.5">
+                {listing.city && listing.state && (
+                  <>
+                    <span className="text-muted-foreground font-medium">Location</span>
+                    <span>{listing.city}, {listing.state}</span>
+                  </>
+                )}
+                {listing.type && (
+                  <>
+                    <span className="text-muted-foreground font-medium">Type</span>
+                    <span>{listing.type}{listing.rank ? ` · Rank #${listing.rank}` : ""}</span>
+                  </>
+                )}
+                {listing.totalFaculty && (
+                  <>
+                    <span className="text-muted-foreground font-medium">Faculty Size</span>
+                    <span>{listing.totalFaculty}</span>
+                  </>
+                )}
                 {listing.notes && (
                   <>
                     <span className="text-muted-foreground font-medium">Notes</span>
@@ -397,6 +472,18 @@ export default function LiveJobMarket() {
                           <span className="font-semibold">{listing.university}</span>
                           <span className="text-muted-foreground font-medium">School</span>
                           <span>{listing.school || "–"}</span>
+                          {listing.departingDean && (
+                            <>
+                              <span className="text-muted-foreground font-medium">Departing Dean</span>
+                              <span>{listing.departingDean}</span>
+                            </>
+                          )}
+                          {listing.reason && (
+                            <>
+                              <span className="text-muted-foreground font-medium">Reason</span>
+                              <span>{listing.reason}</span>
+                            </>
+                          )}
                           <span className="text-muted-foreground font-medium">Search Firm</span>
                           <span>{listing.searchFirm || "Not stated"}</span>
                           <span className="text-muted-foreground font-medium">Search Started</span>
@@ -405,6 +492,24 @@ export default function LiveJobMarket() {
                         <div className="grid grid-cols-[130px_1fr] gap-y-1.5">
                           <span className="text-muted-foreground font-medium">Status</span>
                           <span className={status.color}>{status.label}</span>
+                          {listing.city && listing.state && (
+                            <>
+                              <span className="text-muted-foreground font-medium">Location</span>
+                              <span>{listing.city}, {listing.state}</span>
+                            </>
+                          )}
+                          {listing.type && (
+                            <>
+                              <span className="text-muted-foreground font-medium">Type</span>
+                              <span>{listing.type}{listing.rank ? ` · Rank #${listing.rank}` : ""}</span>
+                            </>
+                          )}
+                          {listing.totalFaculty && (
+                            <>
+                              <span className="text-muted-foreground font-medium">Faculty Size</span>
+                              <span>{listing.totalFaculty}</span>
+                            </>
+                          )}
                           {listing.notes && (
                             <>
                               <span className="text-muted-foreground font-medium">Notes</span>
