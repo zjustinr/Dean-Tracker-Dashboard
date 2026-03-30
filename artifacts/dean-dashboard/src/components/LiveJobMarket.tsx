@@ -71,12 +71,12 @@ const LEGEND_ITEMS = [
 ];
 
 function getBubbleRadius(faculty: number | null, isSelected: boolean): number {
-  if (!faculty) return isSelected ? 7 : 5;
-  const minR = 5, maxR = 14;
+  if (!faculty) return isSelected ? 11 : 9;
+  const minR = 9, maxR = 20;
   const minF = 50, maxF = 200;
   const clamped = Math.max(minF, Math.min(maxF, faculty));
   const r = minR + ((clamped - minF) / (maxF - minF)) * (maxR - minR);
-  return isSelected ? r + 2 : r;
+  return isSelected ? r + 3 : r;
 }
 
 function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing[]; onSelect: (l: JobListing) => void; selectedId: number | null }) {
@@ -95,10 +95,10 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
               <span className="text-[10px] text-muted-foreground">{item.label}</span>
             </div>
           ))}
-          <div className="flex items-center gap-1 ml-2 pl-2 border-l border-border">
-            <svg width="8" height="8"><circle cx="4" cy="4" r="3" fill="#9ca3af" /></svg>
-            <svg width="14" height="14"><circle cx="7" cy="7" r="6" fill="#9ca3af" /></svg>
-            <span className="text-[10px] text-muted-foreground">Faculty size</span>
+          <div className="flex items-center gap-1.5 ml-2 pl-2 border-l border-border">
+            <svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="#9ca3af" /></svg>
+            <svg width="22" height="22"><circle cx="11" cy="11" r="10" fill="#9ca3af" /><text x="11" y="11" textAnchor="middle" dominantBaseline="central" fill="#fff" fontSize="7" fontWeight="bold">#</text></svg>
+            <span className="text-[10px] text-muted-foreground">Faculty size (rank in circle)</span>
           </div>
         </div>
       </div>
@@ -150,6 +150,18 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
                     strokeWidth={isSelected ? 2.5 : 1.5}
                     opacity={0.85}
                   />
+                  {listing.rank && (
+                    <text
+                      textAnchor="middle"
+                      dominantBaseline="central"
+                      fill="#fff"
+                      fontSize={r > 12 ? 9 : 7}
+                      fontWeight="bold"
+                      style={{ pointerEvents: "none", userSelect: "none" }}
+                    >
+                      {listing.rank}
+                    </text>
+                  )}
                 </Marker>
               );
             })}
