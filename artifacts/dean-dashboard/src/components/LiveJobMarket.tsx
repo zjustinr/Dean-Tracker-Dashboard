@@ -49,9 +49,12 @@ function daysSince(d: string | null): number | null {
   }
 }
 
-type StatusKey = "active" | "firm" | "interim" | "underway" | "opening";
+type StatusKey = "active" | "firm" | "interim" | "underway" | "opening" | "newhire";
 
 function getStatusInfo(listing: JobListing): { label: string; color: string; bgClass: string; markerColor: string; key: StatusKey } {
+  if ((listing as JobListing & { _fromNews?: boolean })._fromNews) {
+    return { label: "New Appointment", color: "text-purple-700 dark:text-purple-400", bgClass: "bg-purple-100 dark:bg-purple-900/40", markerColor: "#a855f7", key: "newhire" };
+  }
   if (listing.searchFirm && listing.dateStarted) {
     const days = daysSince(listing.dateStarted);
     if (days !== null && days < 90) return { label: "Active Search", color: "text-green-700 dark:text-green-400", bgClass: "bg-green-100 dark:bg-green-900/40", markerColor: "#22c55e", key: "active" };
@@ -68,6 +71,7 @@ const LEGEND_ITEMS = [
   { color: "#3b82f6", label: "Search Firm Engaged" },
   { color: "#f59e0b", label: "Interim in Place" },
   { color: "#9ca3af", label: "Opening" },
+  { color: "#a855f7", label: "New Appointment (from news)" },
 ];
 
 function getBubbleRadius(faculty: number | null, isSelected: boolean): number {
@@ -129,6 +133,7 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
               const status = getStatusInfo(listing);
               const isSelected = selectedId === listing.id;
               const r = getBubbleRadius(listing.totalFaculty, isSelected);
+              const isNewsHire = status.key === "newhire";
               return (
                 <Marker
                   key={listing.id}
@@ -146,8 +151,8 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
                   <circle
                     r={r}
                     fill={status.markerColor}
-                    stroke={isSelected ? "#000" : "#fff"}
-                    strokeWidth={isSelected ? 2.5 : 1.5}
+                    stroke={isSelected ? "#000" : isNewsHire ? "#7c3aed" : "#fff"}
+                    strokeWidth={isSelected ? 2.5 : isNewsHire ? 2 : 1.5}
                     opacity={0.85}
                   />
                   {listing.rank && (
@@ -160,6 +165,19 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
                       style={{ pointerEvents: "none", userSelect: "none" }}
                     >
                       {listing.rank}
+                    </text>
+                  )}
+                  {isNewsHire && (
+                    <text
+                      textAnchor="middle"
+                      dominantBaseline="central"
+                      fill="#fff"
+                      fontSize={listing.rank ? 7 : 9}
+                      fontWeight="bold"
+                      style={{ pointerEvents: "none", userSelect: "none" }}
+                      dy={listing.rank ? r * 0.9 : 0}
+                    >
+                      ★
                     </text>
                   )}
                 </Marker>
@@ -215,11 +233,16 @@ function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing
   );
 }
 
+type ArticleCategory = "hiring" | "departure" | "search" | "general";
+
 interface PQArticle {
   title: string;
   url: string;
   date: string;
   summary: string;
+  category?: ArticleCategory;
+  extractedSchool?: string | null;
+  extractedDean?: string | null;
 }
 
 interface PQNewsState {
@@ -235,29 +258,82 @@ function decodeHtmlEntities(text: string): string {
   return el.value;
 }
 
-function PQNewsFeed() {
-  const [state, setState] = useState<PQNewsState>({ articles: [], fetchedAt: null, loading: true, error: null });
+const CATEGORY_BADGE: Record<PQArticle["category"], { label: string; color: string; bgClass: string }> = {
+  hiring: { label: "New Hire", color: "text-purple-700 dark:text-purple-400", bgClass: "bg-purple-100 dark:bg-purple-900/40" },
+  departure: { label: "Departure", color: "text-red-700 dark:text-red-400", bgClass: "bg-red-100 dark:bg-red-900/40" },
+  search: { label: "Search", color: "text-blue-700 dark:text-blue-400", bgClass: "bg-blue-100 dark:bg-blue-900/40" },
+  general: { label: "News", color: "text-gray-700 dark:text-gray-400", bgClass: "bg-gray-100 dark:bg-gray-800" },
+};
+
+const SCHOOL_COORDS: Record<string, { lat: number; lng: number; school: string | null; rank: number | null; totalFaculty: number | null; city: string; state: string; type: string }> = {
+  "University of Pennsylvania": { lat: 39.9522, lng: -75.1932, school: "Wharton School", rank: 1, totalFaculty: 246, city: "Philadelphia", state: "PA", type: "Private" },
+  "Harvard University": { lat: 42.3656, lng: -71.1228, school: "Harvard Business School", rank: 2, totalFaculty: 209, city: "Boston", state: "MA", type: "Private" },
+  "University of Chicago": { lat: 41.7886, lng: -87.5987, school: "Booth School of Business", rank: 3, totalFaculty: 144, city: "Chicago", state: "IL", type: "Private" },
+  "Northwestern University": { lat: 42.0565, lng: -87.6753, school: "Kellogg School of Management", rank: 4, totalFaculty: 141, city: "Evanston", state: "IL", type: "Private" },
+  "MIT": { lat: 42.3601, lng: -71.0942, school: "Sloan School of Management", rank: 5, totalFaculty: 129, city: "Cambridge", state: "MA", type: "Private" },
+  "Stanford University": { lat: 37.4275, lng: -122.1697, school: "Graduate School of Business", rank: 6, totalFaculty: 122, city: "Stanford", state: "CA", type: "Private" },
+  "Columbia University": { lat: 40.8075, lng: -73.9626, school: "Columbia Business School", rank: 7, totalFaculty: 123, city: "New York", state: "NY", type: "Private" },
+  "University of Michigan": { lat: 42.2732, lng: -83.7384, school: "Ross School of Business", rank: 8, totalFaculty: 149, city: "Ann Arbor", state: "MI", type: "Public" },
+  "UC Berkeley": { lat: 37.8719, lng: -122.2585, school: "Haas School of Business", rank: 9, totalFaculty: 90, city: "Berkeley", state: "CA", type: "Public" },
+  "Yale University": { lat: 41.3115, lng: -72.9260, school: "Yale School of Management", rank: 10, totalFaculty: 85, city: "New Haven", state: "CT", type: "Private" },
+  "NYU": { lat: 40.7295, lng: -73.9965, school: "Stern School of Business", rank: 11, totalFaculty: 140, city: "New York", state: "NY", type: "Private" },
+  "Duke University": { lat: 36.0014, lng: -78.9382, school: "Fuqua School of Business", rank: 12, totalFaculty: 91, city: "Durham", state: "NC", type: "Private" },
+  "University of Virginia": { lat: 38.0336, lng: -78.5080, school: "Darden School of Business", rank: 13, totalFaculty: 70, city: "Charlottesville", state: "VA", type: "Public" },
+  "UCLA": { lat: 34.0736, lng: -118.4420, school: "Anderson School of Management", rank: 14, totalFaculty: 105, city: "Los Angeles", state: "CA", type: "Public" },
+  "Cornell University": { lat: 42.4440, lng: -76.4749, school: "Johnson Graduate School of Management", rank: 15, totalFaculty: 66, city: "Ithaca", state: "NY", type: "Private" },
+  "Dartmouth College": { lat: 43.7044, lng: -72.2887, school: "Tuck School of Business", rank: 16, totalFaculty: 54, city: "Hanover", state: "NH", type: "Private" },
+  "University of Southern California": { lat: 34.0195, lng: -118.2863, school: "Marshall School of Business", rank: 17, totalFaculty: 103, city: "Los Angeles", state: "CA", type: "Private" },
+  "Carnegie Mellon University": { lat: 40.4406, lng: -79.9959, school: "Tepper School of Business", rank: 18, totalFaculty: 97, city: "Pittsburgh", state: "PA", type: "Private" },
+  "University of Texas at Austin": { lat: 30.2849, lng: -97.7341, school: "McCombs School of Business", rank: 19, totalFaculty: 164, city: "Austin", state: "TX", type: "Public" },
+  "University of North Carolina": { lat: 35.9049, lng: -79.0469, school: "Kenan-Flagler Business School", rank: 20, totalFaculty: 100, city: "Chapel Hill", state: "NC", type: "Public" },
+  "Georgetown University": { lat: 38.9076, lng: -77.0723, school: "McDonough School of Business", rank: 21, totalFaculty: 84, city: "Washington", state: "DC", type: "Private" },
+  "University of Washington": { lat: 47.6553, lng: -122.3035, school: "Foster School of Business", rank: 22, totalFaculty: 96, city: "Seattle", state: "WA", type: "Public" },
+  "Emory University": { lat: 33.7927, lng: -84.3233, school: "Goizueta Business School", rank: 23, totalFaculty: 72, city: "Atlanta", state: "GA", type: "Private" },
+  "Indiana University": { lat: 39.1682, lng: -86.5232, school: "Kelley School of Business", rank: 24, totalFaculty: 128, city: "Bloomington", state: "IN", type: "Public" },
+  "Rice University": { lat: 29.7174, lng: -95.4018, school: "Jones Graduate School of Business", rank: 25, totalFaculty: 58, city: "Houston", state: "TX", type: "Private" },
+  "Washington University in St. Louis": { lat: 38.6488, lng: -90.3108, school: "Olin Business School", rank: 26, totalFaculty: 76, city: "St. Louis", state: "MO", type: "Private" },
+  "Vanderbilt University": { lat: 36.1446, lng: -86.8032, school: "Owen Graduate School of Management", rank: 27, totalFaculty: 57, city: "Nashville", state: "TN", type: "Private" },
+  "Georgia Institute of Technology": { lat: 33.7756, lng: -84.3963, school: "Scheller College of Business", rank: 28, totalFaculty: 88, city: "Atlanta", state: "GA", type: "Public" },
+  "University of Minnesota": { lat: 44.9740, lng: -93.2277, school: "Carlson School of Management", rank: 29, totalFaculty: 97, city: "Minneapolis", state: "MN", type: "Public" },
+  "University of Notre Dame": { lat: 41.7030, lng: -86.2388, school: "Mendoza College of Business", rank: 30, totalFaculty: 94, city: "Notre Dame", state: "IN", type: "Private" },
+  "Babson College": { lat: 42.2988, lng: -71.2648, school: "F.W. Olin Graduate School of Business", rank: null, totalFaculty: null, city: "Wellesley", state: "MA", type: "Private" },
+};
+
+function newsToListing(article: PQArticle, idx: number): (JobListing & { _fromNews: true }) | null {
+  if ((article.category || "general") !== "hiring" || !article.extractedSchool) return null;
+
+  const alreadyInData = listings.some(l =>
+    l.university.toLowerCase() === article.extractedSchool!.toLowerCase()
+  );
+  if (alreadyInData) return null;
+
+  const coords = SCHOOL_COORDS[article.extractedSchool];
+
+  return {
+    id: 10000 + idx,
+    university: article.extractedSchool,
+    school: coords?.school ?? null,
+    notes: `New dean: ${article.extractedDean || "See article"}`,
+    searchFirm: null,
+    dateStarted: article.date,
+    newsUrl: article.url,
+    positionDescription: article.title,
+    positionUrl: null,
+    lat: coords?.lat ?? null,
+    lng: coords?.lng ?? null,
+    departingDean: null,
+    reason: article.extractedDean ? `${article.extractedDean} appointed` : "New appointment",
+    city: coords?.city ?? null,
+    state: coords?.state ?? null,
+    type: coords?.type ?? null,
+    rank: coords?.rank ?? null,
+    totalFaculty: coords?.totalFaculty ?? null,
+    _fromNews: true as const,
+  };
+}
+
+function PQNewsFeed({ state, fetchNews }: { state: PQNewsState; fetchNews: (force?: boolean) => void }) {
   const [expanded, setExpanded] = useState(true);
-
-  const fetchNews = useCallback(async (force = false) => {
-    setState(s => ({ ...s, loading: true, error: null }));
-    try {
-      const endpoint = force ? "/api/pq-news/refresh" : "/api/pq-news";
-      const res = await fetch(endpoint);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      setState({
-        articles: data.articles || [],
-        fetchedAt: data.fetchedAt || null,
-        loading: false,
-        error: null,
-      });
-    } catch (e: unknown) {
-      setState(s => ({ ...s, loading: false, error: e instanceof Error ? e.message : "Failed to load" }));
-    }
-  }, []);
-
-  useEffect(() => { fetchNews(); }, [fetchNews]);
 
   const timeSince = useMemo(() => {
     if (!state.fetchedAt) return "";
@@ -325,32 +401,44 @@ function PQNewsFeed() {
 
           {state.articles.length > 0 && (
             <div className="divide-y divide-border">
-              {state.articles.map((article, i) => (
-                <a
-                  key={i}
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block px-5 py-3 hover:bg-muted/20 transition-colors"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-primary hover:underline leading-snug">
-                        {decodeHtmlEntities(article.title)}
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{decodeHtmlEntities(article.summary)}</p>
+              {state.articles.map((article, i) => {
+                const catBadge = CATEGORY_BADGE[article.category || "general"];
+                return (
+                  <a
+                    key={i}
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-5 py-3 hover:bg-muted/20 transition-colors"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <Badge className={`${catBadge.bgClass} ${catBadge.color} border-0 text-[10px] px-1.5 py-0`}>{catBadge.label}</Badge>
+                          {article.extractedSchool && (
+                            <span className="text-[10px] text-muted-foreground">{article.extractedSchool}</span>
+                          )}
+                          {(article.category || "general") === "hiring" && article.extractedSchool && (
+                            <span className="text-[10px] text-purple-600 dark:text-purple-400 font-medium">→ Added to map</span>
+                          )}
+                        </div>
+                        <p className="text-sm font-medium text-primary hover:underline leading-snug">
+                          {decodeHtmlEntities(article.title)}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{decodeHtmlEntities(article.summary)}</p>
+                      </div>
+                      <span className="text-[10px] text-muted-foreground whitespace-nowrap mt-0.5">
+                        {article.date}
+                      </span>
                     </div>
-                    <span className="text-[10px] text-muted-foreground whitespace-nowrap mt-0.5">
-                      {article.date}
-                    </span>
-                  </div>
-                </a>
-              ))}
+                  </a>
+                );
+              })}
             </div>
           )}
 
           <div className="px-5 py-2 border-t border-border bg-muted/20 flex items-center justify-between">
-            <span className="text-[10px] text-muted-foreground">Auto-scans every 24 hours from P&amp;Q RSS feed</span>
+            <span className="text-[10px] text-muted-foreground">Auto-scans every 24 hours from P&amp;Q RSS feed · Hiring news auto-added to map</span>
             <button
               onClick={() => fetchNews(true)}
               disabled={state.loading}
@@ -374,16 +462,47 @@ export default function LiveJobMarket() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [view, setView] = useState<"map" | "list">("map");
+  const [newsState, setNewsState] = useState<PQNewsState>({ articles: [], fetchedAt: null, loading: true, error: null });
+
+  const fetchNews = useCallback(async (force = false) => {
+    setNewsState(s => ({ ...s, loading: true, error: null }));
+    try {
+      const endpoint = force ? "/api/pq-news/refresh" : "/api/pq-news";
+      const res = await fetch(endpoint);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      setNewsState({
+        articles: data.articles || [],
+        fetchedAt: data.fetchedAt || null,
+        loading: false,
+        error: null,
+      });
+    } catch (e: unknown) {
+      setNewsState(s => ({ ...s, loading: false, error: e instanceof Error ? e.message : "Failed to load" }));
+    }
+  }, []);
+
+  useEffect(() => { fetchNews(); }, [fetchNews]);
+
+  const newsListings = useMemo(() => {
+    return newsState.articles
+      .map((article, i) => newsToListing(article, i))
+      .filter((l): l is NonNullable<typeof l> => l !== null);
+  }, [newsState.articles]);
+
+  const allListings = useMemo(() => {
+    return [...listings, ...newsListings];
+  }, [newsListings]);
 
   const firms = useMemo(() => {
     const set = new Set<string>();
-    listings.forEach(l => { if (l.searchFirm) set.add(l.searchFirm); });
+    allListings.forEach(l => { if (l.searchFirm) set.add(l.searchFirm); });
     return [...set].sort();
-  }, []);
+  }, [allListings]);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return listings.filter(l => {
+    return allListings.filter(l => {
       if (q) {
         const text = `${l.university} ${l.school || ""} ${l.notes || ""} ${l.searchFirm || ""}`.toLowerCase();
         if (!text.includes(q)) return false;
@@ -397,22 +516,24 @@ export default function LiveJobMarket() {
         if (statusFilter === "active" && status.label !== "Active Search" && status.label !== "Search Underway") return false;
         if (statusFilter === "interim" && status.label !== "Interim in Place") return false;
         if (statusFilter === "opening" && status.label !== "Opening") return false;
+        if (statusFilter === "newhire" && status.label !== "New Appointment") return false;
       }
       return true;
     });
-  }, [search, firmFilter, statusFilter]);
+  }, [search, firmFilter, statusFilter, allListings]);
 
-  const withFirm = listings.filter(l => l.searchFirm).length;
-  const withNews = listings.filter(l => l.newsUrl).length;
-  const recentSearches = listings.filter(l => {
+  const withFirm = allListings.filter(l => l.searchFirm).length;
+  const withNews = allListings.filter(l => l.newsUrl).length;
+  const recentSearches = allListings.filter(l => {
     if (!l.dateStarted) return false;
     const days = daysSince(l.dateStarted);
     return days !== null && days < 180;
   }).length;
+  const newHires = newsListings.length;
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
         <div className="bg-card border border-border rounded-xl p-4 text-center">
           <p className="text-3xl font-bold text-primary">{listings.length}</p>
           <p className="text-xs text-muted-foreground mt-1">Open Positions</p>
@@ -429,9 +550,13 @@ export default function LiveJobMarket() {
           <p className="text-3xl font-bold text-amber-600 dark:text-amber-400">{withNews}</p>
           <p className="text-xs text-muted-foreground mt-1">With News Coverage</p>
         </div>
+        {newHires > 0 && (
+          <div className="bg-card border border-border rounded-xl p-4 text-center">
+            <p className="text-3xl font-bold text-purple-600 dark:text-purple-400">{newHires}</p>
+            <p className="text-xs text-muted-foreground mt-1">New Appointments (news)</p>
+          </div>
+        )}
       </div>
-
-      <PQNewsFeed />
 
       <div className="bg-card border border-border rounded-xl p-5">
         <div className="flex gap-4 flex-wrap items-end">
@@ -468,6 +593,7 @@ export default function LiveJobMarket() {
               <option value="active">Active Search</option>
               <option value="interim">Interim in Place</option>
               <option value="opening">Opening</option>
+              {newHires > 0 && <option value="newhire">New Appointment</option>}
             </select>
           </div>
           <div className="flex items-end gap-1">
@@ -504,7 +630,7 @@ export default function LiveJobMarket() {
       )}
 
       {(view === "map" && expandedId) && (() => {
-        const listing = listings.find(l => l.id === expandedId);
+        const listing = allListings.find(l => l.id === expandedId);
         if (!listing) return null;
         const status = getStatusInfo(listing);
         return (
@@ -715,6 +841,8 @@ export default function LiveJobMarket() {
           </div>
         </div>
       )}
+
+      <PQNewsFeed state={newsState} fetchNews={fetchNews} />
 
       <div className="text-xs text-muted-foreground text-center">
         Data sourced from Poets & Quants, Chronicle of Higher Education, AACSB, university announcements, and other public sources. Last updated: March 2026.

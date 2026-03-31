@@ -37,7 +37,7 @@ function App() {
               <TabsTrigger value="analysis">Correlation Analysis</TabsTrigger>
               <TabsTrigger value="interim">Interim Analysis</TabsTrigger>
               <TabsTrigger value="search">Individual Search</TabsTrigger>
-              <TabsTrigger value="jobmarket">Live Job Market</TabsTrigger>
+              <TabsTrigger value="jobmarket" className="text-[11px] sm:text-sm">Dean News & Market</TabsTrigger>
             </TabsList>
 
             <TabsContent value="explorer">
