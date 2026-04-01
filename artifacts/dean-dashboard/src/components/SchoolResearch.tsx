@@ -43,7 +43,7 @@ function findBSQ(university: string, school: string): BSQSchool | null {
 const PIE_COLORS = ["#3b82f6", "#ec4899", "#8b5cf6", "#10b981", "#f59e0b", "#ef4444"];
 
 function fmt(val: number | null | undefined, decimals = 0): string {
-  if (val == null) return "—";
+  if (val == null) return "N/A";
   if (Math.abs(val) >= 1000) return val.toLocaleString("en-US", { maximumFractionDigits: decimals });
   return val.toFixed(decimals);
 }
@@ -151,8 +151,9 @@ export default function SchoolResearch() {
       ) : (
         <Card>
           <CardContent className="py-12 text-center text-muted-foreground">
-            <p className="text-lg font-medium">No AACSB data available for this school</p>
-            <p className="text-sm mt-1">BSQ data is available for {schools.filter(s => s.bsq.totalHeadcount != null).length} of {schools.length} schools in the dataset.</p>
+            <p className="text-lg font-medium">N/A — No recent AACSB data available</p>
+            <p className="text-sm mt-1">Only BSQ data from the last 5 years (2021–2026) is used. This school has no qualifying records.</p>
+            <p className="text-xs mt-2 text-muted-foreground/70">{schools.filter(s => s.bsq.totalHeadcount != null).length} of {schools.length} schools have recent BSQ data.</p>
           </CardContent>
         </Card>
       )}
@@ -257,17 +258,17 @@ function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: numb
             />
             <KPICard
               label="Student:Faculty"
-              value={b.studentFacultyRatio != null ? b.studentFacultyRatio.toFixed(1) : "—"}
+              value={b.studentFacultyRatio != null ? b.studentFacultyRatio.toFixed(1) : "N/A"}
               sub={b.studentFacultyRatioAvg != null ? `avg ${b.studentFacultyRatioAvg.toFixed(1)}` : undefined}
             />
             <KPICard
               label="Avg SAT"
-              value={b.ugAvgSAT != null ? fmt(b.ugAvgSAT) : b.ugAvgSATStart != null ? fmt(b.ugAvgSATStart) : "—"}
+              value={b.ugAvgSAT != null ? fmt(b.ugAvgSAT) : b.ugAvgSATStart != null ? fmt(b.ugAvgSATStart) : "N/A"}
               change={pctChange(b.ugAvgSATStart, b.ugAvgSAT)}
             />
             <KPICard
               label="UG Yield Rate"
-              value={b.ugYieldPct != null ? `${b.ugYieldPct}%` : "—"}
+              value={b.ugYieldPct != null ? `${b.ugYieldPct}%` : "N/A"}
             />
           </div>
         </CardContent>
@@ -485,22 +486,22 @@ function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: numb
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-muted/40 rounded-lg p-4 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Mean UG Class Size</p>
-                <p className="text-3xl font-bold text-primary">{b.meanClassSizeUG != null ? b.meanClassSizeUG : "—"}</p>
+                <p className="text-3xl font-bold text-primary">{b.meanClassSizeUG != null ? b.meanClassSizeUG : "N/A"}</p>
               </div>
               <div className="bg-muted/40 rounded-lg p-4 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Mean Masters Class Size</p>
-                <p className="text-3xl font-bold text-primary">{b.meanClassSizeMasters != null ? b.meanClassSizeMasters : "—"}</p>
+                <p className="text-3xl font-bold text-primary">{b.meanClassSizeMasters != null ? b.meanClassSizeMasters : "N/A"}</p>
               </div>
               <div className="bg-muted/40 rounded-lg p-4 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Student:Faculty Ratio</p>
-                <p className="text-3xl font-bold text-primary">{b.studentFacultyRatio != null ? b.studentFacultyRatio.toFixed(1) : "—"}</p>
+                <p className="text-3xl font-bold text-primary">{b.studentFacultyRatio != null ? b.studentFacultyRatio.toFixed(1) : "N/A"}</p>
                 {b.studentFacultyRatioAvg != null && (
                   <p className="text-xs text-muted-foreground">avg: {b.studentFacultyRatioAvg.toFixed(1)}</p>
                 )}
               </div>
               <div className="bg-muted/40 rounded-lg p-4 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Avg ACT Score</p>
-                <p className="text-3xl font-bold text-primary">{b.ugAvgACT != null ? Math.round(b.ugAvgACT as number) : "—"}</p>
+                <p className="text-3xl font-bold text-primary">{b.ugAvgACT != null ? Math.round(b.ugAvgACT as number) : "N/A"}</p>
               </div>
             </div>
           </CardContent>
