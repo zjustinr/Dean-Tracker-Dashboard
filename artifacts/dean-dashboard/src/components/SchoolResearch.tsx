@@ -152,7 +152,7 @@ export default function SchoolResearch() {
         <Card>
           <CardContent className="py-12 text-center text-muted-foreground">
             <p className="text-lg font-medium">N/A — No recent AACSB data available</p>
-            <p className="text-sm mt-1">Only BSQ data from the last 5 years (2021–2026) is used. This school has no qualifying records.</p>
+            <p className="text-sm mt-1">Only BSQ data from the last 15 years (2011–2026) is used. This school has no qualifying records.</p>
             <p className="text-xs mt-2 text-muted-foreground/70">{schools.filter(s => s.bsq.totalHeadcount != null).length} of {schools.length} schools have recent BSQ data.</p>
           </CardContent>
         </Card>
