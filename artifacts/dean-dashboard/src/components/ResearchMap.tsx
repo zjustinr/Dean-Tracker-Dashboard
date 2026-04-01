@@ -125,10 +125,6 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
       const mbaTotal = bsq?.bsq?.mbaTotal ?? 0;
       const otherTotal = totalHeadcount != null ? Math.max(0, totalHeadcount - (ugTotal || 0) - (mbaTotal || 0)) : 0;
 
-      const radius = totalHeadcount != null
-        ? Math.max(4, Math.min(22, 2 + Math.sqrt(totalHeadcount) * 0.28))
-        : 4;
-
       return {
         ...s,
         deanSchoolName,
@@ -138,9 +134,24 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
         mbaTotal: mbaTotal || 0,
         otherTotal,
         hasBSQ: totalHeadcount != null && totalHeadcount > 0,
-        radius,
+        radius: 0,
       };
     });
+
+    const headcounts = raw.filter(m => m.hasBSQ).map(m => m.totalHeadcount as number);
+    const minHC = Math.min(...headcounts);
+    const maxHC = Math.max(...headcounts);
+    const range = maxHC - minHC || 1;
+    const MIN_R = 3;
+    const MAX_R = 22;
+
+    for (const m of raw) {
+      if (m.hasBSQ && m.totalHeadcount != null) {
+        m.radius = MIN_R + ((m.totalHeadcount - minHC) / range) * (MAX_R - MIN_R);
+      } else {
+        m.radius = MIN_R;
+      }
+    }
 
     return spreadOverlappingMarkers(raw);
   }, []);
