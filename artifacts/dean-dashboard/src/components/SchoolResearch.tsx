@@ -20,6 +20,8 @@ interface BSQSchool {
   tier: string | null;
   unitid: number | null;
   control: string | null;
+  bsqDataYear: number | null;
+  enrollDataYear: number | null;
   enrollment: {
     universityStart: number | null;
     universityEnd: number | null;
@@ -33,6 +35,9 @@ interface BSQSchool {
   };
   bsq: Record<string, number | null>;
 }
+
+const CURRENT_YEAR = 2026;
+const OUTDATED_THRESHOLD = 10;
 
 const schools: BSQSchool[] = bsqData as BSQSchool[];
 
@@ -151,9 +156,8 @@ export default function SchoolResearch() {
       ) : (
         <Card>
           <CardContent className="py-12 text-center text-muted-foreground">
-            <p className="text-lg font-medium">N/A — No recent AACSB data available</p>
-            <p className="text-sm mt-1">Only BSQ data from the last 15 years (2011–2026) is used. This school has no qualifying records.</p>
-            <p className="text-xs mt-2 text-muted-foreground/70">{schools.filter(s => s.bsq.totalHeadcount != null).length} of {schools.length} schools have recent BSQ data.</p>
+            <p className="text-lg font-medium">N/A — No AACSB BSQ data available for this school</p>
+            <p className="text-xs mt-2 text-muted-foreground/70">{schools.filter(s => s.bsq.totalHeadcount != null).length} of {schools.length} schools have BSQ data.</p>
           </CardContent>
         </Card>
       )}
@@ -223,6 +227,8 @@ function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: numb
     ].filter(d => d.value > 0);
   }, [b]);
 
+  const isOutdated = bsq.bsqDataYear != null && (CURRENT_YEAR - bsq.bsqDataYear) >= OUTDATED_THRESHOLD;
+
   return (
     <div className="space-y-6">
       <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border-blue-200 dark:border-blue-800">
@@ -232,13 +238,25 @@ function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: numb
               <h2 className="text-xl font-bold text-primary">{bsq.university}</h2>
               <p className="text-sm text-muted-foreground">{bsq.school}</p>
             </div>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-2 flex-wrap items-center">
               {bsq.rank && <Badge className="bg-blue-600 text-white">Rank #{bsq.rank}</Badge>}
               {bsq.tier && <Badge variant="secondary">{bsq.tier}</Badge>}
               {bsq.control && <Badge variant="outline">{bsq.control}</Badge>}
               <Badge variant="outline">{deanCount} deans recorded</Badge>
+              {bsq.bsqDataYear && (
+                <Badge variant="outline" className="text-muted-foreground">BSQ data: {bsq.bsqDataYear}</Badge>
+              )}
             </div>
           </div>
+
+          {isOutdated && (
+            <div className="flex items-center gap-2 bg-red-50 dark:bg-red-950/40 border border-red-300 dark:border-red-800 rounded-lg px-4 py-2.5 mb-4">
+              <span className="text-red-600 text-lg">&#9888;</span>
+              <p className="text-sm text-red-700 dark:text-red-400 font-medium">
+                Data is outdated — BSQ figures are from {bsq.bsqDataYear}, which is {CURRENT_YEAR - bsq.bsqDataYear} years old. Values shown may no longer be accurate.
+              </p>
+            </div>
+          )}
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
             <KPICard
