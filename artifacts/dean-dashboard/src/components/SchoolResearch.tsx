@@ -8,7 +8,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
   PieChart, Pie, Cell, RadialBarChart, RadialBar,
 } from "recharts";
-import USMap from "./USMap";
+import ResearchMap from "./ResearchMap";
 import bsqData from "@/data/schools-bsq.json";
 
 type SortMode = "rank" | "alpha";
@@ -142,7 +142,7 @@ export default function SchoolResearch() {
         </TabsContent>
 
         <TabsContent value="map" className="mt-4">
-          <USMap selectedSchoolKey={selectedKey} onSelectSchool={setSelectedKey} />
+          <ResearchMap selectedSchoolKey={selectedKey} onSelectSchool={setSelectedKey} />
         </TabsContent>
       </Tabs>
 
