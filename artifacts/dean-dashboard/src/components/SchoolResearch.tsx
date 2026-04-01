@@ -96,7 +96,7 @@ export default function SchoolResearch() {
 
   return (
     <div className="space-y-6">
-      <Tabs defaultValue="dropdown">
+      <Tabs defaultValue="map">
         <TabsList>
           <TabsTrigger value="dropdown">List View</TabsTrigger>
           <TabsTrigger value="map">Map View</TabsTrigger>

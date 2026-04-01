@@ -98,7 +98,7 @@ function App() {
         <main className="max-w-[1400px] mx-auto px-4 py-6">
           <div className="space-y-6">
             <div
-              className="inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground w-full max-w-5xl"
+              className="flex flex-wrap gap-2 w-full max-w-5xl"
               role="tablist"
             >
               {tabs.map((tab, idx) => {
@@ -117,17 +117,17 @@ function App() {
                     onDragLeave={() => setOverIdx(null)}
                     onClick={() => setActiveTab(tab.value)}
                     className={[
-                      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all",
+                      "inline-flex items-center justify-center whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all",
+                      "border-2 shadow-sm",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                      "cursor-grab active:cursor-grabbing select-none flex-1",
+                      "cursor-grab active:cursor-grabbing select-none",
                       isActive
-                        ? "bg-background text-foreground shadow-sm"
-                        : "hover:bg-background/50",
+                        ? "bg-primary text-primary-foreground border-primary shadow-md"
+                        : "bg-card text-foreground border-border hover:bg-muted hover:border-primary/40 hover:shadow-md",
                       isOver ? "ring-2 ring-primary/50" : "",
-                      (tab.value === "jobmarket" || tab.value === "research") ? "text-[11px] sm:text-sm" : "text-xs sm:text-sm",
                     ].join(" ")}
                   >
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1.5">
                       <svg className="w-3 h-3 opacity-30 shrink-0" viewBox="0 0 12 12" fill="currentColor">
                         <circle cx="3" cy="3" r="1.2" />
                         <circle cx="3" cy="6" r="1.2" />

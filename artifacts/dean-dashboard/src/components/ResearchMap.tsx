@@ -126,8 +126,8 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
       const otherTotal = totalHeadcount != null ? Math.max(0, totalHeadcount - (ugTotal || 0) - (mbaTotal || 0)) : 0;
 
       const radius = totalHeadcount != null
-        ? Math.max(8, Math.min(18, 5 + Math.sqrt(totalHeadcount) * 0.2))
-        : 7;
+        ? Math.max(6, Math.min(28, 3 + Math.sqrt(totalHeadcount) * 0.35))
+        : 5;
 
       return {
         ...s,
