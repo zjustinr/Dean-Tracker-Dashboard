@@ -5,6 +5,7 @@ import AggregateTrends from "@/components/AggregateTrends";
 import InterimAnalysis from "@/components/InterimAnalysis";
 import IndividualSearch from "@/components/IndividualSearch";
 import LiveJobMarket from "@/components/LiveJobMarket";
+import SchoolResearch from "@/components/SchoolResearch";
 
 interface TabDef {
   value: string;
@@ -17,6 +18,7 @@ const DEFAULT_TABS: TabDef[] = [
   { value: "analysis", label: "Correlation Analysis" },
   { value: "interim", label: "Interim Analysis" },
   { value: "search", label: "Individual Search" },
+  { value: "research", label: "School Research" },
   { value: "jobmarket", label: "Dean News & Market" },
 ];
 
@@ -26,6 +28,7 @@ const TAB_CONTENT: Record<string, React.ReactNode> = {
   analysis: <CrossSchoolAnalysis />,
   interim: <InterimAnalysis />,
   search: <IndividualSearch />,
+  research: <SchoolResearch />,
   jobmarket: <LiveJobMarket />,
 };
 
@@ -95,7 +98,7 @@ function App() {
         <main className="max-w-[1400px] mx-auto px-4 py-6">
           <div className="space-y-6">
             <div
-              className="inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground w-full max-w-4xl"
+              className="inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground w-full max-w-5xl"
               role="tablist"
             >
               {tabs.map((tab, idx) => {
@@ -121,7 +124,7 @@ function App() {
                         ? "bg-background text-foreground shadow-sm"
                         : "hover:bg-background/50",
                       isOver ? "ring-2 ring-primary/50" : "",
-                      tab.value === "jobmarket" ? "text-[11px] sm:text-sm" : "",
+                      (tab.value === "jobmarket" || tab.value === "research") ? "text-[11px] sm:text-sm" : "text-xs sm:text-sm",
                     ].join(" ")}
                   >
                     <span className="flex items-center gap-1">
