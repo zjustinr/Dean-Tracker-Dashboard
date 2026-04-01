@@ -126,8 +126,8 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
       const otherTotal = totalHeadcount != null ? Math.max(0, totalHeadcount - (ugTotal || 0) - (mbaTotal || 0)) : 0;
 
       const radius = totalHeadcount != null
-        ? Math.max(12, Math.min(30, 8 + Math.sqrt(totalHeadcount) * 0.4))
-        : 10;
+        ? Math.max(8, Math.min(18, 5 + Math.sqrt(totalHeadcount) * 0.2))
+        : 7;
 
       return {
         ...s,
@@ -236,7 +236,7 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
             const isSelected = marker.schoolKey === selectedSchoolKey;
             const isHovered = marker.shortName === hoveredSchool;
             const r = marker.radius / position.zoom;
-            const fontSize = Math.max(4, 7 / position.zoom);
+            const fontSize = Math.max(5, 9 / position.zoom);
             const strokeW = (isSelected || isHovered ? 2 : 0.5) / position.zoom;
 
             if (!marker.hasBSQ) {
