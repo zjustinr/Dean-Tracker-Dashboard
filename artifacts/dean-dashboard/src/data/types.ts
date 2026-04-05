@@ -11,6 +11,7 @@ export interface Dean {
   priorInstitution: string;
   origin: string;
   originV2: string;
+  apptOrigin4: string;
   isInternal: boolean;
   isExternal: boolean;
   isInterim: boolean;
@@ -23,6 +24,7 @@ export interface Dean {
   disciplineBroad: string;
   phdField: string;
   hasPriorDeanExp: boolean;
+  priorAssocOrAsstDean: boolean;
   hadAssocDeanRole: boolean;
   hadDeptChairRole: boolean;
   hasConsultingBg: boolean;
@@ -41,25 +43,13 @@ export interface Dean {
   involuntary: boolean;
   hadPriorConnection: boolean;
   hasInstitutionalLink: boolean;
-  priorAssocOrAsstDean: boolean;
-  avgAnnualGifts: number | null;
-  totalGifts: number | null;
-  maxAnnualGifts: number | null;
-  avgEndowment: number | null;
-  fundraisingYears: number;
-  preTenureGifts: number | null;
-  giftGrowthVsPre: number | null;
+  fromSameUniversityDiffSchool: boolean;
   surpriseDeparture: boolean;
   surpriseEvidence: string;
-  enrollmentStart: number | null;
+  sourceUrl: string;
   enrollmentEnd: number | null;
   enrollmentAvg: number | null;
-  gradEnrollmentStart: number | null;
-  gradEnrollmentEnd: number | null;
-  businessPctStart: number | null;
   businessPctEnd: number | null;
-  estBizEnrollmentStart: number | null;
-  estBizEnrollmentEnd: number | null;
   businessDegreesLatest: number | null;
 }
 
@@ -74,11 +64,7 @@ export type CategoricalField =
 
 export type NumericField =
   | "tenureLength"
-  | "rank"
-  | "avgAnnualGifts"
-  | "totalGifts"
-  | "maxAnnualGifts"
-  | "avgEndowment";
+  | "rank";
 
 export type BooleanField =
   | "isFemale"
@@ -107,10 +93,6 @@ export const CATEGORICAL_LABELS: Record<CategoricalField, string> = {
 export const NUMERIC_LABELS: Record<NumericField, string> = {
   tenureLength: "Tenure Length (years)",
   rank: "US News Rank (2025)",
-  avgAnnualGifts: "Avg Annual Gifts ($M)",
-  totalGifts: "Total Gifts ($M)",
-  maxAnnualGifts: "Max Annual Gifts ($M)",
-  avgEndowment: "Avg Endowment ($M)",
 };
 
 export const BOOLEAN_LABELS: Record<BooleanField, string> = {

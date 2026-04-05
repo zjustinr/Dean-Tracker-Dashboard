@@ -5,7 +5,6 @@ import AggregateTrends from "@/components/AggregateTrends";
 import InterimAnalysis from "@/components/InterimAnalysis";
 import IndividualSearch from "@/components/IndividualSearch";
 import LiveJobMarket from "@/components/LiveJobMarket";
-import SchoolResearch from "@/components/SchoolResearch";
 
 interface TabDef {
   value: string;
@@ -18,7 +17,6 @@ const DEFAULT_TABS: TabDef[] = [
   { value: "analysis", label: "Correlation Analysis" },
   { value: "interim", label: "Interim Analysis" },
   { value: "search", label: "Individual Search" },
-  { value: "research", label: "School Research" },
   { value: "jobmarket", label: "Dean News & Market" },
 ];
 
@@ -28,7 +26,6 @@ const TAB_CONTENT: Record<string, React.ReactNode> = {
   analysis: <CrossSchoolAnalysis />,
   interim: <InterimAnalysis />,
   search: <IndividualSearch />,
-  research: <SchoolResearch />,
   jobmarket: <LiveJobMarket />,
 };
 
@@ -98,8 +95,9 @@ function App() {
         <main className="max-w-[1400px] mx-auto px-4 py-6">
           <div className="space-y-6">
             <div
-              className="flex flex-wrap gap-2 w-full max-w-5xl"
+              className="flex gap-1.5 w-full overflow-x-auto"
               role="tablist"
+              style={{ scrollbarWidth: "none" }}
             >
               {tabs.map((tab, idx) => {
                 const isActive = activeTab === tab.value;
@@ -117,18 +115,17 @@ function App() {
                     onDragLeave={() => setOverIdx(null)}
                     onClick={() => setActiveTab(tab.value)}
                     className={[
-                      "inline-flex items-center justify-center whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all",
-                      "border-2 shadow-sm",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                      "inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-2 text-[13px] font-semibold transition-all flex-1 min-w-0",
+                      "border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       "cursor-grab active:cursor-grabbing select-none",
                       isActive
-                        ? "bg-primary text-primary-foreground border-primary shadow-md"
-                        : "bg-card text-foreground border-border hover:bg-muted hover:border-primary/40 hover:shadow-md",
+                        ? "bg-gradient-to-b from-primary/90 to-primary text-primary-foreground border-primary/70 shadow-[0_2px_6px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.15)]"
+                        : "bg-gradient-to-b from-card to-muted/60 text-foreground border-border hover:from-muted hover:to-muted/80 hover:border-primary/40 shadow-[0_1px_3px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.6)]",
                       isOver ? "ring-2 ring-primary/50" : "",
                     ].join(" ")}
                   >
-                    <span className="flex items-center gap-1.5">
-                      <svg className="w-3 h-3 opacity-30 shrink-0" viewBox="0 0 12 12" fill="currentColor">
+                    <span className="flex items-center gap-1.5 truncate">
+                      <svg className="w-2.5 h-2.5 opacity-25 shrink-0" viewBox="0 0 12 12" fill="currentColor">
                         <circle cx="3" cy="3" r="1.2" />
                         <circle cx="3" cy="6" r="1.2" />
                         <circle cx="3" cy="9" r="1.2" />

@@ -171,12 +171,6 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               <span className="text-muted-foreground">Post-Dean</span>
               <span>{NEXT_ROLE_LABELS[hoveredDean.nextRole] || hoveredDean.nextRole || "–"}</span>
             </div>
-            {(hoveredDean.avgAnnualGifts || hoveredDean.avgEndowment) && (
-              <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs mt-2 pt-2 border-t border-border">
-                {hoveredDean.avgAnnualGifts && <><span className="text-muted-foreground">Avg Gifts/yr</span><span>${(hoveredDean.avgAnnualGifts / 1e6).toFixed(1)}M</span></>}
-                {hoveredDean.avgEndowment && <><span className="text-muted-foreground">Avg Endowment</span><span>${(hoveredDean.avgEndowment / 1e9).toFixed(2)}B</span></>}
-              </div>
-            )}
             {hoveredDean.notes && (
               <p className="text-[10px] text-muted-foreground mt-2 pt-1 border-t border-border italic">{hoveredDean.notes}</p>
             )}
@@ -265,24 +259,6 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                 <span>{clickedDean.involuntary ? "Yes" : "No"}</span>
                 <span className="text-muted-foreground font-medium">Had Prior Link</span>
                 <span>{clickedDean.hadPriorConnection ? "Yes" : "No"}</span>
-                {clickedDean.avgAnnualGifts && (
-                  <>
-                    <span className="text-muted-foreground font-medium">Avg Gifts/yr</span>
-                    <span>{formatMoney(clickedDean.avgAnnualGifts)}</span>
-                  </>
-                )}
-                {clickedDean.totalGifts && (
-                  <>
-                    <span className="text-muted-foreground font-medium">Total Gifts</span>
-                    <span>{formatMoney(clickedDean.totalGifts)}</span>
-                  </>
-                )}
-                {clickedDean.avgEndowment && (
-                  <>
-                    <span className="text-muted-foreground font-medium">Avg Endowment</span>
-                    <span>{formatMoney(clickedDean.avgEndowment)}</span>
-                  </>
-                )}
               </div>
             </div>
 

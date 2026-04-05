@@ -44,32 +44,34 @@ artifacts-monorepo/
 Interactive data visualization dashboard for studying leadership changes at top business schools.
 
 ### Data
-- Source: `attached_assets/dean_appointments_with_enrollment_(1)_1774727747372.xlsx`
-- Processed JSON: `artifacts/dean-dashboard/src/data/deans.json` (618 records, 87 schools, 1967–2026)
+- Source: `attached_assets/dean_appointments_with_bsq_enriched_streamlinedv4_(1)_1775403864083.xlsx`
+- Processed JSON: `artifacts/dean-dashboard/src/data/deans.json` (586 records, 92 schools, 1967–2026)
 - Data is embedded client-side — no API needed for this visualization
-- New fields: enrollment data (start/end/avg, grad enrollment, business %, estimated biz enrollment), pre-tenure gifts, gift growth, surprise departure flag
+- New fields: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
+- Removed fields: avgAnnualGifts, totalGifts, maxAnnualGifts, avgEndowment, fundraisingYears, enrollmentStart, gradEnrollment, estBizEnrollment, businessPctStart
 
-### Features
-1. **School Explorer**
+### Features (6 tabs)
+1. **School Explorer** — Unified school exploration view combining dean data with BSQ research
    - List View: dropdown school selector with rank/alpha sort toggle, school info badges
    - Map View: interactive US map with clickable school markers (sized by faculty count) via react-simple-maps
    - Dean tenure timeline (Gantt-style bar chart, color-coded: blue=male, pink=female, gray=interim)
-   - Click bars to view detailed dean profiles including financial data when available
-   - School-Level Analytics: KPIs (total deans, avg tenure, female %, internal %, interim %), gender/origin/discipline pie charts, tenure bars, post-dean roles, fundraising table
-2. **Cross-School Analysis** — Scatter plots (pick x/y numeric variables, color by category), cross-tabulation tables, grouped bar charts
-3. **Aggregate Trends** — KPI cards (including interim %), stacked area charts (gender over time), bar charts (tenure by era, female % by decade, internal/external/interim by decade), pie charts (disciplines, origins), post-dean career paths
-4. **Interim Analysis** — "Try Before You Buy" infographic: hero KPIs (2020s interim %, conversion rate, surprise departure rate), interim trend by era, conversion by discipline, surprise departure comparison, enrollment growth performance, gender breakdown, tenure comparison, success stories cards, key insight footer
+   - Click bars to view detailed dean profiles
+   - School-Level Analytics: KPIs (total deans, avg tenure, female %, internal %, interim %), gender/origin/discipline pie charts, tenure bars, post-dean roles
+   - AACSB BSQ Profile: embedded infographic with enrollment, admissions, gender, FT/PT, degrees, classroom & faculty metrics
+   - Research Map: bubble map of all schools (bubble size = BSQ headcount, linear scale min=3 max=22)
+2. **Aggregate Trends** — KPI cards (including interim %), stacked area charts (gender over time), bar charts (tenure by era, female % by decade, internal/external/interim by decade), pie charts (disciplines, origins), post-dean career paths
+3. **Correlation Analysis** — Scatter plots (pick x/y numeric variables, color by category), cross-tabulation tables, grouped bar charts
+4. **Interim Analysis** — "Try Before You Buy" infographic: hero KPIs (2020s interim %, conversion rate, surprise departure rate), interim trend by era, conversion by discipline, surprise departure comparison, gender breakdown, tenure comparison, success stories cards
 5. **Individual Search** — Name-based dean lookup with combo box dropdowns (type-to-filter or browse alphabetically), results list with profile drill-down using shared DeanProfile component
-6. **School Research** (tab: "research") — AACSB BSQ school-level infographics. School picker (list/map, same as School Explorer). Infographic sections: hero KPI cards (total headcount, UG enrollment, MBA enrollment, student:faculty ratio, avg SAT, yield rate), enrollment composition pie chart, UG admissions funnel bar chart (with acceptance rate + yield), gender breakdown pies (UG + MBA), FT/PT split pies, degree stats by gender, classroom & faculty metrics (class sizes, S:F ratio, ACT), university-level enrollment context. Data: `artifacts/dean-dashboard/src/data/schools-bsq.json` (93 schools, 77 with BSQ data). Change arrows show start→end deltas.
-7. **Dean News & Market** (tab: "jobmarket") — Current dean openings from curated spreadsheet data (23 positions). KPI cards (5 columns when news hires present), searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening, New Appointment), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. Layout: KPIs → filters → Map → News feed (map on top). **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours via `/api/pq-news`. Articles classified as hiring/departure/search/general. **Hiring articles auto-added to map** as purple "New Appointment" markers with ★ icon, extracted school matched to SCHOOL_COORDS for lat/lng. Manual refresh with 5-min cooldown. Vite dev proxy routes `/api` -> API server.
+6. **Dean News & Market** (tab: "jobmarket") — Current dean openings from curated spreadsheet data (23 positions). KPI cards (5 columns when news hires present), searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening, New Appointment), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. Layout: KPIs → filters → Map → News feed. **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours via `/api/pq-news`.
 
 ### Key Fields
 - Demographics: gender, discipline, career background
 - Career: prior dean experience, assoc. dean role, PhD, industry exp
 - Appointment: origin (internal/external/interim — interim always a separate category, never merged), era, tenure length
-- Financial: avgAnnualGifts, totalGifts, maxAnnualGifts, avgEndowment (82/617 records have this data)
 - Post-dean: next role (faculty, another deanship, provost, retirement, etc.)
 - School: US News rank, tier, elite institution status
+- New: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
 
 ### Key Components
 - `SchoolExplorer.tsx` — Main school exploration view with list/map toggle

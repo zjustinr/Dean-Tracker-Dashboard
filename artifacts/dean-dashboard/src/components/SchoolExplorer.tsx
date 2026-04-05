@@ -7,6 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import USMap from "./USMap";
 import SchoolAnalytics from "./SchoolAnalytics";
 import DeanTimeline from "./DeanTimeline";
+import { SchoolInfographic, findBSQ } from "./SchoolResearch";
+import ResearchMap from "./ResearchMap";
 
 type SortMode = "rank" | "alpha";
 
@@ -127,6 +129,27 @@ export default function SchoolExplorer() {
           <SchoolAnalytics deans={deans} />
         </>
       )}
+
+      {parsed && (() => {
+        const bsq = findBSQ(parsed.university, parsed.school);
+        return bsq ? (
+          <>
+            <h3 className="text-lg font-semibold mt-8">AACSB Business School Questionnaire (BSQ) Profile</h3>
+            <SchoolInfographic bsq={bsq} deanCount={deans.length} />
+          </>
+        ) : (
+          <Card className="mt-8">
+            <CardContent className="py-8 text-center text-muted-foreground">
+              <p className="text-sm">No AACSB BSQ data available for this school.</p>
+            </CardContent>
+          </Card>
+        );
+      })()}
+
+      <div className="mt-8">
+        <h3 className="text-lg font-semibold mb-3">Research Map — All Schools</h3>
+        <ResearchMap selectedSchoolKey={selectedKey} onSelectSchool={handleSchoolChange} />
+      </div>
     </div>
   );
 }

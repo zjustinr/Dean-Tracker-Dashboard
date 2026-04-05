@@ -9,13 +9,6 @@ import type { Dean } from "@/data/types";
 import { CHART_COLORS, NEXT_ROLE_LABELS } from "@/data/types";
 import { SCHOOL_INFO, findSchoolInfo } from "@/data/schools";
 
-function formatMoney(val: number): string {
-  if (val >= 1e9) return `$${(val / 1e9).toFixed(1)}B`;
-  if (val >= 1e6) return `$${(val / 1e6).toFixed(1)}M`;
-  if (val >= 1e3) return `$${(val / 1e3).toFixed(0)}K`;
-  return `$${val.toFixed(0)}`;
-}
-
 export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
   const schoolInfo = useMemo(() => {
     if (!deans.length) return null;
@@ -80,19 +73,6 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
         era: d.era,
       }))
       .sort((a, b) => a.tenure - b.tenure);
-  }, [deans]);
-
-  const giftData = useMemo(() => {
-    return deans
-      .filter((d) => d.avgAnnualGifts)
-      .map((d) => ({
-        name: d.dean,
-        avgGifts: d.avgAnnualGifts! / 1e6,
-        totalGifts: d.totalGifts ? d.totalGifts / 1e6 : 0,
-        avgEndowment: d.avgEndowment ? d.avgEndowment / 1e6 : 0,
-        startYear: d.startYear,
-      }))
-      .sort((a, b) => (a.startYear || 0) - (b.startYear || 0));
   }, [deans]);
 
   const kpis = useMemo(() => {
@@ -212,58 +192,8 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
           </CardContent>
         </Card>
 
-        {giftData.length > 0 && (
-          <Card>
-            <CardHeader className="pb-2"><CardTitle className="text-sm">Avg Annual Gifts by Dean ($M)</CardTitle></CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={180}>
-                <BarChart data={giftData} margin={{ top: 5, right: 10, bottom: 5, left: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis dataKey="name" fontSize={10} angle={-20} textAnchor="end" interval={0} height={50} />
-                  <YAxis fontSize={10} />
-                  <Tooltip
-                    contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }}
-                    formatter={(v: number) => [`$${v.toFixed(1)}M`, ""]}
-                  />
-                  <Bar dataKey="avgGifts" fill={CHART_COLORS[2]} radius={[3, 3, 0, 0]} name="Avg Annual Gifts ($M)" />
-                </BarChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-        )}
       </div>
 
-      {giftData.length > 0 && (
-        <Card>
-          <CardHeader className="pb-2"><CardTitle className="text-sm">Endowment & Fundraising Under Each Dean</CardTitle></CardHeader>
-          <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="text-left p-2 text-xs font-medium text-muted-foreground">Dean</th>
-                    <th className="text-left p-2 text-xs font-medium text-muted-foreground">Years</th>
-                    <th className="text-right p-2 text-xs font-medium text-muted-foreground">Avg Annual Gifts</th>
-                    <th className="text-right p-2 text-xs font-medium text-muted-foreground">Total Gifts</th>
-                    <th className="text-right p-2 text-xs font-medium text-muted-foreground">Avg Endowment</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {deans.filter(d => d.avgAnnualGifts || d.avgEndowment).map((d) => (
-                    <tr key={d.id} className="border-b border-border/50">
-                      <td className="p-2 font-medium">{d.dean}</td>
-                      <td className="p-2 text-muted-foreground">{d.startYear}–{d.endYear || "Present"}</td>
-                      <td className="p-2 text-right">{d.avgAnnualGifts ? formatMoney(d.avgAnnualGifts) : "–"}</td>
-                      <td className="p-2 text-right">{d.totalGifts ? formatMoney(d.totalGifts) : "–"}</td>
-                      <td className="p-2 text-right">{d.avgEndowment ? formatMoney(d.avgEndowment) : "–"}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 }

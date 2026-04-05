@@ -23,14 +23,9 @@ interface BSQSchool {
   bsqDataYear: number | null;
   enrollDataYear: number | null;
   enrollment: {
-    universityStart: number | null;
     universityEnd: number | null;
-    gradStart: number | null;
-    gradEnd: number | null;
-    bizPctStart: number | null;
+    universityAvg: number | null;
     bizPctEnd: number | null;
-    estBizStart: number | null;
-    estBizEnd: number | null;
     bizDegreesLatest: number | null;
   };
   bsq: Record<string, number | null>;
@@ -165,7 +160,10 @@ export default function SchoolResearch() {
   );
 }
 
-function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: number }) {
+export { findBSQ };
+export type { BSQSchool };
+
+export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: number }) {
   const b = bsq.bsq;
   const e = bsq.enrollment;
 
@@ -253,7 +251,7 @@ function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: numb
             <div className="flex items-center gap-2 bg-red-50 dark:bg-red-950/40 border border-red-300 dark:border-red-800 rounded-lg px-4 py-2.5 mb-4">
               <span className="text-red-600 text-lg">&#9888;</span>
               <p className="text-sm text-red-700 dark:text-red-400 font-medium">
-                Data is outdated — BSQ figures are from {bsq.bsqDataYear}, which is {CURRENT_YEAR - bsq.bsqDataYear} years old. Values shown may no longer be accurate.
+                Data is outdated — BSQ figures are from {bsq.bsqDataYear}, which is {CURRENT_YEAR - bsq.bsqDataYear!} years old. Values shown may no longer be accurate.
               </p>
             </div>
           )}
@@ -526,32 +524,20 @@ function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: numb
         </Card>
       </div>
 
-      {e.universityStart != null && (
+      {(e.universityEnd != null || e.bizPctEnd != null || e.bizDegreesLatest != null) && (
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-base">University-Level Enrollment Context</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <div className="text-center">
-                <p className="text-xs text-muted-foreground">University Enrollment (Start)</p>
-                <p className="text-lg font-bold">{fmt(e.universityStart)}</p>
-              </div>
-              <div className="text-center">
-                <p className="text-xs text-muted-foreground">University Enrollment (End)</p>
+                <p className="text-xs text-muted-foreground">University Enrollment</p>
                 <p className="text-lg font-bold">{fmt(e.universityEnd)}</p>
-                {pctChange(e.universityStart, e.universityEnd) && (
-                  <p className={`text-xs font-semibold ${pctChange(e.universityStart, e.universityEnd)!.color}`}>
-                    {pctChange(e.universityStart, e.universityEnd)!.text}
-                  </p>
-                )}
               </div>
               <div className="text-center">
                 <p className="text-xs text-muted-foreground">Business % of University</p>
-                <p className="text-lg font-bold">{e.bizPctEnd != null ? `${(e.bizPctEnd * 100).toFixed(1)}%` : "—"}</p>
-                {e.bizPctStart != null && e.bizPctEnd != null && (
-                  <p className="text-xs text-muted-foreground">was {(e.bizPctStart * 100).toFixed(1)}%</p>
-                )}
+                <p className="text-lg font-bold">{e.bizPctEnd != null ? `${(e.bizPctEnd * 100).toFixed(1)}%` : "N/A"}</p>
               </div>
               <div className="text-center">
                 <p className="text-xs text-muted-foreground">Business Degrees (Latest)</p>

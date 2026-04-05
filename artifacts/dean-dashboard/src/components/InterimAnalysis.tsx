@@ -74,18 +74,12 @@ export default function InterimAnalysis() {
       return valid.reduce((a, b) => a + (b.tenureLength || 0), 0) / valid.length;
     }
 
-    function bizEnrollGrowth(records: Dean[]): number | null {
-      const valid = records.filter(d => d.estBizEnrollmentStart && d.estBizEnrollmentEnd && d.tenureLength && d.tenureLength > 0 && d.estBizEnrollmentStart > 0);
-      if (!valid.length) return null;
-      const growths = valid.map(d => ((d.estBizEnrollmentEnd! - d.estBizEnrollmentStart!) / d.estBizEnrollmentStart! * 100) / d.tenureLength!);
-      return growths.reduce((a, b) => a + b, 0) / growths.length;
+    function bizEnrollGrowth(_records: Dean[]): number | null {
+      return null;
     }
 
-    function totalEnrollGrowth(records: Dean[]): number | null {
-      const valid = records.filter(d => d.enrollmentStart && d.enrollmentEnd && d.tenureLength && d.tenureLength > 0 && d.enrollmentStart > 0);
-      if (!valid.length) return null;
-      const growths = valid.map(d => ((d.enrollmentEnd! - d.enrollmentStart!) / d.enrollmentStart! * 100) / d.tenureLength!);
-      return growths.reduce((a, b) => a + b, 0) / growths.length;
+    function totalEnrollGrowth(_records: Dean[]): number | null {
+      return null;
     }
 
     const involuntaryData = [

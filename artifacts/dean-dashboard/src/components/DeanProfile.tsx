@@ -76,24 +76,6 @@ export default function DeanProfile({ dean, onClose }: Props) {
           <span>{dean.involuntary ? "Yes" : "No"}</span>
           <span className="text-muted-foreground font-medium">Had Prior Link</span>
           <span>{dean.hadPriorConnection ? "Yes" : "No"}</span>
-          {dean.avgAnnualGifts && (
-            <>
-              <span className="text-muted-foreground font-medium">Avg Gifts/yr</span>
-              <span>{formatMoney(dean.avgAnnualGifts)}</span>
-            </>
-          )}
-          {dean.totalGifts && (
-            <>
-              <span className="text-muted-foreground font-medium">Total Gifts</span>
-              <span>{formatMoney(dean.totalGifts)}</span>
-            </>
-          )}
-          {dean.avgEndowment && (
-            <>
-              <span className="text-muted-foreground font-medium">Avg Endowment</span>
-              <span>{formatMoney(dean.avgEndowment)}</span>
-            </>
-          )}
         </div>
       </div>
 
