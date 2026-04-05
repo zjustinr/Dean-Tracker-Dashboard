@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 import {
   ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell,
-  BarChart, Bar, Legend,
+  BarChart, Bar, Legend, PieChart, Pie,
 } from "recharts";
 import type { Dean, CategoricalField, NumericField } from "@/data/types";
 import { CATEGORICAL_LABELS, NUMERIC_LABELS, CHART_COLORS, NEXT_ROLE_LABELS, ORIGIN_LABELS } from "@/data/types";
@@ -34,7 +34,7 @@ export default function CrossSchoolAnalysis() {
       </div>
       <Tabs defaultValue="crosstab">
         <TabsList>
-          <TabsTrigger value="crosstab">Cross-Tabulation</TabsTrigger>
+          <TabsTrigger value="crosstab">Pivot Table</TabsTrigger>
           <TabsTrigger value="grouped">Grouped Bar Chart</TabsTrigger>
           <TabsTrigger value="scatter">Scatter Plot</TabsTrigger>
         </TabsList>
@@ -138,60 +138,215 @@ function ScatterView({ data }: { data: Dean[] }) {
 function CrosstabView({ data }: { data: Dean[] }) {
   const [rowField, setRowField] = useState<CategoricalField>("gender");
   const [colField, setColField] = useState<CategoricalField>("origin");
+  const [filterField, setFilterField] = useState<CategoricalField | "__none__">("__none__");
+  const [filterValue, setFilterValue] = useState<string>("__all__");
 
-  const cross = useMemo(() => computeCrosstab(data, rowField, colField), [data, rowField, colField]);
+  const filterOptions = useMemo(() => {
+    if (filterField === "__none__") return [];
+    return [...new Set(data.map(d => String(d[filterField] ?? "Unknown")))].sort();
+  }, [data, filterField]);
+
+  const filteredData = useMemo(() => {
+    if (filterField === "__none__" || filterValue === "__all__") return data;
+    return data.filter(d => String(d[filterField] ?? "Unknown") === filterValue);
+  }, [data, filterField, filterValue]);
+
+  const cross = useMemo(() => computeCrosstab(filteredData, rowField, colField), [filteredData, rowField, colField]);
+
+  const stackedBarData = useMemo(() => {
+    return cross.rows.map((row, ri) => {
+      const entry: Record<string, string | number> = { name: prettyLabel(rowField, row) };
+      cross.cols.forEach((col, ci) => {
+        entry[prettyLabel(colField, col)] = cross.matrix[ri][ci];
+      });
+      return entry;
+    });
+  }, [cross, rowField, colField]);
+
+  const colPieData = useMemo(() => {
+    return cross.cols.map((col, ci) => ({
+      name: prettyLabel(colField, col),
+      value: cross.totals.col[ci],
+    })).filter(d => d.value > 0);
+  }, [cross, colField]);
+
+  const rowPieData = useMemo(() => {
+    return cross.rows.map((row, ri) => ({
+      name: prettyLabel(rowField, row),
+      value: cross.totals.row[ri],
+    })).filter(d => d.value > 0);
+  }, [cross, rowField]);
+
+  const prettyColLabels = useMemo(() => cross.cols.map(c => prettyLabel(colField, c)), [cross.cols, colField]);
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg">Cross-Tabulation</CardTitle>
-        <p className="text-sm text-muted-foreground">Compare two categorical variables across all deans</p>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-          <FieldSelect label="Row Variable" value={rowField} onChange={(v) => setRowField(v as CategoricalField)} options={catFields} />
-          <FieldSelect label="Column Variable" value={colField} onChange={(v) => setColField(v as CategoricalField)} options={catFields} />
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="text-left p-2 font-medium text-muted-foreground">{CATEGORICAL_LABELS[rowField]} \ {CATEGORICAL_LABELS[colField]}</th>
-                {cross.cols.map((c) => (
-                  <th key={c} className="text-center p-2 font-medium text-muted-foreground text-xs">{prettyLabel(colField, c)}</th>
-                ))}
-                <th className="text-center p-2 font-semibold text-xs">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cross.rows.map((row, ri) => (
-                <tr key={row} className="border-b border-border/50 hover:bg-muted/30">
-                  <td className="p-2 font-medium text-sm">{prettyLabel(rowField, row)}</td>
-                  {cross.matrix[ri].map((val, ci) => (
-                    <td key={ci} className="text-center p-2">
-                      <span className="text-sm">{val}</span>
-                      {cross.totals.row[ri] > 0 && (
-                        <span className="text-xs text-muted-foreground ml-1">
-                          ({Math.round((val / cross.totals.row[ri]) * 100)}%)
-                        </span>
-                      )}
-                    </td>
+    <div className="space-y-4">
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg">Pivot Table</CardTitle>
+          <p className="text-sm text-muted-foreground">Choose row and column variables, then optionally filter by a third dimension</p>
+        </CardHeader>
+        <CardContent>
+          <div className="bg-muted/40 border border-border rounded-lg p-4 mb-6">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Pivot Configuration</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <FieldSelect label="Rows" value={rowField} onChange={(v) => setRowField(v as CategoricalField)} options={catFields} />
+              <FieldSelect label="Columns" value={colField} onChange={(v) => setColField(v as CategoricalField)} options={catFields} />
+              <FieldSelect
+                label="Filter By"
+                value={filterField}
+                onChange={(v) => { setFilterField(v as CategoricalField | "__none__"); setFilterValue("__all__"); }}
+                options={[["__none__", "(No Filter)"] as [string, string], ...catFields]}
+              />
+              {filterField !== "__none__" && (
+                <FieldSelect
+                  label={`Filter: ${CATEGORICAL_LABELS[filterField]}`}
+                  value={filterValue}
+                  onChange={setFilterValue}
+                  options={[["__all__", "All"] as [string, string], ...filterOptions.map(v => [v, prettyLabel(filterField, v)] as [string, string])]}
+                />
+              )}
+            </div>
+            {filterField !== "__none__" && filterValue !== "__all__" && (
+              <div className="mt-3 flex items-center gap-2">
+                <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded font-medium">
+                  Filtered: {CATEGORICAL_LABELS[filterField]} = {prettyLabel(filterField, filterValue)}
+                </span>
+                <span className="text-xs text-muted-foreground">({filteredData.length} of {data.length} records)</span>
+              </div>
+            )}
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b-2 border-border bg-muted/30">
+                  <th className="text-left p-2 font-semibold text-muted-foreground">{CATEGORICAL_LABELS[rowField]} \ {CATEGORICAL_LABELS[colField]}</th>
+                  {cross.cols.map((c) => (
+                    <th key={c} className="text-center p-2 font-semibold text-muted-foreground text-xs">{prettyLabel(colField, c)}</th>
                   ))}
-                  <td className="text-center p-2 font-semibold">{cross.totals.row[ri]}</td>
+                  <th className="text-center p-2 font-bold text-xs bg-muted/50">Total</th>
                 </tr>
-              ))}
-              <tr className="border-t-2 border-border font-semibold">
-                <td className="p-2">Total</td>
-                {cross.totals.col.map((v, ci) => (
-                  <td key={ci} className="text-center p-2">{v}</td>
+              </thead>
+              <tbody>
+                {cross.rows.map((row, ri) => (
+                  <tr key={row} className="border-b border-border/50 hover:bg-muted/30">
+                    <td className="p-2 font-medium text-sm">{prettyLabel(rowField, row)}</td>
+                    {cross.matrix[ri].map((val, ci) => {
+                      const pct = cross.totals.row[ri] > 0 ? Math.round((val / cross.totals.row[ri]) * 100) : 0;
+                      const maxInRow = Math.max(...cross.matrix[ri]);
+                      const intensity = maxInRow > 0 ? val / maxInRow : 0;
+                      return (
+                        <td key={ci} className="text-center p-2 relative">
+                          <div
+                            className="absolute inset-0 bg-primary/10 transition-opacity"
+                            style={{ opacity: intensity * 0.6 }}
+                          />
+                          <span className="relative text-sm font-medium">{val}</span>
+                          {cross.totals.row[ri] > 0 && (
+                            <span className="relative text-xs text-muted-foreground ml-1">
+                              ({pct}%)
+                            </span>
+                          )}
+                        </td>
+                      );
+                    })}
+                    <td className="text-center p-2 font-semibold bg-muted/30">{cross.totals.row[ri]}</td>
+                  </tr>
                 ))}
-                <td className="text-center p-2">{cross.totals.grand}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </CardContent>
-    </Card>
+                <tr className="border-t-2 border-border font-semibold bg-muted/30">
+                  <td className="p-2">Total</td>
+                  {cross.totals.col.map((v, ci) => (
+                    <td key={ci} className="text-center p-2">{v}</td>
+                  ))}
+                  <td className="text-center p-2 font-bold bg-muted/50">{cross.totals.grand}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm">Stacked Bar: {CATEGORICAL_LABELS[rowField]} by {CATEGORICAL_LABELS[colField]}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={Math.max(250, cross.rows.length * 40 + 80)}>
+              <BarChart data={stackedBarData} layout="vertical" margin={{ top: 5, right: 20, bottom: 5, left: 10 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis type="number" fontSize={11} />
+                <YAxis type="category" dataKey="name" width={120} fontSize={11} />
+                <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} />
+                <Legend wrapperStyle={{ fontSize: 11 }} />
+                {prettyColLabels.map((col, i) => (
+                  <Bar key={col} dataKey={col} stackId="a" fill={CHART_COLORS[i % CHART_COLORS.length]} />
+                ))}
+              </BarChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm">Grouped Bar: {CATEGORICAL_LABELS[rowField]} by {CATEGORICAL_LABELS[colField]}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={Math.max(250, cross.rows.length * 40 + 80)}>
+              <BarChart data={stackedBarData} margin={{ top: 5, right: 20, bottom: 40, left: 10 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis dataKey="name" fontSize={10} angle={-20} textAnchor="end" interval={0} />
+                <YAxis fontSize={11} />
+                <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} />
+                <Legend wrapperStyle={{ fontSize: 11 }} />
+                {prettyColLabels.map((col, i) => (
+                  <Bar key={col} dataKey={col} fill={CHART_COLORS[i % CHART_COLORS.length]} radius={[2, 2, 0, 0]} />
+                ))}
+              </BarChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm">Distribution: {CATEGORICAL_LABELS[rowField]}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={250}>
+              <PieChart>
+                <Pie data={rowPieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} innerRadius={40}>
+                  {rowPieData.map((_, i) => (
+                    <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} />
+                <Legend wrapperStyle={{ fontSize: 11 }} />
+              </PieChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm">Distribution: {CATEGORICAL_LABELS[colField]}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={250}>
+              <PieChart>
+                <Pie data={colPieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} innerRadius={40}>
+                  {colPieData.map((_, i) => (
+                    <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} />
+                <Legend wrapperStyle={{ fontSize: 11 }} />
+              </PieChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
   );
 }
 

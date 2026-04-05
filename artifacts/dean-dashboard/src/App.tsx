@@ -14,10 +14,10 @@ interface TabDef {
 const DEFAULT_TABS: TabDef[] = [
   { value: "explorer", label: "School Explorer" },
   { value: "trends", label: "Aggregate Trends" },
-  { value: "analysis", label: "Correlation Analysis" },
   { value: "interim", label: "Interim Analysis" },
   { value: "search", label: "Individual Search" },
   { value: "jobmarket", label: "Dean News & Market" },
+  { value: "analysis", label: "Build Your Own Analysis" },
 ];
 
 const TAB_CONTENT: Record<string, React.ReactNode> = {
