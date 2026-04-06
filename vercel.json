@@ -1,6 +1,11 @@
 {
-  "buildCommand": "",
-  "installCommand": "",
-  "outputDirectory": ".",
-  "framework": null
+  "buildCommand": "cd artifacts/dean-dashboard && npx vite build --config vite.config.ts",
+  "installCommand": "npm install && cd artifacts/dean-dashboard && npm install",
+  "outputDirectory": "artifacts/dean-dashboard/dist/public",
+  "framework": null,
+  "rewrites": [
+    { "source": "/api/pq-news", "destination": "/api/pq-news" },
+    { "source": "/api/pq-news/refresh", "destination": "/api/pq-news?refresh=true" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
