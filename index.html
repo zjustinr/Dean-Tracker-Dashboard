@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business School Dean Leadership Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #f8f9fa; }
+    .header { background: #1a1a2e; color: white; padding: 20px 40px; text-align: center; }
+    .header h1 { font-size: 1.8rem; margin-bottom: 4px; }
+    .header p { font-size: 0.95rem; color: #a0aec0; }
+    .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center; }
+    .card { background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 30px; }
+    .card h2 { font-size: 1.4rem; color: #2d3748; margin-bottom: 12px; }
+    .card p { color: #718096; line-height: 1.6; margin-bottom: 20px; }
+    .btn { display: inline-block; background: #3182ce; color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: background 0.2s; }
+    .btn:hover { background: #2c5282; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; text-align: left; }
+    .feature { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+    .feature h3 { font-size: 1rem; color: #2d3748; margin-bottom: 6px; }
+    .feature p { font-size: 0.9rem; color: #718096; margin-bottom: 0; }
+    .footer { text-align: center; padding: 30px; color: #a0aec0; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Business School Dean Leadership Dashboard</h1>
+    <p>Exploring leadership change at top business schools (1967-2026)</p>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h2>Interactive Dashboard</h2>
+      <p>Explore dean appointments, tenure timelines, diversity trends, and school-level analytics across top business schools.</p>
+      <a href="https://deansearch.replit.app" class="btn" target="_blank">Launch Dashboard</a>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <h3>School Explorer</h3>
+        <p>Browse dean histories by school with interactive tenure timelines and list/map views.</p>
+      </div>
+      <div class="feature">
+        <h3>Aggregate Trends</h3>
+        <p>Analyze leadership trends across eras, tiers, and demographics.</p>
+      </div>
+      <div class="feature">
+        <h3>Interim Analysis</h3>
+        <p>Track interim dean appointments and leadership transitions.</p>
+      </div>
+      <div class="feature">
+        <h3>Individual Search</h3>
+        <p>Search and explore individual dean profiles and career paths.</p>
+      </div>
+      <div class="feature">
+        <h3>Dean News & Market</h3>
+        <p>Stay updated with the latest dean-related news and market activity.</p>
+      </div>
+      <div class="feature">
+        <h3>Build Your Own Analysis</h3>
+        <p>Create custom cross-tabulations with pivot tables and dynamic charts.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>Source code on <a href="https://github.com/zjustinr/Dean-Tracker-Dashboard">GitHub</a> | Powered by <a href="https://deansearch.replit.app">Replit</a></p>
+  </div>
+</body>
+</html>
