@@ -1,6 +1,6 @@
 {
-  "buildCommand": "cd artifacts/dean-dashboard && npx vite build --config vite.config.ts",
-  "installCommand": "npm install && cd artifacts/dean-dashboard && npm install",
+  "installCommand": "pnpm install",
+  "buildCommand": "cd artifacts/dean-dashboard && pnpm exec vite build --config vite.config.ts",
   "outputDirectory": "artifacts/dean-dashboard/dist/public",
   "framework": null,
   "rewrites": [
