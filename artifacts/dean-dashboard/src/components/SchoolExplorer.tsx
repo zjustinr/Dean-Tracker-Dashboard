@@ -42,10 +42,12 @@ export default function SchoolExplorer() {
   return (
     <div className="space-y-6">
       <Tabs defaultValue="dropdown">
-        <TabsList>
-          <TabsTrigger value="dropdown">List View</TabsTrigger>
-          <TabsTrigger value="map">Map View</TabsTrigger>
-        </TabsList>
+        <div className="flex justify-center">
+          <TabsList>
+            <TabsTrigger value="dropdown">List View</TabsTrigger>
+            <TabsTrigger value="map">Map View</TabsTrigger>
+          </TabsList>
+        </div>
 
         <TabsContent value="dropdown" className="mt-4">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-end">
