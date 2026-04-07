@@ -145,6 +145,9 @@ function App() {
             ))}
           </div>
         </main>
+        <footer className="text-right pr-6 pb-4 pt-8">
+          <p className="text-xs text-muted-foreground/50">Feedback welcome, justin.ren@gmail.com. Copyright &copy; 2026</p>
+        </footer>
       </div>
     </div>
   );
