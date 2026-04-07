@@ -181,7 +181,7 @@ export default function InterimAnalysis() {
   return (
     <div className="space-y-6">
       <div className="bg-gradient-to-b from-[#1B2A4B] to-[#2C3E6B] rounded-2xl text-white p-8 text-center">
-        <h2 className="text-3xl font-extrabold tracking-tight">Try Before You Buy</h2>
+        <h2 className="text-3xl font-extrabold tracking-tight">Interim Dean Appointments</h2>
         <p className="text-blue-200 mt-1 text-sm italic">The Rise of Interim Leadership in U.S. Business Schools</p>
         <div className="mt-4 inline-block bg-white/10 rounded-lg px-6 py-2 text-sm font-semibold">
           {analysis.total} Dean Appointments &nbsp;|&nbsp; {analysis.schools} Top-100 Schools &nbsp;|&nbsp; 1967–2026
