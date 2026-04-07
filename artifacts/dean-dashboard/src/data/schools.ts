@@ -1,137 +1,221 @@
 export interface SchoolInfo {
-  rank: number;
-  fullName: string;
-  shortName: string;
-  type: string;
-  departments: number;
-  totalFaculty: number;
-  lat: number;
-  lng: number;
-  city: string;
-  state: string;
-}
-
-export const SCHOOL_INFO: SchoolInfo[] = [
-  { rank: 1, fullName: "University of Pennsylvania – Wharton School", shortName: "Wharton", type: "Private", departments: 10, totalFaculty: 246, lat: 39.9522, lng: -75.1932, city: "Philadelphia", state: "PA" },
-  { rank: 2, fullName: "Harvard University – Harvard Business School", shortName: "Harvard HBS", type: "Private", departments: 10, totalFaculty: 209, lat: 42.3656, lng: -71.1228, city: "Boston", state: "MA" },
-  { rank: 3, fullName: "University of Chicago – Booth School of Business", shortName: "Chicago Booth", type: "Private", departments: 11, totalFaculty: 144, lat: 41.7886, lng: -87.5987, city: "Chicago", state: "IL" },
-  { rank: 4, fullName: "Northwestern University – Kellogg School of Management", shortName: "Kellogg", type: "Private", departments: 7, totalFaculty: 141, lat: 42.0565, lng: -87.6753, city: "Evanston", state: "IL" },
-  { rank: 5, fullName: "MIT – Sloan School of Management", shortName: "MIT Sloan", type: "Private", departments: 11, totalFaculty: 129, lat: 42.3601, lng: -71.0942, city: "Cambridge", state: "MA" },
-  { rank: 6, fullName: "Stanford University – Graduate School of Business", shortName: "Stanford GSB", type: "Private", departments: 7, totalFaculty: 122, lat: 37.4275, lng: -122.1697, city: "Stanford", state: "CA" },
-  { rank: 7, fullName: "Columbia University – Columbia Business School", shortName: "Columbia CBS", type: "Private", departments: 6, totalFaculty: 123, lat: 40.8075, lng: -73.9626, city: "New York", state: "NY" },
-  { rank: 8, fullName: "University of Michigan – Ross School of Business", shortName: "Michigan Ross", type: "Public", departments: 7, totalFaculty: 149, lat: 42.2732, lng: -83.7384, city: "Ann Arbor", state: "MI" },
-  { rank: 9, fullName: "UC Berkeley – Haas School of Business", shortName: "Berkeley Haas", type: "Public", departments: 7, totalFaculty: 90, lat: 37.8719, lng: -122.2585, city: "Berkeley", state: "CA" },
-  { rank: 10, fullName: "Yale University – Yale School of Management", shortName: "Yale SOM", type: "Private", departments: 8, totalFaculty: 85, lat: 41.3115, lng: -72.9260, city: "New Haven", state: "CT" },
-  { rank: 11, fullName: "NYU – Stern School of Business", shortName: "NYU Stern", type: "Private", departments: 8, totalFaculty: 140, lat: 40.7295, lng: -73.9965, city: "New York", state: "NY" },
-  { rank: 12, fullName: "Duke University – Fuqua School of Business", shortName: "Duke Fuqua", type: "Private", departments: 8, totalFaculty: 91, lat: 36.0014, lng: -78.9382, city: "Durham", state: "NC" },
-  { rank: 13, fullName: "University of Virginia – Darden School of Business", shortName: "UVA Darden", type: "Public", departments: 5, totalFaculty: 70, lat: 38.0336, lng: -78.5080, city: "Charlottesville", state: "VA" },
-  { rank: 14, fullName: "UCLA – Anderson School of Management", shortName: "UCLA Anderson", type: "Public", departments: 7, totalFaculty: 105, lat: 34.0736, lng: -118.4420, city: "Los Angeles", state: "CA" },
-  { rank: 15, fullName: "Cornell University – Johnson Graduate School of Management", shortName: "Cornell Johnson", type: "Private", departments: 6, totalFaculty: 66, lat: 42.4440, lng: -76.4749, city: "Ithaca", state: "NY" },
-  { rank: 16, fullName: "Dartmouth College – Tuck School of Business", shortName: "Dartmouth Tuck", type: "Private", departments: 5, totalFaculty: 54, lat: 43.7044, lng: -72.2887, city: "Hanover", state: "NH" },
-  { rank: 17, fullName: "University of Southern California – Marshall School of Business", shortName: "USC Marshall", type: "Private", departments: 7, totalFaculty: 103, lat: 34.0195, lng: -118.2863, city: "Los Angeles", state: "CA" },
-  { rank: 18, fullName: "Carnegie Mellon University – Tepper School of Business", shortName: "CMU Tepper", type: "Private", departments: 6, totalFaculty: 97, lat: 40.4406, lng: -79.9959, city: "Pittsburgh", state: "PA" },
-  { rank: 19, fullName: "University of Texas at Austin – McCombs School of Business", shortName: "UT McCombs", type: "Public", departments: 7, totalFaculty: 164, lat: 30.2849, lng: -97.7341, city: "Austin", state: "TX" },
-  { rank: 20, fullName: "University of North Carolina – Kenan-Flagler Business School", shortName: "UNC KF", type: "Public", departments: 7, totalFaculty: 100, lat: 35.9049, lng: -79.0469, city: "Chapel Hill", state: "NC" },
-  { rank: 21, fullName: "Georgetown University – McDonough School of Business", shortName: "Georgetown McD", type: "Private", departments: 6, totalFaculty: 84, lat: 38.9076, lng: -77.0723, city: "Washington", state: "DC" },
-  { rank: 22, fullName: "University of Washington – Foster School of Business", shortName: "UW Foster", type: "Public", departments: 6, totalFaculty: 96, lat: 47.6553, lng: -122.3035, city: "Seattle", state: "WA" },
-  { rank: 23, fullName: "Emory University – Goizueta Business School", shortName: "Emory Goizueta", type: "Private", departments: 5, totalFaculty: 72, lat: 33.7927, lng: -84.3233, city: "Atlanta", state: "GA" },
-  { rank: 24, fullName: "Indiana University – Kelley School of Business", shortName: "Indiana Kelley", type: "Public", departments: 6, totalFaculty: 128, lat: 39.1682, lng: -86.5232, city: "Bloomington", state: "IN" },
-  { rank: 25, fullName: "Rice University – Jones Graduate School of Business", shortName: "Rice Jones", type: "Private", departments: 5, totalFaculty: 58, lat: 29.7174, lng: -95.4018, city: "Houston", state: "TX" },
-  { rank: 26, fullName: "Washington University in St. Louis – Olin Business School", shortName: "WashU Olin", type: "Private", departments: 6, totalFaculty: 76, lat: 38.6488, lng: -90.3108, city: "St. Louis", state: "MO" },
-  { rank: 27, fullName: "Vanderbilt University – Owen Graduate School of Management", shortName: "Vanderbilt Owen", type: "Private", departments: 4, totalFaculty: 57, lat: 36.1446, lng: -86.8032, city: "Nashville", state: "TN" },
-  { rank: 28, fullName: "Georgia Institute of Technology – Scheller College of Business", shortName: "Georgia Tech Scheller", type: "Public", departments: 5, totalFaculty: 88, lat: 33.7756, lng: -84.3963, city: "Atlanta", state: "GA" },
-  { rank: 29, fullName: "University of Minnesota – Carlson School of Management", shortName: "Minnesota Carlson", type: "Public", departments: 6, totalFaculty: 97, lat: 44.9740, lng: -93.2277, city: "Minneapolis", state: "MN" },
-  { rank: 30, fullName: "University of Notre Dame – Mendoza College of Business", shortName: "Notre Dame Mendoza", type: "Private", departments: 5, totalFaculty: 94, lat: 41.7030, lng: -86.2388, city: "Notre Dame", state: "IN" },
-  { rank: 31, fullName: "Ohio State University – Fisher College of Business", shortName: "Ohio State Fisher", type: "Public", departments: 6, totalFaculty: 117, lat: 40.0013, lng: -83.0156, city: "Columbus", state: "OH" },
-  { rank: 32, fullName: "University of Wisconsin–Madison – Wisconsin School of Business", shortName: "Wisconsin WSB", type: "Public", departments: 6, totalFaculty: 95, lat: 43.0731, lng: -89.4012, city: "Madison", state: "WI" },
-  { rank: 33, fullName: "Boston College – Carroll School of Management", shortName: "BC Carroll", type: "Private", departments: 5, totalFaculty: 94, lat: 42.3355, lng: -71.1685, city: "Chestnut Hill", state: "MA" },
-  { rank: 34, fullName: "Boston University – Questrom School of Business", shortName: "BU Questrom", type: "Private", departments: 6, totalFaculty: 92, lat: 42.3496, lng: -71.1003, city: "Boston", state: "MA" },
-  { rank: 35, fullName: "University of Florida – Warrington College of Business", shortName: "Florida Warrington", type: "Public", departments: 6, totalFaculty: 104, lat: 29.6516, lng: -82.3248, city: "Gainesville", state: "FL" },
-  { rank: 36, fullName: "Arizona State University – W. P. Carey School of Business", shortName: "ASU Carey", type: "Public", departments: 7, totalFaculty: 192, lat: 33.4484, lng: -111.9260, city: "Tempe", state: "AZ" },
-  { rank: 37, fullName: "University of Maryland – Robert H. Smith School of Business", shortName: "Maryland Smith", type: "Public", departments: 6, totalFaculty: 135, lat: 38.9869, lng: -76.9426, city: "College Park", state: "MD" },
-  { rank: 38, fullName: "Texas A&M University – Mays Business School", shortName: "Texas A&M Mays", type: "Public", departments: 5, totalFaculty: 127, lat: 30.6187, lng: -96.3365, city: "College Station", state: "TX" },
-  { rank: 39, fullName: "University of Georgia – Terry College of Business", shortName: "UGA Terry", type: "Public", departments: 6, totalFaculty: 102, lat: 33.9519, lng: -83.3763, city: "Athens", state: "GA" },
-  { rank: 40, fullName: "Penn State University – Smeal College of Business", shortName: "Penn State Smeal", type: "Public", departments: 7, totalFaculty: 118, lat: 40.7982, lng: -77.8599, city: "University Park", state: "PA" },
-  { rank: 41, fullName: "Michigan State University – Broad College of Business", shortName: "MSU Broad", type: "Public", departments: 5, totalFaculty: 109, lat: 42.7325, lng: -84.4822, city: "East Lansing", state: "MI" },
-  { rank: 42, fullName: "University of Illinois Urbana-Champaign – Gies College of Business", shortName: "Illinois Gies", type: "Public", departments: 5, totalFaculty: 115, lat: 40.1164, lng: -88.2434, city: "Champaign", state: "IL" },
-  { rank: 43, fullName: "Brigham Young University – Marriott School of Business", shortName: "BYU Marriott", type: "Private", departments: 6, totalFaculty: 116, lat: 40.2519, lng: -111.6493, city: "Provo", state: "UT" },
-  { rank: 44, fullName: "Northeastern University – D'Amore-McKim School of Business", shortName: "Northeastern DAmore-McKim", type: "Private", departments: 5, totalFaculty: 95, lat: 42.3398, lng: -71.0892, city: "Boston", state: "MA" },
-  { rank: 45, fullName: "University of Pittsburgh – Katz Graduate School of Business", shortName: "Pitt Katz", type: "Public", departments: 5, totalFaculty: 59, lat: 40.4406, lng: -79.9559, city: "Pittsburgh", state: "PA" },
-  { rank: 46, fullName: "University of Iowa – Tippie College of Business", shortName: "Iowa Tippie", type: "Public", departments: 5, totalFaculty: 76, lat: 41.6611, lng: -91.5302, city: "Iowa City", state: "IA" },
-  { rank: 47, fullName: "George Washington University – School of Business", shortName: "GW SoB", type: "Private", departments: 6, totalFaculty: 94, lat: 38.8997, lng: -77.0488, city: "Washington", state: "DC" },
-  { rank: 48, fullName: "Wake Forest University – School of Business", shortName: "Wake Forest SoB", type: "Private", departments: 4, totalFaculty: 50, lat: 36.1336, lng: -80.2773, city: "Winston-Salem", state: "NC" },
-  { rank: 49, fullName: "Temple University – Fox School of Business", shortName: "Temple Fox", type: "Private", departments: 9, totalFaculty: 79, lat: 39.9812, lng: -75.1553, city: "Philadelphia", state: "PA" },
-  { rank: 50, fullName: "University of Miami – Miami Herbert Business School", shortName: "Miami Herbert", type: "Private", departments: 8, totalFaculty: 61, lat: 25.7215, lng: -80.2784, city: "Coral Gables", state: "FL" },
-];
-
-export const SCHOOL_DEAN_MAP: Record<string, { university: string; school: string }> = {
-  "Wharton": { university: "University of Pennsylvania", school: "Wharton School" },
-  "Harvard HBS": { university: "Harvard University", school: "Harvard Business School" },
-  "Chicago Booth": { university: "University of Chicago", school: "Booth School of Business" },
-  "Kellogg": { university: "Northwestern University", school: "Kellogg School of Management" },
-  "MIT Sloan": { university: "MIT", school: "Sloan School of Management" },
-  "Stanford GSB": { university: "Stanford University", school: "Graduate School of Business" },
-  "Columbia CBS": { university: "Columbia University", school: "Columbia Business School" },
-  "Michigan Ross": { university: "University of Michigan", school: "Ross School of Business" },
-  "Berkeley Haas": { university: "University of California Berkeley", school: "Haas School of Business" },
-  "Yale SOM": { university: "Yale University", school: "School of Management" },
-  "NYU Stern": { university: "New York University", school: "Stern School of Business" },
-  "Duke Fuqua": { university: "Duke University", school: "Fuqua School of Business" },
-  "UVA Darden": { university: "University of Virginia", school: "Darden School of Business" },
-  "UCLA Anderson": { university: "UCLA", school: "Anderson School of Management" },
-  "Cornell Johnson": { university: "Cornell University", school: "Johnson School of Management" },
-  "Dartmouth Tuck": { university: "Dartmouth College", school: "Tuck School of Business" },
-  "USC Marshall": { university: "University of Southern California", school: "Marshall School of Business" },
-  "CMU Tepper": { university: "Carnegie Mellon University", school: "Tepper School of Business" },
-  "UT McCombs": { university: "University of Texas at Austin", school: "McCombs School of Business" },
-  "UNC KF": { university: "University of North Carolina", school: "Kenan-Flagler Business School" },
-  "Georgetown McD": { university: "Georgetown University", school: "McDonough School of Business" },
-  "UW Foster": { university: "University of Washington", school: "Foster School of Business" },
-  "Emory Goizueta": { university: "Emory University", school: "Goizueta Business School" },
-  "Indiana Kelley": { university: "Indiana University", school: "Kelley School of Business" },
-  "Rice Jones": { university: "Rice University", school: "Jones Graduate School of Business" },
-  "WashU Olin": { university: "Washington University in St. Louis", school: "Olin Business School" },
-  "Vanderbilt Owen": { university: "Vanderbilt University", school: "Owen Graduate School of Management" },
-  "Georgia Tech Scheller": { university: "Georgia Tech", school: "Scheller College of Business" },
-  "Minnesota Carlson": { university: "University of Minnesota", school: "Carlson School of Management" },
-  "Notre Dame Mendoza": { university: "University of Notre Dame", school: "Mendoza College of Business" },
-  "Ohio State Fisher": { university: "Ohio State University", school: "Fisher College of Business" },
-  "Wisconsin WSB": { university: "University of Wisconsin-Madison", school: "Wisconsin School of Business" },
-  "BC Carroll": { university: "Boston College", school: "Carroll School of Management" },
-  "BU Questrom": { university: "Boston University", school: "Questrom School of Business" },
-  "Florida Warrington": { university: "University of Florida", school: "Warrington College of Business" },
-  "ASU Carey": { university: "Arizona State University", school: "W.P. Carey School of Business" },
-  "Maryland Smith": { university: "University of Maryland", school: "Robert H. Smith School of Business" },
-  "Texas A&M Mays": { university: "Texas A&M University", school: "Mays Business School" },
-  "UGA Terry": { university: "University of Georgia", school: "Terry College of Business" },
-  "Penn State Smeal": { university: "Penn State University", school: "Smeal College of Business" },
-  "MSU Broad": { university: "Michigan State University", school: "Broad College of Business" },
-  "Illinois Gies": { university: "University of Illinois Urbana-Champaign", school: "College of Business" },
-  "BYU Marriott": { university: "Brigham Young University", school: "Marriott School of Business" },
-  "Northeastern DAmore-McKim": { university: "Northeastern University", school: "D'Amore-McKim School of Business" },
-  "Pitt Katz": { university: "University of Pittsburgh", school: "Katz Graduate School of Business" },
-  "Iowa Tippie": { university: "University of Iowa", school: "Ivy College of Business" },
-  "GW SoB": { university: "George Washington University", school: "School of Business" },
-  "Wake Forest SoB": { university: "Wake Forest University", school: "School of Business" },
-  "Temple Fox": { university: "Temple University", school: "School of Business (formerly Howe School of Technology Management)" },
-  "Miami Herbert": { university: "University of Miami", school: "School of Business Administration" },
-};
-
-export const SCHOOL_NAME_MAP: Record<string, string> = Object.fromEntries(
-  Object.entries(SCHOOL_DEAN_MAP).map(([k, v]) => [k, v.school])
-);
-
-export function getDeanSchoolName(shortName: string): string {
-  return SCHOOL_NAME_MAP[shortName] || shortName;
-}
-
-export function findSchoolInfo(schoolName: string): SchoolInfo | undefined {
-  for (const s of SCHOOL_INFO) {
-    if (SCHOOL_NAME_MAP[s.shortName] === schoolName) return s;
+    rank: number;
+    fullName: string;
+    shortName: string;
+    type: string;
+    totalFaculty: number;
+    lat: number;
+    lng: number;
+    city: string;
+    state: string;
   }
-  const lower = schoolName.toLowerCase();
-  return SCHOOL_INFO.find(s =>
-    lower.includes(s.shortName.toLowerCase()) ||
-    s.fullName.toLowerCase().includes(lower)
+
+  export const SCHOOL_INFO: SchoolInfo[] = [
+    { rank: 1, fullName: "University of Pennsylvania – Wharton School", shortName: "Wharton", type: "Public", totalFaculty: 50, lat: 39.9522, lng: -75.1932, city: "Philadelphia", state: "PA" },
+  { rank: 2, fullName: "Stanford University – Graduate School of Business", shortName: "Stanford GSB", type: "Private", totalFaculty: 1085, lat: 37.4275, lng: -122.1697, city: "Stanford", state: "CA" },
+  { rank: 2, fullName: "Northwestern University – Kellogg School of Management", shortName: "Kellogg", type: "Private", totalFaculty: 50, lat: 42.0565, lng: -87.6753, city: "Evanston", state: "IL" },
+  { rank: 4, fullName: "University of Chicago – Booth School of Business", shortName: "Chicago Booth", type: "Public", totalFaculty: 50, lat: 41.7886, lng: -87.5987, city: "Chicago", state: "IL" },
+  { rank: 5, fullName: "MIT – Sloan School of Management", shortName: "MIT Sloan", type: "Private", totalFaculty: 50, lat: 42.3601, lng: -71.0942, city: "Cambridge", state: "MA" },
+  { rank: 6, fullName: "Harvard University – Harvard Business School", shortName: "Harvard HBS", type: "Private", totalFaculty: 50, lat: 42.3656, lng: -71.1228, city: "Boston", state: "MA" },
+  { rank: 6, fullName: "New York University – Stern School of Business", shortName: "NYU Stern", type: "Private", totalFaculty: 5951, lat: 40.7295, lng: -73.9965, city: "New York", state: "NY" },
+  { rank: 6, fullName: "Dartmouth College – Tuck School of Business", shortName: "Dartmouth Tuck", type: "Private", totalFaculty: 563, lat: 43.7044, lng: -72.2887, city: "Hanover", state: "NH" },
+  { rank: 9, fullName: "Columbia University – Columbia Business School", shortName: "Columbia CBS", type: "Private", totalFaculty: 2258, lat: 40.8075, lng: -73.9626, city: "New York", state: "NY" },
+  { rank: 10, fullName: "Yale University – School of Management", shortName: "Yale SOM", type: "Private", totalFaculty: 1004, lat: 41.3115, lng: -72.926, city: "New Haven", state: "CT" },
+  { rank: 11, fullName: "University of Virginia – Darden School of Business", shortName: "UVA Darden", type: "Public", totalFaculty: 1159, lat: 38.0336, lng: -78.508, city: "Charlottesville", state: "VA" },
+  { rank: 11, fullName: "University of California Berkeley – Haas School of Business", shortName: "Berkeley Haas", type: "Public", totalFaculty: 50, lat: 37.8719, lng: -122.2585, city: "Berkeley", state: "CA" },
+  { rank: 13, fullName: "Duke University – Fuqua School of Business", shortName: "Duke Fuqua", type: "Private", totalFaculty: 50, lat: 36.0014, lng: -78.9382, city: "Durham", state: "NC" },
+  { rank: 13, fullName: "University of Michigan – Ross School of Business", shortName: "Michigan Ross", type: "Public", totalFaculty: 4293, lat: 42.2732, lng: -83.7384, city: "Ann Arbor", state: "MI" },
+  { rank: 15, fullName: "Cornell University – Johnson School of Management", shortName: "Cornell Johnson", type: "Private", totalFaculty: 4078, lat: 42.444, lng: -76.4749, city: "Ithaca", state: "NY" },
+  { rank: 16, fullName: "University of Texas at Austin – McCombs School of Business", shortName: "UT McCombs", type: "Public", totalFaculty: 50, lat: 30.2849, lng: -97.7341, city: "Austin", state: "TX" },
+  { rank: 17, fullName: "Emory University – Goizueta Business School", shortName: "Emory Goizueta", type: "Private", totalFaculty: 50, lat: 33.7925, lng: -84.3235, city: "Atlanta", state: "GA" },
+  { rank: 18, fullName: "UCLA – Anderson School of Management", shortName: "UCLA Anderson", type: "Private", totalFaculty: 50, lat: 34.0736, lng: -118.442, city: "Los Angeles", state: "CA" },
+  { rank: 18, fullName: "Vanderbilt University – Owen Graduate School of Management", shortName: "Vanderbilt Owen", type: "Private", totalFaculty: 616, lat: 36.1447, lng: -86.8027, city: "Nashville", state: "TN" },
+  { rank: 18, fullName: "Carnegie Mellon University – Tepper School of Business", shortName: "CMU Tepper", type: "Private", totalFaculty: 50, lat: 40.4433, lng: -79.9436, city: "Pittsburgh", state: "PA" },
+  { rank: 21, fullName: "Georgia Tech – Scheller College of Business", shortName: "GA Tech Scheller", type: "Public", totalFaculty: 2138, lat: 33.7756, lng: -84.3963, city: "Atlanta", state: "GA" },
+  { rank: 22, fullName: "University of Washington – Foster School of Business", shortName: "UW Foster", type: "Public", totalFaculty: 3292, lat: 47.6553, lng: -122.3035, city: "Seattle", state: "WA" },
+  { rank: 22, fullName: "Indiana University – Kelley School of Business", shortName: "Indiana Kelley", type: "Private", totalFaculty: 14263, lat: 39.1653, lng: -86.5264, city: "Bloomington", state: "IN" },
+  { rank: 24, fullName: "Ohio State University – Fisher College of Business", shortName: "Ohio State Fisher", type: "Public", totalFaculty: 10091, lat: 40.0067, lng: -83.0305, city: "Columbus", state: "OH" },
+  { rank: 24, fullName: "University of Southern California – Marshall School of Business", shortName: "USC Marshall", type: "Public", totalFaculty: 7190, lat: 34.0224, lng: -118.2851, city: "Los Angeles", state: "CA" },
+  { rank: 24, fullName: "Georgetown University – McDonough School of Business", shortName: "Georgetown McD", type: "Private", totalFaculty: 2638, lat: 38.9076, lng: -77.0723, city: "Washington", state: "DC" },
+  { rank: 24, fullName: "Washington University St. Louis – Olin Business School", shortName: "WashU Olin", type: "Private", totalFaculty: 2983, lat: 38.6488, lng: -90.3108, city: "St. Louis", state: "MO" },
+  { rank: 28, fullName: "University of North Carolina – Kenan-Flagler Business School", shortName: "UNC KF", type: "Public", totalFaculty: 2820, lat: 35.9049, lng: -79.0469, city: "Chapel Hill", state: "NC" },
+  { rank: 29, fullName: "Rice University – Jones Graduate School of Business", shortName: "Rice Jones", type: "Private", totalFaculty: 716, lat: 29.7174, lng: -95.4018, city: "Houston", state: "TX" },
+  { rank: 30, fullName: "University of Georgia – Terry College of Business", shortName: "UGA Terry", type: "Public", totalFaculty: 10502, lat: 33.948, lng: -83.3773, city: "Athens", state: "GA" },
+  { rank: 32, fullName: "University of Notre Dame – Mendoza College of Business", shortName: "Notre Dame Mendoza", type: "Public", totalFaculty: 2986, lat: 41.7002, lng: -86.2379, city: "Notre Dame", state: "IN" },
+  { rank: 32, fullName: "University of Rochester – Simon Business School", shortName: "Rochester Simon", type: "Public", totalFaculty: 1901, lat: 43.1289, lng: -77.6289, city: "Rochester", state: "NY" },
+  { rank: 34, fullName: "Southern Methodist University – Cox School of Business", shortName: "SMU Cox", type: "Private", totalFaculty: 2749, lat: 32.8412, lng: -96.7844, city: "Dallas", state: "TX" },
+  { rank: 35, fullName: "Michigan State University – Broad College of Business", shortName: "MSU Broad", type: "Public", totalFaculty: 5023, lat: 42.7018, lng: -84.4822, city: "East Lansing", state: "MI" },
+  { rank: 35, fullName: "University of Minnesota – Carlson School of Management", shortName: "Minnesota Carlson", type: "Public", totalFaculty: 4357, lat: 44.974, lng: -93.2277, city: "Minneapolis", state: "MN" },
+  { rank: 35, fullName: "Arizona State University – W.P. Carey School of Business", shortName: "ASU Carey", type: "Public", totalFaculty: 19692, lat: 33.4242, lng: -111.9281, city: "Tempe", state: "AZ" },
+  { rank: 38, fullName: "Brigham Young University – Marriott School of Business", shortName: "BYU Marriott", type: "Private", totalFaculty: 5300, lat: 40.2338, lng: -111.6585, city: "Provo", state: "UT" },
+  { rank: 38, fullName: "University of Florida – Warrington College of Business", shortName: "Florida Warrington", type: "Public", totalFaculty: 7100, lat: 29.6436, lng: -82.3549, city: "Gainesville", state: "FL" },
+  { rank: 40, fullName: "University of Utah – David Eccles School of Business", shortName: "Utah Eccles", type: "Public", totalFaculty: 7153, lat: 40.7649, lng: -111.8421, city: "Salt Lake City", state: "UT" },
+  { rank: 40, fullName: "University of Wisconsin-Madison – Wisconsin School of Business", shortName: "Wisconsin WSB", type: "Public", totalFaculty: 3700, lat: 43.0766, lng: -89.4125, city: "Madison", state: "WI" },
+  { rank: 42, fullName: "Iowa State University – Ivy College of Business", shortName: "ISU Ivy", type: "Public", totalFaculty: 5225, lat: 42.0267, lng: -93.6465, city: "Ames", state: "IA" },
+  { rank: 43, fullName: "Texas Christian University – M.J. Neeley School of Business", shortName: "TCU Neeley", type: "Private", totalFaculty: 3846, lat: 32.7098, lng: -97.3632, city: "Fort Worth", state: "TX" },
+  { rank: 43, fullName: "Texas A&M University – Mays Business School", shortName: "TAMU Mays", type: "Public", totalFaculty: 1373, lat: 30.6187, lng: -96.3365, city: "College Station", state: "TX" },
+  { rank: 43, fullName: "University of California Irvine – Paul Merage School of Business", shortName: "UCI Merage", type: "Public", totalFaculty: 2199, lat: 33.6405, lng: -117.8443, city: "Irvine", state: "CA" },
+  { rank: 46, fullName: "Boston College – Carroll School of Management", shortName: "BC Carroll", type: "Private", totalFaculty: 3198, lat: 42.3355, lng: -71.1685, city: "Chestnut Hill", state: "MA" },
+  { rank: 46, fullName: "University of Pittsburgh – Katz Graduate School of Business", shortName: "Pitt Katz", type: "Public", totalFaculty: 2834, lat: 40.4444, lng: -79.9608, city: "Pittsburgh", state: "PA" },
+  { rank: 46, fullName: "Boston University – Questrom School of Business", shortName: "BU Questrom", type: "Private", totalFaculty: 50, lat: 42.3505, lng: -71.1054, city: "Boston", state: "MA" },
+  { rank: 49, fullName: "University of Tennessee Knoxville – Haslam College of Business", shortName: "UTK Haslam", type: "Public", totalFaculty: 4427, lat: 35.9544, lng: -83.9295, city: "Knoxville", state: "TN" },
+  { rank: 50, fullName: "University of Arkansas – Sam M. Walton College of Business", shortName: "Arkansas Walton", type: "Public", totalFaculty: 9841, lat: 36.0679, lng: -94.1738, city: "Fayetteville", state: "AR" },
+  { rank: 51, fullName: "University of Texas at Dallas – Naveen Jindal School of Management", shortName: "UTD Jindal", type: "Public", totalFaculty: 10270, lat: 32.9886, lng: -96.7501, city: "Richardson", state: "TX" },
+  { rank: 54, fullName: "Tulane University – A.B. Freeman School of Business", shortName: "Tulane Freeman", type: "Private", totalFaculty: 3122, lat: 29.9401, lng: -90.1206, city: "New Orleans", state: "LA" },
+  { rank: 54, fullName: "University of Alabama – Culverhouse College of Business", shortName: "Alabama Culverhouse", type: "Public", totalFaculty: 8814, lat: 33.214, lng: -87.5391, city: "Tuscaloosa", state: "AL" },
+  { rank: 54, fullName: "Baylor University – Hankamer School of Business", shortName: "Baylor Hankamer", type: "Private", totalFaculty: 4513, lat: 31.5489, lng: -97.1131, city: "Waco", state: "TX" },
+  { rank: 54, fullName: "Syracuse University – Whitman School of Management", shortName: "Syracuse Whitman", type: "Private", totalFaculty: 2410, lat: 43.0392, lng: -76.1351, city: "Syracuse", state: "NY" },
+  { rank: 55, fullName: "Purdue University – Krannert School of Management / Daniels School of Business", shortName: "Purdue Krannert", type: "Public", totalFaculty: 4524, lat: 40.4237, lng: -86.9212, city: "West Lafayette", state: "IN" },
+  { rank: 55, fullName: "University of Maryland – Robert H. Smith School of Business", shortName: "Maryland Smith", type: "Public", totalFaculty: 5018, lat: 38.9869, lng: -76.9426, city: "College Park", state: "MD" },
+  { rank: 55, fullName: "Penn State University – Smeal College of Business", shortName: "Penn State Smeal", type: "Public", totalFaculty: 7236, lat: 40.7982, lng: -77.8599, city: "University Park", state: "PA" },
+  { rank: 58, fullName: "American University – Kogod School of Business", shortName: "AU Kogod", type: "Private", totalFaculty: 1631, lat: 38.9377, lng: -77.0876, city: "Washington", state: "DC" },
+  { rank: 58, fullName: "Oklahoma State University – Spears School of Business", shortName: "OkSt Spears", type: "Public", totalFaculty: 6272, lat: 36.1257, lng: -97.0713, city: "Stillwater", state: "OK" },
+  { rank: 60, fullName: "Virginia Tech – Pamplin College of Business", shortName: "VT Pamplin", type: "Public", totalFaculty: 50, lat: 37.2296, lng: -80.4139, city: "Blacksburg", state: "VA" },
+  { rank: 61, fullName: "University of Kentucky – Gatton College of Business and Economics", shortName: "UK Gatton", type: "Public", totalFaculty: 3886, lat: 38.0317, lng: -84.504, city: "Lexington", state: "KY" },
+  { rank: 61, fullName: "College of William & Mary – Raymond A. Mason School of Business", shortName: "W&M Mason", type: "Private", totalFaculty: 1614, lat: 37.271, lng: -76.7075, city: "Williamsburg", state: "VA" },
+  { rank: 61, fullName: "George Washington University – School of Business", shortName: "GW SoB", type: "Private", totalFaculty: 3186, lat: 38.8997, lng: -77.0488, city: "Washington", state: "DC" },
+  { rank: 61, fullName: "CUNY Baruch College – Zicklin School of Business", shortName: "Baruch Zicklin", type: "Public", totalFaculty: 14881, lat: 40.7405, lng: -73.9834, city: "New York", state: "NY" },
+  { rank: 65, fullName: "University of California Davis – Graduate School of Management", shortName: "UC Davis GSM", type: "Public", totalFaculty: 527, lat: 38.5382, lng: -121.7617, city: "Davis", state: "CA" },
+  { rank: 65, fullName: "University of Missouri – Trulaske College of Business", shortName: "Mizzou Trulaske", type: "Public", totalFaculty: 5300, lat: 38.9404, lng: -92.3277, city: "Columbia", state: "MO" },
+  { rank: 66, fullName: "Chapman University – Argyros School of Business and Economics", shortName: "Chapman Argyros", type: "Private", totalFaculty: 50, lat: 33.794, lng: -117.8519, city: "Orange", state: "CA" },
+  { rank: 66, fullName: "University of Arizona – Eller College of Management", shortName: "Arizona Eller", type: "Public", totalFaculty: 8437, lat: 32.2319, lng: -110.9501, city: "Tucson", state: "AZ" },
+  { rank: 68, fullName: "Northeastern University – D'Amore-McKim School of Business", shortName: "NEU DAmore-McKim", type: "Private", totalFaculty: 50, lat: 42.3398, lng: -71.0892, city: "Boston", state: "MA" },
+  { rank: 68, fullName: "University of California San Diego – Rady School of Management", shortName: "UCSD Rady", type: "Public", totalFaculty: 621, lat: 32.8801, lng: -117.234, city: "La Jolla", state: "CA" },
+  { rank: 68, fullName: "Stevens Institute of Technology – School of Business (formerly Howe School of Technology Management)", shortName: "Stevens SoB", type: "Private", totalFaculty: 1938, lat: 40.7453, lng: -74.0236, city: "Hoboken", state: "NJ" },
+  { rank: 70, fullName: "Miami University – Farmer School of Business", shortName: "Miami OH Farmer", type: "Private", totalFaculty: 4483, lat: 39.5098, lng: -84.7326, city: "Oxford", state: "OH" },
+  { rank: 71, fullName: "University of South Carolina – Darla Moore School of Business", shortName: "USC Moore", type: "Public", totalFaculty: 1124, lat: 33.994, lng: -81.0274, city: "Columbia", state: "SC" },
+  { rank: 72, fullName: "University of Kansas – School of Business", shortName: "Kansas SoB", type: "Public", totalFaculty: 4404, lat: 38.9543, lng: -95.2558, city: "Lawrence", state: "KS" },
+  { rank: 73, fullName: "University of Cincinnati – Carl H. Lindner College of Business", shortName: "Cincinnati Lindner", type: "Public", totalFaculty: 5315, lat: 39.1329, lng: -84.515, city: "Cincinnati", state: "OH" },
+  { rank: 73, fullName: "Auburn University – Harbert College of Business", shortName: "Auburn Harbert", type: "Public", totalFaculty: 6907, lat: 32.601, lng: -85.4876, city: "Auburn", state: "AL" },
+  { rank: 76, fullName: "University of Massachusetts Amherst – Isenberg School of Management", shortName: "UMass Isenberg", type: "Public", totalFaculty: 5148, lat: 42.3868, lng: -72.5301, city: "Amherst", state: "MA" },
+  { rank: 77, fullName: "North Carolina A&T State University – Willie A. Deese College of Business and Economics", shortName: "NCA&T Deese", type: "Public", totalFaculty: 50, lat: 36.0726, lng: -79.7733, city: "Greensboro", state: "NC" },
+  { rank: 79, fullName: "University of Colorado Boulder – Leeds School of Business", shortName: "CU Leeds", type: "Public", totalFaculty: 4810, lat: 40.0076, lng: -105.2659, city: "Boulder", state: "CO" },
+  { rank: 79, fullName: "University of Oklahoma – Price College of Business", shortName: "OU Price", type: "Public", totalFaculty: 6493, lat: 35.2058, lng: -97.4457, city: "Norman", state: "OK" },
+  { rank: 79, fullName: "University at Buffalo – School of Management", shortName: "UB SoM", type: "Private", totalFaculty: 4045, lat: 43.0008, lng: -78.789, city: "Buffalo", state: "NY" },
+  { rank: 82, fullName: "University of Mississippi – School of Business Administration", shortName: "Ole Miss SoB", type: "Public", totalFaculty: 6052, lat: 34.3647, lng: -89.537, city: "University", state: "MS" },
+  { rank: 82, fullName: "Loyola University Maryland – Sellinger School of Business and Management", shortName: "Loyola MD Sellinger", type: "Private", totalFaculty: 2001, lat: 39.3482, lng: -76.6285, city: "Baltimore", state: "MD" },
+  { rank: 85, fullName: "Louisiana State University – E.J. Ourso College of Business", shortName: "LSU Ourso", type: "Public", totalFaculty: 3077, lat: 30.4133, lng: -91.18, city: "Baton Rouge", state: "LA" },
+  { rank: 86, fullName: "Lehigh University – College of Business", shortName: "Lehigh CoB", type: "Private", totalFaculty: 2117, lat: 40.607, lng: -75.3785, city: "Bethlehem", state: "PA" },
+  { rank: 87, fullName: "Binghamton University – School of Management", shortName: "Binghamton SoM", type: "Public", totalFaculty: 2117, lat: 42.0872, lng: -75.9692, city: "Binghamton", state: "NY" },
+  { rank: 88, fullName: "Pepperdine University – Graziadio Business School", shortName: "Pepperdine Graziadio", type: "Private", totalFaculty: 1718, lat: 34.0395, lng: -118.7066, city: "Malibu", state: "CA" },
+  { rank: 88, fullName: "College of Charleston – School of Business", shortName: "Charleston SoB", type: "Private", totalFaculty: 2057, lat: 32.7835, lng: -79.937, city: "Charleston", state: "SC" },
+  { rank: 90, fullName: "Santa Clara University – Leavey School of Business", shortName: "SCU Leavey", type: "Private", totalFaculty: 2737, lat: 37.3496, lng: -121.94, city: "Santa Clara", state: "CA" },
+  { rank: 91, fullName: "Pace University – Lubin School of Business", shortName: "Pace Lubin", type: "Private", totalFaculty: 3136, lat: 40.7112, lng: -74.0055, city: "New York", state: "NY" },
+  { rank: 92, fullName: "Texas Tech University – Jerry S. Rawls College of Business", shortName: "TTU Rawls", type: "Public", totalFaculty: 5152, lat: 33.5843, lng: -101.8463, city: "Lubbock", state: "TX" },
+  { rank: 97, fullName: "Mississippi State University – College of Business", shortName: "MSState CoB", type: "Public", totalFaculty: 3516, lat: 33.4552, lng: -88.7898, city: "Starkville", state: "MS" },
+  ];
+
+  export const SCHOOL_DEAN_MAP: Record<string, { university: string; school: string }> = {
+    "Wharton": { university: "University of Pennsylvania", school: "Wharton School" },
+  "Stanford GSB": { university: "Stanford University", school: "Graduate School of Business" },
+  "Kellogg": { university: "Northwestern University", school: "Kellogg School of Management" },
+  "Chicago Booth": { university: "University of Chicago", school: "Booth School of Business" },
+  "MIT Sloan": { university: "MIT", school: "Sloan School of Management" },
+  "Harvard HBS": { university: "Harvard University", school: "Harvard Business School" },
+  "NYU Stern": { university: "New York University", school: "Stern School of Business" },
+  "Dartmouth Tuck": { university: "Dartmouth College", school: "Tuck School of Business" },
+  "Columbia CBS": { university: "Columbia University", school: "Columbia Business School" },
+  "Yale SOM": { university: "Yale University", school: "School of Management" },
+  "UVA Darden": { university: "University of Virginia", school: "Darden School of Business" },
+  "Berkeley Haas": { university: "University of California Berkeley", school: "Haas School of Business" },
+  "Duke Fuqua": { university: "Duke University", school: "Fuqua School of Business" },
+  "Michigan Ross": { university: "University of Michigan", school: "Ross School of Business" },
+  "Cornell Johnson": { university: "Cornell University", school: "Johnson School of Management" },
+  "UT McCombs": { university: "University of Texas at Austin", school: "McCombs School of Business" },
+  "Emory Goizueta": { university: "Emory University", school: "Goizueta Business School" },
+  "UCLA Anderson": { university: "UCLA", school: "Anderson School of Management" },
+  "Vanderbilt Owen": { university: "Vanderbilt University", school: "Owen Graduate School of Management" },
+  "CMU Tepper": { university: "Carnegie Mellon University", school: "Tepper School of Business" },
+  "GA Tech Scheller": { university: "Georgia Tech", school: "Scheller College of Business" },
+  "UW Foster": { university: "University of Washington", school: "Foster School of Business" },
+  "Indiana Kelley": { university: "Indiana University", school: "Kelley School of Business" },
+  "Ohio State Fisher": { university: "Ohio State University", school: "Fisher College of Business" },
+  "USC Marshall": { university: "University of Southern California", school: "Marshall School of Business" },
+  "Georgetown McD": { university: "Georgetown University", school: "McDonough School of Business" },
+  "WashU Olin": { university: "Washington University St. Louis", school: "Olin Business School" },
+  "UNC KF": { university: "University of North Carolina", school: "Kenan-Flagler Business School" },
+  "Rice Jones": { university: "Rice University", school: "Jones Graduate School of Business" },
+  "UGA Terry": { university: "University of Georgia", school: "Terry College of Business" },
+  "Notre Dame Mendoza": { university: "University of Notre Dame", school: "Mendoza College of Business" },
+  "Rochester Simon": { university: "University of Rochester", school: "Simon Business School" },
+  "SMU Cox": { university: "Southern Methodist University", school: "Cox School of Business" },
+  "MSU Broad": { university: "Michigan State University", school: "Broad College of Business" },
+  "Minnesota Carlson": { university: "University of Minnesota", school: "Carlson School of Management" },
+  "ASU Carey": { university: "Arizona State University", school: "W.P. Carey School of Business" },
+  "BYU Marriott": { university: "Brigham Young University", school: "Marriott School of Business" },
+  "Florida Warrington": { university: "University of Florida", school: "Warrington College of Business" },
+  "Utah Eccles": { university: "University of Utah", school: "David Eccles School of Business" },
+  "Wisconsin WSB": { university: "University of Wisconsin-Madison", school: "Wisconsin School of Business" },
+  "ISU Ivy": { university: "Iowa State University", school: "Ivy College of Business" },
+  "TCU Neeley": { university: "Texas Christian University", school: "M.J. Neeley School of Business" },
+  "TAMU Mays": { university: "Texas A&M University", school: "Mays Business School" },
+  "UCI Merage": { university: "University of California Irvine", school: "Paul Merage School of Business" },
+  "BC Carroll": { university: "Boston College", school: "Carroll School of Management" },
+  "Pitt Katz": { university: "University of Pittsburgh", school: "Katz Graduate School of Business" },
+  "BU Questrom": { university: "Boston University", school: "Questrom School of Business" },
+  "UTK Haslam": { university: "University of Tennessee Knoxville", school: "Haslam College of Business" },
+  "Arkansas Walton": { university: "University of Arkansas", school: "Sam M. Walton College of Business" },
+  "UTD Jindal": { university: "University of Texas at Dallas", school: "Naveen Jindal School of Management" },
+  "Tulane Freeman": { university: "Tulane University", school: "A.B. Freeman School of Business" },
+  "Alabama Culverhouse": { university: "University of Alabama", school: "Culverhouse College of Business" },
+  "Baylor Hankamer": { university: "Baylor University", school: "Hankamer School of Business" },
+  "Syracuse Whitman": { university: "Syracuse University", school: "Whitman School of Management" },
+  "Purdue Krannert": { university: "Purdue University", school: "Krannert School of Management / Daniels School of Business" },
+  "Maryland Smith": { university: "University of Maryland", school: "Robert H. Smith School of Business" },
+  "Penn State Smeal": { university: "Penn State University", school: "Smeal College of Business" },
+  "AU Kogod": { university: "American University", school: "Kogod School of Business" },
+  "OkSt Spears": { university: "Oklahoma State University", school: "Spears School of Business" },
+  "VT Pamplin": { university: "Virginia Tech", school: "Pamplin College of Business" },
+  "UK Gatton": { university: "University of Kentucky", school: "Gatton College of Business and Economics" },
+  "W&M Mason": { university: "College of William & Mary", school: "Raymond A. Mason School of Business" },
+  "GW SoB": { university: "George Washington University", school: "School of Business" },
+  "Baruch Zicklin": { university: "CUNY Baruch College", school: "Zicklin School of Business" },
+  "UC Davis GSM": { university: "University of California Davis", school: "Graduate School of Management" },
+  "Mizzou Trulaske": { university: "University of Missouri", school: "Trulaske College of Business" },
+  "Chapman Argyros": { university: "Chapman University", school: "Argyros School of Business and Economics" },
+  "Arizona Eller": { university: "University of Arizona", school: "Eller College of Management" },
+  "NEU DAmore-McKim": { university: "Northeastern University", school: "D'Amore-McKim School of Business" },
+  "UCSD Rady": { university: "University of California San Diego", school: "Rady School of Management" },
+  "Stevens SoB": { university: "Stevens Institute of Technology", school: "School of Business (formerly Howe School of Technology Management)" },
+  "Miami OH Farmer": { university: "Miami University", school: "Farmer School of Business" },
+  "USC Moore": { university: "University of South Carolina", school: "Darla Moore School of Business" },
+  "Kansas SoB": { university: "University of Kansas", school: "School of Business" },
+  "Cincinnati Lindner": { university: "University of Cincinnati", school: "Carl H. Lindner College of Business" },
+  "Auburn Harbert": { university: "Auburn University", school: "Harbert College of Business" },
+  "UMass Isenberg": { university: "University of Massachusetts Amherst", school: "Isenberg School of Management" },
+  "NCA&T Deese": { university: "North Carolina A&T State University", school: "Willie A. Deese College of Business and Economics" },
+  "CU Leeds": { university: "University of Colorado Boulder", school: "Leeds School of Business" },
+  "OU Price": { university: "University of Oklahoma", school: "Price College of Business" },
+  "UB SoM": { university: "University at Buffalo", school: "School of Management" },
+  "Ole Miss SoB": { university: "University of Mississippi", school: "School of Business Administration" },
+  "Loyola MD Sellinger": { university: "Loyola University Maryland", school: "Sellinger School of Business and Management" },
+  "LSU Ourso": { university: "Louisiana State University", school: "E.J. Ourso College of Business" },
+  "Lehigh CoB": { university: "Lehigh University", school: "College of Business" },
+  "Binghamton SoM": { university: "Binghamton University", school: "School of Management" },
+  "Pepperdine Graziadio": { university: "Pepperdine University", school: "Graziadio Business School" },
+  "Charleston SoB": { university: "College of Charleston", school: "School of Business" },
+  "SCU Leavey": { university: "Santa Clara University", school: "Leavey School of Business" },
+  "Pace Lubin": { university: "Pace University", school: "Lubin School of Business" },
+  "TTU Rawls": { university: "Texas Tech University", school: "Jerry S. Rawls College of Business" },
+  "MSState CoB": { university: "Mississippi State University", school: "College of Business" },
+  };
+
+  export const SCHOOL_NAME_MAP: Record<string, string> = Object.fromEntries(
+    Object.entries(SCHOOL_DEAN_MAP).map(([k, v]) => [k, v.school])
   );
-}
+
+  export function getDeanSchoolName(shortName: string): string {
+    return SCHOOL_NAME_MAP[shortName] || shortName;
+  }
+
+  export function findSchoolInfo(schoolName: string): SchoolInfo | undefined {
+    for (const s of SCHOOL_INFO) {
+      if (SCHOOL_NAME_MAP[s.shortName] === schoolName) return s;
+    }
+    const lower = schoolName.toLowerCase();
+    return SCHOOL_INFO.find(s =>
+      lower.includes(s.shortName.toLowerCase()) ||
+      s.fullName.toLowerCase().includes(lower)
+    );
+  }
+  

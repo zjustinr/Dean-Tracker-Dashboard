@@ -97,7 +97,6 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
         <div className="flex gap-2 flex-wrap">
           <Badge variant="secondary">{schoolInfo.type}</Badge>
           <Badge variant="outline">{schoolInfo.totalFaculty} T-T Faculty</Badge>
-          <Badge variant="outline">{schoolInfo.departments} Departments</Badge>
           <Badge variant="outline">{schoolInfo.city}, {schoolInfo.state}</Badge>
         </div>
       )}
