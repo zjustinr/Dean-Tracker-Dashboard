@@ -1,0 +1,434 @@
+import { useState, useMemo } from "react";
+import { useSchoolList, useAllDeans, makeSchoolKey, parseSchoolKey } from "@/data/useData";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell,
+  RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
+} from "recharts";
+import bsqData from "@/data/schools-bsq.json";
+import type { Dean } from "@/data/types";
+
+interface BSQSchool {
+  university: string;
+  school: string;
+  rank: number | null;
+  tier: string | null;
+  control: string | null;
+  bsq: Record<string, number | string | null>;
+}
+
+const bsqSchools = bsqData as BSQSchool[];
+
+function findBSQ(university: string, school: string): BSQSchool | null {
+  return bsqSchools.find(s => s.university === university && s.school === school) || null;
+}
+
+function n(v: number | string | null | undefined): number | null {
+  if (v == null || v === "") return null;
+  const x = Number(v);
+  return isNaN(x) ? null : x;
+}
+
+function fb(bsq: Record<string, number | string | null> | undefined, key: string): number | null {
+  if (!bsq) return null;
+  return n(bsq[key]) ?? n(bsq[key + "Start"]) ?? n(bsq[key + "Avg"]);
+}
+
+function fmt(val: number | null | undefined, decimals = 0): string {
+  if (val == null) return "—";
+  if (Math.abs(val) >= 1000) return val.toLocaleString("en-US", { maximumFractionDigits: decimals });
+  return val.toFixed(decimals);
+}
+
+function pct(val: number | null | undefined): string {
+  if (val == null) return "—";
+  return `${val.toFixed(1)}%`;
+}
+
+const SCHOOL_COLORS = ["#3b82f6", "#ef4444", "#10b981", "#f59e0b"];
+
+interface SchoolMetrics {
+  key: string;
+  label: string;
+  shortLabel: string;
+  rank: number | null;
+  tier: string | null;
+  control: string | null;
+  totalDeans: number;
+  avgTenure: number | null;
+  femalePct: number | null;
+  internalPct: number | null;
+  externalPct: number | null;
+  interimPct: number | null;
+  firstTimeDeanPct: number | null;
+  phdPct: number | null;
+  industryExpPct: number | null;
+  priorDeanExpPct: number | null;
+  totalHeadcount: number | null;
+  ugTotal: number | null;
+  mbaTotal: number | null;
+  studentFacultyRatio: number | null;
+  ugAvgSAT: number | null;
+  ugYieldPct: number | null;
+  ugApplicants: number | null;
+  ugAdmitted: number | null;
+  ugEntrants: number | null;
+  ugAcceptanceRate: number | null;
+  ugMeanSalary: number | null;
+  ugMedianSalary: number | null;
+  ugEmployedByGrad: number | null;
+  ugEmployedBy3Mo: number | null;
+  meanClassSizeUG: number | null;
+  meanClassSizeMasters: number | null;
+  nCoursesUG: number | null;
+  nCoursesMasters: number | null;
+  ugDegreesMalePct: number | null;
+  ugDegreesFemalePct: number | null;
+  mbaFTPct: number | null;
+  instTotal: number | null;
+}
+
+function computeMetrics(key: string, deans: Dean[], bsq: BSQSchool | null): SchoolMetrics {
+  const parsed = parseSchoolKey(key);
+  const total = deans.length;
+  const withTenure = deans.filter(d => d.tenureLength != null);
+  const avgTenure = withTenure.length > 0 ? withTenure.reduce((s, d) => s + (d.tenureLength || 0), 0) / withTenure.length : null;
+  const pctOf = (pred: (d: Dean) => boolean) => total > 0 ? (deans.filter(pred).length / total) * 100 : null;
+
+  const b = bsq?.bsq;
+  const ugDegMale = fb(b, "ugDegreesMale");
+  const ugDegFemale = fb(b, "ugDegreesFemale");
+  const ugDegTotal = ugDegMale != null && ugDegFemale != null ? ugDegMale + ugDegFemale : null;
+  const mbaFT = fb(b, "mbaFT");
+  const mbaTot = fb(b, "mbaTotal");
+  const ugApplicants = fb(b, "ugApplicants");
+  const ugAdmitted = fb(b, "ugAdmitted");
+
+  return {
+    key,
+    label: `${parsed.university} – ${parsed.school}`,
+    shortLabel: parsed.school,
+    rank: bsq?.rank ?? deans[0]?.rank ?? null,
+    tier: bsq?.tier ?? deans[0]?.tier ?? null,
+    control: bsq?.control ?? null,
+    totalDeans: total,
+    avgTenure: avgTenure != null ? Math.round(avgTenure * 10) / 10 : null,
+    femalePct: pctOf(d => d.isFemale),
+    internalPct: pctOf(d => d.isInternal),
+    externalPct: pctOf(d => d.isExternal),
+    interimPct: pctOf(d => d.isInterim),
+    firstTimeDeanPct: pctOf(d => d.isFirstTimeDean),
+    phdPct: pctOf(d => d.hasPhd),
+    industryExpPct: pctOf(d => d.hasIndustryExp),
+    priorDeanExpPct: pctOf(d => d.hasPriorDeanExp),
+    totalHeadcount: fb(b, "totalHeadcount"),
+    ugTotal: fb(b, "ugTotal"),
+    mbaTotal: fb(b, "mbaTotal"),
+    studentFacultyRatio: fb(b, "studentFacultyRatio"),
+    ugAvgSAT: fb(b, "ugAvgSAT"),
+    ugYieldPct: fb(b, "ugYieldPct"),
+    ugApplicants,
+    ugAdmitted,
+    ugEntrants: fb(b, "ugEntrants"),
+    ugAcceptanceRate: ugApplicants && ugAdmitted ? (ugAdmitted / ugApplicants) * 100 : null,
+    ugMeanSalary: fb(b, "ugMeanSalary"),
+    ugMedianSalary: fb(b, "ugMedianSalary"),
+    ugEmployedByGrad: fb(b, "ugEmployedByGrad"),
+    ugEmployedBy3Mo: fb(b, "ugEmployedBy3Mo"),
+    meanClassSizeUG: fb(b, "meanClassSizeUG"),
+    meanClassSizeMasters: fb(b, "meanClassSizeMasters"),
+    nCoursesUG: fb(b, "nCoursesUG"),
+    nCoursesMasters: fb(b, "nCoursesMasters"),
+    ugDegreesMalePct: ugDegTotal && ugDegTotal > 0 ? ((ugDegMale || 0) / ugDegTotal) * 100 : null,
+    ugDegreesFemalePct: ugDegTotal && ugDegTotal > 0 ? ((ugDegFemale || 0) / ugDegTotal) * 100 : null,
+    mbaFTPct: mbaTot && mbaTot > 0 && mbaFT != null ? (mbaFT / mbaTot) * 100 : null,
+    instTotal: fb(b, "instTotal"),
+  };
+}
+
+interface MetricRow {
+  key: string;
+  label: string;
+  category: string;
+  format: (m: SchoolMetrics) => string;
+  getValue: (m: SchoolMetrics) => number | null;
+}
+
+const METRIC_ROWS: MetricRow[] = [
+  { key: "rank", label: "US News Rank", category: "Overview", format: m => m.rank != null ? `#${m.rank}` : "—", getValue: m => m.rank },
+  { key: "control", label: "Control", category: "Overview", format: m => m.control || "—", getValue: () => null },
+  { key: "totalDeans", label: "Total Deans", category: "Dean Leadership", format: m => String(m.totalDeans), getValue: m => m.totalDeans },
+  { key: "avgTenure", label: "Avg Tenure (yrs)", category: "Dean Leadership", format: m => fmt(m.avgTenure, 1), getValue: m => m.avgTenure },
+  { key: "femalePct", label: "Female Deans %", category: "Dean Leadership", format: m => pct(m.femalePct), getValue: m => m.femalePct },
+  { key: "internalPct", label: "Internal Hires %", category: "Dean Leadership", format: m => pct(m.internalPct), getValue: m => m.internalPct },
+  { key: "externalPct", label: "External Hires %", category: "Dean Leadership", format: m => pct(m.externalPct), getValue: m => m.externalPct },
+  { key: "interimPct", label: "Interim Deans %", category: "Dean Leadership", format: m => pct(m.interimPct), getValue: m => m.interimPct },
+  { key: "firstTimeDeanPct", label: "First-Time Deans %", category: "Dean Leadership", format: m => pct(m.firstTimeDeanPct), getValue: m => m.firstTimeDeanPct },
+  { key: "phdPct", label: "PhD Holders %", category: "Dean Leadership", format: m => pct(m.phdPct), getValue: m => m.phdPct },
+  { key: "industryExpPct", label: "Industry Exp %", category: "Dean Leadership", format: m => pct(m.industryExpPct), getValue: m => m.industryExpPct },
+  { key: "priorDeanExpPct", label: "Prior Dean Exp %", category: "Dean Leadership", format: m => pct(m.priorDeanExpPct), getValue: m => m.priorDeanExpPct },
+  { key: "totalHeadcount", label: "Total Headcount", category: "Enrollment", format: m => fmt(m.totalHeadcount), getValue: m => m.totalHeadcount },
+  { key: "ugTotal", label: "UG Enrollment", category: "Enrollment", format: m => fmt(m.ugTotal), getValue: m => m.ugTotal },
+  { key: "mbaTotal", label: "MBA Enrollment", category: "Enrollment", format: m => fmt(m.mbaTotal), getValue: m => m.mbaTotal },
+  { key: "instTotal", label: "Univ. Total Enrollment", category: "Enrollment", format: m => fmt(m.instTotal), getValue: m => m.instTotal },
+  { key: "studentFacultyRatio", label: "Student:Faculty Ratio", category: "Academics", format: m => fmt(m.studentFacultyRatio, 1), getValue: m => m.studentFacultyRatio },
+  { key: "ugAvgSAT", label: "Avg SAT Score", category: "Academics", format: m => fmt(m.ugAvgSAT), getValue: m => m.ugAvgSAT },
+  { key: "meanClassSizeUG", label: "Mean Class Size (UG)", category: "Academics", format: m => fmt(m.meanClassSizeUG, 1), getValue: m => m.meanClassSizeUG },
+  { key: "meanClassSizeMasters", label: "Mean Class Size (Masters)", category: "Academics", format: m => fmt(m.meanClassSizeMasters, 1), getValue: m => m.meanClassSizeMasters },
+  { key: "nCoursesUG", label: "# Courses (UG)", category: "Academics", format: m => fmt(m.nCoursesUG), getValue: m => m.nCoursesUG },
+  { key: "nCoursesMasters", label: "# Courses (Masters)", category: "Academics", format: m => fmt(m.nCoursesMasters), getValue: m => m.nCoursesMasters },
+  { key: "ugApplicants", label: "UG Applicants", category: "Admissions", format: m => fmt(m.ugApplicants), getValue: m => m.ugApplicants },
+  { key: "ugAdmitted", label: "UG Admitted", category: "Admissions", format: m => fmt(m.ugAdmitted), getValue: m => m.ugAdmitted },
+  { key: "ugEntrants", label: "UG Entrants", category: "Admissions", format: m => fmt(m.ugEntrants), getValue: m => m.ugEntrants },
+  { key: "ugAcceptanceRate", label: "Acceptance Rate", category: "Admissions", format: m => pct(m.ugAcceptanceRate), getValue: m => m.ugAcceptanceRate },
+  { key: "ugYieldPct", label: "Yield Rate", category: "Admissions", format: m => pct(m.ugYieldPct), getValue: m => m.ugYieldPct },
+  { key: "ugDegreesMalePct", label: "UG Degrees Male %", category: "Degrees", format: m => pct(m.ugDegreesMalePct), getValue: m => m.ugDegreesMalePct },
+  { key: "ugDegreesFemalePct", label: "UG Degrees Female %", category: "Degrees", format: m => pct(m.ugDegreesFemalePct), getValue: m => m.ugDegreesFemalePct },
+  { key: "mbaFTPct", label: "MBA Full-Time %", category: "Degrees", format: m => pct(m.mbaFTPct), getValue: m => m.mbaFTPct },
+  { key: "ugMeanSalary", label: "UG Mean Salary", category: "Employment", format: m => m.ugMeanSalary != null ? `$${fmt(m.ugMeanSalary)}` : "—", getValue: m => m.ugMeanSalary },
+  { key: "ugMedianSalary", label: "UG Median Salary", category: "Employment", format: m => m.ugMedianSalary != null ? `$${fmt(m.ugMedianSalary)}` : "—", getValue: m => m.ugMedianSalary },
+  { key: "ugEmployedByGrad", label: "Employed by Graduation", category: "Employment", format: m => m.ugEmployedByGrad != null ? fmt(m.ugEmployedByGrad) : "—", getValue: m => m.ugEmployedByGrad },
+  { key: "ugEmployedBy3Mo", label: "Employed within 3 Mo", category: "Employment", format: m => m.ugEmployedBy3Mo != null ? fmt(m.ugEmployedBy3Mo) : "—", getValue: m => m.ugEmployedBy3Mo },
+];
+
+const RADAR_METRICS = [
+  { key: "femalePct", label: "Female %" },
+  { key: "internalPct", label: "Internal %" },
+  { key: "interimPct", label: "Interim %" },
+  { key: "firstTimeDeanPct", label: "First-Time %" },
+  { key: "phdPct", label: "PhD %" },
+  { key: "industryExpPct", label: "Industry Exp %" },
+];
+
+const BAR_CHART_OPTIONS = METRIC_ROWS.filter(r => r.key !== "control");
+
+export default function CompareSchools() {
+  const schoolList = useSchoolList();
+  const allDeans = useAllDeans();
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const [barMetric, setBarMetric] = useState("totalHeadcount");
+
+  const deansBySchool = useMemo(() => {
+    const map = new Map<string, Dean[]>();
+    for (const d of allDeans) {
+      const key = makeSchoolKey(d.university, d.school);
+      if (!map.has(key)) map.set(key, []);
+      map.get(key)!.push(d);
+    }
+    return map;
+  }, [allDeans]);
+
+  const schoolMetrics = useMemo(() => {
+    return selectedKeys.map(key => {
+      const parsed = parseSchoolKey(key);
+      const deans = (deansBySchool.get(key) || []).sort((a, b) => (a.startYear || 0) - (b.startYear || 0));
+      const bsq = findBSQ(parsed.university, parsed.school);
+      return computeMetrics(key, deans, bsq);
+    });
+  }, [selectedKeys, deansBySchool]);
+
+  const handleAdd = (val: string) => {
+    if (val && !selectedKeys.includes(val) && selectedKeys.length < 4) {
+      setSelectedKeys([...selectedKeys, val]);
+    }
+  };
+
+  const handleRemove = (key: string) => {
+    setSelectedKeys(selectedKeys.filter(k => k !== key));
+  };
+
+  const availableSchools = schoolList.filter(s => !selectedKeys.includes(s.key));
+
+  const categories = [...new Set(METRIC_ROWS.map(r => r.category))];
+
+  const barChartData = useMemo(() => {
+    const metric = BAR_CHART_OPTIONS.find(m => m.key === barMetric) || BAR_CHART_OPTIONS[0];
+    return schoolMetrics.map((m, i) => ({
+      name: m.shortLabel,
+      value: metric.getValue(m),
+      fill: SCHOOL_COLORS[i],
+    }));
+  }, [schoolMetrics, barMetric]);
+
+  const radarData = useMemo(() => {
+    return RADAR_METRICS.map(rm => {
+      const row: Record<string, string | number | null> = { metric: rm.label };
+      schoolMetrics.forEach((m, i) => {
+        row[`school${i}`] = (m as Record<string, unknown>)[rm.key] as number | null;
+      });
+      return row;
+    });
+  }, [schoolMetrics]);
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-base">Select Schools to Compare (up to 4)</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-3 items-center">
+            {selectedKeys.map((key, i) => {
+              const parsed = parseSchoolKey(key);
+              return (
+                <Badge
+                  key={key}
+                  className="text-sm py-1.5 px-3 cursor-pointer hover:opacity-80"
+                  style={{ backgroundColor: SCHOOL_COLORS[i], color: "white" }}
+                  onClick={() => handleRemove(key)}
+                >
+                  {parsed.school} &times;
+                </Badge>
+              );
+            })}
+            {selectedKeys.length < 4 && (
+              <Select value="" onValueChange={handleAdd}>
+                <SelectTrigger className="w-[320px]">
+                  <SelectValue placeholder="Add a school..." />
+                </SelectTrigger>
+                <SelectContent className="max-h-72">
+                  {availableSchools.map(s => (
+                    <SelectItem key={s.key} value={s.key}>
+                      {s.rank ? `#${s.rank} ` : ""}{s.university} – {s.school}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
+            {selectedKeys.length > 0 && (
+              <Button variant="ghost" size="sm" onClick={() => setSelectedKeys([])}>Clear All</Button>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+
+      {schoolMetrics.length < 2 && (
+        <Card>
+          <CardContent className="py-12 text-center text-muted-foreground">
+            <p>Select at least 2 schools to compare them side by side.</p>
+          </CardContent>
+        </Card>
+      )}
+
+      {schoolMetrics.length >= 2 && (
+        <>
+          <Card>
+            <CardContent className="py-4 overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-2 px-3 font-medium text-muted-foreground w-[200px] sticky left-0 bg-card z-10">Metric</th>
+                    {schoolMetrics.map((m, i) => (
+                      <th key={m.key} className="text-center py-2 px-3 font-semibold min-w-[140px]" style={{ color: SCHOOL_COLORS[i] }}>
+                        {m.shortLabel}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {categories.map(cat => (
+                    <>
+                      <tr key={`cat-${cat}`}>
+                        <td colSpan={schoolMetrics.length + 1} className="pt-4 pb-1 px-3 font-semibold text-xs uppercase tracking-wider text-primary border-b border-primary/20">
+                          {cat}
+                        </td>
+                      </tr>
+                      {METRIC_ROWS.filter(r => r.category === cat).map((row, ri) => {
+                        const values = schoolMetrics.map(m => row.getValue(m)).filter((v): v is number => v != null);
+                        const best = values.length > 0 ? (row.key === "studentFacultyRatio" || row.key === "rank" || row.key === "ugAcceptanceRate" ? Math.min(...values) : Math.max(...values)) : null;
+                        return (
+                          <tr key={row.key} className={ri % 2 === 0 ? "bg-muted/30" : ""}>
+                            <td className="py-1.5 px-3 text-muted-foreground sticky left-0 bg-inherit z-10">{row.label}</td>
+                            {schoolMetrics.map((m, i) => {
+                              const val = row.getValue(m);
+                              const isBest = best != null && val === best && values.length > 1;
+                              return (
+                                <td key={m.key} className={`text-center py-1.5 px-3 ${isBest ? "font-bold" : ""}`}>
+                                  {row.format(m)}
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        );
+                      })}
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </CardContent>
+          </Card>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card>
+              <CardHeader className="pb-2">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-base">Bar Comparison</CardTitle>
+                  <Select value={barMetric} onValueChange={setBarMetric}>
+                    <SelectTrigger className="w-[220px]">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-72">
+                      {categories.map(cat => (
+                        <div key={cat}>
+                          <div className="px-2 py-1 text-xs font-semibold text-muted-foreground uppercase">{cat}</div>
+                          {BAR_CHART_OPTIONS.filter(r => r.category === cat).map(r => (
+                            <SelectItem key={r.key} value={r.key}>{r.label}</SelectItem>
+                          ))}
+                        </div>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={280}>
+                  <BarChart data={barChartData} margin={{ top: 10, right: 10, bottom: 20, left: 10 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="name" fontSize={11} angle={-20} textAnchor="end" />
+                    <YAxis fontSize={11} />
+                    <Tooltip formatter={(v: number) => fmt(v, 1)} />
+                    <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+                      {barChartData.map((entry, i) => (
+                        <Cell key={i} fill={entry.fill} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base">Dean Profile Radar</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={280}>
+                  <RadarChart data={radarData}>
+                    <PolarGrid stroke="hsl(var(--border))" />
+                    <PolarAngleAxis dataKey="metric" fontSize={10} />
+                    <PolarRadiusAxis fontSize={9} />
+                    {schoolMetrics.map((m, i) => (
+                      <Radar
+                        key={m.key}
+                        name={m.shortLabel}
+                        dataKey={`school${i}`}
+                        stroke={SCHOOL_COLORS[i]}
+                        fill={SCHOOL_COLORS[i]}
+                        fillOpacity={0.15}
+                      />
+                    ))}
+                    <Legend />
+                    <Tooltip />
+                  </RadarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}

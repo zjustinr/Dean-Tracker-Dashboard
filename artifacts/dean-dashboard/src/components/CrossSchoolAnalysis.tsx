@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import type { Dean, CategoricalField, NumericField } from "@/data/types";
 import { CATEGORICAL_LABELS, NUMERIC_LABELS, CHART_COLORS, NEXT_ROLE_LABELS, ORIGIN_LABELS } from "@/data/types";
+import CompareSchools from "./CompareSchools";
 
 const catFields = Object.entries(CATEGORICAL_LABELS) as [CategoricalField, string][];
 const numFields = Object.entries(NUMERIC_LABELS) as [NumericField, string][];
@@ -37,10 +38,12 @@ export default function CrossSchoolAnalysis() {
           <TabsTrigger value="crosstab">Pivot Table</TabsTrigger>
           <TabsTrigger value="grouped">Grouped Bar Chart</TabsTrigger>
           <TabsTrigger value="scatter">Scatter Plot</TabsTrigger>
+          <TabsTrigger value="compare">Compare Schools</TabsTrigger>
         </TabsList>
         <TabsContent value="crosstab"><CrosstabView data={data} /></TabsContent>
         <TabsContent value="grouped"><GroupedBarView data={data} /></TabsContent>
         <TabsContent value="scatter"><ScatterView data={data} /></TabsContent>
+        <TabsContent value="compare"><CompareSchools /></TabsContent>
       </Tabs>
     </div>
   );
