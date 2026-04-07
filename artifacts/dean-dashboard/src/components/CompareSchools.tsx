@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import { useSchoolList, useAllDeans, makeSchoolKey, parseSchoolKey } from "@/data/useData";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -38,13 +38,13 @@ function fb(bsq: Record<string, number | string | null> | undefined, key: string
 }
 
 function fmt(val: number | null | undefined, decimals = 0): string {
-  if (val == null) return "—";
+  if (val == null) return "\u2014";
   if (Math.abs(val) >= 1000) return val.toLocaleString("en-US", { maximumFractionDigits: decimals });
   return val.toFixed(decimals);
 }
 
-function pct(val: number | null | undefined): string {
-  if (val == null) return "—";
+function pctStr(val: number | null | undefined): string {
+  if (val == null) return "\u2014";
   return `${val.toFixed(1)}%`;
 }
 
@@ -109,7 +109,7 @@ function computeMetrics(key: string, deans: Dean[], bsq: BSQSchool | null): Scho
 
   return {
     key,
-    label: `${parsed.university} – ${parsed.school}`,
+    label: `${parsed.university} \u2013 ${parsed.school}`,
     shortLabel: parsed.school,
     rank: bsq?.rank ?? deans[0]?.rank ?? null,
     tier: bsq?.tier ?? deans[0]?.tier ?? null,
@@ -149,49 +149,53 @@ function computeMetrics(key: string, deans: Dean[], bsq: BSQSchool | null): Scho
   };
 }
 
+type BarType = "number" | "pct" | "none";
+
 interface MetricRow {
   key: string;
   label: string;
   category: string;
   format: (m: SchoolMetrics) => string;
   getValue: (m: SchoolMetrics) => number | null;
+  barType: BarType;
+  lowerIsBetter?: boolean;
 }
 
 const METRIC_ROWS: MetricRow[] = [
-  { key: "rank", label: "US News Rank", category: "Overview", format: m => m.rank != null ? `#${m.rank}` : "—", getValue: m => m.rank },
-  { key: "control", label: "Control", category: "Overview", format: m => m.control || "—", getValue: () => null },
-  { key: "totalDeans", label: "Total Deans", category: "Dean Leadership", format: m => String(m.totalDeans), getValue: m => m.totalDeans },
-  { key: "avgTenure", label: "Avg Tenure (yrs)", category: "Dean Leadership", format: m => fmt(m.avgTenure, 1), getValue: m => m.avgTenure },
-  { key: "femalePct", label: "Female Deans %", category: "Dean Leadership", format: m => pct(m.femalePct), getValue: m => m.femalePct },
-  { key: "internalPct", label: "Internal Hires %", category: "Dean Leadership", format: m => pct(m.internalPct), getValue: m => m.internalPct },
-  { key: "externalPct", label: "External Hires %", category: "Dean Leadership", format: m => pct(m.externalPct), getValue: m => m.externalPct },
-  { key: "interimPct", label: "Interim Deans %", category: "Dean Leadership", format: m => pct(m.interimPct), getValue: m => m.interimPct },
-  { key: "firstTimeDeanPct", label: "First-Time Deans %", category: "Dean Leadership", format: m => pct(m.firstTimeDeanPct), getValue: m => m.firstTimeDeanPct },
-  { key: "phdPct", label: "PhD Holders %", category: "Dean Leadership", format: m => pct(m.phdPct), getValue: m => m.phdPct },
-  { key: "industryExpPct", label: "Industry Exp %", category: "Dean Leadership", format: m => pct(m.industryExpPct), getValue: m => m.industryExpPct },
-  { key: "priorDeanExpPct", label: "Prior Dean Exp %", category: "Dean Leadership", format: m => pct(m.priorDeanExpPct), getValue: m => m.priorDeanExpPct },
-  { key: "totalHeadcount", label: "Total Headcount", category: "Enrollment", format: m => fmt(m.totalHeadcount), getValue: m => m.totalHeadcount },
-  { key: "ugTotal", label: "UG Enrollment", category: "Enrollment", format: m => fmt(m.ugTotal), getValue: m => m.ugTotal },
-  { key: "mbaTotal", label: "MBA Enrollment", category: "Enrollment", format: m => fmt(m.mbaTotal), getValue: m => m.mbaTotal },
-  { key: "instTotal", label: "Univ. Total Enrollment", category: "Enrollment", format: m => fmt(m.instTotal), getValue: m => m.instTotal },
-  { key: "studentFacultyRatio", label: "Student:Faculty Ratio", category: "Academics", format: m => fmt(m.studentFacultyRatio, 1), getValue: m => m.studentFacultyRatio },
-  { key: "ugAvgSAT", label: "Avg SAT Score", category: "Academics", format: m => fmt(m.ugAvgSAT), getValue: m => m.ugAvgSAT },
-  { key: "meanClassSizeUG", label: "Mean Class Size (UG)", category: "Academics", format: m => fmt(m.meanClassSizeUG, 1), getValue: m => m.meanClassSizeUG },
-  { key: "meanClassSizeMasters", label: "Mean Class Size (Masters)", category: "Academics", format: m => fmt(m.meanClassSizeMasters, 1), getValue: m => m.meanClassSizeMasters },
-  { key: "nCoursesUG", label: "# Courses (UG)", category: "Academics", format: m => fmt(m.nCoursesUG), getValue: m => m.nCoursesUG },
-  { key: "nCoursesMasters", label: "# Courses (Masters)", category: "Academics", format: m => fmt(m.nCoursesMasters), getValue: m => m.nCoursesMasters },
-  { key: "ugApplicants", label: "UG Applicants", category: "Admissions", format: m => fmt(m.ugApplicants), getValue: m => m.ugApplicants },
-  { key: "ugAdmitted", label: "UG Admitted", category: "Admissions", format: m => fmt(m.ugAdmitted), getValue: m => m.ugAdmitted },
-  { key: "ugEntrants", label: "UG Entrants", category: "Admissions", format: m => fmt(m.ugEntrants), getValue: m => m.ugEntrants },
-  { key: "ugAcceptanceRate", label: "Acceptance Rate", category: "Admissions", format: m => pct(m.ugAcceptanceRate), getValue: m => m.ugAcceptanceRate },
-  { key: "ugYieldPct", label: "Yield Rate", category: "Admissions", format: m => pct(m.ugYieldPct), getValue: m => m.ugYieldPct },
-  { key: "ugDegreesMalePct", label: "UG Degrees Male %", category: "Degrees", format: m => pct(m.ugDegreesMalePct), getValue: m => m.ugDegreesMalePct },
-  { key: "ugDegreesFemalePct", label: "UG Degrees Female %", category: "Degrees", format: m => pct(m.ugDegreesFemalePct), getValue: m => m.ugDegreesFemalePct },
-  { key: "mbaFTPct", label: "MBA Full-Time %", category: "Degrees", format: m => pct(m.mbaFTPct), getValue: m => m.mbaFTPct },
-  { key: "ugMeanSalary", label: "UG Mean Salary", category: "Employment", format: m => m.ugMeanSalary != null ? `$${fmt(m.ugMeanSalary)}` : "—", getValue: m => m.ugMeanSalary },
-  { key: "ugMedianSalary", label: "UG Median Salary", category: "Employment", format: m => m.ugMedianSalary != null ? `$${fmt(m.ugMedianSalary)}` : "—", getValue: m => m.ugMedianSalary },
-  { key: "ugEmployedByGrad", label: "Employed by Graduation", category: "Employment", format: m => m.ugEmployedByGrad != null ? fmt(m.ugEmployedByGrad) : "—", getValue: m => m.ugEmployedByGrad },
-  { key: "ugEmployedBy3Mo", label: "Employed within 3 Mo", category: "Employment", format: m => m.ugEmployedBy3Mo != null ? fmt(m.ugEmployedBy3Mo) : "—", getValue: m => m.ugEmployedBy3Mo },
+  { key: "rank", label: "US News Rank", category: "Overview", format: m => m.rank != null ? `#${m.rank}` : "\u2014", getValue: m => m.rank, barType: "none", lowerIsBetter: true },
+  { key: "control", label: "Control", category: "Overview", format: m => m.control || "\u2014", getValue: () => null, barType: "none" },
+  { key: "totalDeans", label: "Total Deans", category: "Dean Leadership", format: m => String(m.totalDeans), getValue: m => m.totalDeans, barType: "number" },
+  { key: "avgTenure", label: "Avg Tenure (yrs)", category: "Dean Leadership", format: m => fmt(m.avgTenure, 1), getValue: m => m.avgTenure, barType: "number" },
+  { key: "femalePct", label: "Female Deans %", category: "Dean Leadership", format: m => pctStr(m.femalePct), getValue: m => m.femalePct, barType: "pct" },
+  { key: "internalPct", label: "Internal Hires %", category: "Dean Leadership", format: m => pctStr(m.internalPct), getValue: m => m.internalPct, barType: "pct" },
+  { key: "externalPct", label: "External Hires %", category: "Dean Leadership", format: m => pctStr(m.externalPct), getValue: m => m.externalPct, barType: "pct" },
+  { key: "interimPct", label: "Interim Deans %", category: "Dean Leadership", format: m => pctStr(m.interimPct), getValue: m => m.interimPct, barType: "pct" },
+  { key: "firstTimeDeanPct", label: "First-Time Deans %", category: "Dean Leadership", format: m => pctStr(m.firstTimeDeanPct), getValue: m => m.firstTimeDeanPct, barType: "pct" },
+  { key: "phdPct", label: "PhD Holders %", category: "Dean Leadership", format: m => pctStr(m.phdPct), getValue: m => m.phdPct, barType: "pct" },
+  { key: "industryExpPct", label: "Industry Exp %", category: "Dean Leadership", format: m => pctStr(m.industryExpPct), getValue: m => m.industryExpPct, barType: "pct" },
+  { key: "priorDeanExpPct", label: "Prior Dean Exp %", category: "Dean Leadership", format: m => pctStr(m.priorDeanExpPct), getValue: m => m.priorDeanExpPct, barType: "pct" },
+  { key: "totalHeadcount", label: "Total Headcount", category: "Enrollment", format: m => fmt(m.totalHeadcount), getValue: m => m.totalHeadcount, barType: "number" },
+  { key: "ugTotal", label: "UG Enrollment", category: "Enrollment", format: m => fmt(m.ugTotal), getValue: m => m.ugTotal, barType: "number" },
+  { key: "mbaTotal", label: "MBA Enrollment", category: "Enrollment", format: m => fmt(m.mbaTotal), getValue: m => m.mbaTotal, barType: "number" },
+  { key: "instTotal", label: "Univ. Total Enrollment", category: "Enrollment", format: m => fmt(m.instTotal), getValue: m => m.instTotal, barType: "number" },
+  { key: "studentFacultyRatio", label: "Student:Faculty Ratio", category: "Academics", format: m => fmt(m.studentFacultyRatio, 1), getValue: m => m.studentFacultyRatio, barType: "number", lowerIsBetter: true },
+  { key: "ugAvgSAT", label: "Avg SAT Score", category: "Academics", format: m => fmt(m.ugAvgSAT), getValue: m => m.ugAvgSAT, barType: "number" },
+  { key: "meanClassSizeUG", label: "Mean Class Size (UG)", category: "Academics", format: m => fmt(m.meanClassSizeUG, 1), getValue: m => m.meanClassSizeUG, barType: "number", lowerIsBetter: true },
+  { key: "meanClassSizeMasters", label: "Mean Class Size (Masters)", category: "Academics", format: m => fmt(m.meanClassSizeMasters, 1), getValue: m => m.meanClassSizeMasters, barType: "number", lowerIsBetter: true },
+  { key: "nCoursesUG", label: "# Courses (UG)", category: "Academics", format: m => fmt(m.nCoursesUG), getValue: m => m.nCoursesUG, barType: "number" },
+  { key: "nCoursesMasters", label: "# Courses (Masters)", category: "Academics", format: m => fmt(m.nCoursesMasters), getValue: m => m.nCoursesMasters, barType: "number" },
+  { key: "ugApplicants", label: "UG Applicants", category: "Admissions", format: m => fmt(m.ugApplicants), getValue: m => m.ugApplicants, barType: "number" },
+  { key: "ugAdmitted", label: "UG Admitted", category: "Admissions", format: m => fmt(m.ugAdmitted), getValue: m => m.ugAdmitted, barType: "number" },
+  { key: "ugEntrants", label: "UG Entrants", category: "Admissions", format: m => fmt(m.ugEntrants), getValue: m => m.ugEntrants, barType: "number" },
+  { key: "ugAcceptanceRate", label: "Acceptance Rate", category: "Admissions", format: m => pctStr(m.ugAcceptanceRate), getValue: m => m.ugAcceptanceRate, barType: "pct", lowerIsBetter: true },
+  { key: "ugYieldPct", label: "Yield Rate", category: "Admissions", format: m => pctStr(m.ugYieldPct), getValue: m => m.ugYieldPct, barType: "pct" },
+  { key: "ugDegreesMalePct", label: "UG Degrees Male %", category: "Degrees", format: m => pctStr(m.ugDegreesMalePct), getValue: m => m.ugDegreesMalePct, barType: "pct" },
+  { key: "ugDegreesFemalePct", label: "UG Degrees Female %", category: "Degrees", format: m => pctStr(m.ugDegreesFemalePct), getValue: m => m.ugDegreesFemalePct, barType: "pct" },
+  { key: "mbaFTPct", label: "MBA Full-Time %", category: "Degrees", format: m => pctStr(m.mbaFTPct), getValue: m => m.mbaFTPct, barType: "pct" },
+  { key: "ugMeanSalary", label: "UG Mean Salary", category: "Employment", format: m => m.ugMeanSalary != null ? `$${fmt(m.ugMeanSalary)}` : "\u2014", getValue: m => m.ugMeanSalary, barType: "number" },
+  { key: "ugMedianSalary", label: "UG Median Salary", category: "Employment", format: m => m.ugMedianSalary != null ? `$${fmt(m.ugMedianSalary)}` : "\u2014", getValue: m => m.ugMedianSalary, barType: "number" },
+  { key: "ugEmployedByGrad", label: "Employed by Graduation", category: "Employment", format: m => m.ugEmployedByGrad != null ? fmt(m.ugEmployedByGrad) : "\u2014", getValue: m => m.ugEmployedByGrad, barType: "number" },
+  { key: "ugEmployedBy3Mo", label: "Employed within 3 Mo", category: "Employment", format: m => m.ugEmployedBy3Mo != null ? fmt(m.ugEmployedBy3Mo) : "\u2014", getValue: m => m.ugEmployedBy3Mo, barType: "number" },
 ];
 
 const RADAR_METRICS = [
@@ -204,6 +208,99 @@ const RADAR_METRICS = [
 ];
 
 const BAR_CHART_OPTIONS = METRIC_ROWS.filter(r => r.key !== "control");
+
+function MiniBar({ value, max, color }: { value: number; max: number; color: string }) {
+  const w = max > 0 ? Math.max(2, (value / max) * 100) : 0;
+  return (
+    <div className="w-full bg-muted/50 rounded-full h-1.5 mt-0.5">
+      <div className="h-1.5 rounded-full transition-all" style={{ width: `${w}%`, backgroundColor: color }} />
+    </div>
+  );
+}
+
+function PctBar({ value, color }: { value: number; color: string }) {
+  return (
+    <div className="w-full bg-muted/50 rounded-full h-1.5 mt-0.5">
+      <div className="h-1.5 rounded-full transition-all" style={{ width: `${Math.min(100, Math.max(2, value))}%`, backgroundColor: color }} />
+    </div>
+  );
+}
+
+function SchoolSearchSelect({ available, onSelect }: {
+  available: { key: string; university: string; school: string; rank: number | null }[];
+  onSelect: (key: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const [sortMode, setSortMode] = useState<"rank" | "alpha">("rank");
+  const ref = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  const filtered = useMemo(() => {
+    const q = query.toLowerCase();
+    let list = available.filter(s =>
+      s.university.toLowerCase().includes(q) ||
+      s.school.toLowerCase().includes(q)
+    );
+    if (sortMode === "alpha") {
+      list = [...list].sort((a, b) => a.university.localeCompare(b.university));
+    }
+    return list;
+  }, [available, query, sortMode]);
+
+  return (
+    <div ref={ref} className="relative">
+      <div
+        className="flex items-center border border-input rounded-md bg-background hover:bg-accent/50 cursor-text"
+        onClick={() => { setOpen(true); inputRef.current?.focus(); }}
+      >
+        <svg className="w-4 h-4 ml-3 text-muted-foreground shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input
+          ref={inputRef}
+          className="w-[280px] px-2 py-2 text-sm bg-transparent outline-none placeholder:text-muted-foreground"
+          placeholder="Type to search schools..."
+          value={query}
+          onChange={e => { setQuery(e.target.value); setOpen(true); }}
+          onFocus={() => setOpen(true)}
+        />
+        <button
+          className={`px-2 py-1 mr-1 text-xs rounded ${sortMode === "alpha" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+          onClick={e => { e.stopPropagation(); setSortMode(sortMode === "rank" ? "alpha" : "rank"); }}
+          title={sortMode === "rank" ? "Sort A\u2013Z" : "Sort by Rank"}
+        >
+          {sortMode === "rank" ? "A\u2013Z" : "#"}
+        </button>
+      </div>
+      {open && (
+        <div className="absolute z-50 mt-1 w-full bg-popover border border-border rounded-md shadow-lg max-h-64 overflow-y-auto">
+          {filtered.length === 0 && (
+            <div className="px-3 py-4 text-sm text-muted-foreground text-center">No schools match "{query}"</div>
+          )}
+          {filtered.map(s => (
+            <button
+              key={s.key}
+              className="w-full text-left px-3 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground transition-colors flex items-center gap-2"
+              onClick={() => { onSelect(s.key); setQuery(""); setOpen(false); }}
+            >
+              {s.rank && <span className="text-xs text-muted-foreground w-8 shrink-0">#{s.rank}</span>}
+              <span className="truncate">{s.university} \u2013 {s.school}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function CompareSchools() {
   const schoolList = useSchoolList();
@@ -240,9 +337,23 @@ export default function CompareSchools() {
     setSelectedKeys(selectedKeys.filter(k => k !== key));
   };
 
-  const availableSchools = schoolList.filter(s => !selectedKeys.includes(s.key));
+  const availableSchools = useMemo(
+    () => schoolList.filter(s => !selectedKeys.includes(s.key)),
+    [schoolList, selectedKeys]
+  );
 
   const categories = [...new Set(METRIC_ROWS.map(r => r.category))];
+
+  const rowMaxes = useMemo(() => {
+    const maxes: Record<string, number> = {};
+    for (const row of METRIC_ROWS) {
+      if (row.barType === "number") {
+        const vals = schoolMetrics.map(m => row.getValue(m)).filter((v): v is number => v != null);
+        maxes[row.key] = vals.length > 0 ? Math.max(...vals) : 0;
+      }
+    }
+    return maxes;
+  }, [schoolMetrics]);
 
   const barChartData = useMemo(() => {
     const metric = BAR_CHART_OPTIONS.find(m => m.key === barMetric) || BAR_CHART_OPTIONS[0];
@@ -285,18 +396,7 @@ export default function CompareSchools() {
               );
             })}
             {selectedKeys.length < 4 && (
-              <Select value="" onValueChange={handleAdd}>
-                <SelectTrigger className="w-[320px]">
-                  <SelectValue placeholder="Add a school..." />
-                </SelectTrigger>
-                <SelectContent className="max-h-72">
-                  {availableSchools.map(s => (
-                    <SelectItem key={s.key} value={s.key}>
-                      {s.rank ? `#${s.rank} ` : ""}{s.university} – {s.school}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <SchoolSearchSelect available={availableSchools} onSelect={handleAdd} />
             )}
             {selectedKeys.length > 0 && (
               <Button variant="ghost" size="sm" onClick={() => setSelectedKeys([])}>Clear All</Button>
@@ -322,7 +422,7 @@ export default function CompareSchools() {
                   <tr className="border-b border-border">
                     <th className="text-left py-2 px-3 font-medium text-muted-foreground w-[200px] sticky left-0 bg-card z-10">Metric</th>
                     {schoolMetrics.map((m, i) => (
-                      <th key={m.key} className="text-center py-2 px-3 font-semibold min-w-[140px]" style={{ color: SCHOOL_COLORS[i] }}>
+                      <th key={m.key} className="text-center py-2 px-3 font-semibold min-w-[160px]" style={{ color: SCHOOL_COLORS[i] }}>
                         {m.shortLabel}
                       </th>
                     ))}
@@ -330,31 +430,40 @@ export default function CompareSchools() {
                 </thead>
                 <tbody>
                   {categories.map(cat => (
-                    <>
-                      <tr key={`cat-${cat}`}>
+                    <React.Fragment key={`cat-${cat}`}>
+                      <tr>
                         <td colSpan={schoolMetrics.length + 1} className="pt-4 pb-1 px-3 font-semibold text-xs uppercase tracking-wider text-primary border-b border-primary/20">
                           {cat}
                         </td>
                       </tr>
                       {METRIC_ROWS.filter(r => r.category === cat).map((row, ri) => {
                         const values = schoolMetrics.map(m => row.getValue(m)).filter((v): v is number => v != null);
-                        const best = values.length > 0 ? (row.key === "studentFacultyRatio" || row.key === "rank" || row.key === "ugAcceptanceRate" ? Math.min(...values) : Math.max(...values)) : null;
+                        const best = values.length > 1 ? (row.lowerIsBetter ? Math.min(...values) : Math.max(...values)) : null;
+                        const maxVal = rowMaxes[row.key] || 0;
                         return (
                           <tr key={row.key} className={ri % 2 === 0 ? "bg-muted/30" : ""}>
                             <td className="py-1.5 px-3 text-muted-foreground sticky left-0 bg-inherit z-10">{row.label}</td>
                             {schoolMetrics.map((m, i) => {
                               const val = row.getValue(m);
-                              const isBest = best != null && val === best && values.length > 1;
+                              const isBest = best != null && val === best;
                               return (
-                                <td key={m.key} className={`text-center py-1.5 px-3 ${isBest ? "font-bold" : ""}`}>
-                                  {row.format(m)}
+                                <td key={m.key} className="text-center py-1 px-3">
+                                  <div className={`text-sm ${isBest ? "font-bold" : ""}`}>
+                                    {row.format(m)}
+                                  </div>
+                                  {row.barType === "pct" && val != null && (
+                                    <PctBar value={val} color={SCHOOL_COLORS[i]} />
+                                  )}
+                                  {row.barType === "number" && val != null && maxVal > 0 && (
+                                    <MiniBar value={val} max={maxVal} color={SCHOOL_COLORS[i]} />
+                                  )}
                                 </td>
                               );
                             })}
                           </tr>
                         );
                       })}
-                    </>
+                    </React.Fragment>
                   ))}
                 </tbody>
               </table>
@@ -432,3 +541,4 @@ export default function CompareSchools() {
     </div>
   );
 }
+
