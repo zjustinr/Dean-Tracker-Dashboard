@@ -98,42 +98,86 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               </div>
 
               <div className="flex-1 relative h-8 min-w-0">
-                <div
-                  className="absolute top-0 h-full rounded-md transition-all flex items-center overflow-hidden"
-                  style={{
-                    left: `${leftPct}%`,
-                    width: `${Math.max(widthPct, 2)}%`,
-                    background: barColor,
-                    opacity: isSelected ? 1 : 0.8,
-                    outline: isSelected ? "3px solid hsl(var(--foreground))" : "none",
-                    outlineOffset: 2,
-                    boxShadow: isSelected ? "0 0 0 1px hsl(var(--background))" : "none",
-                  }}
-                  onMouseEnter={(e) => {
-                    setHoveredIdx(idx);
-                    if (containerRef.current) {
-                      const rect = containerRef.current.getBoundingClientRect();
-                      setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-                    }
-                  }}
-                  onMouseMove={(e) => {
-                    if (containerRef.current) {
-                      const rect = containerRef.current.getBoundingClientRect();
-                      setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-                    }
-                  }}
-                  onMouseLeave={() => setHoveredIdx(null)}
-                >
-                  {dean.isInterim && (
-                    <span className="text-white text-[11px] ml-1.5 shrink-0 leading-none" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.4)" }}>▼</span>
-                  )}
-                  <span
-                    className="text-[10px] text-white font-medium px-2 whitespace-nowrap overflow-hidden text-ellipsis"
-                    style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+                {dean.isInterim ? (
+                  <div
+                    className="absolute top-0 h-full transition-all"
+                    style={{
+                      left: `${leftPct}%`,
+                      width: `${Math.max(widthPct, 2)}%`,
+                      filter: isSelected ? "drop-shadow(0 0 2px hsl(var(--foreground)))" : "none",
+                    }}
+                    onMouseEnter={(e) => {
+                      setHoveredIdx(idx);
+                      if (containerRef.current) {
+                        const rect = containerRef.current.getBoundingClientRect();
+                        setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                      }
+                    }}
+                    onMouseMove={(e) => {
+                      if (containerRef.current) {
+                        const rect = containerRef.current.getBoundingClientRect();
+                        setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                      }
+                    }}
+                    onMouseLeave={() => setHoveredIdx(null)}
                   >
-                    {`${startY}–${endY === 2026 ? "Present" : endY}`}
-                  </span>
-                </div>
+                    <svg
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 100 100"
+                      preserveAspectRatio="none"
+                      className="block"
+                    >
+                      <polygon
+                        points="0,0 100,0 50,100"
+                        fill={barColor}
+                        opacity={isSelected ? 1 : 0.8}
+                        stroke={isSelected ? "hsl(var(--foreground))" : "none"}
+                        strokeWidth={isSelected ? 3 : 0}
+                      />
+                    </svg>
+                    <span
+                      className="absolute inset-0 flex items-start justify-center text-[10px] text-white font-medium whitespace-nowrap pt-1"
+                      style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
+                    >
+                      {`${startY}–${endY === 2026 ? "Present" : endY}`}
+                    </span>
+                  </div>
+                ) : (
+                  <div
+                    className="absolute top-0 h-full rounded-md transition-all flex items-center overflow-hidden"
+                    style={{
+                      left: `${leftPct}%`,
+                      width: `${Math.max(widthPct, 2)}%`,
+                      background: barColor,
+                      opacity: isSelected ? 1 : 0.8,
+                      outline: isSelected ? "3px solid hsl(var(--foreground))" : "none",
+                      outlineOffset: 2,
+                      boxShadow: isSelected ? "0 0 0 1px hsl(var(--background))" : "none",
+                    }}
+                    onMouseEnter={(e) => {
+                      setHoveredIdx(idx);
+                      if (containerRef.current) {
+                        const rect = containerRef.current.getBoundingClientRect();
+                        setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                      }
+                    }}
+                    onMouseMove={(e) => {
+                      if (containerRef.current) {
+                        const rect = containerRef.current.getBoundingClientRect();
+                        setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                      }
+                    }}
+                    onMouseLeave={() => setHoveredIdx(null)}
+                  >
+                    <span
+                      className="text-[10px] text-white font-medium px-2 whitespace-nowrap overflow-hidden text-ellipsis"
+                      style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+                    >
+                      {`${startY}–${endY === 2026 ? "Present" : endY}`}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           );
