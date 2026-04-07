@@ -211,10 +211,10 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
             const isSelected = marker.schoolKey === selectedSchoolKey;
             const isHovered = marker.shortName === hoveredSchool;
             const scaledRadius = marker.radius / position.zoom;
-            const fillColor = isSelected
-              ? "hsl(330, 81%, 60%)"
-              : getDeanCountColor(marker.deanCount);
+            const fillColor = getDeanCountColor(marker.deanCount);
             const fontSize = Math.max(5, 9 / position.zoom);
+            const ringGap = 2.5 / position.zoom;
+            const ringWidth = 2 / position.zoom;
 
             return (
               <Marker
@@ -225,12 +225,28 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
                 onMouseLeave={() => setHoveredSchool(null)}
                 style={{ cursor: "pointer" }}
               >
+                {isSelected && (
+                  <>
+                    <circle
+                      r={scaledRadius + ringGap + ringWidth * 2}
+                      fill="none"
+                      stroke="hsl(330, 81%, 60%)"
+                      strokeWidth={ringWidth}
+                    />
+                    <circle
+                      r={scaledRadius + ringGap}
+                      fill="none"
+                      stroke="white"
+                      strokeWidth={ringWidth}
+                    />
+                  </>
+                )}
                 <circle
                   r={scaledRadius}
                   fill={fillColor}
                   opacity={isSelected || isHovered ? 1 : 0.85}
-                  stroke={isSelected ? "hsl(var(--foreground))" : isHovered ? "hsl(var(--foreground))" : "white"}
-                  strokeWidth={isSelected || isHovered ? 2 / position.zoom : 0.5 / position.zoom}
+                  stroke={isHovered ? "hsl(var(--foreground))" : "white"}
+                  strokeWidth={isHovered ? 2 / position.zoom : 0.5 / position.zoom}
                 />
                 <text
                   textAnchor="middle"
@@ -266,10 +282,13 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
         </span>
         <span className="flex items-center gap-1">
           <span
-            className="inline-block w-3 h-3 rounded-full border border-white/50"
-            style={{ background: "hsl(330, 81%, 60%)" }}
+            className="inline-block w-4 h-4 rounded-full"
+            style={{
+              background: "hsl(var(--muted))",
+              boxShadow: "0 0 0 2px white, 0 0 0 4px hsl(330, 81%, 60%)",
+            }}
           />
-          Selected
+          <span className="ml-1">Selected</span>
         </span>
       </div>
     </div>
