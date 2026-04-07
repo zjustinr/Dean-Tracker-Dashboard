@@ -144,7 +144,7 @@ export default function SchoolResearch() {
         <Card>
           <CardContent className="py-12 text-center text-muted-foreground">
             <p className="text-lg font-medium">N/A — No AACSB BSQ data available for this school</p>
-            <p className="text-xs mt-2 text-muted-foreground/70">{schools.filter(s => s.bsq.totalHeadcount != null).length} of {schools.length} schools have BSQ data.</p>
+            <p className="text-xs mt-2 text-muted-foreground/70">{schools.filter(s => (s.bsq.totalHeadcount ?? s.bsq.totalHeadcountAvg ?? s.bsq.totalHeadcountStart) != null).length} of {schools.length} schools have BSQ data.</p>
           </CardContent>
         </Card>
       )}
@@ -163,7 +163,20 @@ function n(v: number | string | null | undefined): number | null {
 
 export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: number }) {
   const _b = bsq.bsq;
-  const b = new Proxy(_b, { get: (t, p: string) => n(t[p]) }) as Record<string, number | null>;
+  const SUFFIXES = ["Start", "Avg"];
+  const b = new Proxy(_b, {
+    get: (t, p: string) => {
+      const v = n(t[p]);
+      if (v != null) return v;
+      if (!p.endsWith("Start") && !p.endsWith("Avg")) {
+        for (const s of SUFFIXES) {
+          const fb = n(t[p + s]);
+          if (fb != null) return fb;
+        }
+      }
+      return null;
+    },
+  }) as Record<string, number | null>;
 
   const ugGenderData = useMemo(() => {
     if (b.ugMale == null && b.ugFemale == null) return null;

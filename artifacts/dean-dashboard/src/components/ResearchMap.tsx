@@ -16,7 +16,7 @@ const PIE_COLORS = {
 interface BSQEntry {
   university: string;
   school: string;
-  bsq: Record<string, number | null>;
+  bsq: Record<string, number | string | null>;
 }
 
 const bsqLookup = new Map<string, BSQEntry>();
@@ -120,9 +120,15 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
       const schoolKey = makeSchoolKey(deanUniversity, deanSchoolName);
 
       const bsq = findBSQ(deanUniversity, deanSchoolName);
-      const totalHeadcount = bsq?.bsq?.totalHeadcount ?? null;
-      const ugTotal = bsq?.bsq?.ugTotal ?? 0;
-      const mbaTotal = bsq?.bsq?.mbaTotal ?? 0;
+      const bb = bsq?.bsq;
+      const fb = (key: string) => {
+        if (!bb) return null;
+        const v = bb[key] ?? bb[key + "Start"] ?? bb[key + "Avg"];
+        return v != null ? Number(v) : null;
+      };
+      const totalHeadcount = fb("totalHeadcount");
+      const ugTotal = fb("ugTotal") ?? 0;
+      const mbaTotal = fb("mbaTotal") ?? 0;
       const otherTotal = totalHeadcount != null ? Math.max(0, totalHeadcount - (ugTotal || 0) - (mbaTotal || 0)) : 0;
 
       return {

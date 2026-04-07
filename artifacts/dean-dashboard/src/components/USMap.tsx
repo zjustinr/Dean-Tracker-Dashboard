@@ -115,7 +115,7 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
         deanSchoolName,
         schoolKey,
         deanCount,
-        radius: Math.max(10, Math.min(22, s.totalFaculty / 8)),
+        radius: Math.max(8, Math.min(22, 6 + (s.totalFaculty / 20))),
       };
     });
 
