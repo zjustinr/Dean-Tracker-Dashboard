@@ -20,15 +20,7 @@ interface BSQSchool {
   tier: string | null;
   unitid: number | null;
   control: string | null;
-  bsqDataYear: number | null;
-  enrollDataYear: number | null;
-  enrollment: {
-    universityEnd: number | null;
-    universityAvg: number | null;
-    bizPctEnd: number | null;
-    bizDegreesLatest: number | null;
-  };
-  bsq: Record<string, number | null>;
+  bsq: Record<string, number | string | null>;
 }
 
 const CURRENT_YEAR = 2026;
@@ -163,9 +155,15 @@ export default function SchoolResearch() {
 export { findBSQ };
 export type { BSQSchool };
 
+function n(v: number | string | null | undefined): number | null {
+  if (v == null || v === "") return null;
+  const x = Number(v);
+  return isNaN(x) ? null : x;
+}
+
 export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: number }) {
-  const b = bsq.bsq;
-  const e = bsq.enrollment;
+  const _b = bsq.bsq;
+  const b = new Proxy(_b, { get: (t, p: string) => n(t[p]) }) as Record<string, number | null>;
 
   const ugGenderData = useMemo(() => {
     if (b.ugMale == null && b.ugFemale == null) return null;
@@ -225,7 +223,7 @@ export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCoun
     ].filter(d => d.value > 0);
   }, [b]);
 
-  const isOutdated = bsq.bsqDataYear != null && (CURRENT_YEAR - bsq.bsqDataYear) >= OUTDATED_THRESHOLD;
+  const isOutdated = false;
 
   return (
     <div className="space-y-6">
@@ -241,9 +239,6 @@ export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCoun
               {bsq.tier && <Badge variant="secondary">{bsq.tier}</Badge>}
               {bsq.control && <Badge variant="outline">{bsq.control}</Badge>}
               <Badge variant="outline">{deanCount} deans recorded</Badge>
-              {bsq.bsqDataYear && (
-                <Badge variant="outline" className="text-muted-foreground">BSQ data: {bsq.bsqDataYear}</Badge>
-              )}
             </div>
           </div>
 
@@ -251,7 +246,7 @@ export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCoun
             <div className="flex items-center gap-2 bg-red-50 dark:bg-red-950/40 border border-red-300 dark:border-red-800 rounded-lg px-4 py-2.5 mb-4">
               <span className="text-red-600 text-lg">&#9888;</span>
               <p className="text-sm text-red-700 dark:text-red-400 font-medium">
-                Data is outdated — BSQ figures are from {bsq.bsqDataYear}, which is {CURRENT_YEAR - bsq.bsqDataYear!} years old. Values shown may no longer be accurate.
+                Data may be outdated. Values shown may no longer be accurate.
               </p>
             </div>
           )}
@@ -274,8 +269,8 @@ export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCoun
             />
             <KPICard
               label="Student:Faculty"
-              value={b.studentFacultyRatio != null ? b.studentFacultyRatio.toFixed(1) : "N/A"}
-              sub={b.studentFacultyRatioAvg != null ? `avg ${b.studentFacultyRatioAvg.toFixed(1)}` : undefined}
+              value={b.studentFacultyRatio != null ? Number(b.studentFacultyRatio).toFixed(1) : "N/A"}
+              sub={b.studentFacultyRatioAvg != null ? `avg ${Number(b.studentFacultyRatioAvg).toFixed(1)}` : undefined}
             />
             <KPICard
               label="Avg SAT"
@@ -510,9 +505,9 @@ export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCoun
               </div>
               <div className="bg-muted/40 rounded-lg p-4 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Student:Faculty Ratio</p>
-                <p className="text-3xl font-bold text-primary">{b.studentFacultyRatio != null ? b.studentFacultyRatio.toFixed(1) : "N/A"}</p>
+                <p className="text-3xl font-bold text-primary">{b.studentFacultyRatio != null ? Number(b.studentFacultyRatio).toFixed(1) : "N/A"}</p>
                 {b.studentFacultyRatioAvg != null && (
-                  <p className="text-xs text-muted-foreground">avg: {b.studentFacultyRatioAvg.toFixed(1)}</p>
+                  <p className="text-xs text-muted-foreground">avg: {Number(b.studentFacultyRatioAvg).toFixed(1)}</p>
                 )}
               </div>
               <div className="bg-muted/40 rounded-lg p-4 text-center">
@@ -524,24 +519,28 @@ export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCoun
         </Card>
       </div>
 
-      {(e.universityEnd != null || e.bizPctEnd != null || e.bizDegreesLatest != null) && (
+      {(b.instTotal != null || b.instUG != null) && (
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-base">University-Level Enrollment Context</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="text-center">
-                <p className="text-xs text-muted-foreground">University Enrollment</p>
-                <p className="text-lg font-bold">{fmt(e.universityEnd)}</p>
+                <p className="text-xs text-muted-foreground">Institution Total</p>
+                <p className="text-lg font-bold">{fmt(b.instTotal)}</p>
               </div>
               <div className="text-center">
-                <p className="text-xs text-muted-foreground">Business % of University</p>
-                <p className="text-lg font-bold">{e.bizPctEnd != null ? `${(e.bizPctEnd * 100).toFixed(1)}%` : "N/A"}</p>
+                <p className="text-xs text-muted-foreground">Institution UG</p>
+                <p className="text-lg font-bold">{fmt(b.instUG)}</p>
               </div>
               <div className="text-center">
-                <p className="text-xs text-muted-foreground">Business Degrees (Latest)</p>
-                <p className="text-lg font-bold">{fmt(e.bizDegreesLatest)}</p>
+                <p className="text-xs text-muted-foreground">Institution Masters</p>
+                <p className="text-lg font-bold">{fmt(b.instMasters)}</p>
+              </div>
+              <div className="text-center">
+                <p className="text-xs text-muted-foreground">Institution Doctoral</p>
+                <p className="text-lg font-bold">{fmt(b.instDoctoral)}</p>
               </div>
             </div>
           </CardContent>

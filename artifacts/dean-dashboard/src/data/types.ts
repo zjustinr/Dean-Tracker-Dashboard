@@ -51,6 +51,8 @@ export interface Dean {
   enrollmentAvg: number | null;
   businessPctEnd: number | null;
   businessDegreesLatest: number | null;
+  convertedToPermanent: boolean;
+  connectionType: string;
 }
 
 export type CategoricalField =
