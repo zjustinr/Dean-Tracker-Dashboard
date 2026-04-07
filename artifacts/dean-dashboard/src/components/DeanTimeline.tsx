@@ -10,8 +10,7 @@ interface Props {
   onSelect?: (idx: number) => void;
 }
 
-function getBarColor(gender: string, isInterim: boolean): string {
-  if (isInterim) return "hsl(var(--muted-foreground))";
+function getBarColor(gender: string): string {
   if (gender === "F") return CHART_COLORS[4];
   return CHART_COLORS[0];
 }
@@ -68,7 +67,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
           const leftPct = ((startY - minYear) / yearSpan) * 100;
           const widthPct = (duration / yearSpan) * 100;
           const isSelected = clickedIdx === idx;
-          const barColor = getBarColor(dean.gender, dean.isInterim);
+          const barColor = getBarColor(dean.gender);
 
           const subtitle = [
             dean.priorTitle || "",
@@ -125,6 +124,9 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                   }}
                   onMouseLeave={() => setHoveredIdx(null)}
                 >
+                  {dean.isInterim && (
+                    <span className="text-white text-[11px] ml-1.5 shrink-0 leading-none" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.4)" }}>▼</span>
+                  )}
                   <span
                     className="text-[10px] text-white font-medium px-2 whitespace-nowrap overflow-hidden text-ellipsis"
                     style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
@@ -201,7 +203,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
           <span className="inline-block w-3 h-3 rounded" style={{ background: CHART_COLORS[4] }} /> Female
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="inline-block w-3 h-3 rounded bg-muted-foreground" /> Interim
+          <span className="text-foreground text-xs leading-none">▼</span> Interim
         </span>
       </div>
 
