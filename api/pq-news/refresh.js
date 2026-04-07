@@ -1,19 +1,3 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
-
-// Re-export the same handler but with no-cache headers
-// On Vercel serverless, there's no persistent memory between invocations,
-// so "refresh" simply fetches fresh data with no caching headers.
-
-interface PQArticle {
-  title: string;
-  url: string;
-  date: string;
-  summary: string;
-  category: "hiring" | "departure" | "search" | "general";
-  extractedSchool: string | null;
-  extractedDean: string | null;
-}
-
 const DEAN_KEYWORDS = [
   "dean", "appointed", "named", "step down", "stepping down", "departure",
   "search committee", "interim dean", "new leader", "business school leader",
@@ -35,12 +19,12 @@ const SEARCH_KEYWORDS = [
   "search committee", "dean search", "looking for", "seeking", "search firm", "open position",
 ];
 
-function isDeanRelated(title: string, summary: string): boolean {
+function isDeanRelated(title, summary) {
   const combined = `${title} ${summary}`.toLowerCase();
   return DEAN_KEYWORDS.some((kw) => combined.includes(kw));
 }
 
-function classifyArticle(title: string, summary: string): PQArticle["category"] {
+function classifyArticle(title, summary) {
   const combined = `${title} ${summary}`.toLowerCase();
   if (HIRING_KEYWORDS.some((kw) => combined.includes(kw))) return "hiring";
   if (DEPARTURE_KEYWORDS.some((kw) => combined.includes(kw))) return "departure";
@@ -48,7 +32,7 @@ function classifyArticle(title: string, summary: string): PQArticle["category"] 
   return "general";
 }
 
-function extractDeanName(title: string, summary: string): string | null {
+function extractDeanName(title, summary) {
   const combined = `${title} ${summary}`;
   const patterns = [
     /has named\s+([A-Z][a-z]+(?:\s+[A-Z]\.?)?\s+[A-Z][a-z]+)\s+(?:as|the new|dean)/i,
@@ -69,7 +53,7 @@ function extractDeanName(title: string, summary: string): string | null {
   return null;
 }
 
-const KNOWN_SCHOOLS: Array<{ patterns: string[]; university: string }> = [
+const KNOWN_SCHOOLS = [
   { patterns: ["wharton"], university: "University of Pennsylvania" },
   { patterns: ["harvard business", "hbs"], university: "Harvard University" },
   { patterns: ["booth", "chicago booth"], university: "University of Chicago" },
@@ -114,7 +98,7 @@ const KNOWN_SCHOOLS: Array<{ patterns: string[]; university: string }> = [
   { patterns: ["gies", "illinois gies"], university: "University of Illinois" },
   { patterns: ["marriott school", "byu marriott"], university: "Brigham Young University" },
   { patterns: ["d'amore-mckim", "northeastern"], university: "Northeastern University" },
-  { patterns: ["katz graduate", "pitt katz"], unieersity: "University of Pittsburgh" },
+  { patterns: ["katz graduate", "pitt katz"], university: "University of Pittsburgh" },
   { patterns: ["tippie", "iowa tippie"], university: "University of Iowa" },
   { patterns: ["fox school", "temple fox"], university: "Temple University" },
   { patterns: ["miami herbert"], university: "University of Miami" },
@@ -125,8 +109,7 @@ const KNOWN_SCHOOLS: Array<{ patterns: string[]; university: string }> = [
   { patterns: ["ie business school"], university: "IE University" },
   { patterns: ["hec paris"], university: "HEC Paris" },
 ];
-
-function extractSchool(title: string, summary: string): string | null {
+function extractSchool(title, summary) {
   const combined = `${title} ${summary}`.toLowerCase();
   for (const school of KNOWN_SCHOOLS) {
     if (school.patterns.some((p) => combined.includes(p))) {
@@ -136,33 +119,33 @@ function extractSchool(title: string, summary: string): string | null {
   return null;
 }
 
-function decodeEntities(text: string): string {
+function decodeEntities(text) {
   return text
     .replace(/&#8217;/g, "'").replace(/&#8216;/g, "'")
     .replace(/&#8220;/g, '"').replace(/&#8221;/g, '"')
-    .replace(/&#8211;/g, "â").replace(/&#8212;/g, "â")
+    .replace(/&#8211;/g, "\u2013").replace(/&#8212;/g, "\u2014")
     .replace(/&#038;/g, "&").replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<").replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"').replace(/&#039;/g, "'")
     .replace(/&nbsp;/g, " ");
 }
 
-function stripHtml(html: string): string {
+function stripHtml(html) {
   return decodeEntities(html.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim());
 }
 
-async function fetchPQFeed(): Promise<PQArticle[]> {
+async function fetchPQFeed() {
   const res = await fetch("https://poetsandquants.com/feed/");
   if (!res.ok) throw new Error(`P&Q feed returned ${res.status}`);
 
   const xml = await res.text();
 
-  const items: Array<{ title: string; link: string; pubDate: string; description: string }> = [];
+  const items = [];
   const itemRegex = /<item>([\s\S]*?)<\/item>/g;
   let match;
   while ((match = itemRegex.exec(xml)) !== null) {
     const itemXml = match[1];
-    const getTag = (tag: string) => {
+    const getTag = (tag) => {
       const m = itemXml.match(new RegExp(`<${tag}[^>]*>(?:<!\\[CDATA\\[)?(.*?)(?:\\]\\]>)?<\\/${tag}>`, "s"));
       return m ? m[1].trim() : "";
     };
@@ -174,7 +157,7 @@ async function fetchPQFeed(): Promise<PQArticle[]> {
     });
   }
 
-  const articles: PQArticle[] = [];
+  const articles = [];
   for (const item of items) {
     const title = decodeEntities(item.title);
     const link = item.link;
@@ -185,13 +168,13 @@ async function fetchPQFeed(): Promise<PQArticle[]> {
 
     let isoDate = "";
     try { isoDate = new Date(item.pubDate).toISOString().split("T")[0]; }
-    catch { isoDate = item.pubDate; }
+    catch (e) { isoDate = item.pubDate; }
 
     articles.push({
       title,
       url: link,
       date: isoDate,
-      summary: summary.length > 250 ? summary.substring(0, 250) + "â¦" : summary,
+      summary: summary.length > 250 ? summary.substring(0, 250) + "\u2026" : summary,
       category: classifyArticle(title, summary),
       extractedSchool: extractSchool(title, summary),
       extractedDean: extractDeanName(title, summary),
@@ -201,9 +184,8 @@ async function fetchPQFeed(): Promise<PQArticle[]> {
   return articles;
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  // No caching for refresh endpoint
   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
   try {
@@ -217,4 +199,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.error("Failed to fetch P&Q news:", err);
     res.status(502).json({ error: "Failed to fetch news feed" });
   }
-}
+};
