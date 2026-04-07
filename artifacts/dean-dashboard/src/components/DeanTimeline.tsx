@@ -97,7 +97,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                 )}
               </div>
 
-              <div className="flex-1 relative h-8 min-w-0">
+              <div className="flex-1 relative h-10 min-w-0">
                 {dean.isInterim ? (
                   <div
                     className="absolute top-0 h-full transition-all"
