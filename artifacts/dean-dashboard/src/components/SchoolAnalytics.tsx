@@ -7,13 +7,18 @@ import {
 } from "recharts";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS, NEXT_ROLE_LABELS } from "@/data/types";
-import { SCHOOL_INFO, findSchoolInfo } from "@/data/schools";
+import { useSchoolsInfo, makeSchoolKey } from "@/data/useData";
 
 export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
+  const SCHOOL_INFO = useSchoolsInfo();
   const schoolInfo = useMemo(() => {
     if (!deans.length) return null;
-    return findSchoolInfo(deans[0].school) || findSchoolInfo(deans[0].university);
-  }, [deans]);
+    const key = makeSchoolKey(deans[0].university, deans[0].school);
+    return SCHOOL_INFO.find(s => makeSchoolKey(s.university, s.school) === key)
+      || SCHOOL_INFO.find(s => s.school === deans[0].school)
+      || SCHOOL_INFO.find(s => s.university === deans[0].university)
+      || null;
+  }, [deans, SCHOOL_INFO]);
 
   const genderData = useMemo(() => {
     const m = deans.filter((d) => d.gender === "M").length;

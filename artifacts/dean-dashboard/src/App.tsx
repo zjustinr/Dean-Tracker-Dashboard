@@ -5,6 +5,7 @@ import AggregateTrends from "@/components/AggregateTrends";
 import InterimAnalysis from "@/components/InterimAnalysis";
 import IndividualSearch from "@/components/IndividualSearch";
 import LiveJobMarket from "@/components/LiveJobMarket";
+import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 
 interface TabDef {
   value: string;
@@ -30,7 +31,8 @@ const TAB_CONTENT: Record<string, React.ReactNode> = {
   jobmarket: <LiveJobMarket />,
 };
 
-function App() {
+function AppInner() {
+  const { datasetId, setDatasetId, list, meta } = useDataset();
   const [darkMode, setDarkMode] = useState(false);
   const [tabs, setTabs] = useState<TabDef[]>(DEFAULT_TABS);
   const [activeTab, setActiveTab] = useState(DEFAULT_TABS[0].value);
@@ -80,8 +82,8 @@ function App() {
         <header className="border-b border-border bg-card">
           <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Business School Dean Leadership Dashboard</h1>
-              <p className="text-sm text-muted-foreground mt-0.5">Exploring leadership change at top business schools (1967–2026)</p>
+              <h1 className="text-3xl font-bold tracking-tight">{meta.schoolType === "engineering" ? "Engineering" : "Business"} School Dean Leadership Dashboard</h1>
+              <p className="text-sm text-muted-foreground mt-0.5">{meta.description} ({meta.yearRange})</p>
             </div>
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -95,6 +97,28 @@ function App() {
 
         <main className="max-w-[1400px] mx-auto px-4 py-6">
           <div className="space-y-6">
+            <div className="flex flex-wrap gap-2 items-center justify-center bg-muted/40 rounded-xl p-2 border border-border" role="tablist" aria-label="Dataset">
+              {list.map(d => {
+                const isActive = d.id === datasetId;
+                return (
+                  <button
+                    key={d.id}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setDatasetId(d.id)}
+                    className={[
+                      "px-4 py-2 rounded-lg text-sm font-semibold transition-all",
+                      isActive
+                        ? "bg-primary text-primary-foreground shadow-md"
+                        : "bg-card text-foreground hover:bg-muted border border-transparent",
+                    ].join(" ")}
+                  >
+                    {d.shortLabel}
+                  </button>
+                );
+              })}
+            </div>
+
             <div
               className="grid grid-cols-2 md:grid-cols-3 gap-4"
               role="tablist"
@@ -150,6 +174,14 @@ function App() {
         </footer>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <DatasetProvider>
+      <AppInner />
+    </DatasetProvider>
   );
 }
 

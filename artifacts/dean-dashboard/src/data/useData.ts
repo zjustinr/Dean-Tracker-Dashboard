@@ -1,8 +1,6 @@
 import { useMemo } from "react";
-import rawData from "./deans.json";
 import type { Dean } from "./types";
-
-const allDeans: Dean[] = rawData as Dean[];
+import { useDataset } from "./DatasetContext";
 
 export function makeSchoolKey(university: string, school: string): string {
   return `${university}|||${school}`;
@@ -14,10 +12,11 @@ export function parseSchoolKey(key: string): { university: string; school: strin
 }
 
 export function useAllDeans(): Dean[] {
-  return allDeans;
+  return useDataset().bundle.deans;
 }
 
 export function useSchoolList() {
+  const allDeans = useAllDeans();
   return useMemo(() => {
     const schoolMap = new Map<string, { university: string; school: string; key: string; rank: number | null; tier: string }>();
     for (const d of allDeans) {
@@ -32,34 +31,45 @@ export function useSchoolList() {
       if (b.rank) return 1;
       return a.school.localeCompare(b.school);
     });
-  }, []);
+  }, [allDeans]);
 }
 
 export function useSchoolDeans(schoolKey: string): Dean[] {
+  const allDeans = useAllDeans();
   return useMemo(() => {
     const { university, school } = parseSchoolKey(schoolKey);
     return allDeans
       .filter((d) => d.university === university && d.school === school)
       .sort((a, b) => (a.startYear || 0) - (b.startYear || 0));
-  }, [schoolKey]);
+  }, [schoolKey, allDeans]);
 }
 
 export function useDeanCareer(deanName: string | null): Dean[] {
+  const allDeans = useAllDeans();
   return useMemo(() => {
     if (!deanName) return [];
     return allDeans
       .filter((d) => d.dean === deanName)
       .sort((a, b) => (a.startYear || 0) - (b.startYear || 0));
-  }, [deanName]);
+  }, [deanName, allDeans]);
 }
 
 export function useFilteredDeans(options: { top50Only?: boolean; top100Only?: boolean } = {}) {
+  const allDeans = useAllDeans();
   return useMemo(() => {
     let filtered = allDeans;
     if (options.top50Only) filtered = filtered.filter((d) => d.inTop50);
     if (options.top100Only) filtered = filtered.filter((d) => d.inTop100);
     return filtered;
-  }, [options.top50Only, options.top100Only]);
+  }, [options.top50Only, options.top100Only, allDeans]);
+}
+
+export function useBSQ() {
+  return useDataset().bundle.bsq;
+}
+
+export function useSchoolsInfo() {
+  return useDataset().bundle.schools;
 }
 
 export function computeCrosstab(

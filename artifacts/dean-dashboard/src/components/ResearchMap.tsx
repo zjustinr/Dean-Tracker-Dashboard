@@ -1,8 +1,7 @@
 import { useMemo, useState, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
-import { makeSchoolKey } from "@/data/useData";
-import { SCHOOL_INFO, SCHOOL_DEAN_MAP } from "@/data/schools";
-import bsqData from "@/data/schools-bsq.json";
+import { makeSchoolKey, useBSQ, useSchoolsInfo } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 const CLUSTER_THRESHOLD = 0.15;
@@ -19,17 +18,8 @@ interface BSQEntry {
   bsq: Record<string, number | string | null>;
 }
 
-const bsqLookup = new Map<string, BSQEntry>();
-(bsqData as BSQEntry[]).forEach(s => {
-  bsqLookup.set(s.university + "|||" + s.school, s);
-});
-
-function findBSQ(university: string, school: string): BSQEntry | null {
-  return bsqLookup.get(university + "|||" + school) || null;
-}
-
-function spreadOverlappingMarkers(
-  markers: { lat: number; lng: number; shortName: string; [k: string]: any }[]
+function spreadOverlappingMarkers<T extends { lat: number; lng: number; shortName: string }>(
+  markers: T[]
 ) {
   const result = markers.map((m) => ({ ...m, adjLat: m.lat, adjLng: m.lng }));
   const clusters: number[][] = [];
@@ -112,27 +102,54 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
     setPosition({ coordinates: [-96, 38], zoom: 1 });
   }, []);
 
+  const SCHOOL_INFO = useSchoolsInfo();
+  const allBSQ = useBSQ() as BSQEntry[];
+  const isEngineering = useDataset().meta.schoolType === "engineering";
+  const bsqLookup = useMemo(() => {
+    const m = new Map<string, BSQEntry>();
+    for (const s of allBSQ) m.set(s.university + "|||" + s.school, s);
+    return m;
+  }, [allBSQ]);
+
   const schoolMarkers = useMemo(() => {
-    const raw = SCHOOL_INFO.map((s) => {
-      const mapping = SCHOOL_DEAN_MAP[s.shortName];
-      const deanUniversity = mapping?.university || s.fullName.split(" – ")[0] || "";
-      const deanSchoolName = mapping?.school || s.shortName;
+    const raw = SCHOOL_INFO.filter(s => s.lat != null && s.lng != null).map((s) => {
+      const deanUniversity = s.university;
+      const deanSchoolName = s.school;
       const schoolKey = makeSchoolKey(deanUniversity, deanSchoolName);
 
-      const bsq = findBSQ(deanUniversity, deanSchoolName);
+      const bsq = bsqLookup.get(deanUniversity + "|||" + deanSchoolName) || null;
       const bb = bsq?.bsq;
       const fb = (key: string) => {
         if (!bb) return null;
         const v = bb[key] ?? bb[key + "Start"] ?? bb[key + "Avg"];
         return v != null ? Number(v) : null;
       };
-      const totalHeadcount = fb("totalHeadcount");
-      const ugTotal = fb("ugTotal") ?? 0;
-      const mbaTotal = fb("mbaTotal") ?? 0;
-      const otherTotal = totalHeadcount != null ? Math.max(0, totalHeadcount - (ugTotal || 0) - (mbaTotal || 0)) : 0;
+
+      let totalHeadcount: number | null;
+      let ugTotal: number;
+      let mbaTotal: number;
+      let otherTotal: number;
+      if (isEngineering) {
+        // For engineering: use total HERD R&D ($K) as the size metric;
+        // pie segments = federal / industry / state / other
+        totalHeadcount = fb("herdEngrTotal");
+        const fed = fb("herdEngrFederal") ?? 0;
+        const ind = fb("herdEngrIndustry") ?? 0;
+        const state = fb("herdEngrState") ?? 0;
+        ugTotal = fed;
+        mbaTotal = ind;
+        otherTotal = totalHeadcount != null ? Math.max(0, totalHeadcount - fed - ind - state) + state : 0;
+      } else {
+        totalHeadcount = fb("totalHeadcount");
+        ugTotal = fb("ugTotal") ?? 0;
+        mbaTotal = fb("mbaTotal") ?? 0;
+        otherTotal = totalHeadcount != null ? Math.max(0, totalHeadcount - (ugTotal || 0) - (mbaTotal || 0)) : 0;
+      }
 
       return {
         ...s,
+        lat: s.lat as number,
+        lng: s.lng as number,
         deanSchoolName,
         schoolKey,
         totalHeadcount,
@@ -145,8 +162,8 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
     });
 
     const headcounts = raw.filter(m => m.hasBSQ).map(m => m.totalHeadcount as number);
-    const minHC = Math.min(...headcounts);
-    const maxHC = Math.max(...headcounts);
+    const minHC = headcounts.length ? Math.min(...headcounts) : 0;
+    const maxHC = headcounts.length ? Math.max(...headcounts) : 1;
     const range = maxHC - minHC || 1;
     const MIN_R = 3;
     const MAX_R = 22;
@@ -160,10 +177,10 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
     }
 
     return spreadOverlappingMarkers(raw);
-  }, []);
+  }, [SCHOOL_INFO, bsqLookup, isEngineering]);
 
   const hoveredMarker = useMemo(
-    () => (hoveredSchool ? schoolMarkers.find((m) => m.shortName === hoveredSchool) : null),
+    () => (hoveredSchool ? schoolMarkers.find((m) => m.schoolKey === hoveredSchool) : null),
     [hoveredSchool, schoolMarkers]
   );
 
@@ -196,24 +213,24 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
           </p>
           {hoveredMarker.hasBSQ ? (
             <div className="space-y-0.5">
-              <p className="text-xs font-medium">Total Headcount: {hoveredMarker.totalHeadcount?.toLocaleString()}</p>
+              <p className="text-xs font-medium">{isEngineering ? "HERD Engr R&D" : "Total Headcount"}: {hoveredMarker.totalHeadcount?.toLocaleString()}{isEngineering ? "K" : ""}</p>
               <div className="flex gap-3 text-[10px]">
                 <span className="flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full" style={{ background: PIE_COLORS.ug }} />
-                  UG: {hoveredMarker.ugTotal.toLocaleString()}
+                  {isEngineering ? "Federal" : "UG"}: {hoveredMarker.ugTotal.toLocaleString()}
                 </span>
                 <span className="flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full" style={{ background: PIE_COLORS.mba }} />
-                  MBA: {hoveredMarker.mbaTotal.toLocaleString()}
+                  {isEngineering ? "Industry" : "MBA"}: {hoveredMarker.mbaTotal.toLocaleString()}
                 </span>
                 <span className="flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full" style={{ background: PIE_COLORS.other }} />
-                  Other: {hoveredMarker.otherTotal.toLocaleString()}
+                  {isEngineering ? "State/Other" : "Other"}: {hoveredMarker.otherTotal.toLocaleString()}
                 </span>
               </div>
             </div>
           ) : (
-            <p className="text-xs text-muted-foreground">No BSQ data available</p>
+            <p className="text-xs text-muted-foreground">No {isEngineering ? "research" : "BSQ"} data available</p>
           )}
         </div>
       )}
@@ -251,7 +268,7 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
           </Geographies>
           {schoolMarkers.map((marker) => {
             const isSelected = marker.schoolKey === selectedSchoolKey;
-            const isHovered = marker.shortName === hoveredSchool;
+            const isHovered = marker.schoolKey === hoveredSchool;
             const r = marker.radius / position.zoom;
             const fontSize = Math.max(5, 9 / position.zoom);
             const strokeW = (isSelected || isHovered ? 2 : 0.5) / position.zoom;
@@ -259,10 +276,10 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
             if (!marker.hasBSQ) {
               return (
                 <Marker
-                  key={marker.shortName}
+                  key={marker.schoolKey}
                   coordinates={[marker.adjLng, marker.adjLat]}
                   onClick={() => onSelectSchool(marker.schoolKey)}
-                  onMouseEnter={() => setHoveredSchool(marker.shortName)}
+                  onMouseEnter={() => setHoveredSchool(marker.schoolKey)}
                   onMouseLeave={() => setHoveredSchool(null)}
                   style={{ cursor: "pointer" }}
                 >
@@ -301,10 +318,10 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
 
             return (
               <Marker
-                key={marker.shortName}
+                key={marker.schoolKey}
                 coordinates={[marker.adjLng, marker.adjLat]}
                 onClick={() => onSelectSchool(marker.schoolKey)}
-                onMouseEnter={() => setHoveredSchool(marker.shortName)}
+                onMouseEnter={() => setHoveredSchool(marker.schoolKey)}
                 onMouseLeave={() => setHoveredSchool(null)}
                 style={{ cursor: "pointer" }}
               >
@@ -343,24 +360,24 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
         </ZoomableGroup>
       </ComposableMap>
       <div className="px-3 pb-2 flex gap-4 text-xs text-muted-foreground justify-center flex-wrap items-center">
-        <span>Drag to pan · Scroll to zoom · Bubble size = total headcount · Number = rank</span>
+        <span>Drag to pan · Scroll to zoom · Bubble size = {isEngineering ? "HERD Engr R&D" : "total headcount"} · Number = rank</span>
         <span className="flex items-center gap-3">
           <span className="flex items-center gap-1">
             <span className="inline-block w-3 h-3 rounded-full" style={{ background: PIE_COLORS.ug }} />
-            <span className="text-[10px]">Undergraduate</span>
+            <span className="text-[10px]">{isEngineering ? "Federal R&D" : "Undergraduate"}</span>
           </span>
           <span className="flex items-center gap-1">
             <span className="inline-block w-3 h-3 rounded-full" style={{ background: PIE_COLORS.mba }} />
-            <span className="text-[10px]">MBA</span>
+            <span className="text-[10px]">{isEngineering ? "Industry R&D" : "MBA"}</span>
           </span>
           <span className="flex items-center gap-1">
             <span className="inline-block w-3 h-3 rounded-full" style={{ background: PIE_COLORS.other }} />
-            <span className="text-[10px]">Other Grad</span>
+            <span className="text-[10px]">{isEngineering ? "State/Other R&D" : "Other Grad"}</span>
           </span>
         </span>
         <span className="flex items-center gap-1">
           <span className="inline-block w-3 h-3 rounded-full bg-gray-400 opacity-60" />
-          <span className="text-[10px]">No BSQ data</span>
+          <span className="text-[10px]">No {isEngineering ? "research" : "BSQ"} data</span>
         </span>
       </div>
     </div>

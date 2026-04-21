@@ -1,7 +1,6 @@
 import { useMemo, useState, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
-import { useAllDeans, makeSchoolKey } from "@/data/useData";
-import { SCHOOL_INFO, SCHOOL_DEAN_MAP } from "@/data/schools";
+import { useAllDeans, makeSchoolKey, useSchoolsInfo } from "@/data/useData";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
@@ -23,8 +22,8 @@ function getDeanCountColor(count: number): string {
   return DEAN_TIERS[DEAN_TIERS.length - 1].color;
 }
 
-function spreadOverlappingMarkers(
-  markers: { lat: number; lng: number; shortName: string; [k: string]: any }[]
+function spreadOverlappingMarkers<T extends { lat: number; lng: number; shortName: string }>(
+  markers: T[]
 ) {
   const result = markers.map((m) => ({ ...m, adjLat: m.lat, adjLng: m.lng }));
 
@@ -70,6 +69,7 @@ interface Props {
 
 export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
   const allDeans = useAllDeans();
+  const SCHOOL_INFO = useSchoolsInfo();
   const [position, setPosition] = useState<{ coordinates: [number, number]; zoom: number }>({
     coordinates: [-96, 38],
     zoom: 1,
@@ -104,14 +104,15 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
       }
     }
 
-    const raw = SCHOOL_INFO.map((s) => {
-      const mapping = SCHOOL_DEAN_MAP[s.shortName];
-      const deanUniversity = mapping?.university || s.fullName.split(" – ")[0] || "";
-      const deanSchoolName = mapping?.school || s.shortName;
+    const raw = SCHOOL_INFO.filter(s => s.lat != null && s.lng != null).map((s) => {
+      const deanUniversity = s.university;
+      const deanSchoolName = s.school;
       const schoolKey = makeSchoolKey(deanUniversity, deanSchoolName);
       const deanCount = deanCounts.get(schoolKey) || 0;
       return {
         ...s,
+        lat: s.lat as number,
+        lng: s.lng as number,
         deanSchoolName,
         schoolKey,
         deanCount,
@@ -120,10 +121,10 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
     });
 
     return spreadOverlappingMarkers(raw);
-  }, [allDeans]);
+  }, [allDeans, SCHOOL_INFO]);
 
   const hoveredMarker = useMemo(
-    () => (hoveredSchool ? schoolMarkers.find((m) => m.shortName === hoveredSchool) : null),
+    () => (hoveredSchool ? schoolMarkers.find((m) => m.schoolKey === hoveredSchool) : null),
     [hoveredSchool, schoolMarkers]
   );
 
@@ -209,7 +210,7 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
           </Geographies>
           {schoolMarkers.map((marker) => {
             const isSelected = marker.schoolKey === selectedSchoolKey;
-            const isHovered = marker.shortName === hoveredSchool;
+            const isHovered = marker.schoolKey === hoveredSchool;
             const scaledRadius = marker.radius / position.zoom;
             const fillColor = getDeanCountColor(marker.deanCount);
             const fontSize = Math.max(5, 9 / position.zoom);
@@ -218,10 +219,10 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
 
             return (
               <Marker
-                key={marker.shortName}
+                key={marker.schoolKey}
                 coordinates={[marker.adjLng, marker.adjLat]}
                 onClick={() => onSelectSchool(marker.schoolKey)}
-                onMouseEnter={() => setHoveredSchool(marker.shortName)}
+                onMouseEnter={() => setHoveredSchool(marker.schoolKey)}
                 onMouseLeave={() => setHoveredSchool(null)}
                 style={{ cursor: "pointer" }}
               >

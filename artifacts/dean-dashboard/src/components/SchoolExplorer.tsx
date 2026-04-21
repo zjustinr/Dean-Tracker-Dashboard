@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
-import { useSchoolList, useSchoolDeans, parseSchoolKey } from "@/data/useData";
+import { useState, useMemo, useEffect } from "react";
+import { useSchoolList, useSchoolDeans, parseSchoolKey, useBSQ } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
@@ -7,16 +8,26 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import USMap from "./USMap";
 import SchoolAnalytics from "./SchoolAnalytics";
 import DeanTimeline from "./DeanTimeline";
-import { SchoolInfographic, findBSQ } from "./SchoolResearch";
+import { SchoolInfographic, makeFindBSQ } from "./SchoolResearch";
 import ResearchMap from "./ResearchMap";
 
 type SortMode = "rank" | "alpha";
 
 export default function SchoolExplorer() {
   const schools = useSchoolList();
+  const allBSQ = useBSQ();
+  const findBSQ = useMemo(() => makeFindBSQ(allBSQ as any), [allBSQ]);
+  const datasetMeta = useDataset().meta;
   const [selectedKey, setSelectedKey] = useState(schools[0]?.key || "");
   const [sortMode, setSortMode] = useState<SortMode>("rank");
   const deans = useSchoolDeans(selectedKey);
+
+  useEffect(() => {
+    if (!schools.length) return;
+    if (!schools.find(s => s.key === selectedKey)) {
+      setSelectedKey(schools[0].key);
+    }
+  }, [schools, selectedKey]);
 
   const sortedSchools = useMemo(() => {
     const list = [...schools];
@@ -136,7 +147,7 @@ export default function SchoolExplorer() {
         const bsq = findBSQ(parsed.university, parsed.school);
         return bsq ? (
           <>
-            <h3 className="text-lg font-semibold mt-8">AACSB Business School Questionnaire (BSQ) Profile</h3>
+            <h3 className="text-lg font-semibold mt-8">{datasetMeta.schoolType === "engineering" ? "Engineering R&D Profile (HERD/IPEDS)" : "AACSB Business School Questionnaire (BSQ) Profile"}</h3>
             <SchoolInfographic bsq={bsq} deanCount={deans.length} />
           </>
         ) : (

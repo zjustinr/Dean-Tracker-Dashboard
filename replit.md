@@ -44,9 +44,14 @@ artifacts-monorepo/
 Interactive data visualization dashboard for studying leadership changes at top business schools.
 
 ### Data
-- Source: `attached_assets/dean_appointments_with_bsq_enriched_streamlinedv4_(1)_1775403864083.xlsx`
-- Processed JSON: `artifacts/dean-dashboard/src/data/deans.json` (586 records, 92 schools, 1967–2026)
+Three datasets selectable via top-level switcher pills (DatasetContext):
+- **Top-100 B-school** (default): `deans.json` (586 records, 92 schools), `schools-bsq.json` (BSQ research)
+- **R1 B-school**: `r1-bschool-deans.json` (826 records, 152 schools), `r1-bschool-bsq.json` (BSQ), `r1-bschool-schools.json` (geo lookup)
+- **R1 Engineering**: `r1-eschool-deans.json` (586 records, 131 schools), `r1-eschool-research.json` (HERD/IPEDS engineering R&D), `r1-eschool-schools.json`
+- ETL: `scripts/build-r1-data.mjs` from `attached_assets/Dean_Data_Collection_R1_v6_*.xlsx`
+- Geo coords: combined from existing schools.ts + R1_GEO lookup table (~150 R1 universities)
 - Data is embedded client-side — no API needed for this visualization
+- All 6 sub-tabs work for each dataset; engineering view substitutes HERD/IPEDS metrics for BSQ
 - New fields: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
 - Removed fields: avgAnnualGifts, totalGifts, maxAnnualGifts, avgEndowment, fundraisingYears, enrollmentStart, gradEnrollment, estBizEnrollment, businessPctStart
 

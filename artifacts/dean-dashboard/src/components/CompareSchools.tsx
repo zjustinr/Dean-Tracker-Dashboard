@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
-import { useSchoolList, useAllDeans, makeSchoolKey, parseSchoolKey } from "@/data/useData";
+
+import { useSchoolList, useAllDeans, makeSchoolKey, parseSchoolKey, useBSQ } from "@/data/useData";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +9,6 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell,
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
 } from "recharts";
-import bsqData from "@/data/schools-bsq.json";
 import type { Dean } from "@/data/types";
 
 interface BSQSchool {
@@ -20,10 +20,9 @@ interface BSQSchool {
   bsq: Record<string, number | string | null>;
 }
 
-const bsqSchools = bsqData as BSQSchool[];
-
-function findBSQ(university: string, school: string): BSQSchool | null {
-  return bsqSchools.find(s => s.university === university && s.school === school) || null;
+function makeFindBSQ(bsqSchools: BSQSchool[]) {
+  return (university: string, school: string): BSQSchool | null =>
+    bsqSchools.find(s => s.university === university && s.school === school) || null;
 }
 
 function n(v: number | string | null | undefined): number | null {
@@ -305,8 +304,19 @@ function SchoolSearchSelect({ available, onSelect }: {
 export default function CompareSchools() {
   const schoolList = useSchoolList();
   const allDeans = useAllDeans();
+  const allBSQ = useBSQ() as BSQSchool[];
+  const findBSQ = useMemo(() => makeFindBSQ(allBSQ), [allBSQ]);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [barMetric, setBarMetric] = useState("totalHeadcount");
+
+  useEffect(() => {
+    if (!schoolList.length) return;
+    const validKeys = new Set(schoolList.map(s => s.key));
+    setSelectedKeys(prev => {
+      const filtered = prev.filter(k => validKeys.has(k));
+      return filtered.length === prev.length ? prev : filtered;
+    });
+  }, [schoolList]);
 
   const deansBySchool = useMemo(() => {
     const map = new Map<string, Dean[]>();
@@ -325,7 +335,7 @@ export default function CompareSchools() {
       const bsq = findBSQ(parsed.university, parsed.school);
       return computeMetrics(key, deans, bsq);
     });
-  }, [selectedKeys, deansBySchool]);
+  }, [selectedKeys, deansBySchool, findBSQ]);
 
   const handleAdd = (val: string) => {
     if (val && !selectedKeys.includes(val) && selectedKeys.length < 4) {

@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
-import { useSchoolList, useSchoolDeans, parseSchoolKey } from "@/data/useData";
+import { useState, useMemo, useEffect } from "react";
+import { useSchoolList, useSchoolDeans, parseSchoolKey, useBSQ } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +10,6 @@ import {
   PieChart, Pie, Cell, RadialBarChart, RadialBar,
 } from "recharts";
 import ResearchMap from "./ResearchMap";
-import bsqData from "@/data/schools-bsq.json";
 
 type SortMode = "rank" | "alpha";
 
@@ -26,10 +26,9 @@ interface BSQSchool {
 const CURRENT_YEAR = 2026;
 const OUTDATED_THRESHOLD = 10;
 
-const schools: BSQSchool[] = bsqData as BSQSchool[];
-
-function findBSQ(university: string, school: string): BSQSchool | null {
-  return schools.find(s => s.university === university && s.school === school) || null;
+function makeFindBSQ(schools: BSQSchool[]) {
+  return (university: string, school: string): BSQSchool | null =>
+    schools.find(s => s.university === university && s.school === school) || null;
 }
 
 const PIE_COLORS = ["#3b82f6", "#ec4899", "#8b5cf6", "#10b981", "#f59e0b", "#ef4444"];
@@ -68,6 +67,13 @@ export default function SchoolResearch() {
   const [selectedKey, setSelectedKey] = useState(schoolList[0]?.key || "");
   const [sortMode, setSortMode] = useState<SortMode>("rank");
 
+  useEffect(() => {
+    if (!schoolList.length) return;
+    if (!schoolList.find(s => s.key === selectedKey)) {
+      setSelectedKey(schoolList[0].key);
+    }
+  }, [schoolList, selectedKey]);
+
   const sortedSchools = useMemo(() => {
     const list = [...schoolList];
     if (sortMode === "alpha") {
@@ -78,7 +84,10 @@ export default function SchoolResearch() {
 
   const parsed = useMemo(() => parseSchoolKey(selectedKey), [selectedKey]);
   const selectedInfo = useMemo(() => schoolList.find(s => s.key === selectedKey), [schoolList, selectedKey]);
-  const bsq = useMemo(() => findBSQ(parsed.university, parsed.school), [parsed]);
+  const allBSQ = useBSQ() as BSQSchool[];
+  const findBSQ = useMemo(() => makeFindBSQ(allBSQ), [allBSQ]);
+  const bsq = useMemo(() => findBSQ(parsed.university, parsed.school), [parsed, findBSQ]);
+  const datasetMeta = useDataset().meta;
   const deans = useSchoolDeans(selectedKey);
 
   return (
@@ -144,7 +153,7 @@ export default function SchoolResearch() {
         <Card>
           <CardContent className="py-12 text-center text-muted-foreground">
             <p className="text-lg font-medium">N/A — No AACSB BSQ data available for this school</p>
-            <p className="text-xs mt-2 text-muted-foreground/70">{schools.filter(s => (s.bsq.totalHeadcount ?? s.bsq.totalHeadcountAvg ?? s.bsq.totalHeadcountStart) != null).length} of {schools.length} schools have BSQ data.</p>
+            <p className="text-xs mt-2 text-muted-foreground/70">{allBSQ.filter(s => (s.bsq.totalHeadcount ?? s.bsq.totalHeadcountAvg ?? s.bsq.totalHeadcountStart) != null).length} of {allBSQ.length} schools have BSQ data.</p>
           </CardContent>
         </Card>
       )}
@@ -152,7 +161,7 @@ export default function SchoolResearch() {
   );
 }
 
-export { findBSQ };
+export { makeFindBSQ };
 export type { BSQSchool };
 
 function n(v: number | string | null | undefined): number | null {
@@ -162,6 +171,10 @@ function n(v: number | string | null | undefined): number | null {
 }
 
 export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: number }) {
+  const isEngineering = bsq.bsq && ("herdEngrTotal" in bsq.bsq || "engrFaculty" in bsq.bsq || "instRD" in bsq.bsq);
+  if (isEngineering) {
+    return <EngineeringInfographic bsq={bsq} deanCount={deanCount} />;
+  }
   const _b = bsq.bsq;
   const SUFFIXES = ["Start", "Avg"];
   const b = new Proxy(_b, {
@@ -554,6 +567,187 @@ export function SchoolInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCoun
               <div className="text-center">
                 <p className="text-xs text-muted-foreground">Institution Doctoral</p>
                 <p className="text-lg font-bold">{fmt(b.instDoctoral)}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+}
+
+function fmtMillions(v: number | null): string {
+  if (v == null) return "\u2014";
+  if (v >= 1e9) return `$${(v / 1e9).toFixed(2)}B`;
+  if (v >= 1e6) return `$${(v / 1e6).toFixed(1)}M`;
+  if (v >= 1e3) return `$${(v / 1e3).toFixed(0)}K`;
+  return `$${v.toFixed(0)}`;
+}
+
+export function EngineeringInfographic({ bsq, deanCount }: { bsq: BSQSchool; deanCount: number }) {
+  const _b = bsq.bsq;
+  const b = new Proxy(_b, {
+    get: (t, p: string) => {
+      const v = n(t[p]);
+      if (v != null) return v;
+      if (!p.endsWith("Start") && !p.endsWith("Avg")) {
+        for (const s of ["Start", "Avg"]) {
+          const fb = n(t[p + s]);
+          if (fb != null) return fb;
+        }
+      }
+      return null;
+    },
+  }) as Record<string, number | null>;
+
+  const fundingMix = useMemo(() => {
+    const items: { name: string; value: number }[] = [];
+    if (b.herdEngrFederal) items.push({ name: "Federal", value: b.herdEngrFederal });
+    if (b.herdEngrIndustry) items.push({ name: "Industry", value: b.herdEngrIndustry });
+    if (b.herdEngrState) items.push({ name: "State/Local", value: b.herdEngrState });
+    const known = items.reduce((s, x) => s + x.value, 0);
+    if (b.herdEngrTotal && b.herdEngrTotal - known > 0) {
+      items.push({ name: "Other", value: b.herdEngrTotal - known });
+    }
+    return items.length ? items : null;
+  }, [b]);
+
+  const degreeMix = useMemo(() => {
+    const items: { name: string; value: number }[] = [];
+    if (b.engrUGDegrees) items.push({ name: "Bachelor's", value: b.engrUGDegrees });
+    if (b.engrMastersDegrees) items.push({ name: "Master's", value: b.engrMastersDegrees });
+    if (b.engrDoctoralDegrees) items.push({ name: "Doctoral", value: b.engrDoctoralDegrees });
+    return items.length ? items : null;
+  }, [b]);
+
+  return (
+    <div className="space-y-6">
+      <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 border-emerald-200 dark:border-emerald-800">
+        <CardContent className="py-5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+            <div>
+              <h2 className="text-xl font-bold text-primary">{bsq.university}</h2>
+              <p className="text-sm text-muted-foreground">{bsq.school}</p>
+            </div>
+            <div className="flex gap-2 flex-wrap items-center">
+              {bsq.rank && <Badge className="bg-emerald-600 text-white">Rank #{bsq.rank}</Badge>}
+              {bsq.tier && <Badge variant="secondary">{bsq.tier}</Badge>}
+              {bsq.control && <Badge variant="outline">{bsq.control}</Badge>}
+              <Badge variant="outline">{deanCount} deans recorded</Badge>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+            <KPICard
+              label="HERD Engr R&D"
+              value={fmtMillions(b.herdEngrTotal != null ? b.herdEngrTotal * 1000 : null)}
+              change={pctChange(b.herdEngrTotalStart, b.herdEngrTotal)}
+            />
+            <KPICard
+              label="Federal R&D"
+              value={fmtMillions(b.herdEngrFederal != null ? b.herdEngrFederal * 1000 : null)}
+              change={pctChange(b.herdEngrFederalStart, b.herdEngrFederal)}
+            />
+            <KPICard
+              label="Industry R&D"
+              value={fmtMillions(b.herdEngrIndustry != null ? b.herdEngrIndustry * 1000 : null)}
+              change={pctChange(b.herdEngrIndustryStart, b.herdEngrIndustry)}
+            />
+            <KPICard
+              label="CS R&D"
+              value={fmtMillions(b.herdCSTotal != null ? b.herdCSTotal * 1000 : null)}
+              change={pctChange(b.herdCSTotalStart, b.herdCSTotal)}
+            />
+            <KPICard
+              label="Inst R&D Total"
+              value={fmtMillions(b.instRD)}
+              change={pctChange(b.instRDStart, b.instRD)}
+            />
+            <KPICard
+              label="Bachelor's Degrees"
+              value={fmt(b.engrUGDegrees)}
+              change={pctChange(b.engrUGDegreesStart, b.engrUGDegrees)}
+            />
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {fundingMix && (
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base">Engineering R&D Funding Mix (HERD, $K)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ResponsiveContainer width="100%" height={250}>
+                <PieChart>
+                  <Pie
+                    data={fundingMix}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={50}
+                    outerRadius={90}
+                    paddingAngle={3}
+                    dataKey="value"
+                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                  >
+                    {fundingMix.map((_, i) => (
+                      <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip formatter={(v: number) => fmtMillions(v * 1000)} />
+                </PieChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        )}
+
+        {degreeMix && (
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base">Engineering Degrees Awarded (IPEDS)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={degreeMix} margin={{ left: 10, right: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="name" fontSize={12} />
+                  <YAxis fontSize={11} />
+                  <Tooltip formatter={(v: number) => fmt(v)} />
+                  <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+                    {degreeMix.map((_, i) => (
+                      <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        )}
+      </div>
+
+      {(b.instTotal != null || b.instRD != null) && (
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-base">University-Level Context</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="text-center">
+                <p className="text-xs text-muted-foreground">Institution Enrollment</p>
+                <p className="text-lg font-bold">{fmt(b.instTotal)}</p>
+              </div>
+              <div className="text-center">
+                <p className="text-xs text-muted-foreground">Total Inst R&D</p>
+                <p className="text-lg font-bold">{fmtMillions(b.instRD)}</p>
+              </div>
+              <div className="text-center">
+                <p className="text-xs text-muted-foreground">Engr Avg R&D ($K)</p>
+                <p className="text-lg font-bold">{fmt(b.herdEngrTotalAvg)}</p>
+              </div>
+              <div className="text-center">
+                <p className="text-xs text-muted-foreground">CS Avg R&D ($K)</p>
+                <p className="text-lg font-bold">{fmt(b.herdCSTotalAvg)}</p>
               </div>
             </div>
           </CardContent>
