@@ -51,6 +51,7 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 - ETL: `scripts/build-r1-data.mjs` from `attached_assets/Dean_Data_Collection_R1_v6_*.xlsx`
 - Geo coords: combined from existing schools.ts + R1_GEO lookup table (~150 R1 universities)
 - Data is embedded client-side — no API needed for this visualization
+- The JSON data groups Operations and IS deans under disciplineBroad "Operations & IS"; `datasets.ts` splits them at load time (`splitOperationsFromIS`) into "Operations" and "Information Systems" using the fine-grained `discipline` field, so all outputs report them separately
 - All 6 sub-tabs work for each dataset; engineering view substitutes HERD/IPEDS metrics for BSQ
 - New fields: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
 - Removed fields: avgAnnualGifts, totalGifts, maxAnnualGifts, avgEndowment, fundraisingYears, enrollmentStart, gradEnrollment, estBizEnrollment, businessPctStart

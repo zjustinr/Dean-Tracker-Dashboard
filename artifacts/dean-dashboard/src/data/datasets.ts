@@ -54,6 +54,17 @@ export interface DatasetBundle {
   schools: SchoolInfo[];
 }
 
+// The source data groups Operations and Information Systems deans under a
+// single "Operations & IS" broad discipline; the app reports them separately,
+// using the fine-grained discipline field to assign each dean.
+function splitOperationsFromIS(deans: Dean[]): Dean[] {
+  return deans.map(d =>
+    d.disciplineBroad === "Operations & IS"
+      ? { ...d, disciplineBroad: d.discipline === "Information Systems" ? "Information Systems" : "Operations" }
+      : d
+  );
+}
+
 const TOP100_SCHOOL_INFOS: SchoolInfo[] = TOP100_SCHOOLS.map(s => {
   const mapping = SCHOOL_DEAN_MAP[s.shortName];
   const university = mapping?.university || s.fullName.split(/\s[–-]\s/)[0] || "";
@@ -84,7 +95,7 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
       schoolType: "business",
       yearRange: "1967\u20132026",
     },
-    deans: top100Deans as unknown as Dean[],
+    deans: splitOperationsFromIS(top100Deans as unknown as Dean[]),
     bsq: top100BSQ as unknown as BSQSchool[],
     schools: TOP100_SCHOOL_INFOS,
   },
@@ -98,7 +109,7 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
       schoolType: "business",
       yearRange: "1967\u20132026",
     },
-    deans: r1bsDeans as unknown as Dean[],
+    deans: splitOperationsFromIS(r1bsDeans as unknown as Dean[]),
     bsq: r1bsBSQ as unknown as BSQSchool[],
     schools: r1bsSchools as unknown as SchoolInfo[],
   },
@@ -112,7 +123,7 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
       schoolType: "engineering",
       yearRange: "1967\u20132026",
     },
-    deans: r1esDeans as unknown as Dean[],
+    deans: splitOperationsFromIS(r1esDeans as unknown as Dean[]),
     bsq: r1esResearch as unknown as BSQSchool[],
     schools: r1esSchools as unknown as SchoolInfo[],
   },
