@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import DeanProfile from "./DeanProfile";
 import { spreadOverlappingMarkers } from "./USMap";
 import {
-  AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine,
+  AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine, Legend,
 } from "recharts";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -178,14 +178,50 @@ export default function DisciplineSearch() {
         counts[g] = (counts[g] || 0) + 1;
         total++;
       }
-      const row: Record<string, number | string> = { year: y };
+      const row: Record<string, number | string> = { year: y, total };
       for (const g of legendGroups) {
         row[g] = total ? ((counts[g] || 0) / total) * 100 : 0;
+        row[`${g} (count)`] = counts[g] || 0;
       }
       rows.push(row);
     }
     return rows;
   }, [minYear, schools, deansBySchool, groupOf, legendGroups]);
+
+  const downloadCSV = useCallback(() => {
+    const esc = (v: string | number) => {
+      const s = String(v);
+      return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+    };
+    const header = [
+      "Year",
+      "Total Sitting Deans",
+      ...legendGroups.map((g) => `${g} %`),
+      ...legendGroups.map((g) => `${g} (count)`),
+    ];
+    const lines = [header.map(esc).join(",")];
+    for (const row of composition) {
+      lines.push(
+        [
+          row.year,
+          row.total,
+          ...legendGroups.map((g) => Math.round((row[g] as number) * 100) / 100),
+          ...legendGroups.map((g) => row[`${g} (count)`]),
+        ]
+          .map((v) => esc(v as string | number))
+          .join(",")
+      );
+    }
+    const blob = new Blob(["\uFEFF" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `discipline_composition_${meta.id}_${minYear}-${MAX_YEAR}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, [composition, legendGroups, meta.id, minYear]);
 
   const hoveredMarker = useMemo(
     () => (hoveredKey ? markers.find((m) => m.schoolKey === hoveredKey) : null),
@@ -359,11 +395,19 @@ export default function DisciplineSearch() {
       </Card>
 
       <Card>
-        <CardHeader>
-          <CardTitle className="text-base">Discipline Composition Over Time</CardTitle>
-          <p className="text-sm text-muted-foreground">
-            Share of sitting deans by discipline, {minYear}–{MAX_YEAR}. The vertical line tracks the slider year.
-          </p>
+        <CardHeader className="flex flex-row items-start justify-between flex-wrap gap-3">
+          <div>
+            <CardTitle className="text-base">Discipline Composition Over Time</CardTitle>
+            <p className="text-sm text-muted-foreground mt-1.5">
+              Share of sitting deans by discipline, {minYear}–{MAX_YEAR}. The vertical line tracks the slider year.
+            </p>
+          </div>
+          <button
+            onClick={downloadCSV}
+            className="px-4 py-1.5 rounded-lg border border-border bg-card hover:bg-muted text-sm font-semibold shrink-0"
+          >
+            Download CSV
+          </button>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={320}>
@@ -388,6 +432,7 @@ export default function DisciplineSearch() {
                   name={g}
                 />
               ))}
+              <Legend wrapperStyle={{ fontSize: 12 }} />
             </AreaChart>
           </ResponsiveContainer>
         </CardContent>
