@@ -5,6 +5,7 @@ import AggregateTrends from "@/components/AggregateTrends";
 import InterimAnalysis from "@/components/InterimAnalysis";
 import IndividualSearch from "@/components/IndividualSearch";
 import LiveJobMarket from "@/components/LiveJobMarket";
+import CompareDatasets from "@/components/CompareDatasets";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 
 interface TabDef {
@@ -16,6 +17,7 @@ interface TabDef {
 const DEFAULT_TABS: TabDef[] = [
   { value: "explorer", label: "School Explorer", desc: "Browse dean histories by school with interactive tenure timelines and list/map views." },
   { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics." },
+  { value: "compare", label: "Compare Datasets", desc: "Compare business and engineering dean patterns across all three datasets side by side." },
   { value: "interim", label: "Interim Analysis", desc: "Track interim dean appointments and leadership transitions." },
   { value: "search", label: "Individual Search", desc: "Search and explore individual dean profiles and career paths." },
   { value: "jobmarket", label: "Dean News & Market", desc: "Stay updated with the latest dean-related news and market activity." },
@@ -29,6 +31,7 @@ const TAB_CONTENT: Record<string, React.ReactNode> = {
   interim: <InterimAnalysis />,
   search: <IndividualSearch />,
   jobmarket: <LiveJobMarket />,
+  compare: <CompareDatasets />,
 };
 
 function AppInner() {

@@ -55,7 +55,7 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 - New fields: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
 - Removed fields: avgAnnualGifts, totalGifts, maxAnnualGifts, avgEndowment, fundraisingYears, enrollmentStart, gradEnrollment, estBizEnrollment, businessPctStart
 
-### Features (6 tabs)
+### Features (7 tabs)
 1. **School Explorer** — Unified school exploration view combining dean data with BSQ research
    - List View: dropdown school selector with rank/alpha sort toggle, school info badges
    - Map View: interactive US map with clickable school markers (sized by faculty count) via react-simple-maps
@@ -68,7 +68,8 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 3. **Correlation Analysis** — Scatter plots (pick x/y numeric variables, color by category), cross-tabulation tables, grouped bar charts
 4. **Interim Analysis** — "Try Before You Buy" infographic: hero KPIs (2020s interim %, conversion rate, surprise departure rate), interim trend by era, conversion by discipline, surprise departure comparison, gender breakdown, tenure comparison, success stories cards
 5. **Individual Search** — Name-based dean lookup with combo box dropdowns (type-to-filter or browse alphabetically), results list with profile drill-down using shared DeanProfile component
-6. **Dean News & Market** (tab: "jobmarket") — Current dean openings from curated spreadsheet data (23 positions). KPI cards (5 columns when news hires present), searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening, New Appointment), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. Layout: KPIs → filters → Map → News feed. **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours via `/api/pq-news`.
+6. **Compare Datasets** (tab: "compare") — Cross-dataset comparison of all three datasets side by side (independent of the dataset switcher): head-to-head metrics table (appointments, schools, tenure, female/internal/external/interim/first-time/PhD/industry/prior-dean %, interim conversion rate), metric-selectable trend-by-decade line chart (1970+), appointment shares grouped bars, post-dean career path comparison. Component: `CompareDatasets.tsx`.
+7. **Dean News & Market** (tab: "jobmarket") — Current dean openings from curated spreadsheet data (23 positions). KPI cards (5 columns when news hires present), searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening, New Appointment), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. Layout: KPIs → filters → Map → News feed. **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours via `/api/pq-news`.
 
 ### Key Fields
 - Demographics: gender, discipline, career background
