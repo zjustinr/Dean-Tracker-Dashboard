@@ -258,7 +258,7 @@ function decodeHtmlEntities(text: string): string {
   return el.value;
 }
 
-const CATEGORY_BADGE: Record<PQArticle["category"], { label: string; color: string; bgClass: string }> = {
+const CATEGORY_BADGE: Record<ArticleCategory, { label: string; color: string; bgClass: string }> = {
   hiring: { label: "New Hire", color: "text-purple-700 dark:text-purple-400", bgClass: "bg-purple-100 dark:bg-purple-900/40" },
   departure: { label: "Departure", color: "text-red-700 dark:text-red-400", bgClass: "bg-red-100 dark:bg-red-900/40" },
   search: { label: "Search", color: "text-blue-700 dark:text-blue-400", bgClass: "bg-blue-100 dark:bg-blue-900/40" },

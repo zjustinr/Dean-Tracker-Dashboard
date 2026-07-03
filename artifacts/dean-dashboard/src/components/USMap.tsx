@@ -22,7 +22,7 @@ function getDeanCountColor(count: number): string {
   return DEAN_TIERS[DEAN_TIERS.length - 1].color;
 }
 
-function spreadOverlappingMarkers<T extends { lat: number; lng: number; shortName: string }>(
+export function spreadOverlappingMarkers<T extends { lat: number; lng: number; shortName: string }>(
   markers: T[]
 ) {
   const result = markers.map((m) => ({ ...m, adjLat: m.lat, adjLng: m.lng }));

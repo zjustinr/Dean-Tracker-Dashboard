@@ -55,7 +55,7 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 - New fields: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
 - Removed fields: avgAnnualGifts, totalGifts, maxAnnualGifts, avgEndowment, fundraisingYears, enrollmentStart, gradEnrollment, estBizEnrollment, businessPctStart
 
-### Features (7 tabs)
+### Features (8 tabs)
 1. **School Explorer** — Unified school exploration view combining dean data with BSQ research
    - List View: dropdown school selector with rank/alpha sort toggle, school info badges
    - Map View: interactive US map with clickable school markers (sized by faculty count) via react-simple-maps
@@ -68,8 +68,9 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 3. **Correlation Analysis** — Scatter plots (pick x/y numeric variables, color by category), cross-tabulation tables, grouped bar charts
 4. **Interim Analysis** — "Try Before You Buy" infographic: hero KPIs (2020s interim %, conversion rate, surprise departure rate), interim trend by era, conversion by discipline, surprise departure comparison, gender breakdown, tenure comparison, success stories cards
 5. **Individual Search** — Name-based dean lookup with combo box dropdowns (type-to-filter or browse alphabetically), results list with profile drill-down using shared DeanProfile component
-6. **Compare Datasets** (tab: "compare") — Cross-dataset comparison of all three datasets side by side (independent of the dataset switcher): head-to-head metrics table (appointments, schools, tenure, female/internal/external/interim/first-time/PhD/industry/prior-dean %, interim conversion rate), metric-selectable trend-by-decade line chart (1970+), appointment shares grouped bars, post-dean career path comparison. Component: `CompareDatasets.tsx`.
-7. **Dean News & Market** (tab: "jobmarket") — Current dean openings from curated spreadsheet data (23 positions). KPI cards (5 columns when news hires present), searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening, New Appointment), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. Layout: KPIs → filters → Map → News feed. **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours via `/api/pq-news`.
+6. **Discipline Search** (tab: "discipline", between Interim Analysis and Individual Search) — Dynamic US map colored by the academic discipline of the dean serving in the selected year. Year slider (dataset min–2026, default 2026) with Play animation (1 yr / 350 ms), dean last-name labels (toggleable), hover tooltip, click marker → DeanProfile. Legend shows per-year counts by discipline (top-9 by frequency get chart colors; rest fold into "Other"; "Unknown" light gray). Below: stacked-area chart of discipline composition of sitting deans over time with a ReferenceLine tracking the slider year. Component: `DisciplineSearch.tsx`. Note: react-simple-maps' Marker `style` prop is ignored — put cursor styles on the `<circle>` itself.
+7. **Compare Datasets** (tab: "compare") — Cross-dataset comparison of all three datasets side by side (independent of the dataset switcher): head-to-head metrics table (appointments, schools, tenure, female/internal/external/interim/first-time/PhD/industry/prior-dean %, interim conversion rate), metric-selectable trend-by-decade line chart (1970+), appointment shares grouped bars, post-dean career path comparison. Component: `CompareDatasets.tsx`.
+8. **Dean News & Market** (tab: "jobmarket") — Current dean openings from curated spreadsheet data (23 positions). KPI cards (5 columns when news hires present), searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening, New Appointment), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. Layout: KPIs → filters → Map → News feed. **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours via `/api/pq-news`.
 
 ### Key Fields
 - Demographics: gender, discipline, career background

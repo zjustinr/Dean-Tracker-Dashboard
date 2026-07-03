@@ -378,7 +378,7 @@ export default function CompareSchools() {
     return RADAR_METRICS.map(rm => {
       const row: Record<string, string | number | null> = { metric: rm.label };
       schoolMetrics.forEach((m, i) => {
-        row[`school${i}`] = (m as Record<string, unknown>)[rm.key] as number | null;
+        row[`school${i}`] = (m as unknown as Record<string, unknown>)[rm.key] as number | null;
       });
       return row;
     });
