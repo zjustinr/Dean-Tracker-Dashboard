@@ -6,6 +6,7 @@ import type { Dean } from "@/data/types";
 import { CHART_COLORS } from "@/data/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import DeanProfile from "./DeanProfile";
@@ -54,6 +55,7 @@ export default function DisciplineSearch() {
   const [year, setYear] = useState(MAX_YEAR);
   const [playing, setPlaying] = useState(false);
   const [showNames, setShowNames] = useState(true);
+  const [chartStart, setChartStart] = useState(1996);
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
   const [selectedDean, setSelectedDean] = useState<Dean | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -188,6 +190,16 @@ export default function DisciplineSearch() {
     return rows;
   }, [minYear, schools, deansBySchool, groupOf, legendGroups]);
 
+  // Chart start-year slicer (default 1996); the CSV export always covers the full range.
+  const chartStartOptions = useMemo(
+    () => [...new Set([minYear, 1970, 1975, 1980, 1985, 1990, 1996, 2000, 2005, 2010].filter((y) => y >= minYear && y < MAX_YEAR))].sort((a, b) => a - b),
+    [minYear]
+  );
+  const chartData = useMemo(
+    () => composition.filter((r) => (r.year as number) >= Math.max(chartStart, minYear)),
+    [composition, chartStart, minYear]
+  );
+
   const downloadCSV = useCallback(() => {
     const esc = (v: string | number) => {
       const s = String(v);
@@ -241,12 +253,12 @@ export default function DisciplineSearch() {
   };
   const renderDirectLabels = (props: Record<string, unknown>) => {
     const offset = props.offset as { left: number; top: number; width: number; height: number } | undefined;
-    if (!offset || !composition.length) return <g />;
+    if (!offset || !chartData.length) return <g />;
     const xMap = props.xAxisMap ? (Object.values(props.xAxisMap as Record<string, unknown>)[0] as { scale?: (v: number) => number }) : null;
     const yMap = props.yAxisMap ? (Object.values(props.yAxisMap as Record<string, unknown>)[0] as { scale?: (v: number) => number }) : null;
     const xPos = (yr: number) => {
       const v = xMap?.scale?.(yr);
-      return typeof v === "number" && !Number.isNaN(v) ? v : offset.left + ((yr - minYear) / (MAX_YEAR - minYear)) * offset.width;
+      return typeof v === "number" && !Number.isNaN(v) ? v : offset.left + ((yr - Math.max(chartStart, minYear)) / (MAX_YEAR - Math.max(chartStart, minYear))) * offset.width;
     };
     const yPos = (pct: number) => {
       const v = yMap?.scale?.(pct);
@@ -262,7 +274,7 @@ export default function DisciplineSearch() {
       const g = legendGroups[gi];
       const raw: YearStat[] = [];
       let last: { yr: number; mid: number } | null = null;
-      for (const row of composition) {
+      for (const row of chartData) {
         const yr = row.year as number;
         let below = 0;
         for (let k = 0; k < gi; k++) below += (row[legendGroups[k]] as number) || 0;
@@ -271,7 +283,7 @@ export default function DisciplineSearch() {
         raw.push({ yr, mid: below + v / 2, v, score: 0 });
       }
       if (!last) continue;
-      const totalOk = (idx: number) => ((composition[idx].total as number) || 0) >= 15;
+      const totalOk = (idx: number) => ((chartData[idx].total as number) || 0) >= 15;
       for (let i = 0; i < raw.length; i++) {
         if (!totalOk(i)) { raw[i].score = 0; continue; }
         let mn = Infinity;
@@ -517,19 +529,34 @@ export default function DisciplineSearch() {
           <div>
             <CardTitle className="text-base">Discipline Composition Over Time</CardTitle>
             <p className="text-sm text-muted-foreground mt-1.5">
-              Share of sitting deans by discipline, {minYear}–{MAX_YEAR}. The vertical line tracks the slider year.
+              Share of sitting deans by discipline, {Math.max(chartStart, minYear)}–{MAX_YEAR}. The vertical line tracks the slider year.
             </p>
           </div>
-          <button
-            onClick={downloadCSV}
-            className="px-4 py-1.5 rounded-lg border border-border bg-card hover:bg-muted text-sm font-semibold shrink-0"
-          >
-            Download CSV
-          </button>
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-2">
+              <Label htmlFor="chartstart" className="text-sm text-muted-foreground whitespace-nowrap">From year</Label>
+              <Select value={String(chartStart)} onValueChange={(v) => setChartStart(Number(v))}>
+                <SelectTrigger id="chartstart" className="w-[110px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {chartStartOptions.map((y) => (
+                    <SelectItem key={y} value={String(y)}>{y === minYear ? `${y} (all)` : String(y)}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <button
+              onClick={downloadCSV}
+              className="px-4 py-1.5 rounded-lg border border-border bg-card hover:bg-muted text-sm font-semibold"
+            >
+              Download CSV
+            </button>
+          </div>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={340}>
-            <AreaChart data={composition} margin={{ top: 10, right: 100, bottom: 0, left: 0 }}>
+            <AreaChart data={chartData} margin={{ top: 10, right: 100, bottom: 0, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis dataKey="year" fontSize={11} />
               <YAxis fontSize={11} unit="%" domain={[0, 100]} ticks={[0, 25, 50, 75, 100]} allowDataOverflow />
