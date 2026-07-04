@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import DeanProfile from "./DeanProfile";
 import { spreadOverlappingMarkers } from "./USMap";
 import {
-  AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine, Legend,
+  AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine, Customized,
 } from "recharts";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -228,6 +228,124 @@ export default function DisciplineSearch() {
     [hoveredKey, markers]
   );
 
+  // Direct labels drawn inside the composition chart: wide bands get an inline
+  // label at their thickest point; thin bands get a leader-line callout in the
+  // right margin. Replaces the separate legend below the chart.
+  const CALLOUT_ABBR: Record<string, string> = {
+    "Finance & Accounting": "Fin & Acctg",
+    "Strategy & Management": "Strategy & Mgmt",
+    "Economics & Social Science": "Econ & Soc Sci",
+    "Operations Management": "Ops Mgmt",
+    "Information Systems": "Info Systems",
+    "Industry/Practitioner": "Industry/Pract.",
+  };
+  const renderDirectLabels = (props: Record<string, unknown>) => {
+    const offset = props.offset as { left: number; top: number; width: number; height: number } | undefined;
+    if (!offset || !composition.length) return <g />;
+    const xMap = props.xAxisMap ? (Object.values(props.xAxisMap as Record<string, unknown>)[0] as { scale?: (v: number) => number }) : null;
+    const yMap = props.yAxisMap ? (Object.values(props.yAxisMap as Record<string, unknown>)[0] as { scale?: (v: number) => number }) : null;
+    const xPos = (yr: number) => {
+      const v = xMap?.scale?.(yr);
+      return typeof v === "number" && !Number.isNaN(v) ? v : offset.left + ((yr - minYear) / (MAX_YEAR - minYear)) * offset.width;
+    };
+    const yPos = (pct: number) => {
+      const v = yMap?.scale?.(pct);
+      return typeof v === "number" && !Number.isNaN(v) ? v : offset.top + (1 - pct / 100) * offset.height;
+    };
+    // Per-band, per-year stats. Label placement prefers years with a decent
+    // sample size (avoids the noisy early spikes) and stable band width
+    // (score = min thickness over a +/-2yr window).
+    interface YearStat { yr: number; mid: number; v: number; score: number }
+    interface Band { g: string; stats: YearStat[]; lastYear: number; lastMid: number; maxScorePx: number }
+    const bands: Band[] = [];
+    for (let gi = 0; gi < legendGroups.length; gi++) {
+      const g = legendGroups[gi];
+      const raw: YearStat[] = [];
+      let last: { yr: number; mid: number } | null = null;
+      for (const row of composition) {
+        const yr = row.year as number;
+        let below = 0;
+        for (let k = 0; k < gi; k++) below += (row[legendGroups[k]] as number) || 0;
+        const v = (row[g] as number) || 0;
+        if (v > 0) last = { yr, mid: below + v / 2 };
+        raw.push({ yr, mid: below + v / 2, v, score: 0 });
+      }
+      if (!last) continue;
+      const totalOk = (idx: number) => ((composition[idx].total as number) || 0) >= 15;
+      for (let i = 0; i < raw.length; i++) {
+        if (!totalOk(i)) { raw[i].score = 0; continue; }
+        let mn = Infinity;
+        for (let k = Math.max(0, i - 2); k <= Math.min(raw.length - 1, i + 2); k++) mn = Math.min(mn, raw[k].v);
+        raw[i].score = mn;
+      }
+      const maxScore = Math.max(...raw.map((s) => s.score));
+      bands.push({ g, stats: raw, lastYear: last.yr, lastMid: last.mid, maxScorePx: (maxScore / 100) * offset.height });
+    }
+    // Greedy inline placement, widest bands first, avoiding label collisions.
+    interface Inline { g: string; x: number; y: number }
+    const inline: Inline[] = [];
+    const callouts: Band[] = [];
+    for (const b of [...bands].sort((a, bb) => bb.maxScorePx - a.maxScorePx)) {
+      if (b.maxScorePx < 18) { callouts.push(b); continue; }
+      const options = b.stats
+        .filter((s) => (s.score / 100) * offset.height >= 18)
+        .sort((a, bb) => bb.score - a.score);
+      let placedOpt: YearStat | null = null;
+      for (const o of options) {
+        const ox = xPos(o.yr), oy = yPos(o.mid);
+        if (ox < offset.left + 55 || ox > offset.left + offset.width - 55) continue;
+        if (!inline.some((p) => Math.abs(p.x - ox) < 130 && Math.abs(p.y - oy) < 14)) { placedOpt = o; break; }
+      }
+      if (placedOpt) inline.push({ g: b.g, x: xPos(placedOpt.yr), y: yPos(placedOpt.mid) });
+      else callouts.push(b);
+    }
+    callouts.sort((a, b) => yPos(a.lastMid) - yPos(b.lastMid));
+    // stack callout labels in the right margin without overlaps
+    const placed: (Band & { ly: number })[] = [];
+    let prevY = offset.top - 13;
+    for (const c of callouts) {
+      const ly = Math.max(yPos(c.lastMid), prevY + 13);
+      placed.push({ ...c, ly });
+      prevY = ly;
+    }
+    for (let i = placed.length - 1, limit = offset.top + offset.height; i >= 0; i--) {
+      placed[i].ly = Math.min(placed[i].ly, limit);
+      limit = placed[i].ly - 13;
+    }
+    const labelX = offset.left + offset.width + 8;
+    return (
+      <g>
+        {inline.map((c) => (
+          <text
+            key={c.g}
+            x={c.x}
+            y={c.y}
+            textAnchor="middle"
+            dominantBaseline="central"
+            style={{ fontSize: 11, fontWeight: 700, fill: "#fff", paintOrder: "stroke", stroke: "rgba(0,0,0,0.45)", strokeWidth: 2.5, pointerEvents: "none" }}
+          >
+            {c.g}
+          </text>
+        ))}
+        {placed.map((c) => (
+          <g key={c.g} style={{ pointerEvents: "none" }}>
+            <circle cx={xPos(c.lastYear)} cy={yPos(c.lastMid)} r={2} fill={colorOf(c.g)} />
+            <polyline
+              points={`${xPos(c.lastYear)},${yPos(c.lastMid)} ${labelX - 3},${c.ly}`}
+              fill="none"
+              stroke={colorOf(c.g)}
+              strokeWidth={1}
+              opacity={0.75}
+            />
+            <text x={labelX} y={c.ly} dominantBaseline="central" style={{ fontSize: 10, fontWeight: 600, fill: "hsl(var(--foreground))" }}>
+              {CALLOUT_ABBR[c.g] || c.g}
+            </text>
+          </g>
+        ))}
+      </g>
+    );
+  };
+
   return (
     <div className="space-y-6">
       <Card>
@@ -410,8 +528,8 @@ export default function DisciplineSearch() {
           </button>
         </CardHeader>
         <CardContent>
-          <ResponsiveContainer width="100%" height={320}>
-            <AreaChart data={composition} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
+          <ResponsiveContainer width="100%" height={340}>
+            <AreaChart data={composition} margin={{ top: 10, right: 100, bottom: 0, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis dataKey="year" fontSize={11} />
               <YAxis fontSize={11} unit="%" domain={[0, 100]} ticks={[0, 25, 50, 75, 100]} allowDataOverflow />
@@ -432,7 +550,7 @@ export default function DisciplineSearch() {
                   name={g}
                 />
               ))}
-              <Legend wrapperStyle={{ fontSize: 12 }} />
+              <Customized component={renderDirectLabels} />
             </AreaChart>
           </ResponsiveContainer>
         </CardContent>
