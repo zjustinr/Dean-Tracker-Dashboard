@@ -54,15 +54,19 @@ export interface DatasetBundle {
   schools: SchoolInfo[];
 }
 
-// The source data groups Operations and Information Systems deans under a
-// single "Operations & IS" broad discipline; the app reports them separately,
-// using the fine-grained discipline field to assign each dean.
+// Operations Management and Information Systems are separate disciplines
+// throughout the dataset. The source data now carries them as distinct
+// categories; this guard re-splits any legacy bundled values that slip in.
 function splitOperationsFromIS(deans: Dean[]): Dean[] {
-  return deans.map(d =>
-    d.disciplineBroad === "Operations & IS"
-      ? { ...d, disciplineBroad: d.discipline === "Information Systems" ? "Information Systems" : "Operations" }
-      : d
-  );
+  return deans.map(d => {
+    let b = d.disciplineBroad;
+    if (b === "Operations & IS") {
+      b = /information/i.test(d.discipline || "") ? "Information Systems" : "Operations Management";
+    } else if (b === "Operations") {
+      b = "Operations Management";
+    }
+    return b === d.disciplineBroad ? d : { ...d, disciplineBroad: b };
+  });
 }
 
 const TOP100_SCHOOL_INFOS: SchoolInfo[] = TOP100_SCHOOLS.map(s => {
