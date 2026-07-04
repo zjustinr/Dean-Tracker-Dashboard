@@ -390,19 +390,6 @@
     "state": "IN"
   },
   {
-    "university": "Indiana University Indianapolis",
-    "school": "Kelley School of Business (Indianapolis)",
-    "rank": null,
-    "fullName": "Indiana University Indianapolis – Kelley School of Business (Indianapolis)",
-    "shortName": "Kelley School of Busin...",
-    "type": "Public",
-    "totalFaculty": 50,
-    "lat": 39.7726,
-    "lng": -86.1764,
-    "city": "Indianapolis",
-    "state": "IN"
-  },
-  {
     "university": "Iowa State University",
     "school": "Ivy College of Business",
     "rank": 42,
@@ -526,7 +513,7 @@
     "fullName": "Michigan State University – Broad College of Business",
     "shortName": "Broad College of Business",
     "type": "Public",
-    "totalFaculty": 146,
+    "totalFaculty": 50,
     "lat": 42.7018,
     "lng": -84.4822,
     "city": "East Lansing",
@@ -1744,11 +1731,11 @@
   {
     "university": "University of Texas at Dallas",
     "school": "Naveen Jindal School of Management",
-    "rank": 44,
+    "rank": 999,
     "fullName": "University of Texas at Dallas – Naveen Jindal School of Management",
     "shortName": "Naveen Jindal School o...",
     "type": "Public",
-    "totalFaculty": 290,
+    "totalFaculty": 50,
     "lat": 32.9886,
     "lng": -96.7501,
     "city": "Richardson",

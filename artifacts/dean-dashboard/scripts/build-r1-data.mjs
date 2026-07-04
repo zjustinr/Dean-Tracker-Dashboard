@@ -5,7 +5,7 @@ import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SRC = resolve(__dirname, "../../../attached_assets/Dean_Data_Collection_R1_v6_1776782656935.xlsx");
+const SRC = resolve(__dirname, "../../../attached_assets/Dean_Data_Collection_R1_v7_verified.xlsx");
 const OUT_DIR = resolve(__dirname, "../src/data");
 
 const wb = XLSX.readFile(SRC);

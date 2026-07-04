@@ -298,6 +298,11 @@
 645,source_url,applied,https://lanterncare.com/members/steve-jones/,"prior_position_title/prior_institution ('CEO, Suncorp-Metway') CONFIRMED ACCURATE, not an error. Recommend replacing source_url with a more reliable one -- lanterncare.com is an unrelated low-quality domain.",https://www.alumni.hbs.edu/stories/Pages/story-bulletin.aspx?num=2244,high,batch_16_findings.json
 650,origin_category,applied,Internal,External,https://www.unc.edu/posts/2023/06/13/mary-margaret-frank-named-dean-of-kenan-flagler-business-school/,high,batch_16_findings.json
 653,appointment_start_month_year,applied,Jul-25,Jul-25,https://blogs.und.edu/uletter/2025/05/patrick-oneill-named-interim-dean-of-nistler-college-of-business-public-administration/,high,rem_07_findings.json
+676,prior_position_title,applied,"Director, Graduate Program in Sport Management","Faculty member, Warsaw Sports Marketing Center / Dept. of Marketing (returning as 2-year appointed dean, not directly promoted from a director title found in sources)",https://pages.uoregon.edu/digital/uonews-archive/archive/news-release/2010/4/academic-uo-ties-head-lundquist-college-business.html,medium,rem_08_findings.json
+677,appointment_end_year,applied,2015,2015,http://uomatters.com/2015/06/kees-de-kluyver-out-uo-searching-for-4-deans-and-vp-of-research.html,high,rem_08_findings.json
+678,appointment_start_month_year,applied,2017,Jan-17,https://business.uoregon.edu/news/sarah-nutter-blazes-trail-as-first-maletis-dean,high,rem_08_findings.json
+678,prior_position_title,applied,Dean,Dean,https://business.uoregon.edu/news/sarah-nutter-blazes-trail-as-first-maletis-dean,high,rem_08_findings.json
+679,prior_position_title,applied,"Dean, College of Arts and Sciences","Philip H. Knight Professor of Social Science / Associate Dean of Social Sciences, College of Arts and Sciences",https://business.uoregon.edu/news/new-interim-dean-named,medium,rem_08_findings.json
 701,appointment_end_month_year,applied,Jun-25,Aug-25,https://poetsandquants.com/2025/04/29/following-deans-departure-simon-business-school-turns-to-a-veteran-faculty-leader/,high,seed_chat_reports_findings.json
 705,origin_category,applied,Internal,External,https://sc.edu/study/colleges_schools/moore/about/press_room/news_and_announcements/2016/welcome_center_name.php,high,seed_chat_reports3_findings.json
 707,has_prior_dean_exp,applied,1,0,https://whosonthemove.com/uofsc-moore-school-announces-2016-distinguished-award-winners-178711/,high,seed_chat_reports3_findings.json
@@ -305,11 +310,37 @@
 710,appointment_end_month_year,applied,Jul-23,Dec-22,https://cms.sc.edu/study/colleges_schools/moore/about/leadership/annual_report/,high,seed_chat_reports3_findings.json
 710,appointment_end_year,applied,2023,2022,https://cms.sc.edu/study/colleges_schools/moore/about/leadership/annual_report/,high,seed_chat_reports3_findings.json
 711,next_role,applied,Provost_president_chancellor,Faculty_emeritus,https://sc.edu/study/colleges_schools/moore/directory/verma_rohit.php,high,seed_chat_reports3_findings.json
+714,origin_category,applied,Internal,Interim-Internal,https://www.usf.edu/business/news/2022/08-15-gj-conversation.aspx,high,rem_09_findings.json
 716,appointment_end_month_year,applied,Jun-03,2004,https://uscmarshallweb.s3-us-west-2.amazonaws.com/assets/uploads/s1/cv/rww_cv-1.pdf,high,seed_chat_reports_findings.json
 716,appointment_end_year,applied,2003,2004,https://uscmarshallweb.s3-us-west-2.amazonaws.com/assets/uploads/s1/cv/rww_cv-1.pdf,high,seed_chat_reports_findings.json
 716,prior_institution,applied,"Wharton School, University of Pennsylvania",University of Southern California,https://uscmarshallweb.s3-us-west-2.amazonaws.com/assets/uploads/s1/cv/rww_cv-1.pdf,high,seed_chat_reports_findings.json
 721,appointment_end_month_year,skipped_old_mismatch,current,Jul-26,https://www.provost.usc.edu/transition-at-the-usc-marshall-school-of-business/,high,seed_chat_reports_findings.json
 721,appointment_end_year,applied,,2026,https://poetsandquants.com/2026/06/12/usc-marshall-dean-geoffrey-garrett-to-step-down-ahead-of-planned-no-confidence-vote/,high,seed_chat_reports_findings.json
+722,appointment_end_year,applied,2000,2001,https://haslam.utk.edu/news/remembering-former-dean-c-warren-neel-1937-2023/,high,rem_09_findings.json
+723,appointment_start_year,applied,2001,2000,https://haslam.utk.edu/magazine/article/new-endowed-chair-in-accounting-created-to-honor-dean-emeritus-jan-williams/,medium,rem_09_findings.json
+725,appointment_end_year,applied,2002,2001,https://haslam.utk.edu/news/remembering-former-dean-c-warren-neel-1937-2023/,high,rem_09_findings.json
+731,origin_category,applied,Internal,Interim-Internal,https://csunshinetoday.csun.edu/education/chandra-subramaniam-is-new-dean-of-csuns-nazarian-business-college/,high,rem_09_findings.json
+741,dean_name,applied,Howard Roth,Timothy P. Roth,https://www.utep.edu/business/about/our-history.html,high,rem_09_findings.json
+742,dean_name,applied,William Hoy,Frank Hoy,https://www.utep.edu/business/about/our-history.html,high,rem_09_findings.json
+743,appointment_end_month_year,applied,2018,Sep-18,https://www.utep.edu/newsfeed/campus/utep-college-of-business-administration-names-interim-dean.html,high,rem_09_findings.json
+743,appointment_start_month_year,applied,2005,Sep-05,https://www.zoominfo.com/p/Robert-Nachtmann/58108353,medium,rem_09_findings.json
+743,dean_name,applied,Helmut Nachtmann,Robert Nachtmann,https://www.utep.edu/business/about/our-history.html,high,rem_09_findings.json
+744,dean_name,applied,Ann Crites,Stephen Crites,https://www.utep.edu/newsfeed/campus/utep-college-of-business-administration-names-interim-dean.html,high,rem_09_findings.json
+744,gender,applied,F,M,https://www.utep.edu/liberalarts/psychology/people/stephen-l-crites.html,high,rem_09_findings.json
+744,prior_position_title,applied,Associate Dean,"Professor and Chair, Department of Psychology; Associate Dean of the Graduate School",https://www.utep.edu/newsfeed/campus/utep-college-of-business-administration-names-interim-dean.html,high,rem_09_findings.json
+745,dean_name,applied,Terence Payne,James E. Payne,https://www.elpasoinc.com/news/local_news/utep-business-dean-leaving-for-oklahoma-job/article_b75c4496-1386-11ee-bace-5fdd3fa493a0.html,high,rem_09_findings.json
+746,appointment_start_month_year,applied,2023,"Aug-23 (interim), permanent Mar/Apr-24",https://www.utep.edu/newsletters/picks-of-the-week/2024/march/utep-names-john-hadjimarcou-dean-of-the-woody-l-hunt-college-of-business.html,high,rem_09_findings.json
+746,is_interim,applied,0,1 (for an initial period),https://www.utep.edu/newsletters/picks-of-the-week/2024/march/utep-names-john-hadjimarcou-dean-of-the-woody-l-hunt-college-of-business.html,high,rem_09_findings.json
+747,prior_institution,applied,Johns Hopkins University (Carey Business School),Johns Hopkins University (Graduate Division of Business and Management),https://www.zoominfo.com/p/Lynda-De-la-vina/1829513732,medium,rem_09_findings.json
+749,dean_name,applied,Toni Smith,Pamela Smith,https://www.utsa.edu/today/2020/11/story/smith-pamela-named-interim-business-dean.html,high,rem_09_findings.json
+750,prior_institution,applied,University of Alabama (Culverhouse College of Business),University of Alabama (College of Continuing Studies),https://business.utsa.edu/news/2022/01/jonathon-halbesleben-named-dean.html,high,rem_09_findings.json
+750,prior_position_title,applied,Dean,"Dean, College of Continuing Studies",https://business.utsa.edu/news/2022/01/jonathon-halbesleben-named-dean.html,high,rem_09_findings.json
+751,notes,applied_notes,"10th dean; interim 1988, permanent by 1989; still dean 1997. Exact start unknown.","10th dean; interim dean since Oct 1987, named permanent dean April 1988 (not 1989); still dean 1997. Exact start unknown.",https://www.deseret.com/1988/4/18/18763708/u-college-of-business-names-dean/,high,rem_10_findings.json
+757,appointment_end_month_year,applied,Present,Jun-26,https://www.uvm.edu/business/news/celebrating-sharma-legacy,high,rem_10_findings.json
+757,appointment_end_year,applied,,2026,https://www.uvm.edu/business/news/celebrating-sharma-legacy,high,rem_10_findings.json
+757,has_prior_dean_exp,applied,0,1,https://www.uvm.edu/business/news/celebrating-sharma-legacy,high,rem_10_findings.json
+757,next_role,applied,,Retired_or_emeritus,https://www.uvm.edu/business/news/celebrating-sharma-legacy,medium,rem_10_findings.json
+757,prior_position_title,applied,Professor,Dean,https://www.uvm.edu/business/news/celebrating-sharma-legacy,high,rem_10_findings.json
 767,prior_position_title,skipped_old_mismatch,Chair of Finance Department and Associate Dean,"Chair of Finance Department (1984-1991), then Associate Dean for Academic Affairs (Jul 1991-Dec 1994), U Maryland Smith School",http://faculty.washington.edu/bradford/Bradford_Resume_2014-12-31.pdf,medium,batch_20_part1.json
 768,appointment_end_month_year,applied,Jan-05,"Jul-04 (announced departure late March 2004; started at USC Marshall July 1, 2004)",https://www.dailyuw.com/news/dean-leaves-business-school/article_86ea1d26-c766-59de-b041-4120516ec6c4.html,high,batch_20_part1.json
 769,appointment_start_month_year,applied,Jan-05,"confirmed Jan-05 start as acting dean is correct per UW News (2005-04-07): 'acting dean since the beginning of this year'; however predecessor Gupta departed Jul-04, so there is an unaccounted ~6-month gap (Jul-04 to Jan-05) not covered by Burgstahler",https://www.washington.edu/news/2005/04/07/james-jiambalvo-named-dean-of-uw-business-school/,high,batch_20_part1.json
@@ -326,6 +357,13 @@
 796,is_duplicate_row,applied,,1,https://inside.wfu.edu/2024/05/former-dean-of-babcock-school-of-business-john-mckinnon-has-died/,medium,seed_chat_reports2_findings.json
 797,prior_institution,applied,Texas Tech University,Wake Forest University (internal),https://inside.wfu.edu/1996/11/moyer-named-acting-dean-of-wfus-babcock-school/,high,seed_chat_reports2_findings.json
 797,prior_position_title,applied,Department Chair (Finance),"Integon Chair of Finance, Babcock School",https://inside.wfu.edu/1996/11/moyer-named-acting-dean-of-wfus-babcock-school/,high,seed_chat_reports2_findings.json
+799,appointment_end_month_year,applied,2014,Jun-14,https://news.wfu.edu/2014/01/13/a-new-dawn-for-the-dean/,high,rem_10_findings.json
+799,appointment_start_month_year,applied,2008,Apr-08,https://business.wfu.edu/newsroom/former-pepsico-ceo-reinemund-named-business-dean/,high,rem_10_findings.json
+799,next_role,applied,,Retired_or_emeritus,https://business.wfu.edu/newsroom/executive-in-residence-and-dean-emeritus-steve-reinemund-chosenfor-2020-horatioalger-award/,medium,rem_10_findings.json
+800,appointment_end_month_year,applied,2021,Jan-21,https://business.wfu.edu/newsroom/dean-charles-iacovou-to-lead-new-school-for-professional-studies/,high,rem_10_findings.json
+800,appointment_end_year,applied,2021,2021,https://business.wfu.edu/newsroom/dean-charles-iacovou-to-lead-new-school-for-professional-studies/,high,rem_10_findings.json
+800,appointment_start_month_year,applied,2014,Jul-14,https://news.wfu.edu/2014/05/27/charles-iacovou-named-dean-of-business/,high,rem_10_findings.json
+800,next_role,applied,,Another_deanship,https://business.wfu.edu/newsroom/dean-charles-iacovou-to-lead-new-school-for-professional-studies/,high,rem_10_findings.json
 801,dean_name,applied,Michele Roehm,Michelle Roehm,https://inside.wfu.edu/tag/michelle-roehm/,high,seed_chat_reports2_findings.json
 801,origin_category,applied,Internal,Interim-Internal,https://inside.wfu.edu/tag/michelle-roehm/,high,seed_chat_reports2_findings.json
 802,appointment_end_month_year,applied,Present,Dec-25,https://inside.wfu.edu/2025/12/school-of-business-dean-annette-l-ranft-transitions-to-role-as-special-advisor-to-the-interim-provost/,high,seed_chat_reports2_findings.json
@@ -337,5 +375,23 @@
 805,is_interim,applied,0,1,https://business.wsu.edu/edividend/2023/12/01/message-dean-december-2023/,high,seed_wsu_olin_findings.json
 805,origin_category,applied,Internal,Interim-Internal,https://business.wsu.edu/edividend/2023/12/01/message-dean-december-2023/,high,seed_wsu_olin_findings.json
 808,notes,applied_notes,Olin faculty since 1990; was geraldine virgil professor and associate dean before becoming dean; stepped down 2020,"stepped down June 30, 2016",https://source.washu.edu/2016/01/gupta-conclude-deanship-june-30/,high,seed_wsu_olin_findings.json
+813,appointment_end_month_year,applied,2011,Jul-11,https://www.dbusiness.com/people/wayne-state-names-new-business-dean/,high,rem_10_findings.json
+813,appointment_start_month_year,applied,2008,Apr-08,https://today.wayne.edu/news/2008/03/26/wayne-state-university-names-dean-for-school-of-business-administration-2847,high,rem_10_findings.json
+813,appointment_start_year,applied,2008,2008,https://today.wayne.edu/news/2008/03/26/wayne-state-university-names-dean-for-school-of-business-administration-2847,high,rem_10_findings.json
+813,dean_name,applied,Robert Williams,David L. Williams,https://today.wayne.edu/news/2008/03/26/wayne-state-university-names-dean-for-school-of-business-administration-2847,high,rem_10_findings.json
+813,prior_position_title,applied,Interim Dean (returned to faculty),Interim Dean (since Sept 2007); previously interim dean 1995-1997,https://today.wayne.edu/news/2008/03/26/wayne-state-university-names-dean-for-school-of-business-administration-2847,high,rem_10_findings.json
+814,appointment_end_month_year,applied,2023,Jul-22,https://www.dbusiness.com/daily-news/wayne-state-names-virginia-franke-kleist-dean-of-mike-ilitch-school-of-business/,high,rem_10_findings.json
+814,appointment_end_year,applied,2023,2022,https://www.dbusiness.com/daily-news/wayne-state-names-virginia-franke-kleist-dean-of-mike-ilitch-school-of-business/,high,rem_10_findings.json
+814,appointment_start_month_year,applied,2014,Jul-14,https://www.crainsdetroit.com/article/20140606/NEWS/140609863/wayne-state-names-new-dean-of-business-school,high,rem_10_findings.json
+814,prior_position_title,applied,Dean,"Senior Associate Dean, Leonard A. Hadley Chair (previously Dean at Univ. of South Florida)",https://www.crainsdetroit.com/article/20140606/NEWS/140609863/wayne-state-names-new-dean-of-business-school,high,rem_10_findings.json
+815,appointment_start_month_year,applied,2023,Jul-22,https://today.wayne.edu/news/2022/05/23/virginia-kleist-named-dean-of-wayne-state-university-mike-ilitch-school-of-business-47943,high,rem_10_findings.json
+815,appointment_start_year,applied,2023,2022,https://today.wayne.edu/news/2022/05/23/virginia-kleist-named-dean-of-wayne-state-university-mike-ilitch-school-of-business-47943,high,rem_10_findings.json
+816,appointment_end_month_year,applied,2021,Aug-21,https://wvutoday.wvu.edu/stories/2021/06/16/new-leaders-named-in-john-chambers-college-of-business-and-economics-and-start-up-west-virginia-as-reyes-departs-for-new-role-at-uic,high,rem_10_findings.json
+816,appointment_start_month_year,applied,2016,Jul-16,https://business.wvu.edu/news-and-events/news/2016/02/29/reyes-eager-to-lead-wvu-s-business-school,high,rem_10_findings.json
+816,dean_name,applied,Jose Reyes,Javier A. Reyes,https://business.wvu.edu/news-and-events/news/2016/02/29/reyes-eager-to-lead-wvu-s-business-school,high,rem_10_findings.json
+816,next_role,applied,,Industry_nonprofit_govt,https://diversity.uic.edu/news-stories/business-dean-and-innovation-leader-named-uic-provost/,medium,rem_10_findings.json
+817,appointment_start_month_year,applied,2021,Aug-21,https://business.wvu.edu/about/meet-the-dean,high,rem_10_findings.json
+817,dean_name,applied,Evan Hall,Joshua Hall (also 'Josh Hall'),https://business.wvu.edu/about/meet-the-dean,high,rem_10_findings.json
 820,appointment_url,applied,https://som.yale.edu/news/2004/04/yale-school-of-management-dean-jeffrey-e-garten-to-step-down-in-2005,https://archives.yalealumnimagazine.com/issues/96_02/som.html,https://archives.yalealumnimagazine.com/issues/96_02/som.html,medium,seed_chat_reports_findings.json
+821,appointment_end_month_year,applied,Oct-08,Nov-08,https://som.yale.edu/news/2008/10/sharon-oster-to-succeed-joel-podolny-as-dean-of-the-yale-school-of-management,medium,rem_10_findings.json
 824,source_url,applied,https://alumni.som.yale.edu/news/2017/08/update-from-acting-dean-anjani-jain-august-2017,https://poetsandquants.com/2017/05/17/yale-som-dean-taking-one-year-sabbatical/,https://poetsandquants.com/2017/05/17/yale-som-dean-taking-one-year-sabbatical/,high,seed_chat_reports_findings.json

@@ -48,7 +48,7 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 - **Top-100 B-school** (default): `deans.json` (586 records, 92 schools), `schools-bsq.json` (BSQ research)
 - **R1 B-school**: `r1-bschool-deans.json` (826 records, 152 schools), `r1-bschool-bsq.json` (BSQ), `r1-bschool-schools.json` (geo lookup)
 - **R1 Engineering**: `r1-eschool-deans.json` (586 records, 131 schools), `r1-eschool-research.json` (HERD/IPEDS engineering R&D), `r1-eschool-schools.json`
-- ETL: `scripts/build-r1-data.mjs` from `attached_assets/Dean_Data_Collection_R1_v6_*.xlsx`
+- ETL: `scripts/build-r1-data.mjs` from `attached_assets/Dean_Data_Collection_R1_v7_verified.xlsx` (v7 = July 2026 full web-verification sweep of all 826 B-School rows: 351 corrections, 39 added dean/interim spells, 4 duplicate rows flagged via is_duplicate_row and excluded by ETL; audit trail in `attached_assets/Dean_R1_v7_corrections_log.csv` and `Dean_R1_v7_added_rows_log.csv`; per-row status in `verification_sweep_2026` column). Top-100 `deans.json` had the overlapping corrections ported (66 records updated, 13 interim spells added).
 - Geo coords: combined from existing schools.ts + R1_GEO lookup table (~150 R1 universities)
 - Data is embedded client-side — no API needed for this visualization
 - The JSON data groups Operations and IS deans under disciplineBroad "Operations & IS"; `datasets.ts` splits them at load time (`splitOperationsFromIS`) into "Operations" and "Information Systems" using the fine-grained `discipline` field, so all outputs report them separately
