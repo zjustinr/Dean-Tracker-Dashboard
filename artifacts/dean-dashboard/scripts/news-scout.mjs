@@ -16,7 +16,7 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import { ROOT, applyAppointment, logCSV, loadBreaking, saveBreaking, today } from "./news-lib.mjs";
+import { ROOT, applyAppointment, updateJobMarket, logCSV, loadBreaking, saveBreaking, today } from "./news-lib.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const R1_SCHOOLS_JSON = resolve(__dirname, "../src/data/r1-bschool-schools.json");
@@ -212,6 +212,8 @@ if (!DRY) {
     const status = applyAppointment(e);
     if (status === "added") {
       applied++;
+      const jm = updateJobMarket({ kind: "filled", university: e.university });
+      if (jm === "removed") logLines.push([today(), "position_filled", e.university, e.dean, "jobmarket", "high", e.url]);
       breaking.items.unshift({
         id: e.id, type: "applied", date: e.date.toISOString().slice(0, 10),
         headline: `${e.dean} named ${e.interim ? "interim " : ""}dean at ${e.university}${e.school ? ` (${e.school})` : ""}`,
@@ -243,6 +245,12 @@ if (!DRY) {
       headline: e.title, question, url: e.url, issueUrl: issueUrl || e.url,
     });
     logLines.push([today(), issueUrl ? "question_issue" : "review", e.university || "", e.dean || "", e.type, e.confidence, issueUrl || e.url]);
+  }
+
+  // dean-search announcements at tracked schools refresh the openings board
+  for (const e of events.filter((ev) => ev.type === "search" && ev.university)) {
+    const jm = updateJobMarket({ kind: "search", university: e.university, school: e.school, date: e.date, url: e.url, title: e.title });
+    if (jm !== "none") logLines.push([today(), `position_${jm}`, e.university, "", "jobmarket_search", e.confidence, e.url]);
   }
 
   for (const e of overflow) logLines.push([today(), "skip_overflow", e.university, e.dean, e.type, e.confidence, e.url]);

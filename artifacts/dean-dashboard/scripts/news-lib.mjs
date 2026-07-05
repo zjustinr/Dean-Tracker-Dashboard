@@ -120,6 +120,63 @@ export function closeTenure(e) {
   return "closed";
 }
 
+export const JOBMARKET_JSON = resolve(__dirname, "../src/data/jobmarket.json");
+const R1_SCHOOLS = resolve(__dirname, "../src/data/r1-bschool-schools.json");
+
+/**
+ * Keep the Dean News & Market openings board fresh:
+ *  - kind "filled": a dean was appointed -> remove the open position(s) for that university
+ *  - kind "search": a dean search was announced -> add/update an opening with a source URL
+ * Returns "removed" | "added" | "updated" | "none".
+ */
+export function updateJobMarket(e) {
+  const listings = existsSync(JOBMARKET_JSON) ? JSON.parse(readFileSync(JOBMARKET_JSON, "utf8")) : [];
+  const uni = (e.university || "").toLowerCase();
+  if (e.kind === "filled") {
+    const before = listings.length;
+    const kept = listings.filter((l) => l.university.toLowerCase() !== uni);
+    if (kept.length === before) return "none";
+    writeFileSync(JOBMARKET_JSON, JSON.stringify(kept, null, 2));
+    return "removed";
+  }
+  if (e.kind === "search") {
+    const existing = listings.find((l) => l.university.toLowerCase() === uni);
+    if (existing) {
+      existing.newsUrl = e.url || existing.newsUrl;
+      existing.notes = e.title || existing.notes;
+      existing.lastUpdated = today();
+      writeFileSync(JOBMARKET_JSON, JSON.stringify(listings, null, 2));
+      return "updated";
+    }
+    const geo = JSON.parse(readFileSync(R1_SCHOOLS, "utf8")).find((s) => s.university.toLowerCase() === uni);
+    listings.push({
+      id: Math.max(0, ...listings.map((l) => l.id)) + 1,
+      university: e.university,
+      school: e.school || geo?.school || null,
+      notes: e.title || "Dean search announced",
+      searchFirm: null,
+      dateStarted: (e.date instanceof Date ? e.date : new Date(e.date)).toISOString().slice(0, 10),
+      newsUrl: e.url || null,
+      positionDescription: null,
+      positionUrl: null,
+      lat: geo?.lat ?? null,
+      lng: geo?.lng ?? null,
+      departingDean: null,
+      reason: null,
+      city: geo?.city ?? null,
+      state: geo?.state ?? null,
+      type: geo?.type ?? null,
+      rank: geo?.rank ?? null,
+      totalFaculty: geo?.totalFaculty ?? null,
+      addedBy: "news-scout",
+      lastUpdated: today(),
+    });
+    writeFileSync(JOBMARKET_JSON, JSON.stringify(listings, null, 2));
+    return "added";
+  }
+  return "none";
+}
+
 /** Load, prune (>30 days), and save the app's breaking-news feed. */
 export function loadBreaking() {
   const data = existsSync(BREAKING_JSON) ? JSON.parse(readFileSync(BREAKING_JSON, "utf8")) : { updated: today(), items: [] };

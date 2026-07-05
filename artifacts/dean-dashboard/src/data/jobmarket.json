@@ -1,45 +1,5 @@
 [
   {
-    "id": 1,
-    "university": "University of Virginia",
-    "school": "Darden",
-    "notes": "Dean was selected for university-level position",
-    "searchFirm": "Korn Ferry",
-    "dateStarted": "2026-03-03",
-    "newsUrl": "https://news.darden.virginia.edu/2026/03/03/search-committee-begins-process-to-select-uva-dardens-10th-dean/",
-    "positionDescription": "Conducting listening sessions before creating position description",
-    "positionUrl": null,
-    "lat": 38.0336,
-    "lng": -78.5080,
-    "departingDean": "Scott C. Beardsley",
-    "reason": "Selected for university-level position",
-    "city": "Charlottesville",
-    "state": "VA",
-    "type": "Public",
-    "rank": 13,
-    "totalFaculty": 70
-  },
-  {
-    "id": 2,
-    "university": "Emory University",
-    "school": "Goizueta",
-    "notes": "Dean hired away to be dean at another school",
-    "searchFirm": "Russell Reynolds Associates",
-    "dateStarted": "2026-02-18",
-    "newsUrl": "https://news.emory.edu/stories/2026/02/er_goizueta_business_dean_search_18-02-2026/story.html",
-    "positionDescription": null,
-    "positionUrl": "https://executivesearch.emory.edu/goizueta-dean/_includes/documents/sections/prospectus.pdf",
-    "lat": 33.7925,
-    "lng": -84.3234,
-    "departingDean": "Gareth James",
-    "reason": "Hired away as dean of UCLA Anderson",
-    "city": "Atlanta",
-    "state": "GA",
-    "type": "Private",
-    "rank": 23,
-    "totalFaculty": 72
-  },
-  {
     "id": 3,
     "university": "Florida A&M University",
     "school": null,
@@ -57,7 +17,8 @@
     "state": "FL",
     "type": "Public",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 4,
@@ -66,10 +27,10 @@
     "notes": "Dean announced he was stepping down Feb 2026. Interim dean Greg Niehaus appointed.",
     "searchFirm": null,
     "dateStarted": null,
-    "newsUrl": null,
+    "newsUrl": "https://sc.edu/study/colleges_schools/moore/about/leadership/",
     "positionDescription": null,
     "positionUrl": null,
-    "lat": 33.9940,
+    "lat": 33.994,
     "lng": -81.0277,
     "departingDean": null,
     "reason": "Dean stepped down; interim Greg Niehaus appointed",
@@ -77,13 +38,14 @@
     "state": "SC",
     "type": "Public",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 5,
     "university": "University of Rochester",
     "school": "Simon",
-    "notes": "Dean Sevin Yeltekin leaving to be dean at George Washington (announced Feb 16, 2025). Interim dean announced April 22, 2025, term started July 1, 2025.",
+    "notes": "Mitch Lovett interim dean since Jul 2025; permanent search continuing",
     "searchFirm": null,
     "dateStarted": null,
     "newsUrl": "https://poetsandquants.com/2025/04/29/following-deans-departure-simon-business-school-turns-to-a-veteran-faculty-leader/",
@@ -97,7 +59,8 @@
     "state": "NY",
     "type": "Private",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 6,
@@ -117,7 +80,8 @@
     "state": "ON",
     "type": "Public",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 7,
@@ -137,7 +101,8 @@
     "state": "CA",
     "type": "Public",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 8,
@@ -157,7 +122,8 @@
     "state": "TX",
     "type": "Public",
     "rank": 19,
-    "totalFaculty": 164
+    "totalFaculty": 164,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 9,
@@ -177,7 +143,8 @@
     "state": "UK",
     "type": "Public",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 10,
@@ -197,13 +164,14 @@
     "state": "PA",
     "type": "Private",
     "rank": 18,
-    "totalFaculty": 97
+    "totalFaculty": 97,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 11,
     "university": "Syracuse University",
     "school": "Whitman",
-    "notes": "Has had an interim dean since 2022",
+    "notes": "Has had an interim dean since 2022 [source is a 2022 page; current search status unconfirmed]",
     "searchFirm": "Isaacson, Miller",
     "dateStarted": "2022-06-21",
     "newsUrl": "https://academicaffairs.syracuse.edu/whitman-school-dean-search/",
@@ -217,7 +185,8 @@
     "state": "NY",
     "type": "Private",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 12,
@@ -226,78 +195,19 @@
     "notes": "Has interim dean",
     "searchFirm": null,
     "dateStarted": null,
-    "newsUrl": null,
+    "newsUrl": "https://today.uconn.edu/2026/04/professor-robert-day-named-interim-dean-of-business-school-as-university-renews-search-for-permanent-leader/",
     "positionDescription": null,
     "positionUrl": null,
     "lat": 41.8077,
-    "lng": -72.2540,
+    "lng": -72.254,
     "departingDean": null,
     "reason": "Has interim dean",
     "city": "Storrs",
     "state": "CT",
     "type": "Public",
     "rank": null,
-    "totalFaculty": null
-  },
-  {
-    "id": 13,
-    "university": "Kutztown University",
-    "school": null,
-    "notes": null,
-    "searchFirm": null,
-    "dateStarted": null,
-    "newsUrl": null,
-    "positionDescription": null,
-    "positionUrl": null,
-    "lat": 40.5126,
-    "lng": -75.7785,
-    "departingDean": null,
-    "reason": null,
-    "city": "Kutztown",
-    "state": "PA",
-    "type": "Public",
-    "rank": null,
-    "totalFaculty": null
-  },
-  {
-    "id": 14,
-    "university": "University of Richmond",
-    "school": "Robins",
-    "notes": null,
-    "searchFirm": null,
-    "dateStarted": null,
-    "newsUrl": null,
-    "positionDescription": null,
-    "positionUrl": null,
-    "lat": 37.5741,
-    "lng": -77.5401,
-    "departingDean": null,
-    "reason": null,
-    "city": "Richmond",
-    "state": "VA",
-    "type": "Private",
-    "rank": null,
-    "totalFaculty": null
-  },
-  {
-    "id": 15,
-    "university": "Widener University",
-    "school": null,
-    "notes": null,
-    "searchFirm": null,
-    "dateStarted": null,
-    "newsUrl": null,
-    "positionDescription": null,
-    "positionUrl": null,
-    "lat": 39.8646,
-    "lng": -75.3527,
-    "departingDean": null,
-    "reason": null,
-    "city": "Chester",
-    "state": "PA",
-    "type": "Private",
-    "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 16,
@@ -306,9 +216,9 @@
     "notes": null,
     "searchFirm": null,
     "dateStarted": null,
-    "newsUrl": null,
+    "newsUrl": "https://www.higheredjobs.com/executive/details.cfm?JobCode=179375833",
     "positionDescription": null,
-    "positionUrl": null,
+    "positionUrl": "https://www.higheredjobs.com/executive/details.cfm?JobCode=179375833",
     "lat": 40.7614,
     "lng": -73.9776,
     "departingDean": null,
@@ -317,7 +227,8 @@
     "state": "NY",
     "type": "Private",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 17,
@@ -326,7 +237,7 @@
     "notes": null,
     "searchFirm": null,
     "dateStarted": null,
-    "newsUrl": null,
+    "newsUrl": "https://news.linfield.edu/farag-and-crosley-to-lead-business/",
     "positionDescription": null,
     "positionUrl": null,
     "lat": 45.2043,
@@ -337,27 +248,8 @@
     "state": "OR",
     "type": "Private",
     "rank": null,
-    "totalFaculty": null
-  },
-  {
-    "id": 18,
-    "university": "Georgia Southern University",
-    "school": null,
-    "notes": null,
-    "searchFirm": null,
-    "dateStarted": null,
-    "newsUrl": null,
-    "positionDescription": null,
-    "positionUrl": null,
-    "lat": 32.4225,
-    "lng": -81.7835,
-    "departingDean": null,
-    "reason": null,
-    "city": "Statesboro",
-    "state": "GA",
-    "type": "Public",
-    "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 19,
@@ -366,9 +258,9 @@
     "notes": null,
     "searchFirm": null,
     "dateStarted": null,
-    "newsUrl": null,
+    "newsUrl": "https://www.stonybrook.edu/commcms/provost/about/_communications/_2026_01-cob-interim.php",
     "positionDescription": null,
-    "positionUrl": null,
+    "positionUrl": "https://www.imsearch.com/open-searches/stony-brook-university-college-business/dean",
     "lat": 40.9126,
     "lng": -73.1234,
     "departingDean": null,
@@ -377,7 +269,8 @@
     "state": "NY",
     "type": "Public",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 20,
@@ -386,9 +279,9 @@
     "notes": null,
     "searchFirm": null,
     "dateStarted": null,
-    "newsUrl": null,
+    "newsUrl": "https://kvoe.com/2026/04/28/esu-approaching-end-of-search-for-dean-of-school-of-business-and-technology-public-events-announced/",
     "positionDescription": null,
-    "positionUrl": null,
+    "positionUrl": "https://www.emporia.edu/2026-sbt-dean/",
     "lat": 38.4036,
     "lng": -96.1819,
     "departingDean": null,
@@ -397,7 +290,8 @@
     "state": "KS",
     "type": "Public",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 21,
@@ -406,9 +300,9 @@
     "notes": null,
     "searchFirm": null,
     "dateStarted": null,
-    "newsUrl": null,
+    "newsUrl": "https://post.edu/associate-experience/career-opportunities/dean-search-business/",
     "positionDescription": null,
-    "positionUrl": null,
+    "positionUrl": "https://www.higheredjobs.com/executive/details.cfm?JobCode=179429390",
     "lat": 41.5585,
     "lng": -73.0515,
     "departingDean": null,
@@ -417,19 +311,20 @@
     "state": "CT",
     "type": "Private",
     "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   },
   {
     "id": 22,
     "university": "Endicott College",
     "school": null,
-    "notes": null,
+    "notes": " [reportedly filled by Deirdre Sartorelli eff. Jul 2026 - pending confirmation]",
     "searchFirm": null,
     "dateStarted": null,
-    "newsUrl": null,
+    "newsUrl": "https://www.higheredjobs.com/executive/details.cfm?JobCode=179379828",
     "positionDescription": null,
-    "positionUrl": null,
-    "lat": 42.5660,
+    "positionUrl": "https://www.higheredjobs.com/executive/details.cfm?JobCode=179379828",
+    "lat": 42.566,
     "lng": -70.8486,
     "departingDean": null,
     "reason": null,
@@ -437,26 +332,7 @@
     "state": "MA",
     "type": "Private",
     "rank": null,
-    "totalFaculty": null
-  },
-  {
-    "id": 23,
-    "university": "Webster University",
-    "school": null,
-    "notes": null,
-    "searchFirm": null,
-    "dateStarted": null,
-    "newsUrl": null,
-    "positionDescription": null,
-    "positionUrl": null,
-    "lat": 38.5936,
-    "lng": -90.3535,
-    "departingDean": null,
-    "reason": null,
-    "city": "Webster Groves",
-    "state": "MO",
-    "type": "Private",
-    "rank": null,
-    "totalFaculty": null
+    "totalFaculty": null,
+    "urlVerified": "2026-07-05"
   }
 ]

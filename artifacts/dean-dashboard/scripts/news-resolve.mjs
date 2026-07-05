@@ -4,7 +4,7 @@
  * Env: ISSUE_BODY, COMMENT_BODY, ISSUE_NUMBER
  * Prints RESULT=<applied|closed|ignored|invalid> for the workflow.
  */
-import { applyAppointment, closeTenure, loadBreaking, saveBreaking, logCSV, today } from "./news-lib.mjs";
+import { applyAppointment, closeTenure, updateJobMarket, loadBreaking, saveBreaking, logCSV, today } from "./news-lib.mjs";
 
 const issueBody = process.env.ISSUE_BODY || "";
 const comment = (process.env.COMMENT_BODY || "").trim();
@@ -46,6 +46,7 @@ if (["skip", "no", "2", "ignore"].includes(lower)) {
     const status = applyAppointment({ ...payload, dean: name });
     dropBanner();
     if (status === "added") {
+      updateJobMarket({ kind: "filled", university: payload.university });
       breaking.items.unshift({
         id: payload.id + "-applied", type: "applied", date: today(),
         headline: `${name} named ${payload.interim ? "interim " : ""}dean at ${payload.university}`,

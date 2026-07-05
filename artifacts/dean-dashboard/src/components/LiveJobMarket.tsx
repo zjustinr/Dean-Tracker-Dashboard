@@ -1,6 +1,8 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 import jobData from "@/data/jobmarket.json";
+import breakingData from "@/data/breaking-news.json";
+import r1SchoolsGeo from "@/data/r1-bschool-schools.json";
 import { Badge } from "@/components/ui/badge";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -332,6 +334,43 @@ function newsToListing(article: PQArticle, idx: number): (JobListing & { _fromNe
   };
 }
 
+// Appointments auto-applied by the daily news scout (breaking-news.json) become
+// "New Appointment" listings, with coordinates from SCHOOL_COORDS or the R1 geo list.
+interface BreakingApplied { id: string; type: string; date: string; headline: string; university?: string; dean?: string; url: string }
+function scoutToListings(existing: JobListing[]): (JobListing & { _fromNews: true })[] {
+  const cutoff = Date.now() - 60 * 86400e3;
+  const out: (JobListing & { _fromNews: true })[] = [];
+  let idx = 0;
+  for (const it of (breakingData.items || []) as BreakingApplied[]) {
+    if (it.type !== "applied" || !it.university || new Date(it.date).getTime() < cutoff) continue;
+    if (existing.some((l) => l.university.toLowerCase() === it.university!.toLowerCase())) continue;
+    const coords = SCHOOL_COORDS[it.university];
+    const geo = coords ? null : (r1SchoolsGeo as { university: string; school: string; lat: number | null; lng: number | null; city: string; state: string; type: string; rank: number | null; totalFaculty: number }[]).find((s) => s.university.toLowerCase() === it.university!.toLowerCase());
+    out.push({
+      id: 20000 + idx++,
+      university: it.university,
+      school: coords?.school ?? geo?.school ?? null,
+      notes: `New dean: ${it.dean || "see story"}`,
+      searchFirm: null,
+      dateStarted: it.date,
+      newsUrl: it.url,
+      positionDescription: it.headline,
+      positionUrl: null,
+      lat: coords?.lat ?? geo?.lat ?? null,
+      lng: coords?.lng ?? geo?.lng ?? null,
+      departingDean: null,
+      reason: it.dean ? `${it.dean} appointed` : "New appointment",
+      city: coords?.city ?? geo?.city ?? null,
+      state: coords?.state ?? geo?.state ?? null,
+      type: coords?.type ?? geo?.type ?? null,
+      rank: coords?.rank ?? geo?.rank ?? null,
+      totalFaculty: coords?.totalFaculty ?? geo?.totalFaculty ?? null,
+      _fromNews: true as const,
+    });
+  }
+  return out;
+}
+
 function PQNewsFeed({ state, fetchNews }: { state: PQNewsState; fetchNews: (force?: boolean) => void }) {
   const [expanded, setExpanded] = useState(true);
 
@@ -491,7 +530,10 @@ export default function LiveJobMarket() {
   }, [newsState.articles]);
 
   const allListings = useMemo(() => {
-    return [...listings, ...newsListings];
+    const scout = scoutToListings(listings).filter(
+      (s) => !newsListings.some((n) => n.university.toLowerCase() === s.university.toLowerCase())
+    );
+    return [...listings, ...newsListings, ...scout];
   }, [newsListings]);
 
   const firms = useMemo(() => {
@@ -620,6 +662,10 @@ export default function LiveJobMarket() {
           )}
         </div>
       </div>
+
+      <p className="text-xs text-muted-foreground -mt-2">
+        Positions and appointments refresh daily via the automated news scout · data as of {breakingData.updated}
+      </p>
 
       {view === "map" && (
         <JobMarketMap
