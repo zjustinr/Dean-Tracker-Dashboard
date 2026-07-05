@@ -1,0 +1,61 @@
+name: Daily dean-news scout
+
+on:
+  schedule:
+    - cron: "0 13 * * *" # daily, 13:00 UTC (~9am ET)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-scout
+  cancel-in-progress: false
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install xlsx (only dependency the scout needs)
+        run: npm install --ignore-scripts --no-save --no-package-lock xlsx@0.18.5
+
+      - name: Run news scout
+        id: scout
+        run: |
+          node artifacts/dean-dashboard/scripts/news-scout.mjs | tee scout-output.txt
+          if grep -q '^CHANGED$' scout-output.txt; then echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Regenerate R1 datasets
+        if: steps.scout.outputs.changed == 'true'
+        run: node artifacts/dean-dashboard/scripts/build-r1-data.mjs
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "dean-news-scout"
+          git config user.email "actions@github.com"
+          git add attached_assets/Dean_Data_Collection_R1_v7_verified.xlsx \
+                  attached_assets/news_scout_state.json \
+                  attached_assets/news_scout_review.json \
+                  attached_assets/news_scout_log.csv \
+                  artifacts/dean-dashboard/src/data/ 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "news-scout: daily dean-appointment scan $(date -u +%F)"
+            git push
+          fi
+
+      - name: Job summary
+        run: |
+          {
+            echo "## Dean news scout — $(date -u +%F)"
+            echo '```'
+            cat scout-output.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -81,6 +81,9 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 - School: US News rank, tier, elite institution status
 - New: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
 
+### Daily news scout (automated dataset updates)
+GitHub Action `.github/workflows/news-scout.yml` runs daily (13:00 UTC) + manual dispatch: `scripts/news-scout.mjs` scans Google News RSS + Poets&Quants for dean events, matches against tracked universities/unique school names, and AUTO-APPLIES high-confidence appointments (max 5/run, ≤30 days old) to the v7 Excel + deans.json, closes the predecessor's open spell, then regenerates R1 JSONs and pushes (Vercel auto-deploys). Medium-confidence hits go to `attached_assets/news_scout_review.json`; every action logs to `news_scout_log.csv`; dedup state in `news_scout_state.json`. New rows carry `verification_sweep_2026 = "news-scout"` and origin/discipline "Unknown" pending review.
+
 ### Key Components
 - `SchoolExplorer.tsx` — Main school exploration view with list/map toggle
 - `USMap.tsx` — Interactive US map component using react-simple-maps
