@@ -5,7 +5,7 @@ import { CHART_COLORS } from "@/data/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import deanPhotos from "@/data/dean-photos.json";
 
-const PHOTO_MAP = deanPhotos as Record<string, { photo: string; page?: string }>;
+const PHOTO_MAP = deanPhotos as Record<string, { photo: string; source?: string; page?: string }>;
 const photoKey = (dean: string, university: string) => `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
 
 /**
@@ -91,7 +91,11 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
             alt={dean.dean}
             className="w-32 h-32 rounded-full object-cover border-4 shadow-md"
             style={{ borderColor: color }}
-            onError={() => setPhoto(null)}
+            onError={() => {
+              // local mirror failed -> try the original university URL once, then monogram
+              const curated = PHOTO_MAP[photoKey(dean.dean, dean.university)];
+              setPhoto(curated?.source && photo !== curated.source ? curated.source : null);
+            }}
           />
         ) : (
           <div
