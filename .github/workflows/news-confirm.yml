@@ -1,0 +1,64 @@
+name: Apply confirmed dean news
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: news-scout
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    if: >
+      contains(github.event.issue.labels.*.name, 'news-review') &&
+      github.event.comment.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+
+      - name: Install xlsx
+        run: npm install --ignore-scripts --no-save --no-package-lock xlsx@0.18.5
+
+      - name: Resolve confirmation
+        id: resolve
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
+        run: |
+          node artifacts/dean-dashboard/scripts/news-resolve.mjs | tee resolve-output.txt
+          grep '^RESULT=' resolve-output.txt >> "$GITHUB_OUTPUT"
+          echo "message=$(grep '^MESSAGE=' resolve-output.txt | cut -d= -f2-)" >> "$GITHUB_OUTPUT"
+
+      - name: Regenerate R1 datasets
+        if: steps.resolve.outputs.RESULT == 'applied' || steps.resolve.outputs.RESULT == 'closed'
+        run: node artifacts/dean-dashboard/scripts/build-r1-data.mjs
+
+      - name: Commit and push
+        if: steps.resolve.outputs.RESULT != 'invalid'
+        run: |
+          git config user.name "dean-news-scout"
+          git config user.email "actions@github.com"
+          git add attached_assets/ artifacts/dean-dashboard/src/data/
+          if git diff --staged --quiet; then echo "nothing to commit"; else
+            git commit -m "news-confirm: issue #${{ github.event.issue.number }} resolved (${{ steps.resolve.outputs.RESULT }})"
+            git push
+          fi
+
+      - name: Reply and close issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} --repo ${{ github.repository }} \
+            --body "${{ steps.resolve.outputs.message }}"
+          if [ "${{ steps.resolve.outputs.RESULT }}" != "invalid" ]; then
+            gh issue close ${{ github.event.issue.number }} --repo ${{ github.repository }}
+          fi

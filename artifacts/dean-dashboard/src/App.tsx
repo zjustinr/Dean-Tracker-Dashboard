@@ -7,6 +7,7 @@ import IndividualSearch from "@/components/IndividualSearch";
 import LiveJobMarket from "@/components/LiveJobMarket";
 import CompareDatasets from "@/components/CompareDatasets";
 import DisciplineSearch from "@/components/DisciplineSearch";
+import BreakingNews from "@/components/BreakingNews";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 
 interface TabDef {
@@ -100,6 +101,8 @@ function AppInner() {
             </button>
           </div>
         </header>
+
+        <BreakingNews />
 
         <main className="max-w-[1400px] mx-auto px-4 py-6">
           <div className="space-y-6">

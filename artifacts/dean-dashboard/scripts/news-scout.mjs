@@ -3,34 +3,32 @@
  * Daily dean-appointment news scout.
  *
  * Scans Google News RSS + Poets&Quants RSS for business-school dean events,
- * matches them against the tracked universities/schools in the dataset, and
- * auto-applies HIGH-confidence appointment events to:
- *   - attached_assets/Dean_Data_Collection_R1_v7_verified.xlsx (B-School sheet)
- *   - src/data/deans.json (Top-100 dataset) when the school is tracked there
- * Lower-confidence hits are written to attached_assets/news_scout_review.json.
- * Every action is logged to attached_assets/news_scout_log.csv.
+ * matches them against tracked universities/schools, and:
+ *   - AUTO-APPLIES high-confidence appointments to the Excel + deans.json
+ *     (and adds a "breaking news" banner item for the app)
+ *   - Opens a GitHub confirmation issue (label: news-review) for ambiguous
+ *     events, with numbered choices, and adds a "question" banner item
+ * Lower-value hits are appended to attached_assets/news_scout_review.json.
+ * Every action logs to attached_assets/news_scout_log.csv.
  *
- * After running, regenerate the R1 JSONs with scripts/build-r1-data.mjs.
  * Usage: node news-scout.mjs [--dry-run]
  */
-import XLSX from "xlsx";
-import { readFileSync, writeFileSync, existsSync, appendFileSync } from "fs";
+import { readFileSync, writeFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { ROOT, applyAppointment, logCSV, loadBreaking, saveBreaking, today } from "./news-lib.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, "../../..");
-const XLSX_PATH = resolve(ROOT, "attached_assets/Dean_Data_Collection_R1_v7_verified.xlsx");
-const DEANS_JSON = resolve(__dirname, "../src/data/deans.json");
 const R1_SCHOOLS_JSON = resolve(__dirname, "../src/data/r1-bschool-schools.json");
 const STATE_PATH = resolve(ROOT, "attached_assets/news_scout_state.json");
 const REVIEW_PATH = resolve(ROOT, "attached_assets/news_scout_review.json");
-const LOG_PATH = resolve(ROOT, "attached_assets/news_scout_log.csv");
 
 const DRY = process.argv.includes("--dry-run");
 const MAX_AUTO_PER_RUN = 5; // safety valve against a bad feed/regex day
 const RECENT_DAYS = 30; // only act on news published within this window
 const NOW = new Date();
+const GH_TOKEN = process.env.GITHUB_TOKEN;
+const GH_REPO = process.env.GITHUB_REPOSITORY || "zjustinr/Dean-Tracker-Dashboard";
 
 const FEEDS = [
   "https://news.google.com/rss/search?q=%22named%20dean%22%20%22business%20school%22&hl=en-US&gl=US&ceid=US:en",
@@ -40,7 +38,7 @@ const FEEDS = [
   "https://poetsandquants.com/feed/",
 ];
 
-// ---------- helpers ----------
+// ---------- rss helpers ----------
 const decode = (s) =>
   (s || "")
     .replace(/<!\[CDATA\[|\]\]>/g, "")
@@ -70,15 +68,13 @@ const hash = (s) => {
   return String(h >>> 0);
 };
 
-const monthLabel = (d) => `${["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]}-${String(d.getFullYear()).slice(2)}`;
-
+// ---------- extraction ----------
 const STOP_NAME_TOKENS = new Set([
   "The","A","An","New","Next","Interim","Acting","Dean","Business","School","College","University",
   "State","Its","His","Her","First","Former","Names","Announces","Welcomes","As","At","Of","For",
 ]);
 
 function extractName(text) {
-  // "<Name> named/appointed/selected/tapped ... dean"  or  "names/appoints/taps/selects <Name>"
   const pats = [
     /([A-Z][\w'.-]+(?:\s+[A-Z][\w'.-]+){1,3})\s+(?:[Hh]as\s+[Bb]een\s+|[Ww]as\s+|[Ii]s\s+)?(?:[Nn]amed|[Aa]ppointed|[Ss]elected|[Tt]apped|[Cc]hosen)\b/,
     /\b(?:[Nn]ames?|[Aa]ppoints?|[Tt]aps?|[Ss]elects?|[Ww]elcomes?)\s+(?:Dr\.\s+)?([A-Z][\w'.-]+(?:\s+[A-Z][\w'.-]+){1,3})/,
@@ -93,30 +89,22 @@ function extractName(text) {
   return null;
 }
 
-// ---------- load tracked schools ----------
-const r1Schools = JSON.parse(readFileSync(R1_SCHOOLS_JSON, "utf8"));
-const deansJson = JSON.parse(readFileSync(DEANS_JSON, "utf8"));
+// ---------- tracked schools ----------
 const GENERIC_SCHOOL = /^(the\s+)?((graduate\s+)?(school|college)\s+of\s+(business|management)(\s+administration)?|business\s+school|college\s+of\s+business\s+and\s+economics)$/i;
-// school names shared by more than one tracked university (e.g. "Anderson School
-// of Management" at both UCLA and UNM) cannot be used as match keys on their own
-const schoolNameCount = {};
+const r1Schools = JSON.parse(readFileSync(R1_SCHOOLS_JSON, "utf8"));
+const schoolNameUnis = {};
 for (const s of r1Schools) {
   const k = (s.school || "").toLowerCase();
-  schoolNameCount[k] = (schoolNameCount[k] || 0) + (schoolNameCount[k + "|" + s.university] ? 0 : 1);
-  schoolNameCount[k + "|" + s.university] = 1;
+  (schoolNameUnis[k] = schoolNameUnis[k] || new Set()).add(s.university);
 }
-const tracked = []; // {university, school, keys: [lowercase strings to search for]}
+const tracked = [];
 const seenUni = new Set();
 for (const s of r1Schools) {
   if (seenUni.has(s.university + "|" + s.school)) continue;
   seenUni.add(s.university + "|" + s.school);
   const keys = [s.university.toLowerCase()];
   const sk = (s.school || "").toLowerCase();
-  // distinctive, UNIQUE named schools ("Kelley School of Business") are strong
-  // signals; generic or shared names are not used as match keys.
-  if (sk && !GENERIC_SCHOOL.test(s.school) && schoolNameCount[sk] === 1) {
-    keys.push(sk);
-  }
+  if (sk && !GENERIC_SCHOOL.test(s.school) && schoolNameUnis[sk].size === 1) keys.push(sk);
   tracked.push({ university: s.university, school: s.school, keys });
 }
 
@@ -133,12 +121,10 @@ function matchSchool(text) {
   return best;
 }
 
-// ---------- classify ----------
+// ---------- classification ----------
 function classify(text) {
   const t = text;
-  const isDeanContext = /\bdean\b/i.test(t) && /\b(business|management)\b/i.test(t);
-  if (!isDeanContext) return null;
-  // not a dean appointment: awards, or a dean moving to a presidency/provostship
+  if (!(/\bdean\b/i.test(t) && /\b(business|management)\b/i.test(t))) return null;
   if (/\bdean\s+of\s+the\s+year\b|\baward(ed)?\b|\bhonor(ed|s)\b/i.test(t)) return null;
   if (/\b(named|appointed|selected|tapped|chosen)\s+(as\s+)?(the\s+)?(\d+\w*\s+)?(next\s+|new\s+|interim\s+)?(president|provost|chancellor)\b/i.test(t)) {
     return { type: "departure", interim: false };
@@ -151,17 +137,32 @@ function classify(text) {
   if (/\b(steps?\s+down|stepping\s+down|resigns?|to\s+retire|retiring|departs?|concludes?\s+(his|her|their)\s+(tenure|deanship))\b/i.test(t)) {
     return { type: "departure", interim: false };
   }
-  if (/\bdean\s+search\b|\bsearch\s+for\s+(a\s+)?(new\s+)?dean\b/i.test(t)) {
-    return { type: "search", interim: false };
-  }
+  if (/\bdean\s+search\b|\bsearch\s+for\s+(a\s+)?(new\s+)?dean\b/i.test(t)) return { type: "search", interim: false };
   return null;
+}
+
+// ---------- github issue creation ----------
+async function createConfirmIssue(title, body) {
+  if (!GH_TOKEN || DRY) return null;
+  const api = `https://api.github.com/repos/${GH_REPO}`;
+  const headers = {
+    authorization: `Bearer ${GH_TOKEN}`,
+    accept: "application/vnd.github+json",
+    "user-agent": "dean-tracker-news-scout",
+    "content-type": "application/json",
+  };
+  // ensure the label exists (ignore "already exists" failures)
+  await fetch(`${api}/labels`, { method: "POST", headers, body: JSON.stringify({ name: "news-review", color: "d73a4a", description: "Dean news awaiting confirmation" }) }).catch(() => {});
+  const res = await fetch(`${api}/issues`, { method: "POST", headers, body: JSON.stringify({ title, body, labels: ["news-review"] }) });
+  if (!res.ok) { console.error(`issue create failed: ${res.status}`); return null; }
+  const issue = await res.json();
+  return issue.html_url;
 }
 
 // ---------- main ----------
 const state = existsSync(STATE_PATH) ? JSON.parse(readFileSync(STATE_PATH, "utf8")) : { seen: {} };
-// prune state entries older than 120 days
-const cutoff = Date.now() - 120 * 86400e3;
-for (const [k, v] of Object.entries(state.seen)) if (new Date(v).getTime() < cutoff) delete state.seen[k];
+const cutoffSeen = Date.now() - 120 * 86400e3;
+for (const [k, v] of Object.entries(state.seen)) if (new Date(v).getTime() < cutoffSeen) delete state.seen[k];
 
 const events = [];
 for (const feed of FEEDS) {
@@ -177,13 +178,12 @@ for (const feed of FEEDS) {
       const cls = classify(text);
       if (!cls) continue;
       const pub = it.pubDate ? new Date(it.pubDate) : NOW;
-      // stale items (Google News surfaces popular old stories) are marked seen but not acted on
       if (!isNaN(pub.getTime()) && NOW.getTime() - pub.getTime() > RECENT_DAYS * 86400e3) continue;
       const school = matchSchool(text);
       const name = extractName(it.title) || extractName(text);
       events.push({
-        ...cls,
-        title: it.title, url: it.link, pubDate: isNaN(pub.getTime()) ? NOW : pub,
+        ...cls, id,
+        title: it.title, url: it.link, date: isNaN(pub.getTime()) ? NOW : pub,
         university: school?.university || null, school: school?.school || null,
         dean: name,
         confidence: school && name && cls.type === "appointment" ? "high" : school ? "medium" : "low",
@@ -197,100 +197,64 @@ for (const feed of FEEDS) {
 console.log(`scanned feeds: ${FEEDS.length}, new dean-related items: ${events.length}`);
 for (const e of events) console.log(`  [${e.confidence}] ${e.type}${e.interim ? "/interim" : ""} | ${e.university || "?"} | ${e.dean || "?"} | ${e.title}`);
 
-// ---------- apply high-confidence appointments ----------
-const lastName = (n) => n.split(/\s+/).filter((t) => !["Jr.","Jr","Sr.","II","III"].includes(t)).pop()?.toLowerCase() || "";
 const toApply = events.filter((e) => e.confidence === "high" && e.type === "appointment").slice(0, MAX_AUTO_PER_RUN);
-const skippedOverflow = events.filter((e) => e.confidence === "high" && e.type === "appointment").slice(MAX_AUTO_PER_RUN);
-const review = events.filter((e) => e.confidence === "medium" || (e.confidence === "high" && e.type !== "appointment"));
+const overflow = events.filter((e) => e.confidence === "high" && e.type === "appointment").slice(MAX_AUTO_PER_RUN);
+// ambiguous but valuable: tracked school + (appointment w/o name, or departure)
+const toAsk = events.filter((e) => e.confidence === "medium" && (e.type === "appointment" || e.type === "departure"));
+const review = [...toAsk, ...events.filter((e) => e.confidence === "medium" && e.type === "search")];
 
 let applied = 0;
 const logLines = [];
-if (toApply.length && !DRY) {
-  const wb = XLSX.readFile(XLSX_PATH);
-  const ws = wb.Sheets["B-School"];
-  const rows = XLSX.utils.sheet_to_json(ws, { defval: null });
-  const cols = Object.keys(rows[0]);
-
-  for (const e of toApply) {
-    const yr = e.pubDate.getFullYear();
-    const schoolRows = rows.filter((r) => r.university_name === e.university);
-    // dedup: same dean lastname already recorded recently at this university
-    if (schoolRows.some((r) => r.dean_name && lastName(String(r.dean_name)) === lastName(e.dean) && Math.abs((r.appointment_start_year || 0) - yr) <= 1)) {
-      logLines.push([NOW.toISOString().slice(0, 10), "skip_duplicate", e.university, e.dean, e.type, e.confidence, e.url]);
-      continue;
-    }
-    // close the open spell of the sitting dean if there is exactly one
-    const open = schoolRows.filter((r) => r.appointment_end_year == null || String(r.appointment_end_month_year).toLowerCase() === "present");
-    if (open.length === 1) {
-      open[0].appointment_end_year = yr;
-      open[0].appointment_end_month_year = monthLabel(e.pubDate);
-      open[0].correction_notes = `${open[0].correction_notes || ""} [news-scout ${NOW.toISOString().slice(0, 10)}: tenure closed, successor ${e.dean} announced, ${e.url}]`.trim();
-    }
-    const newRow = Object.fromEntries(cols.map((c) => [c, null]));
-    Object.assign(newRow, {
-      university_name: e.university,
-      business_school_name: e.school || schoolRows[0]?.business_school_name || null,
-      dean_name: e.dean,
-      appointment_start_month_year: monthLabel(e.pubDate),
-      appointment_start_year: yr,
-      appointment_end_month_year: "Present",
-      is_interim: e.interim ? 1 : 0,
-      origin_category: e.interim ? "Interim-Internal" : "Unknown",
-      source_url: e.url,
-      notes: `Added automatically from news: ${e.title}`,
-      correction_notes: `ADDED by news-scout ${NOW.toISOString().slice(0, 10)} (${e.url}); origin/discipline pending review`,
-      verification_sweep_2026: "news-scout",
-    });
-    rows.push(newRow);
-    applied++;
-    logLines.push([NOW.toISOString().slice(0, 10), "added", e.university, e.dean, e.type + (e.interim ? "/interim" : ""), e.confidence, e.url]);
-
-    // mirror into Top-100 deans.json if the school is tracked there
-    const sibs = deansJson.filter((d) => d.university.toLowerCase() === e.university.toLowerCase());
-    if (sibs.length && !sibs.some((d) => lastName(d.dean) === lastName(e.dean) && Math.abs((d.startYear || 0) - yr) <= 1)) {
-      const openT = sibs.filter((d) => d.endYear == null);
-      if (openT.length === 1) { openT[0].endYear = yr; openT[0].endLabel = monthLabel(e.pubDate); }
-      const sib = sibs[0];
-      deansJson.push({
-        ...sib,
-        id: Math.max(...deansJson.map((d) => d.id)) + 1,
-        dean: e.dean, startYear: yr, endYear: null,
-        startLabel: monthLabel(e.pubDate), endLabel: "Present",
-        isInterim: e.interim, origin: e.interim ? "Interim-Internal" : "Unknown",
-        originV2: e.interim ? "Interim-Internal" : "Unknown", apptOrigin4: e.interim ? "Interim-Internal" : "Unknown",
-        isInternal: e.interim, isExternal: false,
-        gender: "Unknown", isFemale: false,
-        discipline: "", disciplineBroad: "Unknown", phdField: "",
-        priorTitle: "", priorInstitution: "", tenureLength: null,
-        notes: `Added automatically from news: ${e.title}`, sourceUrl: e.url,
-        nextRole: "Still_serving", nextRoleCode: null,
-        isFirstTimeDean: false, hasPriorDeanExp: false,
-        surpriseDeparture: false, surpriseEvidence: "", involuntary: false,
-        convertedToPermanent: false, connectionType: "", hadPriorConnection: false,
-      });
-    }
-  }
-  if (applied) {
-    const newWs = XLSX.utils.json_to_sheet(rows, { header: cols });
-    wb.Sheets["B-School"] = newWs;
-    XLSX.writeFile(wb, XLSX_PATH);
-    writeFileSync(DEANS_JSON, JSON.stringify(deansJson, null, 2));
-  }
-}
-for (const e of skippedOverflow) logLines.push([NOW.toISOString().slice(0, 10), "skip_overflow", e.university, e.dean, e.type, e.confidence, e.url]);
-for (const e of review) logLines.push([NOW.toISOString().slice(0, 10), "review", e.university || "", e.dean || "", e.type, e.confidence, e.url]);
+const breaking = loadBreaking();
 
 if (!DRY) {
+  for (const e of toApply) {
+    const status = applyAppointment(e);
+    if (status === "added") {
+      applied++;
+      breaking.items.unshift({
+        id: e.id, type: "applied", date: e.date.toISOString().slice(0, 10),
+        headline: `${e.dean} named ${e.interim ? "interim " : ""}dean at ${e.university}${e.school ? ` (${e.school})` : ""}`,
+        university: e.university, dean: e.dean, url: e.url,
+      });
+    }
+    logLines.push([today(), status === "added" ? "added" : "skip_duplicate", e.university, e.dean, e.type + (e.interim ? "/interim" : ""), e.confidence, e.url]);
+  }
+
+  for (const e of toAsk) {
+    const kind = e.type === "appointment" ? "name" : "close";
+    const payload = { kind, university: e.university, school: e.school, interim: !!e.interim, date: e.date.toISOString(), url: e.url, title: e.title, id: e.id };
+    const question = kind === "name"
+      ? `Who was named ${e.interim ? "interim " : ""}dean at ${e.university}?`
+      : `Should I close the sitting dean's tenure at ${e.university} (${e.date.getFullYear()})?`;
+    const choices = kind === "name"
+      ? ["Reply with the dean's full name", "Reply `skip` to ignore this story"]
+      : ["Reply `1` or `yes` to close the tenure", "Reply `2` or `no` to ignore"];
+    const body = [
+      `**${question}**`, "",
+      `News: [${e.title}](${e.url})`, "",
+      "**How to answer (reply with a comment):**",
+      ...choices.map((c) => `- ${c}`), "",
+      "<!-- news-scout-payload", JSON.stringify(payload), "-->",
+    ].join("\n");
+    const issueUrl = await createConfirmIssue(`[news-review] ${question}`, body);
+    breaking.items.unshift({
+      id: e.id, type: "question", date: e.date.toISOString().slice(0, 10),
+      headline: e.title, question, url: e.url, issueUrl: issueUrl || e.url,
+    });
+    logLines.push([today(), issueUrl ? "question_issue" : "review", e.university || "", e.dean || "", e.type, e.confidence, issueUrl || e.url]);
+  }
+
+  for (const e of overflow) logLines.push([today(), "skip_overflow", e.university, e.dean, e.type, e.confidence, e.url]);
+
   writeFileSync(STATE_PATH, JSON.stringify(state, null, 1));
   if (review.length) {
     const prev = existsSync(REVIEW_PATH) ? JSON.parse(readFileSync(REVIEW_PATH, "utf8")) : [];
-    writeFileSync(REVIEW_PATH, JSON.stringify([...prev, ...review.map((e) => ({ date: NOW.toISOString().slice(0, 10), ...e }))], null, 1));
+    writeFileSync(REVIEW_PATH, JSON.stringify([...prev, ...review.map((e) => ({ recorded: today(), ...e }))], null, 1));
   }
-  if (logLines.length) {
-    if (!existsSync(LOG_PATH)) appendFileSync(LOG_PATH, "date,action,university,dean,event,confidence,url\n");
-    appendFileSync(LOG_PATH, logLines.map((l) => l.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")).join("\n") + "\n");
-  }
+  saveBreaking(breaking);
+  logCSV(logLines);
 }
 
-console.log(`applied: ${applied} | for review: ${review.length} | dry-run: ${DRY}`);
-if (applied > 0) console.log("CHANGED"); // sentinel for the workflow
+console.log(`applied: ${applied} | questions: ${toAsk.length} | dry-run: ${DRY}`);
+if (applied > 0 || (!DRY && toAsk.length > 0)) console.log("CHANGED"); // sentinel for the workflow
