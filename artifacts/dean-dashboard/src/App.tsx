@@ -3,7 +3,9 @@ import SchoolExplorer from "@/components/SchoolExplorer";
 import CrossSchoolAnalysis from "@/components/CrossSchoolAnalysis";
 import AggregateTrends from "@/components/AggregateTrends";
 import InterimAnalysis from "@/components/InterimAnalysis";
-import IndividualSearch from "@/components/IndividualSearch";
+import IndividualSearch, { DeanSearchPrefill } from "@/components/IndividualSearch";
+import MeetTheDean from "@/components/MeetTheDean";
+import type { Dean } from "@/data/types";
 import LiveJobMarket from "@/components/LiveJobMarket";
 import CompareDatasets from "@/components/CompareDatasets";
 import DisciplineSearch from "@/components/DisciplineSearch";
@@ -27,16 +29,18 @@ const DEFAULT_TABS: TabDef[] = [
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
 ];
 
-const TAB_CONTENT: Record<string, React.ReactNode> = {
-  explorer: <SchoolExplorer />,
-  trends: <AggregateTrends />,
-  analysis: <CrossSchoolAnalysis />,
-  interim: <InterimAnalysis />,
-  search: <IndividualSearch />,
-  jobmarket: <LiveJobMarket />,
-  compare: <CompareDatasets />,
-  discipline: <DisciplineSearch />,
-};
+function buildTabContent(deanPrefill: DeanSearchPrefill | null): Record<string, React.ReactNode> {
+  return {
+    explorer: <SchoolExplorer />,
+    trends: <AggregateTrends />,
+    analysis: <CrossSchoolAnalysis />,
+    interim: <InterimAnalysis />,
+    search: <IndividualSearch prefill={deanPrefill} />,
+    jobmarket: <LiveJobMarket />,
+    compare: <CompareDatasets />,
+    discipline: <DisciplineSearch />,
+  };
+}
 
 function AppInner() {
   const { datasetId, setDatasetId, list, meta } = useDataset();
@@ -46,6 +50,14 @@ function AppInner() {
   const [dragIdx, setDragIdx] = useState<number | null>(null);
   const [overIdx, setOverIdx] = useState<number | null>(null);
   const dragNode = useRef<HTMLButtonElement | null>(null);
+  const [deanPrefill, setDeanPrefill] = useState<DeanSearchPrefill | null>(null);
+  const tabContent = buildTabContent(deanPrefill);
+
+  const openDeanProfile = useCallback((d: Dean) => {
+    const parts = d.dean.trim().split(/\s+/);
+    setDeanPrefill({ fullName: d.dean, first: parts[0], last: parts[parts.length - 1], token: Date.now() });
+    setActiveTab("search");
+  }, []);
 
   const handleDragStart = useCallback((e: React.DragEvent<HTMLButtonElement>, idx: number) => {
     setDragIdx(idx);
@@ -128,8 +140,9 @@ function AppInner() {
               })}
             </div>
 
+            <div className="flex flex-col lg:flex-row gap-4 items-start">
             <div
-              className="grid grid-cols-2 md:grid-cols-3 gap-4"
+              className="grid grid-cols-2 md:grid-cols-3 gap-4 flex-1 w-full"
               role="tablist"
             >
               {tabs.map((tab, idx) => {
@@ -166,6 +179,10 @@ function AppInner() {
                 );
               })}
             </div>
+            <div className="w-full lg:w-60 shrink-0">
+              <MeetTheDean onOpenProfile={openDeanProfile} />
+            </div>
+            </div>
 
             {tabs.map(tab => (
               <div
@@ -173,7 +190,7 @@ function AppInner() {
                 role="tabpanel"
                 className={activeTab === tab.value ? "" : "hidden"}
               >
-                {TAB_CONTENT[tab.value]}
+                {tabContent[tab.value]}
               </div>
             ))}
           </div>

@@ -81,6 +81,9 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 - School: US News rank, tier, elite institution status
 - New: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
 
+### Meet the Dean sidebar (front page)
+`MeetTheDean.tsx` renders beside the tab cards (right on lg+, stacked below on mobile): a random currently-serving dean per page load (shuffle button ↻). Portrait via Wikipedia REST summary (direct title, then title-search fallback for disambiguated pages; academic-keyword guard) with a colored monogram fallback. Shows name, school/university, since-year + discipline, "View full profile →" (switches to Individual Search with names prefilled via the `prefill` prop and opens the current spell's DeanProfile), and the dean's sourceUrl as "{school} announcement ↗". DeanProfile now also displays sourceUrl.
+
 ### Breaking-news banner + confirmation loop
 `BreakingNews.tsx` renders a red "BREAKING" banner under the header from `src/data/breaking-news.json` (items ≤14 days old, one line each, dismissible via localStorage). The scout writes two item types: "applied" (auto-added appointments, links to the story) and "question" (ambiguous events — the scout opens a GitHub issue labeled `news-review` with numbered choices; the banner links to it with "Answer →"). When the repo owner comments on the issue (a name, `1`/`yes`, or `skip`/`no`), workflow `news-confirm.yml` runs `scripts/news-resolve.mjs` to apply the answer via `scripts/news-lib.mjs`, regenerates data, pushes (deploys), replies, and closes the issue.
 

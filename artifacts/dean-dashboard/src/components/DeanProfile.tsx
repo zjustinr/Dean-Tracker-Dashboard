@@ -30,6 +30,13 @@ export default function DeanProfile({ dean, onClose }: Props) {
             {dean.startYear || "?"} – {dean.endYear || "Present"}
             {dean.tenureLength ? ` · ${dean.tenureLength} years` : ""}
           </p>
+          {dean.sourceUrl && (
+            <p className="text-xs mt-1">
+              <a href={dean.sourceUrl} target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2 hover:opacity-80">
+                {dean.school || dean.university} — announcement / source ↗
+              </a>
+            </p>
+          )}
         </div>
         {onClose && (
           <button

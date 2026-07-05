@@ -84,11 +84,30 @@ function ComboBox({
   );
 }
 
-export default function IndividualSearch() {
+export interface DeanSearchPrefill {
+  fullName: string;
+  first: string;
+  last: string;
+  token: number; // changes on every request so repeated clicks re-trigger
+}
+
+export default function IndividualSearch({ prefill }: { prefill?: DeanSearchPrefill | null }) {
   const allDeans = useAllDeans();
   const [lastName, setLastName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [selectedDean, setSelectedDean] = useState<Dean | null>(null);
+
+  // Prefill from "Meet the Dean": fill the search boxes and open the profile
+  // of the current (open-ended) spell for that dean.
+  useEffect(() => {
+    if (!prefill) return;
+    setFirstName(prefill.first);
+    setLastName(prefill.last);
+    const matches = allDeans.filter((d) => d.dean.toLowerCase() === prefill.fullName.toLowerCase());
+    const best = matches.find((d) => d.endYear == null) || matches[0] || null;
+    setSelectedDean(best);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prefill?.token]);
 
   const { lastNames, firstNames } = useMemo(() => {
     const lnSet = new Set<string>();
