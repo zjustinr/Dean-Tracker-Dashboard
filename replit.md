@@ -82,6 +82,7 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 - New: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
 
 ### Meet the Dean sidebar (front page)
+Portraits come primarily from `src/data/dean-photos.json` — 246 verified official portrait URLs (agent-curated Jul 2026 from university pages, keyed `"<dean lower>|<university lower>"`); Wikipedia lookup and monogram remain as fallbacks (img onError → monogram, so dead links degrade gracefully). Succession drift found during the hunt is queued in scratchpad photo_succession_review.json (16 items, mostly engineering schools).
 `MeetTheDean.tsx` renders beside the tab cards (right on lg+, stacked below on mobile): a random currently-serving dean per page load (shuffle button ↻). Portrait via Wikipedia REST summary (direct title, then title-search fallback for disambiguated pages; academic-keyword guard) with a colored monogram fallback. Shows name, school/university, since-year + discipline, "View full profile →" (switches to Individual Search with names prefilled via the `prefill` prop and opens the current spell's DeanProfile), and the dean's sourceUrl as "{school} announcement ↗". DeanProfile now also displays sourceUrl.
 
 ### Breaking-news banner + confirmation loop

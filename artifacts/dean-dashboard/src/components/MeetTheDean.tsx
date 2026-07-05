@@ -3,6 +3,10 @@ import { useAllDeans } from "@/data/useData";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS } from "@/data/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import deanPhotos from "@/data/dean-photos.json";
+
+const PHOTO_MAP = deanPhotos as Record<string, { photo: string; page?: string }>;
+const photoKey = (dean: string, university: string) => `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
 
 /**
  * Front-page sidebar: a random currently-serving dean, with a portrait
@@ -24,6 +28,12 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
     let alive = true;
     setPhoto(null);
     if (!dean) return;
+    // 1. Curated official-portrait map (built by the photo-hunt agents)
+    const curated = PHOTO_MAP[photoKey(dean.dean, dean.university)];
+    if (curated?.photo) {
+      setPhoto(curated.photo);
+      return () => { alive = false; };
+    }
     const ACADEMIC = /dean|professor|academic|business|econom|universit|management|school/;
     const summaryThumb = async (title: string): Promise<string | null> => {
       const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/\s+/g, "_"))}`);
