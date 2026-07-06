@@ -133,8 +133,11 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
   },
 };
 
+// R1 Engineering is hidden from the switcher while the business-school design
+// is being perfected; its data and ETL remain intact. Planned expansion:
+// engineering, then law and medical schools.
 export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.top100.meta,
   DATASETS.r1bschool.meta,
-  DATASETS.r1eschool.meta,
+  // DATASETS.r1eschool.meta,
 ];

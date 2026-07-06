@@ -21,7 +21,7 @@ interface TabDef {
 const DEFAULT_TABS: TabDef[] = [
   { value: "explorer", label: "School Explorer", desc: "Browse dean histories by school with interactive tenure timelines and list/map views." },
   { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics." },
-  { value: "compare", label: "Compare Datasets", desc: "Compare business and engineering dean patterns across all three datasets side by side." },
+  { value: "compare", label: "Compare Datasets", desc: "Compare the Top-100 and R1 business school datasets side by side." },
   { value: "interim", label: "Interim Analysis", desc: "Track interim dean appointments and leadership transitions." },
   { value: "discipline", label: "Discipline Search", desc: "Map dean disciplines by school and watch their composition evolve over time." },
   { value: "search", label: "Individual Search", desc: "Search and explore individual dean profiles and career paths." },

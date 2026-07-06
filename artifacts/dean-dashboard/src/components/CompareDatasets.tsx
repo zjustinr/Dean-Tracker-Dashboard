@@ -8,7 +8,7 @@ import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend,
 } from "recharts";
 
-const DS_IDS: DatasetId[] = ["top100", "r1bschool", "r1eschool"];
+const DS_IDS: DatasetId[] = ["top100", "r1bschool"];
 
 const DS_COLORS: Record<DatasetId, string> = {
   top100: CHART_COLORS[0],
@@ -207,8 +207,8 @@ export default function CompareDatasets() {
         ))}
       </div>
       <p className="text-sm text-muted-foreground">
-        Compares all three datasets side by side, regardless of the dataset selected above. Note: the Top-100 and R1 business school
-        samples overlap substantially; R1 Engineering is a distinct population.
+        Compares the Top-100 and R1 business school datasets side by side, regardless of the dataset selected above.
+        Note: the two samples overlap substantially.
       </p>
 
       <Card>
