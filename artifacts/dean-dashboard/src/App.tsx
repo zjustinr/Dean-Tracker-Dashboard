@@ -101,13 +101,37 @@ function AppInner() {
         <header className="border-b border-border bg-card">
           <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between">
             <div>
-              <h1
-                className="text-4xl font-semibold tracking-tight"
-                style={{ fontFamily: "'EB Garamond', Garamond, Georgia, 'Times New Roman', serif" }}
-              >
-                Leadership Dashboard
-              </h1>
-              <p className="text-sm text-muted-foreground mt-0.5">Explore school leadership changes, one person at a time · {meta.description} ({meta.yearRange})</p>
+              <div className="flex items-center gap-3.5">
+                <svg width="56" height="56" viewBox="0 0 72 72" aria-hidden="true" className="shrink-0">
+                  <polygon
+                    points="13,7 65,7 65,57 57,65 7,65 7,15"
+                    fill="#B22234"
+                    stroke="#B22234"
+                    strokeWidth="6"
+                    strokeLinejoin="round"
+                  />
+                  <text
+                    x="36"
+                    y="47"
+                    textAnchor="middle"
+                    fontFamily="'EB Garamond', Garamond, Georgia, serif"
+                    fontWeight="700"
+                    fontSize="34"
+                    fill="#ffffff"
+                  >
+                    LD
+                  </text>
+                </svg>
+                <div>
+                  <h1
+                    className="text-4xl tracking-tight leading-none"
+                    style={{ fontFamily: "'EB Garamond', Garamond, Georgia, 'Times New Roman', serif", fontWeight: 600 }}
+                  >
+                    Leadership Dashboard
+                  </h1>
+                  <p className="text-sm text-muted-foreground mt-1">Explore school leadership changes, one person at a time · {meta.description} ({meta.yearRange})</p>
+                </div>
+              </div>
             </div>
             <button
               onClick={() => setDarkMode(!darkMode)}
