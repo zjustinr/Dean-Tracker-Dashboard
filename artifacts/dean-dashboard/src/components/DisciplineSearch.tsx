@@ -103,7 +103,17 @@ export default function DisciplineSearch() {
     return map;
   }, [allDeans]);
 
-  // Top disciplines by overall frequency get a stable color; the rest fold into "Other"
+  // Fixed, well-separated hues per discipline (frequency-ranked fallback colors
+  // cover any future categories, e.g. engineering fields).
+  const FIXED_DISCIPLINE_COLORS: Record<string, string> = useMemo(() => ({
+    "Finance & Accounting": "hsl(211, 90%, 45%)", // blue
+    "Strategy & Management": "hsl(27, 92%, 50%)", // orange - far from blue
+    "Marketing": "hsl(330, 75%, 55%)", // pink
+    "Economics & Social Science": "hsl(140, 65%, 32%)", // green
+    "Operations Management": "hsl(0, 78%, 45%)", // red
+    "Information Systems": "hsl(270, 60%, 55%)", // purple
+    "Industry/Practitioner": "hsl(180, 60%, 33%)", // teal
+  }), []);
   const disciplineColors = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const d of allDeans) {
@@ -111,13 +121,28 @@ export default function DisciplineSearch() {
       counts[disc] = (counts[disc] || 0) + 1;
     }
     const ranked = Object.entries(counts)
-      .filter(([name]) => name !== "Unknown")
+      .filter(([name]) => name !== "Unknown" && name !== "Other")
       .sort(([, a], [, b]) => b - a)
       .map(([name]) => name);
     const colors = new Map<string, string>();
-    ranked.slice(0, MAX_LEGEND_DISCIPLINES).forEach((name, i) => colors.set(name, CHART_COLORS[i % CHART_COLORS.length]));
+    const used = new Set<string>();
+    for (const name of ranked.slice(0, MAX_LEGEND_DISCIPLINES)) {
+      if (FIXED_DISCIPLINE_COLORS[name]) {
+        colors.set(name, FIXED_DISCIPLINE_COLORS[name]);
+        used.add(FIXED_DISCIPLINE_COLORS[name]);
+      }
+    }
+    let fallback = 0;
+    for (const name of ranked.slice(0, MAX_LEGEND_DISCIPLINES)) {
+      if (!colors.has(name)) {
+        while (used.has(CHART_COLORS[fallback % CHART_COLORS.length])) fallback++;
+        colors.set(name, CHART_COLORS[fallback % CHART_COLORS.length]);
+        used.add(CHART_COLORS[fallback % CHART_COLORS.length]);
+        fallback++;
+      }
+    }
     return colors;
-  }, [allDeans]);
+  }, [allDeans, FIXED_DISCIPLINE_COLORS]);
 
   const groupOf = useCallback(
     (disc: string) => {
@@ -139,6 +164,9 @@ export default function DisciplineSearch() {
         const key = makeSchoolKey(s.university, s.school);
         const dean = sittingDean(deansBySchool.get(key) || [], year);
         const group = dean ? groupOf(dean.disciplineBroad) : null;
+        // dot area scales with faculty size (sqrt keeps big schools from dominating)
+        const fac = s.totalFaculty || 0;
+        const radius = fac > 0 ? Math.max(4.5, Math.min(11, 2.5 + Math.sqrt(fac) * 0.62)) : 5.5;
         return {
           ...s,
           lat: s.lat as number,
@@ -146,6 +174,7 @@ export default function DisciplineSearch() {
           schoolKey: key,
           dean,
           group,
+          radius,
           fill: dean ? colorOf(group!) : NO_DEAN_COLOR,
         };
       });
@@ -474,7 +503,7 @@ export default function DisciplineSearch() {
                 </Geographies>
                 {markers.map((m) => {
                   const isHovered = m.schoolKey === hoveredKey;
-                  const r = 6.5 / position.zoom;
+                  const r = m.radius / position.zoom;
                   const fontSize = Math.max(3.5, 6.5 / position.zoom);
                   return (
                     <Marker
@@ -516,7 +545,7 @@ export default function DisciplineSearch() {
               </ZoomableGroup>
             </ComposableMap>
             <div className="px-3 pb-2 text-xs text-muted-foreground text-center">
-              Drag to pan · Scroll to zoom · Color = discipline of the dean serving in {year}
+              Drag to pan · Scroll to zoom · Color = discipline of the dean serving in {year} · Dot size = school faculty count
             </div>
           </div>
 

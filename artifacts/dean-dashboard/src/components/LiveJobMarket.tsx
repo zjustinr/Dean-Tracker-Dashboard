@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 import jobData from "@/data/jobmarket.json";
 import breakingData from "@/data/breaking-news.json";
+import latestNews from "@/data/latest-news.json";
 import r1SchoolsGeo from "@/data/r1-bschool-schools.json";
 import { Badge } from "@/components/ui/badge";
 
@@ -371,124 +372,90 @@ function scoutToListings(existing: JobListing[]): (JobListing & { _fromNews: tru
   return out;
 }
 
-function PQNewsFeed({ state, fetchNews }: { state: PQNewsState; fetchNews: (force?: boolean) => void }) {
-  const [expanded, setExpanded] = useState(true);
+interface NewsItem {
+  id: string;
+  date: string;
+  title: string;
+  source: string;
+  url: string;
+  type: string;
+}
 
-  const timeSince = useMemo(() => {
-    if (!state.fetchedAt) return "";
-    const diff = Date.now() - new Date(state.fetchedAt).getTime();
-    const mins = Math.floor(diff / 60000);
-    if (mins < 1) return "just now";
-    if (mins < 60) return `${mins}m ago`;
-    const hrs = Math.floor(mins / 60);
-    if (hrs < 24) return `${hrs}h ago`;
-    return `${Math.floor(hrs / 24)}d ago`;
-  }, [state.fetchedAt]);
+const NEWS_TYPE_TO_CATEGORY: Record<string, ArticleCategory> = {
+  appointment: "hiring",
+  departure: "departure",
+  search: "search",
+  news: "general",
+};
+
+function LatestDeanNews({ state }: { state: PQNewsState }) {
+  const [showAll, setShowAll] = useState(false);
+
+  const items = useMemo(() => {
+    const merged: NewsItem[] = (latestNews as NewsItem[]).map((i) => ({ ...i }));
+    const seen = new Set(merged.map((i) => i.url));
+    for (const a of state.articles) {
+      if (!a.url || seen.has(a.url)) continue;
+      seen.add(a.url);
+      merged.push({
+        id: a.url,
+        date: a.date || "",
+        title: decodeHtmlEntities(a.title),
+        source: "Poets&Quants",
+        url: a.url,
+        type: a.category === "hiring" ? "appointment" : a.category || "news",
+      });
+    }
+    return merged.sort((x, y) => (y.date || "").localeCompare(x.date || ""));
+  }, [state.articles]);
+
+  const visible = showAll ? items : items.slice(0, 5);
+  const sources = useMemo(() => new Set(items.map((i) => i.source)).size, [items]);
 
   return (
     <div className="bg-card border border-border rounded-xl overflow-hidden">
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="w-full px-5 py-3 flex items-center justify-between hover:bg-muted/30 transition-colors"
-      >
+      <div className="px-5 py-3 border-b border-border bg-muted/30 flex items-center justify-between flex-wrap gap-2">
         <div className="flex items-center gap-2">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
-            <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
-            <path d="M18 14h-8" /><path d="M15 18h-5" /><path d="M10 6h8v4h-8V6Z" />
-          </svg>
           <span className="text-sm font-semibold">Latest Dean News</span>
-          <span className="text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded">Poets &amp; Quants</span>
-          {state.articles.length > 0 && (
-            <Badge variant="secondary" className="text-[10px]">{state.articles.length}</Badge>
-          )}
+          <Badge variant="secondary" className="text-[10px]">{items.length}</Badge>
         </div>
-        <div className="flex items-center gap-2">
-          {state.fetchedAt && (
-            <span className="text-[10px] text-muted-foreground">Updated {timeSince}</span>
-          )}
-          <svg
-            width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-            className={`transition-transform ${expanded ? "rotate-180" : ""}`}
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </div>
-      </button>
-
-      {expanded && (
-        <div className="border-t border-border">
-          {state.loading && (
-            <div className="px-5 py-4 flex items-center gap-2">
-              <div className="h-4 w-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-              <span className="text-xs text-muted-foreground">Scanning Poets &amp; Quants RSS feed...</span>
-            </div>
-          )}
-
-          {state.error && !state.articles.length && (
-            <div className="px-5 py-4 text-center">
-              <p className="text-xs text-red-500">Could not load news: {state.error}</p>
-              <button onClick={() => fetchNews()} className="text-xs text-primary hover:underline mt-1">Retry</button>
-            </div>
-          )}
-
-          {!state.loading && state.articles.length === 0 && !state.error && (
-            <div className="px-5 py-4 text-center">
-              <p className="text-xs text-muted-foreground">No dean-related articles found in recent P&amp;Q coverage.</p>
-            </div>
-          )}
-
-          {state.articles.length > 0 && (
-            <div className="divide-y divide-border">
-              {state.articles.map((article, i) => {
-                const catBadge = CATEGORY_BADGE[article.category || "general"];
-                return (
-                  <a
-                    key={i}
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-5 py-3 hover:bg-muted/20 transition-colors"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <Badge className={`${catBadge.bgClass} ${catBadge.color} border-0 text-[10px] px-1.5 py-0`}>{catBadge.label}</Badge>
-                          {article.extractedSchool && (
-                            <span className="text-[10px] text-muted-foreground">{article.extractedSchool}</span>
-                          )}
-                          {(article.category || "general") === "hiring" && article.extractedSchool && (
-                            <span className="text-[10px] text-purple-600 dark:text-purple-400 font-medium">→ Added to map</span>
-                          )}
-                        </div>
-                        <p className="text-sm font-medium text-primary hover:underline leading-snug">
-                          {decodeHtmlEntities(article.title)}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{decodeHtmlEntities(article.summary)}</p>
-                      </div>
-                      <span className="text-[10px] text-muted-foreground whitespace-nowrap mt-0.5">
-                        {article.date}
-                      </span>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-          )}
-
-          <div className="px-5 py-2 border-t border-border bg-muted/20 flex items-center justify-between">
-            <span className="text-[10px] text-muted-foreground">Auto-scans every 24 hours from P&amp;Q RSS feed · Hiring news auto-added to map</span>
-            <button
-              onClick={() => fetchNews(true)}
-              disabled={state.loading}
-              className="text-[10px] text-primary hover:underline disabled:opacity-50 flex items-center gap-1"
+        <span className="text-[10px] text-muted-foreground">{sources} sources · refreshed daily by the news scout</span>
+      </div>
+      <div className="divide-y divide-border">
+        {visible.map((item) => {
+          const catBadge = CATEGORY_BADGE[NEWS_TYPE_TO_CATEGORY[item.type] || "general"];
+          return (
+            <a
+              key={item.id}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-5 py-3 hover:bg-muted/20 transition-colors"
             >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-              </svg>
-              Refresh now
-            </button>
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-0.5 flex-wrap">
+                    <Badge className={`${catBadge.bgClass} ${catBadge.color} border-0 text-[10px] px-1.5 py-0`}>{catBadge.label}</Badge>
+                    <span className="text-[10px] text-muted-foreground">{item.source}</span>
+                  </div>
+                  <p className="text-sm font-medium text-primary hover:underline leading-snug">{item.title}</p>
+                </div>
+                <span className="text-[10px] text-muted-foreground whitespace-nowrap mt-0.5">{item.date}</span>
+              </div>
+            </a>
+          );
+        })}
+        {items.length === 0 && (
+          <div className="px-5 py-4 text-center">
+            <p className="text-xs text-muted-foreground">No dean-related news in the last 30 days.</p>
           </div>
+        )}
+      </div>
+      {items.length > 5 && (
+        <div className="px-5 py-2.5 border-t border-border bg-muted/20 text-center">
+          <button onClick={() => setShowAll(!showAll)} className="text-xs font-medium text-primary hover:underline">
+            {showAll ? "Show less" : `Read more… (${items.length - 5} more stories)`}
+          </button>
         </div>
       )}
     </div>
@@ -535,6 +502,11 @@ export default function LiveJobMarket() {
     );
     return [...listings, ...newsListings, ...scout];
   }, [newsListings]);
+
+  const openPositions = useMemo(
+    () => [...listings].sort((a, b) => (b.dateStarted || "").localeCompare(a.dateStarted || "")),
+    []
+  );
 
   const firms = useMemo(() => {
     const set = new Set<string>();
@@ -760,6 +732,43 @@ export default function LiveJobMarket() {
         );
       })()}
 
+      {view === "map" && (
+        <div className="bg-card border border-border rounded-xl overflow-hidden">
+          <div className="px-5 py-3 border-b border-border bg-muted/30">
+            <p className="text-sm font-semibold">Open dean positions ({openPositions.length})</p>
+            <p className="text-xs text-muted-foreground">Active searches with verified announcement links · refreshed daily by the news scout</p>
+          </div>
+          <div className="divide-y divide-border">
+            {openPositions.map(l => {
+              const status = getStatusInfo(l);
+              return (
+                <div key={l.id} className="px-5 py-3 flex items-center gap-3 flex-wrap">
+                  <div className="flex-1 min-w-[220px]">
+                    <p className="text-sm font-semibold">{l.university}{l.school ? ` — ${l.school}` : ""}</p>
+                    <p className="text-xs text-muted-foreground">
+                      Search started {formatDate(l.dateStarted)}
+                      {l.searchFirm ? ` · ${l.searchFirm}` : ""}
+                      {l.departingDean ? ` · succeeding ${l.departingDean}` : ""}
+                    </p>
+                  </div>
+                  <span className={`text-[11px] px-2 py-0.5 rounded font-medium ${status.bgClass} ${status.color}`}>{status.label}</span>
+                  {l.newsUrl && (
+                    <a href={l.newsUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-primary hover:underline whitespace-nowrap">
+                      Announcement ↗
+                    </a>
+                  )}
+                  {l.positionUrl && (
+                    <a href={l.positionUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-primary hover:underline whitespace-nowrap">
+                      Position ↗
+                    </a>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {view === "list" && (
         <div className="bg-card border border-border rounded-xl overflow-hidden">
           <div className="px-5 py-3 border-b border-border bg-muted/30 flex items-center justify-between">
@@ -888,10 +897,10 @@ export default function LiveJobMarket() {
         </div>
       )}
 
-      <PQNewsFeed state={newsState} fetchNews={fetchNews} />
+      <LatestDeanNews state={newsState} />
 
       <div className="text-xs text-muted-foreground text-center">
-        Data sourced from Poets & Quants, Chronicle of Higher Education, AACSB, university announcements, and other public sources. Last updated: March 2026.
+        Data sourced from university announcements, Poets & Quants, Google News, and other public sources. Automatically refreshed every 24 hours.
       </div>
     </div>
   );

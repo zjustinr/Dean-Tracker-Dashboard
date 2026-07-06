@@ -194,6 +194,29 @@ for (const feed of FEEDS) {
   }
 }
 
+// ---------- latest-news feed for the app (all classified events, any confidence) ----------
+const LATEST_PATH = resolve(__dirname, "../src/data/latest-news.json");
+if (!DRY) {
+  let latest = existsSync(LATEST_PATH) ? JSON.parse(readFileSync(LATEST_PATH, "utf8")) : [];
+  const cut = Date.now() - 30 * 86400e3;
+  latest = latest.filter((i) => new Date(i.date).getTime() >= cut);
+  for (const e of events) {
+    if (latest.some((i) => i.id === e.id)) continue;
+    const srcMatch = e.title.match(/\s[-–|]\s([^-–|]{2,45})$/);
+    const source = srcMatch ? srcMatch[1].trim() : e.url.includes("poetsandquants") ? "Poets&Quants" : "News";
+    latest.unshift({
+      id: e.id,
+      date: e.date.toISOString().slice(0, 10),
+      title: srcMatch ? e.title.slice(0, srcMatch.index).trim() : e.title,
+      source,
+      url: e.url,
+      type: e.type,
+    });
+  }
+  latest.sort((a, b) => b.date.localeCompare(a.date));
+  writeFileSync(LATEST_PATH, JSON.stringify(latest.slice(0, 40), null, 1));
+}
+
 console.log(`scanned feeds: ${FEEDS.length}, new dean-related items: ${events.length}`);
 for (const e of events) console.log(`  [${e.confidence}] ${e.type}${e.interim ? "/interim" : ""} | ${e.university || "?"} | ${e.dean || "?"} | ${e.title}`);
 
