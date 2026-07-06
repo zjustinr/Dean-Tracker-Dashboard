@@ -70,10 +70,10 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
   const color = CHART_COLORS[Math.abs([...dean.university].reduce((h, c) => h * 31 + c.charCodeAt(0), 7)) % CHART_COLORS.length];
 
   return (
-    <Card className="lg:sticky lg:top-4">
+    <Card className="lg:sticky lg:top-4 border-2 border-dashed border-primary/40">
       <CardHeader className="pb-2">
         <CardTitle className="text-base flex items-center gap-2">
-          <span aria-hidden>🎓</span> Meet the Dean
+          <span aria-hidden>🎓</span> Meet a Dean (Randomly)
           <button
             onClick={() => setPick(Math.random())}
             aria-label="Show another dean"

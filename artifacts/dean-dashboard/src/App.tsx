@@ -101,8 +101,13 @@ function AppInner() {
         <header className="border-b border-border bg-card">
           <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">{meta.schoolType === "engineering" ? "Engineering" : "Business"} School Dean Leadership Dashboard</h1>
-              <p className="text-sm text-muted-foreground mt-0.5">{meta.description} ({meta.yearRange})</p>
+              <h1
+                className="text-4xl font-semibold tracking-tight"
+                style={{ fontFamily: "'EB Garamond', Garamond, Georgia, 'Times New Roman', serif" }}
+              >
+                Leadership Dashboard
+              </h1>
+              <p className="text-sm text-muted-foreground mt-0.5">Explore school leadership changes, one person at a time · {meta.description} ({meta.yearRange})</p>
             </div>
             <button
               onClick={() => setDarkMode(!darkMode)}
