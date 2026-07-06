@@ -3,6 +3,7 @@ import type { Dean } from "@/data/types";
 import { CHART_COLORS, ORIGIN_LABELS, NEXT_ROLE_LABELS } from "@/data/types";
 import { useDeanCareer } from "@/data/useData";
 import { Badge } from "@/components/ui/badge";
+import { MiniPortrait, FullPortrait } from "./DeanPortrait";
 
 interface Props {
   deans: Dean[];
@@ -83,18 +84,21 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               className="flex items-center gap-3 py-2 px-2 rounded-lg cursor-pointer transition-all hover:bg-accent/40"
               onClick={() => handleBarClick(idx)}
             >
-              <div className="shrink-0 w-56 min-w-0">
-                <p
-                  className="text-sm font-semibold leading-tight truncate"
-                  style={{ color: isSelected ? "hsl(var(--primary))" : undefined }}
-                >
-                  {dean.dean}
-                </p>
-                {subtitle && (
-                  <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">
-                    {subtitle}
+              <div className="shrink-0 w-56 min-w-0 flex items-center gap-2">
+                <MiniPortrait dean={dean} />
+                <div className="min-w-0">
+                  <p
+                    className="text-sm font-semibold leading-tight truncate"
+                    style={{ color: isSelected ? "hsl(var(--primary))" : undefined }}
+                  >
+                    {dean.dean}
                   </p>
-                )}
+                  {subtitle && (
+                    <p className="text-[11px] text-muted-foreground leading-tight mt-0.5 truncate">
+                      {subtitle}
+                    </p>
+                  )}
+                </div>
               </div>
 
               <div className="flex-1 relative h-10 min-w-0">
@@ -254,6 +258,8 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
       {clickedDean && (
         <div className="mt-6 border-t border-border pt-5">
           <div className="bg-accent/30 rounded-xl p-5">
+            <div className="flex gap-5 items-start">
+            <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between mb-3">
               <div>
                 <h3 className="text-lg font-bold">{clickedDean.dean}</h3>
@@ -262,12 +268,6 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                   {clickedDean.tenureLength ? ` · ${clickedDean.tenureLength} years` : ""}
                 </p>
               </div>
-              <button
-                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setClickedIdx(null)}
-              >
-                ✕ Close
-              </button>
             </div>
 
             <div className="flex gap-1.5 flex-wrap mb-4">
@@ -409,7 +409,20 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
             {clickedDean.notes && (
               <p className="text-xs text-muted-foreground mt-3 pt-2 border-t border-border italic">{clickedDean.notes}</p>
             )}
+            </div>
 
+            <div className="flex flex-col items-end gap-2 shrink-0">
+              <button
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setClickedIdx(null)}
+              >
+                ✕ Close
+              </button>
+              <div className="max-sm:hidden">
+                <FullPortrait dean={clickedDean} />
+              </div>
+            </div>
+            </div>
           </div>
         </div>
       )}

@@ -2,6 +2,7 @@ import type { Dean } from "@/data/types";
 import { ORIGIN_LABELS, NEXT_ROLE_LABELS } from "@/data/types";
 import { useDeanCareer } from "@/data/useData";
 import { Badge } from "@/components/ui/badge";
+import { FullPortrait } from "./DeanPortrait";
 
 function formatMoney(val: number | null): string {
   if (!val) return "–";
@@ -20,6 +21,8 @@ export default function DeanProfile({ dean, onClose }: Props) {
 
   return (
     <div className="bg-accent/30 rounded-xl p-5">
+      <div className="flex gap-5 items-start">
+      <div className="flex-1 min-w-0">
       <div className="flex items-start justify-between mb-3">
         <div>
           <h3 className="text-lg font-bold">{dean.dean}</h3>
@@ -38,14 +41,6 @@ export default function DeanProfile({ dean, onClose }: Props) {
             </p>
           )}
         </div>
-        {onClose && (
-          <button
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-            onClick={onClose}
-          >
-            ✕ Close
-          </button>
-        )}
       </div>
 
       <div className="flex gap-1.5 flex-wrap mb-4">
@@ -187,6 +182,22 @@ export default function DeanProfile({ dean, onClose }: Props) {
       {dean.notes && (
         <p className="text-xs text-muted-foreground mt-3 pt-2 border-t border-border italic">{dean.notes}</p>
       )}
+      </div>
+
+      <div className="flex flex-col items-end gap-2 shrink-0">
+        {onClose && (
+          <button
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            onClick={onClose}
+          >
+            ✕ Close
+          </button>
+        )}
+        <div className="max-sm:hidden">
+          <FullPortrait dean={dean} />
+        </div>
+      </div>
+      </div>
     </div>
   );
 }
