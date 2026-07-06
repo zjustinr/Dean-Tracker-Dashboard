@@ -129,7 +129,7 @@ function AppInner() {
                   >
                     Leadership Dashboard
                   </h1>
-                  <p className="text-sm text-muted-foreground mt-1">Explore school leadership changes, one person at a time · {meta.description} ({meta.yearRange})</p>
+                  <p className="text-sm text-muted-foreground mt-1">Explore school leadership changes, one person at a time</p>
                 </div>
               </div>
             </div>
