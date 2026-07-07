@@ -10,7 +10,7 @@ const photoKey = (dean: string, university: string) => `${dean.trim().toLowerCas
 
 /**
  * Front-page sidebar: a random currently-serving dean, with a portrait
- * (Wikipedia thumbnail when one exists, initials avatar otherwise),
+ * (curated official photo when one exists, initials avatar otherwise),
  * name + school, a link to their full profile in Individual Search,
  * and the source/school announcement URL.
  */
@@ -23,46 +23,13 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
   const [pick, setPick] = useState(() => Math.random());
   const dean = current.length ? current[Math.floor(pick * current.length) % current.length] : null;
 
+  // Curated official-portrait map only (built by the photo-hunt agents);
+  // initials monogram otherwise — no third-party photo lookups.
+  const curated = dean ? PHOTO_MAP[photoKey(dean.dean, dean.university)] : undefined;
   const [photo, setPhoto] = useState<string | null>(null);
   useEffect(() => {
-    let alive = true;
-    setPhoto(null);
-    if (!dean) return;
-    // 1. Curated official-portrait map (built by the photo-hunt agents)
-    const curated = PHOTO_MAP[photoKey(dean.dean, dean.university)];
-    if (curated?.photo) {
-      setPhoto(curated.photo);
-      return () => { alive = false; };
-    }
-    const ACADEMIC = /dean|professor|academic|business|econom|universit|management|school/;
-    const summaryThumb = async (title: string): Promise<string | null> => {
-      const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/\s+/g, "_"))}`);
-      if (!r.ok) return null;
-      const j = await r.json();
-      const desc = `${j.description || ""} ${j.extract || ""}`.toLowerCase();
-      return j.thumbnail?.source && ACADEMIC.test(desc) ? j.thumbnail.source : null;
-    };
-    (async () => {
-      try {
-        // 1. direct page title; 2. title search (catches "Name (academic)" etc.)
-        let src = await summaryThumb(dean.dean.trim());
-        if (!src) {
-          const s = await fetch(`https://en.wikipedia.org/w/rest.php/v1/search/title?q=${encodeURIComponent(dean.dean.trim())}&limit=3`);
-          if (s.ok) {
-            const { pages = [] } = await s.json();
-            const last = dean.dean.trim().split(/\s+/).pop()!.toLowerCase();
-            for (const p of pages) {
-              if (!p.title.toLowerCase().includes(last)) continue;
-              src = await summaryThumb(p.title);
-              if (src) break;
-            }
-          }
-        }
-        if (alive && src) setPhoto(src);
-      } catch { /* fall back to initials avatar */ }
-    })();
-    return () => { alive = false; };
-  }, [dean]);
+    setPhoto(curated?.photo || null);
+  }, [dean]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!dean) return null;
 
