@@ -155,6 +155,7 @@ const R1_GEO = {
   "University of California Davis": { lat: 38.5382, lng: -121.7617, city: "Davis", state: "CA", type: "Public" },
   "University of California Irvine": { lat: 33.6405, lng: -117.8443, city: "Irvine", state: "CA", type: "Public" },
   "University of California Los Angeles": { lat: 34.0689, lng: -118.4452, city: "Los Angeles", state: "CA", type: "Public" },
+  "UCLA": { lat: 34.0689, lng: -118.4452, city: "Los Angeles", state: "CA", type: "Public" },
   "University of California Merced": { lat: 37.3651, lng: -120.4233, city: "Merced", state: "CA", type: "Public" },
   "University of California Riverside": { lat: 33.9737, lng: -117.3281, city: "Riverside", state: "CA", type: "Public" },
   "University of California San Diego": { lat: 32.8801, lng: -117.234, city: "La Jolla", state: "CA", type: "Public" },
