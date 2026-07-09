@@ -419,7 +419,10 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                 ✕ Close
               </button>
               <div className="max-sm:hidden">
-                <FullPortrait dean={clickedDean} />
+                <FullPortrait
+                  dean={clickedDean}
+                  onSchoolHistory={() => containerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                />
               </div>
             </div>
             </div>

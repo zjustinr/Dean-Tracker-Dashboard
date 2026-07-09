@@ -80,13 +80,14 @@ export function FullPortrait({ dean, onSchoolHistory }: { dean: Dean; onSchoolHi
       )}
       <figcaption className="text-center mt-1.5">
         <p className="text-xs font-semibold leading-tight">{dean.dean}</p>
-        {onSchoolHistory && (
+        {onSchoolHistory && dean.school && (
           <button
             type="button"
             onClick={onSchoolHistory}
-            className="block w-full text-[10px] text-primary hover:underline underline-offset-2 mt-0.5"
+            title="See this school's dean history"
+            className="block w-full text-[10px] text-primary hover:underline underline-offset-2 mt-0.5 leading-tight"
           >
-            → School dean history
+            {dean.school}
           </button>
         )}
         <p className="text-[10px] text-muted-foreground">
