@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useSchoolList, useSchoolDeans, parseSchoolKey, useBSQ } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,7 +13,9 @@ import ResearchMap from "./ResearchMap";
 
 type SortMode = "rank" | "alpha";
 
-export default function SchoolExplorer() {
+interface SchoolPrefill { university: string; school: string; token: number; }
+
+export default function SchoolExplorer({ prefill }: { prefill?: SchoolPrefill | null }) {
   const schools = useSchoolList();
   const allBSQ = useBSQ();
   const findBSQ = useMemo(() => makeFindBSQ(allBSQ as any), [allBSQ]);
@@ -21,6 +23,7 @@ export default function SchoolExplorer() {
   const [selectedKey, setSelectedKey] = useState(schools[0]?.key || "");
   const [sortMode, setSortMode] = useState<SortMode>("rank");
   const deans = useSchoolDeans(selectedKey);
+  const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!schools.length) return;
@@ -28,6 +31,19 @@ export default function SchoolExplorer() {
       setSelectedKey(schools[0].key);
     }
   }, [schools, selectedKey]);
+
+  // Deep-link from Individual Search: select the requested school and scroll to its dean history.
+  useEffect(() => {
+    if (!prefill || !schools.length) return;
+    const norm = (s: string) => (s || "").trim().toLowerCase();
+    const match = schools.find(
+      s => norm(s.university) === norm(prefill.university) && norm(s.school) === norm(prefill.school)
+    ) || schools.find(s => norm(s.university) === norm(prefill.university));
+    if (match) {
+      setSelectedKey(match.key);
+      requestAnimationFrame(() => timelineRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    }
+  }, [prefill?.token]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const sortedSchools = useMemo(() => {
     const list = [...schools];
@@ -118,7 +134,7 @@ export default function SchoolExplorer() {
         </TabsContent>
       </Tabs>
 
-      <Card>
+      <Card ref={timelineRef} className="scroll-mt-4">
         <CardHeader>
           {selectedInfo && (
             <p className="text-xl font-bold">

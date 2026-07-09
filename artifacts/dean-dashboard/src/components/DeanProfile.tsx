@@ -14,9 +14,10 @@ function formatMoney(val: number | null): string {
 interface Props {
   dean: Dean;
   onClose?: () => void;
+  onOpenSchool?: (university: string, school: string) => void;
 }
 
-export default function DeanProfile({ dean, onClose }: Props) {
+export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
   const careerPositions = useDeanCareer(dean.dean);
 
   return (
@@ -27,8 +28,30 @@ export default function DeanProfile({ dean, onClose }: Props) {
         <div>
           <h3 className="text-lg font-bold">{dean.dean}</h3>
           <p className="text-sm text-muted-foreground">
-            {dean.university} – {dean.school}
+            {onOpenSchool ? (
+              <button
+                type="button"
+                onClick={() => onOpenSchool(dean.university, dean.school)}
+                className="text-left text-primary hover:underline underline-offset-2"
+                title={`See the dean history for ${dean.school}`}
+              >
+                {dean.university} – {dean.school} ↗
+              </button>
+            ) : (
+              <>{dean.university} – {dean.school}</>
+            )}
           </p>
+          {onOpenSchool && (
+            <p className="text-xs mt-0.5">
+              <button
+                type="button"
+                onClick={() => onOpenSchool(dean.university, dean.school)}
+                className="text-primary hover:underline underline-offset-2"
+              >
+                → View all deans of {dean.school}
+              </button>
+            </p>
+          )}
           <p className="text-sm text-muted-foreground">
             {dean.startYear || "?"} – {dean.endYear || "Present"}
             {dean.tenureLength ? ` · ${dean.tenureLength} years` : ""}
@@ -194,7 +217,7 @@ export default function DeanProfile({ dean, onClose }: Props) {
           </button>
         )}
         <div className="max-sm:hidden">
-          <FullPortrait dean={dean} />
+          <FullPortrait dean={dean} onSchoolHistory={onOpenSchool ? () => onOpenSchool(dean.university, dean.school) : undefined} />
         </div>
       </div>
       </div>

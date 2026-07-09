@@ -91,7 +91,7 @@ export interface DeanSearchPrefill {
   token: number; // changes on every request so repeated clicks re-trigger
 }
 
-export default function IndividualSearch({ prefill }: { prefill?: DeanSearchPrefill | null }) {
+export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: DeanSearchPrefill | null; onOpenSchool?: (university: string, school: string) => void }) {
   const allDeans = useAllDeans();
   const [lastName, setLastName] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -226,7 +226,7 @@ export default function IndividualSearch({ prefill }: { prefill?: DeanSearchPref
       )}
 
       {selectedDean && (
-        <DeanProfile dean={selectedDean} onClose={() => setSelectedDean(null)} />
+        <DeanProfile dean={selectedDean} onClose={() => setSelectedDean(null)} onOpenSchool={onOpenSchool} />
       )}
     </div>
   );

@@ -53,7 +53,7 @@ export function MiniPortrait({ dean }: { dean: Dean }) {
 
 /** Wikipedia-infobox-style portrait for the expanded profile: full-size image
  *  on the right with a caption; monogram placeholder when no photo exists. */
-export function FullPortrait({ dean }: { dean: Dean }) {
+export function FullPortrait({ dean, onSchoolHistory }: { dean: Dean; onSchoolHistory?: () => void }) {
   const curated = getDeanPhoto(dean.dean, dean.university);
   const [src, setSrc] = useState<string | null>(curated?.photo || null);
   // reset to the new dean's photo when the panel is reused for a different dean
@@ -80,6 +80,15 @@ export function FullPortrait({ dean }: { dean: Dean }) {
       )}
       <figcaption className="text-center mt-1.5">
         <p className="text-xs font-semibold leading-tight">{dean.dean}</p>
+        {onSchoolHistory && (
+          <button
+            type="button"
+            onClick={onSchoolHistory}
+            className="block w-full text-[10px] text-primary hover:underline underline-offset-2 mt-0.5"
+          >
+            → School dean history
+          </button>
+        )}
         <p className="text-[10px] text-muted-foreground">
           Dean, {dean.startYear || "?"}–{dean.endYear || "present"}
         </p>

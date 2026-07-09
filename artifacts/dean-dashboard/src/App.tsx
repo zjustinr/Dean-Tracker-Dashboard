@@ -29,13 +29,19 @@ const DEFAULT_TABS: TabDef[] = [
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
 ];
 
-function buildTabContent(deanPrefill: DeanSearchPrefill | null): Record<string, React.ReactNode> {
+export interface SchoolPrefill { university: string; school: string; token: number; }
+
+function buildTabContent(
+  deanPrefill: DeanSearchPrefill | null,
+  schoolPrefill: SchoolPrefill | null,
+  onOpenSchool: (university: string, school: string) => void,
+): Record<string, React.ReactNode> {
   return {
-    explorer: <SchoolExplorer />,
+    explorer: <SchoolExplorer prefill={schoolPrefill} />,
     trends: <AggregateTrends />,
     analysis: <CrossSchoolAnalysis />,
     interim: <InterimAnalysis />,
-    search: <IndividualSearch prefill={deanPrefill} />,
+    search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} />,
     jobmarket: <LiveJobMarket />,
     compare: <CompareDatasets />,
     discipline: <DisciplineSearch />,
@@ -51,13 +57,20 @@ function AppInner() {
   const [overIdx, setOverIdx] = useState<number | null>(null);
   const dragNode = useRef<HTMLButtonElement | null>(null);
   const [deanPrefill, setDeanPrefill] = useState<DeanSearchPrefill | null>(null);
-  const tabContent = buildTabContent(deanPrefill);
+  const [schoolPrefill, setSchoolPrefill] = useState<SchoolPrefill | null>(null);
 
   const openDeanProfile = useCallback((d: Dean) => {
     const parts = d.dean.trim().split(/\s+/);
     setDeanPrefill({ fullName: d.dean, first: parts[0], last: parts[parts.length - 1], token: Date.now() });
     setActiveTab("search");
   }, []);
+
+  const openSchoolHistory = useCallback((university: string, school: string) => {
+    setSchoolPrefill({ university, school, token: Date.now() });
+    setActiveTab("explorer");
+  }, []);
+
+  const tabContent = buildTabContent(deanPrefill, schoolPrefill, openSchoolHistory);
 
   const handleDragStart = useCallback((e: React.DragEvent<HTMLButtonElement>, idx: number) => {
     setDragIdx(idx);
