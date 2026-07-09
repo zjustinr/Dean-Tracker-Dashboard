@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS } from "@/data/types";
 import deanPhotos from "@/data/dean-photos.json";
@@ -24,6 +24,8 @@ function initialsOf(name: string): string {
 export function MiniPortrait({ dean }: { dean: Dean }) {
   const curated = getDeanPhoto(dean.dean, dean.university);
   const [src, setSrc] = useState<string | null>(curated?.photo || null);
+  // reset to the new dean's photo when the component is reused for a different dean
+  useEffect(() => { setSrc(curated?.photo || null); }, [dean.dean, dean.university]); // eslint-disable-line react-hooks/exhaustive-deps
   const color = monogramColor(dean.university);
 
   if (src) {
@@ -54,6 +56,8 @@ export function MiniPortrait({ dean }: { dean: Dean }) {
 export function FullPortrait({ dean }: { dean: Dean }) {
   const curated = getDeanPhoto(dean.dean, dean.university);
   const [src, setSrc] = useState<string | null>(curated?.photo || null);
+  // reset to the new dean's photo when the panel is reused for a different dean
+  useEffect(() => { setSrc(curated?.photo || null); }, [dean.dean, dean.university]); // eslint-disable-line react-hooks/exhaustive-deps
   const color = monogramColor(dean.university);
 
   return (
