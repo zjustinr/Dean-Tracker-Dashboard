@@ -8,6 +8,14 @@ import {
 import type { Dean } from "@/data/types";
 import { CHART_COLORS, NEXT_ROLE_LABELS } from "@/data/types";
 import { useSchoolsInfo, makeSchoolKey } from "@/data/useData";
+import PRESIDENTS from "@/data/university-presidents.json";
+
+interface President {
+  name: string; title: string; startYear: number | null; startLabel: string;
+  isInterim: boolean; priorRole: string; priorInstitution: string;
+  gender: string; isFemale: boolean; sourceUrl: string; confidence: string;
+}
+const PRESIDENT_MAP = PRESIDENTS as Record<string, President>;
 
 export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
   const SCHOOL_INFO = useSchoolsInfo();
@@ -19,6 +27,11 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
       || SCHOOL_INFO.find(s => s.university === deans[0].university)
       || null;
   }, [deans, SCHOOL_INFO]);
+
+  const president = useMemo(() => {
+    const uni = schoolInfo?.university || deans[0]?.university;
+    return uni ? PRESIDENT_MAP[uni] ?? null : null;
+  }, [schoolInfo, deans]);
 
   const genderData = useMemo(() => {
     const m = deans.filter((d) => d.gender === "M").length;
@@ -103,6 +116,31 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
           <Badge variant="secondary">{schoolInfo.type}</Badge>
           <Badge variant="outline">{schoolInfo.totalFaculty} T-T Faculty</Badge>
           <Badge variant="outline">{schoolInfo.city}, {schoolInfo.state}</Badge>
+        </div>
+      )}
+
+      {president && president.name && (
+        <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+          <span aria-hidden>🏛️</span>
+          <span>
+            {president.title || "President"}:{" "}
+            <span className="font-medium text-foreground">{president.name}</span>
+            {president.isInterim && !/interim/i.test(president.title) && (
+              <span className="text-amber-600 dark:text-amber-500"> (interim)</span>
+            )}
+            {president.startYear && <> · since {president.startYear}</>}
+          </span>
+          {president.sourceUrl && (
+            <a
+              href={president.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-primary hover:underline"
+              title="Official source"
+            >
+              ↗
+            </a>
+          )}
         </div>
       )}
 
