@@ -11,7 +11,11 @@ import r1esDeans from "./r1-eschool-deans.json";
 import r1esResearch from "./r1-eschool-research.json";
 import r1esSchools from "./r1-eschool-schools.json";
 
-export type DatasetId = "top100" | "r1bschool" | "r1eschool";
+import r1uDeans from "./r1-university-deans.json";
+import r1uResearch from "./r1-university-research.json";
+import r1uSchools from "./r1-university-schools.json";
+
+export type DatasetId = "top100" | "r1bschool" | "r1eschool" | "r1university";
 
 export interface SchoolInfo {
   university: string;
@@ -43,7 +47,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering";
+  schoolType: "business" | "engineering" | "university";
   yearRange: string;
 }
 
@@ -131,6 +135,20 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     bsq: r1esResearch as unknown as BSQSchool[],
     schools: r1esSchools as unknown as SchoolInfo[],
   },
+  r1university: {
+    meta: {
+      id: "r1university",
+      label: "R1 University Presidents & Chancellors",
+      shortLabel: "R1 University",
+      description: "Presidents and chancellors of R1 universities, 1980–2026",
+      rankLabel: "—",
+      schoolType: "university",
+      yearRange: "1980–2026",
+    },
+    deans: r1uDeans as unknown as Dean[],
+    bsq: r1uResearch as unknown as BSQSchool[],
+    schools: r1uSchools as unknown as SchoolInfo[],
+  },
 };
 
 // R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
@@ -139,4 +157,5 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.top100.meta,
   DATASETS.r1bschool.meta,
   DATASETS.r1eschool.meta,
+  DATASETS.r1university.meta,
 ];
