@@ -4,6 +4,7 @@ import { useDeanCareer } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
+import leaderResearch from "@/data/leader-research.json";
 
 function formatMoney(val: number | null): string {
   if (!val) return "–";
@@ -11,6 +12,19 @@ function formatMoney(val: number | null): string {
   if (val >= 1e6) return `$${(val / 1e6).toFixed(1)}M`;
   return `$${(val / 1e3).toFixed(0)}K`;
 }
+
+// Headhunter research pack, keyed by "dean|university" (lowercased).
+interface NewsItem { title: string; url: string; source?: string; date?: string; }
+interface LeaderResearch {
+  linkedin?: string;
+  summary?: string;      // "why this leader" strengths brief
+  expertise?: string[];  // signature themes / domains
+  education?: string;    // degrees
+  news?: NewsItem[];
+}
+const RESEARCH = leaderResearch as Record<string, LeaderResearch>;
+const researchKey = (dean: string, university: string) =>
+  `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
 
 interface Props {
   dean: Dean;
@@ -21,6 +35,8 @@ interface Props {
 export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
   const { noun, nounPluralLower } = useDataset();
   const careerPositions = useDeanCareer(dean.dean);
+  const research = RESEARCH[researchKey(dean.dean, dean.university)] || null;
+  const hasNews = !!research?.news?.length;
 
   return (
     <div className="bg-accent/30 rounded-xl p-5">
@@ -80,6 +96,67 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         {dean.hasIndustryExp && <Badge variant="secondary">Industry Experience</Badge>}
         {dean.hasConsultingBg && <Badge variant="secondary">Consulting Background</Badge>}
       </div>
+
+      {/* Headhunter research: quick links + strengths brief */}
+      {(research?.linkedin || dean.sourceUrl) && (
+        <div className="flex gap-2 flex-wrap mb-3">
+          {research?.linkedin && (
+            <a
+              href={research.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md bg-[#0a66c2] text-white hover:opacity-90"
+              title="LinkedIn profile"
+            >
+              <span className="font-bold">in</span> LinkedIn ↗
+            </a>
+          )}
+          {dean.sourceUrl && (
+            <a
+              href={dean.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md border border-border hover:bg-accent"
+              title="Appointment announcement / official source"
+            >
+              📄 Official source ↗
+            </a>
+          )}
+          <a
+            href={`https://www.google.com/search?q=${encodeURIComponent(`"${dean.dean}" ${dean.university}`)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md border border-border hover:bg-accent"
+            title="Web search"
+          >
+            🔎 Web search ↗
+          </a>
+        </div>
+      )}
+
+      {research?.summary && (
+        <div className="mb-4 rounded-lg border border-primary/30 bg-primary/5 p-3">
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <span aria-hidden>🧭</span>
+            <h4 className="text-sm font-bold">Headhunter Brief — Strengths & Distinctives</h4>
+          </div>
+          <p className="text-sm leading-relaxed text-foreground/90">{research.summary}</p>
+          {research.education && (
+            <p className="text-xs text-muted-foreground mt-2">
+              <span className="font-medium">Education:</span> {research.education}
+            </p>
+          )}
+          {!!research.expertise?.length && (
+            <div className="flex gap-1.5 flex-wrap mt-2">
+              {research.expertise.map((t, i) => (
+                <span key={i} className="text-[11px] px-2 py-0.5 rounded-full bg-accent text-accent-foreground border border-border">
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
         <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
@@ -201,6 +278,38 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
               </div>
             );
           })()}
+        </div>
+      )}
+
+      {hasNews && (
+        <div className="mt-4 pt-3 border-t border-border">
+          <div className="flex items-center gap-1.5 mb-2">
+            <span aria-hidden>📰</span>
+            <h4 className="text-sm font-bold">News &amp; Media</h4>
+            <span className="text-[11px] text-muted-foreground">({research!.news!.length})</span>
+          </div>
+          <ul className="space-y-1.5">
+            {research!.news!.map((n, i) => (
+              <li key={i} className="text-sm flex gap-2">
+                <span aria-hidden className="text-muted-foreground select-none">›</span>
+                <span className="min-w-0">
+                  <a
+                    href={n.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary hover:underline underline-offset-2 break-words"
+                  >
+                    {n.title}
+                  </a>
+                  {(n.source || n.date) && (
+                    <span className="text-xs text-muted-foreground">
+                      {" "}— {[n.source, n.date].filter(Boolean).join(", ")}
+                    </span>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 
