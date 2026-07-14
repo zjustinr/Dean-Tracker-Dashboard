@@ -49,7 +49,11 @@ function buildTabContent(
 }
 
 function AppInner() {
-  const { datasetId, setDatasetId, list, meta } = useDataset();
+  const { datasetId, setDatasetId, list, meta, noun, nounPlural, nounLower, nounPluralLower } = useDataset();
+  // Dataset-aware relabel: "Dean(s)" → "Leader(s)" for the university-presidents dataset.
+  const relabel = (s: string) => s
+    .replace(/Deans/g, nounPlural).replace(/deans/g, nounPluralLower)
+    .replace(/Dean/g, noun).replace(/dean/g, nounLower);
   const [darkMode, setDarkMode] = useState(false);
   const [tabs, setTabs] = useState<TabDef[]>(DEFAULT_TABS);
   const [activeTab, setActiveTab] = useState(DEFAULT_TABS[0].value);
@@ -212,11 +216,11 @@ function AppInner() {
                       isOver ? "ring-2 ring-primary/50" : "",
                     ].join(" ")}
                   >
-                    <span className="text-base font-bold">{tab.label}</span>
+                    <span className="text-base font-bold">{relabel(tab.label)}</span>
                     <span className={[
                       "text-xs mt-1.5 leading-relaxed",
                       isActive ? "text-primary-foreground/80" : "text-muted-foreground",
-                    ].join(" ")}>{tab.desc}</span>
+                    ].join(" ")}>{relabel(tab.desc)}</span>
                   </button>
                 );
               })}

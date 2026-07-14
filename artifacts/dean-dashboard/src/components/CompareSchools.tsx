@@ -10,6 +10,7 @@ import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
 } from "recharts";
 import type { Dean } from "@/data/types";
+import { useDataset } from "@/data/DatasetContext";
 
 interface BSQSchool {
   university: string;
@@ -302,6 +303,9 @@ function SchoolSearchSelect({ available, onSelect }: {
 }
 
 export default function CompareSchools() {
+  const { noun, nounPlural } = useDataset();
+  // Swap the built-in "Dean"/"Deans" labels for the dataset's noun (e.g. "Leader" for university presidents).
+  const relabel = (s: string) => s.replace(/Deans/g, nounPlural).replace(/Dean/g, noun);
   const schoolList = useSchoolList();
   const allDeans = useAllDeans();
   const allBSQ = useBSQ() as BSQSchool[];
@@ -376,7 +380,7 @@ export default function CompareSchools() {
 
   const radarData = useMemo(() => {
     return RADAR_METRICS.map(rm => {
-      const row: Record<string, string | number | null> = { metric: rm.label };
+      const row: Record<string, string | number | null> = { metric: relabel(rm.label) };
       schoolMetrics.forEach((m, i) => {
         row[`school${i}`] = (m as unknown as Record<string, unknown>)[rm.key] as number | null;
       });
@@ -443,7 +447,7 @@ export default function CompareSchools() {
                     <React.Fragment key={`cat-${cat}`}>
                       <tr>
                         <td colSpan={schoolMetrics.length + 1} className="pt-4 pb-1 px-3 font-semibold text-xs uppercase tracking-wider text-primary border-b border-primary/20">
-                          {cat}
+                          {relabel(cat)}
                         </td>
                       </tr>
                       {METRIC_ROWS.filter(r => r.category === cat).map((row, ri) => {
@@ -452,7 +456,7 @@ export default function CompareSchools() {
                         const maxVal = rowMaxes[row.key] || 0;
                         return (
                           <tr key={row.key} className={ri % 2 === 0 ? "bg-muted/30" : ""}>
-                            <td className="py-1.5 px-3 text-muted-foreground sticky left-0 bg-inherit z-10">{row.label}</td>
+                            <td className="py-1.5 px-3 text-muted-foreground sticky left-0 bg-inherit z-10">{relabel(row.label)}</td>
                             {schoolMetrics.map((m, i) => {
                               const val = row.getValue(m);
                               const isBest = best != null && val === best;
@@ -492,9 +496,9 @@ export default function CompareSchools() {
                     <SelectContent className="max-h-72">
                       {categories.map(cat => (
                         <div key={cat}>
-                          <div className="px-2 py-1 text-xs font-semibold text-muted-foreground uppercase">{cat}</div>
+                          <div className="px-2 py-1 text-xs font-semibold text-muted-foreground uppercase">{relabel(cat)}</div>
                           {BAR_CHART_OPTIONS.filter(r => r.category === cat).map(r => (
-                            <SelectItem key={r.key} value={r.key}>{r.label}</SelectItem>
+                            <SelectItem key={r.key} value={r.key}>{relabel(r.label)}</SelectItem>
                           ))}
                         </div>
                       ))}
@@ -521,7 +525,7 @@ export default function CompareSchools() {
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-base">Dean Profile Radar</CardTitle>
+                <CardTitle className="text-base">{noun} Profile Radar</CardTitle>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={280}>

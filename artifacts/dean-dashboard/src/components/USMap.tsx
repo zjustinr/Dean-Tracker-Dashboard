@@ -1,6 +1,7 @@
 import { useMemo, useState, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
 import { useAllDeans, makeSchoolKey, useSchoolsInfo } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
@@ -68,6 +69,7 @@ interface Props {
 }
 
 export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
+  const { nounPlural } = useDataset();
   const allDeans = useAllDeans();
   const SCHOOL_INFO = useSchoolsInfo();
   const [position, setPosition] = useState<{ coordinates: [number, number]; zoom: number }>({
@@ -270,7 +272,7 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
       <div className="px-3 pb-2 flex gap-4 text-xs text-muted-foreground justify-center flex-wrap items-center">
         <span>Drag to pan · Scroll to zoom · Bubble size = faculty count · Number = US News rank</span>
         <span className="flex items-center gap-1">
-          <span className="text-xs">Deans:</span>
+          <span className="text-xs">{nounPlural}:</span>
           {DEAN_TIERS.map((tier) => (
             <span key={tier.label} className="flex items-center gap-0.5">
               <span

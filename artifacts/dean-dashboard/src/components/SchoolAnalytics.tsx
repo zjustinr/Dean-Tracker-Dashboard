@@ -8,6 +8,7 @@ import {
 import type { Dean } from "@/data/types";
 import { CHART_COLORS, NEXT_ROLE_LABELS } from "@/data/types";
 import { useSchoolsInfo, makeSchoolKey } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 import PRESIDENTS from "@/data/university-presidents.json";
 
 interface President {
@@ -18,6 +19,7 @@ interface President {
 const PRESIDENT_MAP = PRESIDENTS as Record<string, President>;
 
 export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
+  const { noun, nounPlural } = useDataset();
   const SCHOOL_INFO = useSchoolsInfo();
   const schoolInfo = useMemo(() => {
     if (!deans.length) return null;
@@ -145,7 +147,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
       )}
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-        <MiniKPI label="Total Deans" value={String(kpis.total)} />
+        <MiniKPI label={`Total ${nounPlural}`} value={String(kpis.total)} />
         <MiniKPI label="Avg Tenure" value={`${kpis.avgTenure} yrs`} />
         <MiniKPI label="Female" value={`${kpis.femalePct}%`} />
         <MiniKPI label="Internal" value={`${kpis.internalPct}%`} />
@@ -205,7 +207,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
         </Card>
 
         <Card>
-          <CardHeader className="pb-2"><CardTitle className="text-sm">Tenure by Dean</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm">Tenure by {noun}</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={tenureData} margin={{ top: 5, right: 10, bottom: 5, left: 0 }}>
@@ -220,7 +222,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
         </Card>
 
         <Card>
-          <CardHeader className="pb-2"><CardTitle className="text-sm">Post-Dean Roles</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm">Post-{noun} Roles</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={nextRoleData} layout="vertical" margin={{ top: 5, right: 10, bottom: 5, left: 5 }}>

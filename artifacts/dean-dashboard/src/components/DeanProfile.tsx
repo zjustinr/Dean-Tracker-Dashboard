@@ -1,6 +1,7 @@
 import type { Dean } from "@/data/types";
 import { ORIGIN_LABELS, NEXT_ROLE_LABELS } from "@/data/types";
 import { useDeanCareer } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
 
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
+  const { noun, nounPluralLower } = useDataset();
   const careerPositions = useDeanCareer(dean.dean);
 
   return (
@@ -33,7 +35,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
                 type="button"
                 onClick={() => onOpenSchool(dean.university, dean.school)}
                 className="text-left text-primary hover:underline underline-offset-2"
-                title={`See the dean history for ${dean.school}`}
+                title={`See the ${noun.toLowerCase()} history for ${dean.school}`}
               >
                 {dean.university} – {dean.school} ↗
               </button>
@@ -48,7 +50,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
                 onClick={() => onOpenSchool(dean.university, dean.school)}
                 className="text-primary hover:underline underline-offset-2"
               >
-                → View all deans of {dean.school}
+                → View all {nounPluralLower} of {dean.school}
               </button>
             </p>
           )}
@@ -95,7 +97,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
           <span>{dean.priorInstitution || "–"}</span>
         </div>
         <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
-          <span className="text-muted-foreground font-medium">Post-Dean Role</span>
+          <span className="text-muted-foreground font-medium">Post-{noun} Role</span>
           <span>{NEXT_ROLE_LABELS[dean.nextRole] || dean.nextRole || "–"}</span>
           <span className="text-muted-foreground font-medium">Involuntary Exit</span>
           <span>{dean.involuntary ? "Yes" : "No"}</span>
@@ -136,7 +138,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
               careerPositions.forEach((pos, i) => {
                 if (i === currentIdx) return;
                 steps.push({
-                  label: `Dean, ${pos.school}`,
+                  label: `${noun}, ${pos.school}`,
                   detail: pos.university,
                   year: `${pos.startYear || "?"} – ${pos.endYear || "?"}`,
                   isCurrent: false,
@@ -152,7 +154,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
             }
 
             steps.push({
-              label: `Dean, ${dean.school}`,
+              label: `${noun}, ${dean.school}`,
               detail: dean.university,
               year: `${dean.startYear || "?"} – ${dean.endYear || "Present"}`,
               isCurrent: true,

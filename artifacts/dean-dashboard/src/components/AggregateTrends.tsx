@@ -8,8 +8,10 @@ import {
   BarChart, Bar, PieChart, Pie, Cell, Legend,
 } from "recharts";
 import { CHART_COLORS, NEXT_ROLE_LABELS, ORIGIN_LABELS } from "@/data/types";
+import { useDataset } from "@/data/DatasetContext";
 
 export default function AggregateTrends() {
+  const { noun, nounPlural, nounLower, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
   const [top50Only, setTop50Only] = useState(false);
   const data = useMemo(() => (top50Only ? allDeans.filter((d) => d.inTop50) : allDeans), [allDeans, top50Only]);
@@ -252,12 +254,12 @@ export default function AggregateTrends() {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-        <KPICard label="Total Deans" value={String(kpis.total)} />
+        <KPICard label={`Total ${nounPlural}`} value={String(kpis.total)} />
         <KPICard label="Avg Tenure" value={`${kpis.avgTenure} yrs`} />
         <KPICard label="Female" value={`${kpis.femalePct}%`} />
         <KPICard label="Internal Hire" value={`${kpis.internalPct}%`} />
         <KPICard label="Interim" value={`${kpis.interimPct}%`} />
-        <KPICard label="First-Time Dean" value={`${kpis.firstTimePct}%`} />
+        <KPICard label={`First-Time ${noun}`} value={`${kpis.firstTimePct}%`} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -332,7 +334,7 @@ export default function AggregateTrends() {
         </Card>
 
         <Card>
-          <CardHeader><CardTitle className="text-base">Dean Disciplines</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="text-base">{noun} Disciplines</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
@@ -366,7 +368,7 @@ export default function AggregateTrends() {
         </Card>
 
         <Card>
-          <CardHeader><CardTitle className="text-base">Post-Dean Career Paths</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="text-base">Post-{noun} Career Paths</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={nextRoleDist} layout="vertical" margin={{ top: 10, right: 30, bottom: 0, left: 10 }}>
@@ -400,14 +402,14 @@ export default function AggregateTrends() {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">Interim-to-Permanent Dean Conversion</CardTitle>
+          <CardTitle className="text-base">Interim-to-Permanent {noun} Conversion</CardTitle>
           <p className="text-sm text-muted-foreground">
-            How often do interim deans get appointed as the permanent dean at the same school?
+            How often do interim {nounPluralLower} get appointed as the permanent {nounLower} at the same school?
           </p>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <KPICard label="Total Interim Deans" value={String(interimConversion.total)} />
+            <KPICard label={`Total Interim ${nounPlural}`} value={String(interimConversion.total)} />
             <KPICard label="Converted to Permanent" value={String(interimConversion.convertedCount)} />
             <KPICard label="Not Converted" value={String(interimConversion.total - interimConversion.convertedCount)} />
             <KPICard label="Conversion Rate" value={`${interimConversion.rate}%`} />

@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useAllDeans } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
 
@@ -92,6 +93,7 @@ export interface DeanSearchPrefill {
 }
 
 export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: DeanSearchPrefill | null; onOpenSchool?: (university: string, school: string) => void }) {
+  const { noun, nounLower, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
   const [lastName, setLastName] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -156,8 +158,8 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   return (
     <div className="space-y-6">
       <div className="bg-card border border-border rounded-xl p-6">
-        <h2 className="text-lg font-bold mb-1">Individual Dean Search</h2>
-        <p className="text-sm text-muted-foreground mb-5">Search by name to view a dean's full profile and leadership history. Type to filter or browse the dropdown.</p>
+        <h2 className="text-lg font-bold mb-1">Individual {noun} Search</h2>
+        <p className="text-sm text-muted-foreground mb-5">Search by name to view a {nounLower}'s full profile and leadership history. Type to filter or browse the dropdown.</p>
 
         <div className="flex gap-4 flex-wrap">
           <ComboBox
@@ -221,7 +223,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
       {results.length === 0 && (lastName || firstName) && (
         <div className="bg-card border border-border rounded-xl p-8 text-center">
-          <p className="text-muted-foreground text-sm">No deans found matching your search.</p>
+          <p className="text-muted-foreground text-sm">No {nounPluralLower} found matching your search.</p>
         </div>
       )}
 

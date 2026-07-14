@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import type { Dean } from "@/data/types";
 import { useAllDeans } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid,
   PieChart, Pie, Legend,
@@ -29,6 +30,7 @@ function pct(num: number, den: number): string {
 }
 
 export default function InterimAnalysis() {
+  const { noun, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
 
   const analysis = useMemo(() => {
@@ -181,7 +183,7 @@ export default function InterimAnalysis() {
   return (
     <div className="space-y-6">
       <div className="bg-gradient-to-b from-[#1B2A4B] to-[#2C3E6B] rounded-2xl text-white p-8 text-center">
-        <h2 className="text-3xl font-extrabold tracking-tight">Interim Dean Appointments</h2>
+        <h2 className="text-3xl font-extrabold tracking-tight">Interim {noun} Appointments</h2>
         <p className="text-blue-200 mt-1 text-sm italic">The Rise of Interim Leadership in U.S. Business Schools</p>
         <div className="mt-4 inline-block bg-white/10 rounded-lg px-6 py-2 text-sm font-semibold">
           {analysis.total} Dean Appointments &nbsp;|&nbsp; {analysis.schools} Top-100 Schools &nbsp;|&nbsp; 1967–2026
@@ -189,7 +191,7 @@ export default function InterimAnalysis() {
 
         <div className="grid grid-cols-3 gap-6 mt-8 max-w-2xl mx-auto">
           <KpiCircle value={fmt(analysis.era2020InterimPct) + "%"} label="of 2020s appointments are interim" color="#E8634D" />
-          <KpiCircle value={fmt(analysis.conversionRate) + "%"} label="of interim deans convert to permanent" color="#2AA198" />
+          <KpiCircle value={fmt(analysis.conversionRate) + "%"} label={`of interim ${nounPluralLower} convert to permanent`} color="#2AA198" />
           <KpiCircle value={fmt(analysis.deptChairConvPct, 0) + "%"} label="of interims with dept. chair experience convert" color="#27AE60" />
         </div>
       </div>
@@ -275,7 +277,7 @@ export default function InterimAnalysis() {
       </SectionCard>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <SectionCard title="Gender in Interim Appointments" color={COLORS.pink} subtitle="How gender differs between interim and converted deans">
+        <SectionCard title="Gender in Interim Appointments" color={COLORS.pink} subtitle={`How gender differs between interim and converted ${nounPluralLower}`}>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="text-xs font-semibold text-center mb-1">All Interims</p>
@@ -333,7 +335,7 @@ export default function InterimAnalysis() {
         </SectionCard>
       </div>
 
-      <SectionCard title="Success Stories: Interim to Permanent" color={COLORS.teal} subtitle="Longest-serving deans who started as interim appointments">
+      <SectionCard title="Success Stories: Interim to Permanent" color={COLORS.teal} subtitle={`Longest-serving ${nounPluralLower} who started as interim appointments`}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
           {analysis.successStories.map((d, i) => (
             <div key={d.id} className="flex gap-3 items-start p-3 rounded-lg bg-accent/40 border border-border">

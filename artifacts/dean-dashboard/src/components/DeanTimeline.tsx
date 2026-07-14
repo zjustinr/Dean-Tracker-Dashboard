@@ -2,6 +2,7 @@ import { useMemo, useState, useRef } from "react";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS, ORIGIN_LABELS, NEXT_ROLE_LABELS } from "@/data/types";
 import { useDeanCareer } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { MiniPortrait, FullPortrait } from "./DeanPortrait";
 
@@ -24,6 +25,7 @@ function formatMoney(val: number | null): string {
 }
 
 export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
+  const { noun } = useDataset();
   const { minYear, maxYear, yearSpan } = useMemo(() => {
     const starts = deans.map((d) => d.startYear).filter(Boolean) as number[];
     const min = starts.length ? Math.min(...starts) - 1 : 1990;
@@ -218,7 +220,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               <span>{hoveredDean.careerBackground || "–"}</span>
               <span className="text-muted-foreground">PhD</span>
               <span>{hoveredDean.hasPhd ? "Yes" : "No"}</span>
-              <span className="text-muted-foreground">Post-Dean</span>
+              <span className="text-muted-foreground">Post-{noun}</span>
               <span>{NEXT_ROLE_LABELS[hoveredDean.nextRole] || hoveredDean.nextRole || "–"}</span>
             </div>
             {hoveredDean.notes && (
@@ -299,7 +301,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                 <span>{clickedDean.priorInstitution || "–"}</span>
               </div>
               <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
-                <span className="text-muted-foreground font-medium">Post-Dean Role</span>
+                <span className="text-muted-foreground font-medium">Post-{noun} Role</span>
                 <span>{NEXT_ROLE_LABELS[clickedDean.nextRole] || clickedDean.nextRole || "–"}</span>
                 <span className="text-muted-foreground font-medium">Involuntary Exit</span>
                 <span>{clickedDean.involuntary ? "Yes" : "No"}</span>
@@ -340,7 +342,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                     careerPositions.forEach((pos, i) => {
                       if (i === currentIdx) return;
                       steps.push({
-                        label: `Dean, ${pos.school}`,
+                        label: `${noun}, ${pos.school}`,
                         detail: pos.university,
                         year: `${pos.startYear || "?"} – ${pos.endYear || "?"}`,
                         isCurrent: false,
@@ -356,7 +358,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                   }
 
                   steps.push({
-                    label: `Dean, ${clickedDean.school}`,
+                    label: `${noun}, ${clickedDean.school}`,
                     detail: clickedDean.university,
                     year: `${clickedDean.startYear || "?"} – ${clickedDean.endYear || "Present"}`,
                     isCurrent: true,

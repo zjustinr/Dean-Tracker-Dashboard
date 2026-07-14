@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS } from "@/data/types";
+import { useDataset } from "@/data/DatasetContext";
 import deanPhotos from "@/data/dean-photos.json";
 
 const PHOTO_MAP = deanPhotos as Record<string, { photo: string; source?: string; page?: string }>;
@@ -54,6 +55,7 @@ export function MiniPortrait({ dean }: { dean: Dean }) {
 /** Wikipedia-infobox-style portrait for the expanded profile: full-size image
  *  on the right with a caption; monogram placeholder when no photo exists. */
 export function FullPortrait({ dean, onSchoolHistory }: { dean: Dean; onSchoolHistory?: () => void }) {
+  const { noun } = useDataset();
   const curated = getDeanPhoto(dean.dean, dean.university);
   const [src, setSrc] = useState<string | null>(curated?.photo || null);
   // reset to the new dean's photo when the panel is reused for a different dean
@@ -84,14 +86,14 @@ export function FullPortrait({ dean, onSchoolHistory }: { dean: Dean; onSchoolHi
           <button
             type="button"
             onClick={onSchoolHistory}
-            title="See this school's dean history"
+            title={`See this school's ${noun.toLowerCase()} history`}
             className="block w-full text-[10px] text-primary hover:underline underline-offset-2 mt-0.5 leading-tight"
           >
             {dean.school}
           </button>
         )}
         <p className="text-[10px] text-muted-foreground">
-          Dean, {dean.startYear || "?"}–{dean.endYear || "present"}
+          {noun}, {dean.startYear || "?"}–{dean.endYear || "present"}
         </p>
         {curated?.page && (
           <a

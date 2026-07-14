@@ -1,5 +1,6 @@
 import { useMemo, useState, useEffect } from "react";
 import { useAllDeans } from "@/data/useData";
+import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS } from "@/data/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,6 +16,7 @@ const photoKey = (dean: string, university: string) => `${dean.trim().toLowerCas
  * and the source/school announcement URL.
  */
 export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: Dean) => void }) {
+  const { noun, nounLower } = useDataset();
   const allDeans = useAllDeans();
   const current = useMemo(
     () => allDeans.filter((d) => d.endYear == null && d.dean && d.startYear && !/unknown/i.test(d.dean)),
@@ -40,11 +42,11 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
     <Card className="lg:sticky lg:top-4 border-2" style={{ borderColor: "#011F5B" }}>
       <CardHeader className="pb-2">
         <CardTitle className="text-base flex items-center gap-2">
-          <span aria-hidden>🎓</span> Meet a Dean (Randomly)
+          <span aria-hidden>🎓</span> Meet a {noun} (Randomly)
           <button
             onClick={() => setPick(Math.random())}
-            aria-label="Show another dean"
-            title="Show another dean"
+            aria-label={`Show another ${nounLower}`}
+            title={`Show another ${nounLower}`}
             className="ml-auto text-muted-foreground hover:text-foreground text-sm"
           >
             ↻
@@ -80,7 +82,7 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
           {dean.university}
         </p>
         <p className="text-xs text-muted-foreground">
-          {dean.isInterim ? "Interim dean" : "Dean"} since {dean.startYear}
+          {dean.isInterim ? `Interim ${nounLower}` : noun} since {dean.startYear}
           {dean.disciplineBroad && dean.disciplineBroad !== "Unknown" ? ` · ${dean.disciplineBroad}` : ""}
         </p>
         <button

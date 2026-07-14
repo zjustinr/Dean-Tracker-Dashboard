@@ -19,7 +19,8 @@ export default function SchoolExplorer({ prefill }: { prefill?: SchoolPrefill | 
   const schools = useSchoolList();
   const allBSQ = useBSQ();
   const findBSQ = useMemo(() => makeFindBSQ(allBSQ as any), [allBSQ]);
-  const datasetMeta = useDataset().meta;
+  const { meta: datasetMeta, noun, nounPluralLower } = useDataset();
+  const isUniv = datasetMeta.schoolType === "university";
   const [selectedKey, setSelectedKey] = useState(schools[0]?.key || "");
   const [sortMode, setSortMode] = useState<SortMode>("rank");
   const deans = useSchoolDeans(selectedKey);
@@ -80,7 +81,7 @@ export default function SchoolExplorer({ prefill }: { prefill?: SchoolPrefill | 
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-end">
             <div className="flex gap-2 items-end">
               <div className="w-[480px]">
-                <label className="text-sm font-medium text-muted-foreground mb-1.5 block">Select a Business School</label>
+                <label className="text-sm font-medium text-muted-foreground mb-1.5 block">{isUniv ? "Select a University" : "Select a School"}</label>
                 <Select value={selectedKey} onValueChange={handleSchoolChange}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Choose a school..." />
@@ -114,7 +115,7 @@ export default function SchoolExplorer({ prefill }: { prefill?: SchoolPrefill | 
                 <Badge variant="secondary">{selectedInfo.university}</Badge>
                 {selectedInfo.rank && <Badge variant="outline">Rank #{selectedInfo.rank}</Badge>}
                 <Badge variant="outline">{selectedInfo.tier}</Badge>
-                <Badge variant="outline">{deans.length} deans on record</Badge>
+                <Badge variant="outline">{deans.length} {nounPluralLower} on record</Badge>
               </div>
             )}
           </div>
@@ -141,8 +142,8 @@ export default function SchoolExplorer({ prefill }: { prefill?: SchoolPrefill | 
               {selectedInfo.university} – {parsed.school}
             </p>
           )}
-          <CardTitle className="text-lg">Dean Tenure Timeline</CardTitle>
-          <p className="text-sm text-muted-foreground">Click a dean to view their full profile. Hover over a bar for a quick summary.</p>
+          <CardTitle className="text-lg">{noun} Tenure Timeline</CardTitle>
+          <p className="text-sm text-muted-foreground">Click a {noun.toLowerCase()} to view their full profile. Hover over a bar for a quick summary.</p>
         </CardHeader>
         <CardContent>
           <DeanTimeline

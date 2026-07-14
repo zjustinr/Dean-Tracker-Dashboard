@@ -42,7 +42,7 @@ function sittingDean(deans: Dean[], year: number): Dean | null {
 export default function DisciplineSearch() {
   const allDeans = useAllDeans();
   const schools = useSchoolsInfo();
-  const { meta } = useDataset();
+  const { meta, noun, nounPlural, nounLower } = useDataset();
 
   const minYear = useMemo(() => {
     let min = MAX_YEAR;
@@ -236,7 +236,7 @@ export default function DisciplineSearch() {
     };
     const header = [
       "Year",
-      "Total Sitting Deans",
+      `Total Sitting ${nounPlural}`,
       ...legendGroups.map((g) => `${g} %`),
       ...legendGroups.map((g) => `${g} (count)`),
     ];
@@ -391,7 +391,7 @@ export default function DisciplineSearch() {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">Dean Disciplines Across the Map</CardTitle>
+          <CardTitle className="text-base">{noun} Disciplines Across the Map</CardTitle>
           <p className="text-sm text-muted-foreground">
             Each school is colored by the academic discipline of the dean serving in the selected year. Drag the slider (or press
             Play) to watch the disciplinary composition of {meta.schoolType} school leadership evolve over time. Click a school to
@@ -435,7 +435,7 @@ export default function DisciplineSearch() {
             ))}
             <span className="flex items-center gap-1.5">
               <span className="inline-block w-3 h-3 rounded-full border border-white/50" style={{ background: NO_DEAN_COLOR }} />
-              <span className="text-muted-foreground">No dean on record</span>
+              <span className="text-muted-foreground">No {nounLower} on record</span>
             </span>
           </div>
 
@@ -465,7 +465,7 @@ export default function DisciplineSearch() {
                     </p>
                   </>
                 ) : (
-                  <p className="text-muted-foreground text-xs">No dean on record in {year}</p>
+                  <p className="text-muted-foreground text-xs">No {nounLower} on record in {year}</p>
                 )}
               </div>
             )}
