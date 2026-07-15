@@ -160,7 +160,7 @@ export default function SchoolExplorer({ prefill }: { prefill?: SchoolPrefill | 
         </>
       )}
 
-      {parsed && datasetMeta.schoolType !== "university" && (() => {
+      {parsed && (datasetMeta.schoolType === "business" || datasetMeta.schoolType === "engineering") && (() => {
         const bsq = findBSQ(parsed.university, parsed.school);
         return bsq ? (
           <>

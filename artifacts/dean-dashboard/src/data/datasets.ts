@@ -15,7 +15,11 @@ import r1uDeans from "./r1-university-deans.json";
 import r1uResearch from "./r1-university-research.json";
 import r1uSchools from "./r1-university-schools.json";
 
-export type DatasetId = "top100" | "r1bschool" | "r1eschool" | "r1university";
+import r1mDeans from "./r1-medschool-deans.json";
+import r1mResearch from "./r1-medschool-research.json";
+import r1mSchools from "./r1-medschool-schools.json";
+
+export type DatasetId = "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical";
 
 export interface SchoolInfo {
   university: string;
@@ -47,7 +51,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university";
+  schoolType: "business" | "engineering" | "university" | "medical";
   yearRange: string;
 }
 
@@ -149,6 +153,20 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     bsq: r1uResearch as unknown as BSQSchool[],
     schools: r1uSchools as unknown as SchoolInfo[],
   },
+  r1medical: {
+    meta: {
+      id: "r1medical",
+      label: "R1 University Medical School Deans",
+      shortLabel: "R1 Medical",
+      description: "Medical school deans across R1 (Carnegie) universities with MD/DO schools",
+      rankLabel: "—",
+      schoolType: "medical",
+      yearRange: "1873–2026",
+    },
+    deans: r1mDeans as unknown as Dean[],
+    bsq: r1mResearch as unknown as BSQSchool[],
+    schools: r1mSchools as unknown as SchoolInfo[],
+  },
 };
 
 // R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
@@ -158,4 +176,5 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.r1bschool.meta,
   DATASETS.r1eschool.meta,
   DATASETS.r1university.meta,
+  DATASETS.r1medical.meta,
 ];
