@@ -15,12 +15,14 @@ function formatMoney(val: number | null): string {
 
 // Headhunter research pack, keyed by "dean|university" (lowercased).
 interface NewsItem { title: string; url: string; source?: string; date?: string; }
+interface CareerStep { role: string; org?: string; years?: string; }
 interface LeaderResearch {
   linkedin?: string;
   summary?: string;      // "why this leader" strengths brief
   expertise?: string[];  // signature themes / domains
   education?: string;    // degrees
   news?: NewsItem[];
+  career?: CareerStep[]; // chronological pre-role trajectory (earliest → current)
 }
 const RESEARCH = leaderResearch as Record<string, LeaderResearch>;
 const researchKey = (dean: string, university: string) =>
@@ -38,6 +40,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
   const title = titleOf(dean);
   const research = RESEARCH[researchKey(dean.dean, dean.university)] || null;
   const hasNews = !!research?.news?.length;
+  const hasCareer = !!research?.career?.length;
 
   return (
     <div className="bg-accent/30 rounded-xl p-5">
@@ -184,7 +187,53 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         </div>
       </div>
 
-      {(dean.priorAssocOrAsstDean || dean.hadDeptChairRole || dean.priorTitle) && (
+      {hasCareer && (
+        <div className="mt-4 pt-3 border-t border-border">
+          <div className="flex items-center gap-1.5 mb-3">
+            <span aria-hidden>🪜</span>
+            <h4 className="text-sm font-bold">Career Path — Before {title}</h4>
+          </div>
+          <div className="relative ml-1">
+            {research!.career!.map((step, i) => {
+              const isLast = i === research!.career!.length - 1;
+              const isCurrent = /\b(present|current)\b/i.test(step.years || "") || isLast;
+              return (
+                <div key={i} className="flex items-start gap-3 relative">
+                  <div className="flex flex-col items-center shrink-0" style={{ width: 28 }}>
+                    <div
+                      className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold z-10 border-2"
+                      style={{
+                        background: isCurrent ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))",
+                        color: "white",
+                        borderColor: isCurrent ? "hsl(var(--primary))" : "hsl(var(--border))",
+                      }}
+                    >
+                      {i + 1}
+                    </div>
+                    {!isLast && (
+                      <svg width="2" height="32" className="my-0.5">
+                        <line x1="1" y1="0" x2="1" y2="24" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" strokeDasharray="3 2" />
+                        <polygon points="0,24 2,24 1,30" fill="hsl(var(--muted-foreground))" />
+                      </svg>
+                    )}
+                  </div>
+                  <div className="pb-2 min-h-[44px]">
+                    <div className="flex items-baseline gap-2 flex-wrap">
+                      <span className={`text-sm font-semibold ${isCurrent ? "text-primary" : ""}`}>{step.role}</span>
+                      {step.years && (
+                        <span className="text-sm font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">{step.years}</span>
+                      )}
+                    </div>
+                    {step.org && <p className="text-xs text-muted-foreground mt-0.5">{step.org}</p>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {!hasCareer && (dean.priorAssocOrAsstDean || dean.hadDeptChairRole || dean.priorTitle) && (
         <div className="mt-4 pt-3 border-t border-border">
           <h4 className="text-sm font-bold mb-3">Prior Leadership History</h4>
           {(() => {
