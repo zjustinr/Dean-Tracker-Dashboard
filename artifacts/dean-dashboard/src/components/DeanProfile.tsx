@@ -33,8 +33,9 @@ interface Props {
 }
 
 export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
-  const { noun, nounPluralLower } = useDataset();
+  const { noun, nounPluralLower, titleOf } = useDataset();
   const careerPositions = useDeanCareer(dean.dean);
+  const title = titleOf(dean);
   const research = RESEARCH[researchKey(dean.dean, dean.university)] || null;
   const hasNews = !!research?.news?.length;
 
@@ -174,7 +175,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
           <span>{dean.priorInstitution || "–"}</span>
         </div>
         <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
-          <span className="text-muted-foreground font-medium">Post-{noun} Role</span>
+          <span className="text-muted-foreground font-medium">Post-{title} Role</span>
           <span>{NEXT_ROLE_LABELS[dean.nextRole] || dean.nextRole || "–"}</span>
           <span className="text-muted-foreground font-medium">Involuntary Exit</span>
           <span>{dean.involuntary ? "Yes" : "No"}</span>
@@ -215,7 +216,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
               careerPositions.forEach((pos, i) => {
                 if (i === currentIdx) return;
                 steps.push({
-                  label: `${noun}, ${pos.school}`,
+                  label: `${titleOf(pos)}, ${pos.school}`,
                   detail: pos.university,
                   year: `${pos.startYear || "?"} – ${pos.endYear || "?"}`,
                   isCurrent: false,
@@ -231,7 +232,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
             }
 
             steps.push({
-              label: `${noun}, ${dean.school}`,
+              label: `${title}, ${dean.school}`,
               detail: dean.university,
               year: `${dean.startYear || "?"} – ${dean.endYear || "Present"}`,
               isCurrent: true,
