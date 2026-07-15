@@ -41,6 +41,28 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
   const research = RESEARCH[researchKey(dean.dean, dean.university)] || null;
   const hasNews = !!research?.news?.length;
   const hasCareer = !!research?.career?.length;
+  const isCurrent = !dean.endYear;
+
+  // "Last job before they first became a dean": the career step just before the
+  // earliest TOP leadership role (dean/president/chancellor, excluding associate/
+  // assistant/vice/deputy variants). Falls back to the row's own prior position.
+  const firstLeadershipPrior = (() => {
+    const c = research?.career;
+    const isTop = (r: string) =>
+      /\b(dean|president|chancellor)\b/i.test(r) &&
+      !/\b(associate|assistant|vice|deputy|senior associate)\s+(dean|president|chancellor)/i.test(r);
+    if (c && c.length) {
+      const idx = c.findIndex((s) => isTop(s.role));
+      if (idx > 0) return c[idx - 1];
+    }
+    if (dean.priorTitle) return { role: dean.priorTitle, org: dean.priorInstitution || "", years: "" };
+    return null;
+  })();
+
+  // News search fallbacks so the News section is never empty/missing.
+  const q = `"${dean.dean}" ${dean.university}`;
+  const googleNewsUrl = `https://news.google.com/search?q=${encodeURIComponent(q)}`;
+  const webSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(q)}`;
 
   return (
     <div className="bg-accent/30 rounded-xl p-5">
@@ -176,10 +198,23 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
           <span>{dean.priorTitle || "–"}</span>
           <span className="text-muted-foreground font-medium">Prior Institution</span>
           <span>{dean.priorInstitution || "–"}</span>
+          {firstLeadershipPrior && (
+            <>
+              <span className="text-muted-foreground font-medium">Before First {noun === "Dean" ? "Deanship" : "Leadership"}</span>
+              <span>
+                {firstLeadershipPrior.role}
+                {firstLeadershipPrior.org ? <span className="text-muted-foreground"> — {firstLeadershipPrior.org}</span> : null}
+              </span>
+            </>
+          )}
         </div>
         <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
-          <span className="text-muted-foreground font-medium">Post-{title} Role</span>
-          <span>{NEXT_ROLE_LABELS[dean.nextRole] || dean.nextRole || "–"}</span>
+          <span className="text-muted-foreground font-medium">{isCurrent ? "Current Status" : `Post-${title} Role`}</span>
+          <span>
+            {isCurrent
+              ? `${dean.isInterim ? "Interim " : ""}${title}${dean.startYear ? `, since ${dean.startYear}` : " (serving)"}`
+              : (NEXT_ROLE_LABELS[dean.nextRole] || dean.nextRole || "–")}
+          </span>
           <span className="text-muted-foreground font-medium">Involuntary Exit</span>
           <span>{dean.involuntary ? "Yes" : "No"}</span>
           <span className="text-muted-foreground font-medium">Had Prior Link</span>
@@ -331,13 +366,13 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         </div>
       )}
 
-      {hasNews && (
-        <div className="mt-4 pt-3 border-t border-border">
-          <div className="flex items-center gap-1.5 mb-2">
-            <span aria-hidden>📰</span>
-            <h4 className="text-sm font-bold">News &amp; Media</h4>
-            <span className="text-[11px] text-muted-foreground">({research!.news!.length})</span>
-          </div>
+      <div className="mt-4 pt-3 border-t border-border">
+        <div className="flex items-center gap-1.5 mb-2">
+          <span aria-hidden>📰</span>
+          <h4 className="text-sm font-bold">News &amp; Media</h4>
+          {hasNews && <span className="text-[11px] text-muted-foreground">({research!.news!.length})</span>}
+        </div>
+        {hasNews ? (
           <ul className="space-y-1.5">
             {research!.news!.map((n, i) => (
               <li key={i} className="text-sm flex gap-2">
@@ -360,8 +395,30 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
               </li>
             ))}
           </ul>
+        ) : (
+          <p className="text-xs text-muted-foreground">No curated coverage on file yet — search live sources:</p>
+        )}
+        <div className="flex gap-2 flex-wrap mt-2">
+          <a
+            href={googleNewsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md border border-border hover:bg-accent"
+            title="Search Google News"
+          >
+            📰 Google News ↗
+          </a>
+          <a
+            href={webSearchUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md border border-border hover:bg-accent"
+            title="Web search"
+          >
+            🔎 Web ↗
+          </a>
         </div>
-      )}
+      </div>
 
       {dean.notes && (
         <p className="text-xs text-muted-foreground mt-3 pt-2 border-t border-border italic">{dean.notes}</p>
