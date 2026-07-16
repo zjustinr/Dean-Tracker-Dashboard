@@ -19,7 +19,11 @@ import r1mDeans from "./r1-medschool-deans.json";
 import r1mResearch from "./r1-medschool-research.json";
 import r1mSchools from "./r1-medschool-schools.json";
 
-export type DatasetId = "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical";
+import r1lDeans from "./r1-lawschool-deans.json";
+import r1lResearch from "./r1-lawschool-research.json";
+import r1lSchools from "./r1-lawschool-schools.json";
+
+export type DatasetId = "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law";
 
 export interface SchoolInfo {
   university: string;
@@ -51,7 +55,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law";
   yearRange: string;
 }
 
@@ -167,14 +171,28 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     bsq: r1mResearch as unknown as BSQSchool[],
     schools: r1mSchools as unknown as SchoolInfo[],
   },
+  r1law: {
+    meta: {
+      id: "r1law",
+      label: "R1 University Law School Deans",
+      shortLabel: "R1 Law",
+      description: "Law school deans across R1 (Carnegie) universities with ABA-accredited J.D. programs",
+      rankLabel: "—",
+      schoolType: "law",
+      yearRange: "1850–2026",
+    },
+    deans: r1lDeans as unknown as Dean[],
+    bsq: r1lResearch as unknown as BSQSchool[],
+    schools: r1lSchools as unknown as SchoolInfo[],
+  },
 };
 
 // R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
-// Planned future expansion: law and medical schools.
 export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.top100.meta,
   DATASETS.r1bschool.meta,
   DATASETS.r1eschool.meta,
   DATASETS.r1university.meta,
   DATASETS.r1medical.meta,
+  DATASETS.r1law.meta,
 ];
