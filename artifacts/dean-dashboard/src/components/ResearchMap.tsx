@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
-import { makeSchoolKey, useBSQ, useSchoolsInfo } from "@/data/useData";
+import { makeSchoolKey, useBSQ, useSchoolsInfo, useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -104,12 +104,33 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
 
   const SCHOOL_INFO = useSchoolsInfo();
   const allBSQ = useBSQ() as BSQEntry[];
-  const isEngineering = useDataset().meta.schoolType === "engineering";
+  const allDeans = useAllDeans();
+  const { meta, noun, nounPluralLower } = useDataset();
+  const isEngineering = meta.schoolType === "engineering";
+  // Only business/engineering carry BSQ/HERD metrics. The leadership-only
+  // datasets (university, medical, law, provost) have none — before, every
+  // marker fell through to a 1.8px grey dot labelled with a null rank, which
+  // read as a broken map. Size those by succession depth instead.
+  const isLeadershipOnly = !(meta.schoolType === "business" || meta.schoolType === "engineering");
   const bsqLookup = useMemo(() => {
     const m = new Map<string, BSQEntry>();
     for (const s of allBSQ) m.set(s.university + "|||" + s.school, s);
     return m;
   }, [allBSQ]);
+
+  // succession depth + who currently sits, per school
+  const tenureStats = useMemo(() => {
+    const m = new Map<string, { count: number; current: string | null; women: number }>();
+    for (const d of allDeans) {
+      const k = makeSchoolKey(d.university, d.school);
+      let e = m.get(k);
+      if (!e) { e = { count: 0, current: null, women: 0 }; m.set(k, e); }
+      e.count++;
+      if (d.isFemale) e.women++;
+      if (d.endYear == null) e.current = d.dean;
+    }
+    return m;
+  }, [allDeans]);
 
   const schoolMarkers = useMemo(() => {
     const raw = SCHOOL_INFO.filter(s => s.lat != null && s.lng != null).map((s) => {
@@ -125,11 +146,20 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
         return v != null ? Number(v) : null;
       };
 
+      const stats = tenureStats.get(schoolKey);
+
       let totalHeadcount: number | null;
       let ugTotal: number;
       let mbaTotal: number;
       let otherTotal: number;
-      if (isEngineering) {
+      if (isLeadershipOnly) {
+        // Size = how many leaders this school has on record; pie = gender split.
+        totalHeadcount = stats?.count ?? null;
+        const w = stats?.women ?? 0;
+        ugTotal = w;                                   // women
+        mbaTotal = Math.max(0, (stats?.count ?? 0) - w); // men/unknown
+        otherTotal = 0;
+      } else if (isEngineering) {
         // For engineering: use total HERD R&D ($K) as the size metric;
         // pie segments = federal / industry / state / other
         totalHeadcount = fb("herdEngrTotal");
@@ -157,6 +187,8 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
         mbaTotal: mbaTotal || 0,
         otherTotal,
         hasBSQ: totalHeadcount != null && totalHeadcount > 0,
+        leaderCount: stats?.count ?? 0,
+        currentLeader: stats?.current ?? null,
         radius: 0,
       };
     });
@@ -177,7 +209,7 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
     }
 
     return spreadOverlappingMarkers(raw);
-  }, [SCHOOL_INFO, bsqLookup, isEngineering]);
+  }, [SCHOOL_INFO, bsqLookup, isEngineering, isLeadershipOnly, tenureStats]);
 
   const hoveredMarker = useMemo(
     () => (hoveredSchool ? schoolMarkers.find((m) => m.schoolKey === hoveredSchool) : null),
@@ -208,10 +240,31 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
           }}
         >
           <p className="font-semibold">{hoveredMarker.fullName}</p>
-          <p className="text-muted-foreground text-xs mb-1">
-            Rank #{hoveredMarker.rank}
-          </p>
-          {hoveredMarker.hasBSQ ? (
+          {hoveredMarker.rank != null && (
+            <p className="text-muted-foreground text-xs mb-1">
+              Rank #{hoveredMarker.rank}
+            </p>
+          )}
+          {isLeadershipOnly ? (
+            <div className="space-y-0.5">
+              <p className="text-xs font-medium">
+                {hoveredMarker.leaderCount} {hoveredMarker.leaderCount === 1 ? noun.toLowerCase() : nounPluralLower} on record
+              </p>
+              {hoveredMarker.currentLeader && (
+                <p className="text-[10px] text-muted-foreground">Current: {hoveredMarker.currentLeader}</p>
+              )}
+              <div className="flex gap-3 text-[10px]">
+                <span className="flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full" style={{ background: PIE_COLORS.ug }} />
+                  Women: {hoveredMarker.ugTotal}
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full" style={{ background: PIE_COLORS.mba }} />
+                  Men/unknown: {hoveredMarker.mbaTotal}
+                </span>
+              </div>
+            </div>
+          ) : hoveredMarker.hasBSQ ? (
             <div className="space-y-0.5">
               <p className="text-xs font-medium">{isEngineering ? "HERD Engr R&D" : "Total Headcount"}: {hoveredMarker.totalHeadcount?.toLocaleString()}{isEngineering ? "K" : ""}</p>
               <div className="flex gap-3 text-[10px]">
@@ -352,7 +405,7 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
                     textShadow: "0 0 3px rgba(0,0,0,0.7), 0 0 1px rgba(0,0,0,0.9)",
                   }}
                 >
-                  {marker.rank}
+                  {isLeadershipOnly ? marker.leaderCount || "" : marker.rank}
                 </text>
               </Marker>
             );
@@ -360,25 +413,33 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
         </ZoomableGroup>
       </ComposableMap>
       <div className="px-3 pb-2 flex gap-4 text-xs text-muted-foreground justify-center flex-wrap items-center">
-        <span>Drag to pan · Scroll to zoom · Bubble size = {isEngineering ? "HERD Engr R&D" : "total headcount"} · Number = rank</span>
+        <span>
+          Drag to pan · Scroll to zoom · Bubble size ={" "}
+          {isLeadershipOnly ? `${nounPluralLower} on record` : isEngineering ? "HERD Engr R&D" : "total headcount"} ·
+          Number = {isLeadershipOnly ? "count" : "rank"}
+        </span>
         <span className="flex items-center gap-3">
           <span className="flex items-center gap-1">
             <span className="inline-block w-3 h-3 rounded-full" style={{ background: PIE_COLORS.ug }} />
-            <span className="text-[10px]">{isEngineering ? "Federal R&D" : "Undergraduate"}</span>
+            <span className="text-[10px]">{isLeadershipOnly ? "Women" : isEngineering ? "Federal R&D" : "Undergraduate"}</span>
           </span>
           <span className="flex items-center gap-1">
             <span className="inline-block w-3 h-3 rounded-full" style={{ background: PIE_COLORS.mba }} />
-            <span className="text-[10px]">{isEngineering ? "Industry R&D" : "MBA"}</span>
+            <span className="text-[10px]">{isLeadershipOnly ? "Men/unknown" : isEngineering ? "Industry R&D" : "MBA"}</span>
           </span>
+          {!isLeadershipOnly && (
+            <span className="flex items-center gap-1">
+              <span className="inline-block w-3 h-3 rounded-full" style={{ background: PIE_COLORS.other }} />
+              <span className="text-[10px]">{isEngineering ? "State/Other R&D" : "Other Grad"}</span>
+            </span>
+          )}
+        </span>
+        {!isLeadershipOnly && (
           <span className="flex items-center gap-1">
-            <span className="inline-block w-3 h-3 rounded-full" style={{ background: PIE_COLORS.other }} />
-            <span className="text-[10px]">{isEngineering ? "State/Other R&D" : "Other Grad"}</span>
+            <span className="inline-block w-3 h-3 rounded-full bg-gray-400 opacity-60" />
+            <span className="text-[10px]">No {isEngineering ? "research" : "BSQ"} data</span>
           </span>
-        </span>
-        <span className="flex items-center gap-1">
-          <span className="inline-block w-3 h-3 rounded-full bg-gray-400 opacity-60" />
-          <span className="text-[10px]">No {isEngineering ? "research" : "BSQ"} data</span>
-        </span>
+        )}
       </div>
     </div>
   );
