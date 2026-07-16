@@ -23,7 +23,12 @@ import r1lDeans from "./r1-lawschool-deans.json";
 import r1lResearch from "./r1-lawschool-research.json";
 import r1lSchools from "./r1-lawschool-schools.json";
 
-export type DatasetId = "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law";
+import r1pDeans from "./r1-provost-deans.json";
+import r1pResearch from "./r1-provost-research.json";
+import r1pSchools from "./r1-provost-schools.json";
+
+export type DatasetId =
+  | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost";
 
 export interface SchoolInfo {
   university: string;
@@ -55,7 +60,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost";
   yearRange: string;
 }
 
@@ -185,6 +190,20 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     bsq: r1lResearch as unknown as BSQSchool[],
     schools: r1lSchools as unknown as SchoolInfo[],
   },
+  r1provost: {
+    meta: {
+      id: "r1provost",
+      label: "R1 University Provosts",
+      shortLabel: "R1 Provost",
+      description: "Chief academic officers of R1 universities — the dean-to-president pipeline's middle rung",
+      rankLabel: "—",
+      schoolType: "provost",
+      yearRange: "1945–2026",
+    },
+    deans: r1pDeans as unknown as Dean[],
+    bsq: r1pResearch as unknown as BSQSchool[],
+    schools: r1pSchools as unknown as SchoolInfo[],
+  },
 };
 
 // R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
@@ -195,4 +214,5 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.r1university.meta,
   DATASETS.r1medical.meta,
   DATASETS.r1law.meta,
+  DATASETS.r1provost.meta,
 ];

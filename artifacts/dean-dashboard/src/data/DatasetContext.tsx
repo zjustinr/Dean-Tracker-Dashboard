@@ -8,14 +8,16 @@ interface DatasetCtx {
   meta: DatasetMeta;
   list: DatasetMeta[];
   // Dataset-aware label for the person a row represents: "Dean" for
-  // business/engineering schools, "Leader" for university president/chancellor data.
+  // business/engineering/medical/law schools, "Leader" for university
+  // president/chancellor data, "Provost" for chief-academic-officer data.
   noun: string;
   nounPlural: string;
   nounLower: string;
   nounPluralLower: string;
-  // The specific person's actual title (e.g. "President", "Chancellor") for the
-  // university dataset — falls back to the generic noun otherwise. Interim/acting
-  // markers are stripped since a separate Interim badge already conveys that.
+  // The specific person's actual title (e.g. "President", "Chancellor",
+  // "Executive Vice President and Provost") for datasets whose titles vary —
+  // falls back to the generic noun otherwise. Interim/acting markers are
+  // stripped since a separate Interim badge already conveys that.
   titleOf: (d: { discipline?: string | null } | null | undefined) => string;
 }
 
@@ -26,10 +28,13 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
   const value = useMemo(() => {
     const bundle = DATASETS[datasetId];
     const isUniv = bundle.meta.schoolType === "university";
-    const noun = isUniv ? "Leader" : "Dean";
-    const nounPlural = isUniv ? "Leaders" : "Deans";
+    const isProvost = bundle.meta.schoolType === "provost";
+    // Datasets that carry the officeholder's real title in `discipline`.
+    const titleVaries = isUniv || isProvost;
+    const noun = isUniv ? "Leader" : isProvost ? "Provost" : "Dean";
+    const nounPlural = isUniv ? "Leaders" : isProvost ? "Provosts" : "Deans";
     const titleOf = (d: { discipline?: string | null } | null | undefined): string => {
-      if (isUniv) {
+      if (titleVaries) {
         const t = (d?.discipline || "")
           .replace(/\s*\([^)]*(interim|acting)[^)]*\)/gi, "") // "President (interim)" -> "President"
           .replace(/^\s*(interim|acting)\s+/i, "")            // "Interim President" -> "President"
