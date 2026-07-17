@@ -132,6 +132,11 @@ export const NEXT_ROLE_LABELS: Record<string, string> = {
   Provost_president_chancellor: "Provost/President",
   Industry_nonprofit_govt: "Industry/Nonprofit/Govt",
   Still_serving: "Still Serving",
+  // A spell that ended only on paper: the same person kept leading the same college,
+  // almost always an interim confirmed as permanent. Distinct from Still_serving
+  // ("holds the role today") and from Another_deanship ("moved to a different college").
+  // Kept separate because interim-to-permanent conversion is itself a research variable.
+  Continued_same_college: "Continued in Role",
   Unknown: "Unknown",
   Deceased: "Deceased",
 };
