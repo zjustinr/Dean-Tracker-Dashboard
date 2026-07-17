@@ -31,9 +31,13 @@ import agDeans from "./r1-agschool-deans.json";
 import agResearch from "./r1-agschool-research.json";
 import agSchools from "./r1-agschool-schools.json";
 
+import nurDeans from "./r1-nursing-deans.json";
+import nurResearch from "./r1-nursing-research.json";
+import nurSchools from "./r1-nursing-schools.json";
+
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag";
+  | "usag" | "usnursing";
 
 export interface SchoolInfo {
   university: string;
@@ -65,7 +69,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing";
   yearRange: string;
 }
 
@@ -227,6 +231,26 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     bsq: agResearch as unknown as BSQSchool[],
     schools: agSchools as unknown as SchoolInfo[],
   },
+  // Also not scoped to R1. Nursing is the inverse of agriculture: the college is
+  // near-universal, so the bar is a STANDALONE, dean-led School/College of Nursing
+  // that grants a doctorate (PhD/DNS/DNP) -- that excludes the many nursing
+  // departments nested under a College of Health Sciences. Reaches public and
+  // private alike (many top schools are private) plus a few for-profits; `tier`
+  // carries the Carnegie class since most are non-R1 and carry no US News rank.
+  usnursing: {
+    meta: {
+      id: "usnursing",
+      label: "US Nursing School Deans",
+      shortLabel: "Nursing",
+      description: "Deans of standalone, dean-led Schools & Colleges of Nursing that grant a doctorate — public, private, and for-profit, across all 50 states",
+      rankLabel: "Carnegie class",
+      schoolType: "nursing",
+      yearRange: "1889–2026",
+    },
+    deans: nurDeans as unknown as Dean[],
+    bsq: nurResearch as unknown as BSQSchool[],
+    schools: nurSchools as unknown as SchoolInfo[],
+  },
 };
 
 // R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
@@ -239,4 +263,5 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.r1law.meta,
   DATASETS.r1provost.meta,
   DATASETS.usag.meta,
+  DATASETS.usnursing.meta,
 ];
