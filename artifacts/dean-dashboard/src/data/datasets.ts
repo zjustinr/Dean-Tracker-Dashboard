@@ -35,9 +35,13 @@ import nurDeans from "./r1-nursing-deans.json";
 import nurResearch from "./r1-nursing-research.json";
 import nurSchools from "./r1-nursing-schools.json";
 
+import phaDeans from "./r1-pharmacy-deans.json";
+import phaResearch from "./r1-pharmacy-research.json";
+import phaSchools from "./r1-pharmacy-schools.json";
+
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing";
+  | "usag" | "usnursing" | "uspharmacy";
 
 export interface SchoolInfo {
   university: string;
@@ -69,7 +73,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy";
   yearRange: string;
 }
 
@@ -251,6 +255,24 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     bsq: nurResearch as unknown as BSQSchool[],
     schools: nurSchools as unknown as SchoolInfo[],
   },
+  // Also not R1-scoped. The bar mirrors nursing: an ACPE-accredited, dean-led
+  // standalone College/School of Pharmacy granting the PharmD -- public, private,
+  // and one for-profit, across all 50 states. `tier` carries the Carnegie class
+  // since most are non-R1 (many are health-science centers or small privates).
+  uspharmacy: {
+    meta: {
+      id: "uspharmacy",
+      label: "US Pharmacy School Deans",
+      shortLabel: "Pharmacy",
+      description: "Deans of ACPE-accredited, dean-led Colleges & Schools of Pharmacy granting the PharmD — public, private, and for-profit, across all 50 states",
+      rankLabel: "Carnegie class",
+      schoolType: "pharmacy",
+      yearRange: "1866–2026",
+    },
+    deans: phaDeans as unknown as Dean[],
+    bsq: phaResearch as unknown as BSQSchool[],
+    schools: phaSchools as unknown as SchoolInfo[],
+  },
 };
 
 // R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
@@ -264,4 +286,5 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.r1provost.meta,
   DATASETS.usag.meta,
   DATASETS.usnursing.meta,
+  DATASETS.uspharmacy.meta,
 ];
