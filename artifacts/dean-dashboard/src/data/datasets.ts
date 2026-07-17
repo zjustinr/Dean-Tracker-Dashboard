@@ -43,9 +43,13 @@ import eduDeans from "./r1-education-deans.json";
 import eduResearch from "./r1-education-research.json";
 import eduSchools from "./r1-education-schools.json";
 
+import artDeans from "./r1-arts-deans.json";
+import artResearch from "./r1-arts-research.json";
+import artSchools from "./r1-arts-schools.json";
+
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts";
 
 export interface SchoolInfo {
   university: string;
@@ -77,7 +81,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts";
   yearRange: string;
 }
 
@@ -297,6 +301,25 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     bsq: eduResearch as unknown as BSQSchool[],
     schools: eduSchools as unknown as SchoolInfo[],
   },
+  // Back to R1-scoped. The unit of analysis is (university, COLLEGE): a university may
+  // run one College of Arts & Sciences or partition its liberal-arts core across
+  // Humanities / Natural Sciences / Social Sciences colleges (Arizona, Utah, UC San
+  // Diego, UT Dallas each field 3-4), so a single university can appear as several rows.
+  // 156 R1 universities → 222 dean-led A&S colleges. Every unit is R1 by construction.
+  r1arts: {
+    meta: {
+      id: "r1arts",
+      label: "R1 University Arts & Sciences Deans",
+      shortLabel: "Arts & Sciences",
+      description: "Deans of the Arts & Sciences colleges at R1 universities — the largest, oldest college on most campuses, counted per college where a university splits it",
+      rankLabel: "—",
+      schoolType: "arts",
+      yearRange: "1873–2026",
+    },
+    deans: artDeans as unknown as Dean[],
+    bsq: artResearch as unknown as BSQSchool[],
+    schools: artSchools as unknown as SchoolInfo[],
+  },
 };
 
 // R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
@@ -312,4 +335,5 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.usnursing.meta,
   DATASETS.uspharmacy.meta,
   DATASETS.useducation.meta,
+  DATASETS.r1arts.meta,
 ];
