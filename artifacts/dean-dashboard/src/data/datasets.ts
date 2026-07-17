@@ -39,9 +39,13 @@ import phaDeans from "./r1-pharmacy-deans.json";
 import phaResearch from "./r1-pharmacy-research.json";
 import phaSchools from "./r1-pharmacy-schools.json";
 
+import eduDeans from "./r1-education-deans.json";
+import eduResearch from "./r1-education-research.json";
+import eduSchools from "./r1-education-schools.json";
+
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation";
 
 export interface SchoolInfo {
   university: string;
@@ -73,7 +77,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education";
   yearRange: string;
 }
 
@@ -273,6 +277,26 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     bsq: phaResearch as unknown as BSQSchool[],
     schools: phaSchools as unknown as SchoolInfo[],
   },
+  // Also not R1-scoped. The bar is a STANDALONE, dean-led College/School of
+  // Education (education the lead unit) granting a doctorate (PhD/EdD) -- that
+  // excludes education departments nested under a College of Health & Human
+  // Sciences and the many colleges recently folded into combined units. Reaches
+  // flagships, regional publics, HBCUs, and private EdD grantors; `tier` carries
+  // the Carnegie class since most carry no US News rank.
+  useducation: {
+    meta: {
+      id: "useducation",
+      label: "US Education School Deans",
+      shortLabel: "Education",
+      description: "Deans of standalone, dean-led Schools & Colleges of Education that grant a doctorate (PhD/EdD) — public and private, across all 50 states",
+      rankLabel: "Carnegie class",
+      schoolType: "education",
+      yearRange: "1906–2026",
+    },
+    deans: eduDeans as unknown as Dean[],
+    bsq: eduResearch as unknown as BSQSchool[],
+    schools: eduSchools as unknown as SchoolInfo[],
+  },
 };
 
 // R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
@@ -287,4 +311,5 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.usag.meta,
   DATASETS.usnursing.meta,
   DATASETS.uspharmacy.meta,
+  DATASETS.useducation.meta,
 ];
