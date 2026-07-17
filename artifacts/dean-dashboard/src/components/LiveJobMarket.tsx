@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
+import { isAlbersUsaMappable } from "@/data/useData";
 import jobData from "@/data/jobmarket.json";
 import breakingData from "@/data/breaking-news.json";
 import latestNews from "@/data/latest-news.json";
@@ -89,7 +90,11 @@ function getBubbleRadius(faculty: number | null, isSelected: boolean): number {
 function JobMarketMap({ filtered, onSelect, selectedId }: { filtered: JobListing[]; onSelect: (l: JobListing) => void; selectedId: number | null }) {
   const [tooltip, setTooltip] = useState<{ x: number; y: number; listing: JobListing } | null>(null);
 
-  const mappable = filtered.filter(l => l.lat !== null && l.lng !== null);
+  // Not a bare null check: geoAlbersUsa returns null outside the 50 states + DC,
+  // and react-simple-maps destructures that null and white-screens the page.
+  // This board carries Toronto and Oxford listings that are safe today only
+  // because their coordinates happen to be null — don't rely on that.
+  const mappable = filtered.filter(isAlbersUsaMappable);
 
   return (
     <div className="bg-card border border-border rounded-xl overflow-hidden">

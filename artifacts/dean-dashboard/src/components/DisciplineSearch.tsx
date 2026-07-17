@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
-import { useAllDeans, useSchoolsInfo, makeSchoolKey } from "@/data/useData";
+import { useAllDeans, useSchoolsInfo, makeSchoolKey, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS } from "@/data/types";
@@ -159,7 +159,7 @@ export default function DisciplineSearch() {
 
   const markers = useMemo(() => {
     const raw = schools
-      .filter((s) => s.lat != null && s.lng != null)
+      .filter(isAlbersUsaMappable)  // geoAlbersUsa returns null outside the 50 states + DC
       .map((s) => {
         const key = makeSchoolKey(s.university, s.school);
         const dean = sittingDean(deansBySchool.get(key) || [], year);

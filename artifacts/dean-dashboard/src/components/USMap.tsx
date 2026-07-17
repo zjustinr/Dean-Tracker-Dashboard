@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
-import { useAllDeans, makeSchoolKey, useSchoolsInfo } from "@/data/useData";
+import { useAllDeans, makeSchoolKey, useSchoolsInfo, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -106,7 +106,8 @@ export default function USMap({ selectedSchoolKey, onSelectSchool }: Props) {
       }
     }
 
-    const raw = SCHOOL_INFO.filter(s => s.lat != null && s.lng != null).map((s) => {
+    // see isAlbersUsaMappable: geoAlbersUsa returns null outside the 50 states + DC
+    const raw = SCHOOL_INFO.filter(isAlbersUsaMappable).map((s) => {
       const deanUniversity = s.university;
       const deanSchoolName = s.school;
       const schoolKey = makeSchoolKey(deanUniversity, deanSchoolName);

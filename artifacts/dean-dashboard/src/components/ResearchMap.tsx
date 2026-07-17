@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback } from "react";
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
-import { makeSchoolKey, useBSQ, useSchoolsInfo, useAllDeans } from "@/data/useData";
+import { makeSchoolKey, useBSQ, useSchoolsInfo, useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -133,7 +133,10 @@ export default function ResearchMap({ selectedSchoolKey, onSelectSchool }: Props
   }, [allDeans]);
 
   const schoolMarkers = useMemo(() => {
-    const raw = SCHOOL_INFO.filter(s => s.lat != null && s.lng != null).map((s) => {
+    // isAlbersUsaMappable, not a bare null check: geoAlbersUsa returns null for
+    // anything outside the 50 states + DC (the Ag dataset's territorial
+    // land-grants), and react-simple-maps destructures that null and crashes.
+    const raw = SCHOOL_INFO.filter(isAlbersUsaMappable).map((s) => {
       const deanUniversity = s.university;
       const deanSchoolName = s.school;
       const schoolKey = makeSchoolKey(deanUniversity, deanSchoolName);

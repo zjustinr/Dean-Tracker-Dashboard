@@ -93,3 +93,31 @@ export function computeCrosstab(
 
   return { rows: rowValues, cols: colValues, matrix, totals: { row: rowTotals, col: colTotals, grand } };
 }
+
+/**
+ * geoAlbersUsa — the projection every map in this app uses — is defined ONLY for
+ * the 50 states + DC. For anything outside it (US territories, foreign campuses)
+ * the projection returns `null`, and react-simple-maps then does
+ * `const [x, y] = projection(coordinates)` on that null, which throws
+ * "Invalid attempt to destructure non-iterable instance" and white-screens the
+ * whole page.
+ *
+ * This bit first with the Ag & Forestry dataset, which is the only one that
+ * reaches the territorial land-grants (Puerto Rico Mayagüez, Guam, the Virgin
+ * Islands). LiveJobMarket carries Toronto and Oxford listings that are safe today
+ * only because their coordinates happen to be null.
+ *
+ * Any map plotting markers must filter with this.
+ */
+export const ALBERS_USA_STATES = new Set([
+  "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME",
+  "MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA",
+  "RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC",
+]);
+
+export function isAlbersUsaMappable(
+  s: { state?: string | null; lat?: number | null; lng?: number | null }
+): boolean {
+  if (s.lat == null || s.lng == null) return false;
+  return ALBERS_USA_STATES.has(String(s.state ?? "").trim().toUpperCase());
+}
