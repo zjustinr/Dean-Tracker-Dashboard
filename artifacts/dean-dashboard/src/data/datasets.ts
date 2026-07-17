@@ -27,8 +27,13 @@ import r1pDeans from "./r1-provost-deans.json";
 import r1pResearch from "./r1-provost-research.json";
 import r1pSchools from "./r1-provost-schools.json";
 
+import agDeans from "./r1-agschool-deans.json";
+import agResearch from "./r1-agschool-research.json";
+import agSchools from "./r1-agschool-schools.json";
+
 export type DatasetId =
-  | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost";
+  | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
+  | "usag";
 
 export interface SchoolInfo {
   university: string;
@@ -60,7 +65,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture";
   yearRange: string;
 }
 
@@ -204,6 +209,24 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     bsq: r1pResearch as unknown as BSQSchool[],
     schools: r1pSchools as unknown as SchoolInfo[],
   },
+  // The only dataset not scoped to R1: the universe here is the land-grant system
+  // plus non-land-grant publics with an ag/forestry college, so it reaches HBCUs,
+  // regional publics, a tribal college and the territorial land-grants. `tier`
+  // carries land-grant status (1862/1890/1994) rather than a meaningless rank.
+  usag: {
+    meta: {
+      id: "usag",
+      label: "US Agriculture & Forestry School Deans",
+      shortLabel: "Ag & Forestry",
+      description: "Deans of agriculture and forestry colleges at US public universities — the land-grant system, plus proven private exceptions",
+      rankLabel: "Land-grant status",
+      schoolType: "agriculture",
+      yearRange: "1870–2026",
+    },
+    deans: agDeans as unknown as Dean[],
+    bsq: agResearch as unknown as BSQSchool[],
+    schools: agSchools as unknown as SchoolInfo[],
+  },
 };
 
 // R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
@@ -215,4 +238,5 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS.r1medical.meta,
   DATASETS.r1law.meta,
   DATASETS.r1provost.meta,
+  DATASETS.usag.meta,
 ];
