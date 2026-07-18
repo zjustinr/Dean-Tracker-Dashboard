@@ -117,34 +117,38 @@ function AppInner() {
           <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3.5">
-                <svg width="56" height="56" viewBox="0 0 72 72" aria-hidden="true" className="shrink-0">
-                  <polygon
-                    points="13,7 65,7 65,57 57,65 7,65 7,15"
-                    fill="#B22234"
-                    stroke="#B22234"
-                    strokeWidth="6"
-                    strokeLinejoin="round"
-                  />
-                  <text
-                    x="36"
-                    y="47"
-                    textAnchor="middle"
-                    fontFamily="'EB Garamond', Garamond, Georgia, serif"
-                    fontWeight="700"
-                    fontSize="34"
-                    fill="#ffffff"
-                  >
-                    LD
-                  </text>
-                </svg>
                 <div>
-                  <h1
-                    className="text-4xl tracking-tight leading-none"
-                    style={{ fontFamily: "'EB Garamond', Garamond, Georgia, 'Times New Roman', serif", fontWeight: 600 }}
-                  >
-                    Leadership Dashboard
+                  {/* Baton Index wordmark. Inlined rather than <img src="/logo.svg"> so the
+                      type can follow dark mode -- the shipped SVG hardcodes near-black ink,
+                      which disappears on a dark background. Rust stays fixed per the brand
+                      guide; "baton" goes white and "index" goes #9CA3AF when inverted. */}
+                  <h1 className="leading-none">
+                    <svg
+                      viewBox="0 0 252 82"
+                      role="img"
+                      aria-label="Baton Index"
+                      className="h-[46px] w-auto shrink-0"
+                    >
+                      <title>Baton Index</title>
+                      <rect x="0" y="0" width="252" height="24" rx="12" fill="#9A3412" />
+                      <text
+                        x="126"
+                        y="79"
+                        textAnchor="middle"
+                        textLength="252"
+                        lengthAdjust="spacing"
+                        fontFamily="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif"
+                        fontSize="52"
+                        letterSpacing="-1"
+                        fontWeight="600"
+                        className="fill-[#17181A] dark:fill-white"
+                      >
+                        baton
+                        <tspan fontWeight="400" className="fill-[#6B7280] dark:fill-[#9CA3AF]">index</tspan>
+                      </text>
+                    </svg>
                   </h1>
-                  <p className="text-sm text-muted-foreground mt-1">Explore school leadership changes, one person at a time</p>
+                  <p className="text-sm text-muted-foreground mt-1.5">Leadership succession data for higher education</p>
                 </div>
               </div>
             </div>

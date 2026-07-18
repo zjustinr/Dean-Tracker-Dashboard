@@ -23,7 +23,7 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 artifacts-monorepo/
 ├── artifacts/              # Deployable applications
 │   ├── api-server/         # Express API server
-│   └── dean-dashboard/     # Business School Dean Leadership Dashboard (React + Vite)
+│   └── dean-dashboard/     # Baton Index dashboard (React + Vite)
 ├── lib/                    # Shared libraries
 │   ├── api-spec/           # OpenAPI spec + Orval codegen config
 │   ├── api-client-react/   # Generated React Query hooks
@@ -39,7 +39,7 @@ artifacts-monorepo/
 └── package.json            # Root package with hoisted devDeps
 ```
 
-## Dean Leadership Dashboard
+## Baton Index dashboard
 
 Interactive data visualization dashboard for studying leadership changes at top business schools.
 
