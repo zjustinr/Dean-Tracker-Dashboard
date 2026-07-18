@@ -118,37 +118,39 @@ function AppInner() {
             <div>
               <div className="flex items-center gap-3.5">
                 <div>
-                  {/* Baton Index wordmark. Inlined rather than <img src="/logo.svg"> so the
-                      type can follow dark mode -- the shipped SVG hardcodes near-black ink,
-                      which disappears on a dark background. Rust stays fixed per the brand
-                      guide; "baton" goes white and "index" goes #9CA3AF when inverted. */}
+                  {/* Baton Index lockup: white baton bar and wordmark reversed out of a
+                      crimson plate. Because the type sits on its own plate rather than the
+                      page, this needs no dark-mode variant -- it reads the same either way.
+                      Horizontal form (not the square lockup) so the wordmark stays legible
+                      at header height; the square lives at /lockup-square.svg. */}
                   <h1 className="leading-none">
                     <svg
-                      viewBox="0 0 252 82"
+                      viewBox="0 0 420 150"
                       role="img"
                       aria-label="Baton Index"
-                      className="h-[46px] w-auto shrink-0"
+                      className="h-[52px] w-auto shrink-0"
                     >
                       <title>Baton Index</title>
-                      <rect x="0" y="0" width="252" height="24" rx="12" fill="#9A3412" />
+                      <rect x="0" y="0" width="420" height="150" rx="20" fill="#A31F34" />
+                      <rect x="60" y="32" width="300" height="22" rx="11" fill="#FFFFFF" />
                       <text
-                        x="126"
-                        y="79"
+                        x="210"
+                        y="116"
                         textAnchor="middle"
-                        textLength="252"
+                        textLength="300"
                         lengthAdjust="spacing"
                         fontFamily="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif"
-                        fontSize="52"
+                        fontSize="58"
                         letterSpacing="-1"
                         fontWeight="600"
-                        className="fill-[#17181A] dark:fill-white"
+                        fill="#FFFFFF"
                       >
                         baton
-                        <tspan fontWeight="400" className="fill-[#6B7280] dark:fill-[#9CA3AF]">index</tspan>
+                        <tspan fontWeight="400" fill="#8A8B8C">index</tspan>
                       </text>
                     </svg>
                   </h1>
-                  <p className="text-sm text-muted-foreground mt-1.5">Leadership succession data for higher education</p>
+                  <p className="text-sm text-muted-foreground mt-2">Leadership succession data for higher education</p>
                 </div>
               </div>
             </div>
