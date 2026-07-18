@@ -2,12 +2,10 @@ import { useState, useRef, useCallback } from "react";
 import SchoolExplorer from "@/components/SchoolExplorer";
 import CrossSchoolAnalysis from "@/components/CrossSchoolAnalysis";
 import AggregateTrends from "@/components/AggregateTrends";
-import InterimAnalysis from "@/components/InterimAnalysis";
 import IndividualSearch, { DeanSearchPrefill } from "@/components/IndividualSearch";
 import MeetTheDean from "@/components/MeetTheDean";
 import type { Dean } from "@/data/types";
 import LiveJobMarket from "@/components/LiveJobMarket";
-import CompareDatasets from "@/components/CompareDatasets";
 import DisciplineSearch from "@/components/DisciplineSearch";
 import BreakingNews from "@/components/BreakingNews";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
@@ -20,9 +18,7 @@ interface TabDef {
 
 const DEFAULT_TABS: TabDef[] = [
   { value: "explorer", label: "School Explorer", desc: "Browse dean histories by school with interactive tenure timelines and list/map views." },
-  { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics." },
-  { value: "compare", label: "Compare Datasets", desc: "Compare the Top-100 and R1 business school datasets side by side." },
-  { value: "interim", label: "Interim Analysis", desc: "Track interim dean appointments and leadership transitions." },
+  { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics — including interim appointments." },
   { value: "discipline", label: "Discipline Search", desc: "Map dean disciplines by school and watch their composition evolve over time." },
   { value: "search", label: "Individual Search", desc: "Search and explore individual dean profiles and career paths." },
   { value: "jobmarket", label: "Dean News & Market", desc: "Stay updated with the latest dean-related news and market activity." },
@@ -40,10 +36,8 @@ function buildTabContent(
     explorer: <SchoolExplorer prefill={schoolPrefill} />,
     trends: <AggregateTrends />,
     analysis: <CrossSchoolAnalysis />,
-    interim: <InterimAnalysis />,
     search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} />,
     jobmarket: <LiveJobMarket />,
-    compare: <CompareDatasets />,
     discipline: <DisciplineSearch />,
   };
 }

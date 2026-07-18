@@ -1,10 +1,8 @@
-import { useState, useMemo } from "react";
+﻿import { useState, useMemo } from "react";
 import { useAllDeans, computeCrosstab } from "@/data/useData";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Switch } from "@/components/ui/switch";
 import {
   ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell,
   BarChart, Bar, Legend, PieChart, Pie,
@@ -24,15 +22,10 @@ function prettyLabel(field: string, val: string): string {
 
 export default function CrossSchoolAnalysis() {
   const allDeans = useAllDeans();
-  const [top50Only, setTop50Only] = useState(false);
-  const data = useMemo(() => (top50Only ? allDeans.filter((d) => d.inTop50) : allDeans), [allDeans, top50Only]);
+  const data = allDeans;
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <Switch id="top50" checked={top50Only} onCheckedChange={setTop50Only} />
-        <Label htmlFor="top50" className="text-sm">Top 50 schools only</Label>
-      </div>
       <Tabs defaultValue="crosstab">
         <TabsList>
           <TabsTrigger value="crosstab">Pivot Table</TabsTrigger>

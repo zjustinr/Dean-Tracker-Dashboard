@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 import { useAllDeans } from "@/data/useData";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
@@ -13,8 +13,14 @@ import { useDataset } from "@/data/DatasetContext";
 export default function AggregateTrends() {
   const { noun, nounPlural, nounLower, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
-  const [top50Only, setTop50Only] = useState(false);
-  const data = useMemo(() => (top50Only ? allDeans.filter((d) => d.inTop50) : allDeans), [allDeans, top50Only]);
+  const [interimOnly, setInterimOnly] = useState(false);
+  // Conversion lookups need to see permanent appointments even when the view is
+  // filtered to interims, so they search the full pool rather than `data`.
+  const convPool = allDeans;
+  const data = useMemo(
+    () => (interimOnly ? convPool.filter((d) => d.isInterim) : convPool),
+    [convPool, interimOnly]
+  );
 
   const appointmentsByDecade = useMemo(() => {
     const decades: Record<string, { total: number; female: number; internal: number; external: number; interim: number; firstTime: number }> = {};
@@ -137,7 +143,7 @@ export default function AggregateTrends() {
   const interimConversion = useMemo(() => {
     const interims = data.filter((d) => d.isInterim);
     const converted = interims.filter((interim) =>
-      data.some(
+      convPool.some(
         (d) =>
           !d.isInterim &&
           d.dean === interim.dean &&
@@ -158,7 +164,7 @@ export default function AggregateTrends() {
       if (!byEra[era]) byEra[era] = { interims: 0, converted: 0 };
       byEra[era].interims++;
       if (
-        data.some(
+        convPool.some(
           (d) =>
             !d.isInterim &&
             d.dean === interim.dean &&
@@ -188,7 +194,7 @@ export default function AggregateTrends() {
       if (!byTier[tier]) byTier[tier] = { interims: 0, converted: 0 };
       byTier[tier].interims++;
       if (
-        data.some(
+        convPool.some(
           (d) =>
             !d.isInterim &&
             d.dean === interim.dean &&
@@ -218,7 +224,7 @@ export default function AggregateTrends() {
       if (!byGender[g]) byGender[g] = { interims: 0, converted: 0 };
       byGender[g].interims++;
       if (
-        data.some(
+        convPool.some(
           (d) =>
             !d.isInterim &&
             d.dean === interim.dean &&
@@ -244,14 +250,20 @@ export default function AggregateTrends() {
       }));
 
     return { total, convertedCount, rate, byEraData, byTierData, byGenderData };
-  }, [data]);
+  }, [data, convPool]);
 
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <Switch id="top50agg" checked={top50Only} onCheckedChange={setTop50Only} />
-        <Label htmlFor="top50agg" className="text-sm">Top 50 schools only</Label>
+        <Switch id="interimagg" checked={interimOnly} onCheckedChange={setInterimOnly} />
+        <Label htmlFor="interimagg" className="text-sm">Interim appointments only</Label>
       </div>
+      {interimOnly && (
+        <p className="text-xs text-muted-foreground -mt-3">
+          Showing only interim appointments. Conversion metrics below compare interims who moved into
+          the permanent role against those who did not.
+        </p>
+      )}
 
       <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         <KPICard label={`Total ${nounPlural}`} value={String(kpis.total)} />

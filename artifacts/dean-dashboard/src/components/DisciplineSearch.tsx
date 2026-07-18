@@ -229,41 +229,6 @@ export default function DisciplineSearch() {
     [composition, chartStart, minYear]
   );
 
-  const downloadCSV = useCallback(() => {
-    const esc = (v: string | number) => {
-      const s = String(v);
-      return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
-    };
-    const header = [
-      "Year",
-      `Total Sitting ${nounPlural}`,
-      ...legendGroups.map((g) => `${g} %`),
-      ...legendGroups.map((g) => `${g} (count)`),
-    ];
-    const lines = [header.map(esc).join(",")];
-    for (const row of composition) {
-      lines.push(
-        [
-          row.year,
-          row.total,
-          ...legendGroups.map((g) => Math.round((row[g] as number) * 100) / 100),
-          ...legendGroups.map((g) => row[`${g} (count)`]),
-        ]
-          .map((v) => esc(v as string | number))
-          .join(",")
-      );
-    }
-    const blob = new Blob(["\uFEFF" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `discipline_composition_${meta.id}_${minYear}-${MAX_YEAR}.csv`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }, [composition, legendGroups, meta.id, minYear]);
-
   const hoveredMarker = useMemo(
     () => (hoveredKey ? markers.find((m) => m.schoolKey === hoveredKey) : null),
     [hoveredKey, markers]
@@ -575,12 +540,6 @@ export default function DisciplineSearch() {
                 </SelectContent>
               </Select>
             </div>
-            <button
-              onClick={downloadCSV}
-              className="px-4 py-1.5 rounded-lg border border-border bg-card hover:bg-muted text-sm font-semibold"
-            >
-              Download CSV
-            </button>
           </div>
         </CardHeader>
         <CardContent>
