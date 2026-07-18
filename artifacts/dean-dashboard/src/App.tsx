@@ -117,40 +117,23 @@ function AppInner() {
           <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3.5">
-                <div>
-                  {/* Baton Index lockup: white baton bar and wordmark reversed out of a
-                      crimson plate. Because the type sits on its own plate rather than the
-                      page, this needs no dark-mode variant -- it reads the same either way.
-                      Horizontal form (not the square lockup) so the wordmark stays legible
-                      at header height; the square lives at /lockup-square.svg. */}
-                  <h1 className="leading-none">
-                    <svg
-                      viewBox="0 0 420 150"
-                      role="img"
-                      aria-label="Baton Index"
-                      className="h-[52px] w-auto shrink-0"
-                    >
-                      <title>Baton Index</title>
-                      <rect x="0" y="0" width="420" height="150" rx="20" fill="#A31F34" />
-                      <rect x="60" y="32" width="300" height="22" rx="11" fill="#FFFFFF" />
-                      <text
-                        x="210"
-                        y="116"
-                        textAnchor="middle"
-                        textLength="300"
-                        lengthAdjust="spacing"
-                        fontFamily="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif"
-                        fontSize="58"
-                        letterSpacing="-1"
-                        fontWeight="600"
-                        fill="#FFFFFF"
-                      >
-                        baton
-                        <tspan fontWeight="400" fill="#8A8B8C">index</tspan>
-                      </text>
-                    </svg>
+                <div className="flex items-center gap-3.5">
+                  {/* Square lockup. The wordmark is outlined vector paths, not live text,
+                      so it renders identically regardless of which fonts a device has --
+                      the previous version relied on Segoe UI resolving, which phones don't
+                      have. Plate-backed, so it needs no dark-mode variant. */}
+                  <h1 className="leading-none shrink-0">
+                    <img
+                      src="/logo.svg"
+                      alt="Baton Index"
+                      width={64}
+                      height={64}
+                      className="h-16 w-16 block"
+                    />
                   </h1>
-                  <p className="text-sm text-muted-foreground mt-2">Leadership succession data for higher education</p>
+                  <p className="text-sm text-muted-foreground max-w-[15rem]">
+                    Leadership succession data for higher education
+                  </p>
                 </div>
               </div>
             </div>
