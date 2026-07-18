@@ -173,7 +173,7 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
     meta: {
       id: "r1university",
       label: "R1 University Presidents & Chancellors",
-      shortLabel: "R1 University",
+      shortLabel: "R1 Presidents",
       description: "Presidents and chancellors of R1 universities, 1980–2026",
       rankLabel: "—",
       schoolType: "university",

@@ -16,12 +16,16 @@ interface TabDef {
   desc: string;
 }
 
+// Descriptions deliberately say "leader" rather than "dean": the app spans deans,
+// provosts and presidents, so the generic term reads correctly on every dataset.
+// `relabel` below leaves these untouched (it only rewrites "dean"), so they stay
+// uniform across the dataset switcher.
 const DEFAULT_TABS: TabDef[] = [
-  { value: "explorer", label: "School Explorer", desc: "Browse dean histories by school with interactive tenure timelines and list/map views." },
+  { value: "explorer", label: "School Explorer", desc: "Browse leader histories by school with interactive tenure timelines and list/map views." },
   { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics — including interim appointments." },
-  { value: "discipline", label: "Discipline Search", desc: "Map dean disciplines by school and watch their composition evolve over time." },
-  { value: "search", label: "Individual Search", desc: "Search and explore individual dean profiles and career paths." },
-  { value: "jobmarket", label: "Dean News & Market", desc: "Stay updated with the latest dean-related news and market activity." },
+  { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
+  { value: "search", label: "Individual Search", desc: "Search and explore individual leader profiles and career paths." },
+  { value: "jobmarket", label: "Leadership News & Market", desc: "Stay updated with the latest leadership news and market activity." },
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
 ];
 
