@@ -160,8 +160,11 @@ function AppInner() {
         <main className="max-w-[1400px] mx-auto px-4 py-6">
           <div className="space-y-6">
             {/* Deliberately a couple of steps darker than --muted so the switcher reads
-                as its own container against the page and the white dataset chips. */}
-            <div className="flex flex-wrap gap-2 items-center justify-center bg-slate-200 dark:bg-slate-800 rounded-xl p-2.5 border border-slate-300 dark:border-slate-700" role="tablist" aria-label="Dataset">
+                as its own container against the page and the white dataset chips.
+                A uniform grid rather than flex-wrap: chip labels vary a lot in length
+                ("R1 Law" vs "Arts & Sciences"), so wrapping produced ragged rows.
+                Equal columns keep them aligned; 11 chips land as 6 + 5 on desktop. */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 bg-slate-200 dark:bg-slate-800 rounded-xl p-2.5 border border-slate-300 dark:border-slate-700" role="tablist" aria-label="Dataset">
               {list.map(d => {
                 const isActive = d.id === datasetId;
                 return (
@@ -171,7 +174,7 @@ function AppInner() {
                     aria-selected={isActive}
                     onClick={() => setDatasetId(d.id)}
                     className={[
-                      "px-4 py-2 rounded-lg text-sm font-semibold transition-all",
+                      "px-3 py-2 rounded-lg text-sm font-semibold transition-all text-center w-full",
                       isActive
                         ? "bg-primary text-primary-foreground shadow-md"
                         : "bg-card text-foreground hover:bg-muted border border-transparent",

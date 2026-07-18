@@ -322,9 +322,12 @@ export const DATASETS: Record<DatasetId, DatasetBundle> = {
   },
 };
 
-// R1 Engineering is now enabled in the switcher (dean data refreshed to 2026).
+// Controls which datasets appear in the switcher. DATASETS still holds every
+// bundle -- omitting one here only hides it from the UI, so re-enabling is a
+// one-line change with no data work.
+//
+// top100 is hidden for now; r1bschool is the default (see DatasetContext).
 export const DATASET_LIST: DatasetMeta[] = [
-  DATASETS.top100.meta,
   DATASETS.r1bschool.meta,
   DATASETS.r1eschool.meta,
   DATASETS.r1university.meta,

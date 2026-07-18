@@ -24,7 +24,9 @@ interface DatasetCtx {
 const Ctx = createContext<DatasetCtx | null>(null);
 
 export function DatasetProvider({ children }: { children: ReactNode }) {
-  const [datasetId, setDatasetId] = useState<DatasetId>("top100");
+  // top100 is hidden from DATASET_LIST for now, so it cannot be the default --
+  // the switcher would have no active chip.
+  const [datasetId, setDatasetId] = useState<DatasetId>("r1bschool");
   const value = useMemo(() => {
     const bundle = DATASETS[datasetId];
     const isUniv = bundle.meta.schoolType === "university";
