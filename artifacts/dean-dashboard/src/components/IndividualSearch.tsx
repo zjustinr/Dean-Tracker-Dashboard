@@ -99,7 +99,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [firstName, setFirstName] = useState("");
   const [selectedDean, setSelectedDean] = useState<Dean | null>(null);
 
-  // Prefill from "Meet the Dean": fill the search boxes and open the profile
+  // Prefill from "Meet a Leader": fill the search boxes and open the profile
   // of the current (open-ended) spell for that dean.
   useEffect(() => {
     if (!prefill) return;

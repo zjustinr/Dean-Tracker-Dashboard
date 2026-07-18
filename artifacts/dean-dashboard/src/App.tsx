@@ -186,7 +186,7 @@ function AppInner() {
               })}
             </div>
 
-            {/* items-stretch on desktop so the module grid and the Meet-a-Dean panel
+            {/* items-stretch on desktop so the module grid and the Meet-a-Leader panel
                 end flush; grid-rows-3 lets the six cards share that height evenly
                 rather than hugging their text. */}
             <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-stretch">

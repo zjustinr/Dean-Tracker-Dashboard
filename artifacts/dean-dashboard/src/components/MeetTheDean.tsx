@@ -42,11 +42,14 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
     <Card className="lg:sticky lg:top-4 border-2" style={{ borderColor: "#011F5B" }}>
       <CardHeader className="pb-2">
         <CardTitle className="text-base flex items-center gap-2">
-          <span aria-hidden>🎓</span> Meet a {noun} (Randomly)
+          {/* "Leader" rather than the dataset's own noun: this is product chrome, and
+              it should read the same across all 11 datasets. The person's actual title
+              still appears verbatim below. */}
+          <span aria-hidden>🎓</span> Meet a Leader (Randomly)
           <button
             onClick={() => setPick(Math.random())}
-            aria-label={`Show another ${nounLower}`}
-            title={`Show another ${nounLower}`}
+            aria-label="Show another leader"
+            title="Show another leader"
             className="ml-auto text-muted-foreground hover:text-foreground text-sm"
           >
             ↻
