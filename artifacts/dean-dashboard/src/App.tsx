@@ -131,7 +131,15 @@ function AppInner() {
                       className="h-16 w-16 block"
                     />
                   </h1>
-                  <p className="text-sm text-muted-foreground max-w-[15rem]">
+                  {/* Byline scaled to fill the logo's 64px height: two lines at 32px
+                      leading. EB Garamond is already loaded by index.html and is the
+                      closest free stand-in for the classical academic serif Wharton
+                      uses -- their actual logo face is proprietary. Penn/Wharton blue
+                      #011F5B, lightened in dark mode where it would go near-invisible. */}
+                  <p
+                    className="max-w-[19rem] text-[26px] leading-[32px] tracking-tight text-[#011F5B] dark:text-[#AFC4E8]"
+                    style={{ fontFamily: "'EB Garamond', Garamond, Georgia, 'Times New Roman', serif", fontWeight: 500 }}
+                  >
                     Leadership succession data for higher education
                   </p>
                 </div>
@@ -151,7 +159,9 @@ function AppInner() {
 
         <main className="max-w-[1400px] mx-auto px-4 py-6">
           <div className="space-y-6">
-            <div className="flex flex-wrap gap-2 items-center justify-center bg-muted/40 rounded-xl p-2 border border-border" role="tablist" aria-label="Dataset">
+            {/* Deliberately a couple of steps darker than --muted so the switcher reads
+                as its own container against the page and the white dataset chips. */}
+            <div className="flex flex-wrap gap-2 items-center justify-center bg-slate-200 dark:bg-slate-800 rounded-xl p-2.5 border border-slate-300 dark:border-slate-700" role="tablist" aria-label="Dataset">
               {list.map(d => {
                 const isActive = d.id === datasetId;
                 return (
@@ -173,9 +183,12 @@ function AppInner() {
               })}
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-4 items-start">
+            {/* items-stretch on desktop so the module grid and the Meet-a-Dean panel
+                end flush; grid-rows-3 lets the six cards share that height evenly
+                rather than hugging their text. */}
+            <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-stretch">
             <div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1 w-full"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-3 gap-4 flex-1 w-full"
               role="tablist"
             >
               {tabs.map((tab, idx) => {
