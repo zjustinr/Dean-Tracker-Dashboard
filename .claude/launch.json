@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dean-dashboard",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--dir", "artifacts/dean-dashboard", "dev"],
+      "port": 5173
+    }
+  ]
+}
