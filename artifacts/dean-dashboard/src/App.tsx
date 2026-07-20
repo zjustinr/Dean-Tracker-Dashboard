@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback } from "react";
 import SchoolExplorer from "@/components/SchoolExplorer";
 import CrossSchoolAnalysis from "@/components/CrossSchoolAnalysis";
 import AggregateTrends from "@/components/AggregateTrends";
@@ -9,12 +9,40 @@ import LiveJobMarket from "@/components/LiveJobMarket";
 import DisciplineSearch from "@/components/DisciplineSearch";
 import BreakingNews from "@/components/BreakingNews";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
-import { useAllDeans } from "@/data/useData";
+import { DATASETS, DATASET_LIST } from "@/data/datasets";
 
 // Build timestamp, injected by vite.config.ts. Reflects when the site was last
 // deployed, which for a static data app is when the data last changed.
 declare const __BUILT_ON__: string;
 const BUILT_ON = __BUILT_ON__;
+
+/**
+ * Corpus-wide totals for the header strip, computed once at module load.
+ *
+ * Counts only the datasets in DATASET_LIST. That deliberately excludes the
+ * hidden Top-100 bundle, which is not merely hidden but a strict *subset* of
+ * R1 B-school -- all 603 of its rows appear there too, so including it would
+ * double-count. Rows are additionally deduped on
+ * (dean, university, school, startYear) as a guard against future overlap
+ * between datasets.
+ */
+const CORPUS = (() => {
+  const seen = new Set<string>();
+  const schools = new Set<string>();
+  let sitting = 0;
+  let minYear = Infinity;
+  for (const meta of DATASET_LIST) {
+    for (const d of DATASETS[meta.id].deans) {
+      const k = `${(d.dean || "").trim().toLowerCase()}|${(d.university || "").trim().toLowerCase()}|${(d.school || "").trim().toLowerCase()}|${d.startYear}`;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      schools.add(`${d.university}|${d.school}`);
+      if (d.endYear == null) sitting++;
+      if (d.startYear && d.startYear < minYear) minYear = d.startYear;
+    }
+  }
+  return { appts: seen.size, sitting, schools: schools.size, from: minYear };
+})();
 
 interface TabDef {
   value: string;
@@ -59,12 +87,6 @@ function AppInner() {
     .replace(/Deans/g, nounPlural).replace(/deans/g, nounPluralLower)
     .replace(/Dean/g, noun).replace(/dean/g, nounLower);
   const [darkMode, setDarkMode] = useState(false);
-  const allDeans = useAllDeans();
-  const stats = useMemo(() => ({
-    appts: allDeans.length,
-    sitting: allDeans.filter((d) => d.endYear == null).length,
-    schools: new Set(allDeans.map((d) => `${d.university}|${d.school}`)).size,
-  }), [allDeans]);
   const tabs = DEFAULT_TABS;
   const [activeTab, setActiveTab] = useState(DEFAULT_TABS[0].value);
   const [deanPrefill, setDeanPrefill] = useState<DeanSearchPrefill | null>(null);
@@ -120,13 +142,15 @@ function AppInner() {
               {/* Scale is the credential for a research-derived product: state the
                   size of the corpus before anyone has to go looking for it. */}
               <p className="mt-3 text-xs text-muted-foreground tabular-nums">
-                <span className="font-semibold text-foreground">{stats.appts.toLocaleString()}</span> appointments
+                <span className="font-semibold text-foreground">{CORPUS.appts.toLocaleString()}</span> appointments
                 <span className="mx-1.5 text-border">|</span>
-                <span className="font-semibold text-foreground">{stats.sitting.toLocaleString()}</span> sitting {nounPluralLower}
+                <span className="font-semibold text-foreground">{CORPUS.sitting.toLocaleString()}</span> sitting leaders
                 <span className="mx-1.5 text-border">|</span>
-                <span className="font-semibold text-foreground">{stats.schools.toLocaleString()}</span> schools
+                <span className="font-semibold text-foreground">{CORPUS.schools.toLocaleString()}</span> schools
                 <span className="mx-1.5 text-border">|</span>
-                {meta.yearRange}
+                <span className="font-semibold text-foreground">{DATASET_LIST.length}</span> indices
+                <span className="mx-1.5 text-border">|</span>
+                {CORPUS.from}&ndash;2026
                 <span className="mx-1.5 text-border">|</span>
                 updated {BUILT_ON}
               </p>
