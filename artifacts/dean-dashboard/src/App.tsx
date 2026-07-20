@@ -55,11 +55,13 @@ interface TabDef {
 // provosts and presidents, so the generic term reads correctly on every dataset.
 // `relabel` below leaves these untouched (it only rewrites "dean"), so they stay
 // uniform across the dataset switcher.
+// Individual Search leads: it is the flagship view, so it takes the top-left
+// slot (the most prominent by reading order) and is the default open tab.
 const DEFAULT_TABS: TabDef[] = [
+  { value: "search", label: "Individual Search", desc: "Look up any leader by name — full profile, career path, and succession history." },
   { value: "explorer", label: "School Explorer", desc: "Browse leader histories by school with interactive tenure timelines and list/map views." },
   { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics — including interim appointments." },
   { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
-  { value: "search", label: "Individual Search", desc: "Search and explore individual leader profiles and career paths." },
   { value: "jobmarket", label: "Leadership News & Market", desc: "Stay updated with the latest leadership news and market activity." },
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
 ];
@@ -109,7 +111,7 @@ function AppInner() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-[#EEF1F6] dark:bg-background text-foreground">
         <header className="border-b border-border bg-card">
           <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between">
             <div>
@@ -192,7 +194,7 @@ function AppInner() {
                 A uniform grid rather than flex-wrap: chip labels vary a lot in length
                 ("R1 Law" vs "Arts & Sciences"), so wrapping produced ragged rows.
                 Equal columns keep them aligned; 11 chips land as 6 + 5 on desktop. */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 bg-slate-200 dark:bg-slate-800 rounded-xl p-2.5 border border-slate-300 dark:border-slate-700" role="tablist" aria-label="Dataset">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 bg-slate-100 dark:bg-slate-800/60 rounded-xl p-2 border border-slate-200 dark:border-slate-700" role="tablist" aria-label="Dataset">
               {list.map(d => {
                 const isActive = d.id === datasetId;
                 return (
@@ -224,6 +226,7 @@ function AppInner() {
             >
               {tabs.map((tab) => {
                 const isActive = activeTab === tab.value;
+                const isFeatured = tab.value === "search";
 
                 return (
                   <button
@@ -237,11 +240,20 @@ function AppInner() {
                       "cursor-pointer select-none",
                       isActive
                         ? "bg-[#011F5B] text-white border-[#011F5B] shadow-md"
+                        : isFeatured
+                        ? "bg-card text-foreground border-[#011F5B]/40 ring-1 ring-[#011F5B]/20 hover:border-[#011F5B]/70 shadow-sm"
                         : "bg-card text-foreground border-border hover:border-primary/40 hover:bg-muted/40",
-
                     ].join(" ")}
                   >
-                    <span className="text-sm font-semibold">{relabel(tab.label)}</span>
+                    <span className="flex items-center gap-2">
+                      <span className="text-sm font-semibold">{relabel(tab.label)}</span>
+                      {isFeatured && (
+                        <span className={[
+                          "text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded",
+                          isActive ? "bg-white/20 text-white" : "bg-[#011F5B] text-white",
+                        ].join(" ")}>Start here</span>
+                      )}
+                    </span>
                     <span className={[
                       "text-xs mt-1 leading-snug",
                       isActive ? "text-white/75" : "text-muted-foreground",
