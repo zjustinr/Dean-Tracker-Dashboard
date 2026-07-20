@@ -204,7 +204,7 @@ function AppInner() {
                     className={[
                       "px-3 py-2 rounded-lg text-sm font-semibold transition-all text-center w-full",
                       isActive
-                        ? "bg-primary text-primary-foreground shadow-md"
+                        ? "bg-[#011F5B] text-white shadow-sm"
                         : "bg-card text-foreground hover:bg-muted border border-transparent",
                     ].join(" ")}
                   >
@@ -236,7 +236,7 @@ function AppInner() {
                       "border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       "cursor-pointer select-none",
                       isActive
-                        ? "bg-primary text-primary-foreground border-primary/70 shadow-lg"
+                        ? "bg-[#011F5B] text-white border-[#011F5B] shadow-md"
                         : "bg-card text-foreground border-border hover:border-primary/40 hover:bg-muted/40",
 
                     ].join(" ")}
@@ -244,7 +244,7 @@ function AppInner() {
                     <span className="text-sm font-semibold">{relabel(tab.label)}</span>
                     <span className={[
                       "text-xs mt-1 leading-snug",
-                      isActive ? "text-primary-foreground/80" : "text-muted-foreground",
+                      isActive ? "text-white/75" : "text-muted-foreground",
                     ].join(" ")}>{relabel(tab.desc)}</span>
                   </button>
                 );

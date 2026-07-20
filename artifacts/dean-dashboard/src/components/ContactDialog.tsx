@@ -16,7 +16,10 @@ import { useState } from "react";
  * a lead without anyone noticing.
  */
 const ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT as string | undefined;
-const EMAIL = import.meta.env.VITE_CONTACT_EMAIL as string | undefined;
+// Default so the form works with no deployment configuration. Setting
+// VITE_CONTACT_ENDPOINT later takes precedence and avoids exposing the address
+// in the bundle at all.
+const EMAIL = (import.meta.env.VITE_CONTACT_EMAIL as string | undefined) || "ren@bu.edu";
 
 type State = "idle" | "sending" | "sent" | "error";
 
