@@ -8,6 +8,7 @@ import type { Dean } from "@/data/types";
 import LiveJobMarket from "@/components/LiveJobMarket";
 import DisciplineSearch from "@/components/DisciplineSearch";
 import BreakingNews from "@/components/BreakingNews";
+import ContactDialog from "@/components/ContactDialog";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 import { DATASETS, DATASET_LIST } from "@/data/datasets";
 
@@ -87,6 +88,7 @@ function AppInner() {
     .replace(/Deans/g, nounPlural).replace(/deans/g, nounPluralLower)
     .replace(/Dean/g, noun).replace(/dean/g, nounLower);
   const [darkMode, setDarkMode] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const tabs = DEFAULT_TABS;
   const [activeTab, setActiveTab] = useState(DEFAULT_TABS[0].value);
   const [deanPrefill, setDeanPrefill] = useState<DeanSearchPrefill | null>(null);
@@ -155,6 +157,13 @@ function AppInner() {
                 updated {BUILT_ON}
               </p>
             </div>
+            <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => setContactOpen(true)}
+              className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
+            >
+              Contact
+            </button>
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-lg border border-border hover:bg-muted text-sm"
@@ -170,6 +179,7 @@ function AppInner() {
                 </svg>
               )}
             </button>
+            </div>
           </div>
         </header>
 
@@ -222,18 +232,18 @@ function AppInner() {
                     aria-selected={isActive}
                     onClick={() => setActiveTab(tab.value)}
                     className={[
-                      "flex flex-col items-start text-left rounded-xl p-5 transition-all",
+                      "flex flex-col items-start text-left rounded-xl p-4 transition-all",
                       "border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       "cursor-pointer select-none",
                       isActive
                         ? "bg-primary text-primary-foreground border-primary/70 shadow-lg"
-                        : "bg-card text-foreground border-border hover:border-primary/40 hover:shadow-md shadow-sm",
+                        : "bg-card text-foreground border-border hover:border-primary/40 hover:bg-muted/40",
 
                     ].join(" ")}
                   >
-                    <span className="text-base font-bold">{relabel(tab.label)}</span>
+                    <span className="text-sm font-semibold">{relabel(tab.label)}</span>
                     <span className={[
-                      "text-xs mt-1.5 leading-relaxed",
+                      "text-xs mt-1 leading-snug",
                       isActive ? "text-primary-foreground/80" : "text-muted-foreground",
                     ].join(" ")}>{relabel(tab.desc)}</span>
                   </button>
@@ -259,8 +269,13 @@ function AppInner() {
         <footer className="text-right pr-6 pb-4 pt-8">
           <p className="text-xs text-muted-foreground/60">
             &copy; 2026 Baton Index &middot; Leadership succession data for higher education
+            <span className="mx-1.5">&middot;</span>
+            <button onClick={() => setContactOpen(true)} className="underline underline-offset-2 hover:text-foreground">
+              Contact
+            </button>
           </p>
         </footer>
+        {contactOpen && <ContactDialog onClose={() => setContactOpen(false)} />}
       </div>
     </div>
   );
