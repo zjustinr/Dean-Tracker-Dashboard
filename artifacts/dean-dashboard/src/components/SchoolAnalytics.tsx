@@ -123,7 +123,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
 
       {president && president.name && (
         <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-          <span aria-hidden>🏛️</span>
+          
           <span>
             {president.title || "President"}:{" "}
             <span className="font-medium text-foreground">{president.name}</span>

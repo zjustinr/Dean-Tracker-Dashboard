@@ -6,7 +6,10 @@ import path from "path";
 const port = Number(process.env.PORT) || 5173;
 const basePath = process.env.BASE_PATH || "/";
 
+const BUILT_ON = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+
 export default defineConfig({
+  define: { __BUILT_ON__: JSON.stringify(BUILT_ON) },
   base: basePath,
   plugins: [react(), tailwindcss()],
   resolve: {

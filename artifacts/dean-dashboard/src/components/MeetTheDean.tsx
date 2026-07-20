@@ -45,7 +45,7 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
           {/* "Leader" rather than the dataset's own noun: this is product chrome, and
               it should read the same across all 11 datasets. The person's actual title
               still appears verbatim below. */}
-          <span aria-hidden>🎓</span> Meet a Leader (Randomly)
+          Meet a Leader
           <button
             onClick={() => setPick(Math.random())}
             aria-label="Show another leader"

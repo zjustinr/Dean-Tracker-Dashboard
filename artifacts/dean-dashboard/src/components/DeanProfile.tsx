@@ -163,7 +163,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
       {research?.summary && (
         <div className="mb-4 rounded-lg border border-primary/30 bg-primary/5 p-3">
           <div className="flex items-center gap-1.5 mb-1.5">
-            <span aria-hidden>🧭</span>
+            
             <h4 className="text-sm font-bold">Headhunter Brief — Strengths & Distinctives</h4>
           </div>
           <p className="text-sm leading-relaxed text-foreground/90">{research.summary}</p>
@@ -225,7 +225,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
       {hasCareer && (
         <div className="mt-4 pt-3 border-t border-border">
           <div className="flex items-center gap-1.5 mb-3">
-            <span aria-hidden>🪜</span>
+            
             <h4 className="text-sm font-bold">Career Path — Before {title}</h4>
           </div>
           <div className="relative ml-1">
@@ -368,7 +368,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
 
       <div className="mt-4 pt-3 border-t border-border">
         <div className="flex items-center gap-1.5 mb-2">
-          <span aria-hidden>📰</span>
+          
           <h4 className="text-sm font-bold">News &amp; Media</h4>
           {hasNews && <span className="text-[11px] text-muted-foreground">({research!.news!.length})</span>}
         </div>

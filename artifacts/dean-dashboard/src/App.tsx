@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import SchoolExplorer from "@/components/SchoolExplorer";
 import CrossSchoolAnalysis from "@/components/CrossSchoolAnalysis";
 import AggregateTrends from "@/components/AggregateTrends";
@@ -9,6 +9,12 @@ import LiveJobMarket from "@/components/LiveJobMarket";
 import DisciplineSearch from "@/components/DisciplineSearch";
 import BreakingNews from "@/components/BreakingNews";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
+import { useAllDeans } from "@/data/useData";
+
+// Build timestamp, injected by vite.config.ts. Reflects when the site was last
+// deployed, which for a static data app is when the data last changed.
+declare const __BUILT_ON__: string;
+const BUILT_ON = __BUILT_ON__;
 
 interface TabDef {
   value: string;
@@ -53,11 +59,14 @@ function AppInner() {
     .replace(/Deans/g, nounPlural).replace(/deans/g, nounPluralLower)
     .replace(/Dean/g, noun).replace(/dean/g, nounLower);
   const [darkMode, setDarkMode] = useState(false);
-  const [tabs, setTabs] = useState<TabDef[]>(DEFAULT_TABS);
+  const allDeans = useAllDeans();
+  const stats = useMemo(() => ({
+    appts: allDeans.length,
+    sitting: allDeans.filter((d) => d.endYear == null).length,
+    schools: new Set(allDeans.map((d) => `${d.university}|${d.school}`)).size,
+  }), [allDeans]);
+  const tabs = DEFAULT_TABS;
   const [activeTab, setActiveTab] = useState(DEFAULT_TABS[0].value);
-  const [dragIdx, setDragIdx] = useState<number | null>(null);
-  const [overIdx, setOverIdx] = useState<number | null>(null);
-  const dragNode = useRef<HTMLButtonElement | null>(null);
   const [deanPrefill, setDeanPrefill] = useState<DeanSearchPrefill | null>(null);
   const [schoolPrefill, setSchoolPrefill] = useState<SchoolPrefill | null>(null);
 
@@ -73,42 +82,6 @@ function AppInner() {
   }, []);
 
   const tabContent = buildTabContent(deanPrefill, schoolPrefill, openSchoolHistory);
-
-  const handleDragStart = useCallback((e: React.DragEvent<HTMLButtonElement>, idx: number) => {
-    setDragIdx(idx);
-    dragNode.current = e.currentTarget;
-    e.dataTransfer.effectAllowed = "move";
-    e.dataTransfer.setData("text/plain", String(idx));
-    requestAnimationFrame(() => {
-      if (dragNode.current) dragNode.current.style.opacity = "0.4";
-    });
-  }, []);
-
-  const handleDragOver = useCallback((e: React.DragEvent<HTMLButtonElement>, idx: number) => {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = "move";
-    setOverIdx(idx);
-  }, []);
-
-  const handleDrop = useCallback((e: React.DragEvent<HTMLButtonElement>, dropIdx: number) => {
-    e.preventDefault();
-    if (dragIdx === null || dragIdx === dropIdx) return;
-    setTabs(prev => {
-      const next = [...prev];
-      const [moved] = next.splice(dragIdx, 1);
-      next.splice(dropIdx, 0, moved);
-      return next;
-    });
-    setDragIdx(null);
-    setOverIdx(null);
-  }, [dragIdx]);
-
-  const handleDragEnd = useCallback(() => {
-    if (dragNode.current) dragNode.current.style.opacity = "1";
-    setDragIdx(null);
-    setOverIdx(null);
-    dragNode.current = null;
-  }, []);
 
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -144,13 +117,34 @@ function AppInner() {
                   </p>
                 </div>
               </div>
+              {/* Scale is the credential for a research-derived product: state the
+                  size of the corpus before anyone has to go looking for it. */}
+              <p className="mt-3 text-xs text-muted-foreground tabular-nums">
+                <span className="font-semibold text-foreground">{stats.appts.toLocaleString()}</span> appointments
+                <span className="mx-1.5 text-border">|</span>
+                <span className="font-semibold text-foreground">{stats.sitting.toLocaleString()}</span> sitting {nounPluralLower}
+                <span className="mx-1.5 text-border">|</span>
+                <span className="font-semibold text-foreground">{stats.schools.toLocaleString()}</span> schools
+                <span className="mx-1.5 text-border">|</span>
+                {meta.yearRange}
+                <span className="mx-1.5 text-border">|</span>
+                updated {BUILT_ON}
+              </p>
             </div>
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-lg border border-border hover:bg-muted text-sm"
               aria-label="Toggle dark mode"
             >
-              {darkMode ? "Light" : "Dark"}
+              {darkMode ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+                  <circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                </svg>
+              ) : (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+                </svg>
+              )}
             </button>
           </div>
         </header>
@@ -194,29 +188,23 @@ function AppInner() {
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-3 gap-4 flex-1 w-full"
               role="tablist"
             >
-              {tabs.map((tab, idx) => {
+              {tabs.map((tab) => {
                 const isActive = activeTab === tab.value;
-                const isOver = overIdx === idx && dragIdx !== null && dragIdx !== idx;
+
                 return (
                   <button
                     key={tab.value}
                     role="tab"
                     aria-selected={isActive}
-                    draggable
-                    onDragStart={e => handleDragStart(e, idx)}
-                    onDragOver={e => handleDragOver(e, idx)}
-                    onDrop={e => handleDrop(e, idx)}
-                    onDragEnd={handleDragEnd}
-                    onDragLeave={() => setOverIdx(null)}
                     onClick={() => setActiveTab(tab.value)}
                     className={[
                       "flex flex-col items-start text-left rounded-xl p-5 transition-all",
                       "border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                      "cursor-grab active:cursor-grabbing select-none",
+                      "cursor-pointer select-none",
                       isActive
                         ? "bg-primary text-primary-foreground border-primary/70 shadow-lg"
                         : "bg-card text-foreground border-border hover:border-primary/40 hover:shadow-md shadow-sm",
-                      isOver ? "ring-2 ring-primary/50" : "",
+
                     ].join(" ")}
                   >
                     <span className="text-base font-bold">{relabel(tab.label)}</span>
@@ -245,7 +233,9 @@ function AppInner() {
           </div>
         </main>
         <footer className="text-right pr-6 pb-4 pt-8">
-          <p className="text-xs text-muted-foreground/50">Feedback welcome, justin.ren@gmail.com. Copyright &copy; 2026</p>
+          <p className="text-xs text-muted-foreground/60">
+            &copy; 2026 Baton Index &middot; Leadership succession data for higher education
+          </p>
         </footer>
       </div>
     </div>
