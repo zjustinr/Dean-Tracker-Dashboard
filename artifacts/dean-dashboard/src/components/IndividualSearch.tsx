@@ -1,89 +1,8 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
-
-function ComboBox({
-  label,
-  placeholder,
-  value,
-  onChange,
-  options,
-}: {
-  label: string;
-  placeholder: string;
-  value: string;
-  onChange: (v: string) => void;
-  options: string[];
-}) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const filtered = useMemo(() => {
-    const q = value.trim().toLowerCase();
-    if (!q) return options;
-    return options.filter(o => o.toLowerCase().includes(q));
-  }, [options, value]);
-
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    }
-    function handleKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
-    }
-    document.addEventListener("mousedown", handleClick);
-    document.addEventListener("keydown", handleKey);
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-      document.removeEventListener("keydown", handleKey);
-    };
-  }, []);
-
-  return (
-    <div className="flex-1 min-w-[200px] relative" ref={ref}>
-      <label className="text-xs font-medium text-muted-foreground block mb-1">{label}</label>
-      <div className="relative">
-        <input
-          ref={inputRef}
-          type="text"
-          value={value}
-          onChange={e => { onChange(e.target.value); setOpen(true); }}
-          onFocus={() => setOpen(true)}
-          onBlur={e => { if (!ref.current?.contains(e.relatedTarget as Node)) setOpen(false); }}
-          placeholder={placeholder}
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 pr-8"
-        />
-        <button
-          type="button"
-          onClick={() => { setOpen(!open); inputRef.current?.focus(); }}
-          className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-          tabIndex={-1}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M3.5 5.5L7 9L10.5 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-      </div>
-      {open && filtered.length > 0 && (
-        <div className="absolute z-50 mt-1 w-full bg-card border border-border rounded-lg shadow-lg max-h-[240px] overflow-y-auto">
-          {filtered.map(opt => (
-            <button
-              key={opt}
-              type="button"
-              onClick={() => { onChange(opt); setOpen(false); }}
-              className={`w-full text-left px-3 py-1.5 text-sm hover:bg-accent/40 transition-colors ${opt.toLowerCase() === value.toLowerCase() ? "bg-primary/10 font-semibold" : ""}`}
-            >
-              {opt}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
 
 export interface DeanSearchPrefill {
   fullName: string;
@@ -92,138 +11,171 @@ export interface DeanSearchPrefill {
   token: number; // changes on every request so repeated clicks re-trigger
 }
 
+const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+/**
+ * Rewritten mobile-first. The previous version used a custom combobox whose
+ * dropdown closed on input blur; on touch devices the blur fires before the
+ * option's tap registers, so selection silently failed. This version has no
+ * custom overlay:
+ *   - one plain text box that filters the list live (no dropdown to mis-close),
+ *   - native <select> for discipline and school (the OS renders these as proper
+ *     mobile pickers),
+ *   - an A-Z strip to jump by last-name initial.
+ * The result list itself does the selecting, so a tap always lands.
+ */
 export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: DeanSearchPrefill | null; onOpenSchool?: (university: string, school: string) => void }) {
   const { noun, nounLower, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
-  const [lastName, setLastName] = useState("");
-  const [firstName, setFirstName] = useState("");
+
+  const [query, setQuery] = useState("");
+  const [letter, setLetter] = useState("");
+  const [discipline, setDiscipline] = useState("");
+  const [school, setSchool] = useState("");
   const [selectedDean, setSelectedDean] = useState<Dean | null>(null);
 
-  // Prefill from "Meet a Leader": fill the search boxes and open the profile
-  // of the current (open-ended) spell for that dean.
+  // Prefill from "Meet a Leader": fill the box and open that person's profile.
   useEffect(() => {
     if (!prefill) return;
-    setFirstName(prefill.first);
-    setLastName(prefill.last);
+    setQuery(prefill.fullName);
+    setLetter("");
+    setDiscipline("");
+    setSchool("");
     const matches = allDeans.filter((d) => d.dean.toLowerCase() === prefill.fullName.toLowerCase());
-    const best = matches.find((d) => d.endYear == null) || matches[0] || null;
-    setSelectedDean(best);
+    setSelectedDean(matches.find((d) => d.endYear == null) || matches[0] || null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prefill?.token]);
 
-  const { lastNames, firstNames } = useMemo(() => {
-    const lnSet = new Set<string>();
-    const fnSet = new Set<string>();
+  const { disciplines, schools } = useMemo(() => {
+    const dSet = new Set<string>();
+    const sSet = new Set<string>();
     for (const d of allDeans) {
-      const parts = d.dean.split(/\s+/);
-      if (parts.length > 0) fnSet.add(parts[0]);
-      if (parts.length > 1) lnSet.add(parts[parts.length - 1]);
+      if (d.disciplineBroad && d.disciplineBroad !== "Unknown") dSet.add(d.disciplineBroad);
+      if (d.university) sSet.add(d.university);
     }
     return {
-      lastNames: [...lnSet].sort((a, b) => a.localeCompare(b)),
-      firstNames: [...fnSet].sort((a, b) => a.localeCompare(b)),
+      disciplines: [...dSet].sort((a, b) => a.localeCompare(b)),
+      schools: [...sSet].sort((a, b) => a.localeCompare(b)),
     };
   }, [allDeans]);
 
+  const hasFilter = Boolean(query.trim() || letter || discipline || school);
+
   const results = useMemo(() => {
-    const ln = lastName.trim().toLowerCase();
-    const fn = firstName.trim().toLowerCase();
-    if (!ln && !fn) return [];
-
+    if (!hasFilter) return [];
+    const q = query.trim().toLowerCase();
     const seen = new Set<string>();
-    return allDeans.filter(d => {
-      const parts = d.dean.split(/\s+/);
-      const deanLast = parts[parts.length - 1].toLowerCase();
-      const deanFirst = parts[0].toLowerCase();
-
-      const matchLast = !ln || deanLast.startsWith(ln) || deanLast.includes(ln);
-      const matchFirst = !fn || deanFirst.startsWith(fn) || deanFirst.includes(fn);
-
-      if (matchLast && matchFirst) {
-        const key = d.dean + "|||" + d.university + "|||" + d.school;
+    return allDeans
+      .filter((d) => {
+        const last = (d.dean.split(/\s+/).pop() || "").toLowerCase();
+        if (q && !d.dean.toLowerCase().includes(q)) return false;
+        if (letter && last[0] !== letter.toLowerCase()) return false;
+        if (discipline && d.disciplineBroad !== discipline) return false;
+        if (school && d.university !== school) return false;
+        const key = d.dean + "|" + d.university + "|" + d.school;
         if (seen.has(key)) return false;
         seen.add(key);
         return true;
-      }
-      return false;
-    }).sort((a, b) => {
-      const aLast = a.dean.split(/\s+/).pop() || "";
-      const bLast = b.dean.split(/\s+/).pop() || "";
-      const cmp = aLast.localeCompare(bLast);
-      if (cmp !== 0) return cmp;
-      return a.dean.localeCompare(b.dean);
-    });
-  }, [allDeans, lastName, firstName]);
+      })
+      .sort((a, b) => {
+        const cmp = (a.dean.split(/\s+/).pop() || "").localeCompare(b.dean.split(/\s+/).pop() || "");
+        return cmp !== 0 ? cmp : a.dean.localeCompare(b.dean);
+      });
+  }, [allDeans, query, letter, discipline, school, hasFilter]);
+
+  const clearAll = () => { setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setSelectedDean(null); };
+  const sel = "w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30";
 
   return (
-    <div className="space-y-6">
-      <div className="bg-card border border-border rounded-xl p-6">
+    <div className="space-y-4">
+      <div className="bg-card border border-border rounded-xl p-4 sm:p-6">
         <h2 className="text-lg font-bold mb-1">Individual {noun} Search</h2>
-        <p className="text-sm text-muted-foreground mb-5">Search by name to view a {nounLower}'s full profile and leadership history. Type to filter or browse the dropdown.</p>
+        <p className="text-sm text-muted-foreground mb-4">
+          Search by name, or filter by discipline, school, or last-name initial.
+        </p>
 
-        <div className="flex gap-4 flex-wrap">
-          <ComboBox
-            label="Last Name"
-            placeholder="e.g. James"
-            value={lastName}
-            onChange={v => { setLastName(v); setSelectedDean(null); }}
-            options={lastNames}
-          />
-          <ComboBox
-            label="First Name"
-            placeholder="e.g. Erika"
-            value={firstName}
-            onChange={v => { setFirstName(v); setSelectedDean(null); }}
-            options={firstNames}
-          />
-          {(lastName || firstName) && (
-            <div className="flex items-end">
-              <button
-                onClick={() => { setLastName(""); setFirstName(""); setSelectedDean(null); }}
-                className="px-4 py-2 text-sm rounded-lg border border-border hover:bg-muted transition-colors"
-              >
-                Clear
-              </button>
-            </div>
+        {/* name box: plain input, filters the list live */}
+        <input
+          type="text"
+          inputMode="search"
+          value={query}
+          onChange={(e) => { setQuery(e.target.value); setSelectedDean(null); }}
+          placeholder={`Type a ${nounLower}'s name…`}
+          className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm mb-3 focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
+        />
+
+        {/* native selects render as OS pickers on mobile -- no custom overlay to mis-tap */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <select className={sel} value={discipline} onChange={(e) => { setDiscipline(e.target.value); setSelectedDean(null); }} aria-label="Discipline">
+            <option value="">All disciplines</option>
+            {disciplines.map((d) => <option key={d} value={d}>{d}</option>)}
+          </select>
+          <select className={sel} value={school} onChange={(e) => { setSchool(e.target.value); setSelectedDean(null); }} aria-label="School">
+            <option value="">All schools</option>
+            {schools.map((s) => <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
+
+        {/* A-Z strip: wraps and stays tappable at 44px targets on mobile */}
+        <div className="flex flex-wrap gap-1 mt-3">
+          {LETTERS.map((L) => (
+            <button
+              key={L}
+              onClick={() => { setLetter(letter === L ? "" : L); setSelectedDean(null); }}
+              className={[
+                "w-8 h-8 rounded text-xs font-semibold transition-colors",
+                letter === L ? "bg-[#011F5B] text-white" : "bg-muted/60 text-foreground hover:bg-muted",
+              ].join(" ")}
+              aria-pressed={letter === L}
+            >
+              {L}
+            </button>
+          ))}
+          {hasFilter && (
+            <button onClick={clearAll} className="h-8 px-3 rounded text-xs font-semibold border border-border hover:bg-muted ml-1">
+              Clear
+            </button>
           )}
         </div>
       </div>
 
       {results.length > 0 && !selectedDean && (
         <div className="bg-card border border-border rounded-xl overflow-hidden">
-          <div className="px-5 py-3 border-b border-border bg-muted/30">
-            <p className="text-sm font-medium">{results.length} result{results.length !== 1 ? "s" : ""} found</p>
+          <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
+            <p className="text-sm font-medium">{results.length} result{results.length !== 1 ? "s" : ""}</p>
           </div>
-          <div className="divide-y divide-border max-h-[500px] overflow-y-auto">
-            {results.map(d => (
+          <div className="divide-y divide-border max-h-[60vh] overflow-y-auto">
+            {results.slice(0, 300).map((d) => (
               <button
                 key={d.id}
                 onClick={() => setSelectedDean(d)}
-                className="w-full text-left px-5 py-3 hover:bg-accent/40 transition-colors flex items-center gap-4"
+                className="w-full text-left px-4 sm:px-5 py-3 hover:bg-accent/40 transition-colors flex items-center gap-3"
               >
-                <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <span className="text-xs font-bold text-primary">{d.dean.split(" ").map(n => n[0]).join("").slice(0, 2)}</span>
+                <div className="w-9 h-9 rounded-full bg-[#011F5B]/10 flex items-center justify-center shrink-0">
+                  <span className="text-xs font-bold text-[#011F5B]">{d.dean.split(" ").map((n) => n[0]).join("").slice(0, 2)}</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold truncate">{d.dean}</p>
                   <p className="text-xs text-muted-foreground truncate">{d.school}, {d.university}</p>
                 </div>
                 <div className="text-right shrink-0">
-                  <p className="text-sm font-bold text-primary tabular-nums">{d.startYear || "?"} – {d.endYear || "Present"}</p>
-                  <div className="flex gap-1 justify-end mt-0.5">
-                    {d.isInterim && <span className="text-[10px] bg-muted px-1.5 py-0.5 rounded">Interim</span>}
-                    {d.rank && <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded">Rank #{d.rank}</span>}
-                  </div>
+                  <p className="text-xs font-bold text-[#011F5B] tabular-nums">{d.startYear || "?"}–{d.endYear || "Now"}</p>
+                  {d.isInterim && <span className="text-[10px] bg-muted px-1.5 py-0.5 rounded">Interim</span>}
                 </div>
               </button>
             ))}
           </div>
+          {results.length > 300 && (
+            <div className="px-5 py-2 text-xs text-muted-foreground border-t border-border">
+              Showing first 300 — narrow the filters to see more.
+            </div>
+          )}
         </div>
       )}
 
-      {results.length === 0 && (lastName || firstName) && (
+      {results.length === 0 && hasFilter && (
         <div className="bg-card border border-border rounded-xl p-8 text-center">
-          <p className="text-muted-foreground text-sm">No {nounPluralLower} found matching your search.</p>
+          <p className="text-muted-foreground text-sm">No {nounPluralLower} match these filters.</p>
         </div>
       )}
 
