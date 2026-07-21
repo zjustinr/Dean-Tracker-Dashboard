@@ -287,13 +287,13 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
       {shown.length > 0 && (
         <div className="bg-card border border-border rounded-xl overflow-hidden">
-          <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30 flex items-center justify-between gap-2">
-            <p className="text-sm font-medium">{results.length} result{results.length !== 1 ? "s" : ""}</p>
+          <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30 flex items-center gap-3">
             {slate.length >= 2 && (
               <button onClick={() => setCompareOpen(true)} className="text-xs font-semibold px-3 py-1.5 rounded bg-[#011F5B] text-white shadow-sm hover:brightness-110">
-                Compare slate ({slate.length})
+                Select to compare
               </button>
             )}
+            <p className="text-sm font-medium">{results.length} result{results.length !== 1 ? "s" : ""}</p>
           </div>
           <div className="divide-y divide-border">
             {shown.map((d) => {
