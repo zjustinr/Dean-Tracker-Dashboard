@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import SchoolExplorer from "@/components/SchoolExplorer";
 import CrossSchoolAnalysis from "@/components/CrossSchoolAnalysis";
 import AggregateTrends from "@/components/AggregateTrends";
@@ -12,6 +12,8 @@ import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
 import ModuleIcon from "@/components/ModuleIcons";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
+import { TrialProvider, useTrial } from "@/data/TrialContext";
+import { LockedLanding, ExpiredScreen } from "@/components/LockedGate";
 import { DATASET_LIST } from "@/data/datasets";
 import corpusStats from "@/data/corpus-stats.json";
 
@@ -67,6 +69,15 @@ function buildTabContent(
 
 function AppInner() {
   const { datasetId, setDatasetId, list, meta, noun, nounPlural, nounLower, nounPluralLower } = useDataset();
+  const trial = useTrial();
+  // If a trial is scoped and the active dataset falls outside it, jump to the
+  // first in-scope index so the app never sits on a locked (403) dataset.
+  useEffect(() => {
+    if (trial.armed && trial.status === "valid" && !trial.allowed(datasetId)) {
+      const first = list.find((d) => trial.allowed(d.id));
+      if (first) setDatasetId(first.id);
+    }
+  }, [trial, datasetId, list, setDatasetId]);
   // Dataset-aware relabel: "Dean(s)" → "Leader(s)" for the university-presidents dataset.
   const relabel = (s: string) => s
     .replace(/Deans/g, nounPlural).replace(/deans/g, nounPluralLower)
@@ -193,19 +204,29 @@ function AppInner() {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 bg-slate-100 dark:bg-slate-800/60 rounded-xl p-2 border border-slate-200 dark:border-slate-700" role="tablist" aria-label="Dataset">
               {list.map(d => {
                 const isActive = d.id === datasetId;
+                const ok = trial.allowed(d.id);
                 return (
                   <button
                     key={d.id}
                     role="tab"
                     aria-selected={isActive}
-                    onClick={() => setDatasetId(d.id)}
+                    disabled={!ok}
+                    onClick={() => ok && setDatasetId(d.id)}
+                    title={!ok ? "Included in the full version — reply to unlock" : undefined}
                     className={[
-                      "px-3 py-2 rounded-lg text-sm font-semibold transition-all text-center w-full",
-                      isActive
+                      "px-3 py-2 rounded-lg text-sm font-semibold transition-all text-center w-full inline-flex items-center justify-center gap-1",
+                      !ok
+                        ? "bg-card/40 text-muted-foreground/70 border border-transparent opacity-70 cursor-not-allowed"
+                        : isActive
                         ? "bg-gradient-to-b from-[#0a2a63] to-[#01143f] text-white shadow-sm"
                         : "bg-card text-foreground hover:bg-muted border border-transparent",
                     ].join(" ")}
                   >
+                    {!ok && (
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden className="shrink-0">
+                        <rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                      </svg>
+                    )}
                     {d.shortLabel}
                   </button>
                 );
@@ -299,11 +320,26 @@ function AppInner() {
   );
 }
 
-function App() {
+// Renders the app, or the locked / end-of-trial screen when the gate is armed and
+// the visitor has no valid, unexpired token. Disarmed (no TRIAL_SECRET) and valid
+// tokens both fall through to the full app; the initial pre-check renders the app
+// optimistically so the public site never flashes a spinner.
+function Gate() {
+  const trial = useTrial();
+  if (trial.armed && trial.status === "expired") return <ExpiredScreen />;
+  if (trial.armed && (trial.status === "none" || trial.status === "invalid")) return <LockedLanding />;
   return (
     <DatasetProvider>
       <AppInner />
     </DatasetProvider>
+  );
+}
+
+function App() {
+  return (
+    <TrialProvider>
+      <Gate />
+    </TrialProvider>
   );
 }
 
