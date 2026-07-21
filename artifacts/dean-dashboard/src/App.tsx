@@ -60,7 +60,7 @@ interface TabDef {
 // Individual Search leads: it is the flagship view, so it takes the top-left
 // slot (the most prominent by reading order) and is the default open tab.
 const DEFAULT_TABS: TabDef[] = [
-  { value: "search", label: "Individual Search", desc: "Look up any leader by name — full profile, career path, and succession history." },
+  { value: "search", label: "Slate Builder", desc: "Filter sitting leaders by school, discipline, or tenure — then assemble a shortlist and open any profile." },
   { value: "explorer", label: "School Explorer", desc: "Browse leader histories by school with interactive tenure timelines and list/map views." },
   { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics — including interim appointments." },
   { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },

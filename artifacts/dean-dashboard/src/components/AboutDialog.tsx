@@ -64,7 +64,7 @@ export default function AboutDialog({ onClose, onContact }: { onClose: () => voi
             <div>
               <p className="font-bold text-base leading-tight">Z. Justin Ren, Ph.D.</p>
               <p className="text-muted-foreground mt-0.5">
-                Associate Professor &amp; Department Chair<br />
+                Associate Professor &amp; Chair, Operations &amp; Technology Management<br />
                 Questrom School of Business, Boston University
               </p>
               <p className="text-xs text-muted-foreground mt-1.5">
