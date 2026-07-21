@@ -47,3 +47,7 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Baton Index trial signing secret + mint log (never commit)
+.trial-secret
+trials.log

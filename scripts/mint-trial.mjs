@@ -1,0 +1,135 @@
+#!/usr/bin/env node
+// Baton Index — mint a trial access link (Hardening Step 1).
+//
+//   node scripts/mint-trial.mjs            interactive: recipient, indices, expiry
+//   node scripts/mint-trial.mjs --selftest verify the token round-trips & rejects tampering
+//
+// Nothing user-facing ships in Step 1. This CLI produces a signed URL
+// (…/?k=<token>) whose scope + expiry the Step 3 edge middleware will enforce.
+// The signing secret must match TRIAL_SECRET in Vercel (set in Step 5); until
+// then a link validates locally against .trial-secret but not in production.
+
+import { readFileSync, writeFileSync, existsSync, appendFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
+import { createInterface } from "node:readline/promises";
+import { stdin, stdout } from "node:process";
+import { sign, verify, b64url } from "../lib/trial-token.mjs";
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const SECRET_FILE = join(ROOT, ".trial-secret");
+const LOG_FILE = join(ROOT, "trials.log");
+const DEFAULT_DOMAIN = process.env.BI_DOMAIN || "https://deantracker.vercel.app";
+const DEFAULT_EXPIRY_DAYS = 21;
+
+// The 11 sellable indices (top100 is hidden and never scoped into a trial).
+const INDICES = [
+  ["r1bschool", "R1 B-school"],
+  ["r1eschool", "R1 Engineering"],
+  ["r1university", "R1 Presidents"],
+  ["r1medical", "R1 Medical"],
+  ["r1law", "R1 Law"],
+  ["r1provost", "R1 Provost"],
+  ["usag", "Ag & Forestry"],
+  ["usnursing", "Nursing"],
+  ["uspharmacy", "Pharmacy"],
+  ["useducation", "Education"],
+  ["r1arts", "Arts & Sciences"],
+];
+
+function loadSecret() {
+  if (process.env.TRIAL_SECRET) return process.env.TRIAL_SECRET.trim();
+  if (existsSync(SECRET_FILE)) return readFileSync(SECRET_FILE, "utf8").trim();
+  const secret = b64url.fromBytes(crypto.getRandomValues(new Uint8Array(32)));
+  writeFileSync(SECRET_FILE, secret + "\n");
+  console.warn(
+    "\n⚠  No TRIAL_SECRET set — generated a new signing secret at .trial-secret" +
+    "\n   (gitignored). In Step 5 set this SAME value as TRIAL_SECRET in Vercel," +
+    "\n   or links minted now will not validate in production.\n",
+  );
+  return secret;
+}
+
+async function selftest() {
+  const secret = "test-secret-do-not-ship";
+  const now = 1_700_000_000;
+  const payload = { c: "selftest", s: ["r1bschool", "usnursing"], x: now + 3600, i: now };
+  const token = await sign(payload, secret);
+
+  const good = await verify(token, secret, now);
+  const tamperedSig = await verify(token.slice(0, -2) + (token.endsWith("aa") ? "bb" : "aa"), secret, now);
+  const tamperedBody = await verify("x" + token, secret, now);
+  const wrongSecret = await verify(token, "other-secret", now);
+  const expired = await verify(token, secret, now + 7200);
+
+  const checks = [
+    ["valid token accepted", good.ok === true && good.payload.c === "selftest"],
+    ["tampered signature rejected", tamperedSig.ok === false && tamperedSig.reason === "bad-signature"],
+    ["tampered payload rejected", tamperedBody.ok === false],
+    ["wrong secret rejected", wrongSecret.ok === false && wrongSecret.reason === "bad-signature"],
+    ["expired token rejected", expired.ok === false && expired.reason === "expired"],
+  ];
+  let pass = true;
+  for (const [name, ok] of checks) {
+    console.log(`${ok ? "✓" : "✗"} ${name}`);
+    if (!ok) pass = false;
+  }
+  console.log(pass ? "\nSELFTEST PASS" : "\nSELFTEST FAIL");
+  process.exit(pass ? 0 : 1);
+}
+
+async function interactive() {
+  const secret = loadSecret();
+  const rl = createInterface({ input: stdin, output: stdout });
+  const ask = async (q, dflt) => {
+    const a = (await rl.question(dflt ? `${q} [${dflt}]: ` : `${q}: `)).trim();
+    return a || dflt || "";
+  };
+
+  const client = await ask("Recipient (firm slug or email, e.g. greenwood-asher)");
+  if (!client) { console.error("A recipient is required."); rl.close(); process.exit(1); }
+
+  console.log("\nWhich indices? Enter numbers comma-separated, or 'all':");
+  INDICES.forEach(([, label], i) => console.log(`  ${String(i + 1).padStart(2)}  ${label}`));
+  const pickRaw = await ask("Indices", "all");
+  let scope;
+  if (/^all$/i.test(pickRaw)) {
+    scope = INDICES.map(([id]) => id);
+  } else {
+    const nums = pickRaw.split(/[,\s]+/).map((n) => parseInt(n, 10)).filter((n) => n >= 1 && n <= INDICES.length);
+    scope = [...new Set(nums)].map((n) => INDICES[n - 1][0]);
+  }
+  if (!scope.length) { console.error("No valid indices selected."); rl.close(); process.exit(1); }
+
+  const days = parseInt(await ask("Expiry (days)", String(DEFAULT_EXPIRY_DAYS)), 10) || DEFAULT_EXPIRY_DAYS;
+  const domain = (await ask("Domain", DEFAULT_DOMAIN)).replace(/\/+$/, "");
+  rl.close();
+
+  const nowSec = Math.floor(Date.now() / 1000);
+  const expSec = nowSec + days * 86400;
+  const payload = { c: client, s: scope, x: expSec, i: nowSec };
+  const token = await sign(payload, secret);
+  const link = `${domain}/?k=${token}`;
+
+  // Prove the freshly minted token verifies before handing it over.
+  const check = await verify(token, secret);
+  if (!check.ok) { console.error("Internal error: minted token failed verification:", check.reason); process.exit(1); }
+
+  const expiryISO = new Date(expSec * 1000).toISOString().slice(0, 10);
+  const labels = scope.map((id) => (INDICES.find(([x]) => x === id) || [id, id])[1]).join(", ");
+  console.log("\n────────────────────────────────────────────────────────");
+  console.log(`Client:  ${client}`);
+  console.log(`Indices: ${labels}`);
+  console.log(`Expires: ${expiryISO}  (${days} days)`);
+  console.log(`\n${link}\n`);
+  console.log("────────────────────────────────────────────────────────");
+
+  appendFileSync(LOG_FILE, JSON.stringify({ client, scope, issued: nowSec, expiry: expSec, expiryISO, domain }) + "\n");
+  console.log(`Logged to ${LOG_FILE}`);
+}
+
+if (process.argv.includes("--selftest")) {
+  await selftest();
+} else {
+  await interactive();
+}
