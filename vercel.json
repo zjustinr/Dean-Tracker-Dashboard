@@ -3,8 +3,12 @@
   "buildCommand": "cd artifacts/dean-dashboard && node scripts/gen-public-data.mjs && pnpm exec vite build --config vite.config.ts",
   "outputDirectory": "artifacts/dean-dashboard/dist/public",
   "framework": null,
+  "functions": {
+    "api/data.mjs": { "includeFiles": "artifacts/dean-dashboard/src/data/**" }
+  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/data/:path*", "destination": "/api/data?f=:path*" },
+    { "source": "/((?!api/|data/).*)", "destination": "/index.html" }
   ]
 }
