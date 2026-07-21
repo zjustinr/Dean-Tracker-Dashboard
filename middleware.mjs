@@ -2,19 +2,23 @@
 //
 // Runs before /data/*.json is served and enforces the trial token: verifies the
 // HMAC, rejects tampered/expired tokens, and blocks datasets outside the token's
-// scope. Reuses the shared verify()/scopeAllows() (Web Crypto, edge-safe).
+// scope. Delegates the decision to lib/trial-gate.mjs (Web Crypto, edge-safe),
+// which is the single source of truth the mint CLI and gate test also use.
 //
-// Armed by the TRIAL_SECRET env var. Until that is set in Vercel (Step 5) the
-// gate is inert (fail-open), so deploying this changes nothing on the live site.
+// Plain-JS .mjs on purpose: non-framework Vercel projects use .mjs middleware,
+// which sidesteps any TypeScript compile of the .mjs import chain (an earlier
+// middleware.ts failed the Vercel build for exactly that reason).
 //
-// Continue semantics: Vercel's next() simply returns a Response carrying
-// `x-middleware-next: 1`, so we build that directly and take no dependency
-// (learned from Step 2 — build steps must not rely on maybe-missing packages).
+// Armed by TRIAL_SECRET. Until that env var is set in Vercel (Step 5) the gate is
+// inert (fail-open), so deploying this changes nothing on the live site.
+//
+// Continue semantics: Vercel's next() just returns a Response carrying
+// `x-middleware-next: 1`, so we build that directly and take no dependency.
 import { gate } from "./lib/trial-gate.mjs";
 
 export const config = { matcher: "/data/:path*" };
 
-export default async function middleware(request: Request): Promise<Response> {
+export default async function middleware(request) {
   const url = new URL(request.url);
 
   const decision = await gate({
@@ -31,9 +35,9 @@ export default async function middleware(request: Request): Promise<Response> {
     });
   }
 
-  // x-bi-gate lets us confirm the middleware actually ran on a deploy (it shows
-  // up on the /data response). "disarmed" = no TRIAL_SECRET set yet (Step 5).
-  const headers: Record<string, string> = {
+  // x-bi-gate confirms the middleware actually ran on a deploy (it appears on the
+  // /data response). "disarmed" = no TRIAL_SECRET yet (Step 5 arms it).
+  const headers = {
     "x-middleware-next": "1",
     "x-bi-gate": decision.reason === "disarmed" ? "disarmed" : "armed",
   };
