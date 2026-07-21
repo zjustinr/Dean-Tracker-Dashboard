@@ -249,8 +249,8 @@ function AppInner() {
                       isActive
                         ? "bg-[#011F5B] text-white border-[#011F5B] shadow-md"
                         : isFeatured
-                        ? "bg-card text-foreground border-[#011F5B]/40 ring-1 ring-[#011F5B]/20 hover:border-[#011F5B]/70 shadow-sm"
-                        : "bg-card text-foreground border-border hover:border-primary/40 hover:bg-muted/40",
+                        ? "bg-slate-100 dark:bg-slate-800/50 text-foreground border-[#011F5B]/40 ring-1 ring-[#011F5B]/20 hover:border-[#011F5B]/70 shadow-sm"
+                        : "bg-slate-100 dark:bg-slate-800/50 text-foreground border-slate-200 dark:border-slate-700 hover:border-primary/40 hover:bg-slate-200/70 shadow-sm",
                     ].join(" ")}
                   >
                     <span className="flex items-center gap-2">
