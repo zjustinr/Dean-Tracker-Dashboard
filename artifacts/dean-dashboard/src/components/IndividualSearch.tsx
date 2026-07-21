@@ -18,9 +18,8 @@ const pkey = (dean: string, uni: string) => `${dean.trim().toLowerCase()}|${uni.
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const CAP = 2000;
 const NOW = 2026;
+const SLATE_KEY = "bi_slate_v1";
 
-// US Census regions -> state codes. A selected region expands to its states,
-// OR'd with any individually-checked states.
 const REGIONS: Record<string, string[]> = {
   Northeast: ["CT", "ME", "MA", "NH", "RI", "VT", "NJ", "NY", "PA"],
   Midwest: ["IL", "IN", "MI", "OH", "WI", "IA", "KS", "MN", "MO", "NE", "ND", "SD"],
@@ -31,10 +30,11 @@ const REGIONS: Record<string, string[]> = {
 /**
  * Slate Builder — the flagship view.
  *
- * Filters a cohort (by tenure window, school, discipline, state/region, name), lets the user check people into a persistent shortlist, and
- * expands a full profile inline between rows so the list is never hidden.
- * Mobile-first: plain input + native <select> + tappable rows, no custom
- * dropdown to mis-tap.
+ * Filters a cohort (tenure window, 5+ years in seat, school, discipline,
+ * state/region, name), checks people into a shortlist that persists across
+ * sessions (localStorage), compares or exports that shortlist, and expands a
+ * full profile inline between rows. Mobile-first: plain input + native
+ * <select> + tappable rows, no custom dropdown to mis-tap.
  */
 export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: DeanSearchPrefill | null; onOpenSchool?: (university: string, school: string) => void }) {
   const { datasetId, noun, nounLower, nounPluralLower } = useDataset();
@@ -45,13 +45,20 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [discipline, setDiscipline] = useState("");
   const [school, setSchool] = useState("");
   const [tenureWin, setTenureWin] = useState<"sitting" | "5" | "10" | "any">("sitting");
+  const [longTenure, setLongTenure] = useState(false);
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
   const [sortBy, setSortBy] = useState<"name" | "tenure" | "recent">("name");
-  const [slate, setSlate] = useState<Dean[]>([]);
+  const [slate, setSlate] = useState<Dean[]>(() => {
+    try { const r = localStorage.getItem(SLATE_KEY); return r ? JSON.parse(r) : []; } catch { return []; }
+  });
+  const [compareOpen, setCompareOpen] = useState(false);
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
-  // university (lower) -> state code, from the active dataset's school list
+  useEffect(() => {
+    try { localStorage.setItem(SLATE_KEY, JSON.stringify(slate)); } catch { /* quota / private mode */ }
+  }, [slate]);
+
   const stateOf = useMemo(() => {
     const m = new Map<string, string>();
     for (const s of (DATASETS[datasetId].schools as unknown as { university?: string; state?: string }[])) {
@@ -64,7 +71,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     if (!prefill) return;
     setQuery(prefill.fullName);
     setLetter(""); setDiscipline(""); setSchool(""); setTenureWin("any");
-    setRegions(new Set()); setStates(new Set());
+    setLongTenure(false); setRegions(new Set()); setStates(new Set());
     const matches = allDeans.filter((d) => d.dean.toLowerCase() === prefill.fullName.toLowerCase());
     const best = matches.find((d) => d.endYear == null) || matches[0] || null;
     setExpandedId(best ? best.id : null);
@@ -92,30 +99,44 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   }, [states, regions]);
 
   const hasFilter = query.trim() !== "" || !!letter || !!discipline || !!school ||
-    tenureWin !== "any" || effectiveStates.size > 0;
+    tenureWin !== "any" || longTenure || effectiveStates.size > 0;
 
-  const results = useMemo(() => {
+  // Base cohort with every filter EXCEPT location, so region chips can show counts.
+  const locBase = useMemo(() => {
     if (!hasFilter) return [];
     const q = query.trim().toLowerCase();
     const seen = new Set<string>();
-    const rows = allDeans.filter((d) => {
+    return allDeans.filter((d) => {
       const last = (d.dean.split(/\s+/).pop() || "").toLowerCase();
       if (tenureWin === "sitting" && d.endYear != null) return false;
       if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
       if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) return false;
+      if (longTenure && !(d.tenureLength && d.tenureLength >= 5)) return false;
       if (q && !d.dean.toLowerCase().includes(q)) return false;
       if (letter && last[0] !== letter.toLowerCase()) return false;
       if (discipline && d.disciplineBroad !== discipline) return false;
       if (school && d.university !== school) return false;
-      if (effectiveStates.size) {
-        const st = stateOf.get(d.university.toLowerCase());
-        if (!st || !effectiveStates.has(st)) return false;
-      }
       const key = d.dean + "|" + d.university + "|" + d.school;
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
     });
+  }, [allDeans, query, letter, discipline, school, tenureWin, longTenure, hasFilter]);
+
+  const regionCounts = useMemo(() => {
+    const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
+    for (const d of locBase) {
+      const st = stateOf.get(d.university.toLowerCase());
+      if (!st) continue;
+      for (const r of Object.keys(REGIONS)) if (REGIONS[r].includes(st)) c[r]++;
+    }
+    return c;
+  }, [locBase, stateOf]);
+
+  const results = useMemo(() => {
+    const rows = effectiveStates.size
+      ? locBase.filter((d) => { const st = stateOf.get(d.university.toLowerCase()); return !!st && effectiveStates.has(st); })
+      : locBase.slice();
     rows.sort((a, b) => {
       if (sortBy === "tenure") return (b.tenureLength || 0) - (a.tenureLength || 0);
       if (sortBy === "recent") return (b.startYear || 0) - (a.startYear || 0);
@@ -123,7 +144,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       return cmp !== 0 ? cmp : a.dean.localeCompare(b.dean);
     });
     return rows;
-  }, [allDeans, query, letter, discipline, school, tenureWin, effectiveStates, stateOf, sortBy, hasFilter]);
+  }, [locBase, effectiveStates, stateOf, sortBy]);
 
   const shown = results.slice(0, CAP);
   const inSlate = (id: number) => slate.some((d) => d.id === id);
@@ -133,8 +154,27 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
   const clearAll = () => {
     setQuery(""); setLetter(""); setDiscipline(""); setSchool("");
-    setRegions(new Set()); setStates(new Set()); setExpandedId(null);
+    setLongTenure(false); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
   };
+
+  // Export the SHORTLIST only (the user's hand-picked few), not the dataset.
+  const exportSlate = () => {
+    const esc = (v: unknown) => { const s = String(v ?? ""); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+    const head = ["Name", "School", "University", "State", "Discipline", "Appointed", "Left", "Tenure (yrs)", "Interim", "Source"];
+    const lines = [head.join(",")];
+    for (const d of slate) {
+      lines.push([d.dean, d.school, d.university, stateOf.get(d.university.toLowerCase()) || "", d.disciplineBroad || "",
+        d.startYear || "", d.endYear || "Present", d.tenureLength ?? "", d.isInterim ? "Yes" : "No", d.sourceUrl || ""]
+        .map(esc).join(","));
+    }
+    const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "baton-index-slate.csv";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   const sel = "w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30";
   const chip = (active: boolean) =>
     ["px-2.5 h-8 rounded text-xs font-semibold transition-colors", active ? "bg-[#011F5B] text-white" : "bg-muted/60 text-foreground hover:bg-muted"].join(" ");
@@ -153,7 +193,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     <div className="space-y-4">
       <div className="bg-card border border-border rounded-xl p-4 sm:p-6">
         <h2 className="text-lg font-bold mb-1">Slate Builder</h2>
-        <p className="text-sm text-muted-foreground mb-4">Filter the cohort, check candidates into your slate, and open any profile.</p>
+        <p className="text-sm text-muted-foreground mb-4">Filter the cohort, check candidates into your slate, then compare or export.</p>
 
         <input
           type="text" inputMode="search" value={query}
@@ -184,14 +224,18 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           </select>
         </div>
 
-        <div className="flex items-center gap-1.5 mt-3">
-          <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
-          {Object.keys(REGIONS).map((r) => (
-            <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>{r}</button>
-          ))}
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-3">
+          <button onClick={() => { setLongTenure(!longTenure); setExpandedId(null); }} className={chip(longTenure)}>5+ yrs in seat</button>
+          <div className="flex items-center gap-1.5">
+            <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
+            {Object.keys(REGIONS).map((r) => (
+              <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>
+                {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* States (multi) in a compact scroll box so 48 codes don't dominate */}
         <div className="mt-3">
           <span className="text-xs font-medium text-muted-foreground">States</span>
           <div className="mt-1 flex flex-wrap gap-1 max-h-24 overflow-y-auto rounded-lg border border-border p-2">
@@ -212,9 +256,15 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
       {slate.length > 0 && (
         <div className="bg-[#011F5B]/5 border border-[#011F5B]/25 rounded-xl p-4">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-2 gap-2 flex-wrap">
             <p className="text-sm font-semibold text-[#011F5B]">Your slate — {slate.length}</p>
-            <button onClick={() => setSlate([])} className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2">Clear slate</button>
+            <div className="flex items-center gap-2">
+              {slate.length >= 2 && (
+                <button onClick={() => setCompareOpen(true)} className="text-xs font-semibold px-2.5 py-1 rounded bg-[#011F5B] text-white hover:brightness-110">Compare</button>
+              )}
+              <button onClick={exportSlate} className="text-xs font-semibold px-2.5 py-1 rounded border border-[#011F5B]/40 text-[#011F5B] hover:bg-[#011F5B]/10">Export CSV</button>
+              <button onClick={() => setSlate([])} className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2">Clear</button>
+            </div>
           </div>
           <div className="flex flex-wrap gap-2">
             {slate.map((d) => (
@@ -273,6 +323,49 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       {results.length === 0 && hasFilter && (
         <div className="bg-card border border-border rounded-xl p-8 text-center">
           <p className="text-muted-foreground text-sm">No {nounPluralLower} match these filters.</p>
+        </div>
+      )}
+
+      {compareOpen && slate.length >= 2 && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-label="Compare slate" onClick={() => setCompareOpen(false)}>
+          <div className="w-full max-w-4xl max-h-[85vh] overflow-auto rounded-xl border border-border bg-card shadow-xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-border sticky top-0 bg-card">
+              <p className="font-semibold">Compare — {slate.length}</p>
+              <button onClick={() => setCompareOpen(false)} aria-label="Close" className="text-muted-foreground hover:text-foreground text-lg leading-none px-1">×</button>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="text-sm min-w-full">
+                <tbody>
+                  <tr className="border-b border-border">
+                    <td className="p-3 font-medium text-muted-foreground align-top w-32">Candidate</td>
+                    {slate.map((d) => (
+                      <td key={d.id} className="p-3 align-top min-w-[180px]">
+                        <div className="flex items-center gap-2">
+                          <Avatar d={d} />
+                          <span className="font-semibold">{d.dean}</span>
+                        </div>
+                      </td>
+                    ))}
+                  </tr>
+                  {([
+                    ["School", (d: Dean) => d.school],
+                    ["University", (d: Dean) => d.university],
+                    ["State", (d: Dean) => stateOf.get(d.university.toLowerCase()) || "—"],
+                    ["Discipline", (d: Dean) => (d.disciplineBroad && d.disciplineBroad !== "Unknown" ? d.disciplineBroad : "—")],
+                    ["Appointed", (d: Dean) => d.startYear || "—"],
+                    ["Status", (d: Dean) => (d.endYear == null ? "Sitting" : `Left ${d.endYear}`)],
+                    ["Tenure", (d: Dean) => (d.tenureLength ? `${d.tenureLength} yr${d.tenureLength !== 1 ? "s" : ""}` : "—")],
+                    ["Prior role", (d: Dean) => d.priorTitle || "—"],
+                  ] as [string, (d: Dean) => React.ReactNode][]).map(([label, fn]) => (
+                    <tr key={label} className="border-b border-border">
+                      <td className="p-3 font-medium text-muted-foreground align-top">{label}</td>
+                      {slate.map((d) => <td key={d.id} className="p-3 align-top">{fn(d)}</td>)}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       )}
     </div>
