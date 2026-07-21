@@ -119,8 +119,8 @@ function AppInner() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className="min-h-screen bg-[#EEF1F6] dark:bg-background text-foreground">
-        <header className="border-b border-border bg-card">
+      <div className="min-h-screen bg-gradient-to-b from-[#F6F8FB] to-[#E7EBF2] dark:from-background dark:to-background text-foreground">
+        <header className="border-b border-border bg-card border-t-2 border-t-[#A31F34]">
           <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3.5">
@@ -170,7 +170,7 @@ function AppInner() {
             <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => setContactOpen(true)}
-              className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
+              className="px-4 py-2 rounded-lg bg-gradient-to-b from-[#b02a3f] to-[#8a1a2d] text-white text-sm font-semibold shadow-sm hover:brightness-110"
             >
               Contact
             </button>
@@ -214,7 +214,7 @@ function AppInner() {
                     className={[
                       "px-3 py-2 rounded-lg text-sm font-semibold transition-all text-center w-full",
                       isActive
-                        ? "bg-[#011F5B] text-white shadow-sm"
+                        ? "bg-gradient-to-b from-[#0a2a63] to-[#01143f] text-white shadow-sm"
                         : "bg-card text-foreground hover:bg-muted border border-transparent",
                     ].join(" ")}
                   >
@@ -247,7 +247,7 @@ function AppInner() {
                       "border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       "cursor-pointer select-none",
                       isActive
-                        ? "bg-[#011F5B] text-white border-[#011F5B] shadow-md"
+                        ? "bg-gradient-to-br from-[#0b2c66] to-[#01143d] text-white border-[#01143d] shadow-md"
                         : isFeatured
                         ? "bg-slate-100 dark:bg-slate-800/50 text-foreground border-[#011F5B]/40 ring-1 ring-[#011F5B]/20 hover:border-[#011F5B]/70 shadow-sm"
                         : "bg-slate-100 dark:bg-slate-800/50 text-foreground border-slate-200 dark:border-slate-700 hover:border-primary/40 hover:bg-slate-200/70 shadow-sm",
