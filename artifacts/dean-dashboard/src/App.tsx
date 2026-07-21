@@ -9,6 +9,7 @@ import LiveJobMarket from "@/components/LiveJobMarket";
 import DisciplineSearch from "@/components/DisciplineSearch";
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
+import AboutDialog from "@/components/AboutDialog";
 import ModuleIcon from "@/components/ModuleIcons";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 import { DATASETS, DATASET_LIST } from "@/data/datasets";
@@ -92,6 +93,7 @@ function AppInner() {
     .replace(/Dean/g, noun).replace(/dean/g, nounLower);
   const [darkMode, setDarkMode] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const tabs = DEFAULT_TABS;
   const [activeTab, setActiveTab] = useState(DEFAULT_TABS[0].value);
   const [entered, setEntered] = useState(false);
@@ -168,6 +170,12 @@ function AppInner() {
               </p>
             </div>
             <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => setAboutOpen(true)}
+              className="px-3 py-2 rounded-lg text-sm font-semibold text-foreground hover:bg-muted"
+            >
+              About
+            </button>
             <button
               onClick={() => setContactOpen(true)}
               className="px-4 py-2 rounded-lg bg-gradient-to-b from-[#b02a3f] to-[#8a1a2d] text-white text-sm font-semibold shadow-sm hover:brightness-110"
@@ -295,12 +303,17 @@ function AppInner() {
           <p className="text-xs text-muted-foreground/60">
             &copy; 2026 Baton Index &middot; Leadership succession data for higher education
             <span className="mx-1.5">&middot;</span>
+            <button onClick={() => setAboutOpen(true)} className="underline underline-offset-2 hover:text-foreground">
+              About
+            </button>
+            <span className="mx-1.5">&middot;</span>
             <button onClick={() => setContactOpen(true)} className="underline underline-offset-2 hover:text-foreground">
               Contact
             </button>
           </p>
         </footer>
         {contactOpen && <ContactDialog onClose={() => setContactOpen(false)} />}
+        {aboutOpen && <AboutDialog onClose={() => setAboutOpen(false)} onContact={() => setContactOpen(true)} />}
       </div>
     </div>
   );
