@@ -8,7 +8,7 @@
   },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/data/:path*", "destination": "/api/data?f=:path*" },
+    { "source": "/data/(.*)", "destination": "/api/data?f=$1" },
     { "source": "/((?!api/|data/).*)", "destination": "/index.html" }
   ]
 }
