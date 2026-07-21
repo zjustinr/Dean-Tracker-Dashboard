@@ -12,40 +12,20 @@ import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
 import ModuleIcon from "@/components/ModuleIcons";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
-import { DATASETS, DATASET_LIST } from "@/data/datasets";
+import { DATASET_LIST } from "@/data/datasets";
+import corpusStats from "@/data/corpus-stats.json";
 
 // Build timestamp, injected by vite.config.ts. Reflects when the site was last
 // deployed, which for a static data app is when the data last changed.
 declare const __BUILT_ON__: string;
 const BUILT_ON = __BUILT_ON__;
 
-/**
- * Corpus-wide totals for the header strip, computed once at module load.
- *
- * Counts only the datasets in DATASET_LIST. That deliberately excludes the
- * hidden Top-100 bundle, which is not merely hidden but a strict *subset* of
- * R1 B-school -- all 603 of its rows appear there too, so including it would
- * double-count. Rows are additionally deduped on
- * (dean, university, school, startYear) as a guard against future overlap
- * between datasets.
- */
-const CORPUS = (() => {
-  const seen = new Set<string>();
-  const schools = new Set<string>();
-  let sitting = 0;
-  let minYear = Infinity;
-  for (const meta of DATASET_LIST) {
-    for (const d of DATASETS[meta.id].deans) {
-      const k = `${(d.dean || "").trim().toLowerCase()}|${(d.university || "").trim().toLowerCase()}|${(d.school || "").trim().toLowerCase()}|${d.startYear}`;
-      if (seen.has(k)) continue;
-      seen.add(k);
-      schools.add(`${d.university}|${d.school}`);
-      if (d.endYear == null) sitting++;
-      if (d.startYear && d.startYear < minYear) minYear = d.startYear;
-    }
-  }
-  return { appts: seen.size, sitting, schools: schools.size, from: minYear };
-})();
+// Corpus-wide totals for the header strip. Step 2 moved the dean records out of
+// the bundle, so these are precomputed by scripts/gen-public-data.ts (re-run on
+// every data refresh) rather than tallied from the datasets at load. Counts only
+// DATASET_LIST — excludes hidden Top-100 (a strict subset of R1 B-school) — and
+// dedupes on (dean, university, school, startYear).
+const CORPUS = corpusStats as { appts: number; sitting: number; schools: number; from: number };
 
 interface TabDef {
   value: string;

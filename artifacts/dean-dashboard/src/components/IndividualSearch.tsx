@@ -1,10 +1,9 @@
 import { useState, useMemo, useEffect } from "react";
 import { useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
-import { DATASETS } from "@/data/datasets";
 import type { Dean } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
-import deanPhotos from "@/data/dean-photos.json";
+import { usePhotoMap } from "@/data/enrichment";
 
 export interface DeanSearchPrefill {
   fullName: string;
@@ -13,7 +12,6 @@ export interface DeanSearchPrefill {
   token: number;
 }
 
-const PHOTOS = deanPhotos as Record<string, { photo: string; source?: string }>;
 const pkey = (dean: string, uni: string) => `${dean.trim().toLowerCase()}|${uni.trim().toLowerCase()}`;
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const CAP = 2000;
@@ -37,8 +35,9 @@ const REGIONS: Record<string, string[]> = {
  * <select> + tappable rows, no custom dropdown to mis-tap.
  */
 export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: DeanSearchPrefill | null; onOpenSchool?: (university: string, school: string) => void }) {
-  const { datasetId, noun, nounLower, nounPluralLower } = useDataset();
+  const { datasetId, bundle, noun, nounLower, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
+  const PHOTOS = usePhotoMap();
 
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState("");
@@ -61,11 +60,11 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
   const stateOf = useMemo(() => {
     const m = new Map<string, string>();
-    for (const s of (DATASETS[datasetId].schools as unknown as { university?: string; state?: string }[])) {
+    for (const s of (bundle.schools as unknown as { university?: string; state?: string }[])) {
       if (s.university && s.state) m.set(s.university.toLowerCase(), s.state);
     }
     return m;
-  }, [datasetId]);
+  }, [bundle.schools]);
 
   // Reset every filter when the active dataset changes. A discipline, school, or
   // state chosen for one index does not exist in another, so a leftover filter

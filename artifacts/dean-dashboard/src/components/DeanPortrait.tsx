@@ -2,15 +2,14 @@ import { useState, useEffect } from "react";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS } from "@/data/types";
 import { useDataset } from "@/data/DatasetContext";
-import deanPhotos from "@/data/dean-photos.json";
+import { usePhotoMap, getPhotoMap, enrichKey, type PhotoRec } from "@/data/enrichment";
 
-const PHOTO_MAP = deanPhotos as Record<string, { photo: string; source?: string; page?: string }>;
+export const photoKey = enrichKey;
 
-export const photoKey = (dean: string, university: string) =>
-  `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
-
-export function getDeanPhoto(dean: string, university: string) {
-  return PHOTO_MAP[photoKey(dean, university)];
+// Non-reactive lookup for callers outside a render pass. Inside components,
+// prefer the usePhotoMap() hook so the portrait updates once photos load.
+export function getDeanPhoto(dean: string, university: string): PhotoRec | undefined {
+  return getPhotoMap()[photoKey(dean, university)];
 }
 
 export function monogramColor(university: string): string {
@@ -23,10 +22,12 @@ function initialsOf(name: string): string {
 
 /** Small circular headshot for list rows; falls back to a colored monogram. */
 export function MiniPortrait({ dean }: { dean: Dean }) {
-  const curated = getDeanPhoto(dean.dean, dean.university);
+  const photos = usePhotoMap();
+  const curated = photos[photoKey(dean.dean, dean.university)];
   const [src, setSrc] = useState<string | null>(curated?.photo || null);
-  // reset to the new dean's photo when the component is reused for a different dean
-  useEffect(() => { setSrc(curated?.photo || null); }, [dean.dean, dean.university]); // eslint-disable-line react-hooks/exhaustive-deps
+  // reset to the new dean's photo when reused for a different dean, and pick up
+  // the photo once the map finishes loading (curated?.photo in deps)
+  useEffect(() => { setSrc(curated?.photo || null); }, [dean.dean, dean.university, curated?.photo]); // eslint-disable-line react-hooks/exhaustive-deps
   const color = monogramColor(dean.university);
 
   if (src) {
@@ -56,10 +57,12 @@ export function MiniPortrait({ dean }: { dean: Dean }) {
  *  on the right with a caption; monogram placeholder when no photo exists. */
 export function FullPortrait({ dean, onSchoolHistory }: { dean: Dean; onSchoolHistory?: () => void }) {
   const { noun, titleOf } = useDataset();
-  const curated = getDeanPhoto(dean.dean, dean.university);
+  const photos = usePhotoMap();
+  const curated = photos[photoKey(dean.dean, dean.university)];
   const [src, setSrc] = useState<string | null>(curated?.photo || null);
-  // reset to the new dean's photo when the panel is reused for a different dean
-  useEffect(() => { setSrc(curated?.photo || null); }, [dean.dean, dean.university]); // eslint-disable-line react-hooks/exhaustive-deps
+  // reset to the new dean's photo when reused for a different dean, and pick up
+  // the photo once the map finishes loading (curated?.photo in deps)
+  useEffect(() => { setSrc(curated?.photo || null); }, [dean.dean, dean.university, curated?.photo]); // eslint-disable-line react-hooks/exhaustive-deps
   const color = monogramColor(dean.university);
 
   return (

@@ -4,10 +4,7 @@ import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS } from "@/data/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import deanPhotos from "@/data/dean-photos.json";
-
-const PHOTO_MAP = deanPhotos as Record<string, { photo: string; source?: string; page?: string }>;
-const photoKey = (dean: string, university: string) => `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
+import { usePhotoMap, enrichKey as photoKey } from "@/data/enrichment";
 
 /**
  * Front-page sidebar: a random currently-serving dean, with a portrait
@@ -18,6 +15,7 @@ const photoKey = (dean: string, university: string) => `${dean.trim().toLowerCas
 export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: Dean) => void }) {
   const { noun, nounLower } = useDataset();
   const allDeans = useAllDeans();
+  const PHOTO_MAP = usePhotoMap();
   const current = useMemo(
     () => allDeans.filter((d) => d.endYear == null && d.dean && d.startYear && !/unknown/i.test(d.dean)),
     [allDeans]
@@ -31,7 +29,7 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
   const [photo, setPhoto] = useState<string | null>(null);
   useEffect(() => {
     setPhoto(curated?.photo || null);
-  }, [dean]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [dean, curated?.photo]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!dean) return null;
 

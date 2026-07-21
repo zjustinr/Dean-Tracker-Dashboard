@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "gen-data": "tsx scripts/gen-public-data.ts",
+    "predev": "tsx scripts/gen-public-data.ts",
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
+    "prebuild": "tsx scripts/gen-public-data.ts",
     "build": "vite build --config vite.config.ts",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"

@@ -51,3 +51,7 @@ Thumbs.db
 # Baton Index trial signing secret + mint log (never commit)
 .trial-secret
 trials.log
+
+# Step 2: public/data is a build artifact regenerated from src/data by
+# artifacts/dean-dashboard/scripts/gen-public-data.ts (vercel.json build + local pre* hooks).
+artifacts/dean-dashboard/public/data/

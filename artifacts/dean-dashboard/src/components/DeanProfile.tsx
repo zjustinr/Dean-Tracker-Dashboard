@@ -4,7 +4,7 @@ import { useDeanCareer } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
-import leaderResearch from "@/data/leader-research.json";
+import { useResearchMap, enrichKey } from "@/data/enrichment";
 
 function formatMoney(val: number | null): string {
   if (!val) return "–";
@@ -12,21 +12,6 @@ function formatMoney(val: number | null): string {
   if (val >= 1e6) return `$${(val / 1e6).toFixed(1)}M`;
   return `$${(val / 1e3).toFixed(0)}K`;
 }
-
-// Headhunter research pack, keyed by "dean|university" (lowercased).
-interface NewsItem { title: string; url: string; source?: string; date?: string; }
-interface CareerStep { role: string; org?: string; years?: string; }
-interface LeaderResearch {
-  linkedin?: string;
-  summary?: string;      // "why this leader" strengths brief
-  expertise?: string[];  // signature themes / domains
-  education?: string;    // degrees
-  news?: NewsItem[];
-  career?: CareerStep[]; // chronological pre-role trajectory (earliest → current)
-}
-const RESEARCH = leaderResearch as Record<string, LeaderResearch>;
-const researchKey = (dean: string, university: string) =>
-  `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
 
 interface Props {
   dean: Dean;
@@ -38,7 +23,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
   const { noun, nounPluralLower, titleOf } = useDataset();
   const careerPositions = useDeanCareer(dean.dean);
   const title = titleOf(dean);
-  const research = RESEARCH[researchKey(dean.dean, dean.university)] || null;
+  const research = useResearchMap()[enrichKey(dean.dean, dean.university)] || null;
   const hasNews = !!research?.news?.length;
   const hasCareer = !!research?.career?.length;
   const isCurrent = !dean.endYear;
