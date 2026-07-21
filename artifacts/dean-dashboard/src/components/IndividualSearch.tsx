@@ -67,6 +67,17 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     return m;
   }, [datasetId]);
 
+  // Reset every filter when the active dataset changes. A discipline, school, or
+  // state chosen for one index does not exist in another, so a leftover filter
+  // silently empties the results — this was the "Slate Builder only works for
+  // b-schools" bug (filter in B-school, switch index, see nothing). Defined
+  // before the prefill effect so a prefill arriving in the same commit still wins.
+  useEffect(() => {
+    setQuery(""); setLetter(""); setDiscipline(""); setSchool("");
+    setTenureWin("sitting"); setLongTenure(false);
+    setRegions(new Set()); setStates(new Set()); setExpandedId(null);
+  }, [datasetId]);
+
   useEffect(() => {
     if (!prefill) return;
     setQuery(prefill.fullName);
