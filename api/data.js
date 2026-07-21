@@ -56,6 +56,7 @@ const SPEC = {
   uspharmacy:  { deans: () => require("../artifacts/dean-dashboard/src/data/r1-pharmacy-deans.json"), bsq: () => require("../artifacts/dean-dashboard/src/data/r1-pharmacy-research.json"), schools: () => require("../artifacts/dean-dashboard/src/data/r1-pharmacy-schools.json"), split: false },
   useducation: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-education-deans.json"), bsq: () => require("../artifacts/dean-dashboard/src/data/r1-education-research.json"), schools: () => require("../artifacts/dean-dashboard/src/data/r1-education-schools.json"), split: false },
   r1arts:      { deans: () => require("../artifacts/dean-dashboard/src/data/r1-arts-deans.json"), bsq: () => require("../artifacts/dean-dashboard/src/data/r1-arts-research.json"), schools: () => require("../artifacts/dean-dashboard/src/data/r1-arts-schools.json"), split: false },
+  uspublichealth: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-publichealth-deans.json"), bsq: () => require("../artifacts/dean-dashboard/src/data/r1-publichealth-research.json"), schools: () => require("../artifacts/dean-dashboard/src/data/r1-publichealth-schools.json"), split: false },
 };
 const ENRICHMENT = {
   "dean-photos.json": () => require("../artifacts/dean-dashboard/src/data/dean-photos.json"),

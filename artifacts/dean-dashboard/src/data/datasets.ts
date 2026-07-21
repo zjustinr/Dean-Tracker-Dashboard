@@ -8,7 +8,7 @@ import type { Dean } from "./types";
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth";
 
 export interface SchoolInfo {
   university: string;
@@ -40,7 +40,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth";
   yearRange: string;
 }
 
@@ -179,6 +179,18 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     schoolType: "arts",
     yearRange: "1873–2026",
   },
+  // CEPH-accredited, dean-led standalone Schools/Colleges of Public Health granting
+  // a doctorate (PhD/DrPH) — public and private, concentrated at R1s but not R1-scoped
+  // (mirrors nursing/pharmacy). Completes the health-professions cluster.
+  uspublichealth: {
+    id: "uspublichealth",
+    label: "US Public Health School Deans",
+    shortLabel: "Public Health",
+    description: "Deans of CEPH-accredited, dean-led Schools & Colleges of Public Health granting a doctorate — public and private, across 36 states",
+    rankLabel: "Carnegie class",
+    schoolType: "publichealth",
+    yearRange: "1981–2026",
+  },
 };
 
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
@@ -196,6 +208,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.uspharmacy,
   DATASETS_META.useducation,
   DATASETS_META.r1arts,
+  DATASETS_META.uspublichealth,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,

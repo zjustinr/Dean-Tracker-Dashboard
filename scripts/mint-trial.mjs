@@ -35,6 +35,7 @@ const INDICES = [
   ["uspharmacy", "Pharmacy"],
   ["useducation", "Education"],
   ["r1arts", "Arts & Sciences"],
+  ["uspublichealth", "Public Health"],
 ];
 
 function loadSecret() {
