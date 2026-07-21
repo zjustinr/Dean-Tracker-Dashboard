@@ -1,6 +1,6 @@
 {
   "installCommand": "pnpm install --ignore-scripts",
-  "buildCommand": "cd artifacts/dean-dashboard && pnpm exec tsx scripts/gen-public-data.ts && pnpm exec vite build --config vite.config.ts",
+  "buildCommand": "cd artifacts/dean-dashboard && node scripts/gen-public-data.mjs && pnpm exec vite build --config vite.config.ts",
   "outputDirectory": "artifacts/dean-dashboard/dist/public",
   "framework": null,
   "rewrites": [
