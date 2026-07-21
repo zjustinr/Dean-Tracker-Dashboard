@@ -31,8 +31,7 @@ const REGIONS: Record<string, string[]> = {
 /**
  * Slate Builder — the flagship view.
  *
- * Filters a cohort (by tenure window, school, discipline, state/region,
- * gender, name), lets the user check people into a persistent shortlist, and
+ * Filters a cohort (by tenure window, school, discipline, state/region, name), lets the user check people into a persistent shortlist, and
  * expands a full profile inline between rows so the list is never hidden.
  * Mobile-first: plain input + native <select> + tappable rows, no custom
  * dropdown to mis-tap.
@@ -46,7 +45,6 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [discipline, setDiscipline] = useState("");
   const [school, setSchool] = useState("");
   const [tenureWin, setTenureWin] = useState<"sitting" | "5" | "10" | "any">("sitting");
-  const [gender, setGender] = useState<"all" | "F" | "M">("all");
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
   const [sortBy, setSortBy] = useState<"name" | "tenure" | "recent">("name");
@@ -66,7 +64,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     if (!prefill) return;
     setQuery(prefill.fullName);
     setLetter(""); setDiscipline(""); setSchool(""); setTenureWin("any");
-    setGender("all"); setRegions(new Set()); setStates(new Set());
+    setRegions(new Set()); setStates(new Set());
     const matches = allDeans.filter((d) => d.dean.toLowerCase() === prefill.fullName.toLowerCase());
     const best = matches.find((d) => d.endYear == null) || matches[0] || null;
     setExpandedId(best ? best.id : null);
@@ -94,7 +92,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   }, [states, regions]);
 
   const hasFilter = query.trim() !== "" || !!letter || !!discipline || !!school ||
-    tenureWin !== "any" || gender !== "all" || effectiveStates.size > 0;
+    tenureWin !== "any" || effectiveStates.size > 0;
 
   const results = useMemo(() => {
     if (!hasFilter) return [];
@@ -105,7 +103,6 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       if (tenureWin === "sitting" && d.endYear != null) return false;
       if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
       if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) return false;
-      if (gender !== "all" && d.gender !== gender) return false;
       if (q && !d.dean.toLowerCase().includes(q)) return false;
       if (letter && last[0] !== letter.toLowerCase()) return false;
       if (discipline && d.disciplineBroad !== discipline) return false;
@@ -126,7 +123,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       return cmp !== 0 ? cmp : a.dean.localeCompare(b.dean);
     });
     return rows;
-  }, [allDeans, query, letter, discipline, school, tenureWin, gender, effectiveStates, stateOf, sortBy, hasFilter]);
+  }, [allDeans, query, letter, discipline, school, tenureWin, effectiveStates, stateOf, sortBy, hasFilter]);
 
   const shown = results.slice(0, CAP);
   const inSlate = (id: number) => slate.some((d) => d.id === id);
@@ -136,7 +133,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
   const clearAll = () => {
     setQuery(""); setLetter(""); setDiscipline(""); setSchool("");
-    setGender("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
+    setRegions(new Set()); setStates(new Set()); setExpandedId(null);
   };
   const sel = "w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30";
   const chip = (active: boolean) =>
@@ -187,20 +184,11 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           </select>
         </div>
 
-        {/* Region + gender row */}
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-3">
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
-            {Object.keys(REGIONS).map((r) => (
-              <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>{r}</button>
-            ))}
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs font-medium text-muted-foreground mr-0.5">Gender</span>
-            {([["all", "All"], ["F", "Women"], ["M", "Men"]] as const).map(([v, lbl]) => (
-              <button key={v} onClick={() => { setGender(v); setExpandedId(null); }} className={chip(gender === v)}>{lbl}</button>
-            ))}
-          </div>
+        <div className="flex items-center gap-1.5 mt-3">
+          <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
+          {Object.keys(REGIONS).map((r) => (
+            <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>{r}</button>
+          ))}
         </div>
 
         {/* States (multi) in a compact scroll box so 48 codes don't dominate */}
