@@ -9,6 +9,7 @@ import LiveJobMarket from "@/components/LiveJobMarket";
 import DisciplineSearch from "@/components/DisciplineSearch";
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
+import ModuleIcon from "@/components/ModuleIcons";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 import { DATASETS, DATASET_LIST } from "@/data/datasets";
 
@@ -93,6 +94,11 @@ function AppInner() {
   const [contactOpen, setContactOpen] = useState(false);
   const tabs = DEFAULT_TABS;
   const [activeTab, setActiveTab] = useState(DEFAULT_TABS[0].value);
+  const [entered, setEntered] = useState(false);
+  const openModule = useCallback((value: string) => {
+    setActiveTab(value);
+    setEntered(true);
+  }, []);
   const [deanPrefill, setDeanPrefill] = useState<DeanSearchPrefill | null>(null);
   const [schoolPrefill, setSchoolPrefill] = useState<SchoolPrefill | null>(null);
 
@@ -100,11 +106,13 @@ function AppInner() {
     const parts = d.dean.trim().split(/\s+/);
     setDeanPrefill({ fullName: d.dean, first: parts[0], last: parts[parts.length - 1], token: Date.now() });
     setActiveTab("search");
+    setEntered(true);
   }, []);
 
   const openSchoolHistory = useCallback((university: string, school: string) => {
     setSchoolPrefill({ university, school, token: Date.now() });
     setActiveTab("explorer");
+    setEntered(true);
   }, []);
 
   const tabContent = buildTabContent(deanPrefill, schoolPrefill, openSchoolHistory);
@@ -225,7 +233,7 @@ function AppInner() {
               role="tablist"
             >
               {tabs.map((tab) => {
-                const isActive = activeTab === tab.value;
+                const isActive = entered && activeTab === tab.value;
                 const isFeatured = tab.value === "search";
 
                 return (
@@ -233,7 +241,7 @@ function AppInner() {
                     key={tab.value}
                     role="tab"
                     aria-selected={isActive}
-                    onClick={() => setActiveTab(tab.value)}
+                    onClick={() => openModule(tab.value)}
                     className={[
                       "flex flex-col items-start text-left rounded-xl p-4 transition-all",
                       "border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
@@ -246,6 +254,7 @@ function AppInner() {
                     ].join(" ")}
                   >
                     <span className="flex items-center gap-2">
+                      <ModuleIcon id={tab.value} className={isActive ? "text-white/90" : "text-[#011F5B]"} />
                       <span className="text-sm font-semibold">{relabel(tab.label)}</span>
                       {isFeatured && (
                         <span className={[
@@ -255,7 +264,7 @@ function AppInner() {
                       )}
                     </span>
                     <span className={[
-                      "text-xs mt-1 leading-snug",
+                      "text-xs mt-1.5 leading-snug",
                       isActive ? "text-white/75" : "text-muted-foreground",
                     ].join(" ")}>{relabel(tab.desc)}</span>
                   </button>
@@ -267,15 +276,19 @@ function AppInner() {
             </div>
             </div>
 
-            {tabs.map(tab => (
-              <div
-                key={tab.value}
-                role="tabpanel"
-                className={activeTab === tab.value ? "" : "hidden"}
-              >
-                {tabContent[tab.value]}
+            {entered && (
+              <div className="pt-2 border-t border-border">
+                {tabs.map(tab => (
+                  <div
+                    key={tab.value}
+                    role="tabpanel"
+                    className={activeTab === tab.value ? "" : "hidden"}
+                  >
+                    {tabContent[tab.value]}
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </main>
         <footer className="text-right pr-6 pb-4 pt-8">
