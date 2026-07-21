@@ -287,13 +287,23 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
       {shown.length > 0 && (
         <div className="bg-card border border-border rounded-xl overflow-hidden">
-          <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30 flex items-center gap-3">
-            {slate.length >= 2 && (
-              <button onClick={() => setCompareOpen(true)} className="text-xs font-semibold px-3 py-1.5 rounded bg-[#011F5B] text-white shadow-sm hover:brightness-110">
-                Select to compare
-              </button>
-            )}
+          <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
             <p className="text-sm font-medium">{results.length} result{results.length !== 1 ? "s" : ""}</p>
+            {/* Always visible as an action cue: muted until 2+ candidates are
+                checked into the slate, then it lights up and opens the compare view. */}
+            <button
+              onClick={() => setCompareOpen(true)}
+              disabled={slate.length < 2}
+              title={slate.length < 2 ? "Check 2 or more candidates to compare them" : undefined}
+              className={[
+                "mt-1.5 inline-flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded transition-colors",
+                slate.length >= 2
+                  ? "bg-[#011F5B] text-white shadow-sm hover:brightness-110"
+                  : "bg-muted text-muted-foreground border border-border cursor-not-allowed",
+              ].join(" ")}
+            >
+              Select to compare{slate.length >= 2 ? ` (${slate.length})` : ""}
+            </button>
           </div>
           <div className="divide-y divide-border">
             {shown.map((d) => {
