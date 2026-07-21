@@ -259,9 +259,6 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           <div className="flex items-center justify-between mb-2 gap-2 flex-wrap">
             <p className="text-sm font-semibold text-[#011F5B]">Your slate — {slate.length}</p>
             <div className="flex items-center gap-2">
-              {slate.length >= 2 && (
-                <button onClick={() => setCompareOpen(true)} className="text-xs font-semibold px-2.5 py-1 rounded bg-[#011F5B] text-white hover:brightness-110">Compare</button>
-              )}
               <button onClick={exportSlate} className="text-xs font-semibold px-2.5 py-1 rounded border border-[#011F5B]/40 text-[#011F5B] hover:bg-[#011F5B]/10">Export CSV</button>
               <button onClick={() => setSlate([])} className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2">Clear</button>
             </div>
@@ -280,8 +277,13 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
       {shown.length > 0 && (
         <div className="bg-card border border-border rounded-xl overflow-hidden">
-          <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
+          <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30 flex items-center justify-between gap-2">
             <p className="text-sm font-medium">{results.length} result{results.length !== 1 ? "s" : ""}</p>
+            {slate.length >= 2 && (
+              <button onClick={() => setCompareOpen(true)} className="text-xs font-semibold px-3 py-1.5 rounded bg-[#011F5B] text-white shadow-sm hover:brightness-110">
+                Compare slate ({slate.length})
+              </button>
+            )}
           </div>
           <div className="divide-y divide-border">
             {shown.map((d) => {
