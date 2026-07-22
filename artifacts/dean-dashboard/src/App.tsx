@@ -49,7 +49,6 @@ const DEFAULT_TABS: TabDef[] = [
   { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
   { value: "jobmarket", label: "Leadership News & Market", desc: "Stay updated with the latest leadership news and market activity." },
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
-  { value: "insights", label: "Insights", desc: "Download our research briefs — data-backed findings on leadership trends for search professionals." },
 ];
 
 export interface SchoolPrefill { university: string; school: string; token: number; }
@@ -66,7 +65,6 @@ function buildTabContent(
     search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} />,
     jobmarket: <LiveJobMarket />,
     discipline: <DisciplineSearch />,
-    insights: <Insights />,
   };
 }
 
@@ -88,6 +86,7 @@ function AppInner() {
   const [darkMode, setDarkMode] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [insightsOpen, setInsightsOpen] = useState(false);
   const tabs = DEFAULT_TABS;
   const [activeTab, setActiveTab] = useState(DEFAULT_TABS[0].value);
   const [entered, setEntered] = useState(false);
@@ -165,6 +164,12 @@ function AppInner() {
             </div>
             <div className="flex items-center gap-2 shrink-0">
             <button
+              onClick={() => setInsightsOpen(true)}
+              className="px-3 py-2 rounded-lg text-sm font-semibold text-foreground hover:bg-muted"
+            >
+              Insights
+            </button>
+            <button
               onClick={() => setAboutOpen(true)}
               className="px-3 py-2 rounded-lg text-sm font-semibold text-foreground hover:bg-muted"
             >
@@ -241,7 +246,7 @@ function AppInner() {
                 rather than hugging their text. */}
             <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-stretch">
             <div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-4 gap-4 flex-1 w-full"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-3 gap-4 flex-1 w-full"
               role="tablist"
             >
               {tabs.map((tab) => {
@@ -316,6 +321,34 @@ function AppInner() {
             </button>
           </p>
         </footer>
+        {insightsOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 p-4 overflow-y-auto"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Insights"
+            onClick={() => setInsightsOpen(false)}
+          >
+            <div
+              className="w-full max-w-4xl my-8 rounded-xl border border-border bg-card shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between px-6 pt-5 pb-1">
+                <h2 className="text-lg font-bold">Insights</h2>
+                <button
+                  onClick={() => setInsightsOpen(false)}
+                  aria-label="Close"
+                  className="text-muted-foreground hover:text-foreground text-lg leading-none px-1"
+                >
+                  ×
+                </button>
+              </div>
+              <div className="px-6 pb-6">
+                <Insights />
+              </div>
+            </div>
+          </div>
+        )}
         {contactOpen && <ContactDialog onClose={() => setContactOpen(false)} />}
         {aboutOpen && <AboutDialog onClose={() => setAboutOpen(false)} onContact={() => setContactOpen(true)} />}
       </div>
