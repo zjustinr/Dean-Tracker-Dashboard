@@ -37,14 +37,14 @@ const REPORTS: Report[] = [
     id: "gender",
     title: "Gendered Pathways in Academic Leadership",
     subtitle:
-      "How gender shapes who reaches, serves in, and leaves the business school deanship — six findings across 618 appointments at 93 top U.S. schools.",
+      "How gender shapes who reaches the business school deanship — and where the pipeline still stalls. Drawn from the same 795-appointment R1 census.",
     cover: "/insights/cover-gender.png",
     pdf: "/insights/baton-gendered-pathways-brief.pdf",
     pages: 10,
     findings: [
-      "The pipeline into the deanship is sharply gendered by discipline.",
-      "A glass cliff runs through interim roles, especially after surprise departures.",
-      "Business school deans lead Fortune 500 CEO diversity by roughly two decades.",
+      "Women's share of the deanship rose from 1.2% to 31.4% — but unevenly by discipline.",
+      "Female access ranges from 28% in strategy to just 6.5% in operations.",
+      "The shortfall is a leaky pipeline upstream, compounded by an interim trap.",
     ],
   },
 ];
