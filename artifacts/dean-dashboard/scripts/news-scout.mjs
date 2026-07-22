@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 /**
- * Daily dean-appointment news scout.
+ * Daily leadership-appointment news scout — all 12 indices.
  *
- * Scans Google News RSS + Poets&Quants RSS for business-school dean events,
- * matches them against tracked universities/schools, and:
- *   - AUTO-APPLIES high-confidence appointments to the Excel + deans.json
- *     (and adds a "breaking news" banner item for the app)
- *   - Opens a GitHub confirmation issue (label: news-review) for ambiguous
- *     events, with numbered choices, and adds a "question" banner item
- * Lower-value hits are appended to attached_assets/news_scout_review.json.
- * Every action logs to attached_assets/news_scout_log.csv.
+ * Scans Google News RSS + Poets&Quants RSS for leadership events (deans of any
+ * school, provosts, presidents/chancellors), matches them against tracked
+ * universities/schools across ALL datasets, and:
+ *   - AUTO-APPLIES high-confidence BUSINESS-SCHOOL appointments to the Excel +
+ *     Top-100 deans.json (the only auto-mutation path — kept business-only so the
+ *     other 11 datasets are never mutated by a heuristic) and banners them.
+ *   - For every other matched leadership event (any index), adds a display-only
+ *     "breaking" banner item + a latest-news entry. No data mutation.
+ *   - Opens a GitHub confirmation issue for ambiguous business events.
  *
  * Usage: node news-scout.mjs [--dry-run]
  */
@@ -19,23 +20,52 @@ import { fileURLToPath } from "url";
 import { ROOT, applyAppointment, updateJobMarket, logCSV, loadBreaking, saveBreaking, today } from "./news-lib.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const R1_SCHOOLS_JSON = resolve(__dirname, "../src/data/r1-bschool-schools.json");
+const DATA = resolve(__dirname, "../src/data");
 const STATE_PATH = resolve(ROOT, "attached_assets/news_scout_state.json");
 const REVIEW_PATH = resolve(ROOT, "attached_assets/news_scout_review.json");
 
 const DRY = process.argv.includes("--dry-run");
-const MAX_AUTO_PER_RUN = 5; // safety valve against a bad feed/regex day
-const RECENT_DAYS = 30; // only act on news published within this window
+const MAX_AUTO_PER_RUN = 5; // safety valve against a bad feed/regex day (business auto-apply only)
+const MAX_BANNER_PER_RUN = 12; // cap non-business banner items per run
+const RECENT_DAYS = 30;
 const NOW = new Date();
 const GH_TOKEN = process.env.GITHUB_TOKEN;
 const GH_REPO = process.env.GITHUB_REPOSITORY || "zjustinr/Dean-Tracker-Dashboard";
 
+// id -> [schoolType, schoolsFile]. schoolType "business" is the only auto-apply path.
+const DATASETS = [
+  ["business", "r1-bschool-schools.json"],
+  ["engineering", "r1-eschool-schools.json"],
+  ["university", "r1-university-schools.json"],
+  ["medical", "r1-medschool-schools.json"],
+  ["law", "r1-lawschool-schools.json"],
+  ["provost", "r1-provost-schools.json"],
+  ["agriculture", "r1-agschool-schools.json"],
+  ["nursing", "r1-nursing-schools.json"],
+  ["pharmacy", "r1-pharmacy-schools.json"],
+  ["education", "r1-education-schools.json"],
+  ["arts", "r1-arts-schools.json"],
+  ["publichealth", "r1-publichealth-schools.json"],
+];
+
 const FEEDS = [
+  // business (drives the auto-apply path)
   "https://news.google.com/rss/search?q=%22named%20dean%22%20%22business%20school%22&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=%22new%20dean%22%20%22college%20of%20business%22&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=%22interim%20dean%22%20business&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=dean%20%22school%20of%20business%22%20(appointed%20OR%20named%20OR%20%22steps%20down%22)&hl=en-US&gl=US&ceid=US:en",
   "https://poetsandquants.com/feed/",
+  // other professional-school deans (banner + news feed only)
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22school%20of%20public%20health%22%20OR%20%22college%20of%20public%20health%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22school%20of%20nursing%22%20OR%20%22college%20of%20nursing%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22school%20of%20law%22%20OR%20%22law%20school%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22school%20of%20medicine%22%20OR%20%22medical%20school%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22college%20of%20engineering%22%20OR%20%22school%20of%20engineering%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22college%20of%20pharmacy%22%20OR%20%22school%20of%20pharmacy%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22college%20of%20education%22%20OR%20%22school%20of%20education%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22college%20of%20agriculture%22%20OR%20%22college%20of%20arts%20and%20sciences%22)&hl=en-US&gl=US&ceid=US:en",
+  // university leadership: provosts + presidents/chancellors
+  "https://news.google.com/rss/search?q=university%20(%22named%20provost%22%20OR%20%22new%20provost%22%20OR%20%22interim%20provost%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=university%20(%22named%20president%22%20OR%20%22next%20president%22%20OR%20%22named%20chancellor%22)&hl=en-US&gl=US&ceid=US:en",
 ];
 
 // ---------- rss helpers ----------
@@ -70,8 +100,9 @@ const hash = (s) => {
 
 // ---------- extraction ----------
 const STOP_NAME_TOKENS = new Set([
-  "The","A","An","New","Next","Interim","Acting","Dean","Business","School","College","University",
-  "State","Its","His","Her","First","Former","Names","Announces","Welcomes","As","At","Of","For",
+  "The","A","An","New","Next","Interim","Acting","Dean","Provost","President","Chancellor",
+  "Business","School","College","University","State","Its","His","Her","Their","First","Former",
+  "Names","Announces","Welcomes","Appoints","As","At","Of","For","To",
 ]);
 
 function extractName(text) {
@@ -89,23 +120,32 @@ function extractName(text) {
   return null;
 }
 
-// ---------- tracked schools ----------
-const GENERIC_SCHOOL = /^(the\s+)?((graduate\s+)?(school|college)\s+of\s+(business|management)(\s+administration)?|business\s+school|college\s+of\s+business\s+and\s+economics)$/i;
-const r1Schools = JSON.parse(readFileSync(R1_SCHOOLS_JSON, "utf8"));
-const schoolNameUnis = {};
-for (const s of r1Schools) {
-  const k = (s.school || "").toLowerCase();
-  (schoolNameUnis[k] = schoolNameUnis[k] || new Set()).add(s.university);
-}
+// ---------- tracked schools (all 12 datasets) ----------
+// Over-generic unit names ("School of Nursing") recur across universities, so a
+// school-name key is only used when it uniquely identifies one university across
+// the whole corpus; otherwise matching falls back to the university name.
 const tracked = [];
+const schoolNameCount = {};
+const rawByType = [];
+for (const [schoolType, file] of DATASETS) {
+  const rows = JSON.parse(readFileSync(resolve(DATA, file), "utf8"));
+  rawByType.push([schoolType, rows]);
+  for (const s of rows) {
+    const sk = (s.school || "").toLowerCase();
+    if (sk) schoolNameCount[sk] = (schoolNameCount[sk] || 0) + 1;
+  }
+}
 const seenUni = new Set();
-for (const s of r1Schools) {
-  if (seenUni.has(s.university + "|" + s.school)) continue;
-  seenUni.add(s.university + "|" + s.school);
-  const keys = [s.university.toLowerCase()];
-  const sk = (s.school || "").toLowerCase();
-  if (sk && !GENERIC_SCHOOL.test(s.school) && schoolNameUnis[sk].size === 1) keys.push(sk);
-  tracked.push({ university: s.university, school: s.school, keys });
+for (const [schoolType, rows] of rawByType) {
+  for (const s of rows) {
+    const tag = `${schoolType}|${s.university}|${s.school}`;
+    if (seenUni.has(tag)) continue;
+    seenUni.add(tag);
+    const keys = [s.university.toLowerCase()];
+    const sk = (s.school || "").toLowerCase();
+    if (sk && sk.length >= 10 && schoolNameCount[sk] === 1) keys.push(sk);
+    tracked.push({ university: s.university, school: s.school, schoolType, keys });
+  }
 }
 
 function matchSchool(text) {
@@ -124,20 +164,25 @@ function matchSchool(text) {
 // ---------- classification ----------
 function classify(text) {
   const t = text;
-  if (!(/\bdean\b/i.test(t) && /\b(business|management)\b/i.test(t))) return null;
-  if (/\bdean\s+of\s+the\s+year\b|\baward(ed)?\b|\bhonor(ed|s)\b/i.test(t)) return null;
-  if (/\b(named|appointed|selected|tapped|chosen)\s+(as\s+)?(the\s+)?(\d+\w*\s+)?(next\s+|new\s+|interim\s+)?(president|provost|chancellor)\b/i.test(t)) {
-    return { type: "departure", interim: false };
-  }
-  if (/\b(named|appointed|selected|tapped|chosen|announces?|welcomes?)\b[\s\S]{0,80}\bdean\b/i.test(t) ||
-      /\bdean\b[\s\S]{0,40}\b(named|appointed|selected)\b/i.test(t) ||
-      /\b(names?|appoints?|taps?|selects?)\b[\s\S]{0,60}\b(as\s+)?(its\s+)?(new\s+|next\s+)?(interim\s+|acting\s+)?dean\b/i.test(t)) {
-    return { type: "appointment", interim: /\binterim\b|\bacting\b/i.test(t) };
-  }
-  if (/\b(steps?\s+down|stepping\s+down|resigns?|to\s+retire|retiring|departs?|concludes?\s+(his|her|their)\s+(tenure|deanship))\b/i.test(t)) {
-    return { type: "departure", interim: false };
-  }
-  if (/\bdean\s+search\b|\bsearch\s+for\s+(a\s+)?(new\s+)?dean\b/i.test(t)) return { type: "search", interim: false };
+  const isDean = /\bdean\b/i.test(t);
+  const isProvost = /\bprovost\b/i.test(t);
+  const isPres = /\b(president|chancellor)\b/i.test(t);
+  if (!(isDean || isProvost || isPres)) return null;
+  if (/\bdean'?s\s+list\b|\bof\s+the\s+year\b|\baward(ed|s)?\b|\bhonor(ed|s)\b|\bvice\s+president\s+for\b/i.test(t)) return null;
+  // Non-academic-leadership noise: athletics, alumni orgs, and hospital/health-system
+  // or association "president/CEO" roles that aren't the campus leadership we track.
+  if (/\bbasketball\b|\bfootball\b|\bathletics?\b|head\s+coach|alumni\s+association/i.test(t)) return null;
+  if ((isPres && !isDean && !isProvost) && /\bmedical\s+center\b|\bhealth\s+system\b|\bhospital\b|\bC\.?E\.?O\.?\b|chief\s+executive|\bassociation\b|\bfoundation\b/i.test(t)) return null;
+  const role = isProvost ? "provost" : isPres ? "president" : "dean";
+  const interim = /\binterim\b|\bacting\b/i.test(t);
+  const appt = /\b(named|appointed|selected|tapped|chosen|hired\s+as|picked\s+to\s+lead|takes?\s+over\s+as|to\s+lead|to\s+become|to\s+serve\s+as|will\s+(?:lead|serve|become))\b/i.test(t) ||
+    /\b(names?|appoints?|taps?|selects?|welcomes?)\b[\s\S]{0,60}\b(as\s+)?(its\s+)?(new\s+|next\s+)?(interim\s+|acting\s+)?(dean|provost|president|chancellor)\b/i.test(t) ||
+    /\bnext\s+(dean|provost|president|chancellor)\b/i.test(t);
+  const dep = /\b(steps?\s+down|stepping\s+down|resigns?|to\s+retire|retiring|departs?|is\s+leaving|concludes?\s+(his|her|their)\s+(tenure|deanship|presidency))\b/i.test(t);
+  const search = /\b(dean|provost|presidential)\s+search\b|\bsearch\s+(committee\s+)?for\s+(a\s+)?(new\s+)?(dean|provost|president|chancellor)\b/i.test(t);
+  if (appt) return { type: "appointment", interim, role };
+  if (dep) return { type: "departure", interim: false, role };
+  if (search) return { type: "search", interim: false, role };
   return null;
 }
 
@@ -151,12 +196,10 @@ async function createConfirmIssue(title, body) {
     "user-agent": "dean-tracker-news-scout",
     "content-type": "application/json",
   };
-  // ensure the label exists (ignore "already exists" failures)
-  await fetch(`${api}/labels`, { method: "POST", headers, body: JSON.stringify({ name: "news-review", color: "d73a4a", description: "Dean news awaiting confirmation" }) }).catch(() => {});
+  await fetch(`${api}/labels`, { method: "POST", headers, body: JSON.stringify({ name: "news-review", color: "d73a4a", description: "Leadership news awaiting confirmation" }) }).catch(() => {});
   const res = await fetch(`${api}/issues`, { method: "POST", headers, body: JSON.stringify({ title, body, labels: ["news-review"] }) });
   if (!res.ok) { console.error(`issue create failed: ${res.status}`); return null; }
-  const issue = await res.json();
-  return issue.html_url;
+  return (await res.json()).html_url;
 }
 
 // ---------- main ----------
@@ -182,9 +225,10 @@ for (const feed of FEEDS) {
       const school = matchSchool(text);
       const name = extractName(it.title) || extractName(text);
       events.push({
-        ...cls, id,
+        ...cls, id, text,
         title: it.title, url: it.link, date: isNaN(pub.getTime()) ? NOW : pub,
         university: school?.university || null, school: school?.school || null,
+        schoolType: school?.schoolType || null,
         dean: name,
         confidence: school && name && cls.type === "appointment" ? "high" : school ? "medium" : "low",
       });
@@ -195,7 +239,7 @@ for (const feed of FEEDS) {
 }
 
 // ---------- latest-news feed for the app (all classified events, any confidence) ----------
-const LATEST_PATH = resolve(__dirname, "../src/data/latest-news.json");
+const LATEST_PATH = resolve(DATA, "latest-news.json");
 if (!DRY) {
   let latest = existsSync(LATEST_PATH) ? JSON.parse(readFileSync(LATEST_PATH, "utf8")) : [];
   const cut = Date.now() - 30 * 86400e3;
@@ -208,22 +252,30 @@ if (!DRY) {
       id: e.id,
       date: e.date.toISOString().slice(0, 10),
       title: srcMatch ? e.title.slice(0, srcMatch.index).trim() : e.title,
-      source,
-      url: e.url,
-      type: e.type,
+      source, url: e.url, type: e.type, role: e.role,
     });
   }
   latest.sort((a, b) => b.date.localeCompare(a.date));
   writeFileSync(LATEST_PATH, JSON.stringify(latest.slice(0, 40), null, 1));
 }
 
-console.log(`scanned feeds: ${FEEDS.length}, new dean-related items: ${events.length}`);
-for (const e of events) console.log(`  [${e.confidence}] ${e.type}${e.interim ? "/interim" : ""} | ${e.university || "?"} | ${e.dean || "?"} | ${e.title}`);
+console.log(`scanned feeds: ${FEEDS.length}, leadership items: ${events.length}`);
+for (const e of events) console.log(`  [${e.confidence}] ${e.role}/${e.type}${e.interim ? "/interim" : ""} | ${e.schoolType || "?"} | ${e.university || "?"} | ${e.dean || "?"} | ${e.title}`);
 
-const toApply = events.filter((e) => e.confidence === "high" && e.type === "appointment").slice(0, MAX_AUTO_PER_RUN);
-const overflow = events.filter((e) => e.confidence === "high" && e.type === "appointment").slice(MAX_AUTO_PER_RUN);
-// ambiguous but valuable: tracked school + (appointment w/o name, or departure)
-const toAsk = events.filter((e) => e.confidence === "medium" && (e.type === "appointment" || e.type === "departure"));
+// AUTO-APPLY: business-school dean appointments ONLY (the tested, safe mutation path).
+// Auto-apply guard: require an explicit business-school phrase (not just the word
+// "business"), so a stray keyword can never mutate the B-School data.
+const isBiz = (e) => e.schoolType === "business" &&
+  /(business\s+school|school\s+of\s+business|college\s+of\s+business|school\s+of\s+management|graduate\s+school\s+of\s+management|b-school)/i.test(e.text);
+const toApply = events.filter((e) => e.confidence === "high" && e.type === "appointment" && e.role === "dean" && isBiz(e)).slice(0, MAX_AUTO_PER_RUN);
+const overflow = events.filter((e) => e.confidence === "high" && e.type === "appointment" && e.role === "dean" && isBiz(e)).slice(MAX_AUTO_PER_RUN);
+// business ambiguous events -> GitHub confirm issue.
+const toAsk = events.filter((e) => e.confidence === "medium" && isBiz(e) && (e.type === "appointment" || e.type === "departure"));
+// everything else matched to a tracked institution -> display-only banner (any index).
+const applyIds = new Set([...toApply, ...toAsk].map((e) => e.id));
+const bannerOnly = events
+  .filter((e) => e.university && !applyIds.has(e.id) && (e.type === "appointment" || e.type === "departure"))
+  .slice(0, MAX_BANNER_PER_RUN);
 const review = [...toAsk, ...events.filter((e) => e.confidence === "medium" && e.type === "search")];
 
 let applied = 0;
@@ -256,10 +308,8 @@ if (!DRY) {
       ? ["Reply with the dean's full name", "Reply `skip` to ignore this story"]
       : ["Reply `1` or `yes` to close the tenure", "Reply `2` or `no` to ignore"];
     const body = [
-      `**${question}**`, "",
-      `News: [${e.title}](${e.url})`, "",
-      "**How to answer (reply with a comment):**",
-      ...choices.map((c) => `- ${c}`), "",
+      `**${question}**`, "", `News: [${e.title}](${e.url})`, "",
+      "**How to answer (reply with a comment):**", ...choices.map((c) => `- ${c}`), "",
       "<!-- news-scout-payload", JSON.stringify(payload), "-->",
     ].join("\n");
     const issueUrl = await createConfirmIssue(`[news-review] ${question}`, body);
@@ -270,8 +320,18 @@ if (!DRY) {
     logLines.push([today(), issueUrl ? "question_issue" : "review", e.university || "", e.dean || "", e.type, e.confidence, issueUrl || e.url]);
   }
 
-  // dean-search announcements at tracked schools refresh the openings board
-  for (const e of events.filter((ev) => ev.type === "search" && ev.university)) {
+  // Display-only banner for leadership news across all indices (no data mutation).
+  for (const e of bannerOnly) {
+    if (breaking.items.some((it) => it.id === e.id)) continue;
+    breaking.items.unshift({
+      id: e.id, type: "applied", date: e.date.toISOString().slice(0, 10),
+      headline: e.title, university: e.university, dean: e.dean || undefined, url: e.url,
+    });
+    logLines.push([today(), "banner", e.university || "", e.dean || "", `${e.role}/${e.type}`, e.confidence, e.url]);
+  }
+
+  // dean-search announcements at tracked business schools refresh the openings board
+  for (const e of events.filter((ev) => ev.type === "search" && ev.university && isBiz(ev))) {
     const jm = updateJobMarket({ kind: "search", university: e.university, school: e.school, date: e.date, url: e.url, title: e.title });
     if (jm !== "none") logLines.push([today(), `position_${jm}`, e.university, "", "jobmarket_search", e.confidence, e.url]);
   }
@@ -287,5 +347,5 @@ if (!DRY) {
   logCSV(logLines);
 }
 
-console.log(`applied: ${applied} | questions: ${toAsk.length} | dry-run: ${DRY}`);
-if (applied > 0 || (!DRY && toAsk.length > 0)) console.log("CHANGED"); // sentinel for the workflow
+console.log(`applied: ${applied} | questions: ${toAsk.length} | banner-only: ${bannerOnly.length} | dry-run: ${DRY}`);
+if (applied > 0 || (!DRY && (toAsk.length > 0 || bannerOnly.length > 0))) console.log("CHANGED");
