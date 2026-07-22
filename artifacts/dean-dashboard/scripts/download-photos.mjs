@@ -49,7 +49,7 @@ for (const t of targets) {
   try {
     const kk = key(t.dean, t.university);
     if (photos[kk]?.photo && existsSync(join(PUBLIC, photos[kk].photo.replace(/^\//, "")))) { skipped++; continue; }
-    const r = await fetch(t.imageUrl, { headers: { "User-Agent": UA, "Accept": "image/avif,image/webp,image/*,*/*" }, redirect: "follow" });
+    const r = await fetch(t.imageUrl, { headers: { "User-Agent": UA, "Accept": "image/avif,image/webp,image/*,*/*" }, redirect: "follow", signal: AbortSignal.timeout(15000) });
     if (!r.ok) { fails.push(`${t.slug}: HTTP ${r.status}`); continue; }
     const buf = Buffer.from(await r.arrayBuffer());
     const ext = imgExt(buf);
