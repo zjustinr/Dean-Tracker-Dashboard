@@ -7,6 +7,7 @@ import MeetTheDean from "@/components/MeetTheDean";
 import type { Dean } from "@/data/types";
 import LiveJobMarket from "@/components/LiveJobMarket";
 import DisciplineSearch from "@/components/DisciplineSearch";
+import Insights from "@/components/Insights";
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
@@ -48,6 +49,7 @@ const DEFAULT_TABS: TabDef[] = [
   { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
   { value: "jobmarket", label: "Leadership News & Market", desc: "Stay updated with the latest leadership news and market activity." },
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
+  { value: "insights", label: "Insights", desc: "Download our research briefs — data-backed findings on leadership trends for search professionals." },
 ];
 
 export interface SchoolPrefill { university: string; school: string; token: number; }
@@ -64,6 +66,7 @@ function buildTabContent(
     search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} />,
     jobmarket: <LiveJobMarket />,
     discipline: <DisciplineSearch />,
+    insights: <Insights />,
   };
 }
 
@@ -238,7 +241,7 @@ function AppInner() {
                 rather than hugging their text. */}
             <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-stretch">
             <div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-3 gap-4 flex-1 w-full"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-4 gap-4 flex-1 w-full"
               role="tablist"
             >
               {tabs.map((tab) => {

@@ -64,6 +64,14 @@ const PATHS: Record<string, ReactNode> = {
       <path d="M4 10h16M10 4v16" />
     </>
   ),
+  // Insights — research document with a chart inside
+  insights: (
+    <>
+      <path d="M6 3h8l4 4v14H6z" />
+      <path d="M14 3v4h4" />
+      <path d="M9 17v-3M12 17v-5M15 17v-2" />
+    </>
+  ),
 };
 
 export default function ModuleIcon({ id, className }: { id: string; className?: string }) {
