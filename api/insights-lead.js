@@ -8,7 +8,7 @@
 // Swap the console.log for a real sink (email/CRM/webhook) when one is wired up;
 // the client already treats a 200 as "unlocked" and fails open on network error,
 // so the demo never dead-ends.
-const DOWNLOAD_URL = "/insights/baton-gendered-pathways-brief.pdf";
+const DOWNLOAD_URL = "/insights/baton-dean-discipline-brief.pdf";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 module.exports = async function handler(req, res) {
@@ -26,7 +26,7 @@ module.exports = async function handler(req, res) {
     return;
   }
   try {
-    console.log(JSON.stringify({ evt: "insights_lead", email, org, report: "gendered-pathways", ts: new Date().toISOString() }));
+    console.log(JSON.stringify({ evt: "insights_lead", email, org, report: "dean-discipline", ts: new Date().toISOString() }));
   } catch { /* logging is best-effort */ }
   res.status(200).json({ ok: true, downloadUrl: DOWNLOAD_URL });
 };

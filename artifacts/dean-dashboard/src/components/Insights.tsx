@@ -9,27 +9,27 @@
 import { useState } from "react";
 
 const REPORT = {
-  title: "Gendered Pathways in Academic Leadership",
+  title: "The Discipline Behind the Dean",
   subtitle:
-    "Six data-backed findings on how gender shapes who reaches, serves in, and leaves the business school deanship.",
+    "Who actually leads America's research business schools — and how the path to the corner office is changing. Six findings from a population census of 795 R1 dean appointments.",
   cover: "/insights/cover.png",
-  pdf: "/insights/baton-gendered-pathways-brief.pdf",
+  pdf: "/insights/baton-dean-discipline-brief.pdf",
   pages: 10,
 };
 
 const FINDINGS = [
-  "The pipeline into the deanship is sharply gendered by discipline — a 4.1× odds gap.",
-  "That pipeline is reconfiguring fast: Finance/Accounting overtook Strategy for women in the 2020s.",
-  "A glass cliff runs through interim roles, especially after surprise departures.",
-  "The apparent gender tenure gap is entirely compositional — it vanishes with controls.",
-  "The elite-PhD credential bar is rising for women: a 27.6-point gap in the 2020s.",
-  "Academia leads Fortune 500 CEO diversity by roughly two decades (r = 0.85).",
+  "Discipline shapes the odds: operations management is the most over-represented field in the deanship relative to its faculty size (1.38×).",
+  "Operations is a durable pipeline, not a novelty — a stable 9–12% of appointments every era for four decades.",
+  "The office is turning over faster and broadening: interim share 18%→38%, female share 1.2%→31.4%.",
+  "Interim seats skew operational — operations candidates are ~2× as likely to be appointed on an interim basis.",
+  "Deans are grown at home: half of all R1 deans are internal promotions (62% for operations).",
+  "The gender gap is discipline-specific and starkest in operations — a 0.38 promotion ratio, the lowest of any field.",
 ];
 
 const STATS: [string, string][] = [
-  ["618", "dean appointments"],
-  ["93", "top U.S. schools"],
-  ["1967–2026", "six decades"],
+  ["795", "dean appointments"],
+  ["152", "Carnegie R1 universities"],
+  ["1990–2025", "36 years"],
 ];
 
 const STORE_KEY = "bi_insights_unlocked";
