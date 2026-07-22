@@ -1,1402 +1,1348 @@
 [
- {
-  "university": "Arizona State University",
-  "school": "Ira A. Fulton Schools of Engineering",
-  "rank": 28,
-  "tier": "T2 (26-50)",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {
-   "herdEngrTotal": 20129,
-   "herdEngrTotalStart": 14642,
-   "herdEngrTotalAvg": 17796,
-   "herdEngrFederal": 5400,
-   "herdEngrFederalStart": 5742,
-   "herdEngrFederalAvg": 5358,
-   "herdCSTotal": 1133,
-   "herdCSTotalStart": 1110,
-   "herdCSTotalAvg": 1226,
-   "engrUGDegrees": 415,
-   "engrUGDegreesAvg": 415,
-   "engrMastersDegrees": 211,
-   "engrMastersDegreesAvg": 211,
-   "instRD": 46498000,
-   "instRDStart": 38389536,
-   "instRDAvg": 41785055,
-   "engrUGDegreesStart": 415,
-   "engrMastersDegreesStart": 211,
-   "instTotal": 42302,
-   "instTotalAvg": 41026,
-   "herdEngrIndustry": 8183,
-   "herdEngrIndustryAvg": 8183,
-   "herdEngrState": 3302,
-   "herdEngrStateAvg": 3302,
-   "engrDoctoralDegrees": 93,
-   "engrDoctoralDegreesStart": 99,
-   "engrDoctoralDegreesAvg": 99,
-   "instTotalStart": 55486,
-   "herdEngrIndustryStart": 8002,
-   "herdEngrStateStart": 2821,
-   "engrFaculty": 3362,
-   "engrFacultyAvg": 2587
+  {
+    "university": "Arizona State University",
+    "school": "Ira A. Fulton Schools of Engineering",
+    "rank": 28,
+    "tier": "T2 (26-50)",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {
+      "herdEngrTotal": 20129,
+      "herdEngrTotalStart": 14642,
+      "herdEngrTotalAvg": 17796,
+      "herdEngrFederal": 5400,
+      "herdEngrFederalStart": 5742,
+      "herdEngrFederalAvg": 5358,
+      "herdCSTotal": 1133,
+      "herdCSTotalStart": 1110,
+      "herdCSTotalAvg": 1226,
+      "engrUGDegrees": 415,
+      "engrUGDegreesAvg": 415,
+      "engrMastersDegrees": 211,
+      "engrMastersDegreesAvg": 211,
+      "instRD": 46498000,
+      "instRDStart": 38389536,
+      "instRDAvg": 41785055,
+      "engrUGDegreesStart": 415,
+      "engrMastersDegreesStart": 211,
+      "instTotal": 42302,
+      "instTotalAvg": 41026,
+      "herdEngrIndustry": 8183,
+      "herdEngrIndustryAvg": 8183,
+      "herdEngrState": 3302,
+      "herdEngrStateAvg": 3302,
+      "engrDoctoralDegrees": 93,
+      "engrDoctoralDegreesStart": 99,
+      "engrDoctoralDegreesAvg": 99,
+      "instTotalStart": 55486,
+      "herdEngrIndustryStart": 8002,
+      "herdEngrStateStart": 2821,
+      "engrFaculty": 3362,
+      "engrFacultyAvg": 2587
+    }
+  },
+  {
+    "university": "Auburn University",
+    "school": "Samuel Ginn College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {
+      "herdEngrTotal": 17239,
+      "herdEngrTotalStart": 15775,
+      "herdEngrTotalAvg": 17445,
+      "herdEngrFederal": 10644,
+      "herdEngrFederalStart": 9124,
+      "herdEngrFederalAvg": 8360,
+      "herdCSTotal": 90,
+      "herdCSTotalStart": 386,
+      "herdCSTotalAvg": 363,
+      "engrUGDegrees": 587,
+      "engrUGDegreesAvg": 668,
+      "engrMastersDegrees": 93,
+      "engrMastersDegreesAvg": 126,
+      "instRD": 66340868,
+      "instRDStart": 49625070,
+      "instRDAvg": 61272700,
+      "herdEngrIndustry": 1847,
+      "herdEngrIndustryAvg": 2112,
+      "herdEngrState": 3546,
+      "herdEngrStateAvg": 2916,
+      "engrUGDegreesStart": 587,
+      "engrMastersDegreesStart": 93,
+      "engrDoctoralDegrees": 63,
+      "engrDoctoralDegreesAvg": 62,
+      "instTotal": 23815,
+      "instTotalAvg": 22878,
+      "herdEngrIndustryStart": 1847,
+      "herdEngrStateStart": 3546,
+      "engrDoctoralDegreesStart": 63,
+      "engrFaculty": 1435,
+      "engrFacultyAvg": 1385,
+      "instTotalStart": 23815,
+      "engrFacultyStart": 1435
+    }
+  },
+  {
+    "university": "Baylor University",
+    "school": "School of Engineering and Computer Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {
+      "herdEngrTotal": 0,
+      "herdEngrTotalStart": 0,
+      "herdEngrTotalAvg": 0,
+      "herdEngrFederal": 0,
+      "herdEngrFederalStart": 0,
+      "herdEngrFederalAvg": 0,
+      "herdCSTotal": 16,
+      "herdCSTotalStart": 0,
+      "herdCSTotalAvg": 10,
+      "engrUGDegrees": 24,
+      "engrUGDegreesStart": 31,
+      "engrUGDegreesAvg": 25,
+      "instRD": 2387000,
+      "instRDStart": 1671198,
+      "instRDAvg": 2140851,
+      "herdEngrIndustry": 175,
+      "herdEngrIndustryAvg": 119,
+      "herdEngrState": 0,
+      "herdEngrStateAvg": 0,
+      "engrMastersDegrees": 13,
+      "engrMastersDegreesAvg": 9,
+      "instTotal": 15615,
+      "instTotalAvg": 14252,
+      "herdEngrIndustryStart": 175,
+      "herdEngrStateStart": 0,
+      "engrMastersDegreesStart": 13,
+      "engrDoctoralDegrees": 10,
+      "engrDoctoralDegreesAvg": 5,
+      "engrFaculty": 1117,
+      "engrFacultyAvg": 1089,
+      "instTotalStart": 15615,
+      "engrDoctoralDegreesStart": 10,
+      "engrFacultyStart": 1117
+    }
+  },
+  {
+    "university": "Boise State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {
+      "herdEngrTotal": 19438,
+      "herdEngrTotalStart": 33,
+      "herdEngrTotalAvg": 7356,
+      "herdEngrFederal": 15583,
+      "herdEngrFederalStart": 0,
+      "herdEngrFederalAvg": 5072,
+      "herdEngrIndustry": 139,
+      "herdEngrIndustryAvg": 148,
+      "herdEngrState": 190,
+      "herdEngrStateAvg": 561,
+      "herdCSTotal": 3272,
+      "herdCSTotalStart": 0,
+      "herdCSTotalAvg": 1065,
+      "engrUGDegrees": 206,
+      "engrUGDegreesStart": 17,
+      "engrUGDegreesAvg": 122,
+      "engrMastersDegrees": 30,
+      "engrMastersDegreesAvg": 26,
+      "engrDoctoralDegrees": 16,
+      "engrDoctoralDegreesAvg": 7,
+      "engrFaculty": 830,
+      "engrFacultyAvg": 778,
+      "instTotalAvg": 16463,
+      "instRDStart": 4467976,
+      "instRDAvg": 16154295,
+      "herdEngrIndustryStart": 30,
+      "herdEngrStateStart": 23,
+      "engrMastersDegreesStart": 39,
+      "engrDoctoralDegreesStart": 1,
+      "instTotal": 17010,
+      "instTotalStart": 16576,
+      "instRD": 32935996,
+      "engrFacultyStart": 757
+    }
+  },
+  {
+    "university": "Boston University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {
+      "herdEngrTotal": 17455,
+      "herdEngrTotalStart": 3723,
+      "herdEngrTotalAvg": 9711,
+      "herdEngrFederal": 15274,
+      "herdEngrFederalStart": 2476,
+      "herdEngrFederalAvg": 7613,
+      "herdCSTotal": 915,
+      "herdCSTotalStart": 413,
+      "herdCSTotalAvg": 520,
+      "engrUGDegrees": 241,
+      "engrUGDegreesAvg": 271,
+      "engrMastersDegrees": 97,
+      "engrMastersDegreesAvg": 140,
+      "instRD": 110860456,
+      "instRDStart": 48701500,
+      "instRDAvg": 74400213,
+      "engrUGDegreesStart": 241,
+      "engrMastersDegreesStart": 97,
+      "instTotal": 27896,
+      "instTotalAvg": 26917,
+      "herdEngrIndustry": 2882,
+      "herdEngrIndustryAvg": 1574,
+      "herdEngrState": 0,
+      "herdEngrStateAvg": 38,
+      "engrDoctoralDegreesAvg": 58,
+      "engrFacultyAvg": 1857,
+      "instTotalStart": 28123,
+      "herdEngrIndustryStart": 2882,
+      "herdEngrStateStart": 0,
+      "engrDoctoralDegrees": 79,
+      "engrFaculty": 1906
+    }
+  },
+  {
+    "university": "Brown University",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "California Institute of Technology",
+    "school": "Division of Engineering and Applied Science",
+    "rank": 5,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Carnegie Mellon University",
+    "school": "College of Engineering",
+    "rank": 4,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Case Western Reserve University",
+    "school": "Case School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Clemson University",
+    "school": "College of Engineering, Computing and Applied Sciences",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Colorado School of Mines",
+    "school": "College of Engineering and Computational Sciences",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Colorado State University",
+    "school": "Walter Scott, Jr. College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Columbia University",
+    "school": "Fu Foundation School of Engineering and Applied Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Cornell University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Dartmouth College",
+    "school": "Thayer School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Duke University",
+    "school": "Pratt School of Engineering",
+    "rank": 19,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Florida International University",
+    "school": "College of Engineering and Computing",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Florida State University",
+    "school": "FAMU-FSU College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "George Mason University",
+    "school": "Volgenau School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "George Washington University",
+    "school": "School of Engineering and Applied Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Georgia Institute of Technology",
+    "school": "College of Engineering",
+    "rank": 4,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Harvard University",
+    "school": "John A. Paulson School of Engineering and Applied Sciences",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Indiana University Bloomington",
+    "school": "Luddy School of Informatics, Computing, and Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Indiana University Indianapolis",
+    "school": "Purdue School of Engineering and Technology",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Iowa State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Johns Hopkins University",
+    "school": "Whiting School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Kansas State University",
+    "school": "Carl R. Ice College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Kent State University",
+    "school": "College of Aeronautics and Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Louisiana State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "school": "School of Engineering",
+    "rank": 1,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Michigan State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Mississippi State University",
+    "school": "Bagley College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Missouri University of Science and Technology",
+    "school": "College of Engineering and Computing",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Montana State University",
+    "school": "Norm Asbjornson College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "New Jersey Institute of Technology",
+    "school": "Newark College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "New York University",
+    "school": "Tandon School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "North Carolina State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "North Dakota State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Northeastern University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Northwestern University",
+    "school": "McCormick School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Ohio State University",
+    "school": "College of Engineering",
+    "rank": 18,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Ohio University",
+    "school": "Russ College of Engineering and Technology",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Oklahoma State University",
+    "school": "College of Engineering, Architecture and Technology",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Oregon State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Pennsylvania State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Princeton University",
+    "school": "School of Engineering and Applied Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Purdue University",
+    "school": "College of Engineering",
+    "rank": 4,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Rensselaer Polytechnic Institute",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Rice University",
+    "school": "George R. Brown School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Rutgers University",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Stanford University",
+    "school": "School of Engineering",
+    "rank": 2,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Stony Brook University",
+    "school": "College of Engineering and Applied Sciences",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Syracuse University",
+    "school": "College of Engineering and Computer Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Texas A&M University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Texas Tech University",
+    "school": "Whitacre College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Tufts University",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "University at Buffalo",
+    "school": "School of Engineering and Applied Sciences",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Alabama",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Alabama at Birmingham",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Alabama in Huntsville",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Arizona",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Arkansas",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of California Berkeley",
+    "school": "College of Engineering",
+    "rank": 3,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of California Davis",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of California Irvine",
+    "school": "Henry Samueli School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of California Los Angeles",
+    "school": "Henry Samueli School of Engineering and Applied Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of California Riverside",
+    "school": "Bourns College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of California San Diego",
+    "school": "Jacobs School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of California Santa Barbara",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of California Santa Cruz",
+    "school": "Baskin School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Central Florida",
+    "school": "College of Engineering and Computer Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Cincinnati",
+    "school": "College of Engineering and Applied Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Colorado Boulder",
+    "school": "College of Engineering and Applied Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Colorado Denver",
+    "school": "College of Engineering, Design and Computing",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Connecticut",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Delaware",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Florida",
+    "school": "Herbert Wertheim College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Hawaii at Manoa",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Houston",
+    "school": "Cullen College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Idaho",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Illinois Urbana-Champaign",
+    "school": "Grainger College of Engineering",
+    "rank": 11,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Illinois at Chicago",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Iowa",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Kansas",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Kentucky",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Louisville",
+    "school": "J.B. Speed School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Maine",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Maryland Baltimore County",
+    "school": "College of Engineering and Information Technology",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Maryland College Park",
+    "school": "A. James Clark School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Massachusetts Amherst",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Memphis",
+    "school": "Herff College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Miami",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "University of Michigan",
+    "school": "College of Engineering",
+    "rank": 7,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Minnesota Twin Cities",
+    "school": "College of Science and Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Mississippi",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Missouri",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Nebraska Lincoln",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Nevada Las Vegas",
+    "school": "Howard R. Hughes College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Nevada Reno",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of New Hampshire",
+    "school": "College of Engineering and Physical Sciences",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of New Mexico",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of North Dakota",
+    "school": "College of Engineering and Mines",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Notre Dame",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "University of Oklahoma",
+    "school": "Gallogly College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Pennsylvania",
+    "school": "School of Engineering and Applied Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "University of Pittsburgh",
+    "school": "Swanson School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Rhode Island",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Rochester",
+    "school": "Hajim School of Engineering and Applied Sciences",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "University of South Carolina",
+    "school": "College of Engineering and Computing",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of South Florida",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Southern California",
+    "school": "Viterbi School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "University of Tennessee",
+    "school": "Tickle College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Texas at Arlington",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Texas at Austin",
+    "school": "Cockrell School of Engineering",
+    "rank": 9,
+    "tier": "T1 (1-25)",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Texas at Dallas",
+    "school": "Erik Jonsson School of Engineering and Computer Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Texas at El Paso",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Texas at San Antonio",
+    "school": "College of Engineering and Integrated Design",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Utah",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Vermont",
+    "school": "College of Engineering and Mathematical Sciences",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Virginia",
+    "school": "School of Engineering and Applied Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Washington",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "University of Wisconsin Madison",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Utah State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Vanderbilt University",
+    "school": "School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Virginia Commonwealth University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Virginia Tech",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Washington State University",
+    "school": "Voiland College of Engineering and Architecture",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Washington University in St. Louis",
+    "school": "McKelvey School of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
+  },
+  {
+    "university": "Wayne State University",
+    "school": "College of Engineering",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "West Virginia University",
+    "school": "Statler College of Engineering and Mineral Resources",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Public",
+    "bsq": {}
+  },
+  {
+    "university": "Yale University",
+    "school": "School of Engineering and Applied Science",
+    "rank": null,
+    "tier": "Unranked",
+    "unitid": null,
+    "control": "Private",
+    "bsq": {}
   }
- },
- {
-  "university": "Auburn University",
-  "school": "Samuel Ginn College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {
-   "herdEngrTotal": 17239,
-   "herdEngrTotalStart": 15775,
-   "herdEngrTotalAvg": 17445,
-   "herdEngrFederal": 10644,
-   "herdEngrFederalStart": 9124,
-   "herdEngrFederalAvg": 8360,
-   "herdCSTotal": 90,
-   "herdCSTotalStart": 386,
-   "herdCSTotalAvg": 363,
-   "engrUGDegrees": 587,
-   "engrUGDegreesAvg": 668,
-   "engrMastersDegrees": 93,
-   "engrMastersDegreesAvg": 126,
-   "instRD": 66340868,
-   "instRDStart": 49625070,
-   "instRDAvg": 61272700,
-   "herdEngrIndustry": 1847,
-   "herdEngrIndustryAvg": 2112,
-   "herdEngrState": 3546,
-   "herdEngrStateAvg": 2916,
-   "engrUGDegreesStart": 587,
-   "engrMastersDegreesStart": 93,
-   "engrDoctoralDegrees": 63,
-   "engrDoctoralDegreesAvg": 62,
-   "instTotal": 23815,
-   "instTotalAvg": 22878,
-   "herdEngrIndustryStart": 1847,
-   "herdEngrStateStart": 3546,
-   "engrDoctoralDegreesStart": 63,
-   "engrFaculty": 1435,
-   "engrFacultyAvg": 1385,
-   "instTotalStart": 23815,
-   "engrFacultyStart": 1435
-  }
- },
- {
-  "university": "Baylor University",
-  "school": "School of Engineering and Computer Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {
-   "herdEngrTotal": 0,
-   "herdEngrTotalStart": 0,
-   "herdEngrTotalAvg": 0,
-   "herdEngrFederal": 0,
-   "herdEngrFederalStart": 0,
-   "herdEngrFederalAvg": 0,
-   "herdCSTotal": 16,
-   "herdCSTotalStart": 0,
-   "herdCSTotalAvg": 10,
-   "engrUGDegrees": 24,
-   "engrUGDegreesStart": 31,
-   "engrUGDegreesAvg": 25,
-   "instRD": 2387000,
-   "instRDStart": 1671198,
-   "instRDAvg": 2140851,
-   "herdEngrIndustry": 175,
-   "herdEngrIndustryAvg": 119,
-   "herdEngrState": 0,
-   "herdEngrStateAvg": 0,
-   "engrMastersDegrees": 13,
-   "engrMastersDegreesAvg": 9,
-   "instTotal": 15615,
-   "instTotalAvg": 14252,
-   "herdEngrIndustryStart": 175,
-   "herdEngrStateStart": 0,
-   "engrMastersDegreesStart": 13,
-   "engrDoctoralDegrees": 10,
-   "engrDoctoralDegreesAvg": 5,
-   "engrFaculty": 1117,
-   "engrFacultyAvg": 1089,
-   "instTotalStart": 15615,
-   "engrDoctoralDegreesStart": 10,
-   "engrFacultyStart": 1117
-  }
- },
- {
-  "university": "Boise State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {
-   "herdEngrTotal": 19438,
-   "herdEngrTotalStart": 33,
-   "herdEngrTotalAvg": 7356,
-   "herdEngrFederal": 15583,
-   "herdEngrFederalStart": 0,
-   "herdEngrFederalAvg": 5072,
-   "herdEngrIndustry": 139,
-   "herdEngrIndustryAvg": 148,
-   "herdEngrState": 190,
-   "herdEngrStateAvg": 561,
-   "herdCSTotal": 3272,
-   "herdCSTotalStart": 0,
-   "herdCSTotalAvg": 1065,
-   "engrUGDegrees": 206,
-   "engrUGDegreesStart": 17,
-   "engrUGDegreesAvg": 122,
-   "engrMastersDegrees": 30,
-   "engrMastersDegreesAvg": 26,
-   "engrDoctoralDegrees": 16,
-   "engrDoctoralDegreesAvg": 7,
-   "engrFaculty": 830,
-   "engrFacultyAvg": 778,
-   "instTotalAvg": 16463,
-   "instRDStart": 4467976,
-   "instRDAvg": 16154295,
-   "herdEngrIndustryStart": 30,
-   "herdEngrStateStart": 23,
-   "engrMastersDegreesStart": 39,
-   "engrDoctoralDegreesStart": 1,
-   "instTotal": 17010,
-   "instTotalStart": 16576,
-   "instRD": 32935996,
-   "engrFacultyStart": 757
-  }
- },
- {
-  "university": "Boston University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {
-   "herdEngrTotal": 17455,
-   "herdEngrTotalStart": 3723,
-   "herdEngrTotalAvg": 9711,
-   "herdEngrFederal": 15274,
-   "herdEngrFederalStart": 2476,
-   "herdEngrFederalAvg": 7613,
-   "herdCSTotal": 915,
-   "herdCSTotalStart": 413,
-   "herdCSTotalAvg": 520,
-   "engrUGDegrees": 241,
-   "engrUGDegreesAvg": 271,
-   "engrMastersDegrees": 97,
-   "engrMastersDegreesAvg": 140,
-   "instRD": 110860456,
-   "instRDStart": 48701500,
-   "instRDAvg": 74400213,
-   "engrUGDegreesStart": 241,
-   "engrMastersDegreesStart": 97,
-   "instTotal": 27896,
-   "instTotalAvg": 26917,
-   "herdEngrIndustry": 2882,
-   "herdEngrIndustryAvg": 1574,
-   "herdEngrState": 0,
-   "herdEngrStateAvg": 38,
-   "engrDoctoralDegreesAvg": 58,
-   "engrFacultyAvg": 1857,
-   "instTotalStart": 28123,
-   "herdEngrIndustryStart": 2882,
-   "herdEngrStateStart": 0,
-   "engrDoctoralDegrees": 79,
-   "engrFaculty": 1906
-  }
- },
- {
-  "university": "Brown University",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "California Institute of Technology",
-  "school": "Division of Engineering and Applied Science",
-  "rank": 5,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Carnegie Mellon University",
-  "school": "College of Engineering",
-  "rank": 4,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Case Western Reserve University",
-  "school": "Case School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Clemson University",
-  "school": "College of Engineering, Computing and Applied Sciences",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Colorado School of Mines",
-  "school": "College of Engineering and Computational Sciences",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Colorado State University",
-  "school": "Walter Scott, Jr. College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Columbia University",
-  "school": "Fu Foundation School of Engineering and Applied Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Cornell University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Dartmouth College",
-  "school": "Thayer School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Duke University",
-  "school": "Pratt School of Engineering",
-  "rank": 19,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Florida International University",
-  "school": "College of Engineering and Computing",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Florida State University",
-  "school": "FAMU-FSU College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "George Mason University",
-  "school": "Volgenau School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "George Washington University",
-  "school": "School of Engineering and Applied Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Georgia Institute of Technology",
-  "school": "College of Engineering",
-  "rank": 4,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Harvard University",
-  "school": "John A. Paulson School of Engineering and Applied Sciences",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Indiana University Bloomington",
-  "school": "Luddy School of Informatics, Computing, and Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Indiana University Indianapolis",
-  "school": "Purdue School of Engineering and Technology",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Iowa State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Johns Hopkins University",
-  "school": "Whiting School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Kansas State University",
-  "school": "Carl R. Ice College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Kent State University",
-  "school": "College of Aeronautics and Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Louisiana State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Massachusetts Institute of Technology",
-  "school": "School of Engineering",
-  "rank": 1,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Michigan State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Mississippi State University",
-  "school": "Bagley College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Missouri University of Science and Technology",
-  "school": "College of Engineering and Computing",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Montana State University",
-  "school": "Norm Asbjornson College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "New Jersey Institute of Technology",
-  "school": "Newark College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "New York University",
-  "school": "Tandon School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "North Carolina State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "North Dakota State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Northeastern University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Northwestern University",
-  "school": "McCormick School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Ohio State University",
-  "school": "College of Engineering",
-  "rank": 18,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Ohio University",
-  "school": "Russ College of Engineering and Technology",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Oklahoma State University",
-  "school": "College of Engineering, Architecture and Technology",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Oregon State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Pennsylvania State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Princeton University",
-  "school": "School of Engineering and Applied Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Purdue University",
-  "school": "College of Engineering",
-  "rank": 4,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Rensselaer Polytechnic Institute",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Rice University",
-  "school": "George R. Brown School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Rutgers University",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Stanford University",
-  "school": "School of Engineering",
-  "rank": 2,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Stony Brook University",
-  "school": "College of Engineering and Applied Sciences",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Syracuse University",
-  "school": "College of Engineering and Computer Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Texas A&M University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Texas Tech University",
-  "school": "Whitacre College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Tufts University",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "University at Buffalo",
-  "school": "School of Engineering and Applied Sciences",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Alabama",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Alabama at Birmingham",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Alabama in Huntsville",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Arizona",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Arkansas",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of California Berkeley",
-  "school": "College of Engineering",
-  "rank": 3,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of California Davis",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of California Irvine",
-  "school": "Henry Samueli School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of California Los Angeles",
-  "school": "Henry Samueli School of Engineering and Applied Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of California Riverside",
-  "school": "Bourns College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of California San Diego",
-  "school": "Jacobs School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of California Santa Barbara",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of California Santa Cruz",
-  "school": "Baskin School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Central Florida",
-  "school": "College of Engineering and Computer Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Cincinnati",
-  "school": "College of Engineering and Applied Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Colorado Boulder",
-  "school": "College of Engineering and Applied Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Colorado Denver",
-  "school": "College of Engineering, Design and Computing",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Connecticut",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Delaware",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Florida",
-  "school": "Herbert Wertheim College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Hawaii at Manoa",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Houston",
-  "school": "Cullen College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Idaho",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Illinois Urbana-Champaign",
-  "school": "Grainger College of Engineering",
-  "rank": 11,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Illinois at Chicago",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Iowa",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Kansas",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Kentucky",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Louisville",
-  "school": "J.B. Speed School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Maine",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Maryland Baltimore County",
-  "school": "College of Engineering and Information Technology",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Maryland College Park",
-  "school": "A. James Clark School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Massachusetts Amherst",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Memphis",
-  "school": "Herff College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Miami",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "University of Michigan",
-  "school": "College of Engineering",
-  "rank": 7,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Minnesota Twin Cities",
-  "school": "College of Science and Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Mississippi",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Missouri",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Nebraska Lincoln",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Nevada Las Vegas",
-  "school": "Howard R. Hughes College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Nevada Reno",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of New Hampshire",
-  "school": "College of Engineering and Physical Sciences",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of New Mexico",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of North Dakota",
-  "school": "College of Engineering and Mines",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Notre Dame",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "University of Oklahoma",
-  "school": "Gallogly College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Pennsylvania",
-  "school": "School of Engineering and Applied Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "University of Pittsburgh",
-  "school": "Swanson School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Rhode Island",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Rochester",
-  "school": "Hajim School of Engineering and Applied Sciences",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "University of South Carolina",
-  "school": "College of Engineering and Computing",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of South Florida",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Southern California",
-  "school": "Viterbi School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "University of Tennessee",
-  "school": "Tickle College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Texas at Arlington",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Texas at Austin",
-  "school": "Cockrell School of Engineering",
-  "rank": 9,
-  "tier": "T1 (1-25)",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Texas at Dallas",
-  "school": "Erik Jonsson School of Engineering and Computer Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Texas at El Paso",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Texas at San Antonio",
-  "school": "College of Engineering and Integrated Design",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Utah",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Vermont",
-  "school": "College of Engineering and Mathematical Sciences",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Virginia",
-  "school": "School of Engineering and Applied Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Washington",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Wisconsin Madison",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Utah State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Vanderbilt University",
-  "school": "School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Virginia Commonwealth University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Virginia Tech",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Washington State University",
-  "school": "Voiland College of Engineering and Architecture",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Washington University in St. Louis",
-  "school": "McKelvey School of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Wayne State University",
-  "school": "College of Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "West Virginia University",
-  "school": "Statler College of Engineering and Mineral Resources",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Yale University",
-  "school": "School of Engineering and Applied Science",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Private",
-  "bsq": {}
- },
- {
-  "university": "Binghamton University",
-  "school": "Thomas J. Watson College of Engineering and Applied Science",
-  "rank": 115,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Temple University",
-  "school": "College of Engineering",
-  "rank": 134,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "Tulane University",
-  "school": "School of Science and Engineering",
-  "rank": 125,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University at Albany, SUNY",
-  "school": "College of Engineering and Applied Sciences",
-  "rank": 150,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Chicago",
-  "school": "Pritzker School of Molecular Engineering",
-  "rank": null,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- },
- {
-  "university": "University of Georgia",
-  "school": "College of Engineering",
-  "rank": 116,
-  "tier": "Unranked",
-  "unitid": null,
-  "control": "Public",
-  "bsq": {}
- }
 ]
