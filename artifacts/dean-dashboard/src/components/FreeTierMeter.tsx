@@ -17,8 +17,15 @@ import { useTrial } from "@/data/TrialContext";
 const LIMIT = 50;
 const WINDOW_MS = 24 * 3600 * 1000;
 const KEY = "bi_free_meter";
-const DAY_PASS_URL = "https://buy.stripe.com/dRmdR17dRbBo3K2eoEebu00";
 const CONTACT = "ren@bu.edu";
+
+// One simple paid option for now: a $99 day pass that unlocks a 3-index taster
+// (scope enforced server-side in api/data.js). Everything beyond that — all 12
+// indices, firm plans — is a "Contact us" conversation while we validate demand.
+const DAY_PASS_URL = "https://buy.stripe.com/dRm3cn69N8pc5Sa2FWebu01";
+const PASSES = [
+  { key: "day", name: "Day Pass", price: "$99", unit: "24 hours", blurb: "R1 Business, Presidents & Provost", url: DAY_PASS_URL, featured: true },
+];
 
 type MeterState = { start: number; count: number };
 
@@ -100,7 +107,7 @@ export function FreeTierNotice({ meter }: { meter: FreeMeter }) {
             onClick={meter.showPaywall}
             className="text-[#011F5B] dark:text-[#AFC4E8] font-semibold underline underline-offset-2 hover:opacity-80"
           >
-            Get a day pass to unlock all 12 indices →
+            See plans to unlock all 12 indices →
           </button>
         </p>
       </div>
@@ -115,7 +122,7 @@ export function MeterBadge({ meter }: { meter: FreeMeter }) {
   return (
     <button
       onClick={meter.showPaywall}
-      title="Free R1 Business tier — click for a day pass to all 12 indices"
+      title="Free R1 Business tier — click to see plans for all 12 indices"
       className={[
         "fixed bottom-4 right-4 z-40 rounded-full shadow-lg border px-3.5 py-2 text-xs font-semibold transition-colors",
         "flex items-center gap-2",
@@ -154,42 +161,78 @@ export function Paywall({ meter }: { meter: FreeMeter }) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-start justify-center bg-black/50 p-4 overflow-y-auto"
-      role="dialog" aria-modal="true" aria-label="Day pass"
+      role="dialog" aria-modal="true" aria-label="Get access"
       onClick={meter.dismissPaywall}
     >
-      <div className="w-full max-w-md my-8 rounded-2xl border border-border bg-card shadow-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+      <div className="w-full max-w-lg my-8 rounded-2xl border border-border bg-card shadow-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
         <div className="h-1.5 bg-[#A31F34]" />
-        <div className="p-6">
-          <div className="flex items-start justify-between">
-            <h2 className="text-xl font-bold text-foreground leading-tight">
-              {atLimit ? "You've reached today's free limit" : "Unlock all 12 indices"}
-            </h2>
-            <button onClick={meter.dismissPaywall} aria-label="Close" className="text-muted-foreground hover:text-foreground text-xl leading-none px-1">×</button>
+        <div className="p-6 sm:p-8">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">
+                {atLimit ? "You've reached today's free limit" : "Get a day pass"}
+              </h2>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed max-w-xl">
+                {atLimit
+                  ? <>You've opened <b>{meter.limit}</b> leaders on the free <b>R1 Business</b> tier today (resets in {fmtReset(meter.resetInMs)}). Grab a day pass to keep going.</>
+                  : <>The free tier covers <b>R1 Business</b>. A day pass adds <b>Presidents</b> & <b>Provost</b> — need all 12 indices? Just ask.</>}
+              </p>
+            </div>
+            <button onClick={meter.dismissPaywall} aria-label="Close" className="text-muted-foreground hover:text-foreground text-xl leading-none px-1 shrink-0">×</button>
           </div>
-          <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-            {atLimit
-              ? <>You've opened <b>{meter.limit}</b> leaders on the free <b>R1 Business</b> tier today (resets in {fmtReset(meter.resetInMs)}).</>
-              : <>The free tier covers <b>R1 Business</b>. Get a day pass for everything else.</>}
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            {PASSES.map((p) => {
+              const external = !!p.url;
+              const href = external
+                ? p.url
+                : `mailto:${CONTACT}?subject=${encodeURIComponent("Baton Index — " + p.name)}`;
+              return (
+                <div
+                  key={p.key}
+                  className={[
+                    "relative rounded-xl border p-4 flex flex-col w-full sm:w-72",
+                    p.featured
+                      ? "border-[#A31F34] ring-1 ring-[#A31F34]/30 bg-slate-50 dark:bg-slate-800/50"
+                      : "border-slate-200 dark:border-slate-700 bg-card",
+                  ].join(" ")}
+                >
+                  {p.featured && PASSES.length > 1 && (
+                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#A31F34] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                      Most popular
+                    </span>
+                  )}
+                  <div className="text-sm font-bold text-foreground">{p.name}</div>
+                  <div className="mt-1 flex items-baseline gap-1">
+                    <span className="text-2xl font-bold text-[#A31F34]">{p.price}</span>
+                    <span className="text-xs text-muted-foreground">/ {p.unit}</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1.5 flex-1">{p.blurb}</div>
+                  <a
+                    href={href}
+                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className={[
+                      "mt-3 inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
+                      p.featured
+                        ? "bg-[#A31F34] text-white hover:bg-[#8c1a2c]"
+                        : "border border-border text-foreground hover:bg-muted",
+                    ].join(" ")}
+                  >
+                    {external ? "Get it →" : "Contact to buy"}
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+
+          <p className="text-[11px] text-muted-foreground mt-3 text-center">
+            Access activates shortly after checkout — paste the access link you receive below. Need all 12 indices or a firm plan?{" "}
+            <a href={`mailto:${CONTACT}?subject=${encodeURIComponent("Baton Index — full access / firm plan")}`} className="text-[#011F5B] dark:text-[#AFC4E8] font-medium underline underline-offset-2">
+              Contact us
+            </a>.
           </p>
 
-          <div className="mt-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 p-4">
-            <div className="flex items-baseline justify-between">
-              <div className="text-sm font-bold text-foreground">Day Pass</div>
-              <div className="text-2xl font-bold text-[#A31F34]">$500</div>
-            </div>
-            <div className="text-xs text-muted-foreground mt-1">24 hours · unlimited · all 12 indices</div>
-            <a
-              href={DAY_PASS_URL} target="_blank" rel="noopener noreferrer"
-              className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-[#A31F34] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#8c1a2c] transition-colors"
-            >
-              Get the day pass →
-            </a>
-            <p className="text-[11px] text-muted-foreground mt-2 text-center">
-              Access activates shortly after checkout. Paste your access link below once you receive it.
-            </p>
-          </div>
-
-          <form onSubmit={onCode} className="mt-4">
+          <form onSubmit={onCode} className="mt-5 max-w-md mx-auto">
             <label className="text-xs font-semibold text-foreground">Have an access code or link?</label>
             <div className="flex gap-2 mt-1.5">
               <input
@@ -203,13 +246,6 @@ export function Paywall({ meter }: { meter: FreeMeter }) {
             </div>
             {rejected && <p className="text-xs text-[#A31F34] mt-1.5">That code isn't valid or has expired.</p>}
           </form>
-
-          <p className="text-xs text-muted-foreground mt-4 text-center">
-            Need ongoing access?{" "}
-            <a href={`mailto:${CONTACT}?subject=Baton%20Index%20monthly%20access`} className="text-[#011F5B] dark:text-[#AFC4E8] font-medium underline underline-offset-2">
-              Contact us about monthly
-            </a>
-          </p>
         </div>
       </div>
     </div>

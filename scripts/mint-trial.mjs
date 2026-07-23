@@ -19,10 +19,10 @@ import { sign, verify, b64url } from "../lib/trial-token.mjs";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SECRET_FILE = join(ROOT, ".trial-secret");
 const LOG_FILE = join(ROOT, "trials.log");
-const DEFAULT_DOMAIN = process.env.BI_DOMAIN || "https://deantracker.vercel.app";
+const DEFAULT_DOMAIN = process.env.BI_DOMAIN || "https://batonindex.com";
 const DEFAULT_EXPIRY_DAYS = 21;
 
-// The 11 sellable indices (top100 is hidden and never scoped into a trial).
+// The 12 sellable indices (top100 is hidden and never scoped into a trial).
 const INDICES = [
   ["r1bschool", "R1 B-school"],
   ["r1eschool", "R1 Engineering"],
@@ -37,6 +37,17 @@ const INDICES = [
   ["r1arts", "Arts & Sciences"],
   ["uspublichealth", "Public Health"],
 ];
+const ALL_IDS = INDICES.map(([id]) => id);
+
+// Paid-tier presets — the enforceable scope guard. The $99 Day Pass is a limited
+// 3-index taster (Business + Presidents + Provost) so a cheap 24h pass can't pull
+// the whole database; api/data.js 403s anything outside a token's scope. Project/
+// Firm get all 12. Mint:  node scripts/mint-trial.mjs --tier day --client acme
+const TIERS = {
+  day:     { label: "Day Pass",     scope: ["r1bschool", "r1university", "r1provost"], days: 1 },
+  project: { label: "Project Pass", scope: ALL_IDS,                                    days: 30 },
+  firm:    { label: "Firm Plan",    scope: ALL_IDS,                                    days: 365 },
+};
 
 function loadSecret() {
   if (process.env.TRIAL_SECRET) return process.env.TRIAL_SECRET.trim();
@@ -129,8 +140,49 @@ async function interactive() {
   console.log(`Logged to ${LOG_FILE}`);
 }
 
+// Non-interactive tier mint: node scripts/mint-trial.mjs --tier <day|project|firm> --client <slug> [--days N] [--domain URL]
+function getArg(name) {
+  const i = process.argv.indexOf(`--${name}`);
+  return i >= 0 ? process.argv[i + 1] : undefined;
+}
+
+async function tierMode() {
+  const tierKey = getArg("tier");
+  const tier = TIERS[tierKey];
+  if (!tier) { console.error(`Unknown tier "${tierKey}". Use one of: ${Object.keys(TIERS).join(", ")}`); process.exit(1); }
+  const client = getArg("client");
+  if (!client) { console.error("A --client <slug> is required."); process.exit(1); }
+
+  const secret = loadSecret();
+  const days = parseInt(getArg("days") || "", 10) || tier.days;
+  const domain = (getArg("domain") || DEFAULT_DOMAIN).replace(/\/+$/, "");
+  const nowSec = Math.floor(Date.now() / 1000);
+  const expSec = nowSec + days * 86400;
+  const payload = { c: client, s: tier.scope, x: expSec, i: nowSec };
+  const token = await sign(payload, secret);
+  const link = `${domain}/?k=${token}`;
+
+  const check = await verify(token, secret);
+  if (!check.ok) { console.error("Internal error: minted token failed verification:", check.reason); process.exit(1); }
+
+  const expiryISO = new Date(expSec * 1000).toISOString().slice(0, 10);
+  const labels = tier.scope.map((id) => (INDICES.find(([x]) => x === id) || [id, id])[1]).join(", ");
+  console.log("\n────────────────────────────────────────────────────────");
+  console.log(`Tier:    ${tier.label}  (${tierKey})`);
+  console.log(`Client:  ${client}`);
+  console.log(`Indices: ${labels}`);
+  console.log(`Expires: ${expiryISO}  (${days} days)`);
+  console.log(`\n${link}\n`);
+  console.log("────────────────────────────────────────────────────────");
+
+  appendFileSync(LOG_FILE, JSON.stringify({ tier: tierKey, client, scope: tier.scope, issued: nowSec, expiry: expSec, expiryISO, domain }) + "\n");
+  console.log(`Logged to ${LOG_FILE}`);
+}
+
 if (process.argv.includes("--selftest")) {
   await selftest();
+} else if (process.argv.includes("--tier")) {
+  await tierMode();
 } else {
   await interactive();
 }
