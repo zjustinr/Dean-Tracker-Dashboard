@@ -17,7 +17,6 @@ import { useTrial } from "@/data/TrialContext";
 const LIMIT = 50;
 const WINDOW_MS = 24 * 3600 * 1000;
 const KEY = "bi_free_meter";
-const NOTICE_KEY = "bi_free_notice_seen";
 const DAY_PASS_URL = "https://buy.stripe.com/dRmdR17dRbBo3K2eoEebu00";
 const CONTACT = "ren@bu.edu";
 
@@ -84,27 +83,26 @@ function fmtReset(ms: number): string {
   return h > 0 ? `${h}h ${min}m` : `${min}m`;
 }
 
-/** One-time advance-notice toast, shown on the first metered visit. */
+/**
+ * Persistent top-center free-tier banner. Stays up for the whole free session and
+ * only disappears once the visitor holds a valid token (day pass / trial / owner),
+ * at which point `meter.metered` is false.
+ */
 export function FreeTierNotice({ meter }: { meter: FreeMeter }) {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    if (!meter.metered) return;
-    try { if (localStorage.getItem(NOTICE_KEY) !== "1") setShow(true); } catch { /* ignore */ }
-  }, [meter.metered]);
-  if (!meter.metered || !show) return null;
-  const close = () => { setShow(false); try { localStorage.setItem(NOTICE_KEY, "1"); } catch { /* ignore */ } };
+  if (!meter.metered) return null;
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[min(92vw,560px)]">
-      <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-card shadow-lg px-4 py-3 flex items-start gap-3">
-        <span className="text-[#A31F34] mt-0.5" aria-hidden>◆</span>
-        <p className="text-sm text-foreground/90 leading-snug flex-1">
-          You're exploring the free <b>R1 Business</b> tier — up to <b>{LIMIT} leader views a day</b>. A day pass
-          unlocks all 12 indices.{" "}
-          <button onClick={() => { meter.showPaywall(); close(); }} className="text-[#011F5B] dark:text-[#AFC4E8] font-semibold underline underline-offset-2">
-            See the day pass
+    <div className="fixed top-3 left-1/2 -translate-x-1/2 z-40 w-[min(94vw,660px)] pointer-events-none">
+      <div className="pointer-events-auto rounded-full border border-slate-200 dark:border-slate-700 bg-card/95 backdrop-blur shadow-lg px-4 py-2 flex items-center justify-center gap-2 text-center">
+        <span className="text-[#A31F34] shrink-0" aria-hidden>◆</span>
+        <p className="text-[13px] sm:text-sm text-foreground/90 leading-snug">
+          Free <b>R1 Business</b> preview — {LIMIT} leader views a day.{" "}
+          <button
+            onClick={meter.showPaywall}
+            className="text-[#011F5B] dark:text-[#AFC4E8] font-semibold underline underline-offset-2 hover:opacity-80"
+          >
+            Get a day pass to unlock all 12 indices →
           </button>
         </p>
-        <button onClick={close} aria-label="Dismiss" className="text-muted-foreground hover:text-foreground text-lg leading-none">×</button>
       </div>
     </div>
   );
