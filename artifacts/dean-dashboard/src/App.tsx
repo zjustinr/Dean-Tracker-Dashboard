@@ -8,13 +8,13 @@ import type { Dean } from "@/data/types";
 import LiveJobMarket from "@/components/LiveJobMarket";
 import DisciplineSearch from "@/components/DisciplineSearch";
 import Insights from "@/components/Insights";
+import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/FreeTierMeter";
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
 import ModuleIcon from "@/components/ModuleIcons";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 import { TrialProvider, useTrial } from "@/data/TrialContext";
-import { LockedLanding, ExpiredScreen } from "@/components/LockedGate";
 import { DATASET_LIST } from "@/data/datasets";
 import corpusStats from "@/data/corpus-stats.json";
 
@@ -71,10 +71,13 @@ function buildTabContent(
 function AppInner() {
   const { datasetId, setDatasetId, list, meta, noun, nounPlural, nounLower, nounPluralLower } = useDataset();
   const trial = useTrial();
+  // Free-tier meter applies only to anonymous public visitors (armed gate, no
+  // valid token). Owners and trial/day-pass holders (status "valid") are unmetered.
+  const meter = useFreeMeter(trial.armed && trial.status !== "valid");
   // If a trial is scoped and the active dataset falls outside it, jump to the
   // first in-scope index so the app never sits on a locked (403) dataset.
   useEffect(() => {
-    if (trial.armed && trial.status === "valid" && !trial.allowed(datasetId)) {
+    if (trial.armed && !trial.allowed(datasetId)) {
       const first = list.find((d) => trial.allowed(d.id));
       if (first) setDatasetId(first.id);
     }
@@ -98,17 +101,19 @@ function AppInner() {
   const [schoolPrefill, setSchoolPrefill] = useState<SchoolPrefill | null>(null);
 
   const openDeanProfile = useCallback((d: Dean) => {
+    if (!meter.tryView()) return; // free-tier quota reached -> paywall
     const parts = d.dean.trim().split(/\s+/);
     setDeanPrefill({ fullName: d.dean, first: parts[0], last: parts[parts.length - 1], token: Date.now() });
     setActiveTab("search");
     setEntered(true);
-  }, []);
+  }, [meter]);
 
   const openSchoolHistory = useCallback((university: string, school: string) => {
+    if (!meter.tryView()) return; // free-tier quota reached -> paywall
     setSchoolPrefill({ university, school, token: Date.now() });
     setActiveTab("explorer");
     setEntered(true);
-  }, []);
+  }, [meter]);
 
   const tabContent = buildTabContent(deanPrefill, schoolPrefill, openSchoolHistory);
 
@@ -351,6 +356,9 @@ function AppInner() {
         )}
         {contactOpen && <ContactDialog onClose={() => setContactOpen(false)} />}
         {aboutOpen && <AboutDialog onClose={() => setAboutOpen(false)} onContact={() => setContactOpen(true)} />}
+        <FreeTierNotice meter={meter} />
+        <MeterBadge meter={meter} />
+        <Paywall meter={meter} />
       </div>
     </div>
   );
@@ -360,10 +368,9 @@ function AppInner() {
 // the visitor has no valid, unexpired token. Disarmed (no TRIAL_SECRET) and valid
 // tokens both fall through to the full app; the initial pre-check renders the app
 // optimistically so the public site never flashes a spinner.
+// Freemium model: everyone gets the app with the free R1 Business tier; scope +
+// the client-side meter/paywall handle the rest. No hard access-code wall.
 function Gate() {
-  const trial = useTrial();
-  if (trial.armed && trial.status === "expired") return <ExpiredScreen />;
-  if (trial.armed && (trial.status === "none" || trial.status === "invalid")) return <LockedLanding />;
   return (
     <DatasetProvider>
       <AppInner />

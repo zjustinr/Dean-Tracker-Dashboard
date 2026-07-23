@@ -81,41 +81,81 @@ function assemble(id) {
 // --- gate (mirrors lib/trial-gate.mjs) ----------------------------------------
 const DATASET_IDS = new Set(Object.keys(SPEC));
 
+// Freemium: these indices are open to everyone (no token). A valid token widens
+// access to its own scope; the paywall/day-pass grants all twelve. Keep in sync
+// with PUBLIC_SCOPE in src/data/TrialContext.tsx.
+const PUBLIC_SCOPE = ["r1bschool"];
+
+// Union of dean|university keys across the datasets a scope can see — used to
+// filter the shared leader-research enrichment so a scoped visitor (public tier
+// included) only receives research for leaders they're allowed to see.
+function leaderKeysForScope(scope) {
+  const keys = new Set();
+  for (const id of scope) {
+    const s = SPEC[id];
+    if (!s || !s.deans) continue;
+    let deans;
+    try { deans = s.deans(); } catch { continue; }
+    for (const d of deans) {
+      if (d && d.dean && d.university) {
+        keys.add(`${String(d.dean).trim().toLowerCase()}|${String(d.university).trim().toLowerCase()}`);
+      }
+    }
+  }
+  return keys;
+}
+function filteredResearch(scope) {
+  const full = ENRICHMENT["leader-research.json"]();
+  const keys = leaderKeysForScope(scope);
+  const out = {};
+  for (const k in full) if (keys.has(k)) out[k] = full[k];
+  return out;
+}
+
 module.exports = async function handler(req, res) {
   let f = (req.query && (req.query.f || req.query.path)) || "";
   if (Array.isArray(f)) f = f[0];
   f = String(f).replace(/^\/?(data\/)?/, "").replace(/[^a-zA-Z0-9._-]/g, ""); // sanitize
   if (!f.endsWith(".json")) { res.status(400).json({ error: "bad_request" }); return; }
   const id = f.replace(/\.json$/, "");
+  const isPhotos = f === "dean-photos.json";
+  const isResearch = f === "leader-research.json";
 
   const secret = process.env.TRIAL_SECRET;
   let reason = "disarmed", setCookie = null;
+  let scope = null; // null = disarmed (unrestricted); otherwise a Set of allowed dataset ids
 
   if (secret) {
-    // dean-photos.json is deliberately public (the images are public anyway).
-    if (f !== "dean-photos.json") {
-      const cookie = req.headers.cookie || "";
-      const m = cookie.match(/(?:^|;\s*)bi_trial=([^;]+)/);
-      const cookieTok = m ? decodeURIComponent(m[1]) : "";
-      const queryK = (req.query && req.query.k) || "";
-      const token = cookieTok || queryK || "";
-      if (!token) { res.setHeader("cache-control", "no-store"); res.status(403).json({ error: "access_denied", reason: "no_token" }); return; }
-      const v = verify(token, secret);
-      if (!v.ok) { res.setHeader("cache-control", "no-store"); res.status(403).json({ error: "access_denied", reason: v.reason }); return; }
-      if (DATASET_IDS.has(id) && !(v.payload.s || []).includes(id)) {
-        res.setHeader("cache-control", "no-store"); res.status(403).json({ error: "access_denied", reason: "out_of_scope" }); return;
-      }
+    const cookie = req.headers.cookie || "";
+    const m = cookie.match(/(?:^|;\s*)bi_trial=([^;]+)/);
+    const cookieTok = m ? decodeURIComponent(m[1]) : "";
+    const queryK = (req.query && req.query.k) || "";
+    const token = cookieTok || queryK || "";
+    const v = token ? verify(token, secret) : { ok: false, reason: "no_token" };
+    if (v.ok) {
+      scope = new Set(v.payload.s || []);
       reason = "armed";
       if (!cookieTok && queryK) {
         const maxAge = Math.max(0, (v.payload.x || 0) - Math.floor(Date.now() / 1000));
         setCookie = `bi_trial=${encodeURIComponent(token)}; Path=/; Max-Age=${maxAge}; Secure; SameSite=Lax`;
       }
+    } else {
+      // No / invalid / expired token -> the public free tier.
+      scope = new Set(PUBLIC_SCOPE);
+      reason = "public";
+    }
+    // Enforce dataset scope. Photos are public; research is served filtered below.
+    if (!isPhotos && !isResearch && SPEC[id] && !scope.has(id)) {
+      res.setHeader("cache-control", "no-store");
+      res.status(403).json({ error: "access_denied", reason: "out_of_scope" });
+      return;
     }
   }
 
   let body;
   try {
-    if (ENRICHMENT[f]) body = JSON.stringify(ENRICHMENT[f]());
+    if (isResearch) body = JSON.stringify(scope ? filteredResearch(scope) : ENRICHMENT[f]());
+    else if (ENRICHMENT[f]) body = JSON.stringify(ENRICHMENT[f]());
     else if (SPEC[id]) body = JSON.stringify(assemble(id));
     else { res.status(404).json({ error: "not_found" }); return; }
   } catch (e) {

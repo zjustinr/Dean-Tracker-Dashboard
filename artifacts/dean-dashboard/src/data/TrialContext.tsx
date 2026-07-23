@@ -27,6 +27,11 @@ interface TrialCtx extends TrialState {
 
 const Ctx = createContext<TrialCtx | null>(null);
 
+// Freemium: indices open to everyone on the free tier (no token needed). A valid
+// token widens access to its own scope; the day pass grants all twelve. Keep in
+// sync with PUBLIC_SCOPE in api/data.js.
+export const PUBLIC_SCOPE = ["r1bschool"];
+
 /** Pull a token out of a pasted bare token or a full URL containing ?k=. */
 function extractToken(raw: string): string {
   const s = (raw || "").trim();
@@ -106,7 +111,10 @@ export function TrialProvider({ children }: { children: ReactNode }) {
   }, [refresh]);
 
   const allowed = useCallback(
-    (id: string) => !state.armed || (state.status === "valid" && !!state.scope?.includes(id)),
+    (id: string) =>
+      !state.armed ||
+      PUBLIC_SCOPE.includes(id) ||
+      (state.status === "valid" && !!state.scope?.includes(id)),
     [state.armed, state.status, state.scope],
   );
 
