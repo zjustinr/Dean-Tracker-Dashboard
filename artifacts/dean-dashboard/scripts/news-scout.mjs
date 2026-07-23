@@ -17,7 +17,7 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import { ROOT, applyAppointment, updateJobMarket, logCSV, loadBreaking, saveBreaking, today } from "./news-lib.mjs";
+import { ROOT, applyEvent, enqueueEnrichment, updateJobMarket, logCSV, loadBreaking, saveBreaking, today } from "./news-lib.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA = resolve(__dirname, "../src/data");
@@ -29,8 +29,6 @@ const MAX_AUTO_PER_RUN = 5; // safety valve against a bad feed/regex day (busine
 const MAX_BANNER_PER_RUN = 12; // cap non-business banner items per run
 const RECENT_DAYS = 30;
 const NOW = new Date();
-const GH_TOKEN = process.env.GITHUB_TOKEN;
-const GH_REPO = process.env.GITHUB_REPOSITORY || "zjustinr/Dean-Tracker-Dashboard";
 
 // id -> [schoolType, schoolsFile]. schoolType "business" is the only auto-apply path.
 const DATASETS = [
@@ -120,43 +118,67 @@ function extractName(text) {
   return null;
 }
 
-// ---------- tracked schools (all 12 datasets) ----------
-// Over-generic unit names ("School of Nursing") recur across universities, so a
-// school-name key is only used when it uniquely identifies one university across
-// the whole corpus; otherwise matching falls back to the university name.
-const tracked = [];
-const schoolNameCount = {};
+// ---------- tracked schools (all 12 datasets, indexed by type) ----------
+// A bare university name ("Harvard University") is a key in EVERY dataset, so we
+// never trust a loose cross-dataset match to pick the target index. Instead the
+// target dataset is resolved from the role + an explicit unit phrase (below), and
+// the university is then confirmed against THAT dataset's tracked entries.
+const trackedByType = {};   // schoolType -> [{ university, school, keys }]
+const tracked = [];         // flat list, used only for a fallback banner label
 const rawByType = [];
 for (const [schoolType, file] of DATASETS) {
   const rows = JSON.parse(readFileSync(resolve(DATA, file), "utf8"));
   rawByType.push([schoolType, rows]);
+  const seen = new Set();
+  const list = (trackedByType[schoolType] = []);
   for (const s of rows) {
-    const sk = (s.school || "").toLowerCase();
-    if (sk) schoolNameCount[sk] = (schoolNameCount[sk] || 0) + 1;
-  }
-}
-const seenUni = new Set();
-for (const [schoolType, rows] of rawByType) {
-  for (const s of rows) {
-    const tag = `${schoolType}|${s.university}|${s.school}`;
-    if (seenUni.has(tag)) continue;
-    seenUni.add(tag);
-    const keys = [s.university.toLowerCase()];
-    const sk = (s.school || "").toLowerCase();
-    if (sk && sk.length >= 10 && schoolNameCount[sk] === 1) keys.push(sk);
-    tracked.push({ university: s.university, school: s.school, schoolType, keys });
+    const tag = `${s.university}|${s.school}`;
+    if (seen.has(tag)) continue;
+    seen.add(tag);
+    const entry = { university: s.university, school: s.school, key: s.university.toLowerCase(), schoolType };
+    list.push(entry);
+    tracked.push(entry);
   }
 }
 
-function matchSchool(text) {
+// Explicit unit phrases that pin a DEAN story to one dataset. Order = specificity.
+const UNIT_PHRASES = [
+  ["business",     /business\s+school|school\s+of\s+business|college\s+of\s+business|(?:graduate\s+)?school\s+of\s+management|b-school/i],
+  ["medical",      /school\s+of\s+medicine|medical\s+school|college\s+of\s+medicine/i],
+  ["law",          /law\s+school|school\s+of\s+law|college\s+of\s+law/i],
+  ["nursing",      /school\s+of\s+nursing|college\s+of\s+nursing/i],
+  ["pharmacy",     /school\s+of\s+pharmacy|college\s+of\s+pharmacy/i],
+  ["publichealth", /school\s+of\s+public\s+health|college\s+of\s+public\s+health/i],
+  ["education",    /(?:graduate\s+)?school\s+of\s+education|college\s+of\s+education/i],
+  ["engineering",  /college\s+of\s+engineering|school\s+of\s+engineering/i],
+  ["agriculture",  /college\s+of\s+agriculture|school\s+of\s+agriculture|college\s+of\s+forestry|agricultural\s+sciences|natural\s+resources/i],
+  ["arts",         /college\s+of\s+arts\s+and\s+sciences|school\s+of\s+arts\s+and\s+sciences|college\s+of\s+liberal\s+arts|arts\s+(?:&|and)\s+sciences/i],
+];
+
+/** Resolve which dataset an event targets, from its role + unit phrase. */
+function resolveType(text, role) {
+  if (role === "provost") return "provost";
+  if (role === "president") return "university";
+  for (const [type, re] of UNIT_PHRASES) if (re.test(text)) return type;
+  return null; // a dean story with no recognizable unit -> untargeted (banner only)
+}
+
+/** Find the tracked university within a specific dataset (canonical name). */
+function matchInType(text, schoolType) {
+  const t = text.toLowerCase();
+  let best = null;
+  for (const s of trackedByType[schoolType] || []) {
+    if (s.key.length >= 8 && t.includes(s.key) && (!best || s.key.length > best.key.length)) best = s;
+  }
+  return best;
+}
+
+/** Loose match across all datasets — only to label a banner, never to target. */
+function matchAny(text) {
   const t = text.toLowerCase();
   let best = null;
   for (const s of tracked) {
-    for (const k of s.keys) {
-      if (k.length >= 8 && t.includes(k)) {
-        if (!best || k.length > best.keyLen) best = { ...s, keyLen: k.length };
-      }
-    }
+    if (s.key.length >= 8 && t.includes(s.key) && (!best || s.key.length > best.key.length)) best = s;
   }
   return best;
 }
@@ -186,21 +208,9 @@ function classify(text) {
   return null;
 }
 
-// ---------- github issue creation ----------
-async function createConfirmIssue(title, body) {
-  if (!GH_TOKEN || DRY) return null;
-  const api = `https://api.github.com/repos/${GH_REPO}`;
-  const headers = {
-    authorization: `Bearer ${GH_TOKEN}`,
-    accept: "application/vnd.github+json",
-    "user-agent": "dean-tracker-news-scout",
-    "content-type": "application/json",
-  };
-  await fetch(`${api}/labels`, { method: "POST", headers, body: JSON.stringify({ name: "news-review", color: "d73a4a", description: "Leadership news awaiting confirmation" }) }).catch(() => {});
-  const res = await fetch(`${api}/issues`, { method: "POST", headers, body: JSON.stringify({ title, body, labels: ["news-review"] }) });
-  if (!res.ok) { console.error(`issue create failed: ${res.status}`); return null; }
-  return (await res.json()).html_url;
-}
+// Medium-confidence items are now surfaced through the daily email digest
+// (scripts/news-digest.mjs) with signed Approve/Dismiss links, replacing the old
+// per-item GitHub confirmation issues.
 
 // ---------- main ----------
 const state = existsSync(STATE_PATH) ? JSON.parse(readFileSync(STATE_PATH, "utf8")) : { seen: {} };
@@ -222,15 +232,27 @@ for (const feed of FEEDS) {
       if (!cls) continue;
       const pub = it.pubDate ? new Date(it.pubDate) : NOW;
       if (!isNaN(pub.getTime()) && NOW.getTime() - pub.getTime() > RECENT_DAYS * 86400e3) continue;
-      const school = matchSchool(text);
       const name = extractName(it.title) || extractName(text);
+      // Resolve the target dataset from role + unit phrase, then confirm the
+      // university is tracked in THAT dataset. A match in the target dataset is
+      // what makes an item actionable (auto-apply / review); anything else is at
+      // most a banner label.
+      const targetType = resolveType(text, cls.role);
+      const hit = targetType ? matchInType(text, targetType) : null;
+      const label = hit || matchAny(text); // for the banner only
+      let confidence;
+      if (hit && name && cls.type === "appointment") confidence = "high";
+      else if (hit) confidence = "medium";
+      else confidence = "low";
       events.push({
         ...cls, id, text,
         title: it.title, url: it.link, date: isNaN(pub.getTime()) ? NOW : pub,
-        university: school?.university || null, school: school?.school || null,
-        schoolType: school?.schoolType || null,
+        schoolType: hit ? targetType : null,
+        university: (hit || label)?.university || null,
+        school: (hit || label)?.school || null,
+        targeted: !!hit,
         dean: name,
-        confidence: school && name && cls.type === "appointment" ? "high" : school ? "medium" : "low",
+        confidence,
       });
     }
   } catch (e) {
@@ -262,21 +284,27 @@ if (!DRY) {
 console.log(`scanned feeds: ${FEEDS.length}, leadership items: ${events.length}`);
 for (const e of events) console.log(`  [${e.confidence}] ${e.role}/${e.type}${e.interim ? "/interim" : ""} | ${e.schoolType || "?"} | ${e.university || "?"} | ${e.dean || "?"} | ${e.title}`);
 
-// AUTO-APPLY: business-school dean appointments ONLY (the tested, safe mutation path).
-// Auto-apply guard: require an explicit business-school phrase (not just the word
-// "business"), so a stray keyword can never mutate the B-School data.
-const isBiz = (e) => e.schoolType === "business" &&
-  /(business\s+school|school\s+of\s+business|college\s+of\s+business|school\s+of\s+management|graduate\s+school\s+of\s+management|b-school)/i.test(e.text);
-const toApply = events.filter((e) => e.confidence === "high" && e.type === "appointment" && e.role === "dean" && isBiz(e)).slice(0, MAX_AUTO_PER_RUN);
-const overflow = events.filter((e) => e.confidence === "high" && e.type === "appointment" && e.role === "dean" && isBiz(e)).slice(MAX_AUTO_PER_RUN);
-// business ambiguous events -> GitHub confirm issue.
-const toAsk = events.filter((e) => e.confidence === "medium" && isBiz(e) && (e.type === "appointment" || e.type === "departure"));
-// everything else matched to a tracked institution -> display-only banner (any index).
-const applyIds = new Set([...toApply, ...toAsk].map((e) => e.id));
+// DECIDE actions. The target dataset + an explicit unit phrase (or the role, for
+// provost/president) are already baked into e.schoolType/e.targeted, so a stray
+// keyword can never mutate the wrong dataset.
+//   high + targeted appointment -> auto-apply to its dataset (per-index cap),
+//                                   then queue the new leader for enrichment.
+//   medium + targeted           -> review queue -> daily email digest.
+//   matched-but-untargeted      -> display-only banner (no mutation).
+const perType = {};
+const toApply = [], overflow = [];
+for (const e of events) {
+  if (e.confidence === "high" && e.type === "appointment" && e.targeted) {
+    perType[e.schoolType] = (perType[e.schoolType] || 0) + 1;
+    (perType[e.schoolType] <= MAX_AUTO_PER_RUN ? toApply : overflow).push(e);
+  }
+}
+const toReview = events.filter((e) => e.confidence === "medium" && e.targeted &&
+  (e.type === "appointment" || e.type === "departure"));
+const actedIds = new Set([...toApply, ...toReview, ...overflow].map((e) => e.id));
 const bannerOnly = events
-  .filter((e) => e.university && !applyIds.has(e.id) && (e.type === "appointment" || e.type === "departure"))
+  .filter((e) => e.university && !actedIds.has(e.id) && (e.type === "appointment" || e.type === "departure"))
   .slice(0, MAX_BANNER_PER_RUN);
-const review = [...toAsk, ...events.filter((e) => e.confidence === "medium" && e.type === "search")];
 
 let applied = 0;
 const logLines = [];
@@ -284,40 +312,42 @@ const breaking = loadBreaking();
 
 if (!DRY) {
   for (const e of toApply) {
-    const status = applyAppointment(e);
+    const { status, dataset, deansFile, id: recordId } = applyEvent(e);
     if (status === "added") {
       applied++;
-      const jm = updateJobMarket({ kind: "filled", university: e.university });
-      if (jm === "removed") logLines.push([today(), "position_filled", e.university, e.dean, "jobmarket", "high", e.url]);
+      enqueueEnrichment({ dataset, deansFile, recordId, university: e.university, school: e.school, dean: e.dean, url: e.url, title: e.title });
+      if (e.schoolType === "business") {
+        const jm = updateJobMarket({ kind: "filled", university: e.university });
+        if (jm === "removed") logLines.push([today(), "position_filled", e.university, e.dean, "jobmarket", "high", e.url]);
+      }
       breaking.items.unshift({
         id: e.id, type: "applied", date: e.date.toISOString().slice(0, 10),
-        headline: `${e.dean} named ${e.interim ? "interim " : ""}dean at ${e.university}${e.school ? ` (${e.school})` : ""}`,
+        headline: `${e.dean} named ${e.interim ? "interim " : ""}${e.role} at ${e.university}${e.school ? ` (${e.school})` : ""}`,
         university: e.university, dean: e.dean, url: e.url,
       });
     }
-    logLines.push([today(), status === "added" ? "added" : "skip_duplicate", e.university, e.dean, e.type + (e.interim ? "/interim" : ""), e.confidence, e.url]);
+    logLines.push([today(), status === "added" ? "added" : `skip_${status}`, e.university, e.dean, `${e.schoolType}/${e.type}${e.interim ? "/interim" : ""}`, e.confidence, e.url]);
   }
 
-  for (const e of toAsk) {
-    const kind = e.type === "appointment" ? "name" : "close";
-    const payload = { kind, university: e.university, school: e.school, interim: !!e.interim, date: e.date.toISOString(), url: e.url, title: e.title, id: e.id };
-    const question = kind === "name"
-      ? `Who was named ${e.interim ? "interim " : ""}dean at ${e.university}?`
-      : `Should I close the sitting dean's tenure at ${e.university} (${e.date.getFullYear()})?`;
-    const choices = kind === "name"
-      ? ["Reply with the dean's full name", "Reply `skip` to ignore this story"]
-      : ["Reply `1` or `yes` to close the tenure", "Reply `2` or `no` to ignore"];
-    const body = [
-      `**${question}**`, "", `News: [${e.title}](${e.url})`, "",
-      "**How to answer (reply with a comment):**", ...choices.map((c) => `- ${c}`), "",
-      "<!-- news-scout-payload", JSON.stringify(payload), "-->",
-    ].join("\n");
-    const issueUrl = await createConfirmIssue(`[news-review] ${question}`, body);
+  // Medium items -> review queue (the daily digest signs Approve/Dismiss links
+  // from these) + a "pending confirmation" banner so the app still surfaces them.
+  const reviewItems = toReview.map((e) => ({
+    id: e.id, recorded: today(),
+    schoolType: e.schoolType, role: e.role, type: e.type, interim: !!e.interim,
+    university: e.university, school: e.school, dean: e.dean || null,
+    date: e.date.toISOString(), url: e.url, title: e.title, confidence: e.confidence,
+    digested: false,
+  }));
+  for (const e of toReview) {
     breaking.items.unshift({
       id: e.id, type: "question", date: e.date.toISOString().slice(0, 10),
-      headline: e.title, question, url: e.url, issueUrl: issueUrl || e.url,
+      headline: e.title,
+      question: e.type === "appointment"
+        ? `New ${e.role} at ${e.university}? (pending confirmation)`
+        : `${e.role} departure at ${e.university}? (pending confirmation)`,
+      url: e.url,
     });
-    logLines.push([today(), issueUrl ? "question_issue" : "review", e.university || "", e.dean || "", e.type, e.confidence, issueUrl || e.url]);
+    logLines.push([today(), "review", e.university || "", e.dean || "", `${e.schoolType}/${e.type}`, e.confidence, e.url]);
   }
 
   // Display-only banner for leadership news across all indices (no data mutation).
@@ -331,21 +361,25 @@ if (!DRY) {
   }
 
   // dean-search announcements at tracked business schools refresh the openings board
-  for (const e of events.filter((ev) => ev.type === "search" && ev.university && isBiz(ev))) {
+  for (const e of events.filter((ev) => ev.type === "search" && ev.schoolType === "business" && ev.university)) {
     const jm = updateJobMarket({ kind: "search", university: e.university, school: e.school, date: e.date, url: e.url, title: e.title });
     if (jm !== "none") logLines.push([today(), `position_${jm}`, e.university, "", "jobmarket_search", e.confidence, e.url]);
   }
 
-  for (const e of overflow) logLines.push([today(), "skip_overflow", e.university, e.dean, e.type, e.confidence, e.url]);
+  for (const e of overflow) logLines.push([today(), "skip_overflow", e.university, e.dean, `${e.schoolType}/${e.type}`, e.confidence, e.url]);
 
   writeFileSync(STATE_PATH, JSON.stringify(state, null, 1));
-  if (review.length) {
-    const prev = existsSync(REVIEW_PATH) ? JSON.parse(readFileSync(REVIEW_PATH, "utf8")) : [];
-    writeFileSync(REVIEW_PATH, JSON.stringify([...prev, ...review.map((e) => ({ recorded: today(), ...e }))], null, 1));
-  }
+
+  // Merge into the review queue (dedupe by id, age out after 14 days).
+  const prev = existsSync(REVIEW_PATH) ? JSON.parse(readFileSync(REVIEW_PATH, "utf8")) : [];
+  const prevIds = new Set(prev.map((r) => r.id));
+  const merged = [...prev, ...reviewItems.filter((r) => !prevIds.has(r.id))]
+    .filter((r) => r.id != null && Date.now() - new Date(r.recorded || r.date || 0).getTime() < 14 * 86400e3);
+  writeFileSync(REVIEW_PATH, JSON.stringify(merged, null, 1));
+
   saveBreaking(breaking);
   logCSV(logLines);
 }
 
-console.log(`applied: ${applied} | questions: ${toAsk.length} | banner-only: ${bannerOnly.length} | dry-run: ${DRY}`);
-if (applied > 0 || (!DRY && (toAsk.length > 0 || bannerOnly.length > 0))) console.log("CHANGED");
+console.log(`applied: ${applied} | review: ${toReview.length} | banner-only: ${bannerOnly.length} | dry-run: ${DRY}`);
+if (applied > 0 || (!DRY && (toReview.length > 0 || bannerOnly.length > 0))) console.log("CHANGED");

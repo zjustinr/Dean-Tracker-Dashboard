@@ -44,6 +44,7 @@ jobs:
                   attached_assets/news_scout_state.json \
                   attached_assets/news_scout_review.json \
                   attached_assets/news_scout_log.csv \
+                  attached_assets/enrichment_queue.json \
                   artifacts/dean-dashboard/src/data/ 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No changes to commit."
@@ -51,6 +52,18 @@ jobs:
             git commit -m "news-scout: daily dean-appointment scan $(date -u +%F)"
             git push
           fi
+
+      # Email the owner a digest of pending (medium-confidence) items with signed
+      # Approve/Dismiss links. Runs every day; no-op if the queue is empty or the
+      # RESEND_API_KEY / APPROVE_SECRET secrets aren't set yet.
+      - name: Send review digest
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          APPROVE_SECRET: ${{ secrets.APPROVE_SECRET }}
+          PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
+          DIGEST_TO: ${{ vars.DIGEST_TO }}
+          DIGEST_FROM: ${{ vars.DIGEST_FROM }}
+        run: node artifacts/dean-dashboard/scripts/news-digest.mjs || true
 
       - name: Job summary
         run: |

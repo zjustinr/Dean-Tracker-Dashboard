@@ -1,0 +1,62 @@
+name: Apply digest decision
+
+# Fired by api/news-approve.js (repository_dispatch) when the owner clicks an
+# Approve / Dismiss link in the daily review digest email.
+on:
+  repository_dispatch:
+    types: [news-decision]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-scout
+  cancel-in-progress: false
+
+jobs:
+  decide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+
+      - name: Install xlsx
+        run: npm install --ignore-scripts --no-save --no-package-lock xlsx@0.18.5
+
+      - name: Resolve decision
+        id: decide
+        env:
+          DECISION_ID: ${{ github.event.client_payload.id }}
+          DECISION_ACT: ${{ github.event.client_payload.act }}
+        run: |
+          node artifacts/dean-dashboard/scripts/news-decide.mjs | tee decide-output.txt
+          grep '^RESULT=' decide-output.txt >> "$GITHUB_OUTPUT"
+
+      - name: Regenerate R1 datasets (business apply)
+        if: steps.decide.outputs.RESULT == 'applied'
+        run: node artifacts/dean-dashboard/scripts/build-r1-data.mjs
+
+      - name: Commit and push
+        if: steps.decide.outputs.RESULT != 'error' && steps.decide.outputs.RESULT != 'notfound'
+        run: |
+          git config user.name "dean-news-scout"
+          git config user.email "actions@github.com"
+          git add attached_assets/ artifacts/dean-dashboard/src/data/
+          if git diff --staged --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "news-decision: ${{ github.event.client_payload.act }} item ${{ github.event.client_payload.id }} (${{ steps.decide.outputs.RESULT }})"
+            git push
+          fi
+
+      - name: Job summary
+        run: |
+          {
+            echo "## Digest decision"
+            echo '```'
+            cat decide-output.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
