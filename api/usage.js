@@ -14,8 +14,14 @@ function eq(a, b) {
   return ba.length === bb.length && crypto.timingSafeEqual(ba, bb);
 }
 
+function kvCreds() {
+  return {
+    url: process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL,
+    tok: process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN,
+  };
+}
 async function kv(commands) {
-  const url = process.env.KV_REST_API_URL, tok = process.env.KV_REST_API_TOKEN;
+  const { url, tok } = kvCreds();
   const r = await fetch(`${url}/pipeline`, {
     method: "POST",
     headers: { authorization: `Bearer ${tok}`, "content-type": "application/json" },
@@ -41,7 +47,7 @@ module.exports = async function handler(req, res) {
   const key = (req.query && (req.query.key || req.query.k)) || "";
   if (!secret || !eq(key, secret)) { res.status(403).send("Forbidden"); return; }
 
-  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+  if (!kvCreds().url || !kvCreds().tok) {
     res.setHeader("content-type", "text/html; charset=utf-8");
     res.status(200).send("<body style='font-family:sans-serif;padding:40px'><h2>Usage logging not enabled yet</h2><p>Create a Vercel KV store (Storage tab) to switch it on — it auto-injects the KV_REST_API_* env vars, then this page fills in.</p></body>");
     return;
