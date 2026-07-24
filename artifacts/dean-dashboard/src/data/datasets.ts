@@ -8,7 +8,7 @@ import type { Dean } from "./types";
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem";
 
 export interface SchoolInfo {
   university: string;
@@ -40,7 +40,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system";
   yearRange: string;
 }
 
@@ -215,6 +215,16 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     schoolType: "r2university",
     yearRange: "1996-2026",
   },
+
+  ussystem: {
+    id: "ussystem",
+    label: "US Public University System Heads",
+    shortLabel: "University Systems",
+    description: "Presidents and chancellors of US public university system offices, the executives sitting above campus leadership, traced from 1996 to today",
+    rankLabel: "Campuses",
+    schoolType: "system",
+    yearRange: "1996-2026",
+  },
 };
 
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
@@ -235,6 +245,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.uspublichealth,
   DATASETS_META.usvet,
   DATASETS_META.usr2,
+  DATASETS_META.ussystem,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,
