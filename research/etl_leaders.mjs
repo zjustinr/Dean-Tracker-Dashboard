@@ -105,6 +105,10 @@ for (const s of unitsIn) {
     // earliest record from being misread as a founding leader.
     historyFrom,
     truncated: historyFrom != null && s.founded != null && historyFrom > s.founded,
+    // Institutions absorbed into another university (e.g. EVMS -> Old Dominion in
+    // 2024) carry a status note so the UI can mark them as no longer an
+    // independent, searchable seat rather than silently showing a dead chain.
+    statusNote: s.statusNote || "",
   });
 
   for (const d of list) {
