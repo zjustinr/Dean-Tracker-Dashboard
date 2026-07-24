@@ -47,6 +47,19 @@ module.exports = async function handler(req, res) {
   const key = (req.query && (req.query.key || req.query.k)) || "";
   if (!secret || !eq(key, secret)) { res.status(403).send("Forbidden"); return; }
 
+  // Owner reset: ?key=...&reset=1 wipes the usage log (destructive, owner-only).
+  if (req.query && req.query.reset === "1") {
+    if (!kvCreds().url || !kvCreds().tok) { res.status(200).send("KV not enabled."); return; }
+    try {
+      const [clients] = await kv([["SMEMBERS", "bi:clients"]]);
+      const cmds = [["DEL", "bi:events"], ["DEL", "bi:clients"]];
+      for (const c of clients || []) cmds.push(["DEL", `bi:client:${c}`]);
+      await kv(cmds);
+      res.status(200).send("Usage log cleared.");
+    } catch (e) { res.status(502).send("clear failed: " + esc(e.message)); }
+    return;
+  }
+
   if (!kvCreds().url || !kvCreds().tok) {
     res.setHeader("content-type", "text/html; charset=utf-8");
     res.status(200).send("<body style='font-family:sans-serif;padding:40px'><h2>Usage logging not enabled yet</h2><p>Create a Vercel KV store (Storage tab) to switch it on — it auto-injects the KV_REST_API_* env vars, then this page fills in.</p></body>");
