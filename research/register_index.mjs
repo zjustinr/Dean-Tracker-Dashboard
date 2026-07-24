@@ -21,7 +21,7 @@ const SPECS = {
     prefix: "r1-r2public",
     label: "R2 University Presidents & Chancellors",
     shortLabel: "R2 Universities",
-    description: "Presidents and chancellors of every Carnegie R2 university, the 139 doctoral institutions ranked just below R1, traced from 1996 to today",
+    description: "Presidents and chancellors of Carnegie R2 public universities, the doctoral institutions ranked just below R1, traced from 1996 to today. Private R2 institutions are being added.",
     rankLabel: "Carnegie class",
     schoolType: "r2university",
     yearRange: "1996-2026",

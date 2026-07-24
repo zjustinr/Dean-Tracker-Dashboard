@@ -35,6 +35,7 @@ export const TYPE_TO_DATASET = {
   pharmacy:     { id: "uspharmacy",     deans: "r1-pharmacy-deans.json" },
   education:    { id: "useducation",    deans: "r1-education-deans.json" },
   arts:         { id: "r1arts",         deans: "r1-arts-deans.json" },
+  r2university: { id: "usr2", deans: "r1-r2public-deans.json" },
   publichealth: { id: "uspublichealth", deans: "r1-publichealth-deans.json" },
   veterinary:   { id: "usvet",          deans: "r1-vet-deans.json" },
 };

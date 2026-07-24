@@ -43,6 +43,7 @@ const DATASETS = [
   ["pharmacy", "r1-pharmacy-schools.json"],
   ["education", "r1-education-schools.json"],
   ["arts", "r1-arts-schools.json"],
+  ["r2university", "r1-r2public-schools.json"],
   ["publichealth", "r1-publichealth-schools.json"],
   ["veterinary", "r1-vet-schools.json"],
 ];
@@ -149,6 +150,7 @@ const UNIT_PHRASES = [
   ["law",          /law\s+school|school\s+of\s+law|college\s+of\s+law/i],
   ["nursing",      /school\s+of\s+nursing|college\s+of\s+nursing/i],
   ["pharmacy",     /school\s+of\s+pharmacy|college\s+of\s+pharmacy/i],
+  ["r2university", /\bR2\b|high\s+research\s+activity/i],
   ["publichealth", /school\s+of\s+public\s+health|college\s+of\s+public\s+health/i],
   ["veterinary",   /college\s+of\s+veterinary\s+medicine|school\s+of\s+veterinary\s+medicine|veterinary\s+college/i],
   ["education",    /(?:graduate\s+)?school\s+of\s+education|college\s+of\s+education/i],

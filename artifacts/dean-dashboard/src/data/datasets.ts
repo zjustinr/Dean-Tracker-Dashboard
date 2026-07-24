@@ -8,7 +8,7 @@ import type { Dean } from "./types";
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2";
 
 export interface SchoolInfo {
   university: string;
@@ -40,7 +40,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university";
   yearRange: string;
 }
 
@@ -205,6 +205,16 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     schoolType: "veterinary",
     yearRange: "1879–2026",
   },
+
+  usr2: {
+    id: "usr2",
+    label: "R2 University Presidents & Chancellors",
+    shortLabel: "R2 Universities",
+    description: "Presidents and chancellors of Carnegie R2 public universities, the doctoral institutions ranked just below R1, traced from 1996 to today. Private R2 institutions are being added.",
+    rankLabel: "Carnegie class",
+    schoolType: "r2university",
+    yearRange: "1996-2026",
+  },
 };
 
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
@@ -224,6 +234,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.r1arts,
   DATASETS_META.uspublichealth,
   DATASETS_META.usvet,
+  DATASETS_META.usr2,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,
