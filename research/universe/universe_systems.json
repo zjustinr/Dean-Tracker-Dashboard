@@ -1,0 +1,43 @@
+[
+ {"name":"State University of New York","city":"Albany","state":"NY","leaderTitle":"Chancellor","currentLeader":"John B. King Jr.","isInterim":false,"campusCount":64,"founded":1948},
+ {"name":"The City University of New York","city":"New York","state":"NY","leaderTitle":"Chancellor","currentLeader":"Felix V. Matos Rodriguez","isInterim":false,"campusCount":26,"founded":1961},
+ {"name":"Pennsylvania's State System of Higher Education","city":"Harrisburg","state":"PA","leaderTitle":"Chancellor","currentLeader":"Christopher M. Fiorentino","isInterim":false,"campusCount":10,"founded":1983},
+ {"name":"Connecticut State Colleges and Universities","city":"Hartford","state":"CT","leaderTitle":"Chancellor","currentLeader":"Natalie Braswell","isInterim":true,"campusCount":6,"founded":2011},
+ {"name":"University of Massachusetts","city":"Boston","state":"MA","leaderTitle":"President","currentLeader":"Marty Meehan","isInterim":false,"campusCount":5,"founded":1991},
+ {"name":"University of Maine System","city":"Orono","state":"ME","leaderTitle":"Chancellor","currentLeader":"Dannel P. Malloy","isInterim":false,"campusCount":7,"founded":1968},
+ {"name":"University System of New Hampshire","city":"Concord","state":"NH","leaderTitle":"Chancellor","currentLeader":"Catherine Provencher","isInterim":false,"campusCount":3,"founded":null},
+ {"name":"Vermont State Colleges System","city":"Montpelier","state":"VT","leaderTitle":"Chancellor","currentLeader":"Elizabeth Mauch","isInterim":false,"campusCount":2,"founded":1961},
+
+ {"name":"The University of North Carolina System","city":"Raleigh","state":"NC","leaderTitle":"President","currentLeader":"Peter Hans","isInterim":false,"campusCount":16,"founded":1931},
+ {"name":"University of South Carolina System","city":"Columbia","state":"SC","leaderTitle":"President","currentLeader":"Michael Amiridis","isInterim":false,"campusCount":8,"founded":null},
+ {"name":"University System of Georgia","city":"Atlanta","state":"GA","leaderTitle":"Chancellor","currentLeader":"Sonny Perdue","isInterim":false,"campusCount":26,"founded":1931},
+ {"name":"State University System of Florida","city":"Tallahassee","state":"FL","leaderTitle":"Chancellor","currentLeader":"Ray Rodrigues","isInterim":false,"campusCount":12,"founded":2003},
+ {"name":"University System of Maryland","city":"Baltimore","state":"MD","leaderTitle":"Chancellor","currentLeader":"Jay A. Perman","isInterim":false,"campusCount":12,"founded":1988},
+ {"name":"Universidad de Puerto Rico","city":"San Juan","state":"PR","leaderTitle":"President","currentLeader":"Zayira Jordan Conde","isInterim":false,"campusCount":11,"founded":1903},
+
+ {"name":"The University of Alabama System","city":"Tuscaloosa","state":"AL","leaderTitle":"Chancellor","currentLeader":"Sid J. Trant","isInterim":false,"campusCount":3,"founded":null},
+ {"name":"Louisiana State University System","city":"Baton Rouge","state":"LA","leaderTitle":"President","currentLeader":"Wade Rousse","isInterim":false,"campusCount":7,"founded":1965},
+ {"name":"University of Louisiana System","city":"Baton Rouge","state":"LA","leaderTitle":"President","currentLeader":"Rick Gallot","isInterim":false,"campusCount":8,"founded":1974},
+ {"name":"Southern University System","city":"Baton Rouge","state":"LA","leaderTitle":"President","currentLeader":"Orlando F. McMeans","isInterim":true,"campusCount":4,"founded":1974},
+ {"name":"The University of Tennessee System","city":"Knoxville","state":"TN","leaderTitle":"President","currentLeader":"Randy Boyd","isInterim":false,"campusCount":5,"founded":1968},
+ {"name":"University of Arkansas System","city":"Little Rock","state":"AR","leaderTitle":"President","currentLeader":"Jay B. Silveria","isInterim":false,"campusCount":20,"founded":null},
+ {"name":"Arkansas State University System","city":"Little Rock","state":"AR","leaderTitle":"President","currentLeader":"Todd Shields","isInterim":false,"campusCount":7,"founded":2006},
+ {"name":"University of Missouri System","city":"Columbia","state":"MO","leaderTitle":"President","currentLeader":"Mun Y. Choi","isInterim":false,"campusCount":4,"founded":null},
+
+ {"name":"The University of Texas System","city":"Austin","state":"TX","leaderTitle":"Chancellor","currentLeader":"John M. Zerwas","isInterim":false,"campusCount":13,"founded":1883},
+ {"name":"The Texas A&M University System","city":"College Station","state":"TX","leaderTitle":"Chancellor","currentLeader":"Glenn Hegar","isInterim":false,"campusCount":12,"founded":1948},
+ {"name":"Texas Tech University System","city":"Lubbock","state":"TX","leaderTitle":"Chancellor","currentLeader":"Brandon Creighton","isInterim":false,"campusCount":5,"founded":1996},
+ {"name":"University of Houston System","city":"Houston","state":"TX","leaderTitle":"Chancellor","currentLeader":"Renu Khator","isInterim":false,"campusCount":3,"founded":1977},
+ {"name":"Texas State University System","city":"Austin","state":"TX","leaderTitle":"Chancellor","currentLeader":"Brian McCall","isInterim":false,"campusCount":7,"founded":1911},
+ {"name":"University of North Texas System","city":"Dallas","state":"TX","leaderTitle":"Chancellor","currentLeader":"Michael R. Williams","isInterim":false,"campusCount":3,"founded":1980},
+ {"name":"Texas Woman's University System","city":"Denton","state":"TX","leaderTitle":"Chancellor","currentLeader":"Carine M. Feyten","isInterim":false,"campusCount":1,"founded":2021},
+ {"name":"The Oklahoma State System of Higher Education","city":"Oklahoma City","state":"OK","leaderTitle":"Chancellor","currentLeader":"Sean Burrage","isInterim":false,"campusCount":25,"founded":1941},
+
+ {"name":"University of California","city":"Oakland","state":"CA","leaderTitle":"President","currentLeader":"James B. Milliken","isInterim":false,"campusCount":10,"founded":1869},
+ {"name":"The California State University","city":"Long Beach","state":"CA","leaderTitle":"Chancellor","currentLeader":"Mildred Garcia","isInterim":false,"campusCount":22,"founded":1960},
+ {"name":"University of Colorado","city":"Denver","state":"CO","leaderTitle":"President","currentLeader":"Todd Saliman","isInterim":false,"campusCount":4,"founded":null},
+ {"name":"Colorado State University System","city":"Denver","state":"CO","leaderTitle":"Chancellor","currentLeader":"Tony Frank","isInterim":false,"campusCount":3,"founded":2003},
+ {"name":"Nevada System of Higher Education","city":"Reno","state":"NV","leaderTitle":"Chancellor","currentLeader":"Matt McNair","isInterim":false,"campusCount":8,"founded":null},
+ {"name":"University of Alaska System","city":"Fairbanks","state":"AK","leaderTitle":"President","currentLeader":"Michelle Rizk","isInterim":true,"campusCount":3,"founded":1917},
+ {"name":"University of Hawaii System","city":"Honolulu","state":"HI","leaderTitle":"President","currentLeader":"Wendy Hensel","isInterim":false,"campusCount":10,"founded":1907}
+]
