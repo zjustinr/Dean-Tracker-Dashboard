@@ -37,6 +37,30 @@ function verify(token, secret) {
   return { ok: true, payload };
 }
 
+// Lightweight usage logging to Vercel KV / Upstash (fail-safe: a no-op until the
+// KV_REST_API_* env vars exist, so it never affects the app). Keyed by the token's
+// client tag `c`, so every trial/paid link is attributable with no per-link setup.
+async function logUsage(req, ev, client, file) {
+  const url = process.env.KV_REST_API_URL, tok = process.env.KV_REST_API_TOKEN;
+  if (!url || !tok) return;
+  const c = client || "public";
+  const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  const rec = JSON.stringify({ c, ev, f: file || null, t: Date.now(), ip });
+  try {
+    await fetch(`${url}/pipeline`, {
+      method: "POST",
+      headers: { authorization: `Bearer ${tok}`, "content-type": "application/json" },
+      body: JSON.stringify([
+        ["LPUSH", "bi:events", rec],
+        ["LTRIM", "bi:events", "0", "1999"],
+        ["SADD", "bi:clients", c],
+        ["HSET", `bi:client:${c}`, "last", String(Date.now()), "lastEvent", ev, "lastFile", file || ""],
+        ["HINCRBY", `bi:client:${c}`, "hits", "1"],
+      ]),
+    });
+  } catch { /* logging is best-effort; never fail the request */ }
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader("cache-control", "no-store");
   const secret = process.env.TRIAL_SECRET;
@@ -51,10 +75,12 @@ module.exports = async function handler(req, res) {
 
   const v = verify(token, secret);
   if (!v.ok && v.reason === "expired") {
+    await logUsage(req, "expired-open", v.payload && v.payload.c, null);
     res.status(200).json({ armed: true, status: "expired", expiry: v.payload.x, client: v.payload.c });
     return;
   }
   if (!v.ok) { res.status(200).json({ armed: true, status: "invalid" }); return; }
+  await logUsage(req, "open", v.payload.c, null);
 
   // Valid — persist the cookie if the token arrived via ?k= so refreshes work.
   if (!cookieTok && queryK) {

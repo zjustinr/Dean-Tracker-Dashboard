@@ -112,6 +112,30 @@ function filteredResearch(scope) {
   return out;
 }
 
+// Lightweight usage logging to Vercel KV / Upstash (fail-safe: a no-op until the
+// KV_REST_API_* env vars exist). Keyed by the token's client tag `c`, so every
+// trial/paid link is attributable with no per-link setup.
+async function logUsage(req, ev, client, file) {
+  const url = process.env.KV_REST_API_URL, tok = process.env.KV_REST_API_TOKEN;
+  if (!url || !tok) return;
+  const c = client || "public";
+  const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  const rec = JSON.stringify({ c, ev, f: file || null, t: Date.now(), ip });
+  try {
+    await fetch(`${url}/pipeline`, {
+      method: "POST",
+      headers: { authorization: `Bearer ${tok}`, "content-type": "application/json" },
+      body: JSON.stringify([
+        ["LPUSH", "bi:events", rec],
+        ["LTRIM", "bi:events", "0", "1999"],
+        ["SADD", "bi:clients", c],
+        ["HSET", `bi:client:${c}`, "last", String(Date.now()), "lastEvent", ev, "lastFile", file || ""],
+        ["HINCRBY", `bi:client:${c}`, "hits", "1"],
+      ]),
+    });
+  } catch { /* logging is best-effort; never fail the request */ }
+}
+
 module.exports = async function handler(req, res) {
   let f = (req.query && (req.query.f || req.query.path)) || "";
   if (Array.isArray(f)) f = f[0];
@@ -124,6 +148,7 @@ module.exports = async function handler(req, res) {
   const secret = process.env.TRIAL_SECRET;
   let reason = "disarmed", setCookie = null;
   let scope = null; // null = disarmed (unrestricted); otherwise a Set of allowed dataset ids
+  let client = null; // token's client tag, for usage logging
 
   if (secret) {
     const cookie = req.headers.cookie || "";
@@ -135,6 +160,7 @@ module.exports = async function handler(req, res) {
     if (v.ok) {
       scope = new Set(v.payload.s || []);
       reason = "armed";
+      client = v.payload.c || null;
       if (!cookieTok && queryK) {
         const maxAge = Math.max(0, (v.payload.x || 0) - Math.floor(Date.now() / 1000));
         setCookie = `bi_trial=${encodeURIComponent(token)}; Path=/; Max-Age=${maxAge}; Secure; SameSite=Lax`;
@@ -146,6 +172,7 @@ module.exports = async function handler(req, res) {
     }
     // Enforce dataset scope. Photos are public; research is served filtered below.
     if (!isPhotos && !isResearch && SPEC[id] && !scope.has(id)) {
+      await logUsage(req, "denied", client, f);
       res.setHeader("cache-control", "no-store");
       res.status(403).json({ error: "access_denied", reason: "out_of_scope" });
       return;
@@ -163,6 +190,7 @@ module.exports = async function handler(req, res) {
     res.status(500).json({ error: "server_error" }); return;
   }
 
+  await logUsage(req, isResearch ? "research" : isPhotos ? "photos" : "data", client, f);
   if (setCookie) res.setHeader("set-cookie", setCookie);
   res.setHeader("content-type", "application/json; charset=utf-8");
   res.setHeader("cache-control", "private, max-age=300");
