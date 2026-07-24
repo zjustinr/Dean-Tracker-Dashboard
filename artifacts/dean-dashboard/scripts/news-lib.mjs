@@ -36,6 +36,7 @@ export const TYPE_TO_DATASET = {
   education:    { id: "useducation",    deans: "r1-education-deans.json" },
   arts:         { id: "r1arts",         deans: "r1-arts-deans.json" },
   publichealth: { id: "uspublichealth", deans: "r1-publichealth-deans.json" },
+  veterinary:   { id: "usvet",          deans: "r1-vet-deans.json" },
 };
 
 export const today = () => new Date().toISOString().slice(0, 10);

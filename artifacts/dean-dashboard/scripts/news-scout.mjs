@@ -44,6 +44,7 @@ const DATASETS = [
   ["education", "r1-education-schools.json"],
   ["arts", "r1-arts-schools.json"],
   ["publichealth", "r1-publichealth-schools.json"],
+  ["veterinary", "r1-vet-schools.json"],
 ];
 
 const FEEDS = [
@@ -149,6 +150,7 @@ const UNIT_PHRASES = [
   ["nursing",      /school\s+of\s+nursing|college\s+of\s+nursing/i],
   ["pharmacy",     /school\s+of\s+pharmacy|college\s+of\s+pharmacy/i],
   ["publichealth", /school\s+of\s+public\s+health|college\s+of\s+public\s+health/i],
+  ["veterinary",   /college\s+of\s+veterinary\s+medicine|school\s+of\s+veterinary\s+medicine|veterinary\s+college/i],
   ["education",    /(?:graduate\s+)?school\s+of\s+education|college\s+of\s+education/i],
   ["engineering",  /college\s+of\s+engineering|school\s+of\s+engineering/i],
   ["agriculture",  /college\s+of\s+agriculture|school\s+of\s+agriculture|college\s+of\s+forestry|agricultural\s+sciences|natural\s+resources/i],

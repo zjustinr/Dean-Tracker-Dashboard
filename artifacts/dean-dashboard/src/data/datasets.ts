@@ -8,7 +8,7 @@ import type { Dean } from "./types";
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet";
 
 export interface SchoolInfo {
   university: string;
@@ -40,7 +40,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary";
   yearRange: string;
 }
 
@@ -191,6 +191,20 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     schoolType: "publichealth",
     yearRange: "1981–2026",
   },
+
+  // Every US college of veterinary medicine: AVMA COE-accredited, provisionally
+  // accredited, and the newly established programs still seeking accreditation.
+  // Each school carries an avmaStatus field, so the tier is explicit rather than
+  // implied. A complete, closed universe.
+  usvet: {
+    id: "usvet",
+    label: "US Veterinary School Deans",
+    shortLabel: "Veterinary",
+    description: "Deans of every US college of veterinary medicine, AVMA-accredited plus provisional and newly established programs, from each college's founding to today",
+    rankLabel: "AVMA status",
+    schoolType: "veterinary",
+    yearRange: "1879–2026",
+  },
 };
 
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
@@ -209,6 +223,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.useducation,
   DATASETS_META.r1arts,
   DATASETS_META.uspublichealth,
+  DATASETS_META.usvet,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,
