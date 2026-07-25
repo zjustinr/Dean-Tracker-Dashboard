@@ -389,7 +389,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               </select>
             </div>
 
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <span className="text-xs font-medium text-muted-foreground">Appointment</span>
               <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
                 {([["all", "All"], ["perm", "Permanent"], ["interim", "Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
@@ -397,18 +397,15 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                     className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", apptType === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
                 ))}
               </div>
-              {apptType === "interim" && tenureWin === "sitting" && (
-                <span className="text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
-              )}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
+              <span className="text-xs font-medium text-muted-foreground ml-1">Region</span>
               {Object.keys(REGIONS).map((r) => (
                 <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>
                   {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
                 </button>
               ))}
+              {apptType === "interim" && tenureWin === "sitting" && (
+                <span className="w-full text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
+              )}
             </div>
 
             <div>
@@ -418,6 +415,10 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                   <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
                 ))}
               </div>
+            </div>
+
+            <div>
+              <button onClick={clearAll} className="h-8 px-3 rounded text-xs font-semibold border border-muted-foreground/40 hover:bg-muted">Reset filters</button>
             </div>
           </div>
 
@@ -497,10 +498,6 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               </p>
             )}
           </div>
-        </div>
-
-        <div className="flex justify-end mt-4">
-          <button onClick={clearAll} className="h-8 px-3 rounded text-xs font-semibold border border-muted-foreground/40 hover:bg-muted">Reset filters</button>
         </div>
       </div>
 
