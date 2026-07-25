@@ -20,7 +20,7 @@ interface Props {
 }
 
 export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
-  const { noun, nounPluralLower, titleOf } = useDataset();
+  const { noun, titleOf } = useDataset();
   const careerPositions = useDeanCareer(dean.dean);
   const title = titleOf(dean);
   const research = useResearchMap()[enrichKey(dean.dean, dean.university)] || null;
@@ -73,15 +73,15 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
             )}
           </p>
           {onOpenSchool && (
-            <p className="text-xs mt-0.5">
+            <div className="mt-2">
               <button
                 type="button"
                 onClick={() => onOpenSchool(dean.university, dean.school)}
-                className="text-primary hover:underline underline-offset-2"
+                className="inline-flex items-center gap-1.5 rounded-md bg-muted px-3 py-1.5 text-sm font-medium text-foreground hover:bg-accent transition-colors"
               >
-                → View all {nounPluralLower} of {dean.school}
+                → View all leaders of this institution
               </button>
-            </p>
+            </div>
           )}
           <p className="text-sm text-muted-foreground">
             {dean.startYear || "?"} – {dean.endYear || "Present"}
