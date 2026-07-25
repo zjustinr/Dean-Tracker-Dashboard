@@ -1,21 +1,10 @@
 import type { Dean } from "@/data/types";
-import { ORIGIN_LABELS, NEXT_ROLE_LABELS } from "@/data/types";
+import { ORIGIN_LABELS, NEXT_ROLE_LABELS, genderNorm } from "@/data/types";
 import { useDeanCareer } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
 import { useResearchMap, enrichKey, useCareerMap, careerKey } from "@/data/enrichment";
-
-// Gender is stored inconsistently across indices: the original b-school index
-// uses "M"/"F", every later index uses "Male"/"Female", and the systems index
-// even has lowercase "male"/"female". Normalize to "M"/"F"/"" so the badge
-// renders correctly everywhere.
-function genderNorm(g?: string | null): "M" | "F" | "" {
-  const c = (g || "").trim().toLowerCase();
-  if (c === "m" || c === "male") return "M";
-  if (c === "f" || c === "female") return "F";
-  return "";
-}
 
 function formatMoney(val: number | null): string {
   if (!val) return "–";

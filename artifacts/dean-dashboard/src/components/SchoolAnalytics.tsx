@@ -6,7 +6,7 @@ import {
   PieChart, Pie, Cell, Legend,
 } from "recharts";
 import type { Dean } from "@/data/types";
-import { CHART_COLORS, NEXT_ROLE_LABELS } from "@/data/types";
+import { CHART_COLORS, NEXT_ROLE_LABELS, genderNorm } from "@/data/types";
 import { useSchoolsInfo, makeSchoolKey } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import PRESIDENTS from "@/data/university-presidents.json";
@@ -36,7 +36,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
   }, [schoolInfo, deans]);
 
   const genderData = useMemo(() => {
-    const m = deans.filter((d) => d.gender === "M").length;
+    const m = deans.filter((d) => genderNorm(d.gender) === "M").length;
     const f = deans.filter((d) => d.isFemale).length;
     const u = deans.length - m - f;
     const result = [

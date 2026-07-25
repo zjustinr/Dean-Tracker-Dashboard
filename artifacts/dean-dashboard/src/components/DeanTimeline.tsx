@@ -1,6 +1,6 @@
 import { useMemo, useState, useRef } from "react";
 import type { Dean } from "@/data/types";
-import { CHART_COLORS, ORIGIN_LABELS, NEXT_ROLE_LABELS } from "@/data/types";
+import { CHART_COLORS, ORIGIN_LABELS, NEXT_ROLE_LABELS, genderNorm } from "@/data/types";
 import { useDeanCareer } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +13,7 @@ interface Props {
 }
 
 function getBarColor(gender: string): string {
-  if (gender === "F") return CHART_COLORS[4];
+  if (genderNorm(gender) === "F") return CHART_COLORS[4];
   return CHART_COLORS[0];
 }
 
@@ -199,7 +199,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
           >
             <p className="font-bold text-base">{hoveredDean.dean}</p>
             <div className="flex gap-1.5 flex-wrap mt-1 mb-2">
-              {hoveredDean.gender === "F" && <span className="text-[10px] px-1.5 py-0.5 rounded bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 font-medium">Female</span>}
+              {genderNorm(hoveredDean.gender) === "F" && <span className="text-[10px] px-1.5 py-0.5 rounded bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 font-medium">Female</span>}
               {hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded border border-border font-medium">Interim</span>}
               {hoveredDean.isInternal && !hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-medium">Internal</span>}
               {hoveredDean.isExternal && !hoveredDean.isInterim && <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 font-medium">External</span>}
@@ -273,8 +273,8 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
             </div>
 
             <div className="flex gap-1.5 flex-wrap mb-4">
-              {clickedDean.gender === "F" && <Badge className="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 border-0">Female</Badge>}
-              {clickedDean.gender === "M" && <Badge variant="secondary">Male</Badge>}
+              {genderNorm(clickedDean.gender) === "F" && <Badge className="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 border-0">Female</Badge>}
+              {genderNorm(clickedDean.gender) === "M" && <Badge variant="secondary">Male</Badge>}
               {clickedDean.isInterim && <Badge variant="outline">Interim</Badge>}
               {clickedDean.isInternal && !clickedDean.isInterim && <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 border-0">Internal</Badge>}
               {clickedDean.isExternal && !clickedDean.isInterim && <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 border-0">External</Badge>}

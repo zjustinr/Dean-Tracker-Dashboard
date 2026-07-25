@@ -126,6 +126,18 @@ export const CHART_COLORS = [
   "hsl(160, 60%, 40%)",
 ];
 
+// Gender is stored inconsistently across indices: the original b-school index
+// uses "M"/"F", every later index uses "Male"/"Female", and the systems index
+// even had lowercase "male"/"female". Normalize to "M"/"F"/"" so every gender
+// display (profile badge, timeline bar color, analytics counts) works for all
+// indices. Use this everywhere instead of comparing dean.gender directly.
+export function genderNorm(g?: string | null): "M" | "F" | "" {
+  const c = (g || "").trim().toLowerCase();
+  if (c === "m" || c === "male") return "M";
+  if (c === "f" || c === "female") return "F";
+  return "";
+}
+
 export const NEXT_ROLE_LABELS: Record<string, string> = {
   Faculty_emeritus: "Faculty/Emeritus",
   Another_deanship: "Another Deanship",
