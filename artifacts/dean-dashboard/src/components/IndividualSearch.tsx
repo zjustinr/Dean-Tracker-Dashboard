@@ -79,6 +79,10 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [discipline, setDiscipline] = useState("");
   const [school, setSchool] = useState("");
   const [tenureWin, setTenureWin] = useState<"sitting" | "5" | "10" | "any">("sitting");
+  // Permanent vs interim. "interim" among sitting leaders = institutions in
+  // transition right now, i.e. open/imminent searches — a lead list, not just a
+  // candidate filter.
+  const [apptType, setApptType] = useState<"all" | "perm" | "interim">("all");
   // Years-in-seat range. Replaces the old boolean "5+ yrs" chip, which matched
   // nothing on the newer indices: it filtered on tenureLength, which is null for
   // sitting leaders, so "Sitting now" + "5+ yrs" returned an empty cohort.
@@ -116,7 +120,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   useEffect(() => {
     setQuery(""); setLetter(""); setDiscipline(""); setSchool("");
     setTenureWin("sitting"); setServedMin(0); setServedMax(SERVED_CAP);
-    setYrFrom(null); setYrTo(null);
+    setApptType("all"); setYrFrom(null); setYrTo(null);
     setRegions(new Set()); setStates(new Set()); setExpandedId(null);
   }, [datasetId]);
 
@@ -124,7 +128,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     if (!prefill) return;
     setQuery(prefill.fullName);
     setLetter(""); setDiscipline(""); setSchool(""); setTenureWin("any");
-    setServedMin(0); setServedMax(SERVED_CAP); setRegions(new Set()); setStates(new Set());
+    setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set());
     const matches = allDeans.filter((d) => d.dean.toLowerCase() === prefill.fullName.toLowerCase());
     const best = matches.find((d) => d.endYear == null) || matches[0] || null;
     setExpandedId(best ? best.id : null);
@@ -152,7 +156,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   }, [states, regions]);
 
   const hasFilter = query.trim() !== "" || !!letter || !!discipline || !!school ||
-    tenureWin !== "any" || servedMin > 0 || servedMax < SERVED_CAP || effectiveStates.size > 0;
+    tenureWin !== "any" || apptType !== "all" || servedMin > 0 || servedMax < SERVED_CAP || effectiveStates.size > 0;
 
   // Base cohort with every filter EXCEPT location, so region chips can show counts.
   const locBase = useMemo(() => {
@@ -164,6 +168,8 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       if (tenureWin === "sitting" && d.endYear != null) return false;
       if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
       if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) return false;
+      if (apptType === "perm" && d.isInterim) return false;
+      if (apptType === "interim" && !d.isInterim) return false;
       if (servedMin > 0 || servedMax < SERVED_CAP) {
         const yrs = elapsedYears(d);
         if (yrs == null || yrs < servedMin || yrs > servedMax) return false;
@@ -177,7 +183,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       seen.add(key);
       return true;
     });
-  }, [allDeans, query, letter, discipline, school, tenureWin, servedMin, servedMax, hasFilter]);
+  }, [allDeans, query, letter, discipline, school, tenureWin, apptType, servedMin, servedMax, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -213,6 +219,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     const vals: number[] = [];
     for (const d of allDeans) {
       if (d.endYear == null || !d.startYear) continue;
+      if (d.isInterim) continue; // interims serve ~1 yr and skew the norm; benchmark permanent tenure only
       if (discipline && d.disciplineBroad !== discipline) continue;
       if (effectiveStates.size) {
         const st = stateOf.get(d.university.toLowerCase());
@@ -257,7 +264,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
   const clearAll = () => {
     setQuery(""); setLetter(""); setDiscipline(""); setSchool("");
-    setServedMin(0); setServedMax(SERVED_CAP); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
+    setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
   };
 
   // Export the SHORTLIST only (the user's hand-picked few), not the dataset.
@@ -329,6 +336,19 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
             <option value="tenure">Sort: longest tenure</option>
             <option value="recent">Sort: most recently appointed</option>
           </select>
+        </div>
+
+        <div className="mt-3 flex items-center gap-2 flex-wrap">
+          <span className="text-xs font-medium text-muted-foreground">Appointment</span>
+          <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
+            {([["all", "All"], ["perm", "Permanent"], ["interim", "Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
+              <button key={v} onClick={() => { setApptType(v); setExpandedId(null); }}
+                className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", apptType === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
+            ))}
+          </div>
+          {apptType === "interim" && tenureWin === "sitting" && (
+            <span className="text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
+          )}
         </div>
 
         <div className="mt-3">
@@ -468,8 +488,8 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
         <h3 className="text-sm font-bold mb-0.5">Tenure benchmark</h3>
         <p className="text-[11px] text-muted-foreground mb-2 leading-snug">
           {hist.n
-            ? <>{hist.n} completed {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""}</>
-            : "No completed tenures in this range yet."}
+            ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""}</>
+            : "No completed permanent tenures in this range yet."}
         </p>
         {hist.n > 0 && (
           <div className="grid grid-cols-3 gap-1.5 mb-2">
