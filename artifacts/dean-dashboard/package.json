@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "gen-data": "node scripts/gen-public-data.mjs",
-    "predev": "node scripts/gen-public-data.mjs",
+    "gen-data": "node scripts/gen-public-data.mjs && node scripts/gen-careers.mjs",
+    "predev": "node scripts/gen-public-data.mjs && node scripts/gen-careers.mjs",
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "prebuild": "node scripts/gen-public-data.mjs",
+    "prebuild": "node scripts/gen-public-data.mjs && node scripts/gen-careers.mjs",
     "build": "vite build --config vite.config.ts",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"

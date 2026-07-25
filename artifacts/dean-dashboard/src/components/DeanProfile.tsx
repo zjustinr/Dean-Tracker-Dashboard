@@ -4,7 +4,7 @@ import { useDeanCareer } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
-import { useResearchMap, enrichKey } from "@/data/enrichment";
+import { useResearchMap, enrichKey, useCareerMap, careerKey } from "@/data/enrichment";
 
 function formatMoney(val: number | null): string {
   if (!val) return "–";
@@ -26,6 +26,8 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
   const research = useResearchMap()[enrichKey(dean.dean, dean.university)] || null;
   const hasNews = !!research?.news?.length;
   const hasCareer = !!research?.career?.length;
+  const ladder = useCareerMap()[careerKey(dean.dean)] || null;
+  const hasLadder = !!ladder && ladder.roles.length >= 2;
   const isCurrent = !dean.endYear;
 
   // "Last job before they first became a dean": the career step just before the
@@ -253,59 +255,45 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         </div>
       )}
 
-      {!hasCareer && (dean.priorAssocOrAsstDean || dean.hadDeptChairRole || dean.priorTitle) && (
+      {(hasLadder || (!hasCareer && (dean.priorAssocOrAsstDean || dean.hadDeptChairRole || dean.priorTitle))) && (
         <div className="mt-4 pt-3 border-t border-border">
-          <h4 className="text-sm font-bold mb-3">Prior Leadership History</h4>
+          <h4 className="text-sm font-bold mb-3">Leadership History</h4>
           {(() => {
             const steps: { label: string; detail: string; year: string; isCurrent: boolean }[] = [];
             const earliest = careerPositions.length > 0 ? careerPositions[0] : dean;
 
-            if (dean.hadAssocDeanRole || dean.priorAssocOrAsstDean) {
-              const assocInst = earliest.priorTitle?.toLowerCase().includes("associate") || earliest.priorTitle?.toLowerCase().includes("assistant")
-                ? earliest.priorInstitution || ""
-                : "";
-              const assocTitle = earliest.priorTitle?.toLowerCase().includes("associate") || earliest.priorTitle?.toLowerCase().includes("assistant")
-                ? earliest.priorTitle
-                : "Associate / Assistant Dean";
-              steps.push({ label: assocTitle, detail: assocInst, year: "", isCurrent: false });
-            }
-
+            // Pre-dean rungs from this record's flags (chair earliest, then
+            // associate). These live only on the record; the cross-index map
+            // tracks the dean/provost/president rungs.
             if (dean.hadDeptChairRole) {
-              const chairInst = earliest.priorTitle?.toLowerCase().includes("chair")
-                ? earliest.priorInstitution || ""
-                : "";
-              const chairTitle = earliest.priorTitle?.toLowerCase().includes("chair")
-                ? earliest.priorTitle
-                : "Department Chair";
-              steps.push({ label: chairTitle, detail: chairInst, year: "", isCurrent: false });
+              const isChair = earliest.priorTitle?.toLowerCase().includes("chair");
+              steps.push({ label: isChair ? earliest.priorTitle! : "Department Chair", detail: isChair ? earliest.priorInstitution || "" : "", year: "", isCurrent: false });
+            }
+            if (dean.hadAssocDeanRole || dean.priorAssocOrAsstDean) {
+              const isA = /associate|assistant/.test(earliest.priorTitle?.toLowerCase() || "");
+              steps.push({ label: isA ? earliest.priorTitle! : "Associate / Assistant Dean", detail: isA ? earliest.priorInstitution || "" : "", year: "", isCurrent: false });
             }
 
-            if (careerPositions.length > 1) {
-              const currentIdx = careerPositions.findIndex(p => p.id === dean.id);
-              careerPositions.forEach((pos, i) => {
-                if (i === currentIdx) return;
-                steps.push({
-                  label: `${titleOf(pos)}, ${pos.school}`,
-                  detail: pos.university,
-                  year: `${pos.startYear || "?"} – ${pos.endYear || "?"}`,
-                  isCurrent: false,
+            if (hasLadder) {
+              // Full ladder connected across indices: dean -> provost -> president.
+              ladder!.roles.forEach((r) => {
+                const label = `${r.interim ? "Interim " : ""}${r.role}`;
+                const detail = r.role === "Dean" && r.school ? `${r.school} · ${r.uni}` : r.uni;
+                const viewing = r.uni === dean.university && (r.s ?? -1) === (dean.startYear ?? -2);
+                steps.push({ label, detail, year: `${r.s || "?"} – ${r.e || "Present"}`, isCurrent: viewing });
+              });
+            } else {
+              if (careerPositions.length > 1) {
+                const currentIdx = careerPositions.findIndex(p => p.id === dean.id);
+                careerPositions.forEach((pos, i) => {
+                  if (i === currentIdx) return;
+                  steps.push({ label: `${titleOf(pos)}, ${pos.school}`, detail: pos.university, year: `${pos.startYear || "?"} – ${pos.endYear || "?"}`, isCurrent: false });
                 });
-              });
-            } else if (!dean.hadAssocDeanRole && !dean.priorAssocOrAsstDean && !dean.hadDeptChairRole && dean.priorTitle) {
-              steps.push({
-                label: dean.priorTitle,
-                detail: dean.priorInstitution || "",
-                year: "",
-                isCurrent: false,
-              });
+              } else if (!dean.hadAssocDeanRole && !dean.priorAssocOrAsstDean && !dean.hadDeptChairRole && dean.priorTitle) {
+                steps.push({ label: dean.priorTitle, detail: dean.priorInstitution || "", year: "", isCurrent: false });
+              }
+              steps.push({ label: `${title}, ${dean.school}`, detail: dean.university, year: `${dean.startYear || "?"} – ${dean.endYear || "Present"}`, isCurrent: true });
             }
-
-            steps.push({
-              label: `${title}, ${dean.school}`,
-              detail: dean.university,
-              year: `${dean.startYear || "?"} – ${dean.endYear || "Present"}`,
-              isCurrent: true,
-            });
 
             return (
               <div className="relative ml-1">
@@ -348,12 +336,15 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
               </div>
             );
           })()}
+          {hasLadder && (
+            <p className="text-[10px] text-muted-foreground mt-1">Roles linked across indices by name.</p>
+          )}
         </div>
       )}
 
       <div className="mt-4 pt-3 border-t border-border">
         <div className="flex items-center gap-1.5 mb-2">
-          
+
           <h4 className="text-sm font-bold">News &amp; Media</h4>
           {hasNews && <span className="text-[11px] text-muted-foreground">({research!.news!.length})</span>}
         </div>

@@ -48,12 +48,23 @@ function makeJsonMap<T>(file: string) {
   };
 }
 
+// A person's leadership rungs across ALL indices (dean/provost/president/system),
+// so a profile can show the full ladder even though only one index is loaded.
+export interface CareerRung { role: string; uni: string; school?: string; s: number | null; e: number | null; interim?: boolean }
+export interface CareerLadder { name: string; roles: CareerRung[] }
+
 const photos = makeJsonMap<PhotoRec>("dean-photos.json");
 const research = makeJsonMap<LeaderResearch>("leader-research.json");
+const careers = makeJsonMap<CareerLadder>("leader-careers.json");
 
 export const usePhotoMap = photos.useMap;
 export const getPhotoMap = photos.current;
 export const useResearchMap = research.useMap;
+export const useCareerMap = careers.useMap;
 
 export const enrichKey = (dean: string, university: string) =>
   `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
+
+// Must match norm() in scripts/gen-careers.mjs exactly.
+export const careerKey = (dean: string) =>
+  dean.toLowerCase().replace(/[^a-z ]/g, "").replace(/\s+/g, " ").trim();

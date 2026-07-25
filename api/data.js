@@ -64,6 +64,7 @@ const SPEC = {
 const ENRICHMENT = {
   "dean-photos.json": () => require("../artifacts/dean-dashboard/src/data/dean-photos.json"),
   "leader-research.json": () => require("../artifacts/dean-dashboard/src/data/leader-research.json"),
+  "leader-careers.json": () => require("../artifacts/dean-dashboard/src/data/leader-careers.json"),
 };
 
 function splitOpsFromIS(deans) {
