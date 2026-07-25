@@ -301,8 +301,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
   return (
     <>
-    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-4 lg:items-start">
-    <div className="space-y-4 min-w-0">
+    <div className="space-y-4">
       <div className="bg-[#011F5B]/[0.05] dark:bg-[#011F5B]/15 border border-[#011F5B]/40 rounded-xl p-4 sm:p-6">
         <div className="-mx-4 sm:-mx-6 -mt-4 sm:-mt-6 mb-4 px-4 sm:px-6 py-3.5 bg-gradient-to-r from-[#011F5B] to-[#0a3a8f] rounded-t-xl">
           <h2 className="text-lg font-bold text-white leading-tight">Slate Builder</h2>
@@ -351,24 +350,6 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           )}
         </div>
 
-        <div className="mt-3">
-          <div className="flex items-center justify-between mb-1 gap-2 flex-wrap">
-            <span className="text-xs font-medium text-muted-foreground">
-              Years in seat
-              <span className="text-[#011F5B] font-semibold"> · {servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax}</span>
-            </span>
-            <div className="flex gap-1">
-              <button onClick={() => { setServedMin(6); setServedMax(10); setExpandedId(null); }} className={chip(servedMin === 6 && servedMax === 10)} title="Accomplished but not entrenched — the placeable band">Ripe 6–10</button>
-              <button onClick={() => { setServedMin(10); setServedMax(SERVED_CAP); setExpandedId(null); }} className={chip(servedMin === 10 && servedMax === SERVED_CAP)}>Overdue 10+</button>
-            </div>
-          </div>
-          <DualRange min={0} max={SERVED_CAP} low={servedMin} high={servedMax}
-            onLow={(v) => { setServedMin(Math.min(v, servedMax)); setExpandedId(null); }}
-            onHigh={(v) => { setServedMax(Math.max(v, servedMin)); setExpandedId(null); }}
-            ariaLow="Minimum years in seat" ariaHigh="Maximum years in seat" />
-          <div className="flex justify-between text-[10px] text-muted-foreground mt-1"><span>0</span><span>{SERVED_CAP}+</span></div>
-        </div>
-
         <div className="flex flex-wrap items-center gap-1.5 mt-3">
           <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
           {Object.keys(REGIONS).map((r) => (
@@ -387,12 +368,87 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-1 mt-3">
-          {LETTERS.map((L) => (
-            <button key={L} onClick={() => { setLetter(letter === L ? "" : L); setExpandedId(null); }} aria-pressed={letter === L}
-              className={["w-8 h-8 rounded text-xs font-semibold transition-colors", letter === L ? "bg-[#011F5B] text-white" : "bg-muted/60 text-foreground hover:bg-muted"].join(" ")}>{L}</button>
-          ))}
-          <button onClick={clearAll} className="h-8 px-3 rounded text-xs font-semibold border border-border hover:bg-muted ml-1">Reset filters</button>
+        {/* Tenure benchmark and the two range controls, full width inside the slate. */}
+        <div className="mt-4 pt-4 border-t border-[#011F5B]/20 grid gap-5 lg:grid-cols-2">
+          <div>
+            <h3 className="text-sm font-bold mb-0.5">Tenure benchmark</h3>
+            <p className="text-[11px] text-muted-foreground mb-2 leading-snug">
+              {hist.n
+                ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""}</>
+                : "No completed permanent tenures in this range yet."}
+            </p>
+            {hist.n > 0 && (
+              <div className="grid grid-cols-3 gap-1.5 mb-2 max-w-xs">
+                {([["Mean", hist.mean.toFixed(1)], ["Median", String(hist.median)], ["Mode", String(hist.mode)]] as [string, string][]).map(([k, v]) => (
+                  <div key={k} className="rounded-md bg-muted/50 border border-muted-foreground/15 py-1 text-center">
+                    <div className="text-base font-bold text-[#011F5B] tabular-nums leading-none">{v}</div>
+                    <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{k}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className="rounded-lg bg-muted/40 border border-muted-foreground/15 p-2">
+              <svg viewBox="0 0 252 92" className="w-full" role="img" aria-label="Distribution of completed tenure lengths, in years">
+                {hist.bins.map((c: number, i: number) => {
+                  const bw = 252 / 21, bh = (c / hist.max) * 70;
+                  const inBand = i >= servedMin && i <= Math.min(20, servedMax);
+                  return <rect key={i} x={i * bw + 0.5} y={78 - bh} width={bw - 1} height={bh} rx={1}
+                    fill="currentColor" className={inBand ? "text-[#011F5B]" : "text-muted-foreground/40"} />;
+                })}
+                {hist.n > 0 && (() => {
+                  const mx = (Math.min(20, hist.median) + 0.5) * (252 / 21);
+                  return <line x1={mx} x2={mx} y1={2} y2={78} stroke="currentColor" className="text-[#E8A33D]" strokeWidth={1.5} strokeDasharray="2 2" />;
+                })()}
+                {[0, 5, 10, 15, 20].map((t) => (
+                  <text key={t} x={(t + 0.5) * (252 / 21)} y={90} textAnchor="middle" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 7 }}>{t === 20 ? "20+" : t}</text>
+                ))}
+              </svg>
+            </div>
+            <p className="text-[10px] text-muted-foreground mt-1">Years served · amber line = median</p>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-1 gap-2 flex-wrap">
+              <span className="text-xs font-medium text-muted-foreground">
+                Years in seat
+                <span className="text-[#011F5B] font-semibold"> · {servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax}</span>
+              </span>
+              <div className="flex gap-1">
+                <button onClick={() => { setServedMin(6); setServedMax(10); setExpandedId(null); }} className={chip(servedMin === 6 && servedMax === 10)} title="Accomplished but not entrenched — the placeable band">Ripe 6–10</button>
+                <button onClick={() => { setServedMin(10); setServedMax(SERVED_CAP); setExpandedId(null); }} className={chip(servedMin === 10 && servedMax === SERVED_CAP)}>Overdue 10+</button>
+              </div>
+            </div>
+            <DualRange min={0} max={SERVED_CAP} low={servedMin} high={servedMax}
+              onLow={(v) => { setServedMin(Math.min(v, servedMax)); setExpandedId(null); }}
+              onHigh={(v) => { setServedMax(Math.max(v, servedMin)); setExpandedId(null); }}
+              ariaLow="Minimum years in seat" ariaHigh="Maximum years in seat" />
+            <div className="flex justify-between text-[10px] text-muted-foreground mt-1"><span>0</span><span>{SERVED_CAP}+</span></div>
+
+            <div className="mt-4">
+              <div className="flex items-center justify-between text-[11px] mb-1.5">
+                <span className="text-muted-foreground font-medium">Appointed between</span>
+                <span className="tabular-nums font-semibold text-foreground">{yFrom}–{yTo}</span>
+              </div>
+              <DualRange min={yearBounds.lo} max={NOW} low={yFrom} high={yTo}
+                onLow={(v) => setYrFrom(Math.min(v, yTo))} onHigh={(v) => setYrTo(Math.max(v, yFrom))}
+                ariaLow="Benchmark from year" ariaHigh="Benchmark to year" />
+            </div>
+
+            {recentWindow && (
+              <p className="text-[10px] mt-2 text-amber-700 dark:text-amber-500 leading-snug">
+                Recent window: long tenures are still in progress, so the average reads short.
+              </p>
+            )}
+            {(servedMin > 0 || servedMax < SERVED_CAP) && (
+              <p className="text-[10px] mt-2 text-[#011F5B] font-medium leading-snug">
+                Shaded bars = your years-in-seat screen ({servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax} yrs).
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div className="flex justify-end mt-4">
+          <button onClick={clearAll} className="h-8 px-3 rounded text-xs font-semibold border border-muted-foreground/40 hover:bg-muted">Reset filters</button>
         </div>
       </div>
 
@@ -434,8 +490,15 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                   : "bg-muted text-muted-foreground border border-border cursor-not-allowed",
               ].join(" ")}
             >
-              Select to compare{slate.length >= 2 ? ` (${slate.length})` : ""}
+              Select <span className="inline-block w-3.5 h-3.5 border-2 border-current rounded-[3px]" aria-hidden="true" /> to compare{slate.length >= 2 ? ` (${slate.length})` : ""}
             </button>
+            <div className="flex flex-wrap gap-1 mt-2.5">
+              {LETTERS.map((L) => (
+                <button key={L} onClick={() => { setLetter(letter === L ? "" : L); setExpandedId(null); }} aria-pressed={letter === L}
+                  className={["w-7 h-7 rounded text-[11px] font-semibold transition-colors", letter === L ? "bg-[#011F5B] text-white" : "bg-muted/60 text-foreground hover:bg-muted"].join(" ")}>{L}</button>
+              ))}
+              {letter && <button onClick={() => { setLetter(""); setExpandedId(null); }} className="h-7 px-2 rounded text-[11px] font-semibold text-muted-foreground hover:bg-muted">clear</button>}
+            </div>
           </div>
           <div className="divide-y divide-border">
             {shown.map((d) => {
@@ -481,68 +544,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       )}
     </div>
 
-    {/* Tenure benchmark — completed tenures for the current cohort, windowed by era.
-        Gives a headhunter the "what is normal" reference next to the slate. */}
-    <aside className="mt-4 lg:mt-0 lg:sticky lg:top-4">
-      <div className="bg-card border border-border rounded-xl p-4">
-        <h3 className="text-sm font-bold mb-0.5">Tenure benchmark</h3>
-        <p className="text-[11px] text-muted-foreground mb-2 leading-snug">
-          {hist.n
-            ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""}</>
-            : "No completed permanent tenures in this range yet."}
-        </p>
-        {hist.n > 0 && (
-          <div className="grid grid-cols-3 gap-1.5 mb-2">
-            {([["Mean", hist.mean.toFixed(1)], ["Median", String(hist.median)], ["Mode", String(hist.mode)]] as [string, string][]).map(([k, v]) => (
-              <div key={k} className="rounded-md bg-muted/50 border border-muted-foreground/15 py-1 text-center">
-                <div className="text-base font-bold text-[#011F5B] tabular-nums leading-none">{v}</div>
-                <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{k}</div>
-              </div>
-            ))}
-          </div>
-        )}
-        <div className="rounded-lg bg-muted/40 border border-muted-foreground/15 p-2">
-          <svg viewBox="0 0 252 92" className="w-full" role="img" aria-label="Distribution of completed tenure lengths, in years">
-            {hist.bins.map((c: number, i: number) => {
-              const bw = 252 / 21, bh = (c / hist.max) * 70;
-              const inBand = i >= servedMin && i <= Math.min(20, servedMax);
-              return <rect key={i} x={i * bw + 0.5} y={78 - bh} width={bw - 1} height={bh} rx={1}
-                fill="currentColor" className={inBand ? "text-[#011F5B]" : "text-muted-foreground/40"} />;
-            })}
-            {hist.n > 0 && (() => {
-              const mx = (Math.min(20, hist.median) + 0.5) * (252 / 21);
-              return <line x1={mx} x2={mx} y1={2} y2={78} stroke="currentColor" className="text-[#E8A33D]" strokeWidth={1.5} strokeDasharray="2 2" />;
-            })()}
-            {[0, 5, 10, 15, 20].map((t) => (
-              <text key={t} x={(t + 0.5) * (252 / 21)} y={90} textAnchor="middle" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 7 }}>{t === 20 ? "20+" : t}</text>
-            ))}
-          </svg>
-        </div>
-        <p className="text-[10px] text-muted-foreground mt-1">Years served · amber line = median</p>
 
-        <div className="mt-3 pt-3 border-t border-border">
-          <div className="flex items-center justify-between text-[11px] mb-1.5">
-            <span className="text-muted-foreground">Appointed between</span>
-            <span className="tabular-nums font-semibold text-foreground">{yFrom}–{yTo}</span>
-          </div>
-          <DualRange min={yearBounds.lo} max={NOW} low={yFrom} high={yTo}
-            onLow={(v) => setYrFrom(Math.min(v, yTo))} onHigh={(v) => setYrTo(Math.max(v, yFrom))}
-            ariaLow="Benchmark from year" ariaHigh="Benchmark to year" />
-        </div>
-
-        {recentWindow && (
-          <p className="text-[10px] mt-2 text-amber-700 dark:text-amber-500 leading-snug">
-            Recent window: long tenures are still in progress, so the average reads short.
-          </p>
-        )}
-        {(servedMin > 0 || servedMax < SERVED_CAP) && (
-          <p className="text-[10px] mt-2 text-[#011F5B] font-medium leading-snug">
-            Shaded bars = your years-in-seat screen ({servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax} yrs).
-          </p>
-        )}
-      </div>
-    </aside>
-    </div>
 
       {compareOpen && slate.length >= 2 && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-label="Compare slate" onClick={() => setCompareOpen(false)}>
