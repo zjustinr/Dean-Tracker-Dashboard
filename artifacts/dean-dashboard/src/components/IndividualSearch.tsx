@@ -27,6 +27,32 @@ const elapsedYears = (d: Dean): number | null =>
     ? (d.startYear ? NOW - d.startYear : null)
     : (d.tenureLength ?? (d.startYear && d.endYear ? d.endYear - d.startYear : null));
 
+// Single-track, two-thumb range. More legible than two separate sliders. Built
+// from two overlaid native range inputs so keyboard access and accessibility come
+// free; only the thumbs take pointer events, so they never block each other.
+function DualRange({ min, max, low, high, onLow, onHigh, ariaLow, ariaHigh }: {
+  min: number; max: number; low: number; high: number;
+  onLow: (v: number) => void; onHigh: (v: number) => void; ariaLow: string; ariaHigh: string;
+}) {
+  const span = Math.max(1, max - min);
+  const lp = ((low - min) / span) * 100;
+  const hp = ((high - min) / span) * 100;
+  const thumb =
+    "pointer-events-none absolute inset-x-0 top-0 h-5 w-full appearance-none bg-transparent m-0 " +
+    "[&::-webkit-slider-runnable-track]:bg-transparent [&::-moz-range-track]:bg-transparent " +
+    "[&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-card [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[#011F5B] [&::-webkit-slider-thumb]:shadow [&::-webkit-slider-thumb]:cursor-pointer " +
+    "[&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-card [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[#011F5B] [&::-moz-range-thumb]:cursor-pointer";
+  return (
+    <div className="relative h-5">
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-1.5 rounded-full bg-muted-foreground/20" />
+      <div className="absolute top-1/2 -translate-y-1/2 h-1.5 rounded-full bg-[#011F5B]" style={{ left: `${lp}%`, right: `${100 - hp}%` }} />
+      {/* low thumb rides higher z near the top so it stays grabbable when both meet */}
+      <input type="range" min={min} max={max} value={low} aria-label={ariaLow} onChange={(e) => onLow(+e.target.value)} className={thumb} style={{ zIndex: low > max - span * 0.12 ? 5 : 3 }} />
+      <input type="range" min={min} max={max} value={high} aria-label={ariaHigh} onChange={(e) => onHigh(+e.target.value)} className={thumb} style={{ zIndex: 4 }} />
+    </div>
+  );
+}
+
 const REGIONS: Record<string, string[]> = {
   Northeast: ["CT", "ME", "MA", "NH", "RI", "VT", "NJ", "NY", "PA"],
   Midwest: ["IL", "IN", "MI", "OH", "WI", "IA", "KS", "MN", "MO", "NE", "ND", "SD"],
@@ -200,8 +226,15 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     }
     vals.sort((a, b) => a - b);
     const median = vals.length ? vals[Math.floor((vals.length - 1) / 2)] : 0;
-    return { bins, max: Math.max(1, ...bins), median, n: vals.length };
+    const mean = vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
+    let mode = 0, best = -1;
+    for (let i = 0; i < bins.length; i++) if (bins[i] > best) { best = bins[i]; mode = i; }
+    return { bins, max: Math.max(1, ...bins), median, mean, mode, n: vals.length };
   }, [allDeans, discipline, effectiveStates, stateOf, yFrom, yTo]);
+
+  // Narrow, recent windows read short: long tenures started in that window have
+  // not finished, so only the quick exits are counted. Flag it honestly.
+  const recentWindow = yTo - yFrom <= 12 && yTo >= NOW - 3 && (yFrom > yearBounds.lo || yTo < NOW);
 
   const results = useMemo(() => {
     const rows = effectiveStates.size
@@ -245,7 +278,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     URL.revokeObjectURL(url);
   };
 
-  const sel = "w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30";
+  const sel = "w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30";
   const chip = (active: boolean) =>
     ["px-2.5 h-8 rounded text-xs font-semibold transition-colors", active ? "bg-[#011F5B] text-white" : "bg-muted/60 text-foreground hover:bg-muted"].join(" ");
 
@@ -264,14 +297,16 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-4 lg:items-start">
     <div className="space-y-4 min-w-0">
       <div className="bg-card border border-border rounded-xl p-4 sm:p-6">
-        <h2 className="text-lg font-bold mb-1">Slate Builder</h2>
-        <p className="text-sm text-muted-foreground mb-4">Filter the cohort, check candidates into your slate, then compare or export.</p>
+        <div className="-mx-4 sm:-mx-6 -mt-4 sm:-mt-6 mb-4 px-4 sm:px-6 py-3.5 bg-gradient-to-r from-[#011F5B] to-[#0a3a8f] rounded-t-xl">
+          <h2 className="text-lg font-bold text-white leading-tight">Slate Builder</h2>
+          <p className="text-sm text-white/75">Filter the cohort, check candidates into your slate, then compare or export.</p>
+        </div>
 
         <input
           type="text" inputMode="search" value={query}
           onChange={(e) => { setQuery(e.target.value); setExpandedId(null); }}
           placeholder={`Type a ${nounLower}'s name…`}
-          className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm mb-3 focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
+          className="w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2.5 text-sm mb-3 focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -300,23 +335,18 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           <div className="flex items-center justify-between mb-1 gap-2 flex-wrap">
             <span className="text-xs font-medium text-muted-foreground">
               Years in seat
-              {(servedMin > 0 || servedMax < SERVED_CAP) && (
-                <span className="text-[#011F5B] font-semibold"> · {servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax}</span>
-              )}
+              <span className="text-[#011F5B] font-semibold"> · {servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax}</span>
             </span>
             <div className="flex gap-1">
               <button onClick={() => { setServedMin(6); setServedMax(10); setExpandedId(null); }} className={chip(servedMin === 6 && servedMax === 10)} title="Accomplished but not entrenched — the placeable band">Ripe 6–10</button>
               <button onClick={() => { setServedMin(10); setServedMax(SERVED_CAP); setExpandedId(null); }} className={chip(servedMin === 10 && servedMax === SERVED_CAP)}>Overdue 10+</button>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <label className="block text-[11px] text-muted-foreground">At least <span className="font-semibold text-foreground tabular-nums">{servedMin}</span> yrs
-              <input type="range" min={0} max={SERVED_CAP} value={servedMin} onChange={(e) => { setServedMin(Math.min(+e.target.value, servedMax)); setExpandedId(null); }} className="w-full accent-[#011F5B]" aria-label="Minimum years in seat" />
-            </label>
-            <label className="block text-[11px] text-muted-foreground">At most <span className="font-semibold text-foreground tabular-nums">{servedMax === SERVED_CAP ? "∞" : servedMax}</span> yrs
-              <input type="range" min={0} max={SERVED_CAP} value={servedMax} onChange={(e) => { setServedMax(Math.max(+e.target.value, servedMin)); setExpandedId(null); }} className="w-full accent-[#011F5B]" aria-label="Maximum years in seat" />
-            </label>
-          </div>
+          <DualRange min={0} max={SERVED_CAP} low={servedMin} high={servedMax}
+            onLow={(v) => { setServedMin(Math.min(v, servedMax)); setExpandedId(null); }}
+            onHigh={(v) => { setServedMax(Math.max(v, servedMin)); setExpandedId(null); }}
+            ariaLow="Minimum years in seat" ariaHigh="Maximum years in seat" />
+          <div className="flex justify-between text-[10px] text-muted-foreground mt-1"><span>0</span><span>{SERVED_CAP}+</span></div>
         </div>
 
         <div className="flex flex-wrap items-center gap-1.5 mt-3">
@@ -330,7 +360,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
         <div className="mt-3">
           <span className="text-xs font-medium text-muted-foreground">States</span>
-          <div className="mt-1 flex flex-wrap gap-1 max-h-24 overflow-y-auto rounded-lg border border-border p-2">
+          <div className="mt-1 flex flex-wrap gap-1 max-h-24 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
             {stateList.map((st) => (
               <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
             ))}
@@ -438,39 +468,53 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
         <h3 className="text-sm font-bold mb-0.5">Tenure benchmark</h3>
         <p className="text-[11px] text-muted-foreground mb-2 leading-snug">
           {hist.n
-            ? <>{hist.n} completed {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""} · median <b className="text-foreground">{hist.median} yr{hist.median !== 1 ? "s" : ""}</b></>
+            ? <>{hist.n} completed {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""}</>
             : "No completed tenures in this range yet."}
         </p>
-        <svg viewBox="0 0 252 92" className="w-full" role="img" aria-label="Distribution of completed tenure lengths, in years">
-          {hist.bins.map((c: number, i: number) => {
-            const bw = 252 / 21, bh = (c / hist.max) * 70;
-            const inBand = i >= servedMin && i <= Math.min(20, servedMax);
-            return <rect key={i} x={i * bw + 0.5} y={78 - bh} width={bw - 1} height={bh} rx={1}
-              fill="currentColor" className={inBand ? "text-[#011F5B]" : "text-muted-foreground/30"} />;
-          })}
-          {hist.n > 0 && (() => {
-            const mx = (Math.min(20, hist.median) + 0.5) * (252 / 21);
-            return <line x1={mx} x2={mx} y1={2} y2={78} stroke="currentColor" className="text-[#E8A33D]" strokeWidth={1.5} strokeDasharray="2 2" />;
-          })()}
-          {[0, 5, 10, 15, 20].map((t) => (
-            <text key={t} x={(t + 0.5) * (252 / 21)} y={90} textAnchor="middle" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 7 }}>{t === 20 ? "20+" : t}</text>
-          ))}
-        </svg>
-        <p className="text-[10px] text-muted-foreground -mt-0.5">Years served · amber line = median</p>
+        {hist.n > 0 && (
+          <div className="grid grid-cols-3 gap-1.5 mb-2">
+            {([["Mean", hist.mean.toFixed(1)], ["Median", String(hist.median)], ["Mode", String(hist.mode)]] as [string, string][]).map(([k, v]) => (
+              <div key={k} className="rounded-md bg-muted/50 border border-muted-foreground/15 py-1 text-center">
+                <div className="text-base font-bold text-[#011F5B] tabular-nums leading-none">{v}</div>
+                <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{k}</div>
+              </div>
+            ))}
+          </div>
+        )}
+        <div className="rounded-lg bg-muted/40 border border-muted-foreground/15 p-2">
+          <svg viewBox="0 0 252 92" className="w-full" role="img" aria-label="Distribution of completed tenure lengths, in years">
+            {hist.bins.map((c: number, i: number) => {
+              const bw = 252 / 21, bh = (c / hist.max) * 70;
+              const inBand = i >= servedMin && i <= Math.min(20, servedMax);
+              return <rect key={i} x={i * bw + 0.5} y={78 - bh} width={bw - 1} height={bh} rx={1}
+                fill="currentColor" className={inBand ? "text-[#011F5B]" : "text-muted-foreground/40"} />;
+            })}
+            {hist.n > 0 && (() => {
+              const mx = (Math.min(20, hist.median) + 0.5) * (252 / 21);
+              return <line x1={mx} x2={mx} y1={2} y2={78} stroke="currentColor" className="text-[#E8A33D]" strokeWidth={1.5} strokeDasharray="2 2" />;
+            })()}
+            {[0, 5, 10, 15, 20].map((t) => (
+              <text key={t} x={(t + 0.5) * (252 / 21)} y={90} textAnchor="middle" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 7 }}>{t === 20 ? "20+" : t}</text>
+            ))}
+          </svg>
+        </div>
+        <p className="text-[10px] text-muted-foreground mt-1">Years served · amber line = median</p>
 
         <div className="mt-3 pt-3 border-t border-border">
-          <div className="flex items-center justify-between text-[11px] mb-1">
+          <div className="flex items-center justify-between text-[11px] mb-1.5">
             <span className="text-muted-foreground">Appointed between</span>
             <span className="tabular-nums font-semibold text-foreground">{yFrom}–{yTo}</span>
           </div>
-          <input type="range" min={yearBounds.lo} max={NOW} value={yFrom}
-            onChange={(e) => setYrFrom(Math.min(+e.target.value, yTo))}
-            className="w-full accent-[#011F5B]" aria-label="Benchmark from year" />
-          <input type="range" min={yearBounds.lo} max={NOW} value={yTo}
-            onChange={(e) => setYrTo(Math.max(+e.target.value, yFrom))}
-            className="w-full accent-[#011F5B]" aria-label="Benchmark to year" />
+          <DualRange min={yearBounds.lo} max={NOW} low={yFrom} high={yTo}
+            onLow={(v) => setYrFrom(Math.min(v, yTo))} onHigh={(v) => setYrTo(Math.max(v, yFrom))}
+            ariaLow="Benchmark from year" ariaHigh="Benchmark to year" />
         </div>
 
+        {recentWindow && (
+          <p className="text-[10px] mt-2 text-amber-700 dark:text-amber-500 leading-snug">
+            Recent window: long tenures are still in progress, so the average reads short.
+          </p>
+        )}
         {(servedMin > 0 || servedMax < SERVED_CAP) && (
           <p className="text-[10px] mt-2 text-[#011F5B] font-medium leading-snug">
             Shaded bars = your years-in-seat screen ({servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax} yrs).
