@@ -303,7 +303,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     <>
     <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-4 lg:items-start">
     <div className="space-y-4 min-w-0">
-      <div className="bg-card border border-border rounded-xl p-4 sm:p-6">
+      <div className="bg-[#011F5B]/[0.05] dark:bg-[#011F5B]/15 border border-[#011F5B]/40 rounded-xl p-4 sm:p-6">
         <div className="-mx-4 sm:-mx-6 -mt-4 sm:-mt-6 mb-4 px-4 sm:px-6 py-3.5 bg-gradient-to-r from-[#011F5B] to-[#0a3a8f] rounded-t-xl">
           <h2 className="text-lg font-bold text-white leading-tight">Slate Builder</h2>
           <p className="text-sm text-white/75">Filter the cohort, check candidates into your slate, then compare or export.</p>
