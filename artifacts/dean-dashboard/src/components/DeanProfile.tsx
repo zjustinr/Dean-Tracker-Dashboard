@@ -77,7 +77,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
               <button
                 type="button"
                 onClick={() => onOpenSchool(dean.university, dean.school)}
-                className="inline-flex items-center gap-1.5 rounded-md bg-muted px-3 py-1.5 text-sm font-medium text-foreground hover:bg-accent transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-md bg-slate-600 text-white hover:opacity-90"
               >
                 → View all leaders of this institution
               </button>
