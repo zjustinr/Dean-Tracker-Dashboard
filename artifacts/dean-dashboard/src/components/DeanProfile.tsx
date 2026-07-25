@@ -6,6 +6,17 @@ import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
 import { useResearchMap, enrichKey, useCareerMap, careerKey } from "@/data/enrichment";
 
+// Gender is stored inconsistently across indices: the original b-school index
+// uses "M"/"F", every later index uses "Male"/"Female", and the systems index
+// even has lowercase "male"/"female". Normalize to "M"/"F"/"" so the badge
+// renders correctly everywhere.
+function genderNorm(g?: string | null): "M" | "F" | "" {
+  const c = (g || "").trim().toLowerCase();
+  if (c === "m" || c === "male") return "M";
+  if (c === "f" || c === "female") return "F";
+  return "";
+}
+
 function formatMoney(val: number | null): string {
   if (!val) return "–";
   if (val >= 1e9) return `$${(val / 1e9).toFixed(2)}B`;
@@ -98,8 +109,8 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
       </div>
 
       <div className="flex gap-1.5 flex-wrap mb-4">
-        {dean.gender === "F" && <Badge className="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 border-0">Female</Badge>}
-        {dean.gender === "M" && <Badge variant="secondary">Male</Badge>}
+        {genderNorm(dean.gender) === "F" && <Badge className="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 border-0">Female</Badge>}
+        {genderNorm(dean.gender) === "M" && <Badge variant="secondary">Male</Badge>}
         {dean.isInterim && <Badge variant="outline">Interim</Badge>}
         {dean.isInternal && !dean.isInterim && <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 border-0">Internal</Badge>}
         {dean.isExternal && !dean.isInterim && <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 border-0">External</Badge>}
@@ -151,7 +162,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         <div className="mb-4 rounded-lg border border-primary/30 bg-primary/5 p-3">
           <div className="flex items-center gap-1.5 mb-1.5">
             
-            <h4 className="text-sm font-bold">Headhunter Brief — Strengths & Distinctives</h4>
+            <h4 className="text-sm font-bold">Brief: Strengths & Distinctives</h4>
           </div>
           <p className="text-sm leading-relaxed text-foreground/90">{research.summary}</p>
           {research.education && (

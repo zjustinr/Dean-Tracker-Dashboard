@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
@@ -100,6 +100,48 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [compareOpen, setCompareOpen] = useState(false);
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [searchFocus, setSearchFocus] = useState(false);
+  const openRowRef = useRef<HTMLDivElement | null>(null);
+
+  // When a profile opens (a row click, a typeahead pick, or a "View full profile"
+  // prefill from the Meet a Leader box), bring its card into view. Without this the
+  // prefilled card renders far down the results list and stays off-screen. We poll
+  // until the row is laid out and visible (a tab-switch prefill mounts the row a
+  // frame or two late), then animate the scroll ourselves with window.scrollTo:
+  // native scrollIntoView({behavior:"smooth"}) is a silent no-op in some embedded
+  // browsers. Everything is driven by setTimeout, not requestAnimationFrame, so it
+  // still runs when the tab is backgrounded (rAF is paused while not compositing).
+  useEffect(() => {
+    if (expandedId == null) return;
+    let cancelled = false;
+    let tries = 0;
+    const animateTo = (targetY: number) => {
+      const startY = window.scrollY;
+      const dist = targetY - startY;
+      if (Math.abs(dist) < 4) return;
+      const steps = 22, stepMs = 18;
+      let i = 0;
+      const step = () => {
+        if (cancelled) return;
+        i += 1;
+        const p = Math.min(1, i / steps);
+        const ease = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; // easeInOutQuad
+        window.scrollTo(0, startY + dist * ease);
+        if (p < 1) setTimeout(step, stepMs);
+      };
+      step();
+    };
+    const tick = () => {
+      if (cancelled) return;
+      const el = (openRowRef.current ?? document.querySelector<HTMLElement>('[data-open-row="1"]'));
+      if (el && el.offsetParent !== null) {
+        animateTo(Math.max(0, window.scrollY + el.getBoundingClientRect().top - 72)); // clear sticky chrome
+        return;
+      }
+      if (tries++ < 90) setTimeout(tick, 16);
+    };
+    setTimeout(tick, 16);
+    return () => { cancelled = true; };
+  }, [expandedId]);
 
   useEffect(() => {
     try { localStorage.setItem(SLATE_KEY, JSON.stringify(slate)); } catch { /* quota / private mode */ }
@@ -553,7 +595,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
             {shown.map((d) => {
               const isOpen = expandedId === d.id;
               return (
-                <div key={d.id}>
+                <div key={d.id} ref={isOpen ? openRowRef : undefined} data-open-row={isOpen ? "1" : undefined} className="scroll-mt-20">
                   <div className={["flex items-center gap-2 px-3 sm:px-4 py-2.5 transition-colors", isOpen ? "bg-[#011F5B]/5" : "hover:bg-accent/40"].join(" ")}>
                     <input type="checkbox" checked={inSlate(d.id)} onChange={() => toggleSlate(d)} aria-label={`Add ${d.dean} to slate`} className="accent-[#011F5B] w-4 h-4 shrink-0" />
                     <button onClick={() => setExpandedId(isOpen ? null : d.id)} className="flex items-center gap-3 flex-1 min-w-0 text-left">
