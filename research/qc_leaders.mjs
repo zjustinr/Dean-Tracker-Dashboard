@@ -46,6 +46,13 @@ Object.entries(byUnit).forEach(([k, list]) => {
   if (open.length === 0) warn(`${k}: no sitting leader recorded`);
 });
 
+// Stale-interim guard: a sitting interim who started 3+ years ago has almost
+// certainly either been made permanent or replaced. This is exactly the bug
+// that left Yunzeng Wang "interim since 2011" — verify current status.
+const NOW_QC = 2026;
+D.filter((d) => d.isInterim && d.endYear == null && d.startYear && NOW_QC - d.startYear >= 3)
+  .forEach((d) => warn(`stale interim? ${d.dean} @ ${d.university} — interim since ${d.startYear} (${NOW_QC - d.startYear} yrs); confirm still interim`));
+
 S.forEach((s) => {
   if (!D.some((d) => d.university === s.university && d.school === s.school)) bad(`${s.university} / ${s.school}: no leaders`);
 });
