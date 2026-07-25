@@ -308,69 +308,53 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           <p className="text-sm text-white/75">Filter the cohort, check candidates into your slate, then compare or export.</p>
         </div>
 
-        <input
-          type="text" inputMode="search" value={query}
-          onChange={(e) => { setQuery(e.target.value); setExpandedId(null); }}
-          placeholder={`Type a ${nounLower}'s name…`}
-          className="w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2.5 text-sm mb-3 focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
-        />
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px]">
+          <div className="space-y-3 min-w-0">
+            <input
+              type="text" inputMode="search" value={query}
+              onChange={(e) => { setQuery(e.target.value); setExpandedId(null); }}
+              placeholder={`Type a ${nounLower}'s name…`}
+              className="w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
+            />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          <select className={sel} value={tenureWin} onChange={(e) => { setTenureWin(e.target.value as "sitting" | "5" | "10" | "any"); setExpandedId(null); }} aria-label="Tenure window">
-            <option value="sitting">Sitting now</option>
-            <option value="5">Served in last 5 yrs</option>
-            <option value="10">Served in last 10 yrs</option>
-            <option value="any">Any time</option>
-          </select>
-          <select className={sel} value={discipline} onChange={(e) => { setDiscipline(e.target.value); setExpandedId(null); }} aria-label="Discipline">
-            <option value="">All disciplines</option>
-            {disciplines.map((d) => <option key={d} value={d}>{d}</option>)}
-          </select>
-          <select className={sel} value={school} onChange={(e) => { setSchool(e.target.value); setExpandedId(null); }} aria-label="School">
-            <option value="">All schools</option>
-            {schoolList.map((s) => <option key={s} value={s}>{s}</option>)}
-          </select>
-          <select className={sel} value={sortBy} onChange={(e) => setSortBy(e.target.value as "name" | "tenure" | "recent")} aria-label="Sort by">
-            <option value="name">Sort: name</option>
-            <option value="tenure">Sort: longest tenure</option>
-            <option value="recent">Sort: most recently appointed</option>
-          </select>
-        </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <select className={sel} value={tenureWin} onChange={(e) => { setTenureWin(e.target.value as "sitting" | "5" | "10" | "any"); setExpandedId(null); }} aria-label="Tenure window">
+                <option value="sitting">Sitting now</option>
+                <option value="5">Served in last 5 yrs</option>
+                <option value="10">Served in last 10 yrs</option>
+                <option value="any">Any time</option>
+              </select>
+              <select className={sel} value={discipline} onChange={(e) => { setDiscipline(e.target.value); setExpandedId(null); }} aria-label="Discipline">
+                <option value="">All disciplines</option>
+                {disciplines.map((d) => <option key={d} value={d}>{d}</option>)}
+              </select>
+              <select className={sel} value={school} onChange={(e) => { setSchool(e.target.value); setExpandedId(null); }} aria-label="School">
+                <option value="">All schools</option>
+                {schoolList.map((sc) => <option key={sc} value={sc}>{sc}</option>)}
+              </select>
+              <select className={sel} value={sortBy} onChange={(e) => setSortBy(e.target.value as "name" | "tenure" | "recent")} aria-label="Sort by">
+                <option value="name">Sort: name</option>
+                <option value="tenure">Sort: longest tenure</option>
+                <option value="recent">Sort: most recently appointed</option>
+              </select>
+            </div>
 
-        <div className="mt-3 flex items-center gap-2 flex-wrap">
-          <span className="text-xs font-medium text-muted-foreground">Appointment</span>
-          <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
-            {([["all", "All"], ["perm", "Permanent"], ["interim", "Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
-              <button key={v} onClick={() => { setApptType(v); setExpandedId(null); }}
-                className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", apptType === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
-            ))}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-xs font-medium text-muted-foreground">Appointment</span>
+              <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
+                {([["all", "All"], ["perm", "Permanent"], ["interim", "Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
+                  <button key={v} onClick={() => { setApptType(v); setExpandedId(null); }}
+                    className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", apptType === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
+                ))}
+              </div>
+              {apptType === "interim" && tenureWin === "sitting" && (
+                <span className="text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
+              )}
+            </div>
           </div>
-          {apptType === "interim" && tenureWin === "sitting" && (
-            <span className="text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
-          )}
-        </div>
 
-        <div className="flex flex-wrap items-center gap-1.5 mt-3">
-          <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
-          {Object.keys(REGIONS).map((r) => (
-            <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>
-              {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-3">
-          <span className="text-xs font-medium text-muted-foreground">States</span>
-          <div className="mt-1 flex flex-wrap gap-1 max-h-24 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
-            {stateList.map((st) => (
-              <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
-            ))}
-          </div>
-        </div>
-
-        {/* Tenure benchmark and the two range controls, full width inside the slate. */}
-        <div className="mt-4 pt-4 border-t border-[#011F5B]/20 grid gap-5 lg:grid-cols-2">
-          <div>
+          {/* Upper-right: tenure benchmark, with the two range sliders directly under the histogram. */}
+          <div className="lg:border-l lg:border-[#011F5B]/15 lg:pl-4">
             <h3 className="text-sm font-bold mb-0.5">Tenure benchmark</h3>
             <p className="text-[11px] text-muted-foreground mb-2 leading-snug">
               {hist.n
@@ -378,7 +362,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                 : "No completed permanent tenures in this range yet."}
             </p>
             {hist.n > 0 && (
-              <div className="grid grid-cols-3 gap-1.5 mb-2 max-w-xs">
+              <div className="grid grid-cols-3 gap-1.5 mb-2">
                 {([["Mean", hist.mean.toFixed(1)], ["Median", String(hist.median)], ["Mode", String(hist.mode)]] as [string, string][]).map(([k, v]) => (
                   <div key={k} className="rounded-md bg-muted/50 border border-muted-foreground/15 py-1 text-center">
                     <div className="text-base font-bold text-[#011F5B] tabular-nums leading-none">{v}</div>
@@ -405,26 +389,26 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               </svg>
             </div>
             <p className="text-[10px] text-muted-foreground mt-1">Years served · amber line = median</p>
-          </div>
 
-          <div>
-            <div className="flex items-center justify-between mb-1 gap-2 flex-wrap">
-              <span className="text-xs font-medium text-muted-foreground">
-                Years in seat
-                <span className="text-[#011F5B] font-semibold"> · {servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax}</span>
-              </span>
-              <div className="flex gap-1">
-                <button onClick={() => { setServedMin(6); setServedMax(10); setExpandedId(null); }} className={chip(servedMin === 6 && servedMax === 10)} title="Accomplished but not entrenched — the placeable band">Ripe 6–10</button>
-                <button onClick={() => { setServedMin(10); setServedMax(SERVED_CAP); setExpandedId(null); }} className={chip(servedMin === 10 && servedMax === SERVED_CAP)}>Overdue 10+</button>
+            <div className="mt-3">
+              <div className="flex items-center justify-between mb-1 gap-2 flex-wrap">
+                <span className="text-xs font-medium text-muted-foreground">
+                  Years in seat
+                  <span className="text-[#011F5B] font-semibold"> · {servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax}</span>
+                </span>
+                <div className="flex gap-1">
+                  <button onClick={() => { setServedMin(6); setServedMax(10); setExpandedId(null); }} className={chip(servedMin === 6 && servedMax === 10)} title="Accomplished but not entrenched — the placeable band">Ripe 6–10</button>
+                  <button onClick={() => { setServedMin(10); setServedMax(SERVED_CAP); setExpandedId(null); }} className={chip(servedMin === 10 && servedMax === SERVED_CAP)}>Overdue 10+</button>
+                </div>
               </div>
+              <DualRange min={0} max={SERVED_CAP} low={servedMin} high={servedMax}
+                onLow={(v) => { setServedMin(Math.min(v, servedMax)); setExpandedId(null); }}
+                onHigh={(v) => { setServedMax(Math.max(v, servedMin)); setExpandedId(null); }}
+                ariaLow="Minimum years in seat" ariaHigh="Maximum years in seat" />
+              <div className="flex justify-between text-[10px] text-muted-foreground mt-1"><span>0</span><span>{SERVED_CAP}+</span></div>
             </div>
-            <DualRange min={0} max={SERVED_CAP} low={servedMin} high={servedMax}
-              onLow={(v) => { setServedMin(Math.min(v, servedMax)); setExpandedId(null); }}
-              onHigh={(v) => { setServedMax(Math.max(v, servedMin)); setExpandedId(null); }}
-              ariaLow="Minimum years in seat" ariaHigh="Maximum years in seat" />
-            <div className="flex justify-between text-[10px] text-muted-foreground mt-1"><span>0</span><span>{SERVED_CAP}+</span></div>
 
-            <div className="mt-4">
+            <div className="mt-3">
               <div className="flex items-center justify-between text-[11px] mb-1.5">
                 <span className="text-muted-foreground font-medium">Appointed between</span>
                 <span className="tabular-nums font-semibold text-foreground">{yFrom}–{yTo}</span>
@@ -444,6 +428,24 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                 Shaded bars = your years-in-seat screen ({servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax} yrs).
               </p>
             )}
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-1.5 mt-4">
+          <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
+          {Object.keys(REGIONS).map((r) => (
+            <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>
+              {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-3">
+          <span className="text-xs font-medium text-muted-foreground">States</span>
+          <div className="mt-1 flex flex-wrap gap-1 max-h-24 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
+            {stateList.map((st) => (
+              <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
+            ))}
           </div>
         </div>
 
