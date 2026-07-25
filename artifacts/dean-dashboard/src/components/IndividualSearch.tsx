@@ -99,6 +99,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   });
   const [compareOpen, setCompareOpen] = useState(false);
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [searchFocus, setSearchFocus] = useState(false);
 
   useEffect(() => {
     try { localStorage.setItem(SLATE_KEY, JSON.stringify(slate)); } catch { /* quota / private mode */ }
@@ -256,6 +257,35 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     return rows;
   }, [locBase, effectiveStates, stateOf, sortBy]);
 
+  // Name typeahead: unique people in the current index whose name matches, best
+  // (sitting, else latest) record per person, prefix matches first.
+  const suggestions = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (q.length < 2) return [];
+    const byName = new Map<string, Dean>();
+    for (const d of allDeans) {
+      if (!d.dean.toLowerCase().includes(q)) continue;
+      const k = d.dean.toLowerCase();
+      const prev = byName.get(k);
+      if (!prev || (d.endYear == null && prev.endYear != null) || (prev.endYear != null && (d.startYear || 0) > (prev.startYear || 0))) byName.set(k, d);
+    }
+    return [...byName.values()]
+      .sort((a, b) => {
+        const ap = a.dean.toLowerCase().startsWith(q) ? 0 : 1, bp = b.dean.toLowerCase().startsWith(q) ? 0 : 1;
+        return ap !== bp ? ap - bp : a.dean.localeCompare(b.dean);
+      })
+      .slice(0, 8);
+  }, [allDeans, query]);
+
+  const pickSuggestion = (d: Dean) => {
+    setQuery(d.dean);
+    setTenureWin("any");
+    setSearchFocus(false);
+    const matches = allDeans.filter((x) => x.dean === d.dean);
+    const best = matches.find((x) => x.endYear == null) || matches[0] || d;
+    setExpandedId(best.id);
+  };
+
   const shown = results.slice(0, CAP);
   const inSlate = (id: number) => slate.some((d) => d.id === id);
   const toggleSlate = (d: Dean) => setSlate((cur) => inSlate(d.id) ? cur.filter((x) => x.id !== d.id) : [...cur, d]);
@@ -310,12 +340,32 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div className="space-y-3 min-w-0">
-            <input
-              type="text" inputMode="search" value={query}
-              onChange={(e) => { setQuery(e.target.value); setExpandedId(null); }}
-              placeholder={`Type a ${nounLower}'s name…`}
-              className="w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
-            />
+            <div className="relative">
+              <input
+                type="text" inputMode="search" value={query} autoComplete="off"
+                onChange={(e) => { setQuery(e.target.value); setExpandedId(null); }}
+                onFocus={() => setSearchFocus(true)}
+                onBlur={() => setTimeout(() => setSearchFocus(false), 150)}
+                placeholder={`Type a ${nounLower}'s name…`}
+                className="w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
+              />
+              {searchFocus && suggestions.length > 0 && (
+                <ul className="absolute z-30 left-0 right-0 mt-1 bg-card border border-border rounded-lg shadow-lg max-h-64 overflow-auto py-1">
+                  {suggestions.map((d) => (
+                    <li key={d.id}>
+                      <button type="button" onMouseDown={(e) => { e.preventDefault(); pickSuggestion(d); }}
+                        className="w-full text-left px-3 py-1.5 hover:bg-[#011F5B]/5 flex items-center gap-2">
+                        <span className="text-sm font-medium shrink-0">{d.dean}</span>
+                        <span className="text-[11px] text-muted-foreground truncate">{d.school}, {d.university}</span>
+                        {d.endYear == null
+                          ? <span className="ml-auto text-[9px] text-[#011F5B] font-semibold shrink-0">SITTING</span>
+                          : <span className="ml-auto text-[9px] text-muted-foreground shrink-0 tabular-nums">{d.startYear}–{d.endYear}</span>}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <select className={sel} value={tenureWin} onChange={(e) => { setTenureWin(e.target.value as "sitting" | "5" | "10" | "any"); setExpandedId(null); }} aria-label="Tenure window">
@@ -350,6 +400,24 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               {apptType === "interim" && tenureWin === "sitting" && (
                 <span className="text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
               )}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
+              {Object.keys(REGIONS).map((r) => (
+                <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>
+                  {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
+                </button>
+              ))}
+            </div>
+
+            <div>
+              <span className="text-xs font-medium text-muted-foreground">States</span>
+              <div className="mt-1 flex flex-wrap gap-1 max-h-28 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
+                {stateList.map((st) => (
+                  <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -428,24 +496,6 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                 Shaded bars = your years-in-seat screen ({servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax} yrs).
               </p>
             )}
-          </div>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-1.5 mt-4">
-          <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
-          {Object.keys(REGIONS).map((r) => (
-            <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>
-              {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-3">
-          <span className="text-xs font-medium text-muted-foreground">States</span>
-          <div className="mt-1 flex flex-wrap gap-1 max-h-24 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
-            {stateList.map((st) => (
-              <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
-            ))}
           </div>
         </div>
 
