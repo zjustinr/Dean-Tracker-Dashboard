@@ -16,7 +16,16 @@ const pkey = (dean: string, uni: string) => `${dean.trim().toLowerCase()}|${uni.
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const CAP = 2000;
 const NOW = 2026;
+const SERVED_CAP = 40;
 const SLATE_KEY = "bi_slate_v1";
+
+// Years a leader has held the seat: elapsed time for sitting leaders (whose
+// tenureLength is null by construction, since it needs an end year), full tenure
+// for past ones. Uniform across indices, unlike the raw tenureLength field.
+const elapsedYears = (d: Dean): number | null =>
+  d.endYear == null
+    ? (d.startYear ? NOW - d.startYear : null)
+    : (d.tenureLength ?? (d.startYear && d.endYear ? d.endYear - d.startYear : null));
 
 const REGIONS: Record<string, string[]> = {
   Northeast: ["CT", "ME", "MA", "NH", "RI", "VT", "NJ", "NY", "PA"],
@@ -44,7 +53,14 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [discipline, setDiscipline] = useState("");
   const [school, setSchool] = useState("");
   const [tenureWin, setTenureWin] = useState<"sitting" | "5" | "10" | "any">("sitting");
-  const [longTenure, setLongTenure] = useState(false);
+  // Years-in-seat range. Replaces the old boolean "5+ yrs" chip, which matched
+  // nothing on the newer indices: it filtered on tenureLength, which is null for
+  // sitting leaders, so "Sitting now" + "5+ yrs" returned an empty cohort.
+  const [servedMin, setServedMin] = useState(0);
+  const [servedMax, setServedMax] = useState(SERVED_CAP);
+  // Era window for the tenure-benchmark histogram (null = full data range).
+  const [yrFrom, setYrFrom] = useState<number | null>(null);
+  const [yrTo, setYrTo] = useState<number | null>(null);
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
   const [sortBy, setSortBy] = useState<"name" | "tenure" | "recent">("name");
@@ -73,7 +89,8 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   // before the prefill effect so a prefill arriving in the same commit still wins.
   useEffect(() => {
     setQuery(""); setLetter(""); setDiscipline(""); setSchool("");
-    setTenureWin("sitting"); setLongTenure(false);
+    setTenureWin("sitting"); setServedMin(0); setServedMax(SERVED_CAP);
+    setYrFrom(null); setYrTo(null);
     setRegions(new Set()); setStates(new Set()); setExpandedId(null);
   }, [datasetId]);
 
@@ -81,7 +98,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     if (!prefill) return;
     setQuery(prefill.fullName);
     setLetter(""); setDiscipline(""); setSchool(""); setTenureWin("any");
-    setLongTenure(false); setRegions(new Set()); setStates(new Set());
+    setServedMin(0); setServedMax(SERVED_CAP); setRegions(new Set()); setStates(new Set());
     const matches = allDeans.filter((d) => d.dean.toLowerCase() === prefill.fullName.toLowerCase());
     const best = matches.find((d) => d.endYear == null) || matches[0] || null;
     setExpandedId(best ? best.id : null);
@@ -109,7 +126,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   }, [states, regions]);
 
   const hasFilter = query.trim() !== "" || !!letter || !!discipline || !!school ||
-    tenureWin !== "any" || longTenure || effectiveStates.size > 0;
+    tenureWin !== "any" || servedMin > 0 || servedMax < SERVED_CAP || effectiveStates.size > 0;
 
   // Base cohort with every filter EXCEPT location, so region chips can show counts.
   const locBase = useMemo(() => {
@@ -121,7 +138,10 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       if (tenureWin === "sitting" && d.endYear != null) return false;
       if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
       if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) return false;
-      if (longTenure && !(d.tenureLength && d.tenureLength >= 5)) return false;
+      if (servedMin > 0 || servedMax < SERVED_CAP) {
+        const yrs = elapsedYears(d);
+        if (yrs == null || yrs < servedMin || yrs > servedMax) return false;
+      }
       if (q && !d.dean.toLowerCase().includes(q)) return false;
       if (letter && last[0] !== letter.toLowerCase()) return false;
       if (discipline && d.disciplineBroad !== discipline) return false;
@@ -131,7 +151,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       seen.add(key);
       return true;
     });
-  }, [allDeans, query, letter, discipline, school, tenureWin, longTenure, hasFilter]);
+  }, [allDeans, query, letter, discipline, school, tenureWin, servedMin, servedMax, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -142,6 +162,46 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     }
     return c;
   }, [locBase, stateOf]);
+
+  const yearBounds = useMemo(() => {
+    let lo = NOW, hi = 1900;
+    for (const d of allDeans) {
+      if (!d.startYear) continue;
+      lo = Math.min(lo, d.startYear);
+      hi = Math.max(hi, d.endYear ?? d.startYear);
+    }
+    if (lo > hi) lo = 1980;
+    return { lo, hi: Math.max(hi, NOW) };
+  }, [allDeans]);
+  const yFrom = yrFrom ?? yearBounds.lo;
+  const yTo = yrTo ?? NOW;
+
+  // Tenure-benchmark histogram. Built from COMPLETED tenures only: sitting leaders
+  // are right-censored (a 2-year-in dean who will serve 10 would drag the
+  // distribution short), so including them biases the "normal duration" a client
+  // sees. Reflects the discipline + location filters and the era window, so it
+  // reads as the norm for THIS cohort, not the whole index. Independent of the
+  // years-in-seat screen — that only shades which bars are highlighted.
+  const hist = useMemo(() => {
+    const bins = new Array(21).fill(0); // bins 0..19, plus a 20+ bucket at index 20
+    const vals: number[] = [];
+    for (const d of allDeans) {
+      if (d.endYear == null || !d.startYear) continue;
+      if (discipline && d.disciplineBroad !== discipline) continue;
+      if (effectiveStates.size) {
+        const st = stateOf.get(d.university.toLowerCase());
+        if (!st || !effectiveStates.has(st)) continue;
+      }
+      if (d.startYear < yFrom || d.startYear > yTo) continue;
+      const t = d.tenureLength ?? (d.endYear - d.startYear);
+      if (t == null || t < 0) continue;
+      bins[Math.min(20, Math.floor(t))]++;
+      vals.push(t);
+    }
+    vals.sort((a, b) => a - b);
+    const median = vals.length ? vals[Math.floor((vals.length - 1) / 2)] : 0;
+    return { bins, max: Math.max(1, ...bins), median, n: vals.length };
+  }, [allDeans, discipline, effectiveStates, stateOf, yFrom, yTo]);
 
   const results = useMemo(() => {
     const rows = effectiveStates.size
@@ -164,7 +224,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
   const clearAll = () => {
     setQuery(""); setLetter(""); setDiscipline(""); setSchool("");
-    setLongTenure(false); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
+    setServedMin(0); setServedMax(SERVED_CAP); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
   };
 
   // Export the SHORTLIST only (the user's hand-picked few), not the dataset.
@@ -200,7 +260,9 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   }
 
   return (
-    <div className="space-y-4">
+    <>
+    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-4 lg:items-start">
+    <div className="space-y-4 min-w-0">
       <div className="bg-card border border-border rounded-xl p-4 sm:p-6">
         <h2 className="text-lg font-bold mb-1">Slate Builder</h2>
         <p className="text-sm text-muted-foreground mb-4">Filter the cohort, check candidates into your slate, then compare or export.</p>
@@ -234,16 +296,36 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           </select>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-3">
-          <button onClick={() => { setLongTenure(!longTenure); setExpandedId(null); }} className={chip(longTenure)}>5+ yrs in seat</button>
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
-            {Object.keys(REGIONS).map((r) => (
-              <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>
-                {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
-              </button>
-            ))}
+        <div className="mt-3">
+          <div className="flex items-center justify-between mb-1 gap-2 flex-wrap">
+            <span className="text-xs font-medium text-muted-foreground">
+              Years in seat
+              {(servedMin > 0 || servedMax < SERVED_CAP) && (
+                <span className="text-[#011F5B] font-semibold"> · {servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax}</span>
+              )}
+            </span>
+            <div className="flex gap-1">
+              <button onClick={() => { setServedMin(6); setServedMax(10); setExpandedId(null); }} className={chip(servedMin === 6 && servedMax === 10)} title="Accomplished but not entrenched — the placeable band">Ripe 6–10</button>
+              <button onClick={() => { setServedMin(10); setServedMax(SERVED_CAP); setExpandedId(null); }} className={chip(servedMin === 10 && servedMax === SERVED_CAP)}>Overdue 10+</button>
+            </div>
           </div>
+          <div className="grid grid-cols-2 gap-4">
+            <label className="block text-[11px] text-muted-foreground">At least <span className="font-semibold text-foreground tabular-nums">{servedMin}</span> yrs
+              <input type="range" min={0} max={SERVED_CAP} value={servedMin} onChange={(e) => { setServedMin(Math.min(+e.target.value, servedMax)); setExpandedId(null); }} className="w-full accent-[#011F5B]" aria-label="Minimum years in seat" />
+            </label>
+            <label className="block text-[11px] text-muted-foreground">At most <span className="font-semibold text-foreground tabular-nums">{servedMax === SERVED_CAP ? "∞" : servedMax}</span> yrs
+              <input type="range" min={0} max={SERVED_CAP} value={servedMax} onChange={(e) => { setServedMax(Math.max(+e.target.value, servedMin)); setExpandedId(null); }} className="w-full accent-[#011F5B]" aria-label="Maximum years in seat" />
+            </label>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-1.5 mt-3">
+          <span className="text-xs font-medium text-muted-foreground mr-0.5">Region</span>
+          {Object.keys(REGIONS).map((r) => (
+            <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>
+              {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
+            </button>
+          ))}
         </div>
 
         <div className="mt-3">
@@ -347,6 +429,56 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           <p className="text-muted-foreground text-sm">No {nounPluralLower} match these filters.</p>
         </div>
       )}
+    </div>
+
+    {/* Tenure benchmark — completed tenures for the current cohort, windowed by era.
+        Gives a headhunter the "what is normal" reference next to the slate. */}
+    <aside className="mt-4 lg:mt-0 lg:sticky lg:top-4">
+      <div className="bg-card border border-border rounded-xl p-4">
+        <h3 className="text-sm font-bold mb-0.5">Tenure benchmark</h3>
+        <p className="text-[11px] text-muted-foreground mb-2 leading-snug">
+          {hist.n
+            ? <>{hist.n} completed {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""} · median <b className="text-foreground">{hist.median} yr{hist.median !== 1 ? "s" : ""}</b></>
+            : "No completed tenures in this range yet."}
+        </p>
+        <svg viewBox="0 0 252 92" className="w-full" role="img" aria-label="Distribution of completed tenure lengths, in years">
+          {hist.bins.map((c: number, i: number) => {
+            const bw = 252 / 21, bh = (c / hist.max) * 70;
+            const inBand = i >= servedMin && i <= Math.min(20, servedMax);
+            return <rect key={i} x={i * bw + 0.5} y={78 - bh} width={bw - 1} height={bh} rx={1}
+              fill="currentColor" className={inBand ? "text-[#011F5B]" : "text-muted-foreground/30"} />;
+          })}
+          {hist.n > 0 && (() => {
+            const mx = (Math.min(20, hist.median) + 0.5) * (252 / 21);
+            return <line x1={mx} x2={mx} y1={2} y2={78} stroke="currentColor" className="text-[#E8A33D]" strokeWidth={1.5} strokeDasharray="2 2" />;
+          })()}
+          {[0, 5, 10, 15, 20].map((t) => (
+            <text key={t} x={(t + 0.5) * (252 / 21)} y={90} textAnchor="middle" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 7 }}>{t === 20 ? "20+" : t}</text>
+          ))}
+        </svg>
+        <p className="text-[10px] text-muted-foreground -mt-0.5">Years served · amber line = median</p>
+
+        <div className="mt-3 pt-3 border-t border-border">
+          <div className="flex items-center justify-between text-[11px] mb-1">
+            <span className="text-muted-foreground">Appointed between</span>
+            <span className="tabular-nums font-semibold text-foreground">{yFrom}–{yTo}</span>
+          </div>
+          <input type="range" min={yearBounds.lo} max={NOW} value={yFrom}
+            onChange={(e) => setYrFrom(Math.min(+e.target.value, yTo))}
+            className="w-full accent-[#011F5B]" aria-label="Benchmark from year" />
+          <input type="range" min={yearBounds.lo} max={NOW} value={yTo}
+            onChange={(e) => setYrTo(Math.max(+e.target.value, yFrom))}
+            className="w-full accent-[#011F5B]" aria-label="Benchmark to year" />
+        </div>
+
+        {(servedMin > 0 || servedMax < SERVED_CAP) && (
+          <p className="text-[10px] mt-2 text-[#011F5B] font-medium leading-snug">
+            Shaded bars = your years-in-seat screen ({servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax} yrs).
+          </p>
+        )}
+      </div>
+    </aside>
+    </div>
 
       {compareOpen && slate.length >= 2 && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-label="Compare slate" onClick={() => setCompareOpen(false)}>
@@ -390,6 +522,6 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
