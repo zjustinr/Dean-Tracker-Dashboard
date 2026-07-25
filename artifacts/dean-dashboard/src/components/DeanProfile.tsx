@@ -211,7 +211,12 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
           <span>
             {isCurrent
               ? `${dean.isInterim ? "Interim " : ""}${title}${dean.startYear ? `, since ${dean.startYear}` : " (serving)"}`
-              : (NEXT_ROLE_LABELS[dean.nextRole] || dean.nextRole || "–")}
+              : (<>
+                  {NEXT_ROLE_LABELS[dean.nextRole] || dean.nextRole || "–"}
+                  {!isCurrent && dean.nextRoleDetail && (
+                    <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">{dean.nextRoleDetail}</span>
+                  )}
+                </>)}
           </span>
           <span className="text-muted-foreground font-medium">Involuntary Exit</span>
           <span>{dean.involuntary ? "Yes" : "No"}</span>

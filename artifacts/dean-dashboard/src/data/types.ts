@@ -40,6 +40,7 @@ export interface Dean {
   notes: string;
   nextRole: string;
   nextRoleCode: number | null;
+  nextRoleDetail?: string; // optional free-text specifics of the post-role (e.g. "Professor of Law at Columbia")
   involuntary: boolean;
   hadPriorConnection: boolean;
   hasInstitutionalLink: boolean;
