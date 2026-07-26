@@ -7,46 +7,49 @@ const { ComposableMap, Geographies, Geography, Marker } = RSM;
 // Line ships in react-simple-maps v3 at runtime but is missing from the installed types.
 const Line = (RSM as unknown as { Line: React.FC<any> }).Line;
 
-// Same US topojson the School Explorer map uses.
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 type Geo = { city: string; state: string; country: string; lat: number; lng: number };
 const GEO: Record<string, Geo> = careerGeo as Record<string, Geo>;
-
 const norm = (s: string) => s.toLowerCase().trim();
 
-interface Located {
-  num: number;          // chronological step number (1 = earliest)
-  role: string;
-  org: string;
-  years: string;
-  geo: Geo;
-  isCurrent: boolean;
-  x: number;            // jittered lng for display
-  y: number;            // jittered lat for display
+interface Located { num: number; role: string; org: string; years: string; geo: Geo; isCurrent: boolean; x: number; y: number }
+
+export interface TenureInfo {
+  sitting: boolean;
+  currentTenure: number | null;
+  median: number | null;
+  p75: number | null;
+  personalAvg: number | null;
+  cohortN: number;
+}
+
+export interface Root { school: string; state: string; level: string; lat: number; lng: number }
+
+function miles(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
+  const R = 3959, r = (x: number) => (x * Math.PI) / 180;
+  const dLat = r(b.lat - a.lat), dLng = r(b.lng - a.lng);
+  const s = Math.sin(dLat / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(s));
 }
 
 /**
- * A leader's career movement across the US: each located step is a numbered dot,
- * consecutive steps are connected in time order, so you can see at a glance
- * whether someone stayed regional or ranged widely. Steps we cannot place (no
- * geocode yet, or a non-US location) are listed below the map rather than dropped.
+ * A leader's career movement across the US plus a qualitative read for headhunters:
+ * how often they relocate, how far they range, where their center of gravity sits,
+ * and a tenure-based movability rating (current time in role vs the cohort's
+ * completed-tenure distribution). All statistical, no map coordinate is invented.
  */
-export default function CareerMap({ steps }: { steps: CareerStep[] }) {
+export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[]; tenure?: TenureInfo; roots?: Root[] }) {
   const { located, unlocated } = useMemo(() => {
     const loc: Located[] = [];
-    const un: { num: number; role: string; org: string }[] = [];
+    const un: { num: number; org: string }[] = [];
     steps.forEach((s, i) => {
       const org = s.org || "";
       const g = org ? GEO[norm(org)] : undefined;
       const isCurrent = /\b(present|current)\b/i.test(s.years || "") || i === steps.length - 1;
-      if (g && g.country === "US") {
-        loc.push({ num: i + 1, role: s.role, org, years: s.years || "", geo: g, isCurrent, x: g.lng, y: g.lat });
-      } else if (org) {
-        un.push({ num: i + 1, role: s.role, org });
-      }
+      if (g && g.country === "US") loc.push({ num: i + 1, role: s.role, org, years: s.years || "", geo: g, isCurrent, x: g.lng, y: g.lat });
+      else if (org) un.push({ num: i + 1, org });
     });
-    // Fan out markers that share a location so overlapping steps stay readable.
     const groups = new Map<string, Located[]>();
     for (const p of loc) {
       const key = `${p.geo.lat.toFixed(1)},${p.geo.lng.toFixed(1)}`;
@@ -55,18 +58,60 @@ export default function CareerMap({ steps }: { steps: CareerStep[] }) {
     for (const g of groups.values()) {
       if (g.length < 2) continue;
       const step = 0.55, cLat = g[0].geo.lat, cLng = g[0].geo.lng;
-      g.forEach((p, k) => {
-        const angle = (2 * Math.PI * k) / g.length - Math.PI / 2;
-        p.y = cLat + Math.sin(angle) * step;
-        p.x = cLng + Math.cos(angle) * step * 1.3;
-      });
+      g.forEach((p, k) => { const a = (2 * Math.PI * k) / g.length - Math.PI / 2; p.y = cLat + Math.sin(a) * step; p.x = cLng + Math.cos(a) * step * 1.3; });
     }
     return { located: loc, unlocated: un };
   }, [steps]);
 
-  if (!located.length) return null;
+  const stats = useMemo(() => {
+    if (!located.length) return null;
+    const key = (p: Located) => `${p.geo.lat.toFixed(1)},${p.geo.lng.toFixed(1)}`;
+    const metros = new Set(located.map(key));
+    let relocations = 0;
+    for (let i = 1; i < located.length; i++) if (key(located[i]) !== key(located[i - 1])) relocations++;
+    let maxDist = 0;
+    for (let i = 0; i < located.length; i++) for (let j = i + 1; j < located.length; j++) maxDist = Math.max(maxDist, miles(located[i].geo, located[j].geo));
+    const stateCount = new Map<string, number>();
+    for (const p of located) stateCount.set(p.geo.state, (stateCount.get(p.geo.state) || 0) + 1);
+    const modalState = [...stateCount.entries()].sort((a, b) => b[1] - a[1])[0][0];
 
-  const states = new Set(located.map((p) => p.geo.state));
+    const move = metros.size === 1 ? "Never relocated" : relocations <= 1 ? "Relocated once" : relocations <= 2 ? "Occasional mover" : "Frequent mover";
+    const reach = maxDist < 100 ? "Local footprint" : maxDist < 500 ? "Regional reach" : maxDist < 1500 ? "Multi-region reach" : "Coast-to-coast reach";
+    const anchor = metros.size === 1
+      ? `${located[0].geo.city}, ${located[0].geo.state}`
+      : `mostly ${modalState}, across ${stateCount.size} states`;
+    return { metros: metros.size, relocations, states: stateCount.size, maxDist: Math.round(maxDist), move, reach, anchor };
+  }, [located]);
+
+  const rating = useMemo(() => {
+    const t = tenure;
+    if (!t || !t.sitting || t.currentTenure == null || t.median == null) return null;
+    const ct = t.currentTenure;
+    const own = t.personalAvg != null ? ` · usually stays ~${Math.round(t.personalAvg)} yr${Math.round(t.personalAvg) === 1 ? "" : "s"}` : "";
+    if (t.p75 != null && ct >= t.p75)
+      return { label: "Ripe to move", cls: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200", reason: `${ct} yrs in role, past the 75th-pct (${t.p75} yrs) for this cohort${own}` };
+    if (ct >= t.median || (t.personalAvg != null && ct >= t.personalAvg))
+      return { label: "Could move", cls: "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200", reason: `${ct} yrs in role, near the typical ${t.median} yrs${own}` };
+    return { label: "Not up to move", cls: "bg-muted text-muted-foreground", reason: `${ct} yrs in role, below the typical ${t.median} yrs${own}` };
+  }, [tenure]);
+
+  // Alma-mater / prior-training geography: flag when a leader studied where they
+  // later worked (home-turf roots) or has alumni ties to their current base.
+  const ties = useMemo(() => {
+    if (!roots || !roots.length || !located.length) return null;
+    const onPath = roots.filter((r) => located.some((p) => miles(p.geo, r) < 40));
+    const currentState = (located.find((p) => p.isCurrent) || located[located.length - 1]).geo.state;
+    const studied = [...new Set(roots.map((r) => r.state))];
+    let text: string;
+    if (onPath.length) text = `Home-turf roots: trained at ${onPath.map((r) => r.school).join(" & ")}, where they also worked`;
+    else if (roots.some((r) => r.state === currentState)) {
+      const r = roots.find((x) => x.state === currentState)!;
+      text = `Alumni ties to ${currentState} (studied at ${r.school})`;
+    } else text = `Trained away from current base (studied in ${studied.join(", ")})`;
+    return { text };
+  }, [roots, located]);
+
+  if (!located.length) return null;
 
   return (
     <div className="rounded-lg border border-border bg-card overflow-hidden">
@@ -79,13 +124,15 @@ export default function CareerMap({ steps }: { steps: CareerStep[] }) {
             ))
           }
         </Geographies>
-
-        {/* Connect consecutive located steps in time order. */}
         {located.slice(1).map((p, i) => (
           <Line key={`l${i}`} from={[located[i].x, located[i].y]} to={[p.x, p.y]}
             stroke="hsl(var(--primary))" strokeWidth={1.6} strokeOpacity={0.55} strokeLinecap="round" strokeDasharray="4 3" />
         ))}
-
+        {(roots || []).map((r, i) => (
+          <Marker key={`alma${i}`} coordinates={[r.lng, r.lat]}>
+            <circle r={7} fill="none" stroke="#E8A33D" strokeWidth={2} />
+          </Marker>
+        ))}
         {located.map((p) => (
           <Marker key={p.num} coordinates={[p.x, p.y]}>
             <circle r={9} fill={p.isCurrent ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))"} stroke="white" strokeWidth={1.5} />
@@ -94,13 +141,28 @@ export default function CareerMap({ steps }: { steps: CareerStep[] }) {
         ))}
       </ComposableMap>
 
-      <div className="px-3 py-2 border-t border-border">
-        <p className="text-[11px] text-muted-foreground">
-          Career movement · {located.length} US stop{located.length === 1 ? "" : "s"} across {states.size} state{states.size === 1 ? "" : "s"} · numbered by career step, line follows time
+      <div className="px-3 py-2 border-t border-border text-left">
+        {rating && (
+          <div className="mb-1.5">
+            <span className={`inline-block text-[11px] font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
+            <p className="text-[10px] text-muted-foreground mt-0.5 leading-snug">{rating.reason}</p>
+          </div>
+        )}
+        {stats && (
+          <div className="text-[11px] text-foreground/90 space-y-0.5">
+            <p><span className="text-muted-foreground">Moves:</span> {stats.move} ({stats.relocations} relocation{stats.relocations === 1 ? "" : "s"})</p>
+            <p><span className="text-muted-foreground">Reach:</span> {stats.reach} (~{stats.maxDist.toLocaleString()} mi)</p>
+            <p><span className="text-muted-foreground">Center of gravity:</span> {stats.anchor}</p>
+            {ties && <p><span className="text-muted-foreground">Roots &amp; ties:</span> {ties.text}</p>}
+          </div>
+        )}
+        <p className="text-[10px] text-muted-foreground mt-1 leading-snug">
+          {located.length} US stop{located.length === 1 ? "" : "s"} · numbered by step, line follows time{roots && roots.length ? " · amber ring = alma mater" : ""}.
+          {unlocated.length > 0 && ` Not shown: ${unlocated.map((u) => `#${u.num} ${u.org}`).join(", ")}.`}
         </p>
-        {unlocated.length > 0 && (
-          <p className="text-[11px] text-muted-foreground mt-1">
-            Not shown (no location yet): {unlocated.map((u) => `#${u.num} ${u.org}`).join(", ")}
+        {rating && (
+          <p className="text-[9px] text-muted-foreground/80 mt-1 italic leading-snug">
+            Statistical signal only. Ignores personal circumstances, satisfaction, and unadvertised opportunities.
           </p>
         )}
       </div>

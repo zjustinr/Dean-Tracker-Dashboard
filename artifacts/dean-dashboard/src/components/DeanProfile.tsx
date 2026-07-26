@@ -1,10 +1,12 @@
+import { useMemo } from "react";
 import type { Dean } from "@/data/types";
 import { ORIGIN_LABELS, NEXT_ROLE_LABELS, genderNorm } from "@/data/types";
-import { useDeanCareer } from "@/data/useData";
+import { useDeanCareer, useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
-import CareerMap from "@/components/CareerMap";
+import CareerMap, { type Root } from "@/components/CareerMap";
+import careerRoots from "@/data/career-roots.json";
 import { useResearchMap, enrichKey, useCareerMap, careerKey } from "@/data/enrichment";
 
 function formatMoney(val: number | null): string {
@@ -30,6 +32,31 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
   const ladder = useCareerMap()[careerKey(dean.dean)] || null;
   const hasLadder = !!ladder && ladder.roles.length >= 2;
   const isCurrent = !dean.endYear;
+  const allDeans = useAllDeans();
+
+  // Tenure inputs for the Career Map's movability rating: this leader's years in
+  // the current role, their own past average tenure, and the cohort's completed
+  // permanent-tenure distribution (median + 75th percentile) for this index.
+  const tenure = useMemo(() => {
+    const NOW = 2026;
+    const lens = allDeans
+      .filter((d) => d.endYear != null && !d.isInterim && (d.tenureLength ?? 0) > 0)
+      .map((d) => d.tenureLength as number)
+      .sort((a, b) => a - b);
+    const pct = (p: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(p * lens.length))] : null);
+    const pastLens = careerPositions
+      .filter((p) => p.endYear != null && (p.tenureLength ?? 0) > 0)
+      .map((p) => p.tenureLength as number);
+    const personalAvg = pastLens.length ? pastLens.reduce((a, b) => a + b, 0) / pastLens.length : null;
+    return {
+      sitting: dean.endYear == null,
+      currentTenure: dean.endYear == null && dean.startYear ? NOW - dean.startYear : dean.tenureLength ?? null,
+      median: pct(0.5),
+      p75: pct(0.75),
+      personalAvg,
+      cohortN: lens.length,
+    };
+  }, [allDeans, careerPositions, dean]);
 
   // "Last job before they first became a dean": the career step just before the
   // earliest TOP leadership role (dean/president/chancellor, excluding associate/
@@ -385,7 +412,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         {hasCareer && research?.career && research.career.length > 1 && (
           <div className="max-sm:hidden w-72">
             <h4 className="text-xs font-bold mb-1 text-right">Career Map</h4>
-            <CareerMap steps={research.career} />
+            <CareerMap steps={research.career} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
           </div>
         )}
       </div>
