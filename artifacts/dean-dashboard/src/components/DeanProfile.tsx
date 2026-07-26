@@ -214,138 +214,101 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         </div>
       </div>
 
-      {hasCareer && (
-        <div className="mt-4 pt-3 border-t border-border">
-          <div className="flex items-center gap-1.5 mb-3">
-            
-            <h4 className="text-sm font-bold">Career Path — Before {title}</h4>
-          </div>
-          <div className="relative ml-1">
-            {research!.career!.map((step, i) => {
-              const isLast = i === research!.career!.length - 1;
-              const isCurrent = /\b(present|current)\b/i.test(step.years || "") || isLast;
-              return (
-                <div key={i} className="flex items-start gap-3 relative">
-                  <div className="flex flex-col items-center shrink-0" style={{ width: 28 }}>
-                    <div
-                      className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold z-10 border-2"
-                      style={{
-                        background: isCurrent ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))",
-                        color: "white",
-                        borderColor: isCurrent ? "hsl(var(--primary))" : "hsl(var(--border))",
-                      }}
-                    >
-                      {i + 1}
-                    </div>
-                    {!isLast && (
-                      <svg width="2" height="32" className="my-0.5">
-                        <line x1="1" y1="0" x2="1" y2="24" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" strokeDasharray="3 2" />
-                        <polygon points="0,24 2,24 1,30" fill="hsl(var(--muted-foreground))" />
-                      </svg>
-                    )}
-                  </div>
-                  <div className="pb-2 min-h-[44px]">
-                    <div className="flex items-baseline gap-2 flex-wrap">
-                      <span className={`text-sm font-semibold ${isCurrent ? "text-primary" : ""}`}>{step.role}</span>
-                      {step.years && (
-                        <span className="text-sm font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">{step.years}</span>
+      {(() => {
+        // One unified "Career Path". Prefer the curated research trajectory
+        // (research.career), which already subsumes the cross-index ladder; fall
+        // back to the ladder / record flags only when there is no research career.
+        // Built chronologically (earliest -> latest), then rendered bottom-up so
+        // step 1 (earliest) sits at the bottom and time flows upward.
+        type PStep = { label: string; detail: string; years: string; isCurrent: boolean };
+        let path: PStep[] = [];
+        if (hasCareer) {
+          const arr = research!.career!;
+          path = arr.map((step, i) => ({
+            label: step.role,
+            detail: step.org || "",
+            years: step.years || "",
+            isCurrent: /\b(present|current)\b/i.test(step.years || "") || i === arr.length - 1,
+          }));
+        } else if (hasLadder || dean.priorAssocOrAsstDean || dean.hadDeptChairRole || dean.priorTitle) {
+          const earliest = careerPositions.length > 0 ? careerPositions[0] : dean;
+          if (dean.hadDeptChairRole) {
+            const isChair = earliest.priorTitle?.toLowerCase().includes("chair");
+            path.push({ label: isChair ? earliest.priorTitle! : "Department Chair", detail: isChair ? earliest.priorInstitution || "" : "", years: "", isCurrent: false });
+          }
+          if (dean.hadAssocDeanRole || dean.priorAssocOrAsstDean) {
+            const isA = /associate|assistant/.test(earliest.priorTitle?.toLowerCase() || "");
+            path.push({ label: isA ? earliest.priorTitle! : "Associate / Assistant Dean", detail: isA ? earliest.priorInstitution || "" : "", years: "", isCurrent: false });
+          }
+          if (hasLadder) {
+            ladder!.roles.forEach((r) => {
+              const label = `${r.interim ? "Interim " : ""}${r.role}`;
+              const detail = r.role === "Dean" && r.school ? `${r.school} · ${r.uni}` : r.uni;
+              const viewing = r.uni === dean.university && (r.s ?? -1) === (dean.startYear ?? -2);
+              path.push({ label, detail, years: `${r.s || "?"} – ${r.e || "Present"}`, isCurrent: viewing });
+            });
+          } else {
+            if (careerPositions.length > 1) {
+              const currentIdx = careerPositions.findIndex((p) => p.id === dean.id);
+              careerPositions.forEach((pos, i) => {
+                if (i === currentIdx) return;
+                path.push({ label: `${titleOf(pos)}, ${pos.school}`, detail: pos.university, years: `${pos.startYear || "?"} – ${pos.endYear || "?"}`, isCurrent: false });
+              });
+            } else if (!dean.hadAssocDeanRole && !dean.priorAssocOrAsstDean && !dean.hadDeptChairRole && dean.priorTitle) {
+              path.push({ label: dean.priorTitle, detail: dean.priorInstitution || "", years: "", isCurrent: false });
+            }
+            path.push({ label: `${title}, ${dean.school}`, detail: dean.university, years: `${dean.startYear || "?"} – ${dean.endYear || "Present"}`, isCurrent: true });
+          }
+        }
+        if (!path.length) return null;
+
+        const display = path.slice().reverse(); // latest first (top), earliest last (bottom)
+        return (
+          <div className="mt-4 pt-3 border-t border-border">
+            <h4 className="text-sm font-bold mb-3">Career Path</h4>
+            <div className="relative ml-1">
+              {display.map((step, j) => {
+                const num = path.length - j; // earliest = 1 at the bottom, increasing upward
+                const isBottom = j === display.length - 1;
+                return (
+                  <div key={j} className="flex items-start gap-3 relative">
+                    <div className="flex flex-col items-center shrink-0" style={{ width: 28 }}>
+                      <div
+                        className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold z-10 border-2"
+                        style={{
+                          background: step.isCurrent ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))",
+                          color: "white",
+                          borderColor: step.isCurrent ? "hsl(var(--primary))" : "hsl(var(--border))",
+                        }}
+                      >
+                        {num}
+                      </div>
+                      {!isBottom && (
+                        <svg width="2" height="32" className="my-0.5">
+                          <polygon points="0,8 2,8 1,2" fill="hsl(var(--muted-foreground))" />
+                          <line x1="1" y1="6" x2="1" y2="32" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" strokeDasharray="3 2" />
+                        </svg>
                       )}
                     </div>
-                    {step.org && <p className="text-xs text-muted-foreground mt-0.5">{step.org}</p>}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {(hasLadder || (!hasCareer && (dean.priorAssocOrAsstDean || dean.hadDeptChairRole || dean.priorTitle))) && (
-        <div className="mt-4 pt-3 border-t border-border">
-          <h4 className="text-sm font-bold mb-3">Leadership History</h4>
-          {(() => {
-            const steps: { label: string; detail: string; year: string; isCurrent: boolean }[] = [];
-            const earliest = careerPositions.length > 0 ? careerPositions[0] : dean;
-
-            // Pre-dean rungs from this record's flags (chair earliest, then
-            // associate). These live only on the record; the cross-index map
-            // tracks the dean/provost/president rungs.
-            if (dean.hadDeptChairRole) {
-              const isChair = earliest.priorTitle?.toLowerCase().includes("chair");
-              steps.push({ label: isChair ? earliest.priorTitle! : "Department Chair", detail: isChair ? earliest.priorInstitution || "" : "", year: "", isCurrent: false });
-            }
-            if (dean.hadAssocDeanRole || dean.priorAssocOrAsstDean) {
-              const isA = /associate|assistant/.test(earliest.priorTitle?.toLowerCase() || "");
-              steps.push({ label: isA ? earliest.priorTitle! : "Associate / Assistant Dean", detail: isA ? earliest.priorInstitution || "" : "", year: "", isCurrent: false });
-            }
-
-            if (hasLadder) {
-              // Full ladder connected across indices: dean -> provost -> president.
-              ladder!.roles.forEach((r) => {
-                const label = `${r.interim ? "Interim " : ""}${r.role}`;
-                const detail = r.role === "Dean" && r.school ? `${r.school} · ${r.uni}` : r.uni;
-                const viewing = r.uni === dean.university && (r.s ?? -1) === (dean.startYear ?? -2);
-                steps.push({ label, detail, year: `${r.s || "?"} – ${r.e || "Present"}`, isCurrent: viewing });
-              });
-            } else {
-              if (careerPositions.length > 1) {
-                const currentIdx = careerPositions.findIndex(p => p.id === dean.id);
-                careerPositions.forEach((pos, i) => {
-                  if (i === currentIdx) return;
-                  steps.push({ label: `${titleOf(pos)}, ${pos.school}`, detail: pos.university, year: `${pos.startYear || "?"} – ${pos.endYear || "?"}`, isCurrent: false });
-                });
-              } else if (!dean.hadAssocDeanRole && !dean.priorAssocOrAsstDean && !dean.hadDeptChairRole && dean.priorTitle) {
-                steps.push({ label: dean.priorTitle, detail: dean.priorInstitution || "", year: "", isCurrent: false });
-              }
-              steps.push({ label: `${title}, ${dean.school}`, detail: dean.university, year: `${dean.startYear || "?"} – ${dean.endYear || "Present"}`, isCurrent: true });
-            }
-
-            return (
-              <div className="relative ml-1">
-                {steps.map((step, i) => {
-                  const isLast = i === steps.length - 1;
-                  return (
-                    <div key={i} className="flex items-start gap-3 relative">
-                      <div className="flex flex-col items-center shrink-0" style={{ width: 28 }}>
-                        <div
-                          className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold z-10 border-2"
-                          style={{
-                            background: step.isCurrent ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))",
-                            color: "white",
-                            borderColor: step.isCurrent ? "hsl(var(--primary))" : "hsl(var(--border))",
-                          }}
-                        >
-                          {i + 1}
-                        </div>
-                        {!isLast && (
-                          <svg width="2" height="32" className="my-0.5">
-                            <line x1="1" y1="0" x2="1" y2="24" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5" strokeDasharray="3 2" />
-                            <polygon points="0,24 2,24 1,30" fill="hsl(var(--muted-foreground))" />
-                          </svg>
+                    <div className="pb-2 min-h-[44px]">
+                      <div className="flex items-baseline gap-2 flex-wrap">
+                        <span className={`text-sm font-semibold ${step.isCurrent ? "text-primary" : ""}`}>{step.label}</span>
+                        {step.years && (
+                          <span className="text-sm font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">{step.years}</span>
                         )}
                       </div>
-                      <div className="pb-2 min-h-[44px]">
-                        <div className="flex items-baseline gap-2 flex-wrap">
-                          <span className={`text-sm font-semibold ${step.isCurrent ? "text-primary" : ""}`}>{step.label}</span>
-                          {step.year && (
-                            <span className="text-sm font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">{step.year}</span>
-                          )}
-                        </div>
-                        {step.detail && (
-                          <p className="text-xs text-muted-foreground mt-0.5">{step.detail}</p>
-                        )}
-                      </div>
+                      {step.detail && <p className="text-xs text-muted-foreground mt-0.5">{step.detail}</p>}
                     </div>
-                  );
-                })}
-              </div>
-            );
-          })()}
-          {hasLadder && (
-            <p className="text-[10px] text-muted-foreground mt-1">Roles linked across indices by name.</p>
-          )}
-        </div>
-      )}
+                  </div>
+                );
+              })}
+            </div>
+            {hasLadder && !hasCareer && (
+              <p className="text-[10px] text-muted-foreground mt-1">Roles linked across indices by name.</p>
+            )}
+          </div>
+        );
+      })()}
 
       <div className="mt-4 pt-3 border-t border-border">
         <div className="flex items-center gap-1.5 mb-2">
