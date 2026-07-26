@@ -301,7 +301,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         return (
           <div className="mt-4 pt-3 border-t border-border">
             <h4 className="text-sm font-bold mb-3">Career Path</h4>
-            <div className={mapRenders ? "grid gap-5 lg:grid-cols-[minmax(0,300px)_1fr] items-start" : ""}>
+            <div className={mapRenders ? "grid gap-5 lg:grid-cols-[minmax(0,240px)_1fr] items-start" : ""}>
             <div>
             <div className="relative ml-1">
               {display.map((step, j) => {

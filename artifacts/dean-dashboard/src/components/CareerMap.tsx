@@ -1,9 +1,10 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import * as RSM from "react-simple-maps";
 import type { CareerStep } from "@/data/enrichment";
 import careerGeo from "@/data/career-geo.json";
 
-const { ComposableMap, Geographies, Geography, Marker } = RSM;
+const { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } = RSM;
+type Hover = { kind: "career"; num: number; role: string; org: string; place: string; years: string } | { kind: "alma"; school: string; level: string; state: string };
 // Line ships in react-simple-maps v3 at runtime but is missing from the installed types.
 const Line = (RSM as unknown as { Line: React.FC<any> }).Line;
 
@@ -111,35 +112,68 @@ export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[
     return { text };
   }, [roots, located]);
 
+  const [pos, setPos] = useState<{ coordinates: [number, number]; zoom: number }>({ coordinates: [-96, 38], zoom: 1 });
+  const [hover, setHover] = useState<Hover | null>(null);
+  const [tip, setTip] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+
   if (!located.length) return null;
 
+  const z = pos.zoom;
   return (
     <div className="rounded-lg border border-border bg-card overflow-hidden">
-      <ComposableMap projection="geoAlbersUsa" projectionConfig={{ scale: 620 }} style={{ width: "100%", height: "auto" }} viewBox="0 0 800 500">
-        <Geographies geography={GEO_URL}>
-          {({ geographies }: { geographies: any[] }) =>
-            geographies.map((geo: any) => (
-              <Geography key={geo.rsmKey || geo.id} geography={geo} fill="hsl(215 20% 88%)" stroke="#ffffff" strokeWidth={0.6}
-                style={{ default: { outline: "none" }, hover: { outline: "none" }, pressed: { outline: "none" } }} />
-            ))
-          }
-        </Geographies>
-        {located.slice(1).map((p, i) => (
-          <Line key={`l${i}`} from={[located[i].x, located[i].y]} to={[p.x, p.y]}
-            stroke="hsl(var(--primary))" strokeWidth={1.6} strokeOpacity={0.55} strokeLinecap="round" strokeDasharray="4 3" />
-        ))}
-        {(roots || []).filter((r) => r.lat != null && r.lng != null).map((r, i) => (
-          <Marker key={`alma${i}`} coordinates={[r.lng as number, r.lat as number]}>
-            <circle r={7} fill="none" stroke="#E8A33D" strokeWidth={2} />
-          </Marker>
-        ))}
-        {located.map((p) => (
-          <Marker key={p.num} coordinates={[p.x, p.y]}>
-            <circle r={9} fill={p.isCurrent ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))"} stroke="white" strokeWidth={1.5} />
-            <text textAnchor="middle" dominantBaseline="central" style={{ fontSize: 10, fontWeight: 700, fill: "white", pointerEvents: "none" }}>{p.num}</text>
-          </Marker>
-        ))}
-      </ComposableMap>
+      <div className="relative" onMouseMove={(e) => { const r = e.currentTarget.getBoundingClientRect(); setTip({ x: e.clientX - r.left, y: e.clientY - r.top }); }}>
+        <div className="absolute top-2 right-2 z-10 flex flex-col gap-1">
+          <button onClick={() => setPos((p) => ({ ...p, zoom: Math.min(p.zoom * 1.6, 12) }))} className="w-6 h-6 rounded bg-card border border-border text-foreground hover:bg-muted flex items-center justify-center text-sm font-bold shadow-sm" aria-label="Zoom in">+</button>
+          <button onClick={() => setPos((p) => ({ ...p, zoom: Math.max(p.zoom / 1.6, 1) }))} className="w-6 h-6 rounded bg-card border border-border text-foreground hover:bg-muted flex items-center justify-center text-sm font-bold shadow-sm" aria-label="Zoom out">&minus;</button>
+          <button onClick={() => setPos({ coordinates: [-96, 38], zoom: 1 })} className="w-6 h-6 rounded bg-card border border-border text-foreground hover:bg-muted flex items-center justify-center text-xs shadow-sm" aria-label="Reset">&#8635;</button>
+        </div>
+        {hover && (
+          <div className="absolute z-20 pointer-events-none bg-card border border-border rounded-md shadow-lg px-2.5 py-1.5 text-[11px] max-w-[220px]"
+            style={{ left: tip.x + 12, top: tip.y - 8, transform: tip.x > 340 ? "translateX(-108%)" : undefined }}>
+            {hover.kind === "career" ? (
+              <>
+                <p className="font-semibold leading-tight"><span className="text-[#011F5B] dark:text-[#9db6ee]">{hover.num}.</span> {hover.role}</p>
+                <p className="text-muted-foreground leading-tight">{hover.org}</p>
+                <p className="text-muted-foreground leading-tight">{hover.place}{hover.years ? ` · ${hover.years}` : ""}</p>
+              </>
+            ) : (
+              <>
+                <p className="font-semibold leading-tight"><span className="text-[#E8A33D]">◌</span> {hover.school}</p>
+                <p className="text-muted-foreground leading-tight">Alma mater{hover.level ? ` · ${hover.level}` : ""}{hover.state ? ` · ${hover.state}` : ""}</p>
+              </>
+            )}
+          </div>
+        )}
+        <ComposableMap projection="geoAlbersUsa" projectionConfig={{ scale: 620 }} style={{ width: "100%", height: "auto" }} viewBox="0 0 800 500">
+          <ZoomableGroup center={pos.coordinates} zoom={pos.zoom} minZoom={1} maxZoom={12} onMoveEnd={setPos}>
+            <Geographies geography={GEO_URL}>
+              {({ geographies }: { geographies: any[] }) =>
+                geographies.map((geo: any) => (
+                  <Geography key={geo.rsmKey || geo.id} geography={geo} fill="#94a3b8" stroke="hsl(var(--card))" strokeWidth={0.6 / z}
+                    style={{ default: { outline: "none" }, hover: { outline: "none" }, pressed: { outline: "none" } }} />
+                ))
+              }
+            </Geographies>
+            {located.slice(1).map((p, i) => (
+              <Line key={`l${i}`} from={[located[i].x, located[i].y]} to={[p.x, p.y]}
+                stroke="hsl(var(--primary))" strokeWidth={1.8 / z} strokeOpacity={0.6} strokeLinecap="round" strokeDasharray={`${5 / z} ${3 / z}`} />
+            ))}
+            {(roots || []).filter((r) => r.lat != null && r.lng != null).map((r, i) => (
+              <Marker key={`alma${i}`} coordinates={[r.lng as number, r.lat as number]}
+                onMouseEnter={() => setHover({ kind: "alma", school: r.school, level: r.level, state: r.state })} onMouseLeave={() => setHover(null)} style={{ cursor: "pointer" }}>
+                <circle r={7 / z} fill="white" fillOpacity={0.01} stroke="#E8A33D" strokeWidth={2 / z} />
+              </Marker>
+            ))}
+            {located.map((p) => (
+              <Marker key={p.num} coordinates={[p.x, p.y]}
+                onMouseEnter={() => setHover({ kind: "career", num: p.num, role: p.role, org: p.org, place: `${p.geo.city}, ${p.geo.state}`, years: p.years })} onMouseLeave={() => setHover(null)} style={{ cursor: "pointer" }}>
+                <circle r={9 / z} fill={p.isCurrent ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))"} stroke="white" strokeWidth={1.5 / z} />
+                <text textAnchor="middle" dominantBaseline="central" style={{ fontSize: 10 / z, fontWeight: 700, fill: "white", pointerEvents: "none" }}>{p.num}</text>
+              </Marker>
+            ))}
+          </ZoomableGroup>
+        </ComposableMap>
+      </div>
 
       <div className="px-3 py-2 border-t border-border text-left">
         {rating && (
@@ -157,7 +191,7 @@ export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[
           </div>
         )}
         <p className="text-[10px] text-muted-foreground mt-1 leading-snug">
-          {located.length} US stop{located.length === 1 ? "" : "s"} · numbered by step, line follows time{roots && roots.length ? " · amber ring = alma mater" : ""}.
+          {located.length} US stop{located.length === 1 ? "" : "s"}, numbered by step. Hover a dot for role and years; zoom with +/&minus;{roots && roots.length ? "; amber ring = alma mater" : ""}.
           {unlocated.length > 0 && ` Not shown: ${unlocated.map((u) => `#${u.num} ${u.org}`).join(", ")}.`}
         </p>
         {rating && (
