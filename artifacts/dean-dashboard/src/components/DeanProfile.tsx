@@ -345,8 +345,18 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
             )}
             </div>
             {mapRenders && (
-              <div className="min-w-0">
+              <div className="min-w-0 relative">
                 <CareerMap steps={research!.career!} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+                {/* Assessment sits exactly to the right of the map, vertically centered on it
+                    (≈ the middle of the Career Path) so it lands beside the map — not up by the
+                    photo. Absolute so it never steals width from the map. On narrow screens it
+                    drops in-flow below the map instead. */}
+                <div className="hidden xl:block absolute left-full top-1/2 -translate-y-1/2 ml-3 w-48">
+                  <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+                </div>
+                <div className="xl:hidden mt-3">
+                  <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+                </div>
               </div>
             )}
             </div>
@@ -425,11 +435,6 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         <div className="max-sm:hidden">
           <FullPortrait dean={dean} onSchoolHistory={onOpenSchool ? () => onOpenSchool(dean.university, dean.school) : undefined} />
         </div>
-        {mapRenders && (
-          <div className="max-sm:hidden w-56">
-            <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
-          </div>
-        )}
       </div>
       </div>
     </div>
