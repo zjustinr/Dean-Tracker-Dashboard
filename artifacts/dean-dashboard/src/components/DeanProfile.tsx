@@ -301,7 +301,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         return (
           <div className="mt-4 pt-3 border-t border-border">
             <h4 className="text-sm font-bold mb-3">Career Path</h4>
-            <div className={mapRenders ? "grid gap-5 lg:grid-cols-[minmax(0,300px)_1fr] items-start" : ""}>
+            <div className={mapRenders ? "grid gap-5 lg:grid-cols-[minmax(0,220px)_1fr] items-start" : ""}>
             <div>
             <div className="relative ml-1">
               {display.map((step, j) => {
@@ -342,11 +342,6 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
             </div>
             {hasLadder && !hasCareer && (
               <p className="text-[10px] text-muted-foreground mt-1">Roles linked across indices by name.</p>
-            )}
-            {mapRenders && (
-              <div className="mt-4">
-                <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
-              </div>
             )}
             </div>
             {mapRenders && (
@@ -430,6 +425,11 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         <div className="max-sm:hidden">
           <FullPortrait dean={dean} onSchoolHistory={onOpenSchool ? () => onOpenSchool(dean.university, dean.school) : undefined} />
         </div>
+        {mapRenders && (
+          <div className="max-sm:hidden w-56">
+            <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+          </div>
+        )}
       </div>
       </div>
     </div>
