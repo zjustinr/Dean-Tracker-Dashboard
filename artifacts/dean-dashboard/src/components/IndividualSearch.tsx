@@ -3,7 +3,7 @@ import { useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
-import { usePhotoMap } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
 
 export interface DeanSearchPrefill {
   fullName: string;
@@ -100,6 +100,8 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [compareOpen, setCompareOpen] = useState(false);
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [searchFocus, setSearchFocus] = useState(false);
+  const [keyword, setKeyword] = useState("");
+  const researchMap = useResearchMap();
   const openRowRef = useRef<HTMLDivElement | null>(null);
 
   // When a profile opens (a row click, a typeahead pick, or a "View full profile"
@@ -161,7 +163,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   // b-schools" bug (filter in B-school, switch index, see nothing). Defined
   // before the prefill effect so a prefill arriving in the same commit still wins.
   useEffect(() => {
-    setQuery(""); setLetter(""); setDiscipline(""); setSchool("");
+    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword("");
     setTenureWin("sitting"); setServedMin(0); setServedMax(SERVED_CAP);
     setApptType("all"); setYrFrom(null); setYrTo(null);
     setRegions(new Set()); setStates(new Set()); setExpandedId(null);
@@ -198,15 +200,44 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     return s;
   }, [states, regions]);
 
-  const hasFilter = query.trim() !== "" || !!letter || !!discipline || !!school ||
+  const hasFilter = query.trim() !== "" || !!letter || !!discipline || !!school || keyword.trim() !== "" ||
     tenureWin !== "any" || apptType !== "all" || servedMin > 0 || servedMax < SERVED_CAP || effectiveStates.size > 0;
+
+  // Keyword universe for the current index: every distinct expertise tag on a
+  // leader's research brief, most common first. Feeds the keyword filter's
+  // typeahead. Keyed per person so someone with two records isn't double counted.
+  const keywordOptions = useMemo(() => {
+    // Keyed by lowercase so "Academic administration" and "academic administration"
+    // collapse to one suggestion; keep the first-seen casing for display.
+    const c = new Map<string, { display: string; n: number }>();
+    const seenPeople = new Set<string>();
+    for (const d of allDeans) {
+      const pk = d.dean + "|" + d.university;
+      if (seenPeople.has(pk)) continue;
+      seenPeople.add(pk);
+      const exp = researchMap[enrichKey(d.dean, d.university)]?.expertise;
+      if (exp) for (const t of exp) {
+        const display = String(t).trim();
+        if (!display) continue;
+        const k = display.toLowerCase();
+        const cur = c.get(k);
+        if (cur) cur.n += 1; else c.set(k, { display, n: 1 });
+      }
+    }
+    return [...c.values()].sort((a, b) => b.n - a.n || a.display.localeCompare(b.display)).map((v) => v.display);
+  }, [allDeans, researchMap]);
 
   // Base cohort with every filter EXCEPT location, so region chips can show counts.
   const locBase = useMemo(() => {
     if (!hasFilter) return [];
     const q = query.trim().toLowerCase();
+    const kw = keyword.trim().toLowerCase();
     const seen = new Set<string>();
     return allDeans.filter((d) => {
+      if (kw) {
+        const exp = researchMap[enrichKey(d.dean, d.university)]?.expertise;
+        if (!exp || !exp.some((t) => String(t).toLowerCase().includes(kw))) return false;
+      }
       const last = (d.dean.split(/\s+/).pop() || "").toLowerCase();
       if (tenureWin === "sitting" && d.endYear != null) return false;
       if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
@@ -226,7 +257,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       seen.add(key);
       return true;
     });
-  }, [allDeans, query, letter, discipline, school, tenureWin, apptType, servedMin, servedMax, hasFilter]);
+  }, [allDeans, query, keyword, researchMap, letter, discipline, school, tenureWin, apptType, servedMin, servedMax, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -335,7 +366,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     setter((cur) => { const n = new Set(cur); n.has(v) ? n.delete(v) : n.add(v); return n; });
 
   const clearAll = () => {
-    setQuery(""); setLetter(""); setDiscipline(""); setSchool("");
+    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword("");
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
   };
 
@@ -457,6 +488,27 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                   <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
                 ))}
               </div>
+            </div>
+
+            <div>
+              <div className="flex items-baseline justify-between">
+                <span className="text-xs font-medium text-muted-foreground">Keyword</span>
+                {keyword.trim() && (
+                  <button onClick={() => { setKeyword(""); setExpandedId(null); }} className="text-[11px] text-muted-foreground hover:text-foreground">clear</button>
+                )}
+              </div>
+              <input
+                type="text" list="kw-options" value={keyword}
+                onChange={(e) => { setKeyword(e.target.value); setExpandedId(null); }}
+                placeholder="e.g. health equity, strategic planning…"
+                className="mt-1 w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
+              />
+              <datalist id="kw-options">
+                {keywordOptions.slice(0, 400).map((k) => <option key={k} value={k} />)}
+              </datalist>
+              <p className="mt-1 text-[11px] text-muted-foreground leading-snug">
+                Matches a leader's expertise tags from their brief. {keywordOptions.length} keyword{keywordOptions.length === 1 ? "" : "s"} in this index.
+              </p>
             </div>
 
             <div>
