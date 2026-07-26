@@ -507,7 +507,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                 {keywordOptions.slice(0, 400).map((k) => <option key={k} value={k} />)}
               </datalist>
               <p className="mt-1 text-[11px] text-muted-foreground leading-snug">
-                Matches a leader's expertise tags from their brief. {keywordOptions.length} keyword{keywordOptions.length === 1 ? "" : "s"} in this index.
+                Signature expertise themes from the brief, spanning scholarly field, professional background, and leadership focus. {keywordOptions.length} keyword{keywordOptions.length === 1 ? "" : "s"} in this index.
               </p>
             </div>
 
