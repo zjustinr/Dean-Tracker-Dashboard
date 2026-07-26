@@ -34,7 +34,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
   // layout (map beside the timeline) so leaders without a map keep a full-width timeline.
   const mapRenders = !!(research?.career && research.career.filter((s) => {
     const g = s.org ? (careerGeo as Record<string, { country: string; lat: number | null }>)[s.org.toLowerCase().trim()] : null;
-    return g && g.country === "US" && g.lat != null;
+    return g && g.lat != null;
   }).length >= 2);
   const ladder = useCareerMap()[careerKey(dean.dean)] || null;
   const hasLadder = !!ladder && ladder.roles.length >= 2;
