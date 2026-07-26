@@ -5,7 +5,7 @@ import { useDeanCareer, useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
-import CareerMap, { type Root } from "@/components/CareerMap";
+import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
 import { useResearchMap, enrichKey, useCareerMap, careerKey } from "@/data/enrichment";
@@ -301,7 +301,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         return (
           <div className="mt-4 pt-3 border-t border-border">
             <h4 className="text-sm font-bold mb-3">Career Path</h4>
-            <div className={mapRenders ? "grid gap-5 lg:grid-cols-[minmax(0,240px)_1fr] items-start" : ""}>
+            <div className={mapRenders ? "grid gap-5 lg:grid-cols-[minmax(0,300px)_1fr] items-start" : ""}>
             <div>
             <div className="relative ml-1">
               {display.map((step, j) => {
@@ -343,10 +343,15 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
             {hasLadder && !hasCareer && (
               <p className="text-[10px] text-muted-foreground mt-1">Roles linked across indices by name.</p>
             )}
+            {mapRenders && (
+              <div className="mt-4">
+                <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+              </div>
+            )}
             </div>
             {mapRenders && (
               <div className="min-w-0">
-                <CareerMap steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+                <CareerMap steps={research!.career!} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
               </div>
             )}
             </div>

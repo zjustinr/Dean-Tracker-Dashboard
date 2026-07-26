@@ -34,13 +34,9 @@ function miles(a: { lat: number; lng: number }, b: { lat: number; lng: number })
   return 2 * R * Math.asin(Math.sqrt(s));
 }
 
-/**
- * A leader's career movement across the US plus a qualitative read for headhunters:
- * how often they relocate, how far they range, where their center of gravity sits,
- * and a tenure-based movability rating (current time in role vs the cohort's
- * completed-tenure distribution). All statistical, no map coordinate is invented.
- */
-export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[]; tenure?: TenureInfo; roots?: Root[] }) {
+// Shared analysis so the map and the assessment can render as separate, adjacent
+// components (map on the right, read on the left) while computing from the same data.
+function useCareerAnalysis(steps: CareerStep[], tenure: TenureInfo | undefined, roots: Root[] | undefined) {
   const { located, unlocated } = useMemo(() => {
     const loc: Located[] = [];
     const un: { num: number; org: string }[] = [];
@@ -75,12 +71,9 @@ export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[
     const stateCount = new Map<string, number>();
     for (const p of located) stateCount.set(p.geo.state, (stateCount.get(p.geo.state) || 0) + 1);
     const modalState = [...stateCount.entries()].sort((a, b) => b[1] - a[1])[0][0];
-
     const move = metros.size === 1 ? "Never relocated" : relocations <= 1 ? "Relocated once" : relocations <= 2 ? "Occasional mover" : "Frequent mover";
     const reach = maxDist < 100 ? "Local footprint" : maxDist < 500 ? "Regional reach" : maxDist < 1500 ? "Multi-region reach" : "Coast-to-coast reach";
-    const anchor = metros.size === 1
-      ? `${located[0].geo.city}, ${located[0].geo.state}`
-      : `mostly ${modalState}, across ${stateCount.size} states`;
+    const anchor = metros.size === 1 ? `${located[0].geo.city}, ${located[0].geo.state}` : `mostly ${modalState}, across ${stateCount.size} states`;
     return { metros: metros.size, relocations, states: stateCount.size, maxDist: Math.round(maxDist), move, reach, anchor };
   }, [located]);
 
@@ -96,8 +89,6 @@ export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[
     return { label: "Not up to move", cls: "bg-muted text-muted-foreground", reason: `${ct} yrs in role, below the typical ${t.median} yrs${own}` };
   }, [tenure]);
 
-  // Alma-mater / prior-training geography: flag when a leader studied where they
-  // later worked (home-turf roots) or has alumni ties to their current base.
   const ties = useMemo(() => {
     if (!roots || !roots.length || !located.length) return null;
     const onPath = roots.filter((r) => r.lat != null && r.lng != null && located.some((p) => miles(p, { lat: r.lat as number, lng: r.lng as number }) < 40));
@@ -105,19 +96,25 @@ export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[
     const studied = [...new Set(roots.map((r) => r.state))];
     let text: string;
     if (onPath.length) text = `Home-turf roots: trained at ${onPath.map((r) => r.school).join(" & ")}, where they also worked`;
-    else if (roots.some((r) => r.state === currentState)) {
-      const r = roots.find((x) => x.state === currentState)!;
-      text = `Alumni ties to ${currentState} (studied at ${r.school})`;
-    } else text = `Trained away from current base (studied in ${studied.join(", ")})`;
+    else if (roots.some((r) => r.state === currentState)) { const r = roots.find((x) => x.state === currentState)!; text = `Alumni ties to ${currentState} (studied at ${r.school})`; }
+    else text = `Trained away from current base (studied in ${studied.join(", ")})`;
     return { text };
   }, [roots, located]);
 
+  return { located, unlocated, stats, rating, ties };
+}
+
+/**
+ * The movement MAP only: numbered dots (earliest = 1), connecting lines in time
+ * order, alma-mater rings, zoom, and hover tooltips. The qualitative read is a
+ * separate <CareerAssessment> so it can sit flush beside the map.
+ */
+export default function CareerMap({ steps, roots }: { steps: CareerStep[]; roots?: Root[] }) {
+  const { located, unlocated } = useCareerAnalysis(steps, undefined, roots);
   const [pos, setPos] = useState<{ coordinates: [number, number]; zoom: number }>({ coordinates: [-96, 38], zoom: 1 });
   const [hover, setHover] = useState<Hover | null>(null);
   const [tip, setTip] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-
   if (!located.length) return null;
-
   const z = pos.zoom;
   return (
     <div className="rounded-lg border border-border bg-card overflow-hidden">
@@ -174,32 +171,42 @@ export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[
           </ZoomableGroup>
         </ComposableMap>
       </div>
-
       <div className="px-3 py-2 border-t border-border text-left">
-        {rating && (
-          <div className="mb-1.5">
-            <span className={`inline-block text-[11px] font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
-            <p className="text-[10px] text-muted-foreground mt-0.5 leading-snug">{rating.reason}</p>
-          </div>
-        )}
-        {stats && (
-          <div className="text-[11px] text-foreground/90 space-y-0.5">
-            <p><span className="text-muted-foreground">Moves:</span> {stats.move} ({stats.relocations} relocation{stats.relocations === 1 ? "" : "s"})</p>
-            <p><span className="text-muted-foreground">Reach:</span> {stats.reach} (~{stats.maxDist.toLocaleString()} mi)</p>
-            <p><span className="text-muted-foreground">Center of gravity:</span> {stats.anchor}</p>
-            {ties && <p><span className="text-muted-foreground">Roots &amp; ties:</span> {ties.text}</p>}
-          </div>
-        )}
-        <p className="text-[10px] text-muted-foreground mt-1 leading-snug">
+        <p className="text-[10px] text-muted-foreground leading-snug">
           {located.length} US stop{located.length === 1 ? "" : "s"}, numbered by step. Hover a dot for role and years; zoom with +/&minus;{roots && roots.length ? "; amber ring = alma mater" : ""}.
           {unlocated.length > 0 && ` Not shown: ${unlocated.map((u) => `#${u.num} ${u.org}`).join(", ")}.`}
         </p>
-        {rating && (
-          <p className="text-[9px] text-muted-foreground/80 mt-1 italic leading-snug">
-            Statistical signal only. Ignores personal circumstances, satisfaction, and unadvertised opportunities.
-          </p>
-        )}
       </div>
+    </div>
+  );
+}
+
+/**
+ * The qualitative read: movability rating, mobility, center of gravity, and
+ * alma-mater ties. Rendered next to the map for immediate feedback.
+ */
+export function CareerAssessment({ steps, tenure, roots }: { steps: CareerStep[]; tenure?: TenureInfo; roots?: Root[] }) {
+  const { located, stats, rating, ties } = useCareerAnalysis(steps, tenure, roots);
+  if (!located.length) return null;
+  return (
+    <div className="rounded-lg border border-border bg-muted/30 p-3 text-left">
+      {rating && (
+        <div className="mb-2">
+          <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
+          <p className="text-[10px] text-muted-foreground mt-1 leading-snug">{rating.reason}</p>
+        </div>
+      )}
+      {stats && (
+        <div className="text-[11px] text-foreground/90 space-y-1">
+          <p><span className="text-muted-foreground">Moves:</span> {stats.move} ({stats.relocations} relocation{stats.relocations === 1 ? "" : "s"})</p>
+          <p><span className="text-muted-foreground">Reach:</span> {stats.reach} (~{stats.maxDist.toLocaleString()} mi)</p>
+          <p><span className="text-muted-foreground">Center of gravity:</span> {stats.anchor}</p>
+          {ties && <p><span className="text-muted-foreground">Roots &amp; ties:</span> {ties.text}</p>}
+        </div>
+      )}
+      {rating && (
+        <p className="text-[9px] text-muted-foreground/80 mt-2 italic leading-snug">Statistical signal only. Ignores personal circumstances, satisfaction, and unadvertised opportunities.</p>
+      )}
     </div>
   );
 }
