@@ -351,7 +351,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
                     (≈ the middle of the Career Path) so it lands beside the map — not up by the
                     photo. Absolute so it never steals width from the map. On narrow screens it
                     drops in-flow below the map instead. */}
-                <div className="hidden xl:block absolute left-full top-1/2 -translate-y-1/2 ml-3 w-48">
+                <div className="hidden xl:block absolute left-full top-1/2 -translate-y-1/2 ml-2 w-52">
                   <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
                 </div>
                 <div className="xl:hidden mt-3">

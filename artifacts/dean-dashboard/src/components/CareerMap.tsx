@@ -215,20 +215,20 @@ export function CareerAssessment({ steps, tenure, roots }: { steps: CareerStep[]
     <div className="rounded-lg border border-border bg-muted/30 p-3 text-left">
       {rating && (
         <div className="mb-2">
-          <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
-          <p className="text-[10px] text-muted-foreground mt-1 leading-snug">{rating.reason}</p>
+          <span className={`inline-block text-sm font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
+          <p className="text-sm text-foreground mt-1 leading-snug">{rating.reason}</p>
         </div>
       )}
       {stats && (
-        <div className="text-[11px] text-foreground/90 space-y-1">
-          <p><span className="text-muted-foreground">Moves:</span> {stats.move} ({stats.relocations} relocation{stats.relocations === 1 ? "" : "s"})</p>
-          <p><span className="text-muted-foreground">Reach:</span> {stats.reach} (~{stats.maxDist.toLocaleString()} mi)</p>
-          <p><span className="text-muted-foreground">Center of gravity:</span> {stats.anchor}</p>
-          {ties && <p><span className="text-muted-foreground">Roots &amp; ties:</span> {ties.text}</p>}
+        <div className="text-sm text-foreground space-y-1.5">
+          <p><span className="font-semibold">Moves:</span> {stats.move} ({stats.relocations} relocation{stats.relocations === 1 ? "" : "s"})</p>
+          <p><span className="font-semibold">Reach:</span> {stats.reach} (~{stats.maxDist.toLocaleString()} mi)</p>
+          <p><span className="font-semibold">Center of gravity:</span> {stats.anchor}</p>
+          {ties && <p><span className="font-semibold">Roots &amp; ties:</span> {ties.text}</p>}
         </div>
       )}
       {rating && (
-        <p className="text-[9px] text-muted-foreground/80 mt-2 italic leading-snug">Statistical signal only. Ignores personal circumstances, satisfaction, and unadvertised opportunities.</p>
+        <p className="text-xs text-muted-foreground mt-2 italic leading-snug">Statistical signal only. Ignores personal circumstances, satisfaction, and unadvertised opportunities.</p>
       )}
     </div>
   );
