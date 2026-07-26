@@ -4,6 +4,7 @@ import { useDeanCareer } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
+import CareerMap from "@/components/CareerMap";
 import { useResearchMap, enrichKey, useCareerMap, careerKey } from "@/data/enrichment";
 
 function formatMoney(val: number | null): string {
@@ -381,6 +382,12 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         <div className="max-sm:hidden">
           <FullPortrait dean={dean} onSchoolHistory={onOpenSchool ? () => onOpenSchool(dean.university, dean.school) : undefined} />
         </div>
+        {hasCareer && research?.career && research.career.length > 1 && (
+          <div className="max-sm:hidden w-72">
+            <h4 className="text-xs font-bold mb-1 text-right">Career Map</h4>
+            <CareerMap steps={research.career} />
+          </div>
+        )}
       </div>
       </div>
     </div>
