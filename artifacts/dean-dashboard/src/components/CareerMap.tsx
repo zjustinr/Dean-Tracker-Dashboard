@@ -9,11 +9,11 @@ const Line = (RSM as unknown as { Line: React.FC<any> }).Line;
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
-type Geo = { city: string; state: string; country: string; lat: number; lng: number };
-const GEO: Record<string, Geo> = careerGeo as Record<string, Geo>;
+type Geo = { city: string; state: string; country: string; lat: number | null; lng: number | null };
+const GEO: Record<string, Geo> = careerGeo as unknown as Record<string, Geo>;
 const norm = (s: string) => s.toLowerCase().trim();
 
-interface Located { num: number; role: string; org: string; years: string; geo: Geo; isCurrent: boolean; x: number; y: number }
+interface Located { num: number; role: string; org: string; years: string; geo: Geo; isCurrent: boolean; lat: number; lng: number; x: number; y: number }
 
 export interface TenureInfo {
   sitting: boolean;
@@ -24,7 +24,7 @@ export interface TenureInfo {
   cohortN: number;
 }
 
-export interface Root { school: string; state: string; level: string; lat: number; lng: number }
+export interface Root { school: string; state: string; level: string; lat: number | null; lng: number | null }
 
 function miles(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
   const R = 3959, r = (x: number) => (x * Math.PI) / 180;
@@ -47,30 +47,30 @@ export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[
       const org = s.org || "";
       const g = org ? GEO[norm(org)] : undefined;
       const isCurrent = /\b(present|current)\b/i.test(s.years || "") || i === steps.length - 1;
-      if (g && g.country === "US") loc.push({ num: i + 1, role: s.role, org, years: s.years || "", geo: g, isCurrent, x: g.lng, y: g.lat });
+      if (g && g.country === "US" && g.lat != null && g.lng != null) loc.push({ num: i + 1, role: s.role, org, years: s.years || "", geo: g, isCurrent, lat: g.lat, lng: g.lng, x: g.lng, y: g.lat });
       else if (org) un.push({ num: i + 1, org });
     });
     const groups = new Map<string, Located[]>();
     for (const p of loc) {
-      const key = `${p.geo.lat.toFixed(1)},${p.geo.lng.toFixed(1)}`;
+      const key = `${p.lat.toFixed(1)},${p.lng.toFixed(1)}`;
       (groups.get(key) || groups.set(key, []).get(key)!).push(p);
     }
-    for (const g of groups.values()) {
-      if (g.length < 2) continue;
-      const step = 0.55, cLat = g[0].geo.lat, cLng = g[0].geo.lng;
-      g.forEach((p, k) => { const a = (2 * Math.PI * k) / g.length - Math.PI / 2; p.y = cLat + Math.sin(a) * step; p.x = cLng + Math.cos(a) * step * 1.3; });
+    for (const grp of groups.values()) {
+      if (grp.length < 2) continue;
+      const step = 0.55, cLat = grp[0].lat, cLng = grp[0].lng;
+      grp.forEach((p, k) => { const a = (2 * Math.PI * k) / grp.length - Math.PI / 2; p.y = cLat + Math.sin(a) * step; p.x = cLng + Math.cos(a) * step * 1.3; });
     }
     return { located: loc, unlocated: un };
   }, [steps]);
 
   const stats = useMemo(() => {
     if (!located.length) return null;
-    const key = (p: Located) => `${p.geo.lat.toFixed(1)},${p.geo.lng.toFixed(1)}`;
+    const key = (p: Located) => `${p.lat.toFixed(1)},${p.lng.toFixed(1)}`;
     const metros = new Set(located.map(key));
     let relocations = 0;
     for (let i = 1; i < located.length; i++) if (key(located[i]) !== key(located[i - 1])) relocations++;
     let maxDist = 0;
-    for (let i = 0; i < located.length; i++) for (let j = i + 1; j < located.length; j++) maxDist = Math.max(maxDist, miles(located[i].geo, located[j].geo));
+    for (let i = 0; i < located.length; i++) for (let j = i + 1; j < located.length; j++) maxDist = Math.max(maxDist, miles(located[i], located[j]));
     const stateCount = new Map<string, number>();
     for (const p of located) stateCount.set(p.geo.state, (stateCount.get(p.geo.state) || 0) + 1);
     const modalState = [...stateCount.entries()].sort((a, b) => b[1] - a[1])[0][0];
@@ -99,7 +99,7 @@ export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[
   // later worked (home-turf roots) or has alumni ties to their current base.
   const ties = useMemo(() => {
     if (!roots || !roots.length || !located.length) return null;
-    const onPath = roots.filter((r) => located.some((p) => miles(p.geo, r) < 40));
+    const onPath = roots.filter((r) => r.lat != null && r.lng != null && located.some((p) => miles(p, { lat: r.lat as number, lng: r.lng as number }) < 40));
     const currentState = (located.find((p) => p.isCurrent) || located[located.length - 1]).geo.state;
     const studied = [...new Set(roots.map((r) => r.state))];
     let text: string;
@@ -128,8 +128,8 @@ export default function CareerMap({ steps, tenure, roots }: { steps: CareerStep[
           <Line key={`l${i}`} from={[located[i].x, located[i].y]} to={[p.x, p.y]}
             stroke="hsl(var(--primary))" strokeWidth={1.6} strokeOpacity={0.55} strokeLinecap="round" strokeDasharray="4 3" />
         ))}
-        {(roots || []).map((r, i) => (
-          <Marker key={`alma${i}`} coordinates={[r.lng, r.lat]}>
+        {(roots || []).filter((r) => r.lat != null && r.lng != null).map((r, i) => (
+          <Marker key={`alma${i}`} coordinates={[r.lng as number, r.lat as number]}>
             <circle r={7} fill="none" stroke="#E8A33D" strokeWidth={2} />
           </Marker>
         ))}

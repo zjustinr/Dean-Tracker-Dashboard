@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
 import CareerMap, { type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
+import careerGeo from "@/data/career-geo.json";
 import { useResearchMap, enrichKey, useCareerMap, careerKey } from "@/data/enrichment";
 
 function formatMoney(val: number | null): string {
@@ -29,6 +30,12 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
   const research = useResearchMap()[enrichKey(dean.dean, dean.university)] || null;
   const hasNews = !!research?.news?.length;
   const hasCareer = !!research?.career?.length;
+  // Does the Career Map actually have >=2 US-geocoded stops? Drives the two-column
+  // layout (map beside the timeline) so leaders without a map keep a full-width timeline.
+  const mapRenders = !!(research?.career && research.career.filter((s) => {
+    const g = s.org ? (careerGeo as Record<string, { country: string; lat: number | null }>)[s.org.toLowerCase().trim()] : null;
+    return g && g.country === "US" && g.lat != null;
+  }).length >= 2);
   const ladder = useCareerMap()[careerKey(dean.dean)] || null;
   const hasLadder = !!ladder && ladder.roles.length >= 2;
   const isCurrent = !dean.endYear;
@@ -294,6 +301,8 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         return (
           <div className="mt-4 pt-3 border-t border-border">
             <h4 className="text-sm font-bold mb-3">Career Path</h4>
+            <div className={mapRenders ? "grid gap-5 lg:grid-cols-[minmax(0,300px)_1fr] items-start" : ""}>
+            <div>
             <div className="relative ml-1">
               {display.map((step, j) => {
                 const num = path.length - j; // earliest = 1 at the bottom, increasing upward
@@ -334,6 +343,13 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
             {hasLadder && !hasCareer && (
               <p className="text-[10px] text-muted-foreground mt-1">Roles linked across indices by name.</p>
             )}
+            </div>
+            {mapRenders && (
+              <div className="min-w-0">
+                <CareerMap steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+              </div>
+            )}
+            </div>
           </div>
         );
       })()}
@@ -409,12 +425,6 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
         <div className="max-sm:hidden">
           <FullPortrait dean={dean} onSchoolHistory={onOpenSchool ? () => onOpenSchool(dean.university, dean.school) : undefined} />
         </div>
-        {hasCareer && research?.career && research.career.length > 1 && (
-          <div className="max-sm:hidden w-72">
-            <h4 className="text-xs font-bold mb-1 text-right">Career Map</h4>
-            <CareerMap steps={research.career} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
-          </div>
-        )}
       </div>
       </div>
     </div>
