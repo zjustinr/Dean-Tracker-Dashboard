@@ -50,7 +50,16 @@ const TIERS = {
   day:     { label: "Day Pass",     scope: ["r1bschool", "r1university", "r1provost"], days: 1 },
   project: { label: "Project Pass", scope: ALL_IDS,                                    days: 30 },
   firm:    { label: "Firm Plan",    scope: ALL_IDS,                                    days: 365 },
+  // Owner link: "*" wildcard = every index, present AND future, so new indices
+  // never need a re-mint. api/data.js + TrialContext.tsx grant all access on "*".
+  owner:   { label: "Owner (all indices + future)", scope: ["*"],                      days: 3650 },
 };
+
+// Human-readable scope for the console — wildcard prints as an ALL notice.
+function scopeLabel(scope) {
+  if (scope.includes("*")) return "ALL indices (wildcard — includes any future index)";
+  return scope.map((id) => (INDICES.find(([x]) => x === id) || [id, id])[1]).join(", ");
+}
 
 function loadSecret() {
   if (process.env.TRIAL_SECRET) return process.env.TRIAL_SECRET.trim();
@@ -131,7 +140,7 @@ async function interactive() {
   if (!check.ok) { console.error("Internal error: minted token failed verification:", check.reason); process.exit(1); }
 
   const expiryISO = new Date(expSec * 1000).toISOString().slice(0, 10);
-  const labels = scope.map((id) => (INDICES.find(([x]) => x === id) || [id, id])[1]).join(", ");
+  const labels = scopeLabel(scope);
   console.log("\n────────────────────────────────────────────────────────");
   console.log(`Client:  ${client}`);
   console.log(`Indices: ${labels}`);
@@ -169,7 +178,7 @@ async function tierMode() {
   if (!check.ok) { console.error("Internal error: minted token failed verification:", check.reason); process.exit(1); }
 
   const expiryISO = new Date(expSec * 1000).toISOString().slice(0, 10);
-  const labels = tier.scope.map((id) => (INDICES.find(([x]) => x === id) || [id, id])[1]).join(", ");
+  const labels = scopeLabel(tier.scope);
   console.log("\n────────────────────────────────────────────────────────");
   console.log(`Tier:    ${tier.label}  (${tierKey})`);
   console.log(`Client:  ${client}`);

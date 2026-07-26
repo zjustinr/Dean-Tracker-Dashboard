@@ -176,7 +176,8 @@ module.exports = async function handler(req, res) {
       reason = "public";
     }
     // Enforce dataset scope. Photos are public; research is served filtered below.
-    if (!isPhotos && !isResearch && SPEC[id] && !scope.has(id)) {
+    // A "*" wildcard scope (owner link) grants every index, present and future.
+    if (!isPhotos && !isResearch && SPEC[id] && !scope.has("*") && !scope.has(id)) {
       await logUsage(req, "denied", client, f);
       res.setHeader("cache-control", "no-store");
       res.status(403).json({ error: "access_denied", reason: "out_of_scope" });
@@ -186,7 +187,7 @@ module.exports = async function handler(req, res) {
 
   let body;
   try {
-    if (isResearch) body = JSON.stringify(scope ? filteredResearch(scope) : ENRICHMENT[f]());
+    if (isResearch) body = JSON.stringify(scope && !scope.has("*") ? filteredResearch(scope) : ENRICHMENT[f]());
     else if (ENRICHMENT[f]) body = JSON.stringify(ENRICHMENT[f]());
     else if (SPEC[id]) body = JSON.stringify(assemble(id));
     else { res.status(404).json({ error: "not_found" }); return; }

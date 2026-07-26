@@ -114,7 +114,10 @@ export function TrialProvider({ children }: { children: ReactNode }) {
     (id: string) =>
       !state.armed ||
       PUBLIC_SCOPE.includes(id) ||
-      (state.status === "valid" && !!state.scope?.includes(id)),
+      (state.status === "valid" &&
+        !!state.scope &&
+        // "*" is the owner wildcard: every index, present and future.
+        (state.scope.includes("*") || state.scope.includes(id))),
     [state.armed, state.status, state.scope],
   );
 
