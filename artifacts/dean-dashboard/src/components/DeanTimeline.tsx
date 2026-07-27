@@ -1,6 +1,6 @@
 import { useMemo, useState, useRef } from "react";
 import type { Dean } from "@/data/types";
-import { CHART_COLORS, ORIGIN_LABELS, NEXT_ROLE_LABELS, genderNorm } from "@/data/types";
+import { CHART_COLORS, ORIGIN_LABELS, NEXT_ROLE_LABELS, genderNorm, yearsLabel } from "@/data/types";
 import { useDeanCareer } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
@@ -207,7 +207,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
             </div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs">
               <span className="text-muted-foreground">Tenure</span>
-              <span>{hoveredDean.startYear || "?"} – {hoveredDean.endYear || "Present"} ({hoveredDean.tenureLength ? `${hoveredDean.tenureLength} yrs` : "ongoing"})</span>
+              <span>{yearsLabel(hoveredDean.startYear, hoveredDean.endYear)} ({hoveredDean.tenureLength ? `${hoveredDean.tenureLength} yrs` : "ongoing"})</span>
               <span className="text-muted-foreground">Origin</span>
               <span>{ORIGIN_LABELS[hoveredDean.origin] || hoveredDean.origin}</span>
               <span className="text-muted-foreground">Discipline</span>
@@ -266,7 +266,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               <div>
                 <h3 className="text-lg font-bold">{clickedDean.dean}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {clickedDean.startYear || "?"} – {clickedDean.endYear || "Present"}
+                  {yearsLabel(clickedDean.startYear, clickedDean.endYear)}
                   {clickedDean.tenureLength ? ` · ${clickedDean.tenureLength} years` : ""}
                 </p>
               </div>

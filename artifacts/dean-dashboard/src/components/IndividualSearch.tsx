@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
+import { yearsLabel } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
 import RegionMap from "@/components/RegionMap";
 import ResultsMap from "@/components/ResultsMap";
@@ -723,7 +724,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                         <p className="text-xs text-muted-foreground truncate">{d.school}, {d.university}</p>
                       </div>
                       <div className="text-right shrink-0">
-                        <p className="text-xs font-bold text-[#011F5B] tabular-nums">{d.startYear || "?"}–{d.endYear || "Now"}</p>
+                        <p className="text-xs font-bold text-[#011F5B] tabular-nums">{yearsLabel(d.startYear, d.endYear, "Now")}</p>
                         {d.tenureLength ? <span className="text-[10px] text-muted-foreground">{d.tenureLength} yr{d.tenureLength !== 1 ? "s" : ""}</span> : d.isInterim ? <span className="text-[10px] bg-muted px-1.5 py-0.5 rounded">Interim</span> : null}
                       </div>
                       <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>

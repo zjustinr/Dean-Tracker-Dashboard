@@ -132,6 +132,15 @@ export const CHART_COLORS = [
 // even had lowercase "male"/"female". Normalize to "M"/"F"/"" so every gender
 // display (profile badge, timeline bar color, analytics counts) works for all
 // indices. Use this everywhere instead of comparing dean.gender directly.
+// Human-friendly tenure range for a leader. Avoids a bare "?" when the start year
+// is unknown: a still-serving leader with no known start reads as "Current"; a
+// departed one with only an end year reads as "until <end>".
+export function yearsLabel(startYear?: number | null, endYear?: number | null, present = "Present"): string {
+  if (startYear) return `${startYear}–${endYear || present}`;
+  if (endYear) return `until ${endYear}`;
+  return "Current";
+}
+
 export function genderNorm(g?: string | null): "M" | "F" | "" {
   const c = (g || "").trim().toLowerCase();
   if (c === "m" || c === "male") return "M";

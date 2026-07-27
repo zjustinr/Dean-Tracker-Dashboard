@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import type { Dean } from "@/data/types";
-import { ORIGIN_LABELS, NEXT_ROLE_LABELS, genderNorm } from "@/data/types";
+import { ORIGIN_LABELS, NEXT_ROLE_LABELS, genderNorm, yearsLabel } from "@/data/types";
 import { useDeanCareer, useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
@@ -122,7 +122,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
             </div>
           )}
           <p className="text-sm text-muted-foreground">
-            {dean.startYear || "?"} – {dean.endYear || "Present"}
+            {yearsLabel(dean.startYear, dean.endYear)}
             {dean.tenureLength ? ` · ${dean.tenureLength} years` : ""}
           </p>
           {dean.sourceUrl && (

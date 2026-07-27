@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import type { Dean } from "@/data/types";
-import { CHART_COLORS } from "@/data/types";
+import { CHART_COLORS, yearsLabel } from "@/data/types";
 import { useDataset } from "@/data/DatasetContext";
 import { usePhotoMap, getPhotoMap, enrichKey, type PhotoRec } from "@/data/enrichment";
 
@@ -96,7 +96,7 @@ export function FullPortrait({ dean, onSchoolHistory }: { dean: Dean; onSchoolHi
           </button>
         )}
         <p className="text-[10px] text-muted-foreground">
-          {titleOf(dean)}, {dean.startYear || "?"}–{dean.endYear || "present"}
+          {titleOf(dean)}, {yearsLabel(dean.startYear, dean.endYear, "present")}
         </p>
         {curated?.page && (
           <a

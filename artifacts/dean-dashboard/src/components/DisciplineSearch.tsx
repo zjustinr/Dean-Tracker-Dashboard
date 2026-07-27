@@ -3,7 +3,7 @@ import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "re
 import { useAllDeans, useSchoolsInfo, makeSchoolKey, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
-import { CHART_COLORS } from "@/data/types";
+import { CHART_COLORS, yearsLabel } from "@/data/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -426,7 +426,7 @@ export default function DisciplineSearch() {
                     <p className="text-xs">{hoveredMarker.dean.dean}{hoveredMarker.dean.isInterim ? " (interim)" : ""}</p>
                     <p className="text-muted-foreground text-xs">
                       {hoveredMarker.dean.disciplineBroad || "Unknown discipline"} ·{" "}
-                      {hoveredMarker.dean.startYear ?? "?"}–{hoveredMarker.dean.endYear ?? "Present"}
+                      {yearsLabel(hoveredMarker.dean.startYear, hoveredMarker.dean.endYear)}
                     </p>
                   </>
                 ) : (
