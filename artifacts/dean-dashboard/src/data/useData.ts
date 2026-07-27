@@ -38,8 +38,11 @@ export function useSchoolDeans(schoolKey: string): Dean[] {
   const allDeans = useAllDeans();
   return useMemo(() => {
     const { university, school } = parseSchoolKey(schoolKey);
+    // Exclude the associate/vice-dean feeder bench (roleType "subdean"): they are
+    // not part of the dean succession line, so they must not appear in the school's
+    // dean history/timeline (they have no start/end year and render as blank rows).
     return allDeans
-      .filter((d) => d.university === university && d.school === school)
+      .filter((d) => d.university === university && d.school === school && (d as { roleType?: string }).roleType !== "subdean")
       .sort((a, b) => (a.startYear || 0) - (b.startYear || 0));
   }, [schoolKey, allDeans]);
 }
