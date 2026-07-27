@@ -1,9 +1,10 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import { useAllDeans } from "@/data/useData";
+import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
 import RegionMap from "@/components/RegionMap";
+import ResultsMap from "@/components/ResultsMap";
 import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
 
 export interface DeanSearchPrefill {
@@ -154,6 +155,18 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     const m = new Map<string, string>();
     for (const s of (bundle.schools as unknown as { university?: string; state?: string }[])) {
       if (s.university && s.state) m.set(s.university.toLowerCase(), s.state);
+    }
+    return m;
+  }, [bundle.schools]);
+
+  // University -> map point, for the candidate map. Only schools geoAlbersUsa can
+  // project (excludes territories / missing coords) so a Marker never gets a null.
+  const geoOf = useMemo(() => {
+    const m = new Map<string, { lat: number; lng: number }>();
+    for (const s of (bundle.schools as unknown as { university?: string; state?: string; lat?: number | null; lng?: number | null }[])) {
+      if (s.university && isAlbersUsaMappable(s) && s.lat != null && s.lng != null) {
+        m.set(s.university.toLowerCase(), { lat: s.lat, lng: s.lng });
+      }
     }
     return m;
   }, [bundle.schools]);
@@ -477,11 +490,18 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                 ))}
               </div>
               <span className="text-xs font-medium text-muted-foreground ml-1">Region</span>
-              {Object.keys(REGIONS).map((r) => (
-                <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }} className={chip(regions.has(r))}>
-                  {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
-                </button>
-              ))}
+              {/* Segmented like the Appointment toggle, but multi-select: All (none
+                  chosen) is the default; clicking regions adds/removes them. */}
+              <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
+                <button onClick={() => { setRegions(new Set()); setExpandedId(null); }}
+                  className={["px-3 py-1.5 transition-colors", regions.size === 0 ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>All</button>
+                {Object.keys(REGIONS).map((r) => (
+                  <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }}
+                    className={["px-3 py-1.5 border-l border-muted-foreground/30 transition-colors", regions.has(r) ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>
+                    {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
+                  </button>
+                ))}
+              </div>
               {apptType === "interim" && tenureWin === "sitting" && datasetId !== "usgrad" && (
                 <span className="w-full text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
               )}
@@ -643,6 +663,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       )}
 
       {shown.length > 0 && (
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px] items-start">
         <div className="bg-card border border-border rounded-xl overflow-hidden">
           <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
             <p className="text-sm font-medium">{results.length} result{results.length !== 1 ? "s" : ""}</p>
@@ -703,6 +724,12 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               Showing first {CAP.toLocaleString()} of {results.length.toLocaleString()} — narrow the filters to see the rest.
             </div>
           )}
+        </div>
+        <div className="hidden lg:block">
+          <div className="sticky top-4">
+            <ResultsMap results={shown} geoOf={geoOf} photoOf={(d) => PHOTOS[enrichKey(d.dean, d.university)]?.photo} activeId={expandedId} onSelect={setExpandedId} />
+          </div>
+        </div>
         </div>
       )}
 
