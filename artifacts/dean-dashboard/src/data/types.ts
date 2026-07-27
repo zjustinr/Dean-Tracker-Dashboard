@@ -41,6 +41,7 @@ export interface Dean {
   nextRole: string;
   nextRoleCode: number | null;
   nextRoleDetail?: string; // optional free-text specifics of the post-role (e.g. "Professor of Law at Columbia")
+  roleType?: string; // "subdean" tags an associate/vice dean feeder-bench row (not a dean); excluded from dean lists + tenure norms
   involuntary: boolean;
   hadPriorConnection: boolean;
   hasInstitutionalLink: boolean;

@@ -242,8 +242,12 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       if (tenureWin === "sitting" && d.endYear != null) return false;
       if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
       if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) return false;
+      // Sub-deans (the associate/vice dean feeder bench) only surface under the
+      // "Assoc/Vice/Interim" facet; the All and Permanent dean lists exclude them.
+      const isSub = (d as { roleType?: string }).roleType === "subdean";
+      if (apptType !== "interim" && isSub) return false;
       if (apptType === "perm" && d.isInterim) return false;
-      if (apptType === "interim" && !d.isInterim) return false;
+      if (apptType === "interim" && !d.isInterim && !isSub) return false;
       if (servedMin > 0 || servedMax < SERVED_CAP) {
         const yrs = elapsedYears(d);
         if (yrs == null || yrs < servedMin || yrs > servedMax) return false;
@@ -294,6 +298,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     for (const d of allDeans) {
       if (d.endYear == null || !d.startYear) continue;
       if (d.isInterim) continue; // interims serve ~1 yr and skew the norm; benchmark permanent tenure only
+      if ((d as { roleType?: string }).roleType === "subdean") continue; // sub-deans are the feeder bench, not deans; keep them out of tenure norms
       if (discipline && d.disciplineBroad !== discipline) continue;
       if (effectiveStates.size) {
         const st = stateOf.get(d.university.toLowerCase());
@@ -465,7 +470,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <span className="text-xs font-medium text-muted-foreground">Appointment</span>
               <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
-                {([["all", "All"], ["perm", "Permanent"], ["interim", "Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
+                {([["all", "All"], ["perm", "Permanent"], ["interim", datasetId === "usgrad" ? "Assoc/Vice/Interim" : "Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
                   <button key={v} onClick={() => { setApptType(v); setExpandedId(null); }}
                     className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", apptType === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
                 ))}
