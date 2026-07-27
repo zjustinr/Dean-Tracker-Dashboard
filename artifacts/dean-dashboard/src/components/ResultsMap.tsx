@@ -52,11 +52,11 @@ function ResultsMapBase({ results, geoOf, photoOf, activeId, onSelect }: Props) 
         {mapped} of {results.length} on the map · {groups.length} school{groups.length === 1 ? "" : "s"}
         {unmapped > 0 ? ` · ${unmapped} without a location` : ""}
       </p>
-      <div className="rounded-lg border border-muted-foreground/20 bg-muted/20 overflow-hidden">
+      <div className="rounded-lg border border-border bg-card overflow-hidden">
         <ComposableMap
           projection="geoAlbersUsa"
-          projectionConfig={{ scale: 380 }}
-          width={340} height={214}
+          projectionConfig={{ scale: 440 }}
+          width={390} height={250}
           style={{ width: "100%", height: "auto" }}
           aria-label="Map of candidate school locations"
         >
@@ -67,8 +67,8 @@ function ResultsMapBase({ results, geoOf, photoOf, activeId, onSelect }: Props) 
                   key={geo.rsmKey || geo.id}
                   geography={geo}
                   fill="hsl(var(--muted))"
-                  stroke="hsl(var(--card))"
-                  strokeWidth={0.5}
+                  stroke="hsl(var(--muted-foreground))"
+                  strokeWidth={0.75}
                   style={{ default: { outline: "none" }, hover: { outline: "none", fill: "hsl(var(--muted))" }, pressed: { outline: "none" } }}
                 />
               ))
@@ -78,7 +78,7 @@ function ResultsMapBase({ results, geoOf, photoOf, activeId, onSelect }: Props) 
             const rep = g.people.find((p) => p.id === activeId) || g.people[0];
             const isActive = g.people.some((p) => p.id === activeId);
             const photo = photoOf(rep);
-            const r = isActive ? 12 : 9.5;
+            const r = isActive ? 13 : 10.5;
             const cid = `rm-clip-${i}`;
             return (
               <Marker key={g.uni} coordinates={[g.pt.lng, g.pt.lat]}>

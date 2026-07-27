@@ -21,9 +21,12 @@ interface Props {
   dean: Dean;
   onClose?: () => void;
   onOpenSchool?: (university: string, school: string) => void;
+  // When rendered inside the Slate Builder, the movability assessment is shown in
+  // the results map's right column instead of beside the map, so suppress it here.
+  hideAssessment?: boolean;
 }
 
-export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
+export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessment }: Props) {
   const { noun, titleOf } = useDataset();
   const careerPositions = useDeanCareer(dean.dean);
   const title = titleOf(dean);
@@ -350,13 +353,18 @@ export default function DeanProfile({ dean, onClose, onOpenSchool }: Props) {
                 {/* Assessment sits exactly to the right of the map, vertically centered on it
                     (≈ the middle of the Career Path) so it lands beside the map — not up by the
                     photo. Absolute so it never steals width from the map. On narrow screens it
-                    drops in-flow below the map instead. */}
-                <div className="hidden xl:block absolute left-full top-1/2 -translate-y-1/2 ml-2 w-52">
-                  <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
-                </div>
-                <div className="xl:hidden mt-3">
-                  <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
-                </div>
+                    drops in-flow below the map instead. In the Slate Builder (hideAssessment)
+                    it is rendered in the results-map right column instead. */}
+                {!hideAssessment && (
+                  <>
+                    <div className="hidden xl:block absolute left-full top-1/2 -translate-y-1/2 ml-2 w-52">
+                      <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+                    </div>
+                    <div className="xl:hidden mt-3">
+                      <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+                    </div>
+                  </>
+                )}
               </div>
             )}
             </div>

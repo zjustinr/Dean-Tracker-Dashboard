@@ -5,6 +5,8 @@ import type { Dean } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
 import RegionMap from "@/components/RegionMap";
 import ResultsMap from "@/components/ResultsMap";
+import { CareerAssessment, type Root } from "@/components/CareerMap";
+import careerRoots from "@/data/career-roots.json";
 import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
 
 export interface DeanSearchPrefill {
@@ -105,6 +107,22 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [keyword, setKeyword] = useState("");
   const researchMap = useResearchMap();
   const openRowRef = useRef<HTMLDivElement | null>(null);
+
+  // Tenure inputs for the movability assessment shown in the results-map column.
+  // Mirrors DeanProfile's computation (cohort tenure distribution + this leader's
+  // own past average) so the rating reads identically.
+  function tenureFor(dn: Dean) {
+    const NOW = 2026;
+    const lens = allDeans.filter((x) => x.endYear != null && !x.isInterim && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number).sort((a, b) => a - b);
+    const pct = (p: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(p * lens.length))] : null);
+    const past = allDeans.filter((x) => x.dean === dn.dean && x.id !== dn.id && x.endYear != null && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number);
+    const personalAvg = past.length ? past.reduce((a, b) => a + b, 0) / past.length : null;
+    return {
+      sitting: dn.endYear == null,
+      currentTenure: dn.endYear == null && dn.startYear ? NOW - dn.startYear : dn.tenureLength ?? null,
+      median: pct(0.5), p75: pct(0.75), personalAvg, cohortN: lens.length,
+    };
+  }
 
   // When a profile opens (a row click, a typeahead pick, or a "View full profile"
   // prefill from the Meet a Leader box), bring its card into view. Without this the
@@ -712,7 +730,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                   </div>
                   {isOpen && (
                     <div className="px-3 sm:px-4 pb-4 pt-1 bg-[#011F5B]/5 border-l-2 border-[#011F5B]">
-                      <DeanProfile dean={d} onClose={() => setExpandedId(null)} onOpenSchool={onOpenSchool} />
+                      <DeanProfile dean={d} onClose={() => setExpandedId(null)} onOpenSchool={onOpenSchool} hideAssessment />
                     </div>
                   )}
                 </div>
@@ -726,8 +744,20 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
           )}
         </div>
         <div className="hidden lg:block">
-          <div className="sticky top-4">
+          <div className="sticky top-4 space-y-3">
             <ResultsMap results={shown} geoOf={geoOf} photoOf={(d) => PHOTOS[enrichKey(d.dean, d.university)]?.photo} activeId={expandedId} onSelect={setExpandedId} />
+            {/* The open candidate's movability assessment lives here, in the map column. */}
+            {(() => {
+              const d = expandedId != null ? shown.find((x) => x.id === expandedId) : null;
+              const career = d ? researchMap[enrichKey(d.dean, d.university)]?.career : null;
+              if (!d || !career || !career.length) return null;
+              return (
+                <div className="rounded-xl border border-border bg-card p-3">
+                  <div className="text-[11px] font-semibold text-muted-foreground mb-1.5 truncate">{d.dean}</div>
+                  <CareerAssessment steps={career} tenure={tenureFor(d)} roots={(careerRoots as Record<string, Root[]>)[enrichKey(d.dean, d.university)]} />
+                </div>
+              );
+            })()}
           </div>
         </div>
         </div>
