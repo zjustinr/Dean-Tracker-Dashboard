@@ -22,7 +22,7 @@ export default function AboutDialog({ onClose, onContact }: { onClose: () => voi
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="About Baton Index"
+      aria-label="About BatonIndex"
       onClick={onClose}
     >
       <div
@@ -30,7 +30,7 @@ export default function AboutDialog({ onClose, onContact }: { onClose: () => voi
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between px-6 pt-6">
-          <h2 className="text-lg font-bold">About Baton Index</h2>
+          <h2 className="text-lg font-bold">About BatonIndex</h2>
           <button
             onClick={onClose}
             aria-label="Close"
@@ -42,7 +42,7 @@ export default function AboutDialog({ onClose, onContact }: { onClose: () => voi
 
         <div className="px-6 py-4 space-y-5 text-sm leading-relaxed">
           <p className="text-muted-foreground">
-            Baton Index is a research project tracking leadership succession across
+            BatonIndex is a research project tracking leadership succession across
             U.S. higher education — {" "}
             <span className="font-semibold text-foreground">10,000+ appointments</span> at
             more than 1,800 schools, compiled from primary sources.
@@ -88,7 +88,7 @@ export default function AboutDialog({ onClose, onContact }: { onClose: () => voi
               Every record is assembled from primary sources — official university
               announcements, institutional bios, and public filings — then
               cross-checked. The data is refreshed continuously; the "updated" date
-              in the header reflects the latest deployment. Baton Index is
+              in the header reflects the latest deployment. BatonIndex is
               independent: it is not affiliated with any search firm, and has no
               stake in who is placed where.
             </p>

@@ -51,7 +51,7 @@ export default function ContactDialog({ onClose }: { onClose: () => void }) {
       } else {
         const body = `${message}\n\n--\n${name}${firm ? `, ${firm}` : ""}\n${email}`;
         window.location.href =
-          `mailto:${EMAIL}?subject=${encodeURIComponent(`Baton Index enquiry -- ${name || "website"}`)}` +
+          `mailto:${EMAIL}?subject=${encodeURIComponent(`BatonIndex enquiry -- ${name || "website"}`)}` +
           `&body=${encodeURIComponent(body)}`;
         setState("sent");
       }
@@ -69,7 +69,7 @@ export default function ContactDialog({ onClose }: { onClose: () => void }) {
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Contact Baton Index"
+      aria-label="Contact BatonIndex"
       onClick={onClose}
     >
       <div

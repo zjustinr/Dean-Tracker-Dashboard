@@ -132,7 +132,7 @@ function AppInner() {
                   <h1 className="leading-none shrink-0">
                     <img
                       src="/logo.svg"
-                      alt="Baton Index"
+                      alt="BatonIndex"
                       width={64}
                       height={64}
                       className="h-16 w-16 block"
@@ -315,7 +315,7 @@ function AppInner() {
         </main>
         <footer className="text-right pr-6 pb-4 pt-8">
           <p className="text-xs text-muted-foreground/60">
-            &copy; 2026 Baton Index &middot; Leadership succession data for higher education
+            &copy; 2026 BatonIndex &middot; Leadership succession data for higher education
             <span className="mx-1.5">&middot;</span>
             <button onClick={() => setAboutOpen(true)} className="underline underline-offset-2 hover:text-foreground">
               About

@@ -12,7 +12,7 @@ function Shell({ children }: { children: React.ReactNode }) {
       <div className="flex-1 flex items-center justify-center px-4 py-10">
         <div className="w-full max-w-md">
           <div className="flex flex-col items-center text-center">
-            <img src="/logo.svg" alt="Baton Index" width={72} height={72} className="h-18 w-18 mb-4" />
+            <img src="/logo.svg" alt="BatonIndex" width={72} height={72} className="h-18 w-18 mb-4" />
             <p
               className="text-[22px] leading-tight text-[#011F5B] mb-6"
               style={{ fontFamily: "'EB Garamond', Garamond, Georgia, serif", fontWeight: 500 }}
@@ -54,7 +54,7 @@ export function LockedLanding() {
       <div className="bg-card border border-border rounded-xl shadow-sm p-6">
         <h1 className="text-lg font-bold">Private preview</h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Baton Index is shared with selected search firms under a pilot. Enter the access
+          BatonIndex is shared with selected search firms under a pilot. Enter the access
           code from your invitation to continue.
         </p>
         <form onSubmit={onSubmit} className="mt-4 space-y-2">

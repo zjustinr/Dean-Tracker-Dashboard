@@ -186,7 +186,7 @@ export function Paywall({ meter }: { meter: FreeMeter }) {
               const external = !!p.url;
               const href = external
                 ? p.url
-                : `mailto:${CONTACT}?subject=${encodeURIComponent("Baton Index — " + p.name)}`;
+                : `mailto:${CONTACT}?subject=${encodeURIComponent("BatonIndex - " + p.name)}`;
               return (
                 <div
                   key={p.key}
@@ -227,7 +227,7 @@ export function Paywall({ meter }: { meter: FreeMeter }) {
 
           <p className="text-[11px] text-muted-foreground mt-3 text-center">
             Access activates shortly after checkout — paste the access link you receive below. Need all 12 indices or a firm plan?{" "}
-            <a href={`mailto:${CONTACT}?subject=${encodeURIComponent("Baton Index — full access / firm plan")}`} className="text-[#011F5B] dark:text-[#AFC4E8] font-medium underline underline-offset-2">
+            <a href={`mailto:${CONTACT}?subject=${encodeURIComponent("BatonIndex - full access / firm plan")}`} className="text-[#011F5B] dark:text-[#AFC4E8] font-medium underline underline-offset-2">
               Contact us
             </a>.
           </p>

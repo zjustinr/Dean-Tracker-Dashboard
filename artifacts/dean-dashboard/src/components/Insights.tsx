@@ -1,5 +1,5 @@
 /**
- * Insights — gated research-brief downloads that signal Baton Index's analytical
+ * Insights — gated research-brief downloads that signal BatonIndex's analytical
  * depth to search professionals. One email unlocks every brief. The email step is
  * a soft marketing gate (lead capture), not access control: it POSTs to
  * /api/insights-lead and fails open on network error so a demo never dead-ends.
@@ -37,14 +37,14 @@ const REPORTS: Report[] = [
     id: "grad-pipeline",
     title: "The Graduate College Dean Pipeline",
     subtitle:
-      "A provost-track office that turns over fast, draws from every discipline, and sits near gender parity. 156 central graduate-school heads at US public research universities.",
+      "A provost-track office that turns over fast (median six-year tenure), draws from every discipline, and sits near gender parity. 162 sitting central graduate-school heads across 156 US public research universities, with charts.",
     cover: "/insights/cover-grad-pipeline.png",
     pdf: "/insights/baton-graduate-college-pipeline-brief.pdf",
-    pages: 2,
+    pages: 3,
     findings: [
-      "It is a provost office, not a college deanship: about 56% carry a Vice Provost or Associate Provost title. Screen it like a provost search.",
-      "The seat turns over fast: about 64% of current heads were appointed since 2023, and roughly 13% are interim right now, the most churn-heavy line we track.",
-      "The pool is discipline-agnostic and near gender parity (about 49% women), because the office spans every graduate program rather than one field.",
+      "The seat runs short: across 85 completed tenures the median is just 6 years, and 62% of sitting heads were appointed since 2023, the most churn-heavy line we track.",
+      "It is a provost office, not a college deanship: about 50% carry a Vice Provost or Associate Provost title. Screen it like a provost search.",
+      "The pool is discipline-agnostic and near gender parity (about 48% women), because the office spans every graduate program rather than one field.",
     ],
   },
   {
@@ -118,7 +118,7 @@ export default function Insights() {
   return (
     <div className="max-w-[1000px] mx-auto py-1">
       <div className="text-[11px] font-semibold uppercase tracking-wider text-[#A31F34]">
-        Baton Index Research
+        BatonIndex Research
       </div>
       <h2 className="text-2xl font-bold text-foreground mt-1 leading-tight">Research briefs</h2>
       <p className="text-muted-foreground mt-1.5 leading-relaxed text-sm">
@@ -153,7 +153,7 @@ export default function Insights() {
           </div>
           {err && <p className="text-xs text-[#A31F34] mt-2">{err}</p>}
           <p className="text-[11px] text-muted-foreground mt-2">
-            No list-spam. We'll only reach out about Baton Index.
+            No list-spam. We'll only reach out about BatonIndex.
           </p>
         </form>
       )}
