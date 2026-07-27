@@ -274,12 +274,13 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       if (tenureWin === "sitting" && d.endYear != null) return false;
       if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
       if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) return false;
-      // Sub-deans (the associate/vice dean feeder bench) only surface under the
-      // "Assoc/Vice/Interim" facet; the All and Permanent dean lists exclude them.
+      // Appointment facet. "All" is the true superset: every permanent dean, every
+      // interim dean, AND the associate/vice-dean feeder bench. "Permanent" is
+      // permanent deans only (no interims, no bench). "Assoc/Vice/Interim" is the
+      // interim deans plus the bench.
       const isSub = (d as { roleType?: string }).roleType === "subdean";
-      if (apptType !== "interim" && isSub) return false;
-      if (apptType === "perm" && d.isInterim) return false;
-      if (apptType === "interim" && !d.isInterim && !isSub) return false;
+      if (apptType === "perm" && (isSub || d.isInterim)) return false;
+      if (apptType === "interim" && !isSub && !d.isInterim) return false;
       if (servedMin > 0 || servedMax < SERVED_CAP) {
         const yrs = elapsedYears(d);
         if (yrs == null || yrs < servedMin || yrs > servedMax) return false;
@@ -528,7 +529,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                 const intr = results.length - sub;
                 return (
                   <span className="w-full text-[11px] text-muted-foreground leading-snug">
-                    {sub} associate/vice dean{sub === 1 ? "" : "s"} (feeder bench) + {intr} interim dean{intr === 1 ? "" : "s"}. The bench is a separate candidate pool, so it sits outside the sitting-dean count shown under All and Permanent.
+                    {sub} associate/vice dean{sub === 1 ? "" : "s"} (feeder bench) + {intr} interim dean{intr === 1 ? "" : "s"}. Both are counted under All; only the Permanent list is limited to sitting permanent deans.
                   </span>
                 );
               })()}
