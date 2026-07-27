@@ -8,7 +8,7 @@ import type { Dean } from "./types";
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad";
 
 export interface SchoolInfo {
   university: string;
@@ -40,7 +40,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate";
   yearRange: string;
 }
 
@@ -225,6 +225,21 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     schoolType: "system",
     yearRange: "1996-2026",
   },
+
+  // The chief graduate-education officer (Vice Provost and Dean of the Graduate
+  // College/School) at major US research universities. First slice: Arizona State
+  // (an active national search) plus a set of large public peers, so a recruiter
+  // can see the search in context. Titles vary widely, so the officeholder's real
+  // title rides in `discipline` (like the president/provost datasets).
+  usgrad: {
+    id: "usgrad",
+    label: "US Graduate College Deans",
+    shortLabel: "Graduate College",
+    description: "Vice Provosts and Deans of the Graduate College/School at major US research universities — the chief graduate-education officers. First slice: ASU (active search) plus national public peers.",
+    rankLabel: "—",
+    schoolType: "graduate",
+    yearRange: "1990–2026",
+  },
 };
 
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
@@ -246,6 +261,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.usvet,
   DATASETS_META.usr2,
   DATASETS_META.ussystem,
+  DATASETS_META.usgrad,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,

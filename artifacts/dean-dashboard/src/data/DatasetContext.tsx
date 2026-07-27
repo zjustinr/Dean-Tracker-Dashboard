@@ -52,8 +52,10 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
     const bundle: DatasetBundle = { meta, ...(data ?? EMPTY) };
     const isUniv = meta.schoolType === "university";
     const isProvost = meta.schoolType === "provost";
-    // Datasets that carry the officeholder's real title in `discipline`.
-    const titleVaries = isUniv || isProvost;
+    const isGrad = meta.schoolType === "graduate";
+    // Datasets that carry the officeholder's real title in `discipline`
+    // (graduate-college heads carry titles like "Vice Provost and Dean").
+    const titleVaries = isUniv || isProvost || isGrad;
     const noun = isUniv ? "Leader" : isProvost ? "Provost" : "Dean";
     const nounPlural = isUniv ? "Leaders" : isProvost ? "Provosts" : "Deans";
     const titleOf = (d: { discipline?: string | null } | null | undefined): string => {

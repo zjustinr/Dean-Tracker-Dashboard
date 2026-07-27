@@ -60,6 +60,7 @@ const SPEC = {
   ussystem: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-system-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-system-schools.json"), split: false },
   uspublichealth: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-publichealth-deans.json"), bsq: () => require("../artifacts/dean-dashboard/src/data/r1-publichealth-research.json"), schools: () => require("../artifacts/dean-dashboard/src/data/r1-publichealth-schools.json"), split: false },
   usvet:       { deans: () => require("../artifacts/dean-dashboard/src/data/r1-vet-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-vet-schools.json"), split: false },
+  usgrad:      { deans: () => require("../artifacts/dean-dashboard/src/data/r1-grad-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-grad-schools.json"), split: false },
 };
 const ENRICHMENT = {
   "dean-photos.json": () => require("../artifacts/dean-dashboard/src/data/dean-photos.json"),
