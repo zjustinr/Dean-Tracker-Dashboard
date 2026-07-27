@@ -481,9 +481,18 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                   {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
                 </button>
               ))}
-              {apptType === "interim" && tenureWin === "sitting" && (
+              {apptType === "interim" && tenureWin === "sitting" && datasetId !== "usgrad" && (
                 <span className="w-full text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
               )}
+              {datasetId === "usgrad" && apptType === "interim" && (() => {
+                const sub = results.filter((r) => (r as { roleType?: string }).roleType === "subdean").length;
+                const intr = results.length - sub;
+                return (
+                  <span className="w-full text-[11px] text-muted-foreground leading-snug">
+                    {sub} associate/vice dean{sub === 1 ? "" : "s"} (feeder bench) + {intr} interim dean{intr === 1 ? "" : "s"}. The bench is a separate candidate pool, so it sits outside the sitting-dean count shown under All and Permanent.
+                  </span>
+                );
+              })()}
             </div>
 
             <div>
@@ -528,6 +537,11 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               {hist.n
                 ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""}</>
                 : "No completed permanent tenures in this range yet."}
+              {datasetId === "usgrad" && hist.n < 5 && (
+                <span className="block mt-0.5 text-muted-foreground/80">
+                  Current-roster index: the distribution needs deans who have both started and left. It fills in as departed-dean succession history is added.
+                </span>
+              )}
             </p>
             {hist.n > 0 && (
               <div className="grid grid-cols-3 gap-1.5 mb-2">
