@@ -3,6 +3,7 @@ import { useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
+import RegionMap from "@/components/RegionMap";
 import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
 
 export interface DeanSearchPrefill {
@@ -495,12 +496,18 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               })()}
             </div>
 
-            <div>
-              <span className="text-xs font-medium text-muted-foreground">States</span>
-              <div className="mt-1 flex flex-wrap gap-1 max-h-28 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
-                {stateList.map((st) => (
-                  <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
-                ))}
+            <div className="flex gap-3 items-start">
+              <div className="flex-1 min-w-0">
+                <span className="text-xs font-medium text-muted-foreground">States</span>
+                <div className="mt-1 flex flex-wrap gap-1 max-h-44 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
+                  {stateList.map((st) => (
+                    <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
+                  ))}
+                </div>
+              </div>
+              {/* Live coverage map: fills the states the region/state filters select. */}
+              <div className="shrink-0 w-[38%] max-w-[220px] pt-4">
+                <RegionMap selected={effectiveStates} />
               </div>
             </div>
 
