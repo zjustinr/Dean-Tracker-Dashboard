@@ -20,6 +20,34 @@ type Report = {
 
 const REPORTS: Report[] = [
   {
+    id: "law-pipeline",
+    title: "The Law School Dean Pipeline",
+    subtitle:
+      "Where R1 law deans come from, and how a search can focus on the right channel. A read on 1,010 dean appointments across R1 law schools, 94 sitting.",
+    cover: "/insights/cover-law-pipeline.png",
+    pdf: "/insights/baton-law-dean-pipeline-brief.pdf",
+    pages: 2,
+    findings: [
+      "The decanal ladder is the channel: 50% of sitting deans rose straight from an associate or vice dean chair; 99% come from legal academia, not practice or the bench.",
+      "The market tilted external and diversified fast: external hires went from 8% (pre-1980) to 71% in the 2020s; women from 3% to 53% of new deans.",
+      "The T14 credential funnel is real but a trap: 64% hold a top-14 law degree, Harvard and Yale over a quarter of those. Use pedigree as a tiebreak, not a gate.",
+    ],
+  },
+  {
+    id: "grad-pipeline",
+    title: "The Graduate College Dean Pipeline",
+    subtitle:
+      "A provost-track office that turns over fast, draws from every discipline, and sits near gender parity. 156 central graduate-school heads at US public research universities.",
+    cover: "/insights/cover-grad-pipeline.png",
+    pdf: "/insights/baton-graduate-college-pipeline-brief.pdf",
+    pages: 2,
+    findings: [
+      "It is a provost office, not a college deanship: about 56% carry a Vice Provost or Associate Provost title. Screen it like a provost search.",
+      "The seat turns over fast: about 64% of current heads were appointed since 2023, and roughly 13% are interim right now, the most churn-heavy line we track.",
+      "The pool is discipline-agnostic and near gender parity (about 49% women), because the office spans every graduate program rather than one field.",
+    ],
+  },
+  {
     id: "discipline",
     title: "The Discipline Behind the Dean",
     subtitle:
