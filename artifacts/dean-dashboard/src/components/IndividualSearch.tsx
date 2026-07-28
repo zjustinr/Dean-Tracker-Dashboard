@@ -8,22 +8,37 @@ import RegionMap from "@/components/RegionMap";
 import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
-import affinityBySchool from "@/data/affinity-by-school.json";
 import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
 
-// Affinity POC: every leader in the database with a tie to a target school,
-// precomputed cross-index in scripts/affinity_etl and keyed by the exact
-// dropdown school string. The selector appears only when the chosen school has
-// affinity data. Built for ASU + University of Arkansas at Little Rock so far.
+// Per-deploy build id (vite define), used to cache-bust the affinity fetch.
+declare const __BUILD_ID__: string;
+
+// Cross-index AFFINITY: every leader in the database with a tie to a school
+// (undergrad / grad / faculty / administration), for ALL schools. Precomputed by
+// scripts/gen-affinity.mjs into public/affinity-by-school.json (~4 MB, regenerated
+// every build). Too large to bundle, so it is fetched lazily the first time a user
+// engages the selector, then cached module-wide.
 const AFF_KINDS: [keyof AffEntry, string][] = [
   ["undergrad", "Undergraduate"], ["grad", "Master or PhD"], ["faculty", "Faculty"], ["admin", "Administration"],
 ];
 type AffEntry = {
-  name: string; role: string; university: string; school: string | null;
-  index: string | null; indexLabel: string | null; enrichKey: string; hasPhoto: boolean;
+  name: string; role: string; university: string;
+  index: string | null; indexLabel: string | null; enrichKey: string;
   undergrad: string[]; grad: string[]; faculty: string[]; admin: string[];
 };
-const AFFINITY: Record<string, AffEntry[]> = affinityBySchool as Record<string, AffEntry[]>;
+type AffMap = Record<string, AffEntry[]>;
+let AFFINITY_CACHE: AffMap | null = null;
+let AFFINITY_PROMISE: Promise<AffMap> | null = null;
+function loadAffinity(): Promise<AffMap> {
+  if (AFFINITY_CACHE) return Promise.resolve(AFFINITY_CACHE);
+  if (!AFFINITY_PROMISE) {
+    AFFINITY_PROMISE = fetch(`${import.meta.env.BASE_URL}affinity-by-school.json?v=${__BUILD_ID__}`)
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((d) => (AFFINITY_CACHE = d as AffMap))
+      .catch(() => (AFFINITY_CACHE = {} as AffMap));
+  }
+  return AFFINITY_PROMISE;
+}
 
 export interface DeanSearchPrefill {
   fullName: string;
@@ -488,10 +503,19 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
 
   const shown = results.slice(0, CAP);
 
-  // Affinity POC: cross-index leaders tied to the selected school, filtered to
-  // the checked kinds. Shown only for schools that have precomputed affinity data.
-  const affinityList = AFFINITY[school];
-  const affinityOn = !!affinityList;
+  // Affinity: cross-index leaders tied to the selected school, filtered to the
+  // checked kinds. The selector shows for any single chosen school; the ~4 MB map
+  // loads lazily the first time a kind is checked.
+  const affinityOn = !!school;
+  const [affinityMap, setAffinityMap] = useState<AffMap | null>(AFFINITY_CACHE);
+  useEffect(() => {
+    if (affinity.size === 0 || affinityMap) return;
+    let alive = true;
+    loadAffinity().then((m) => { if (alive) setAffinityMap(m); });
+    return () => { alive = false; };
+  }, [affinity.size, affinityMap]);
+  const affinityLoading = affinityOn && affinity.size > 0 && !affinityMap;
+  const affinityList = affinityMap ? affinityMap[school] : undefined;
   const affinityResults = useMemo(() => {
     if (!affinityList || affinity.size === 0) return [] as AffEntry[];
     return affinityList.filter((e) => [...affinity].some((k) => (e[k as keyof AffEntry] as string[])?.length));
@@ -853,13 +877,17 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       {affinityOn && affinity.size > 0 && (
         <div className="mb-4 rounded-xl border border-[#8C1D40]/30 bg-[#8C1D40]/5 p-3 sm:p-4">
           <p className="text-sm font-semibold text-[#8C1D40]">
-            {affinityResults.length} leader{affinityResults.length !== 1 ? "s" : ""} across all indices with an affinity to {school}
+            {affinityLoading
+              ? "Loading affinity data…"
+              : `${affinityResults.length} leader${affinityResults.length !== 1 ? "s" : ""} across all indices with an affinity to ${school}`}
           </p>
           <p className="text-[11px] text-muted-foreground mb-2.5">
             {AFF_KINDS.filter(([k]) => affinity.has(k as string)).map(([, l]) => l).join(" · ")}
           </p>
-          {affinityResults.length === 0 ? (
-            <p className="text-xs text-muted-foreground">No leaders match the selected affinity types.</p>
+          {affinityLoading ? (
+            <p className="text-xs text-muted-foreground">Fetching every leader connected to {school} across all indices…</p>
+          ) : affinityResults.length === 0 ? (
+            <p className="text-xs text-muted-foreground">No leaders in the database have that tie to {school} yet.</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {affinityResults.slice(0, 60).map((e) => {
