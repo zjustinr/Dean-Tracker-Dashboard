@@ -8,6 +8,9 @@ const port = Number(process.env.PORT) || 5173;
 const basePath = process.env.BASE_PATH || "/";
 
 const BUILT_ON = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+// Unique per build/deploy. Appended as ?v= to every /data fetch so a new deploy
+// always busts any stale browser/CDN cache of the JSON (photos, research, datasets).
+const BUILD_ID = String(Date.now());
 
 // Dev-only: serve /data/<id>.json from src/data (ungated), mirroring what the
 // gated serverless function does in production. Keeps the app's /data fetch
@@ -34,7 +37,7 @@ function serveDataDev(srcDir: string) {
 }
 
 export default defineConfig({
-  define: { __BUILT_ON__: JSON.stringify(BUILT_ON) },
+  define: { __BUILT_ON__: JSON.stringify(BUILT_ON), __BUILD_ID__: JSON.stringify(BUILD_ID) },
   base: basePath,
   plugins: [react(), tailwindcss(), serveDataDev(path.resolve(import.meta.dirname, "src", "data"))],
   resolve: {

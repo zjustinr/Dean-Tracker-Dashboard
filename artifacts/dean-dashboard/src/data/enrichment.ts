@@ -1,5 +1,9 @@
 import { useSyncExternalStore } from "react";
 
+// Per-deploy build id (vite.config define). Appended as ?v= to the /data fetch so
+// a new deploy always busts any stale browser/CDN cache of the JSON.
+declare const __BUILD_ID__: string;
+
 // Hardening Step 2: the global enrichment maps (dean photos, headhunter research)
 // used to be bundled JSON imports — together ~5 MB of the JS bundle, and the
 // research briefs are exactly the proprietary payload a trial must gate. They now
@@ -30,7 +34,7 @@ function makeJsonMap<T>(file: string) {
   function ensure() {
     if (started) return;
     started = true;
-    fetch(`${import.meta.env.BASE_URL}data/${file}`)
+    fetch(`${import.meta.env.BASE_URL}data/${file}?v=${__BUILD_ID__}`)
       .then((r) => (r.ok ? r.json() : {}))
       .then((d) => { data = (d ?? {}) as Record<string, T>; listeners.forEach((l) => l()); })
       .catch(() => { started = false; }); // allow a later mount to retry

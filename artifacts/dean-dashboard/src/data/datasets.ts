@@ -1,5 +1,9 @@
 import type { Dean } from "./types";
 
+// Per-deploy build id (vite.config define). Appended as ?v= to the /data fetch so
+// a new deploy always busts any stale browser/CDN cache of the JSON.
+declare const __BUILD_ID__: string;
+
 // Hardening Step 2: the dean/bsq/school arrays no longer ship in the JS bundle.
 // They live in public/data/<id>.json and are fetched at runtime (see
 // loadDatasetData) — regenerate with scripts/gen-public-data.ts after a refresh.
@@ -273,7 +277,7 @@ const cache = new Map<DatasetId, Promise<DatasetData>>();
 export function loadDatasetData(id: DatasetId): Promise<DatasetData> {
   let p = cache.get(id);
   if (!p) {
-    p = fetch(`${import.meta.env.BASE_URL}data/${id}.json`)
+    p = fetch(`${import.meta.env.BASE_URL}data/${id}.json?v=${__BUILD_ID__}`)
       .then((r) => {
         if (!r.ok) throw new Error(`Failed to load dataset ${id}: ${r.status}`);
         return r.json() as Promise<DatasetData>;
