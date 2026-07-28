@@ -356,14 +356,15 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   // reads as the norm for THIS cohort, not the whole index. Independent of the
   // years-in-seat screen — that only shades which bars are highlighted.
   const hist = useMemo(() => {
-    const bins = new Array(21).fill(0); // completed-tenure distribution (departed only)
+    const TMAX = 30, NB = TMAX + 1; // domain 0..30 yrs; the extra tail lets the fitted hazard show its full decline
+    const bins = new Array(NB).fill(0); // completed-tenure distribution (departed only)
     const vals: number[] = [];
     // Life-table inputs for the departure hazard. events[t] = leaders who left in
     // year t. atRisk[t] = leaders still in the seat at the START of year t — this
     // must include people STILL SERVING (right-censored), not only those who have
     // already left, or the probability of moving is badly overstated.
-    const events = new Array(21).fill(0);
-    const atRisk = new Array(21).fill(0);
+    const events = new Array(NB).fill(0);
+    const atRisk = new Array(NB).fill(0);
     for (const d of allDeans) {
       if (!d.startYear) continue;
       if (d.isInterim) continue; // interims serve ~1 yr and skew the norm
@@ -377,7 +378,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       const departed = d.endYear != null;
       const raw = departed ? (d.tenureLength ?? (d.endYear! - d.startYear)) : (NOW - d.startYear);
       if (raw == null || raw < 0) continue;
-      const t = Math.min(20, Math.floor(raw));
+      const t = Math.min(TMAX, Math.floor(raw));
       for (let j = 0; j <= t; j++) atRisk[j]++; // in the seat through the start of every year up to t
       if (departed) { events[t]++; bins[t]++; vals.push(raw); } // a completed departure at year t
     }
@@ -386,9 +387,32 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     const mean = vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
     let mode = 0, best = -1, lastBin = 0;
     for (let i = 0; i < bins.length; i++) { if (bins[i] > best) { best = bins[i]; mode = i; } if (bins[i] > 0) lastBin = i; }
-    // h(t) = P(leaves in year t | still in the seat at the start of year t).
+    // Raw per-year life-table hazard: h(t) = P(leaves in year t | still in seat at
+    // the start of year t). Unbiased but noisy at long tenures where few remain at
+    // risk (one departure on a denominator of 2–3 spikes it), so we don't plot it
+    // directly. Instead we fit the smooth unimodal reliability curve it estimates.
     const hazard = events.map((e, t) => (atRisk[t] > 0 ? e / atRisk[t] : 0));
-    return { bins, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, lastBin, atRiskN: atRisk[0] };
+    // Kaplan–Meier survival past year t, then a log-logistic fit (hazard is
+    // unimodal when shape β>1). Scale α = censoring-aware median tenure; shape from
+    // the 50th/75th survival quantiles. This is the reliability-style hazard curve.
+    const surv = new Array(NB).fill(1);
+    { let s = 1; for (let t = 0; t < NB; t++) { s *= 1 - hazard[t]; surv[t] = s; } }
+    const quantile = (p: number) => { for (let t = 0; t < NB; t++) if (1 - surv[t] >= p) return t + 0.5; return NaN; };
+    const m50 = quantile(0.5), m75 = quantile(0.75);
+    let fit: number[] | null = null; // fitted hazard sampled every 0.5 yr over 0..TMAX
+    if (vals.length >= 8 && isFinite(m50) && isFinite(m75) && m75 > m50 && m50 > 0) {
+      const alpha = m50, beta = Math.log(3) / Math.log(m75 / m50);
+      if (beta > 0) {
+        fit = [];
+        for (let k = 0; k <= TMAX * 2; k++) {
+          const t = k * 0.5;
+          if (t <= 0) { fit.push(0); continue; }
+          const z = Math.pow(t / alpha, beta);
+          fit.push((beta / alpha) * Math.pow(t / alpha, beta - 1) / (1 + z));
+        }
+      }
+    }
+    return { bins, bw: 252 / NB, tmax: TMAX, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, fit, lastBin, atRiskN: atRisk[0] };
   }, [allDeans, discipline, effectiveStates, stateOf, yFrom, yTo]);
 
   // Narrow, recent windows read short: long tenures started in that window have
@@ -658,28 +682,31 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
             <div className="rounded-lg bg-muted/40 border border-muted-foreground/15 p-2">
               <svg viewBox="0 0 252 92" className="w-full" role="img" aria-label="Distribution of completed tenure lengths, in years">
                 {hist.bins.map((c: number, i: number) => {
-                  const bw = 252 / 21, bh = (c / hist.max) * 70;
-                  const inBand = i >= servedMin && i <= Math.min(20, servedMax);
+                  const bw = hist.bw, bh = (c / hist.max) * 70;
+                  const inBand = i >= servedMin && i <= Math.min(hist.tmax, servedMax);
                   return <rect key={i} x={i * bw + 0.5} y={78 - bh} width={bw - 1} height={bh} rx={1}
                     fill="currentColor" className={inBand ? "text-[#011F5B]" : "text-muted-foreground/40"} />;
                 })}
                 {hist.n > 0 && (() => {
-                  const mx = (Math.min(20, hist.median) + 0.5) * (252 / 21);
+                  const mx = (Math.min(hist.tmax, hist.median) + 0.5) * hist.bw;
                   return <line x1={mx} x2={mx} y1={2} y2={78} stroke="currentColor" className="text-[#E8A33D]" strokeWidth={1.5} strokeDasharray="2 2" />;
                 })()}
                 {showHazard && hist.n > 0 && (
                   <polyline
-                    points={hist.hazard.slice(0, hist.lastBin + 1).map((h: number, i: number) => `${(i + 0.5) * (252 / 21)},${78 - Math.min(1, h) * 70}`).join(" ")}
+                    points={(hist.fit
+                      ? hist.fit.map((h: number, k: number) => `${(k * 0.5 + 0.5) * hist.bw},${78 - Math.min(1, h) * 70}`)
+                      : hist.hazard.slice(0, hist.lastBin + 1).map((h: number, i: number) => `${(i + 0.5) * hist.bw},${78 - Math.min(1, h) * 70}`)
+                    ).join(" ")}
                     fill="none" stroke="currentColor" className="text-[#A31F34]" strokeWidth={1.3} />
                 )}
-                {[0, 5, 10, 15, 20].map((t) => (
-                  <text key={t} x={(t + 0.5) * (252 / 21)} y={90} textAnchor="middle" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 7 }}>{t === 20 ? "20+" : t}</text>
+                {[0, 5, 10, 15, 20, 25, 30].map((t) => (
+                  <text key={t} x={(t + 0.5) * hist.bw} y={90} textAnchor="middle" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 7 }}>{t === hist.tmax ? "30+" : t}</text>
                 ))}
               </svg>
             </div>
             <div className="flex items-center justify-between mt-1 gap-2 flex-wrap">
-              <p className="text-[10px] text-muted-foreground">Years served · amber = median{showHazard ? " · red = P(move), 0–100%" : ""}</p>
-              <label className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground cursor-pointer select-none" title="Probability a leader leaves in year t given they are still in the seat at the start of year t (departures / everyone still serving at that point)">
+              <p className="text-[10px] text-muted-foreground">Years served · amber = median{showHazard ? " · red = P(move), fitted, 0–100%" : ""}</p>
+              <label className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground cursor-pointer select-none" title="Probability a leader leaves in year t given they are still in the seat at the start of year t. Smooth log-logistic fit to the cohort's censored tenures (the reliability-style unimodal hazard); the raw per-year rate is too noisy at long tenures, where few remain at risk, to plot directly.">
                 <input type="checkbox" checked={showHazard} onChange={(e) => setShowHazard(e.target.checked)} className="accent-[#A31F34] w-3 h-3" />
                 Probability of Moving (Hazard rate)
               </label>
