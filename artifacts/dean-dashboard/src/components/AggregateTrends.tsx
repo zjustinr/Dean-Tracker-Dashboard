@@ -380,7 +380,7 @@ export default function AggregateTrends() {
         </Card>
 
         <Card>
-          <CardHeader><CardTitle className="text-base">Post-{noun} Career Paths</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="text-base">Next-Role Career Paths</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={nextRoleDist} layout="vertical" margin={{ top: 10, right: 30, bottom: 0, left: 10 }}>

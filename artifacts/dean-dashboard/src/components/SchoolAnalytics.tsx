@@ -222,7 +222,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
         </Card>
 
         <Card>
-          <CardHeader className="pb-2"><CardTitle className="text-sm">Post-{noun} Roles</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm">Next Roles</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={nextRoleData} layout="vertical" margin={{ top: 5, right: 10, bottom: 5, left: 5 }}>

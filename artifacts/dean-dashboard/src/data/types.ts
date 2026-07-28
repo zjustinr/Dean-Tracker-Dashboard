@@ -91,7 +91,7 @@ export const CATEGORICAL_LABELS: Record<CategoricalField, string> = {
   careerBackground: "Career Background",
   era: "Appointment Era",
   tier: "School Tier",
-  nextRole: "Post-Dean Role",
+  nextRole: "Next Role",
 };
 
 export const NUMERIC_LABELS: Record<NumericField, string> = {
