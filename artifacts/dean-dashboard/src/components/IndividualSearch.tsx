@@ -8,7 +8,21 @@ import RegionMap from "@/components/RegionMap";
 import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
+import asuAffinity from "@/data/asu-affinity.json";
 import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
+
+// Affinity POC (ASU only): every leader in the database with a tie to Arizona
+// State, precomputed cross-index in scripts/asu_affinity_etl. The selector shows
+// only when ASU is the chosen school. Kinds map to the JSON's array fields.
+const AFFINITY_SCHOOL = "Arizona State University";
+const AFF_KINDS: [keyof AffEntry, string][] = [
+  ["undergrad", "Undergraduate"], ["grad", "Master or PhD"], ["faculty", "Faculty"], ["admin", "Administration"],
+];
+type AffEntry = {
+  name: string; role: string; university: string; school: string | null;
+  index: string | null; indexLabel: string | null; enrichKey: string; hasPhoto: boolean;
+  undergrad: string[]; grad: string[]; faculty: string[]; admin: string[];
+};
 
 export interface DeanSearchPrefill {
   fullName: string;
@@ -103,6 +117,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   // a faculty/professor background, so both default ON.
   const [requirePhd, setRequirePhd] = useState(true);
   const [requireProf, setRequireProf] = useState(true);
+  const [affinity, setAffinity] = useState<Set<string>>(new Set());
   // Overlay the departure hazard rate on the tenure histogram (off by default).
   const [showHazard, setShowHazard] = useState(false);
   const [slate, setSlate] = useState<Dean[]>(() => {
@@ -223,7 +238,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   // b-schools" bug (filter in B-school, switch index, see nothing). Defined
   // before the prefill effect so a prefill arriving in the same commit still wins.
   useEffect(() => {
-    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword("");
+    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword(""); setAffinity(new Set());
     setTenureWin("sitting"); setServedMin(0); setServedMax(SERVED_CAP);
     setApptType("all"); setYrFrom(null); setYrTo(null);
     setRegions(new Set()); setStates(new Set()); setExpandedId(null);
@@ -468,13 +483,20 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   };
 
   const shown = results.slice(0, CAP);
+
+  // Affinity POC: cross-index leaders tied to ASU, filtered to the checked kinds.
+  const affinityOn = school === AFFINITY_SCHOOL;
+  const affinityResults = useMemo(() => {
+    if (!affinityOn || affinity.size === 0) return [] as AffEntry[];
+    return (asuAffinity as AffEntry[]).filter((e) => [...affinity].some((k) => (e[k as keyof AffEntry] as string[])?.length));
+  }, [affinityOn, affinity]);
   const inSlate = (id: number) => slate.some((d) => d.id === id);
   const toggleSlate = (d: Dean) => setSlate((cur) => inSlate(d.id) ? cur.filter((x) => x.id !== d.id) : [...cur, d]);
   const toggleSet = (setter: React.Dispatch<React.SetStateAction<Set<string>>>, v: string) =>
     setter((cur) => { const n = new Set(cur); n.has(v) ? n.delete(v) : n.add(v); return n; });
 
   const clearAll = () => {
-    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword("");
+    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword(""); setAffinity(new Set());
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
     setRequirePhd(true); setRequireProf(true); setYrFrom(null); setYrTo(null);
   };
@@ -584,6 +606,19 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               </label>
               <span className="text-[10px] text-muted-foreground">(held a doctorate / faculty rank)</span>
             </div>
+
+            {affinityOn && (
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 rounded-lg bg-[#8C1D40]/8 border border-[#8C1D40]/25 px-2.5 py-1.5">
+                <span className="text-xs font-semibold text-[#8C1D40]">Affinity to ASU</span>
+                {AFF_KINDS.map(([key, label]) => (
+                  <label key={key as string} className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
+                    <input type="checkbox" checked={affinity.has(key as string)} onChange={() => { toggleSet(setAffinity, key as string); setExpandedId(null); }} className="accent-[#8C1D40] w-3.5 h-3.5" />
+                    {label}
+                  </label>
+                ))}
+                <span className="text-[10px] text-muted-foreground">(everyone in the database connected to Arizona State, across all indices)</span>
+              </div>
+            )}
 
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <span className="text-xs font-medium text-muted-foreground">Appointment</span>
@@ -806,6 +841,55 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               </span>
             ))}
           </div>
+        </div>
+      )}
+
+      {affinityOn && affinity.size > 0 && (
+        <div className="mb-4 rounded-xl border border-[#8C1D40]/30 bg-[#8C1D40]/5 p-3 sm:p-4">
+          <p className="text-sm font-semibold text-[#8C1D40]">
+            {affinityResults.length} leader{affinityResults.length !== 1 ? "s" : ""} across all indices with an affinity to Arizona State University
+          </p>
+          <p className="text-[11px] text-muted-foreground mb-2.5">
+            {AFF_KINDS.filter(([k]) => affinity.has(k as string)).map(([, l]) => l).join(" · ")}
+          </p>
+          {affinityResults.length === 0 ? (
+            <p className="text-xs text-muted-foreground">No leaders match the selected affinity types.</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {affinityResults.slice(0, 60).map((e) => {
+                const photo = PHOTOS[e.enrichKey]?.photo;
+                return (
+                  <div key={e.enrichKey + e.name} className="flex gap-2.5 rounded-lg border border-border bg-card p-2">
+                    {photo ? (
+                      <img src={photo} alt={e.name} loading="lazy" className="w-10 h-10 rounded-full object-cover border shrink-0" />
+                    ) : (
+                      <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-[11px] font-bold text-muted-foreground shrink-0">
+                        {e.name.split(/\s+/).map((t) => t[0]).filter(Boolean).slice(0, 2).join("")}
+                      </div>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-baseline gap-1.5">
+                        <p className="text-xs font-semibold truncate">{e.name}</p>
+                        {e.indexLabel && <span className="text-[9px] px-1 py-px rounded bg-[#011F5B]/10 text-[#011F5B] shrink-0">{e.indexLabel}</span>}
+                      </div>
+                      <p className="text-[10px] text-muted-foreground truncate">{e.role}{e.university ? `, ${e.university}` : ""}</p>
+                      <div className="mt-0.5 space-y-0.5">
+                        {AFF_KINDS.filter(([k]) => affinity.has(k as string) && (e[k as keyof AffEntry] as string[])?.length).map(([k, label]) => (
+                          <p key={k as string} className="text-[10px] leading-tight">
+                            <span className="font-semibold text-[#8C1D40]">{label}:</span>{" "}
+                            <span className="text-muted-foreground">{(e[k as keyof AffEntry] as string[])[0]}</span>
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          {affinityResults.length > 60 && (
+            <p className="text-[10px] text-muted-foreground mt-2">Showing first 60 of {affinityResults.length}.</p>
+          )}
         </div>
       )}
 
