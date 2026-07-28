@@ -12,7 +12,7 @@ declare const __BUILD_ID__: string;
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts";
 
 export interface SchoolInfo {
   university: string;
@@ -44,7 +44,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts";
   yearRange: string;
 }
 
@@ -244,6 +244,21 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     schoolType: "graduate",
     yearRange: "1990–2026",
   },
+
+  // Deans of US colleges/schools of the creative arts — fine & performing arts,
+  // art & design, music, theatre, film, communication, journalism, architecture —
+  // at research universities plus dedicated art/design/music schools. Built for
+  // creative-arts leadership searches (anchor: Northeastern's CAMD dean search).
+  // Tier 1 = sitting deans; roleTier is stamped so a feeder bench can drop in.
+  uscreativearts: {
+    id: "uscreativearts",
+    label: "US Creative Arts, Media & Design Deans",
+    shortLabel: "Creative Arts",
+    description: "Deans of US colleges and schools of the creative arts — fine & performing arts, art & design, music, theatre, film, communication, journalism, and architecture — at research universities plus dedicated art, design, and music schools. First slice: sitting deans.",
+    rankLabel: "—",
+    schoolType: "creativearts",
+    yearRange: "1991–2026",
+  },
 };
 
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
@@ -266,6 +281,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.usr2,
   DATASETS_META.ussystem,
   DATASETS_META.usgrad,
+  DATASETS_META.uscreativearts,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,
