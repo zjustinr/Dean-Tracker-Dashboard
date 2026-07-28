@@ -98,7 +98,13 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [yrTo, setYrTo] = useState<number | null>(null);
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
-  const [sortBy, setSortBy] = useState<"name" | "tenure" | "recent">("name");
+  const [sortBy, setSortBy] = useState<"name" | "tenure" | "recent" | "sofar">("name");
+  // Credential screens. Most academic-leadership searches require a doctorate and
+  // a faculty/professor background, so both default ON.
+  const [requirePhd, setRequirePhd] = useState(true);
+  const [requireProf, setRequireProf] = useState(true);
+  // Overlay the departure hazard rate on the tenure histogram (off by default).
+  const [showHazard, setShowHazard] = useState(false);
   const [slate, setSlate] = useState<Dean[]>(() => {
     try { const r = localStorage.getItem(SLATE_KEY); return r ? JSON.parse(r) : []; } catch { return []; }
   });
@@ -108,6 +114,27 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const [keyword, setKeyword] = useState("");
   const researchMap = useResearchMap();
   const openRowRef = useRef<HTMLDivElement | null>(null);
+
+  // Credential detection for the Ph.D. / Professor screens. Broad recall so the
+  // default (both on) does not hide legitimate candidates on data-thin rows.
+  const DOCT_RE = /\b(ph\.?\s?d|d\.?\s?phil|ed\.?\s?d|sc\.?\s?d|d\.?sc|dr\.?p\.?h|d\.?n\.?p|d\.?b\.?a|dvm|m\.?d|j\.?d|doctora)\b/i;
+  const PROF_RE = /\b(professor|faculty)\b/i;
+  const hasDoctorate = (d: Dean): boolean => {
+    if (d.hasPhd) return true;
+    const f = `${d.dean} ${d.discipline || ""} ${d.priorTitle || ""} ${d.careerBackground || ""}`;
+    if (DOCT_RE.test(f)) return true;
+    const roots = (careerRoots as Record<string, { level?: string }[]>)[enrichKey(d.dean, d.university)];
+    return !!roots && roots.some((r) => DOCT_RE.test(r.level || ""));
+  };
+  const wasProfessor = (d: Dean): boolean => {
+    // Dean-level roles require a professorship by definition; only the associate/
+    // vice-dean bench (which mixes in staff-track administrators) needs a signal.
+    if ((d as { roleType?: string }).roleType !== "subdean") return true;
+    const f = `${d.discipline || ""} ${d.priorTitle || ""} ${d.careerBackground || ""}`;
+    if (PROF_RE.test(f)) return true;
+    const car = researchMap[enrichKey(d.dean, d.university)]?.career;
+    return !!car && car.some((s) => PROF_RE.test(s.role || ""));
+  };
 
   // Tenure inputs for the movability assessment shown in the results-map column.
   // Mirrors DeanProfile's computation (cohort tenure distribution + this leader's
@@ -282,6 +309,8 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       const isSub = (d as { roleType?: string }).roleType === "subdean";
       if (apptType === "perm" && (isSub || d.isInterim)) return false;
       if (apptType === "interim" && !isSub && !d.isInterim) return false;
+      if (requirePhd && !hasDoctorate(d)) return false;
+      if (requireProf && !wasProfessor(d)) return false;
       if (servedMin > 0 || servedMax < SERVED_CAP) {
         const yrs = elapsedYears(d);
         if (yrs == null || yrs < servedMin || yrs > servedMax) return false;
@@ -295,7 +324,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       seen.add(key);
       return true;
     });
-  }, [allDeans, query, keyword, researchMap, letter, discipline, school, tenureWin, apptType, servedMin, servedMax, hasFilter]);
+  }, [allDeans, query, keyword, researchMap, letter, discipline, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -347,9 +376,17 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     vals.sort((a, b) => a - b);
     const median = vals.length ? vals[Math.floor((vals.length - 1) / 2)] : 0;
     const mean = vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
-    let mode = 0, best = -1;
-    for (let i = 0; i < bins.length; i++) if (bins[i] > best) { best = bins[i]; mode = i; }
-    return { bins, max: Math.max(1, ...bins), median, mean, mode, n: vals.length };
+    let mode = 0, best = -1, lastBin = 0;
+    for (let i = 0; i < bins.length; i++) { if (bins[i] > best) { best = bins[i]; mode = i; } if (bins[i] > 0) lastBin = i; }
+    // Discrete-time departure hazard: h(t) = leavers in year t / those still serving
+    // at the start of year t (tenure >= t). Reads as "given they lasted t years,
+    // odds they leave in year t" — the classic survival curve behind the histogram.
+    const hazard = bins.map((c, t) => {
+      let atRisk = 0;
+      for (let j = t; j < bins.length; j++) atRisk += bins[j];
+      return atRisk > 0 ? c / atRisk : 0;
+    });
+    return { bins, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, lastBin };
   }, [allDeans, discipline, effectiveStates, stateOf, yFrom, yTo]);
 
   // Narrow, recent windows read short: long tenures started in that window have
@@ -362,6 +399,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       : locBase.slice();
     rows.sort((a, b) => {
       if (sortBy === "tenure") return (b.tenureLength || 0) - (a.tenureLength || 0);
+      if (sortBy === "sofar") return (elapsedYears(b) || 0) - (elapsedYears(a) || 0);
       if (sortBy === "recent") return (b.startYear || 0) - (a.startYear || 0);
       const cmp = (a.dean.split(/\s+/).pop() || "").localeCompare(b.dean.split(/\s+/).pop() || "");
       return cmp !== 0 ? cmp : a.dean.localeCompare(b.dean);
@@ -407,6 +445,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   const clearAll = () => {
     setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword("");
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
+    setRequirePhd(true); setRequireProf(true); setYrFrom(null); setYrTo(null);
   };
 
   // Export the SHORTLIST only (the user's hand-picked few), not the dataset.
@@ -494,11 +533,25 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                 <option value="">All schools</option>
                 {schoolList.map((sc) => <option key={sc} value={sc}>{sc}</option>)}
               </select>
-              <select className={sel} value={sortBy} onChange={(e) => setSortBy(e.target.value as "name" | "tenure" | "recent")} aria-label="Sort by">
+              <select className={sel} value={sortBy} onChange={(e) => setSortBy(e.target.value as "name" | "tenure" | "recent" | "sofar")} aria-label="Sort by">
                 <option value="name">Sort: name</option>
                 <option value="tenure">Sort: longest tenure</option>
+                <option value="sofar">Sort: tenure so far</option>
                 <option value="recent">Sort: most recently appointed</option>
               </select>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+              <span className="text-xs font-medium text-muted-foreground">Credentials</span>
+              <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
+                <input type="checkbox" checked={requirePhd} onChange={(e) => { setRequirePhd(e.target.checked); setExpandedId(null); }} className="accent-[#011F5B] w-3.5 h-3.5" />
+                Ph.D.
+              </label>
+              <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
+                <input type="checkbox" checked={requireProf} onChange={(e) => { setRequireProf(e.target.checked); setExpandedId(null); }} className="accent-[#011F5B] w-3.5 h-3.5" />
+                Professor
+              </label>
+              <span className="text-[10px] text-muted-foreground">(held a doctorate / faculty rank)</span>
             </div>
 
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -612,12 +665,23 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                   const mx = (Math.min(20, hist.median) + 0.5) * (252 / 21);
                   return <line x1={mx} x2={mx} y1={2} y2={78} stroke="currentColor" className="text-[#E8A33D]" strokeWidth={1.5} strokeDasharray="2 2" />;
                 })()}
+                {showHazard && hist.n > 0 && (
+                  <polyline
+                    points={hist.hazard.slice(0, hist.lastBin + 1).map((h: number, i: number) => `${(i + 0.5) * (252 / 21)},${78 - Math.min(1, h) * 70}`).join(" ")}
+                    fill="none" stroke="currentColor" className="text-[#A31F34]" strokeWidth={1.3} />
+                )}
                 {[0, 5, 10, 15, 20].map((t) => (
                   <text key={t} x={(t + 0.5) * (252 / 21)} y={90} textAnchor="middle" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 7 }}>{t === 20 ? "20+" : t}</text>
                 ))}
               </svg>
             </div>
-            <p className="text-[10px] text-muted-foreground mt-1">Years served · amber line = median</p>
+            <div className="flex items-center justify-between mt-1 gap-2 flex-wrap">
+              <p className="text-[10px] text-muted-foreground">Years served · amber = median{showHazard ? " · red = hazard rate" : ""}</p>
+              <label className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground cursor-pointer select-none" title="Given a leader lasted t years, the odds they leave in year t">
+                <input type="checkbox" checked={showHazard} onChange={(e) => setShowHazard(e.target.checked)} className="accent-[#A31F34] w-3 h-3" />
+                Hazard rate
+              </label>
+            </div>
 
             <div className="mt-3">
               <div className="flex items-center justify-between mb-1 gap-2 flex-wrap">
@@ -635,6 +699,9 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                 onHigh={(v) => { setServedMax(Math.max(v, servedMin)); setExpandedId(null); }}
                 ariaLow="Minimum years in seat" ariaHigh="Maximum years in seat" />
               <div className="flex justify-between text-[10px] text-muted-foreground mt-1"><span>0</span><span>{SERVED_CAP}+</span></div>
+              {(servedMin > 0 || servedMax < SERVED_CAP) && (
+                <button onClick={() => { setServedMin(0); setServedMax(SERVED_CAP); setExpandedId(null); }} className="mt-1 text-[10px] text-muted-foreground hover:text-foreground underline underline-offset-2">Reset</button>
+              )}
             </div>
 
             <div className="mt-3">
@@ -645,6 +712,9 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               <DualRange min={yearBounds.lo} max={NOW} low={yFrom} high={yTo}
                 onLow={(v) => setYrFrom(Math.min(v, yTo))} onHigh={(v) => setYrTo(Math.max(v, yFrom))}
                 ariaLow="Benchmark from year" ariaHigh="Benchmark to year" />
+              {(yrFrom !== null || yrTo !== null) && (
+                <button onClick={() => { setYrFrom(null); setYrTo(null); }} className="mt-1 text-[10px] text-muted-foreground hover:text-foreground underline underline-offset-2">Reset</button>
+              )}
             </div>
 
             {recentWindow && (
