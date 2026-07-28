@@ -15,10 +15,9 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
-// Large (~5 MB), so it ships as a lazily-fetched STATIC asset in public/ (served
-// at /affinity-by-school.json, outside the gated /data path), regenerated on every
-// build/deploy. Gitignored - it is a build artifact, never committed.
-const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "public", "affinity-by-school.json");
+// Committed alongside leader-research.json (its main input) and served through the
+// gated /data endpoint with per-scope filtering. Regenerated on every build/deploy.
+const OUT = join(SRC, "affinity-by-school.json");
 
 const FILE_ID = {
   "r1-bschool-deans.json": "r1bschool", "r1-eschool-deans.json": "r1eschool",
@@ -65,7 +64,38 @@ for (const f of deanFiles) {
     if (r.university) { const k = snorm(r.university); if (!canon.has(k)) canon.set(k, r.university); }
   }
 }
-const toCanon = (org) => canon.get(snorm(org)) || null; // exact normalized match only (avoids false positives)
+// Curated unambiguous abbreviations -> canonical normalized name. Guarded by
+// canon.has() at match time, so a value that isn't an actual school just no-ops.
+const ALIAS = {
+  "ucla": "university of california los angeles", "ucsd": "university of california san diego",
+  "ucsb": "university of california santa barbara", "uc berkeley": "university of california berkeley",
+  "berkeley": "university of california berkeley", "cal": "university of california berkeley",
+  "uc davis": "university of california davis", "uc irvine": "university of california irvine",
+  "uc riverside": "university of california riverside", "uc santa cruz": "university of california santa cruz",
+  "mit": "massachusetts institute of technology", "penn": "university of pennsylvania", "upenn": "university of pennsylvania",
+  "nyu": "new york university", "usc": "university of southern california", "unc": "university of north carolina",
+  "uva": "university of virginia", "umich": "university of michigan", "msu": "michigan state university",
+  "osu": "the ohio state university", "penn state": "pennsylvania state university",
+  "georgia tech": "georgia institute of technology", "asu": "arizona state university",
+};
+const canonKeys = [...canon.keys()];
+// Match a free-text org/degree string to a canonical dropdown school. Exact ->
+// alias -> unique word-boundary prefix (either direction), so "University of
+// Michigan Medical School" and "University of Wisconsin" both resolve, while
+// ambiguous stems like "University of California" (many campuses) stay unmatched.
+function toCanon(org) {
+  const n = snorm(org);
+  if (!n) return null;
+  if (canon.has(n)) return canon.get(n);
+  const a = ALIAS[n];
+  if (a && canon.has(a)) return canon.get(a);
+  const supers = canonKeys.filter((k) => k.startsWith(n + " "));
+  if (supers.length === 1) return canon.get(supers[0]);
+  let best = null;
+  for (const k of canonKeys) if (n.startsWith(k + " ") && (!best || k.length > best.length)) best = k;
+  if (best && canonKeys.filter((k) => n.startsWith(k + " ") && k.length === best.length).length === 1) return canon.get(best);
+  return null;
+}
 
 const lr = read("leader-research.json") || {};
 const roots = read("career-roots.json") || {};

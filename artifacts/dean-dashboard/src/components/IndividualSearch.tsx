@@ -15,8 +15,8 @@ declare const __BUILD_ID__: string;
 
 // Cross-index AFFINITY: every leader in the database with a tie to a school
 // (undergrad / grad / faculty / administration), for ALL schools. Precomputed by
-// scripts/gen-affinity.mjs into public/affinity-by-school.json (~4 MB, regenerated
-// every build). Too large to bundle, so it is fetched lazily the first time a user
+// scripts/gen-affinity.mjs (~4.5 MB), served scope-filtered through the gated /data
+// endpoint. Too large to bundle, so it is fetched lazily the first time a user
 // engages the selector, then cached module-wide.
 const AFF_KINDS: [keyof AffEntry, string][] = [
   ["undergrad", "Undergraduate"], ["grad", "Master or PhD"], ["faculty", "Faculty"], ["admin", "Administration"],
@@ -32,7 +32,7 @@ let AFFINITY_PROMISE: Promise<AffMap> | null = null;
 function loadAffinity(): Promise<AffMap> {
   if (AFFINITY_CACHE) return Promise.resolve(AFFINITY_CACHE);
   if (!AFFINITY_PROMISE) {
-    AFFINITY_PROMISE = fetch(`${import.meta.env.BASE_URL}affinity-by-school.json?v=${__BUILD_ID__}`)
+    AFFINITY_PROMISE = fetch(`${import.meta.env.BASE_URL}data/affinity-by-school.json?v=${__BUILD_ID__}`)
       .then((r) => (r.ok ? r.json() : {}))
       .then((d) => (AFFINITY_CACHE = d as AffMap))
       .catch(() => (AFFINITY_CACHE = {} as AffMap));
