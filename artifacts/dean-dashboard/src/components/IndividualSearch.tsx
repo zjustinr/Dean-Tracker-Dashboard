@@ -89,7 +89,7 @@ const REGIONS: Record<string, string[]> = {
  * full profile inline between rows. Mobile-first: plain input + native
  * <select> + tappable rows, no custom dropdown to mis-tap.
  */
-export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: DeanSearchPrefill | null; onOpenSchool?: (university: string, school: string) => void }) {
+export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }: { prefill?: DeanSearchPrefill | null; onOpenSchool?: (university: string, school: string) => void; onOpenLeader?: (index: string | null, fullName: string) => void }) {
   const { datasetId, bundle, noun, nounLower, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
   const PHOTOS = usePhotoMap();
@@ -252,9 +252,12 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set());
     const matches = allDeans.filter((d) => d.dean.toLowerCase() === prefill.fullName.toLowerCase());
     const best = matches.find((d) => d.endYear == null) || matches[0] || null;
-    setExpandedId(best ? best.id : null);
+    // Only open on a hit. A cross-index open switches datasetId first, so allDeans
+    // for the new index may not be loaded yet on the token commit; adding allDeans
+    // to the deps lets this retry (and land the open) once the data arrives.
+    if (best) setExpandedId(best.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [prefill?.token]);
+  }, [prefill?.token, allDeans]);
 
   const { disciplines, schoolList, stateList } = useMemo(() => {
     const dSet = new Set<string>(), sSet = new Set<string>(), stSet = new Set<string>();
@@ -862,7 +865,10 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               {affinityResults.slice(0, 60).map((e) => {
                 const photo = PHOTOS[e.enrichKey]?.photo;
                 return (
-                  <div key={e.enrichKey + e.name} className="flex gap-2.5 rounded-lg border border-border bg-card p-2">
+                  <button key={e.enrichKey + e.name} type="button"
+                    onClick={() => onOpenLeader?.(e.index, e.name)}
+                    title={`Open ${e.name}'s profile`}
+                    className="flex gap-2.5 rounded-lg border border-border bg-card p-2 text-left hover:border-[#8C1D40]/50 hover:bg-[#8C1D40]/[0.04] transition-colors">
                     {photo ? (
                       <img src={photo} alt={e.name} loading="lazy" className="w-10 h-10 rounded-full object-cover border shrink-0" />
                     ) : (
@@ -885,7 +891,8 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                         ))}
                       </div>
                     </div>
-                  </div>
+                    <span className="self-center text-[#8C1D40] text-base shrink-0 pr-0.5" aria-hidden="true">›</span>
+                  </button>
                 );
               })}
             </div>

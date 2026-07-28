@@ -57,12 +57,13 @@ function buildTabContent(
   deanPrefill: DeanSearchPrefill | null,
   schoolPrefill: SchoolPrefill | null,
   onOpenSchool: (university: string, school: string) => void,
+  onOpenLeader: (index: string | null, fullName: string) => void,
 ): Record<string, React.ReactNode> {
   return {
     explorer: <SchoolExplorer prefill={schoolPrefill} />,
     trends: <AggregateTrends />,
     analysis: <CrossSchoolAnalysis />,
-    search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} />,
+    search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} onOpenLeader={onOpenLeader} />,
     jobmarket: <LiveJobMarket />,
     discipline: <DisciplineSearch />,
   };
@@ -115,7 +116,19 @@ function AppInner() {
     setEntered(true);
   }, [meter]);
 
-  const tabContent = buildTabContent(deanPrefill, schoolPrefill, openSchoolHistory);
+  // Open an affinity leader who may live in a DIFFERENT index: switch to their
+  // home index, then prefill their name so the search opens their profile once
+  // that index's data has loaded (the prefill effect retries on data arrival).
+  const openLeaderCrossIndex = useCallback((index: string | null, fullName: string) => {
+    if (!meter.tryView()) return;
+    if (index && index !== datasetId) setDatasetId(index as Parameters<typeof setDatasetId>[0]);
+    const parts = fullName.trim().split(/\s+/);
+    setDeanPrefill({ fullName, first: parts[0], last: parts[parts.length - 1], token: Date.now() });
+    setActiveTab("search");
+    setEntered(true);
+  }, [meter, datasetId, setDatasetId]);
+
+  const tabContent = buildTabContent(deanPrefill, schoolPrefill, openSchoolHistory, openLeaderCrossIndex);
 
   return (
     <div className={darkMode ? "dark" : ""}>
