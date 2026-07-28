@@ -8,13 +8,13 @@ import RegionMap from "@/components/RegionMap";
 import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
-import asuAffinity from "@/data/asu-affinity.json";
+import affinityBySchool from "@/data/affinity-by-school.json";
 import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
 
-// Affinity POC (ASU only): every leader in the database with a tie to Arizona
-// State, precomputed cross-index in scripts/asu_affinity_etl. The selector shows
-// only when ASU is the chosen school. Kinds map to the JSON's array fields.
-const AFFINITY_SCHOOL = "Arizona State University";
+// Affinity POC: every leader in the database with a tie to a target school,
+// precomputed cross-index in scripts/affinity_etl and keyed by the exact
+// dropdown school string. The selector appears only when the chosen school has
+// affinity data. Built for ASU + University of Arkansas at Little Rock so far.
 const AFF_KINDS: [keyof AffEntry, string][] = [
   ["undergrad", "Undergraduate"], ["grad", "Master or PhD"], ["faculty", "Faculty"], ["admin", "Administration"],
 ];
@@ -23,6 +23,7 @@ type AffEntry = {
   index: string | null; indexLabel: string | null; enrichKey: string; hasPhoto: boolean;
   undergrad: string[]; grad: string[]; faculty: string[]; admin: string[];
 };
+const AFFINITY: Record<string, AffEntry[]> = affinityBySchool as Record<string, AffEntry[]>;
 
 export interface DeanSearchPrefill {
   fullName: string;
@@ -484,12 +485,14 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
   const shown = results.slice(0, CAP);
 
-  // Affinity POC: cross-index leaders tied to ASU, filtered to the checked kinds.
-  const affinityOn = school === AFFINITY_SCHOOL;
+  // Affinity POC: cross-index leaders tied to the selected school, filtered to
+  // the checked kinds. Shown only for schools that have precomputed affinity data.
+  const affinityList = AFFINITY[school];
+  const affinityOn = !!affinityList;
   const affinityResults = useMemo(() => {
-    if (!affinityOn || affinity.size === 0) return [] as AffEntry[];
-    return (asuAffinity as AffEntry[]).filter((e) => [...affinity].some((k) => (e[k as keyof AffEntry] as string[])?.length));
-  }, [affinityOn, affinity]);
+    if (!affinityList || affinity.size === 0) return [] as AffEntry[];
+    return affinityList.filter((e) => [...affinity].some((k) => (e[k as keyof AffEntry] as string[])?.length));
+  }, [affinityList, affinity]);
   const inSlate = (id: number) => slate.some((d) => d.id === id);
   const toggleSlate = (d: Dean) => setSlate((cur) => inSlate(d.id) ? cur.filter((x) => x.id !== d.id) : [...cur, d]);
   const toggleSet = (setter: React.Dispatch<React.SetStateAction<Set<string>>>, v: string) =>
@@ -609,14 +612,14 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
 
             {affinityOn && (
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 rounded-lg bg-[#8C1D40]/8 border border-[#8C1D40]/25 px-2.5 py-1.5">
-                <span className="text-xs font-semibold text-[#8C1D40]">Affinity to ASU</span>
+                <span className="text-xs font-semibold text-[#8C1D40]">Affinity to this school</span>
                 {AFF_KINDS.map(([key, label]) => (
                   <label key={key as string} className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
                     <input type="checkbox" checked={affinity.has(key as string)} onChange={() => { toggleSet(setAffinity, key as string); setExpandedId(null); }} className="accent-[#8C1D40] w-3.5 h-3.5" />
                     {label}
                   </label>
                 ))}
-                <span className="text-[10px] text-muted-foreground">(everyone in the database connected to Arizona State, across all indices)</span>
+                <span className="text-[10px] text-muted-foreground">(everyone in the database connected to {school}, across all indices)</span>
               </div>
             )}
 
@@ -847,7 +850,7 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
       {affinityOn && affinity.size > 0 && (
         <div className="mb-4 rounded-xl border border-[#8C1D40]/30 bg-[#8C1D40]/5 p-3 sm:p-4">
           <p className="text-sm font-semibold text-[#8C1D40]">
-            {affinityResults.length} leader{affinityResults.length !== 1 ? "s" : ""} across all indices with an affinity to Arizona State University
+            {affinityResults.length} leader{affinityResults.length !== 1 ? "s" : ""} across all indices with an affinity to {school}
           </p>
           <p className="text-[11px] text-muted-foreground mb-2.5">
             {AFF_KINDS.filter(([k]) => affinity.has(k as string)).map(([, l]) => l).join(" · ")}
