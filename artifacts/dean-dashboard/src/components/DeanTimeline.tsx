@@ -220,7 +220,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               <span>{hoveredDean.careerBackground || "–"}</span>
               <span className="text-muted-foreground">PhD</span>
               <span>{hoveredDean.hasPhd ? "Yes" : "No"}</span>
-              <span className="text-muted-foreground">Post-{titleOf(hoveredDean)}</span>
+              <span className="text-muted-foreground">Post-position</span>
               <span>{NEXT_ROLE_LABELS[hoveredDean.nextRole] || hoveredDean.nextRole || "–"}</span>
             </div>
             {hoveredDean.notes && (
@@ -301,7 +301,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                 <span>{clickedDean.priorInstitution || "–"}</span>
               </div>
               <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
-                <span className="text-muted-foreground font-medium">Post-{titleOf(clickedDean)} Role</span>
+                <span className="text-muted-foreground font-medium">Post-position Role</span>
                 <span>{NEXT_ROLE_LABELS[clickedDean.nextRole] || clickedDean.nextRole || "–"}</span>
                 <span className="text-muted-foreground font-medium">Involuntary Exit</span>
                 <span>{clickedDean.involuntary ? "Yes" : "No"}</span>

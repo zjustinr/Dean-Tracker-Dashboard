@@ -234,7 +234,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
           )}
         </div>
         <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
-          <span className="text-muted-foreground font-medium">{isCurrent ? "Current Status" : `Post-${title} Role`}</span>
+          <span className="text-muted-foreground font-medium">{isCurrent ? "Current Status" : "Post-position Role"}</span>
           <span>
             {isCurrent
               ? `${dean.isInterim ? "Interim " : ""}${title}${dean.startYear ? `, since ${dean.startYear}` : " (serving)"}`
