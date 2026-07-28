@@ -356,37 +356,39 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
   // reads as the norm for THIS cohort, not the whole index. Independent of the
   // years-in-seat screen — that only shades which bars are highlighted.
   const hist = useMemo(() => {
-    const bins = new Array(21).fill(0); // bins 0..19, plus a 20+ bucket at index 20
+    const bins = new Array(21).fill(0); // completed-tenure distribution (departed only)
     const vals: number[] = [];
+    // Life-table inputs for the departure hazard. events[t] = leaders who left in
+    // year t. atRisk[t] = leaders still in the seat at the START of year t — this
+    // must include people STILL SERVING (right-censored), not only those who have
+    // already left, or the probability of moving is badly overstated.
+    const events = new Array(21).fill(0);
+    const atRisk = new Array(21).fill(0);
     for (const d of allDeans) {
-      if (d.endYear == null || !d.startYear) continue;
-      if (d.isInterim) continue; // interims serve ~1 yr and skew the norm; benchmark permanent tenure only
-      if ((d as { roleType?: string }).roleType === "subdean") continue; // sub-deans are the feeder bench, not deans; keep them out of tenure norms
+      if (!d.startYear) continue;
+      if (d.isInterim) continue; // interims serve ~1 yr and skew the norm
+      if ((d as { roleType?: string }).roleType === "subdean") continue; // feeder bench, not deans
       if (discipline && d.disciplineBroad !== discipline) continue;
       if (effectiveStates.size) {
         const st = stateOf.get(d.university.toLowerCase());
         if (!st || !effectiveStates.has(st)) continue;
       }
       if (d.startYear < yFrom || d.startYear > yTo) continue;
-      const t = d.tenureLength ?? (d.endYear - d.startYear);
-      if (t == null || t < 0) continue;
-      bins[Math.min(20, Math.floor(t))]++;
-      vals.push(t);
+      const departed = d.endYear != null;
+      const raw = departed ? (d.tenureLength ?? (d.endYear! - d.startYear)) : (NOW - d.startYear);
+      if (raw == null || raw < 0) continue;
+      const t = Math.min(20, Math.floor(raw));
+      for (let j = 0; j <= t; j++) atRisk[j]++; // in the seat through the start of every year up to t
+      if (departed) { events[t]++; bins[t]++; vals.push(raw); } // a completed departure at year t
     }
     vals.sort((a, b) => a - b);
     const median = vals.length ? vals[Math.floor((vals.length - 1) / 2)] : 0;
     const mean = vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
     let mode = 0, best = -1, lastBin = 0;
     for (let i = 0; i < bins.length; i++) { if (bins[i] > best) { best = bins[i]; mode = i; } if (bins[i] > 0) lastBin = i; }
-    // Discrete-time departure hazard: h(t) = leavers in year t / those still serving
-    // at the start of year t (tenure >= t). Reads as "given they lasted t years,
-    // odds they leave in year t" — the classic survival curve behind the histogram.
-    const hazard = bins.map((c, t) => {
-      let atRisk = 0;
-      for (let j = t; j < bins.length; j++) atRisk += bins[j];
-      return atRisk > 0 ? c / atRisk : 0;
-    });
-    return { bins, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, lastBin };
+    // h(t) = P(leaves in year t | still in the seat at the start of year t).
+    const hazard = events.map((e, t) => (atRisk[t] > 0 ? e / atRisk[t] : 0));
+    return { bins, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, lastBin, atRiskN: atRisk[0] };
   }, [allDeans, discipline, effectiveStates, stateOf, yFrom, yTo]);
 
   // Narrow, recent windows read short: long tenures started in that window have
@@ -676,10 +678,10 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               </svg>
             </div>
             <div className="flex items-center justify-between mt-1 gap-2 flex-wrap">
-              <p className="text-[10px] text-muted-foreground">Years served · amber = median{showHazard ? " · red = hazard rate" : ""}</p>
-              <label className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground cursor-pointer select-none" title="Given a leader lasted t years, the odds they leave in year t">
+              <p className="text-[10px] text-muted-foreground">Years served · amber = median{showHazard ? " · red = P(move), 0–100%" : ""}</p>
+              <label className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground cursor-pointer select-none" title="Probability a leader leaves in year t given they are still in the seat at the start of year t (departures / everyone still serving at that point)">
                 <input type="checkbox" checked={showHazard} onChange={(e) => setShowHazard(e.target.checked)} className="accent-[#A31F34] w-3 h-3" />
-                Hazard rate
+                Probability of Moving (Hazard rate)
               </label>
             </div>
 
