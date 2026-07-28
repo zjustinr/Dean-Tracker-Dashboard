@@ -412,7 +412,12 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
         }
       }
     }
-    return { bins, bw: 252 / NB, tmax: TMAX, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, fit, lastBin, atRiskN: atRisk[0] };
+    // Peak of whichever hazard series we plot (fitted curve, else the raw
+    // fallback). Used to auto-scale the curve to fill the panel and to label the
+    // right-hand axis with the actual probability at the peak.
+    const hazSeries = fit ?? hazard.slice(0, lastBin + 1);
+    const hazPeak = hazSeries.length ? Math.max(...hazSeries) : 0;
+    return { bins, bw: 252 / NB, tmax: TMAX, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, fit, hazPeak, lastBin, atRiskN: atRisk[0] };
   }, [allDeans, discipline, effectiveStates, stateOf, yFrom, yTo]);
 
   // Narrow, recent windows read short: long tenures started in that window have
@@ -680,7 +685,21 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
               </div>
             )}
             <div className="rounded-lg bg-muted/40 border border-muted-foreground/15 p-2">
-              <svg viewBox="0 0 252 92" className="w-full" role="img" aria-label="Distribution of completed tenure lengths, in years">
+              <svg viewBox="-15 0 285 92" className="w-full" role="img" aria-label="Distribution of completed tenure lengths, in years">
+                {/* Left axis: bar counts. Ticks at 0, mid, max of the tallest bar. */}
+                {hist.n > 0 && (() => {
+                  const ticks = [...new Set(hist.max <= 1 ? [0, hist.max] : [0, Math.round(hist.max / 2), hist.max])];
+                  return <>
+                    <line x1={0} y1={8} x2={0} y2={78} stroke="currentColor" className="text-muted-foreground/30" strokeWidth={0.5} />
+                    {ticks.map((v) => {
+                      const y = 78 - (v / hist.max) * 70;
+                      return <g key={v}>
+                        <line x1={-2} y1={y} x2={0} y2={y} stroke="currentColor" className="text-muted-foreground/40" strokeWidth={0.5} />
+                        <text x={-3.5} y={y + 2} textAnchor="end" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 6 }}>{v}</text>
+                      </g>;
+                    })}
+                  </>;
+                })()}
                 {hist.bins.map((c: number, i: number) => {
                   const bw = hist.bw, bh = (c / hist.max) * 70;
                   const inBand = i >= servedMin && i <= Math.min(hist.tmax, servedMax);
@@ -691,21 +710,30 @@ export default function IndividualSearch({ prefill, onOpenSchool }: { prefill?: 
                   const mx = (Math.min(hist.tmax, hist.median) + 0.5) * hist.bw;
                   return <line x1={mx} x2={mx} y1={2} y2={78} stroke="currentColor" className="text-[#E8A33D]" strokeWidth={1.5} strokeDasharray="2 2" />;
                 })()}
-                {showHazard && hist.n > 0 && (
-                  <polyline
-                    points={(hist.fit
-                      ? hist.fit.map((h: number, k: number) => `${(k * 0.5 + 0.5) * hist.bw},${78 - Math.min(1, h) * 70}`)
-                      : hist.hazard.slice(0, hist.lastBin + 1).map((h: number, i: number) => `${(i + 0.5) * hist.bw},${78 - Math.min(1, h) * 70}`)
-                    ).join(" ")}
-                    fill="none" stroke="currentColor" className="text-[#A31F34]" strokeWidth={1.3} />
-                )}
+                {showHazard && hist.n > 0 && hist.hazPeak > 0 && (() => {
+                  // Auto-scale the hazard to its own peak so the curve fills ~92% of
+                  // the panel height; the right axis shows the real probability.
+                  const fill = 0.92 * 70, yTop = 78 - fill;
+                  const y = (h: number) => 78 - (h / hist.hazPeak) * fill;
+                  const pts = (hist.fit
+                    ? hist.fit.map((h: number, k: number) => `${(k * 0.5 + 0.5) * hist.bw},${y(h)}`)
+                    : hist.hazard.slice(0, hist.lastBin + 1).map((h: number, i: number) => `${(i + 0.5) * hist.bw},${y(h)}`)
+                  ).join(" ");
+                  return <>
+                    <polyline points={pts} fill="none" stroke="currentColor" className="text-[#A31F34]" strokeWidth={1.3} />
+                    <line x1={253} y1={yTop} x2={255} y2={yTop} stroke="currentColor" className="text-[#A31F34]" strokeWidth={0.5} />
+                    <line x1={253} y1={78} x2={255} y2={78} stroke="currentColor" className="text-[#A31F34]" strokeWidth={0.5} />
+                    <text x={256} y={yTop + 2} textAnchor="start" fill="currentColor" className="text-[#A31F34]" style={{ fontSize: 6 }}>{(hist.hazPeak * 100).toFixed(0)}%</text>
+                    <text x={256} y={78} textAnchor="start" fill="currentColor" className="text-[#A31F34]" style={{ fontSize: 6 }}>0</text>
+                  </>;
+                })()}
                 {[0, 5, 10, 15, 20, 25, 30].map((t) => (
                   <text key={t} x={(t + 0.5) * hist.bw} y={90} textAnchor="middle" fill="currentColor" className="text-muted-foreground" style={{ fontSize: 7 }}>{t === hist.tmax ? "30+" : t}</text>
                 ))}
               </svg>
             </div>
             <div className="flex items-center justify-between mt-1 gap-2 flex-wrap">
-              <p className="text-[10px] text-muted-foreground">Years served · amber = median{showHazard ? " · red = P(move), fitted, 0–100%" : ""}</p>
+              <p className="text-[10px] text-muted-foreground">Years served · left axis = count · amber = median{showHazard ? ` · red = P(move), fitted (peak ${(hist.hazPeak * 100).toFixed(0)}%)` : ""}</p>
               <label className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground cursor-pointer select-none" title="Probability a leader leaves in year t given they are still in the seat at the start of year t. Smooth log-logistic fit to the cohort's censored tenures (the reliability-style unimodal hazard); the raw per-year rate is too noisy at long tenures, where few remain at risk, to plot directly.">
                 <input type="checkbox" checked={showHazard} onChange={(e) => setShowHazard(e.target.checked)} className="accent-[#A31F34] w-3 h-3" />
                 Probability of Moving (Hazard rate)
