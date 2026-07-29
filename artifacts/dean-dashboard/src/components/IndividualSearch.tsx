@@ -268,6 +268,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     setQuery(prefill.fullName);
     setLetter(""); setDiscipline(""); setSchool(""); setTenureWin("any");
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set());
+    // Clear every narrowing filter too, so the requested person is never filtered
+    // out of results (which would leave "View full profile" opening nothing) — e.g.
+    // a non-doctorate leader while the credential screens are on.
+    setKeyword(""); setAffinity(new Set()); setRequirePhd(false); setRequireProf(false);
     const matches = allDeans.filter((d) => d.dean.toLowerCase() === prefill.fullName.toLowerCase());
     const best = matches.find((d) => d.endYear == null) || matches[0] || null;
     // Only open on a hit. A cross-index open switches datasetId first, so allDeans

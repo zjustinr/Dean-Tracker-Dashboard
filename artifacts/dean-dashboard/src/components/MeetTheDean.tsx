@@ -13,15 +13,31 @@ import { usePhotoMap, enrichKey as photoKey } from "@/data/enrichment";
  * and the source/school announcement URL.
  */
 export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: Dean) => void }) {
-  const { noun, nounLower } = useDataset();
+  const { noun, nounLower, datasetId } = useDataset();
   const allDeans = useAllDeans();
   const PHOTO_MAP = usePhotoMap();
   const current = useMemo(
     () => allDeans.filter((d) => d.endYear == null && d.dean && d.startYear && !/unknown/i.test(d.dean)),
     [allDeans]
   );
-  const [pick, setPick] = useState(() => Math.random());
-  const dean = current.length ? current[Math.floor(pick * current.length) % current.length] : null;
+  // Browsable history of shown leaders (indices into `current`) so Prev can recall
+  // who was shown earlier instead of only jumping to a fresh random one. Reseed a
+  // random start whenever the dataset (or its leader list) changes.
+  const [history, setHistory] = useState<number[]>([]);
+  const [pos, setPos] = useState(0);
+  useEffect(() => {
+    if (current.length) { setHistory([Math.floor(Math.random() * current.length)]); setPos(0); }
+  }, [datasetId, current.length]);
+  const dean = current.length ? current[(history[pos] ?? 0) % current.length] : null;
+  const canPrev = pos > 0;
+  const goPrev = () => setPos((p) => Math.max(0, p - 1));
+  const goNext = () => {
+    if (pos < history.length - 1) { setPos((p) => p + 1); return; } // forward through recalled history
+    let n = Math.floor(Math.random() * current.length); // at the frontier: draw a new leader
+    if (current.length > 1 && n === history[pos]) n = (n + 1) % current.length;
+    setHistory((h) => [...h, n]);
+    setPos((p) => p + 1);
+  };
 
   // Curated official-portrait map only (built by the photo-hunt agents);
   // initials monogram otherwise — no third-party photo lookups.
@@ -40,17 +56,29 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
     <Card className="lg:sticky lg:top-4 border-2" style={{ borderColor: "#011F5B" }}>
       <CardHeader className="pb-2">
         <CardTitle className="text-base flex items-center gap-2">
+          {/* Prev/Next instead of a single shuffle, so viewers can step back to a
+              leader they just saw. Prev walks the recalled history; Next advances it
+              (drawing a new random leader once past the end). */}
+          <button
+            onClick={goPrev}
+            disabled={!canPrev}
+            aria-label="Previous leader"
+            title="Previous leader"
+            className="text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-default text-lg leading-none"
+          >
+            ←
+          </button>
           {/* "Leader" rather than the dataset's own noun: this is product chrome, and
               it should read the same across all 11 datasets. The person's actual title
               still appears verbatim below. */}
-          Meet a Leader
+          <span className="flex-1 text-center">Meet a Leader</span>
           <button
-            onClick={() => setPick(Math.random())}
-            aria-label="Show another leader"
-            title="Show another leader"
-            className="ml-auto text-muted-foreground hover:text-foreground text-sm"
+            onClick={goNext}
+            aria-label="Next leader"
+            title="Next leader"
+            className="text-muted-foreground hover:text-foreground text-lg leading-none"
           >
-            ↻
+            →
           </button>
         </CardTitle>
       </CardHeader>
