@@ -108,6 +108,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const { datasetId, bundle, noun, nounLower, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
   const PHOTOS = usePhotoMap();
+  // Does this index carry an associate/vice-dean feeder bench (roleType "subdean")?
+  // If so, the Appointment "Interim" tab becomes "Assoc/Vice/Interim" and shows the
+  // bench alongside interims — same treatment the Graduate College index gets.
+  const hasBench = useMemo(() => allDeans.some((d) => (d as { roleType?: string }).roleType === "subdean"), [allDeans]);
 
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState("");
@@ -660,7 +664,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <span className="text-xs font-medium text-muted-foreground">Appointment</span>
               <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
-                {([["all", "All"], ["perm", "Permanent"], ["interim", datasetId === "usgrad" ? "Assoc/Vice/Interim" : "Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
+                {([["all", "All"], ["perm", "Permanent"], ["interim", hasBench ? "Assoc/Vice/Interim" : "Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
                   <button key={v} onClick={() => { setApptType(v); setExpandedId(null); }}
                     className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", apptType === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
                 ))}
@@ -678,10 +682,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                   </button>
                 ))}
               </div>
-              {apptType === "interim" && tenureWin === "sitting" && datasetId !== "usgrad" && (
+              {apptType === "interim" && tenureWin === "sitting" && !hasBench && (
                 <span className="w-full text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
               )}
-              {datasetId === "usgrad" && apptType === "interim" && (() => {
+              {hasBench && apptType === "interim" && (() => {
                 const sub = results.filter((r) => (r as { roleType?: string }).roleType === "subdean").length;
                 const intr = results.length - sub;
                 return (
