@@ -304,7 +304,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
         return (
           <div className="mt-4 pt-3 border-t border-border">
             <h4 className="text-sm font-bold mb-3">Career Path</h4>
-            <div className={mapRenders ? "grid gap-5 lg:grid-cols-[minmax(0,220px)_1fr] items-start" : ""}>
+            <div className={mapRenders ? "grid gap-5 items-start lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)] xl:grid-cols-[minmax(0,200px)_minmax(0,1fr)_14rem]" : ""}>
             <div>
             <div className="relative ml-1">
               {display.map((step, j) => {
@@ -348,23 +348,17 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
             )}
             </div>
             {mapRenders && (
-              <div className="min-w-0 relative">
+              <div className="min-w-0">
                 <CareerMap steps={research!.career!} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
-                {/* Assessment sits exactly to the right of the map, vertically centered on it
-                    (≈ the middle of the Career Path) so it lands beside the map — not up by the
-                    photo. Absolute so it never steals width from the map. On narrow screens it
-                    drops in-flow below the map instead. In the Slate Builder (hideAssessment)
-                    it is rendered in the results-map right column instead. */}
-                {!hideAssessment && (
-                  <>
-                    <div className="hidden xl:block absolute left-full top-1/2 -translate-y-1/2 ml-2 w-52">
-                      <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
-                    </div>
-                    <div className="xl:hidden mt-3">
-                      <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
-                    </div>
-                  </>
-                )}
+              </div>
+            )}
+            {/* Movability assessment as a co-equal panel of the Career Path: its own
+                top-aligned column beside the map on xl, a full-width panel below the map
+                on lg, and in-flow below on mobile. In the Slate Builder (hideAssessment)
+                it is rendered in the results-map right column instead. */}
+            {mapRenders && !hideAssessment && (
+              <div className="lg:col-span-2 xl:col-span-1">
+                <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
               </div>
             )}
             </div>

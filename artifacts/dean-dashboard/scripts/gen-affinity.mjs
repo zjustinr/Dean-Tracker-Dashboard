@@ -58,14 +58,22 @@ const ADMIN = /\b(dean|provost|chancellor|president|chair|director|vice presiden
 const deanFiles = readdirSync(SRC).filter((f) => /^r1-.*-deans\.json$/.test(f)).sort();
 const DEANS = []; // { rec, idx }
 const canon = new Map(); // snorm(university) -> canonical university string (as shown in the dropdown)
+// Proper-cased display name per normalized key. career-roots.json / leader-research.json
+// are keyed lowercase, so without this the lowercase spelling can win over the dean
+// record's canonical casing. Prefer a value that actually has upper-case letters.
+const PROPER = new Map(); // nkey(name) -> properly-cased name
 for (const f of deanFiles) {
   const id = FILE_ID[f] || f.replace(/^r1-|-deans\.json$/g, "");
   const rows = read(f) || [];
   for (const r of rows) {
     DEANS.push({ r, id });
     if (r.university) { const k = snorm(r.university); if (!canon.has(k)) canon.set(k, r.university); }
+    if (r.dean) { const k = nkey(r.dean); const cur = PROPER.get(k); if (!cur || (/[A-Z]/.test(r.dean) && !/[A-Z]/.test(cur))) PROPER.set(k, String(r.dean).trim()); }
   }
 }
+// Fallback title-caser for any leader with no dean-record spelling (rare).
+const titleCase = (s) => String(s).replace(/\b[a-z][a-z'’-]*/gi, (w) => w.charAt(0).toUpperCase() + w.slice(1));
+const displayName = (raw) => PROPER.get(nkey(raw)) || titleCase(raw);
 // Curated unambiguous abbreviations -> canonical normalized name. Guarded by
 // canon.has() at match time, so a value that isn't an actual school just no-ops.
 const ALIAS = {
@@ -169,7 +177,7 @@ for (const e of L.values()) {
   for (const [school, t] of e.ties) {
     if (!(t.undergrad.length || t.grad.length || t.faculty.length || t.admin.length)) continue;
     (bySchool[school] = bySchool[school] || []).push({
-      name: e.name, role: disp.role, university: disp.university,
+      name: displayName(e.name), role: disp.role, university: disp.university,
       index: disp.index, indexLabel: disp.indexLabel, enrichKey: disp.enrichKey,
       undergrad: t.undergrad, grad: t.grad, faculty: t.faculty, admin: t.admin,
     });
