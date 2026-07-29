@@ -130,9 +130,12 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const [states, setStates] = useState<Set<string>>(new Set());
   const [sortBy, setSortBy] = useState<"name" | "tenure" | "recent" | "sofar">("name");
   // Credential screens. Most academic-leadership searches require a doctorate and
-  // a faculty/professor background, so both default ON.
-  const [requirePhd, setRequirePhd] = useState(true);
-  const [requireProf, setRequireProf] = useState(true);
+  // a faculty/professor background, so both default ON — EXCEPT the creative-arts
+  // index, whose terminal degree is typically an MFA/M.Arch/DMA rather than a
+  // doctorate; a "require doctorate" default there wrongly hides most arts deans.
+  const credentialDefault = datasetId !== "uscreativearts";
+  const [requirePhd, setRequirePhd] = useState(credentialDefault);
+  const [requireProf, setRequireProf] = useState(credentialDefault);
   const [affinity, setAffinity] = useState<Set<string>>(new Set());
   // Overlay the departure hazard rate on the tenure histogram (off by default).
   const [showHazard, setShowHazard] = useState(false);

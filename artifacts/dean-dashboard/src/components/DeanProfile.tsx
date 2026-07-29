@@ -302,9 +302,10 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
 
         const display = path.slice().reverse(); // latest first (top), earliest last (bottom)
         return (
+          <>
           <div className="mt-4 pt-3 border-t border-border">
             <h4 className="text-sm font-bold mb-3">Career Path</h4>
-            <div className={mapRenders ? "grid gap-5 items-start lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)] xl:grid-cols-[minmax(0,200px)_minmax(0,1fr)_14rem]" : ""}>
+            <div className={mapRenders ? "grid gap-5 items-start lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)]" : ""}>
             <div>
             <div className="relative ml-1">
               {display.map((step, j) => {
@@ -352,17 +353,18 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
                 <CareerMap steps={research!.career!} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
               </div>
             )}
-            {/* Movability assessment as a co-equal panel of the Career Path: its own
-                top-aligned column beside the map on xl, a full-width panel below the map
-                on lg, and in-flow below on mobile. In the Slate Builder (hideAssessment)
-                it is rendered in the results-map right column instead. */}
-            {mapRenders && !hideAssessment && (
-              <div className="lg:col-span-2 xl:col-span-1">
-                <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
-              </div>
-            )}
             </div>
           </div>
+          {/* Movability assessment as its own section, a peer of Career Path (and of
+              News & Media below) rather than a squeezed side column. In the Slate Builder
+              (hideAssessment) it is rendered in the results-map right column instead. */}
+          {mapRenders && !hideAssessment && (
+            <div className="mt-4 pt-3 border-t border-border">
+              <h4 className="text-sm font-bold mb-3">Movability Outlook</h4>
+              <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+            </div>
+          )}
+          </>
         );
       })()}
 
