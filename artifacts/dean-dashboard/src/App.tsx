@@ -12,6 +12,7 @@ import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
+import FeatureRequestWidget from "@/components/FeatureRequestWidget";
 import ModuleIcon from "@/components/ModuleIcons";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 import { TrialProvider, useTrial } from "@/data/TrialContext";
@@ -372,6 +373,7 @@ function AppInner() {
         <FreeTierNotice meter={meter} />
         <MeterBadge meter={meter} />
         <Paywall meter={meter} />
+        <FeatureRequestWidget />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import os from "os";
 import { assembleDataset, readEnrichment, SPEC, ENRICHMENT } from "../../lib/dataset-assembly.mjs";
 
 const port = Number(process.env.PORT) || 5173;
@@ -39,6 +40,11 @@ function serveDataDev(srcDir: string) {
 export default defineConfig({
   define: { __BUILT_ON__: JSON.stringify(BUILT_ON), __BUILD_ID__: JSON.stringify(BUILD_ID) },
   base: basePath,
+  // node_modules/.vite lives inside the repo's Dropbox-synced folder, and Dropbox
+  // grabs a lock on the deps_temp_* dir mid-rename during dep (re-)optimization,
+  // producing an intermittent EBUSY that blanks the dev-server page. Keeping the
+  // cache in the OS temp dir sidesteps Dropbox sync entirely.
+  cacheDir: path.join(os.tmpdir(), "bi-vite-cache"),
   plugins: [react(), tailwindcss(), serveDataDev(path.resolve(import.meta.dirname, "src", "data"))],
   resolve: {
     alias: {
