@@ -12,7 +12,7 @@ declare const __BUILD_ID__: string;
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts" | "usadvancement";
 
 export interface SchoolInfo {
   university: string;
@@ -44,7 +44,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts" | "advancement";
   yearRange: string;
 }
 
@@ -259,6 +259,17 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     schoolType: "creativearts",
     yearRange: "1991–2026",
   },
+  // Cabinet-level advancement leaders (title rides in `discipline`, like provost/
+  // president). One top fundraising/development officer per institution.
+  usadvancement: {
+    id: "usadvancement",
+    label: "US University Advancement Leaders",
+    shortLabel: "Advancement",
+    description: "Chief advancement officers of US research universities — the top fundraising, development, and alumni-relations leaders (VP for Advancement / Chief Development Officer, or the university foundation CEO). First slice: sitting R1 leaders.",
+    rankLabel: "—",
+    schoolType: "advancement",
+    yearRange: "1990–2026",
+  },
 };
 
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
@@ -282,6 +293,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.ussystem,
   DATASETS_META.usgrad,
   DATASETS_META.uscreativearts,
+  DATASETS_META.usadvancement,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,

@@ -29,6 +29,7 @@ const FILE_ID = {
   "r1-system-deans.json": "ussystem", "r1-publichealth-deans.json": "uspublichealth",
   "r1-vet-deans.json": "usvet", "r1-grad-deans.json": "usgrad",
   "r1-camd-deans.json": "uscreativearts",
+  "r1-advancement-deans.json": "usadvancement",
 };
 const INDEX_LABEL = {
   r1bschool: "Business", r1eschool: "Engineering", r1university: "President",
@@ -36,7 +37,7 @@ const INDEX_LABEL = {
   usnursing: "Nursing", uspharmacy: "Pharmacy", useducation: "Education",
   r1arts: "Arts & Sciences", usr2: "R2", ussystem: "System",
   uspublichealth: "Public Health", usvet: "Veterinary", usgrad: "Graduate College",
-  uscreativearts: "Creative Arts",
+  uscreativearts: "Creative Arts", usadvancement: "Advancement",
 };
 // Fallback label for an index file not yet in the map (a newly added index).
 const labelFor = (id) => INDEX_LABEL[id] || id.replace(/^r1|^us/, "").replace(/^\w/, (c) => c.toUpperCase());

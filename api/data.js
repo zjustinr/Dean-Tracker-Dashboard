@@ -62,6 +62,7 @@ const SPEC = {
   usvet:       { deans: () => require("../artifacts/dean-dashboard/src/data/r1-vet-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-vet-schools.json"), split: false },
   usgrad:      { deans: () => require("../artifacts/dean-dashboard/src/data/r1-grad-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-grad-schools.json"), split: false },
   uscreativearts: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-camd-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-camd-schools.json"), split: false },
+  usadvancement: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-advancement-deans.json"), bsq: null, schools: null, split: false },
 };
 const ENRICHMENT = {
   "dean-photos.json": () => require("../artifacts/dean-dashboard/src/data/dean-photos.json"),
