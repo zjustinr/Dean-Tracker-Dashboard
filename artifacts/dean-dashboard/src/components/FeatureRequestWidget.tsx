@@ -6,9 +6,10 @@ import { useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas-pro";
 
 /**
- * Always-on "Suggest a feature" widget. A pill button floats in the lower-left
- * corner; clicking it opens a compose panel in the lower-right. Sending (click
- * or Enter) rasterizes the current viewport with html2canvas and POSTs the
+ * Always-on "Suggest a feature" widget. A pill button floats in the lower-right
+ * corner, above the free-tier meter badge that lives in the same corner; clicking
+ * it opens a compose panel just above the button. Sending (click or Enter)
+ * rasterizes the current viewport with html2canvas and POSTs the
  * note, the visitor's email (optional), and the screenshot to
  * /api/feature-request, which relays it by email (see that file for the env
  * vars it needs). Screenshot capture is best-effort: if it throws, the text
@@ -135,7 +136,7 @@ export default function FeatureRequestWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="dialog"
-        className="fixed bottom-4 left-4 z-40 inline-flex items-center gap-2 rounded-full px-4 py-2.5
+        className="fixed bottom-20 right-4 z-40 inline-flex items-center gap-2 rounded-full px-4 py-2.5
                    bg-gradient-to-b from-[#0a2a63] to-[#01143f] text-white text-sm font-semibold
                    shadow-lg hover:brightness-110 transition-all"
       >
@@ -152,7 +153,7 @@ export default function FeatureRequestWidget() {
           role="dialog"
           aria-modal="false"
           aria-label="Suggest a feature"
-          className="fixed bottom-4 right-4 z-50 w-[min(92vw,380px)] rounded-xl border border-border
+          className="fixed bottom-36 right-4 z-50 w-[min(92vw,380px)] rounded-xl border border-border
                      bg-card shadow-xl"
         >
           <div className="flex items-start justify-between px-4 pt-4">
