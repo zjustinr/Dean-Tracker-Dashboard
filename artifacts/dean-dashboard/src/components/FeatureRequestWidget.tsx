@@ -34,12 +34,14 @@ function currentPageLabel(): string {
 async function captureScreenshot(): Promise<string | null> {
   try {
     const canvas = await html2canvas(document.body, {
+      // Crop to the current viewport at the current scroll position. Passing
+      // scrollX/scrollY here too (as an earlier version did) double-compensates
+      // against x/y and crops to a tiny, wrongly-positioned sliver -- x/y alone
+      // is the documented way to capture just what's on screen.
       x: window.scrollX,
       y: window.scrollY,
       width: window.innerWidth,
       height: window.innerHeight,
-      scrollX: -window.scrollX,
-      scrollY: -window.scrollY,
       scale: Math.min(1, 1600 / window.innerWidth),
       useCORS: true,
       backgroundColor: getComputedStyle(document.body).backgroundColor || "#ffffff",
@@ -136,11 +138,11 @@ export default function FeatureRequestWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="dialog"
-        className="fixed bottom-20 right-4 z-40 inline-flex items-center gap-2 rounded-full px-4 py-2.5
-                   bg-[#A31F34]/70 backdrop-blur-sm text-white text-sm font-semibold
+        className="fixed bottom-16 right-4 z-40 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5
+                   bg-[#A31F34]/70 backdrop-blur-sm text-white text-xs font-semibold
                    shadow-lg hover:bg-[#A31F34]/85 transition-all"
       >
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
              strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0">
           <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z" />
         </svg>
@@ -153,7 +155,7 @@ export default function FeatureRequestWidget() {
           role="dialog"
           aria-modal="false"
           aria-label="Suggest a feature"
-          className="fixed bottom-36 right-4 z-50 w-[min(92vw,380px)] rounded-xl border border-border
+          className="fixed bottom-28 right-4 z-50 w-[min(92vw,380px)] rounded-xl border border-border
                      bg-card shadow-xl"
         >
           <div className="flex items-start justify-between px-4 pt-4">
