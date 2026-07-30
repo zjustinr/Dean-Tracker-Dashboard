@@ -135,7 +135,7 @@ function AppInner() {
     <div className={darkMode ? "dark" : ""}>
       <div className="min-h-screen bg-gradient-to-b from-[#F6F8FB] to-[#E7EBF2] dark:from-background dark:to-background text-foreground">
         <header className="border-b border-border bg-card border-t-2 border-t-[#A31F34]">
-          <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="max-w-[1400px] mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
             <div>
               <div className="flex items-center gap-3.5">
                 <div className="flex items-center gap-3.5">
@@ -185,7 +185,7 @@ function AppInner() {
                 updated {BUILT_ON}
               </p>
             </div>
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
             <button
               onClick={() => setInsightsOpen(true)}
               className="px-3 py-2 rounded-lg text-sm font-semibold text-foreground hover:bg-muted"
