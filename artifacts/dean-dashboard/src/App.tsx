@@ -152,16 +152,20 @@ function AppInner() {
                       className="h-16 w-16 block"
                     />
                   </h1>
-                  {/* Byline scaled to fill the logo's 64px height: two lines at 32px
-                      leading. EB Garamond is already loaded by index.html and is the
-                      closest free stand-in for the classical academic serif Wharton
-                      uses -- their actual logo face is proprietary. Penn/Wharton blue
-                      #011F5B, lightened in dark mode where it would go near-invisible. */}
+                  {/* Deliberately domain-agnostic (no "higher education" or
+                      "academic") so the wordmark doesn't need a re-launch moment
+                      when coverage expands beyond higher ed. Wraps to two lines
+                      at 32px leading, filling the logo's 64px height exactly.
+                      EB Garamond is already loaded by index.html and is the
+                      closest free stand-in for the classical academic serif
+                      Wharton uses -- their actual logo face is proprietary.
+                      Penn/Wharton blue #011F5B, lightened in dark mode where it
+                      would go near-invisible. */}
                   <p
                     className="max-w-[19rem] text-[26px] leading-[32px] tracking-tight text-[#011F5B] dark:text-[#AFC4E8]"
                     style={{ fontFamily: "'EB Garamond', Garamond, Georgia, 'Times New Roman', serif", fontWeight: 500 }}
                   >
-                    Leadership succession data for higher education
+                    Leadership succession, decoded.
                   </p>
                 </div>
               </div>
