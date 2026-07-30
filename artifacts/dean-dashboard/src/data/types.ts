@@ -23,6 +23,7 @@ export interface Dean {
   discipline: string;
   disciplineBroad: string;
   phdField: string;
+  phdInstitution?: string;
   hasPriorDeanExp: boolean;
   priorAssocOrAsstDean: boolean;
   hadAssocDeanRole: boolean;

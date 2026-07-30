@@ -295,6 +295,8 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                 <span>{clickedDean.disciplineBroad || clickedDean.discipline || "–"}</span>
                 <span className="text-muted-foreground font-medium">PhD Field</span>
                 <span>{clickedDean.phdField || "–"}</span>
+                <span className="text-muted-foreground font-medium">PhD Institution</span>
+                <span>{clickedDean.phdInstitution || "–"}</span>
                 <span className="text-muted-foreground font-medium">Prior Position</span>
                 <span>{clickedDean.priorTitle || "–"}</span>
                 <span className="text-muted-foreground font-medium">Prior Institution</span>

@@ -219,6 +219,8 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
           <span>{dean.disciplineBroad || dean.discipline || "–"}</span>
           <span className="text-muted-foreground font-medium">PhD Field</span>
           <span>{dean.phdField || "–"}</span>
+          <span className="text-muted-foreground font-medium">PhD Institution</span>
+          <span>{dean.phdInstitution || "–"}</span>
           <span className="text-muted-foreground font-medium">Prior Position</span>
           <span>{dean.priorTitle || "–"}</span>
           <span className="text-muted-foreground font-medium">Prior Institution</span>
