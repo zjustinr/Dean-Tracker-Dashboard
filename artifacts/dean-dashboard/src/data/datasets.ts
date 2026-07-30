@@ -213,7 +213,7 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
   usr2: {
     id: "usr2",
     label: "R2 University Presidents & Chancellors",
-    shortLabel: "R2 Universities",
+    shortLabel: "R2 Presidents",
     description: "Presidents and chancellors of every Carnegie R2 university, public and private, the doctoral institutions ranked just below R1, each traced from 1996 to today",
     rankLabel: "Carnegie class",
     schoolType: "r2university",

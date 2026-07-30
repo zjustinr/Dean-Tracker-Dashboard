@@ -20,7 +20,7 @@ const KEY = "bi_free_meter";
 const CONTACT = "ren@bu.edu";
 
 // One simple paid option for now: a $99 day pass that unlocks a 3-index taster
-// (scope enforced server-side in api/data.js). Everything beyond that — all 12
+// (scope enforced server-side in api/data.js). Everything beyond that — all
 // indices, firm plans — is a "Contact us" conversation while we validate demand.
 const DAY_PASS_URL = "https://buy.stripe.com/dRm3cn69N8pc5Sa2FWebu01";
 const PASSES = [
@@ -107,7 +107,7 @@ export function FreeTierNotice({ meter }: { meter: FreeMeter }) {
             onClick={meter.showPaywall}
             className="text-[#011F5B] dark:text-[#AFC4E8] font-semibold underline underline-offset-2 hover:opacity-80"
           >
-            See plans to unlock all 12 indices →
+            See plans to unlock all indices →
           </button>
         </p>
       </div>
@@ -122,7 +122,7 @@ export function MeterBadge({ meter }: { meter: FreeMeter }) {
   return (
     <button
       onClick={meter.showPaywall}
-      title="Free R1 Business tier — click to see plans for all 12 indices"
+      title="Free R1 Business tier — click to see plans for all indices"
       className={[
         "fixed bottom-4 left-4 z-40 rounded-full shadow-lg border px-3.5 py-2 text-xs font-semibold transition-colors",
         "flex items-center gap-2",
@@ -175,7 +175,7 @@ export function Paywall({ meter }: { meter: FreeMeter }) {
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed max-w-xl">
                 {atLimit
                   ? <>You've opened <b>{meter.limit}</b> leaders on the free <b>R1 Business</b> tier today (resets in {fmtReset(meter.resetInMs)}). Grab a day pass to keep going.</>
-                  : <>The free tier covers <b>R1 Business</b>. A day pass adds <b>Presidents</b> & <b>Provost</b> — need all 12 indices? Just ask.</>}
+                  : <>The free tier covers <b>R1 Business</b>. A day pass adds <b>Presidents</b> & <b>Provost</b> — need all indices? Just ask.</>}
               </p>
             </div>
             <button onClick={meter.dismissPaywall} aria-label="Close" className="text-muted-foreground hover:text-foreground text-xl leading-none px-1 shrink-0">×</button>
@@ -226,7 +226,7 @@ export function Paywall({ meter }: { meter: FreeMeter }) {
           </div>
 
           <p className="text-[11px] text-muted-foreground mt-3 text-center">
-            Access activates shortly after checkout — paste the access link you receive below. Need all 12 indices or a firm plan?{" "}
+            Access activates shortly after checkout — paste the access link you receive below. Need all indices or a firm plan?{" "}
             <a href={`mailto:${CONTACT}?subject=${encodeURIComponent("BatonIndex - full access / firm plan")}`} className="text-[#011F5B] dark:text-[#AFC4E8] font-medium underline underline-offset-2">
               Contact us
             </a>.
