@@ -115,7 +115,7 @@ export function FreeTierNotice({ meter }: { meter: FreeMeter }) {
   );
 }
 
-/** Persistent bottom-right usage counter. */
+/** Persistent bottom-left usage counter (bottom-right is the Suggest-a-feature button's corner). */
 export function MeterBadge({ meter }: { meter: FreeMeter }) {
   if (!meter.metered) return null;
   const low = meter.remaining <= 10;
@@ -124,7 +124,7 @@ export function MeterBadge({ meter }: { meter: FreeMeter }) {
       onClick={meter.showPaywall}
       title="Free R1 Business tier — click to see plans for all 12 indices"
       className={[
-        "fixed bottom-4 right-4 z-40 rounded-full shadow-lg border px-3.5 py-2 text-xs font-semibold transition-colors",
+        "fixed bottom-4 left-4 z-40 rounded-full shadow-lg border px-3.5 py-2 text-xs font-semibold transition-colors",
         "flex items-center gap-2",
         low
           ? "bg-[#A31F34] text-white border-[#8c1a2c] hover:bg-[#8c1a2c]"

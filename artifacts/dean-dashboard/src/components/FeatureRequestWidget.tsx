@@ -138,9 +138,9 @@ export default function FeatureRequestWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="dialog"
-        className="fixed bottom-14 right-4 z-40 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5
-                   bg-[#A31F34]/40 backdrop-blur-sm text-white text-xs font-semibold
-                   shadow-lg hover:bg-[#A31F34]/55 transition-all"
+        className="fixed bottom-[30px] right-4 z-40 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5
+                   bg-[#A31F34]/20 backdrop-blur-sm text-white text-xs font-semibold
+                   shadow-lg hover:bg-[#A31F34]/28 transition-all"
       >
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
              strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0">
