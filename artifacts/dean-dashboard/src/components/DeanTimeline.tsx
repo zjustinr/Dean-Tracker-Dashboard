@@ -285,30 +285,45 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               {clickedDean.hasConsultingBg && <Badge variant="secondary">Consulting Background</Badge>}
             </div>
 
+            {/* Two columns split by theme: left is who they are (stable credentials),
+                right is the story of this specific appointment (how they got it, how
+                it's going or how it ended) -- keeps both columns populated instead of
+                one tall column and one mostly empty one. */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
               <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
                 <span className="text-muted-foreground font-medium">Origin</span>
                 <span>{ORIGIN_LABELS[clickedDean.origin] || clickedDean.origin}</span>
-                <span className="text-muted-foreground font-medium">Background</span>
-                <span>{clickedDean.careerBackground || "–"}</span>
                 <span className="text-muted-foreground font-medium">Discipline</span>
                 <span>{clickedDean.disciplineBroad || clickedDean.discipline || "–"}</span>
+                <span className="text-muted-foreground font-medium">Background</span>
+                <span>{clickedDean.careerBackground || "–"}</span>
                 <span className="text-muted-foreground font-medium">PhD Field</span>
                 <span>{clickedDean.phdField || "–"}</span>
                 <span className="text-muted-foreground font-medium">PhD Institution</span>
                 <span>{clickedDean.phdInstitution || "–"}</span>
+              </div>
+              <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
                 <span className="text-muted-foreground font-medium">Prior Position</span>
                 <span>{clickedDean.priorTitle || "–"}</span>
                 <span className="text-muted-foreground font-medium">Prior Institution</span>
                 <span>{clickedDean.priorInstitution || "–"}</span>
-              </div>
-              <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
-                <span className="text-muted-foreground font-medium">Next Role</span>
-                <span>{NEXT_ROLE_LABELS[clickedDean.nextRole] || clickedDean.nextRole || "–"}</span>
-                <span className="text-muted-foreground font-medium">Involuntary Exit</span>
-                <span>{clickedDean.involuntary ? "Yes" : "No"}</span>
-                <span className="text-muted-foreground font-medium">Had Prior Link</span>
-                <span>{clickedDean.hadPriorConnection ? "Yes" : "No"}</span>
+                {/* "Yes/No" told you nothing about what the tie actually was; name it. */}
+                <span className="text-muted-foreground font-medium">Tie to {clickedDean.university}</span>
+                <span>{clickedDean.connectionType || "None found"}</span>
+                <span className="text-muted-foreground font-medium">{clickedDean.endYear == null ? "Current Status" : "Next Role"}</span>
+                <span>
+                  {clickedDean.endYear == null
+                    ? `${clickedDean.isInterim ? "Interim " : ""}${titleOf(clickedDean)}${clickedDean.startYear ? `, since ${clickedDean.startYear}` : " (serving)"}`
+                    : (NEXT_ROLE_LABELS[clickedDean.nextRole] || clickedDean.nextRole || "–")}
+                </span>
+                {/* Only meaningful once the tenure is over -- "No" on a sitting leader
+                    who hasn't left yet was confusing, not informative. */}
+                {clickedDean.endYear != null && (
+                  <>
+                    <span className="text-muted-foreground font-medium">Departure from {clickedDean.university}</span>
+                    <span>{clickedDean.involuntary ? "Involuntary" : "Standard/voluntary"}</span>
+                  </>
+                )}
               </div>
             </div>
 

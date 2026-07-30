@@ -209,22 +209,32 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
         </div>
       )}
 
+      {/* Two columns split by theme, not by "always yes/no fields vs. text fields":
+          left is who they are (stable credentials); right is the story of this
+          specific appointment (how they got it, how it's going or how it ended).
+          Keeps both columns populated instead of one tall column and one mostly
+          empty one. */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
         <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
           <span className="text-muted-foreground font-medium">Origin</span>
           <span>{ORIGIN_LABELS[dean.origin] || dean.origin}</span>
-          <span className="text-muted-foreground font-medium">Background</span>
-          <span>{dean.careerBackground || "–"}</span>
           <span className="text-muted-foreground font-medium">Discipline</span>
           <span>{dean.disciplineBroad || dean.discipline || "–"}</span>
+          <span className="text-muted-foreground font-medium">Background</span>
+          <span>{dean.careerBackground || "–"}</span>
           <span className="text-muted-foreground font-medium">PhD Field</span>
           <span>{dean.phdField || "–"}</span>
           <span className="text-muted-foreground font-medium">PhD Institution</span>
           <span>{dean.phdInstitution || "–"}</span>
+        </div>
+        <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
           <span className="text-muted-foreground font-medium">Prior Position</span>
           <span>{dean.priorTitle || "–"}</span>
           <span className="text-muted-foreground font-medium">Prior Institution</span>
           <span>{dean.priorInstitution || "–"}</span>
+          {/* "Yes/No" told you nothing about what the tie actually was; name it. */}
+          <span className="text-muted-foreground font-medium">Tie to {dean.university}</span>
+          <span>{dean.connectionType || "None found"}</span>
           {firstLeadershipPrior && (
             <>
               <span className="text-muted-foreground font-medium">Before First {noun === "Dean" ? "Deanship" : "Leadership"}</span>
@@ -234,8 +244,6 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
               </span>
             </>
           )}
-        </div>
-        <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
           <span className="text-muted-foreground font-medium">{isCurrent ? "Current Status" : "Next Role"}</span>
           <span>
             {isCurrent
@@ -247,10 +255,14 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
                   )}
                 </>)}
           </span>
-          <span className="text-muted-foreground font-medium">Involuntary Exit</span>
-          <span>{dean.involuntary ? "Yes" : "No"}</span>
-          <span className="text-muted-foreground font-medium">Had Prior Link</span>
-          <span>{dean.hadPriorConnection ? "Yes" : "No"}</span>
+          {/* Only meaningful once the tenure is over -- "No" on a sitting leader who
+              hasn't left yet was confusing, not informative. */}
+          {!isCurrent && (
+            <>
+              <span className="text-muted-foreground font-medium">Departure from {dean.university}</span>
+              <span>{dean.involuntary ? "Involuntary" : "Standard/voluntary"}</span>
+            </>
+          )}
         </div>
       </div>
 
