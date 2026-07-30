@@ -138,7 +138,7 @@ export default function FeatureRequestWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="dialog"
-        className="fixed bottom-[30px] right-4 z-40 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5
+        className="fixed bottom-[15px] right-4 z-40 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5
                    bg-[#A31F34]/20 backdrop-blur-sm text-white text-xs font-semibold
                    shadow-lg hover:bg-[#A31F34]/28 transition-all"
       >
