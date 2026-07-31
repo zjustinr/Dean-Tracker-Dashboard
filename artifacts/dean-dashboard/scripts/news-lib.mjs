@@ -19,12 +19,17 @@ export const LOG_PATH = resolve(ROOT, "attached_assets/news_scout_log.csv");
 export const ENRICH_QUEUE = resolve(ROOT, "attached_assets/enrichment_queue.json");
 
 // schoolType (from the scout's dataset table) -> the app dataset it feeds.
-// "business" is special: it flows through the Excel + Top-100 deans.json + a
-// build step, so it keeps the legacy applyAppointment() path. Every other index
-// is a standalone <deans> JSON that is itself the source of truth the app serves,
-// so applyAppointmentGeneric() appends to it directly (no Excel, no build step).
+// Every index, including business, is a standalone <deans> JSON that is itself
+// the source of truth the app serves, so applyAppointmentGeneric() appends to it
+// directly. Business used to route through applyAppointment() (Excel +
+// deans.json/Top-100), a path nothing in the live app reads any more — that
+// silently swallowed every auto-applied business-school appointment (e.g. CMU
+// Tepper's Laurence Ales, Jul 2026) while the breaking-news feed and CSV log
+// both reported success. Fixed 2026-07-31; the legacy applyAppointment() +
+// Excel path is still exported below for the (currently unreachable) GitHub-
+// issue confirm flow but is no longer wired into applyEvent().
 export const TYPE_TO_DATASET = {
-  business:     { id: "r1bschool",      deans: null,                        excel: true },
+  business:     { id: "r1bschool",      deans: "r1-bschool-deans.json" },
   engineering:  { id: "r1eschool",      deans: "r1-eschool-deans.json" },
   university:   { id: "r1university",   deans: "r1-university-deans.json" },
   medical:      { id: "r1medical",      deans: "r1-medschool-deans.json" },
