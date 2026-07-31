@@ -746,9 +746,9 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               {hist.n
                 ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""}</>
                 : "No completed permanent tenures in this range yet."}
-              {datasetId === "usgrad" && hist.n < 5 && (
+              {(datasetId === "usgrad" || datasetId === "usadvancement") && hist.n < 5 && (
                 <span className="block mt-0.5 text-muted-foreground/80">
-                  Current-roster index: the distribution needs deans who have both started and left. It fills in as departed-dean succession history is added.
+                  Current-roster index: the distribution needs leaders who have both started and left. It fills in as departed-leader succession history is added.
                 </span>
               )}
             </p>
