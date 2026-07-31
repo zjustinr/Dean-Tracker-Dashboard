@@ -5,6 +5,7 @@ import { useDeanCareer } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { MiniPortrait, FullPortrait } from "./DeanPortrait";
+import { useResearchMap, enrichKey } from "@/data/enrichment";
 
 interface Props {
   deans: Dean[];
@@ -48,6 +49,12 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
 
   const clickedDean = clickedIdx !== null ? deans[clickedIdx] : null;
   const careerPositions = useDeanCareer(clickedDean?.dean ?? null);
+  const researchMap = useResearchMap();
+  const research = clickedDean ? researchMap[enrichKey(clickedDean.dean, clickedDean.university)] || null : null;
+  const hasNews = !!research?.news?.length;
+  const clickedQ = clickedDean ? `"${clickedDean.dean}" ${clickedDean.university}` : "";
+  const googleNewsUrl = `https://news.google.com/search?q=${encodeURIComponent(clickedQ)}`;
+  const webSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(clickedQ)}`;
 
   if (deans.length === 0) {
     return <p className="text-muted-foreground text-sm py-8 text-center">No data available for this school.</p>;
@@ -285,6 +292,64 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
               {clickedDean.hasConsultingBg && <Badge variant="secondary">Consulting Background</Badge>}
             </div>
 
+            {/* Headhunter research: quick links + strengths brief */}
+            {(research?.linkedin || clickedDean.sourceUrl) && (
+              <div className="flex gap-2 flex-wrap mb-3">
+                {research?.linkedin && (
+                  <a
+                    href={research.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md bg-[#0a66c2] text-white hover:opacity-90"
+                    title="LinkedIn profile"
+                  >
+                    <span className="font-bold">in</span> LinkedIn ↗
+                  </a>
+                )}
+                {clickedDean.sourceUrl && (
+                  <a
+                    href={clickedDean.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md border border-border hover:bg-accent"
+                    title="Appointment announcement / official source"
+                  >
+                    📄 Official source ↗
+                  </a>
+                )}
+                <a
+                  href={webSearchUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md border border-border hover:bg-accent"
+                  title="Web search"
+                >
+                  🔎 Web search ↗
+                </a>
+              </div>
+            )}
+
+            {research?.summary && (
+              <div className="mb-4 rounded-lg border border-primary/30 bg-primary/5 p-3">
+                <h4 className="text-sm font-bold mb-1.5">Brief: Strengths &amp; Distinctives</h4>
+                <p className="text-sm leading-relaxed text-foreground/90">{research.summary}</p>
+                {research.education && (
+                  <p className="text-xs text-muted-foreground mt-2">
+                    <span className="font-medium">Education:</span> {research.education}
+                  </p>
+                )}
+                {!!research.expertise?.length && (
+                  <div className="flex gap-1.5 flex-wrap mt-2">
+                    {research.expertise.map((t, i) => (
+                      <span key={i} className="text-[11px] px-2 py-0.5 rounded-full bg-accent text-accent-foreground border border-border">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Two columns split by theme: left is who they are (stable credentials),
                 right is the story of this specific appointment (how they got it, how
                 it's going or how it ended) -- keeps both columns populated instead of
@@ -314,7 +379,12 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                 <span>
                   {clickedDean.endYear == null
                     ? `${clickedDean.isInterim ? "Interim " : ""}${titleOf(clickedDean)}${clickedDean.startYear ? `, since ${clickedDean.startYear}` : " (serving)"}`
-                    : (NEXT_ROLE_LABELS[clickedDean.nextRole] || clickedDean.nextRole || "–")}
+                    : (<>
+                        {NEXT_ROLE_LABELS[clickedDean.nextRole] || clickedDean.nextRole || "–"}
+                        {clickedDean.nextRoleDetail && (
+                          <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">{clickedDean.nextRoleDetail}</span>
+                        )}
+                      </>)}
                 </span>
                 {/* Only meaningful once the tenure is over -- "No" on a sitting leader
                     who hasn't left yet was confusing, not informative. */}
@@ -424,6 +494,59 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                 })()}
               </div>
             )}
+
+            <div className="mt-4 pt-3 border-t border-border">
+              <div className="flex items-center gap-1.5 mb-2">
+                <h4 className="text-sm font-bold">News &amp; Media</h4>
+                {hasNews && <span className="text-[11px] text-muted-foreground">({research!.news!.length})</span>}
+              </div>
+              {hasNews ? (
+                <ul className="space-y-1.5">
+                  {research!.news!.map((n, i) => (
+                    <li key={i} className="text-sm flex gap-2">
+                      <span aria-hidden className="text-muted-foreground select-none">›</span>
+                      <span className="min-w-0">
+                        <a
+                          href={n.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-primary hover:underline underline-offset-2 break-words"
+                        >
+                          {n.title}
+                        </a>
+                        {(n.source || n.date) && (
+                          <span className="text-xs text-muted-foreground">
+                            {" "}— {[n.source, n.date].filter(Boolean).join(", ")}
+                          </span>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-xs text-muted-foreground">No curated coverage on file yet — search live sources:</p>
+              )}
+              <div className="flex gap-2 flex-wrap mt-2">
+                <a
+                  href={googleNewsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md border border-border hover:bg-accent"
+                  title="Search Google News"
+                >
+                  📰 Google News ↗
+                </a>
+                <a
+                  href={webSearchUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md border border-border hover:bg-accent"
+                  title="Web search"
+                >
+                  🔎 Web ↗
+                </a>
+              </div>
+            </div>
 
             {clickedDean.notes && (
               <p className="text-xs text-muted-foreground mt-3 pt-2 border-t border-border italic">{clickedDean.notes}</p>
