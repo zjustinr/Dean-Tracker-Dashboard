@@ -136,8 +136,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // Credential screens. Most academic-leadership searches require a doctorate and
   // a faculty/professor background, so both default ON — EXCEPT the creative-arts
   // index, whose terminal degree is typically an MFA/M.Arch/DMA rather than a
-  // doctorate; a "require doctorate" default there wrongly hides most arts deans.
-  const credentialDefault = datasetId !== "uscreativearts";
+  // doctorate, and the advancement index, whose VP/CDO-level roles are fundraising
+  // and nonprofit-management careers that rarely require or expect a doctorate;
+  // a "require doctorate" default on either wrongly hides nearly every candidate.
+  const credentialDefault = datasetId !== "uscreativearts" && datasetId !== "usadvancement";
   const [requirePhd, setRequirePhd] = useState(credentialDefault);
   const [requireProf, setRequireProf] = useState(credentialDefault);
   const [affinity, setAffinity] = useState<Set<string>>(new Set());
