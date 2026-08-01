@@ -35,10 +35,6 @@ jobs:
           node artifacts/dean-dashboard/scripts/news-decide.mjs | tee decide-output.txt
           grep '^RESULT=' decide-output.txt >> "$GITHUB_OUTPUT"
 
-      - name: Regenerate R1 datasets (business apply)
-        if: steps.decide.outputs.RESULT == 'applied'
-        run: node artifacts/dean-dashboard/scripts/build-r1-data.mjs
-
       - name: Commit and push
         if: steps.decide.outputs.RESULT != 'error' && steps.decide.outputs.RESULT != 'notfound'
         run: |

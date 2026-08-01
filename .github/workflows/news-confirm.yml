@@ -38,10 +38,6 @@ jobs:
           grep '^RESULT=' resolve-output.txt >> "$GITHUB_OUTPUT"
           echo "message=$(grep '^MESSAGE=' resolve-output.txt | cut -d= -f2-)" >> "$GITHUB_OUTPUT"
 
-      - name: Regenerate R1 datasets
-        if: steps.resolve.outputs.RESULT == 'applied' || steps.resolve.outputs.RESULT == 'closed'
-        run: node artifacts/dean-dashboard/scripts/build-r1-data.mjs
-
       - name: Commit and push
         if: steps.resolve.outputs.RESULT != 'invalid'
         run: |

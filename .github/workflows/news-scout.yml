@@ -32,10 +32,6 @@ jobs:
           node artifacts/dean-dashboard/scripts/news-scout.mjs | tee scout-output.txt
           if grep -q '^CHANGED$' scout-output.txt; then echo "changed=true" >> "$GITHUB_OUTPUT"; fi
 
-      - name: Regenerate R1 datasets
-        if: steps.scout.outputs.changed == 'true'
-        run: node artifacts/dean-dashboard/scripts/build-r1-data.mjs
-
       - name: Commit and push updates
         run: |
           git config user.name "dean-news-scout"
