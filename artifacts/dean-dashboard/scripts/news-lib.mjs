@@ -6,7 +6,7 @@
 import XLSX from "xlsx";
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from "fs";
 import { resolve, dirname } from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath, pathToFileURL } from "url";
 import crypto from "crypto";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -44,7 +44,31 @@ export const TYPE_TO_DATASET = {
   system: { id: "ussystem", deans: "r1-system-deans.json" },
   publichealth: { id: "uspublichealth", deans: "r1-publichealth-deans.json" },
   veterinary:   { id: "usvet",          deans: "r1-vet-deans.json" },
+  grad:         { id: "usgrad",         deans: "r1-grad-deans.json" },
+  creativearts: { id: "uscreativearts", deans: "r1-camd-deans.json" },
+  advancement:  { id: "usadvancement",  deans: "r1-advancement-deans.json" },
 };
+
+// Every VISIBLE dataset (lib/dataset-assembly.mjs, the single source of truth for
+// "what indices exist") must have a schoolType entry above, or the news pipeline
+// silently never covers it -- exactly what happened to usgrad/uscreativearts/
+// usadvancement for weeks after they shipped. Call this from any script that
+// wants to fail loudly instead. Deliberately not called automatically at module
+// load: keeps this file importable in contexts (like a plain `node -e`) that
+// don't have the repo-root lib/ available, e.g. a future extraction of this repo.
+export async function assertDatasetCoverage() {
+  const { VISIBLE } = await import(pathToFileURL(resolve(ROOT, "lib/dataset-assembly.mjs")).href);
+  const covered = new Set(Object.values(TYPE_TO_DATASET).map((t) => t.id));
+  const missing = VISIBLE.filter((id) => !covered.has(id));
+  if (missing.length) {
+    throw new Error(
+      `news pipeline coverage gap: ${missing.join(", ")} ${missing.length > 1 ? "are" : "is"} visible in the app ` +
+      `but has no schoolType in TYPE_TO_DATASET (scripts/news-lib.mjs). Add an entry (schoolType, UNIT_PHRASES ` +
+      `regex in news-scout.mjs, and ideally a dedicated FEEDS query) before the news scout can find or apply ` +
+      `appointments for it.`
+    );
+  }
+}
 
 export const today = () => new Date().toISOString().slice(0, 10);
 export const monthLabel = (d) =>

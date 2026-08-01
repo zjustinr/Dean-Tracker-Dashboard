@@ -1,23 +1,31 @@
 #!/usr/bin/env node
 /**
- * Daily leadership-appointment news scout — all 12 indices.
+ * Daily leadership-appointment news scout — every VISIBLE index (see
+ * assertDatasetCoverage() in news-lib.mjs, which fails this script loudly if a
+ * new index ships without a schoolType entry below).
  *
- * Scans Google News RSS + Poets&Quants RSS for leadership events (deans of any
- * school, provosts, presidents/chancellors), matches them against tracked
- * universities/schools across ALL datasets, and:
- *   - AUTO-APPLIES high-confidence BUSINESS-SCHOOL appointments to the Excel +
- *     Top-100 deans.json (the only auto-mutation path — kept business-only so the
- *     other 11 datasets are never mutated by a heuristic) and banners them.
+ * Scans Google News RSS + a few higher-ed trade-press RSS feeds for leadership
+ * events (deans of any school, provosts, presidents/chancellors, advancement
+ * VPs/CDOs), matches them against tracked universities/schools across ALL
+ * datasets, and:
+ *   - AUTO-APPLIES high-confidence appointments directly to that index's own
+ *     <id>-deans.json (via applyEvent -> applyAppointmentGeneric in news-lib.mjs)
+ *     and banners them.
  *   - For every other matched leadership event (any index), adds a display-only
  *     "breaking" banner item + a latest-news entry. No data mutation.
- *   - Opens a GitHub confirmation issue for ambiguous business events.
+ *   - Medium-confidence events go to the review queue -> daily email digest.
  *
  * Usage: node news-scout.mjs [--dry-run]
  */
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import { ROOT, applyEvent, enqueueEnrichment, updateJobMarket, logCSV, loadBreaking, saveBreaking, today } from "./news-lib.mjs";
+import { ROOT, applyEvent, enqueueEnrichment, updateJobMarket, logCSV, loadBreaking, saveBreaking, today, assertDatasetCoverage } from "./news-lib.mjs";
+
+// Fail loudly (non-zero exit, visible in the Actions run) rather than silently
+// missing a whole index the way usgrad/uscreativearts/usadvancement went
+// uncovered for weeks after shipping. See assertDatasetCoverage's own comment.
+await assertDatasetCoverage();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA = resolve(__dirname, "../src/data");
@@ -47,6 +55,9 @@ const DATASETS = [
   ["system", "r1-system-schools.json"],
   ["publichealth", "r1-publichealth-schools.json"],
   ["veterinary", "r1-vet-schools.json"],
+  ["grad", "r1-grad-schools.json"],
+  ["creativearts", "r1-camd-schools.json"],
+  ["advancement", "r1-advancement-schools.json"],
 ];
 
 const FEEDS = [
@@ -64,9 +75,19 @@ const FEEDS = [
   "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22college%20of%20pharmacy%22%20OR%20%22school%20of%20pharmacy%22)&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22college%20of%20education%22%20OR%20%22school%20of%20education%22)&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22college%20of%20agriculture%22%20OR%20%22college%20of%20arts%20and%20sciences%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22college%20of%20veterinary%20medicine%22%20OR%20%22school%20of%20veterinary%20medicine%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22graduate%20school%22%20OR%20%22graduate%20college%22%20OR%20%22vice%20provost%20for%20graduate%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22named%20dean%22%20(%22college%20of%20fine%20arts%22%20OR%20%22school%20of%20the%20arts%22%20OR%20%22college%20of%20arts%2C%20media%22%20OR%20%22visual%20and%20performing%20arts%22)&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=university%20(%22vice%20president%20for%20advancement%22%20OR%20%22chief%20advancement%20officer%22%20OR%20%22chief%20development%20officer%22)%20(named%20OR%20appointed%20OR%20named%20interim)&hl=en-US&gl=US&ceid=US:en",
   // university leadership: provosts + presidents/chancellors
   "https://news.google.com/rss/search?q=university%20(%22named%20provost%22%20OR%20%22new%20provost%22%20OR%20%22interim%20provost%22)&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=university%20(%22named%20president%22%20OR%20%22next%20president%22%20OR%20%22named%20chancellor%22)&hl=en-US&gl=US&ceid=US:en",
+  // broad higher-ed trade press -- not personnel-specific, but the classify()/
+  // extractName() pipeline below already filters any feed down to leadership
+  // stories, so a general feed adds coverage the targeted Google News queries
+  // above can miss (wording variants, smaller schools, etc.).
+  "https://www.insidehighered.com/rss.xml",
+  "https://www.highereddive.com/feeds/news/",
 ];
 
 // ---------- rss helpers ----------
@@ -144,6 +165,12 @@ for (const [schoolType, file] of DATASETS) {
   }
 }
 
+// Advancement titles ("VP for Advancement", "chief development officer") never
+// contain dean/provost/president/chancellor, so classify() below needs its own
+// gate for them. Shared with the "advancement" UNIT_PHRASES entry so the two
+// can't drift apart and leave a detected-but-unroutable event.
+const ADVANCEMENT_TITLE_RE = /\b(vice\s+president\s+for\s+advancement|vice\s+president\s+of\s+(?:university\s+)?advancement|chief\s+advancement\s+officer|chief\s+development\s+officer)\b/i;
+
 // Explicit unit phrases that pin a DEAN story to one dataset. Order = specificity.
 const UNIT_PHRASES = [
   ["business",     /business\s+school|school\s+of\s+business|college\s+of\s+business|(?:graduate\s+)?school\s+of\s+management|b-school/i],
@@ -159,6 +186,9 @@ const UNIT_PHRASES = [
   ["engineering",  /college\s+of\s+engineering|school\s+of\s+engineering/i],
   ["agriculture",  /college\s+of\s+agriculture|school\s+of\s+agriculture|college\s+of\s+forestry|agricultural\s+sciences|natural\s+resources/i],
   ["arts",         /college\s+of\s+arts\s+and\s+sciences|school\s+of\s+arts\s+and\s+sciences|college\s+of\s+liberal\s+arts|arts\s+(?:&|and)\s+sciences/i],
+  ["grad",         /graduate\s+school|graduate\s+college|vice\s+provost\s+for\s+graduate/i],
+  ["creativearts", /college\s+of\s+fine\s+arts|school\s+of\s+the\s+arts|college\s+of\s+arts(?:,|\s+and)\s+media|visual\s+and\s+performing\s+arts|school\s+of\s+visual\s+arts/i],
+  ["advancement",  ADVANCEMENT_TITLE_RE],
 ];
 
 /** Resolve which dataset an event targets, from its role + unit phrase. */
@@ -195,19 +225,27 @@ function classify(text) {
   const isDean = /\bdean\b/i.test(t);
   const isProvost = /\bprovost\b/i.test(t);
   const isPres = /\b(president|chancellor)\b/i.test(t);
-  if (!(isDean || isProvost || isPres)) return null;
-  if (/\bdean'?s\s+list\b|\bof\s+the\s+year\b|\baward(ed|s)?\b|\bhonor(ed|s)\b|\bvice\s+president\s+for\b/i.test(t)) return null;
+  const isAdvancement = ADVANCEMENT_TITLE_RE.test(t);
+  if (!(isDean || isProvost || isPres || isAdvancement)) return null;
+  if (/\bdean'?s\s+list\b|\bof\s+the\s+year\b|\baward(ed|s)?\b|\bhonor(ed|s)\b/i.test(t)) return null;
+  // "vice president for X" is usually noise (student affairs, enrollment, etc.)
+  // UNLESS X is advancement/development, which is a tracked role.
+  if (/\bvice\s+president\s+for\b/i.test(t) && !isAdvancement) return null;
   // Non-academic-leadership noise: athletics, alumni orgs, and hospital/health-system
   // or association "president/CEO" roles that aren't the campus leadership we track.
   if (/\bbasketball\b|\bfootball\b|\bathletics?\b|head\s+coach|alumni\s+association/i.test(t)) return null;
-  if ((isPres && !isDean && !isProvost) && /\bmedical\s+center\b|\bhealth\s+system\b|\bhospital\b|\bC\.?E\.?O\.?\b|chief\s+executive|\bassociation\b|\bfoundation\b/i.test(t)) return null;
-  const role = isProvost ? "provost" : isPres ? "president" : "dean";
+  if ((isPres && !isDean && !isProvost && !isAdvancement) && /\bmedical\s+center\b|\bhealth\s+system\b|\bhospital\b|\bC\.?E\.?O\.?\b|chief\s+executive|\bassociation\b|\bfoundation\b/i.test(t)) return null;
+  // isAdvancement must win first: "Vice President for Advancement" contains the
+  // bare word "President", which would otherwise make isPres true and misroute
+  // every advancement story into the president/chancellor bucket.
+  const role = isAdvancement ? "advancement" : isProvost ? "provost" : isPres ? "president" : "dean";
   const interim = /\binterim\b|\bacting\b/i.test(t);
+  const roleWords = "dean|provost|president|chancellor|vice\\s+president\\s+for\\s+advancement|chief\\s+advancement\\s+officer|chief\\s+development\\s+officer";
   const appt = /\b(named|appointed|selected|tapped|chosen|hired\s+as|picked\s+to\s+lead|takes?\s+over\s+as|to\s+lead|to\s+become|to\s+serve\s+as|will\s+(?:lead|serve|become))\b/i.test(t) ||
-    /\b(names?|appoints?|taps?|selects?|welcomes?)\b[\s\S]{0,60}\b(as\s+)?(its\s+)?(new\s+|next\s+)?(interim\s+|acting\s+)?(dean|provost|president|chancellor)\b/i.test(t) ||
-    /\bnext\s+(dean|provost|president|chancellor)\b/i.test(t);
+    new RegExp(`\\b(names?|appoints?|taps?|selects?|welcomes?)\\b[\\s\\S]{0,60}\\b(as\\s+)?(its\\s+)?(new\\s+|next\\s+)?(interim\\s+|acting\\s+)?(${roleWords})\\b`, "i").test(t) ||
+    new RegExp(`\\bnext\\s+(${roleWords})\\b`, "i").test(t);
   const dep = /\b(steps?\s+down|stepping\s+down|resigns?|to\s+retire|retiring|departs?|is\s+leaving|concludes?\s+(his|her|their)\s+(tenure|deanship|presidency))\b/i.test(t);
-  const search = /\b(dean|provost|presidential)\s+search\b|\bsearch\s+(committee\s+)?for\s+(a\s+)?(new\s+)?(dean|provost|president|chancellor)\b/i.test(t);
+  const search = new RegExp(`\\b(dean|provost|presidential|advancement)\\s+search\\b|\\bsearch\\s+(committee\\s+)?for\\s+(a\\s+)?(new\\s+)?(${roleWords})\\b`, "i").test(t);
   if (appt) return { type: "appointment", interim, role };
   if (dep) return { type: "departure", interim: false, role };
   if (search) return { type: "search", interim: false, role };
