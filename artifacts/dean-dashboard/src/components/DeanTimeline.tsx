@@ -1,11 +1,14 @@
 import { useMemo, useState, useRef } from "react";
 import type { Dean } from "@/data/types";
 import { CHART_COLORS, ORIGIN_LABELS, NEXT_ROLE_LABELS, genderNorm, yearsLabel } from "@/data/types";
-import { useDeanCareer } from "@/data/useData";
+import { useDeanCareer, useAllDeans } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { MiniPortrait, FullPortrait } from "./DeanPortrait";
-import { useResearchMap, enrichKey } from "@/data/enrichment";
+import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
+import careerRoots from "@/data/career-roots.json";
+import careerGeo from "@/data/career-geo.json";
+import { useResearchMap, enrichKey, syntheticCareerSteps } from "@/data/enrichment";
 
 interface Props {
   deans: Dean[];
@@ -55,6 +58,37 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
   const clickedQ = clickedDean ? `"${clickedDean.dean}" ${clickedDean.university}` : "";
   const googleNewsUrl = `https://news.google.com/search?q=${encodeURIComponent(clickedQ)}`;
   const webSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(clickedQ)}`;
+  // Falls back to a synthetic PhD -> current-seat trajectory when there's no
+  // researched career at all, same as DeanProfile (see syntheticCareerSteps).
+  const mapCareerSteps = clickedDean
+    ? (research?.career?.length ? research.career : syntheticCareerSteps(clickedDean, titleOf(clickedDean)))
+    : [];
+  const mapRenders = mapCareerSteps.filter((s) => {
+    const g = s.org ? (careerGeo as Record<string, { country: string; lat: number | null }>)[s.org.toLowerCase().trim()] : null;
+    return g && g.lat != null;
+  }).length >= 2;
+  const allDeans = useAllDeans();
+  const tenure = useMemo(() => {
+    if (!clickedDean) return undefined;
+    const NOW = 2026;
+    const lens = allDeans
+      .filter((d) => d.endYear != null && !d.isInterim && (d.tenureLength ?? 0) > 0)
+      .map((d) => d.tenureLength as number)
+      .sort((a, b) => a - b);
+    const pct = (p: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(p * lens.length))] : null);
+    const pastLens = careerPositions
+      .filter((p) => p.endYear != null && (p.tenureLength ?? 0) > 0)
+      .map((p) => p.tenureLength as number);
+    const personalAvg = pastLens.length ? pastLens.reduce((a, b) => a + b, 0) / pastLens.length : null;
+    return {
+      sitting: clickedDean.endYear == null,
+      currentTenure: clickedDean.endYear == null && clickedDean.startYear ? NOW - clickedDean.startYear : clickedDean.tenureLength ?? null,
+      median: pct(0.5),
+      p75: pct(0.75),
+      personalAvg,
+      cohortN: lens.length,
+    };
+  }, [allDeans, careerPositions, clickedDean]);
 
   if (deans.length === 0) {
     return <p className="text-muted-foreground text-sm py-8 text-center">No data available for this school.</p>;
@@ -492,6 +526,21 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                     </div>
                   );
                 })()}
+              </div>
+            )}
+
+            {mapRenders && clickedDean && (
+              <div className="mt-4 pt-3 border-t border-border">
+                <h4 className="text-sm font-bold mb-3">Career Path</h4>
+                <div className="grid gap-5 items-start lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)]">
+                  <div className="min-w-0">
+                    <CareerMap steps={mapCareerSteps} roots={(careerRoots as Record<string, Root[]>)[enrichKey(clickedDean.dean, clickedDean.university)]} />
+                  </div>
+                  <div>
+                    <h5 className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1.5">Movability Outlook</h5>
+                    <CareerAssessment steps={mapCareerSteps} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(clickedDean.dean, clickedDean.university)]} />
+                  </div>
+                </div>
               </div>
             )}
 

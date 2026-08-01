@@ -26,6 +26,26 @@ export interface LeaderResearch {
   career?: CareerStep[]; // chronological pre-role trajectory (earliest → current)
 }
 
+/**
+ * Fallback career trajectory for the ~70% of leaders who have never gone
+ * through the headhunter research pass and so have no research.career at all
+ * -- rather than showing no Career Map, everyone with a known PhD institution
+ * gets a minimal two-stop map (where they trained -> the seat they hold now).
+ * Only call this when there's no real research.career; never blend synthetic
+ * stops into a partially-researched trajectory.
+ */
+export function syntheticCareerSteps(
+  dean: { phdField: string; phdInstitution?: string; university: string; school: string; startYear: number | null; endYear: number | null },
+  title: string
+): CareerStep[] {
+  if (!dean.phdInstitution) return [];
+  const years = dean.startYear ? `${dean.startYear}-${dean.endYear ?? "present"}` : "";
+  return [
+    { role: dean.phdField ? `PhD, ${dean.phdField}` : "PhD", org: dean.phdInstitution, years: "" },
+    { role: `${title}, ${dean.school}`, org: dean.university, years },
+  ];
+}
+
 function makeJsonMap<T>(file: string) {
   let data: Record<string, T> = {};
   let started = false;

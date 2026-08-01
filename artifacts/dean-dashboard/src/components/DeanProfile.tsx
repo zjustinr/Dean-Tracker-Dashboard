@@ -8,7 +8,7 @@ import { FullPortrait } from "./DeanPortrait";
 import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
-import { useResearchMap, enrichKey, useCareerMap, careerKey } from "@/data/enrichment";
+import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps } from "@/data/enrichment";
 
 function formatMoney(val: number | null): string {
   if (!val) return "–";
@@ -33,12 +33,16 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
   const research = useResearchMap()[enrichKey(dean.dean, dean.university)] || null;
   const hasNews = !!research?.news?.length;
   const hasCareer = !!research?.career?.length;
+  // The map/assessment fall back to a synthetic PhD -> current-seat trajectory
+  // when there's no researched career at all (see syntheticCareerSteps) -- kept
+  // separate from hasCareer/the text "Career Path" below, which stay real-data-only.
+  const mapCareerSteps = hasCareer ? research!.career! : syntheticCareerSteps(dean, title);
   // Does the Career Map actually have >=2 US-geocoded stops? Drives the two-column
   // layout (map beside the timeline) so leaders without a map keep a full-width timeline.
-  const mapRenders = !!(research?.career && research.career.filter((s) => {
+  const mapRenders = mapCareerSteps.filter((s) => {
     const g = s.org ? (careerGeo as Record<string, { country: string; lat: number | null }>)[s.org.toLowerCase().trim()] : null;
     return g && g.lat != null;
-  }).length >= 2);
+  }).length >= 2;
   const ladder = useCareerMap()[careerKey(dean.dean)] || null;
   const hasLadder = !!ladder && ladder.roles.length >= 2;
   const isCurrent = !dean.endYear;
@@ -364,7 +368,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
             </div>
             {mapRenders && (
               <div className="min-w-0">
-                <CareerMap steps={research!.career!} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+                <CareerMap steps={mapCareerSteps} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
               </div>
             )}
             </div>
@@ -375,7 +379,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
           {mapRenders && !hideAssessment && (
             <div className="mt-4 pt-3 border-t border-border">
               <h4 className="text-sm font-bold mb-3">Movability Outlook</h4>
-              <CareerAssessment steps={research!.career!} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
+              <CareerAssessment steps={mapCareerSteps} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
             </div>
           )}
           </>
