@@ -27,6 +27,7 @@ const IDX = {
   "r1-advancement-deans.json": ["Advancement", 2],
   "r1-provost-deans.json": ["Provost", 4],
   "r1-university-deans.json": ["President", 5], "r1-r2public-deans.json": ["President", 5],
+  "r1-lac-deans.json": ["President", 5],
   "r1-system-deans.json": ["System President", 6],
 };
 
