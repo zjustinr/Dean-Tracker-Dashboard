@@ -274,7 +274,7 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
   uslac: {
     id: "uslac",
     label: "Liberal Arts College Presidents",
-    shortLabel: "LAC Presidents",
+    shortLabel: "Liberal Art College",
     description: "Presidents of small, primarily-undergraduate liberal arts colleges, traced from 1996 to today, spanning US News-ranked national liberal arts colleges and public liberal arts colleges nationwide.",
     rankLabel: "US News rank",
     schoolType: "liberalarts",
@@ -285,6 +285,8 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
 // meta -- omitting one here only hides it from the UI. top100 is hidden (it is a
 // strict subset of r1bschool); r1bschool is the default (see DatasetContext).
+// ussystem is hidden for now -- too small a corpus (37 system offices) to carry
+// its own switcher slot; still fully wired into gen-careers/gen-affinity.
 export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.r1bschool,
   DATASETS_META.r1eschool,
@@ -300,7 +302,6 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.uspublichealth,
   DATASETS_META.usvet,
   DATASETS_META.usr2,
-  DATASETS_META.ussystem,
   DATASETS_META.usgrad,
   DATASETS_META.uscreativearts,
   DATASETS_META.usadvancement,
