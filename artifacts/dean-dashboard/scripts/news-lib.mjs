@@ -42,6 +42,7 @@ export const TYPE_TO_DATASET = {
   arts:         { id: "r1arts",         deans: "r1-arts-deans.json" },
   r2university: { id: "usr2", deans: "r1-r2public-deans.json" },
   system: { id: "ussystem", deans: "r1-system-deans.json" },
+  liberalarts: { id: "uslac", deans: "r1-lac-deans.json" },
   publichealth: { id: "uspublichealth", deans: "r1-publichealth-deans.json" },
   veterinary:   { id: "usvet",          deans: "r1-vet-deans.json" },
   grad:         { id: "usgrad",         deans: "r1-grad-deans.json" },

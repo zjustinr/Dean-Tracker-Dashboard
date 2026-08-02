@@ -36,6 +36,7 @@ const INDICES = [
   ["useducation", "Education"],
   ["r1arts", "Arts & Sciences"],
   ["uspublichealth", "Public Health"],
+  ["uslac", "Liberal Arts Colleges"],
   ["ussystem", "University Systems"],
   ["usr2", "R2 Universities"],
   ["usvet", "Veterinary"],

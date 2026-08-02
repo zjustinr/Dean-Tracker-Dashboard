@@ -41,6 +41,18 @@ const SPECS = {
     unitPhrase: String.raw`university\s+system|state\s+system\s+of\s+higher\s+education|system\s+office`,
     sellLabel: "University Systems",
   },
+  uslac: {
+    prefix: "r1-lac",
+    label: "Liberal Arts College Presidents",
+    shortLabel: "LAC Presidents",
+    description: "Presidents of small, primarily-undergraduate liberal arts colleges, traced from 1996 to today, spanning US News-ranked national liberal arts colleges and public liberal arts colleges nationwide.",
+    rankLabel: "US News rank",
+    schoolType: "liberalarts",
+    yearRange: "1996-2026",
+    newsType: "liberalarts",
+    unitPhrase: String.raw`liberal\s+arts\s+college`,
+    sellLabel: "Liberal Arts Colleges",
+  },
 };
 
 const S = SPECS[ID];

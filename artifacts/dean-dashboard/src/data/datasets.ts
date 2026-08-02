@@ -12,7 +12,7 @@ declare const __BUILD_ID__: string;
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts" | "usadvancement";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts" | "usadvancement" | "uslac";
 
 export interface SchoolInfo {
   university: string;
@@ -44,7 +44,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts" | "advancement";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts" | "advancement" | "liberalarts";
   yearRange: string;
 }
 
@@ -270,6 +270,16 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     schoolType: "advancement",
     yearRange: "1990–2026",
   },
+
+  uslac: {
+    id: "uslac",
+    label: "Liberal Arts College Presidents",
+    shortLabel: "LAC Presidents",
+    description: "Presidents of small, primarily-undergraduate liberal arts colleges, traced from 1996 to today, spanning US News-ranked national liberal arts colleges and public liberal arts colleges nationwide.",
+    rankLabel: "US News rank",
+    schoolType: "liberalarts",
+    yearRange: "1996-2026",
+  },
 };
 
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
@@ -294,6 +304,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.usgrad,
   DATASETS_META.uscreativearts,
   DATASETS_META.usadvancement,
+  DATASETS_META.uslac,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,
