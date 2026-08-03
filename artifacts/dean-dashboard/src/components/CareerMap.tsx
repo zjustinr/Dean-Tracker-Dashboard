@@ -216,11 +216,12 @@ export function CareerAssessment({ steps, tenure, roots }: { steps: CareerStep[]
     <div className="rounded-lg border border-border bg-muted/30 p-3 text-left">
       {rating && (
         <div className="mb-2">
-          <span className="inline-flex items-center gap-1.5">
-            <MovabilityGaugeIcon tone={rating.tone} size={18} />
+          <div className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1.5">Movability Index</div>
+          <div className="flex items-center gap-2.5">
+            <MovabilityGaugeIcon tone={rating.tone} size={40} className="shrink-0" />
             <span className={`inline-block text-sm font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
-          </span>
-          <p className="text-sm text-foreground mt-1 leading-snug">{rating.reason}</p>
+          </div>
+          <p className="text-sm text-foreground mt-1.5 leading-snug">{rating.reason}</p>
         </div>
       )}
       {stats && (
