@@ -378,7 +378,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
               (hideAssessment) it is rendered in the results-map right column instead. */}
           {mapRenders && !hideAssessment && (
             <div className="mt-4 pt-3 border-t border-border">
-              <h4 className="text-sm font-bold mb-3">Movability Outlook</h4>
+              <h4 className="text-sm font-bold mb-3">Movability Index</h4>
               <CareerAssessment steps={mapCareerSteps} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)]} />
             </div>
           )}

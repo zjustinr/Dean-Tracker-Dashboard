@@ -133,15 +133,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
   const [sortBy, setSortBy] = useState<"name" | "tenure" | "recent" | "sofar">("name");
-  // Credential screens. Most academic-leadership searches require a doctorate and
-  // a faculty/professor background, so both default ON — EXCEPT the creative-arts
-  // index, whose terminal degree is typically an MFA/M.Arch/DMA rather than a
-  // doctorate, and the advancement index, whose VP/CDO-level roles are fundraising
-  // and nonprofit-management careers that rarely require or expect a doctorate;
-  // a "require doctorate" default on either wrongly hides nearly every candidate.
-  const credentialDefault = datasetId !== "uscreativearts" && datasetId !== "usadvancement";
-  const [requirePhd, setRequirePhd] = useState(credentialDefault);
-  const [requireProf, setRequireProf] = useState(credentialDefault);
+  // Credential screens (Ph.D. / Professor). Off by default across every index —
+  // they narrow the slate, so a searcher opts in rather than discovering
+  // candidates got filtered out silently.
+  const [requirePhd, setRequirePhd] = useState(false);
+  const [requireProf, setRequireProf] = useState(false);
   const [affinity, setAffinity] = useState<Set<string>>(new Set());
   // Overlay the departure hazard rate on the tenure histogram (off by default).
   const [showHazard, setShowHazard] = useState(false);
@@ -541,7 +537,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const clearAll = () => {
     setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword(""); setAffinity(new Set());
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
-    setRequirePhd(true); setRequireProf(true); setYrFrom(null); setYrTo(null);
+    setRequirePhd(false); setRequireProf(false); setYrFrom(null); setYrTo(null);
   };
 
   // Export the SHORTLIST only (the user's hand-picked few), not the dataset.

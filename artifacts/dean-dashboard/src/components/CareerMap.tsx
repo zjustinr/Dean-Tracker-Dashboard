@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import * as RSM from "react-simple-maps";
 import type { CareerStep } from "@/data/enrichment";
 import careerGeo from "@/data/career-geo.json";
+import { MovabilityGaugeIcon } from "./MovabilityGaugeIcon";
 
 const { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } = RSM;
 type Hover = { kind: "career"; num: number; role: string; org: string; place: string; years: string } | { kind: "alma"; school: string; level: string; state: string };
@@ -103,10 +104,10 @@ function useCareerAnalysis(steps: CareerStep[], tenure: TenureInfo | undefined, 
     const ct = t.currentTenure;
     const own = t.personalAvg != null ? ` · usually stays ~${Math.round(t.personalAvg)} yr${Math.round(t.personalAvg) === 1 ? "" : "s"}` : "";
     if (t.p75 != null && ct >= t.p75)
-      return { label: "Ripe to move", cls: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200", reason: `${ct} yrs in role, past the 75th-pct (${t.p75} yrs) for this cohort${own}` };
+      return { label: "Overdue", tone: "lightgreen" as const, cls: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300", reason: `${ct} yrs in role, past the 75th-pct (${t.p75} yrs) for this cohort -- this far past the typical window usually means they're staying put, not about to leave${own}` };
     if (ct >= t.median || (t.personalAvg != null && ct >= t.personalAvg))
-      return { label: "Could move", cls: "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200", reason: `${ct} yrs in role, near the typical ${t.median} yrs${own}` };
-    return { label: "Not up to move", cls: "bg-muted text-muted-foreground", reason: `${ct} yrs in role, below the typical ${t.median} yrs${own}` };
+      return { label: "Could move", tone: "green" as const, cls: "bg-green-200 text-green-900 dark:bg-green-800 dark:text-green-100", reason: `${ct} yrs in role, near the typical ${t.median} yrs${own}` };
+    return { label: "Not up to move", tone: "yellow" as const, cls: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200", reason: `${ct} yrs in role, below the typical ${t.median} yrs${own}` };
   }, [tenure]);
 
   const ties = useMemo(() => {
@@ -215,7 +216,10 @@ export function CareerAssessment({ steps, tenure, roots }: { steps: CareerStep[]
     <div className="rounded-lg border border-border bg-muted/30 p-3 text-left">
       {rating && (
         <div className="mb-2">
-          <span className={`inline-block text-sm font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
+          <span className="inline-flex items-center gap-1.5">
+            <MovabilityGaugeIcon tone={rating.tone} size={18} />
+            <span className={`inline-block text-sm font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
+          </span>
           <p className="text-sm text-foreground mt-1 leading-snug">{rating.reason}</p>
         </div>
       )}

@@ -537,7 +537,7 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
                     <CareerMap steps={mapCareerSteps} roots={(careerRoots as Record<string, Root[]>)[enrichKey(clickedDean.dean, clickedDean.university)]} />
                   </div>
                   <div>
-                    <h5 className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1.5">Movability Outlook</h5>
+                    <h5 className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1.5">Movability Index</h5>
                     <CareerAssessment steps={mapCareerSteps} tenure={tenure} roots={(careerRoots as Record<string, Root[]>)[enrichKey(clickedDean.dean, clickedDean.university)]} />
                   </div>
                 </div>
