@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
-import { yearsLabel } from "@/data/types";
+import { yearsLabel, genderNorm } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
 import RegionMap from "@/components/RegionMap";
 import ResultsMap from "@/components/ResultsMap";
@@ -138,6 +138,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // candidates got filtered out silently.
   const [requirePhd, setRequirePhd] = useState(false);
   const [requireProf, setRequireProf] = useState(false);
+  // Widen-the-pool control for building a diverse slate, not an exclusionary
+  // screen: defaults to "all" and is framed as "Include", the same posture as
+  // an affinity filter that surfaces candidates rather than filters them out.
+  const [includeGender, setIncludeGender] = useState<"all" | "women" | "men">("all");
   const [affinity, setAffinity] = useState<Set<string>>(new Set());
   // Overlay the departure hazard rate on the tenure histogram (off by default).
   const [showHazard, setShowHazard] = useState(false);
@@ -354,6 +358,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       if (apptType === "interim" && !isSub && !d.isInterim) return false;
       if (requirePhd && !hasDoctorate(d)) return false;
       if (requireProf && !wasProfessor(d)) return false;
+      if (includeGender !== "all") {
+        const g = genderNorm(d.gender);
+        if (includeGender === "women" && g !== "F") return false;
+        if (includeGender === "men" && g !== "M") return false;
+      }
       if (servedMin > 0 || servedMax < SERVED_CAP) {
         const yrs = elapsedYears(d);
         if (yrs == null || yrs < servedMin || yrs > servedMax) return false;
@@ -367,7 +376,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       seen.add(key);
       return true;
     });
-  }, [allDeans, query, keyword, researchMap, letter, discipline, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, hasFilter]);
+  }, [allDeans, query, keyword, researchMap, letter, discipline, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, includeGender, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -537,7 +546,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const clearAll = () => {
     setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword(""); setAffinity(new Set());
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
-    setRequirePhd(false); setRequireProf(false); setYrFrom(null); setYrTo(null);
+    setRequirePhd(false); setRequireProf(false); setIncludeGender("all"); setYrFrom(null); setYrTo(null);
   };
 
   // Export the SHORTLIST only (the user's hand-picked few), not the dataset.
@@ -631,6 +640,17 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                 <option value="sofar">Sort: tenure so far</option>
                 <option value="recent">Sort: most recently appointed</option>
               </select>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="text-xs font-medium text-muted-foreground">Include</span>
+              <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
+                {([["all", "All"], ["women", "Women"], ["men", "Men"]] as ["all" | "women" | "men", string][]).map(([v, label], i) => (
+                  <button key={v} onClick={() => { setIncludeGender(v); setExpandedId(null); }}
+                    className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", includeGender === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
+                ))}
+              </div>
+              <span className="text-[10px] text-muted-foreground">(widen the pool for a defensible diverse slate)</span>
             </div>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
