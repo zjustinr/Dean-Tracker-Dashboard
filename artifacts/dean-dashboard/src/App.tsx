@@ -8,6 +8,7 @@ import type { Dean } from "@/data/types";
 import LiveJobMarket from "@/components/LiveJobMarket";
 import DisciplineSearch from "@/components/DisciplineSearch";
 import Insights from "@/components/Insights";
+import ScoutAssistant from "@/components/ScoutAssistant";
 import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/FreeTierMeter";
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
@@ -45,6 +46,7 @@ interface TabDef {
 // slot (the most prominent by reading order) and is the default open tab.
 const DEFAULT_TABS: TabDef[] = [
   { value: "search", label: "Slate Builder", desc: "Filter sitting leaders by school, discipline, or tenure — then assemble a shortlist and open any profile." },
+  { value: "scout", label: "Scout Assistant", desc: "Pick a school and see candidates scored against patterns mined from our own appointment history, with the reasons shown." },
   { value: "explorer", label: "School Explorer", desc: "Browse leader histories by school with interactive tenure timelines and list/map views." },
   { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics — including interim appointments." },
   { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
@@ -65,6 +67,7 @@ function buildTabContent(
     trends: <AggregateTrends />,
     analysis: <CrossSchoolAnalysis />,
     search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} onOpenLeader={onOpenLeader} />,
+    scout: <ScoutAssistant onOpenLeader={onOpenLeader} />,
     jobmarket: <LiveJobMarket />,
     discipline: <DisciplineSearch />,
   };

@@ -72,6 +72,14 @@ const PATHS: Record<string, ReactNode> = {
       <path d="M9 17v-3M12 17v-5M15 17v-2" />
     </>
   ),
+  // Scout Assistant — binoculars
+  scout: (
+    <>
+      <path d="M9 7h6l1.5 4.5v5A2.5 2.5 0 0 1 14 19a2.5 2.5 0 0 1-2.5-2.5v-3h-3v3A2.5 2.5 0 0 1 6 19a2.5 2.5 0 0 1-2.5-2.5v-5L5 7" />
+      <path d="M9 7V5h6v2" />
+      <path d="M11.5 11h1" />
+    </>
+  ),
 };
 
 export default function ModuleIcon({ id, className }: { id: string; className?: string }) {

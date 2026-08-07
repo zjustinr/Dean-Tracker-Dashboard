@@ -8,37 +8,13 @@ import RegionMap from "@/components/RegionMap";
 import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
-import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, type AffEntry, type AffMap } from "@/data/enrichment";
 
-// Per-deploy build id (vite define), used to cache-bust the affinity fetch.
-declare const __BUILD_ID__: string;
-
-// Cross-index AFFINITY: every leader in the database with a tie to a school
-// (undergrad / grad / faculty / administration), for ALL schools. Precomputed by
-// scripts/gen-affinity.mjs (~4.5 MB), served scope-filtered through the gated /data
-// endpoint. Too large to bundle, so it is fetched lazily the first time a user
-// engages the selector, then cached module-wide.
+// Cross-index AFFINITY selector kinds (see @/data/enrichment for the fetch/cache
+// itself, shared with ScoutAssistant's candidate pool).
 const AFF_KINDS: [keyof AffEntry, string][] = [
   ["undergrad", "Undergraduate"], ["grad", "Master or PhD"], ["faculty", "Faculty"], ["admin", "Administration"],
 ];
-type AffEntry = {
-  name: string; role: string; university: string;
-  index: string | null; indexLabel: string | null; enrichKey: string;
-  undergrad: string[]; grad: string[]; faculty: string[]; admin: string[];
-};
-type AffMap = Record<string, AffEntry[]>;
-let AFFINITY_CACHE: AffMap | null = null;
-let AFFINITY_PROMISE: Promise<AffMap> | null = null;
-function loadAffinity(): Promise<AffMap> {
-  if (AFFINITY_CACHE) return Promise.resolve(AFFINITY_CACHE);
-  if (!AFFINITY_PROMISE) {
-    AFFINITY_PROMISE = fetch(`${import.meta.env.BASE_URL}data/affinity-by-school.json?v=${__BUILD_ID__}`)
-      .then((r) => (r.ok ? r.json() : {}))
-      .then((d) => (AFFINITY_CACHE = d as AffMap))
-      .catch(() => (AFFINITY_CACHE = {} as AffMap));
-  }
-  return AFFINITY_PROMISE;
-}
 
 export interface DeanSearchPrefill {
   fullName: string;
@@ -525,7 +501,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // checked kinds. The selector shows for any single chosen school; the ~4 MB map
   // loads lazily the first time a kind is checked.
   const affinityOn = !!school;
-  const [affinityMap, setAffinityMap] = useState<AffMap | null>(AFFINITY_CACHE);
+  const [affinityMap, setAffinityMap] = useState<AffMap | null>(getAffinityCache());
   useEffect(() => {
     if (affinity.size === 0 || affinityMap) return;
     let alive = true;

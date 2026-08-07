@@ -86,6 +86,53 @@ export const getPhotoMap = photos.current;
 export const useResearchMap = research.useMap;
 export const useCareerMap = careers.useMap;
 
+// Cross-index AFFINITY: every leader in the database with a tie to a school
+// (undergrad / grad / faculty / administration), for ALL schools. Precomputed by
+// scripts/gen-affinity.mjs (~4.5 MB), served scope-filtered through the gated
+// /data endpoint. Kept as its own promise-cache (not makeJsonMap) rather than a
+// reactive store: callers (IndividualSearch's affinity selector, ScoutAssistant's
+// candidate pool) only need the resolved map once, not a re-render subscription.
+export type AffEntry = {
+  name: string; role: string; university: string;
+  index: string | null; indexLabel: string | null; enrichKey: string;
+  undergrad: string[]; grad: string[]; faculty: string[]; admin: string[];
+};
+export type AffMap = Record<string, AffEntry[]>;
+let AFFINITY_CACHE: AffMap | null = null;
+let AFFINITY_PROMISE: Promise<AffMap> | null = null;
+/** Synchronous read of whatever's cached so far (no fetch) -- lets a component seed its initial state without a load flash if another consumer already fetched it. */
+export function getAffinityCache(): AffMap | null { return AFFINITY_CACHE; }
+export function loadAffinity(): Promise<AffMap> {
+  if (AFFINITY_CACHE) return Promise.resolve(AFFINITY_CACHE);
+  if (!AFFINITY_PROMISE) {
+    AFFINITY_PROMISE = fetch(`${import.meta.env.BASE_URL}data/affinity-by-school.json?v=${__BUILD_ID__}`)
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((d) => (AFFINITY_CACHE = d as AffMap))
+      .catch(() => (AFFINITY_CACHE = {} as AffMap));
+  }
+  return AFFINITY_PROMISE;
+}
+
+// Scout Assistant mining output (scripts/gen-scout-insights.mjs), keyed by
+// dataset id. Small enough to load eagerly via the same reactive-map pattern as
+// photos/research/careers above.
+export interface ScoutTrait {
+  field: string; value: string | boolean; kind: "promotion" | "trend";
+  rate: number; compareRate: number; lift: number; n: number; confidence: "low" | "medium" | "high";
+}
+export interface ScoutConnectionBucket {
+  n: number; connectionType: { value: string; rate: number; n: number }[]; flags: Record<string, number>;
+}
+export interface ScoutBacktest { auc: number; pairs: number; folds: number; hireN: number; benchN: number }
+export interface ScoutIndexInsights {
+  sampleSize: number; benchSize: number; hasFeederBench: boolean; lowConfidence: boolean;
+  connectionPatterns: { all: ScoutConnectionBucket | null; external: ScoutConnectionBucket | null };
+  traits: ScoutTrait[];
+  backtest: ScoutBacktest | null;
+}
+const scoutInsights = makeJsonMap<ScoutIndexInsights>("scout-insights.json");
+export const useScoutInsights = scoutInsights.useMap;
+
 export const enrichKey = (dean: string, university: string) =>
   `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
 
