@@ -21,8 +21,11 @@ interface DatasetCtx {
   // The specific person's actual title (e.g. "President", "Chancellor",
   // "Executive Vice President and Provost") for datasets whose titles vary —
   // falls back to the generic noun otherwise. Interim/acting markers are
-  // stripped since a separate Interim badge already conveys that.
-  titleOf: (d: { discipline?: string | null } | null | undefined) => string;
+  // stripped since a separate Interim badge already conveys that. Feeder-bench
+  // rows (roleType "subdean") always resolve their title from `discipline`
+  // regardless of dataset, since a "Dean" fallback would misdescribe an
+  // associate/vice/assistant dean.
+  titleOf: (d: { discipline?: string | null; roleType?: string | null } | null | undefined) => string;
 }
 
 const EMPTY: DatasetData = { deans: [], bsq: [], schools: [] };
@@ -60,13 +63,15 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
     const titleVaries = isUniv || isProvost || isGrad || isAdv;
     const noun = isUniv ? "Leader" : isProvost ? "Provost" : isAdv ? "Advancement VP" : "Dean";
     const nounPlural = isUniv ? "Leaders" : isProvost ? "Provosts" : isAdv ? "Advancement VPs" : "Deans";
-    const titleOf = (d: { discipline?: string | null } | null | undefined): string => {
-      if (titleVaries) {
+    const titleOf = (d: { discipline?: string | null; roleType?: string | null } | null | undefined): string => {
+      const isSub = d?.roleType === "subdean";
+      if (titleVaries || isSub) {
         const t = (d?.discipline || "")
           .replace(/\s*\([^)]*(interim|acting)[^)]*\)/gi, "") // "President (interim)" -> "President"
           .replace(/^\s*(interim|acting)\s+/i, "")            // "Interim President" -> "President"
           .trim();
         if (t && t.toLowerCase() !== "other") return t;
+        if (isSub) return "Associate Dean"; // subdean row with no stamped title yet
       }
       return noun;
     };
