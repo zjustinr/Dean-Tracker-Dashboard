@@ -2,13 +2,16 @@ import { useState, useEffect, useMemo } from "react";
 import { useDataset } from "@/data/DatasetContext";
 import { useAllDeans } from "@/data/useData";
 import {
-  useScoutInsights, loadAffinity, getAffinityCache, usePhotoMap, enrichKey,
+  useScoutInsights, loadAffinity, getAffinityCache, usePhotoMap, useResearchMap, enrichKey,
   type ScoutIndexInsights, type ScoutTrait, type AffMap, type AffEntry,
 } from "@/data/enrichment";
 import type { Dean } from "@/data/types";
 import { BOOLEAN_LABELS, CATEGORICAL_LABELS } from "@/data/types";
 import { loadDatasetData, type DatasetId } from "@/data/datasets";
 import DeanProfile from "@/components/DeanProfile";
+import { CareerAssessment, useCareerAnalysis, type Root } from "@/components/CareerMap";
+import { MovabilityGaugeIcon } from "@/components/MovabilityGaugeIcon";
+import careerRoots from "@/data/career-roots.json";
 
 // Labels for the pre-appointment traits gen-scout-insights.mjs mines (types.ts's
 // BOOLEAN_LABELS/CATEGORICAL_LABELS cover most of them already; these are the
@@ -156,7 +159,58 @@ export default function ScoutAssistant({
   const allInsights = useScoutInsights();
   const idx = allInsights[datasetId];
   const photos = usePhotoMap();
+  const researchMap = useResearchMap();
   const [expandedBenchId, setExpandedBenchId] = useState<number | null>(null);
+
+  // Cohort tenure distribution for the Movability Index, mirroring IndividualSearch's
+  // own tenureFor (same cohort-wide percentiles, so the rating reads identically
+  // whether it's shown here or in the results list).
+  function tenureFor(dn: Dean) {
+    const NOW = 2026;
+    const lens = allDeans.filter((x) => x.endYear != null && !x.isInterim && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number).sort((a, b) => a - b);
+    const p = (q: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(q * lens.length))] : null);
+    const past = allDeans.filter((x) => x.dean === dn.dean && x.id !== dn.id && x.endYear != null && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number);
+    const personalAvg = past.length ? past.reduce((a, b) => a + b, 0) / past.length : null;
+    return {
+      sitting: dn.endYear == null,
+      currentTenure: dn.endYear == null && dn.startYear ? NOW - dn.startYear : dn.tenureLength ?? null,
+      median: p(0.5), p75: p(0.75), personalAvg, cohortN: lens.length,
+    };
+  }
+
+  // Compact per-row indicator: just the gauge + label, no map/stats. Used to the
+  // right of every row where a full Dean record is already on hand.
+  function MovabilityBadge({ dean }: { dean: Dean }) {
+    const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
+    const roots = (careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)];
+    const { rating } = useCareerAnalysis(career || [], tenureFor(dean), roots);
+    if (!rating) return null;
+    return (
+      <div className="flex flex-col items-center gap-0.5 shrink-0 w-14" title={`Movability Index: ${rating.label}`}>
+        <MovabilityGaugeIcon tone={rating.tone} size={22} />
+        <span className={`text-[9px] font-semibold px-1 py-0.5 rounded leading-none whitespace-nowrap ${rating.cls}`}>{rating.label}</span>
+      </div>
+    );
+  }
+
+  // Expanded row content: the profile on the left, the full Movability Index
+  // module in its own column on the right -- same split IndividualSearch uses
+  // between its results list and its sticky map/assessment column, just brought
+  // inline per-row here instead of living in a page-level sidebar.
+  function ExpandedProfile({ dean, onClose }: { dean: Dean; onClose: () => void }) {
+    const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
+    const roots = (careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)];
+    return (
+      <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_260px] items-start">
+        <DeanProfile dean={dean} onClose={onClose} onOpenSchool={onOpenSchool} hideAssessment />
+        {career && career.length > 0 && (
+          <div className="lg:sticky lg:top-4">
+            <CareerAssessment steps={career} tenure={tenureFor(dean)} roots={roots} />
+          </div>
+        )}
+      </div>
+    );
+  }
 
   // Affinity candidates only carry tie evidence, not a full Dean record, and may
   // live in an index that isn't currently loaded. To expand them inline (same as
@@ -242,6 +296,15 @@ export default function ScoutAssistant({
       .slice(0, 6);
   }, [affinityMap, university, sittingKeys]);
 
+  // Resolve every visible affinity candidate's full record in the background (not
+  // just on click) so their Movability Index badge can render without waiting for
+  // an expand. resolveAffinityProfile's own cache means this is at most one fetch
+  // per distinct home index represented in the list, not one per candidate.
+  useEffect(() => {
+    affinityCandidates.forEach(({ entry }) => { resolveAffinityProfile(entry); });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [affinityCandidates]);
+
   if (!idx) return null; // no mined patterns for this index yet -- nothing useful to show
 
   const totalCandidates = benchCandidates.length + affinityCandidates.length;
@@ -293,11 +356,12 @@ export default function ScoutAssistant({
                             <p className="text-xs text-muted-foreground italic mt-0.5">No strong pattern match — included as a current bench member.</p>
                           )}
                         </div>
+                        <MovabilityBadge dean={dean} />
                         <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
                       </button>
                       {isOpen && (
                         <div className="px-4 sm:px-5 pb-4 pt-1 bg-[#011F5B]/5 border-l-2 border-[#011F5B]">
-                          <DeanProfile dean={dean} onClose={() => setExpandedBenchId(null)} onOpenSchool={onOpenSchool} hideAssessment />
+                          <ExpandedProfile dean={dean} onClose={() => setExpandedBenchId(null)} />
                         </div>
                       )}
                     </div>
@@ -330,6 +394,7 @@ export default function ScoutAssistant({
                             <span className="font-semibold">{label}</span>{detail ? ` — ${detail}` : ""}
                           </p>
                         </div>
+                        {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
                         <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
                       </button>
                       {isOpen && (
@@ -339,7 +404,7 @@ export default function ScoutAssistant({
                           ) : resolved === "not-found" ? (
                             <p className="text-xs text-muted-foreground py-3">No detailed profile on file for {entry.name} yet.</p>
                           ) : (
-                            <DeanProfile dean={resolved} onClose={() => setExpandedAffKey(null)} onOpenSchool={onOpenSchool} hideAssessment />
+                            <ExpandedProfile dean={resolved} onClose={() => setExpandedAffKey(null)} />
                           )}
                         </div>
                       )}
