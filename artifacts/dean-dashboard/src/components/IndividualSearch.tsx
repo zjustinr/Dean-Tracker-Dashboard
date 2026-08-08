@@ -9,6 +9,7 @@ import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, type AffEntry, type AffMap } from "@/data/enrichment";
+import ScoutAssistant from "@/components/ScoutAssistant";
 
 // Cross-index AFFINITY selector kinds (see @/data/enrichment for the fetch/cache
 // itself, shared with ScoutAssistant's candidate pool).
@@ -1024,6 +1025,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
           <p className="text-muted-foreground text-sm">No {nounPluralLower} match these filters.</p>
         </div>
       )}
+
+      {/* As soon as a specific school is picked, not gated on the results list
+          above having any matches -- Scout Assistant draws from the feeder bench
+          and cross-index affinity ties, independent of the other filters. */}
+      {affinityOn && <ScoutAssistant university={school} onOpenLeader={onOpenLeader} />}
     </div>
 
 

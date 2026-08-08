@@ -1,15 +1,12 @@
 import { useState, useEffect, useMemo } from "react";
 import { useDataset } from "@/data/DatasetContext";
-import { useSchoolList, useAllDeans, parseSchoolKey } from "@/data/useData";
+import { useAllDeans } from "@/data/useData";
 import {
   useScoutInsights, loadAffinity, getAffinityCache,
   type ScoutIndexInsights, type ScoutTrait, type AffMap, type AffEntry,
 } from "@/data/enrichment";
 import type { Dean } from "@/data/types";
 import { BOOLEAN_LABELS, CATEGORICAL_LABELS } from "@/data/types";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Badge } from "@/components/ui/badge";
 
 // Labels for the pre-appointment traits gen-scout-insights.mjs mines (types.ts's
 // BOOLEAN_LABELS/CATEGORICAL_LABELS cover most of them already; these are the
@@ -53,41 +50,32 @@ function tieScore(e: AffEntry): number {
   return e.admin.length * 2 + e.faculty.length * 1.5 + e.grad.length + e.undergrad.length;
 }
 
-function AucNote({ auc }: { auc: number }) {
-  const read = auc >= 0.85 ? "strong" : auc >= 0.7 ? "moderate" : "weak";
-  return (
-    <p className="text-xs text-muted-foreground">
-      Backtested by holding out a fifth of the record at a time: these traits separated actual hires from the
-      never-promoted feeder bench with an AUC of <strong>{auc.toFixed(2)}</strong> ({read} — 0.50 is no better than a
-      coin flip, 1.00 is perfect separation).
-    </p>
-  );
-}
-
 function Methodology({ idx, label }: { idx: ScoutIndexInsights; label: string }) {
   const [open, setOpen] = useState(false);
   const promo = idx.traits.filter((t) => t.kind === "promotion");
   const trend = idx.traits.filter((t) => t.kind === "trend");
   return (
-    <Card className="mt-6">
-      <CardHeader className="pb-3">
-        <button className="text-left" onClick={() => setOpen((o) => !o)}>
-          <CardTitle className="text-sm flex items-center gap-2">
-            <span>{open ? "▾" : "▸"}</span> Methodology — {label}
-          </CardTitle>
-        </button>
-      </CardHeader>
+    <div className="px-4 sm:px-5 py-3">
+      <button onClick={() => setOpen((o) => !o)} className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1.5">
+        <span>{open ? "▾" : "▸"}</span> Methodology — {label}
+      </button>
       {open && (
-        <CardContent className="space-y-4 text-sm">
+        <div className="mt-2.5 space-y-3 text-xs">
           <p className="text-muted-foreground">
             Mined from {idx.sampleSize.toLocaleString()} recorded appointments{idx.hasFeederBench ? ` and ${idx.benchSize.toLocaleString()} feeder-bench roles (associate deans / dept. chairs)` : ""}.
             {idx.lowConfidence && " This index is small — treat every stat below as a lead, not a settled finding."}
           </p>
-          {idx.backtest && <AucNote auc={idx.backtest.auc} />}
+          {idx.backtest && (
+            <p className="text-muted-foreground">
+              Backtested by holding out a fifth of the record at a time: these traits separated actual hires from the
+              never-promoted feeder bench with an AUC of <strong>{idx.backtest.auc.toFixed(2)}</strong> (0.50 is no
+              better than a coin flip, 1.00 is perfect separation).
+            </p>
+          )}
           {idx.connectionPatterns.external && (
             <div>
               <p className="font-semibold">Connection patterns (external hires)</p>
-              <ul className="mt-1 space-y-1 text-muted-foreground">
+              <ul className="mt-1 space-y-0.5 text-muted-foreground">
                 <li>{pct(idx.connectionPatterns.external.flags.hadPriorConnection ?? 0)} had some prior connection to the hiring institution.</li>
                 {idx.connectionPatterns.external.connectionType.slice(0, 4).map((c) => (
                   <li key={c.value}>{c.value}: {pct(c.rate)} (n={c.n})</li>
@@ -98,7 +86,7 @@ function Methodology({ idx, label }: { idx: ScoutIndexInsights; label: string })
           {promo.length > 0 && (
             <div>
               <p className="font-semibold">What predicts promotion from the bench here</p>
-              <ul className="mt-1 space-y-1 text-muted-foreground list-disc pl-4">
+              <ul className="mt-1 space-y-0.5 text-muted-foreground list-disc pl-4">
                 {promo.slice(0, 6).map((t, i) => <li key={i}>{traitSentence(t)}</li>)}
               </ul>
             </div>
@@ -106,32 +94,34 @@ function Methodology({ idx, label }: { idx: ScoutIndexInsights; label: string })
           {trend.length > 0 && (
             <div>
               <p className="font-semibold">How recent hires differ from the historical record</p>
-              <ul className="mt-1 space-y-1 text-muted-foreground list-disc pl-4">
+              <ul className="mt-1 space-y-0.5 text-muted-foreground list-disc pl-4">
                 {trend.slice(0, 6).map((t, i) => <li key={i}>{traitSentence(t)}</li>)}
               </ul>
             </div>
           )}
-          <p className="text-xs text-muted-foreground italic">
+          <p className="text-[11px] text-muted-foreground italic">
             These are historical associations mined from our own dataset, not causal findings and not a hiring
             recommendation — small indices and data-collection gaps can both produce misleading lift numbers.
           </p>
-        </CardContent>
+        </div>
       )}
-    </Card>
+    </div>
   );
 }
 
-export default function ScoutAssistant({ onOpenLeader }: { onOpenLeader?: (index: string | null, fullName: string) => void }) {
-  const { datasetId, meta, noun } = useDataset();
-  const schools = useSchoolList();
+/**
+ * Embedded in Slate Builder (IndividualSearch.tsx), directly below the results
+ * list, as soon as the user narrows to a single school -- not a standalone tab.
+ * Deliberately styled with the same plain-div/Tailwind card chrome as the
+ * results section above it (bg-card border rounded-xl, muted header bar,
+ * divide-y rows) rather than the shadcn Card primitives used elsewhere in the
+ * app, so it reads as part of the same list rather than a bolted-on module.
+ */
+export default function ScoutAssistant({ university, onOpenLeader }: { university: string; onOpenLeader?: (index: string | null, fullName: string) => void }) {
+  const { datasetId, meta } = useDataset();
   const allDeans = useAllDeans();
   const allInsights = useScoutInsights();
   const idx = allInsights[datasetId];
-
-  const [selectedKey, setSelectedKey] = useState(schools[0]?.key || "");
-  useEffect(() => {
-    if (schools.length && !schools.find((s) => s.key === selectedKey)) setSelectedKey(schools[0].key);
-  }, [schools, selectedKey]);
 
   const [affinityMap, setAffinityMap] = useState<AffMap | null>(getAffinityCache());
   useEffect(() => {
@@ -141,10 +131,7 @@ export default function ScoutAssistant({ onOpenLeader }: { onOpenLeader?: (index
     return () => { alive = false; };
   }, [affinityMap]);
 
-  const { university, school } = parseSchoolKey(selectedKey);
-  const selectedInfo = useMemo(() => schools.find((s) => s.key === selectedKey), [schools, selectedKey]);
-
-  const schoolDeans = useMemo(() => allDeans.filter((d) => d.university === university && d.school === school), [allDeans, university, school]);
+  const schoolDeans = useMemo(() => allDeans.filter((d) => d.university === university), [allDeans, university]);
   const sittingKeys = useMemo(() => new Set(
     schoolDeans.filter((d) => d.endYear == null && d.roleType !== "subdean").map((d) => `${d.dean.trim().toLowerCase()}|${d.university.trim().toLowerCase()}`)
   ), [schoolDeans]);
@@ -155,7 +142,7 @@ export default function ScoutAssistant({ onOpenLeader }: { onOpenLeader?: (index
       .filter((d) => d.roleType === "subdean" && !sittingKeys.has(`${d.dean.trim().toLowerCase()}|${d.university.trim().toLowerCase()}`))
       .map((d) => ({ dean: d, ...scoreBench(d, idx.traits) }))
       .sort((a, b) => b.score - a.score)
-      .slice(0, 8);
+      .slice(0, 6);
   }, [schoolDeans, sittingKeys, idx]);
 
   const affinityCandidates = useMemo(() => {
@@ -164,128 +151,91 @@ export default function ScoutAssistant({ onOpenLeader }: { onOpenLeader?: (index
       .filter((e) => !sittingKeys.has(e.enrichKey))
       .map((e) => ({ entry: e, score: tieScore(e) }))
       .sort((a, b) => b.score - a.score)
-      .slice(0, 8);
+      .slice(0, 6);
   }, [affinityMap, university, sittingKeys]);
 
+  if (!idx) return null; // no mined patterns for this index yet -- nothing useful to show
+
+  const totalCandidates = benchCandidates.length + affinityCandidates.length;
+
   return (
-    <div className="max-w-[1000px] mx-auto space-y-6">
-      <div>
-        <div className="text-[11px] font-semibold uppercase tracking-wider text-[#A31F34]">Scout Assistant</div>
-        <h2 className="text-2xl font-bold text-foreground mt-1 leading-tight">Who fits this school's pattern?</h2>
-        <p className="text-muted-foreground mt-1.5 leading-relaxed text-sm">
-          Pick a school. Every candidate below is scored against patterns mined from our own record of past
-          appointments in this index — framed as a fit to the school's <em>historical</em> pattern, not a
-          recommendation to hire. Read the Methodology panel before trusting any single number.
-        </p>
-      </div>
-
-      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-end">
-        <div className="w-full sm:w-[420px]">
-          <label className="text-sm font-medium text-muted-foreground mb-1.5 block">
-            {meta.schoolType === "university" ? "Select a University" : "Select a School"}
-          </label>
-          <Select value={selectedKey} onValueChange={setSelectedKey}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Choose a school..." />
-            </SelectTrigger>
-            <SelectContent className="max-h-80">
-              {schools.map((s) => (
-                <SelectItem key={s.key} value={s.key}>
-                  {s.rank ? `#${s.rank} ` : ""}{s.university} – {s.school}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+    <div className="mt-4 bg-card border border-border rounded-xl overflow-hidden">
+      <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30 flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <p className="text-sm font-medium">Scout Assistant — {university}</p>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            Candidates scored against patterns mined from our own {meta.label.toLowerCase()} appointment history — a
+            fit to this school's historical pattern, not a recommendation. See Methodology below.
+          </p>
         </div>
-        {selectedInfo && (
-          <div className="flex gap-2 flex-wrap">
-            <Badge variant="secondary">{selectedInfo.university}</Badge>
-            {selectedInfo.rank && <Badge variant="outline">Rank #{selectedInfo.rank}</Badge>}
-            {selectedInfo.tier && <Badge variant="outline">{selectedInfo.tier}</Badge>}
-          </div>
-        )}
+        <span className="shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 border border-amber-300/60 dark:border-amber-700/60">
+          Experimental
+        </span>
       </div>
 
-      {!idx && (
-        <Card><CardContent className="py-8 text-center text-muted-foreground text-sm">
-          No mined patterns available yet for {meta.label} — either the data hasn't loaded, or this index doesn't
-          have enough recorded appointments to mine reliably.
-        </CardContent></Card>
-      )}
-
-      {idx?.lowConfidence && (
-        <p className="text-xs text-amber-700 dark:text-amber-500 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 rounded-lg px-3 py-2">
-          {meta.label} has only {idx.sampleSize} recorded appointments — the patterns behind these scores are preliminary.
+      {idx.lowConfidence && (
+        <p className="px-4 sm:px-5 pt-3 text-xs text-amber-700 dark:text-amber-500">
+          {meta.label} has only {idx.sampleSize} recorded appointments — these patterns are preliminary.
         </p>
       )}
 
-      {idx && idx.hasFeederBench && (
-        <Card>
-          <CardHeader><CardTitle className="text-lg">From the feeder bench at {university}</CardTitle></CardHeader>
-          <CardContent>
-            {benchCandidates.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No associate/vice-{noun.toLowerCase()} or department-chair roles on file for this school.</p>
-            ) : (
-              <div className="space-y-3">
+      {totalCandidates === 0 ? (
+        <p className="px-4 sm:px-5 py-4 text-sm text-muted-foreground">No feeder-bench or cross-index connections on file for {university} yet.</p>
+      ) : (
+        <div className="divide-y divide-border">
+          {benchCandidates.length > 0 && (
+            <div className="px-4 sm:px-5 py-3">
+              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide mb-2">From the feeder bench</p>
+              <div className="space-y-2">
                 {benchCandidates.map(({ dean, matched }) => (
                   <button
                     key={dean.id}
                     onClick={() => onOpenLeader?.(datasetId, dean.dean)}
-                    className="w-full text-left rounded-lg border border-border p-3 hover:border-[#A31F34]/50 hover:bg-muted/40 transition-colors"
+                    className="w-full text-left rounded-lg border border-border px-3 py-2 hover:border-[#A31F34]/50 hover:bg-accent/40 transition-colors"
                   >
                     <div className="flex justify-between items-baseline gap-2">
-                      <span className="font-semibold">{dean.dean}</span>
+                      <span className="text-sm font-semibold">{dean.dean}</span>
                       <span className="text-xs text-muted-foreground shrink-0">{dean.discipline || dean.priorTitle}</span>
                     </div>
                     {matched.length > 0 ? (
-                      <ul className="mt-1.5 space-y-0.5 text-xs text-muted-foreground">
-                        {matched.slice(0, 3).map((t, i) => <li key={i}>• {traitSentence(t)}</li>)}
-                      </ul>
+                      <p className="mt-1 text-xs text-muted-foreground">{traitSentence(matched[0])}</p>
                     ) : (
-                      <p className="mt-1.5 text-xs text-muted-foreground italic">No strong pattern match — included as a current bench member.</p>
+                      <p className="mt-1 text-xs text-muted-foreground italic">No strong pattern match — included as a current bench member.</p>
                     )}
                   </button>
                 ))}
               </div>
-            )}
-          </CardContent>
-        </Card>
-      )}
+            </div>
+          )}
 
-      {idx && (
-        <Card>
-          <CardHeader><CardTitle className="text-lg">Connected to {university} across our database</CardTitle></CardHeader>
-          <CardContent>
-            {!affinityMap ? (
-              <p className="text-sm text-muted-foreground">Loading affinity data…</p>
-            ) : affinityCandidates.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No leaders elsewhere in the database have a recorded alumni, faculty, or administrative tie to {university}.</p>
-            ) : (
-              <div className="space-y-3">
+          {affinityCandidates.length > 0 && (
+            <div className="px-4 sm:px-5 py-3">
+              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide mb-2">Connected across our database</p>
+              <div className="space-y-2">
                 {affinityCandidates.map(({ entry }) => (
                   <button
                     key={entry.enrichKey}
                     onClick={() => onOpenLeader?.(entry.index, entry.name)}
-                    className="w-full text-left rounded-lg border border-border p-3 hover:border-[#A31F34]/50 hover:bg-muted/40 transition-colors"
+                    className="w-full text-left rounded-lg border border-border px-3 py-2 hover:border-[#A31F34]/50 hover:bg-accent/40 transition-colors"
                   >
                     <div className="flex justify-between items-baseline gap-2">
-                      <span className="font-semibold">{entry.name}</span>
+                      <span className="text-sm font-semibold">{entry.name}</span>
                       <span className="text-xs text-muted-foreground shrink-0">{entry.role}{entry.university ? ` · ${entry.university}` : ""}</span>
                     </div>
-                    <ul className="mt-1.5 space-y-0.5 text-xs text-muted-foreground">
-                      {AFF_LABELS.filter(([k]) => entry[k].length).map(([k, label]) => (
-                        <li key={label}>• {label}: {entry[k][0]}{entry[k].length > 1 ? ` (+${entry[k].length - 1} more)` : ""}</li>
-                      ))}
-                    </ul>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {AFF_LABELS.filter(([k]) => entry[k].length).map(([k, label]) => `${label}: ${entry[k][0]}`).join(" · ")}
+                    </p>
                   </button>
                 ))}
               </div>
-            )}
-          </CardContent>
-        </Card>
+            </div>
+          )}
+        </div>
       )}
 
-      {idx && <Methodology idx={idx} label={meta.label} />}
+      <div className="border-t border-border">
+        <Methodology idx={idx} label={meta.label} />
+      </div>
     </div>
   );
 }
