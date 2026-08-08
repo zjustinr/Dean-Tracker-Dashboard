@@ -86,6 +86,75 @@ export const getPhotoMap = photos.current;
 export const useResearchMap = research.useMap;
 export const useCareerMap = careers.useMap;
 
+// Cross-index AFFINITY: every leader in the database with a tie to a school
+// (undergrad / grad / faculty / administration), for ALL schools. Precomputed by
+// scripts/gen-affinity.mjs (~4.5 MB), served scope-filtered through the gated
+// /data endpoint. Kept as its own promise-cache (not makeJsonMap) rather than a
+// reactive store: callers (IndividualSearch's affinity selector, ScoutAssistant's
+// candidate pool) only need the resolved map once, not a re-render subscription.
+export type AffEntry = {
+  name: string; role: string; university: string;
+  index: string | null; indexLabel: string | null; enrichKey: string;
+  undergrad: string[]; grad: string[]; faculty: string[]; admin: string[];
+};
+export type AffMap = Record<string, AffEntry[]>;
+let AFFINITY_CACHE: AffMap | null = null;
+let AFFINITY_PROMISE: Promise<AffMap> | null = null;
+/** Synchronous read of whatever's cached so far (no fetch) -- lets a component seed its initial state without a load flash if another consumer already fetched it. */
+export function getAffinityCache(): AffMap | null { return AFFINITY_CACHE; }
+export function loadAffinity(): Promise<AffMap> {
+  if (AFFINITY_CACHE) return Promise.resolve(AFFINITY_CACHE);
+  if (!AFFINITY_PROMISE) {
+    AFFINITY_PROMISE = fetch(`${import.meta.env.BASE_URL}data/affinity-by-school.json?v=${__BUILD_ID__}`)
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((d) => (AFFINITY_CACHE = d as AffMap))
+      .catch(() => (AFFINITY_CACHE = {} as AffMap));
+  }
+  return AFFINITY_PROMISE;
+}
+
+// Scout Assistant mining output (scripts/gen-scout-insights.mjs), keyed by
+// dataset id. Small enough to load eagerly via the same reactive-map pattern as
+// photos/research/careers above.
+export interface ScoutTrait {
+  field: string; value: string | boolean; kind: "promotion" | "trend";
+  rate: number; compareRate: number; lift: number; n: number; confidence: "low" | "medium" | "high";
+}
+export interface ScoutConnectionBucket {
+  n: number; connectionType: { value: string; rate: number; n: number }[]; flags: Record<string, number>;
+}
+export interface ScoutBacktest { auc: number; pairs: number; folds: number; hireN: number; benchN: number }
+export interface ScoutIndexInsights {
+  sampleSize: number; benchSize: number; hasFeederBench: boolean; lowConfidence: boolean;
+  connectionPatterns: { all: ScoutConnectionBucket | null; external: ScoutConnectionBucket | null };
+  traits: ScoutTrait[];
+  backtest: ScoutBacktest | null;
+}
+const scoutInsights = makeJsonMap<ScoutIndexInsights>("scout-insights.json");
+export const useScoutInsights = scoutInsights.useMap;
+
+// Scout Assistant "weak link" mining output (scripts/gen-employer-affinity.mjs),
+// keyed by dataset id. A discipline-level (not per-school -- too thin a sample)
+// shared-employer-background signal, complementary to affinity-by-school.json's
+// direct ties. Only indices where a held-out validation actually beat chance
+// appear here at all -- most indices won't, and that's an honest result of the
+// mining pass, not a bug.
+export interface EmployerCategory { category: string; n: number; rate: number; indexRate: number; lift: number }
+export interface EmployerMatchedCategory { category: string; lift: number; evidence: string }
+export interface WeakLinkEntry {
+  name: string; enrichKey: string; index: string | null; indexLabel: string | null;
+  university: string; role: string; matchedCategories: EmployerMatchedCategory[];
+}
+export interface EmployerSchoolProfile {
+  categories: EmployerCategory[]; weakLinks: WeakLinkEntry[]; group: string; sampleSize: number; lowConfidence: boolean;
+}
+export interface EmployerIndexAffinity {
+  validation: { hitRate: number; baselineHitRate: number; n: number } | null;
+  schools: Record<string, EmployerSchoolProfile>;
+}
+const employerAffinity = makeJsonMap<EmployerIndexAffinity>("employer-affinity.json");
+export const useEmployerAffinity = employerAffinity.useMap;
+
 export const enrichKey = (dean: string, university: string) =>
   `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
 

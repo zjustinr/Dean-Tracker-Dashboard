@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "gen-data": "node scripts/gen-public-data.mjs && node scripts/gen-careers.mjs && node scripts/gen-affinity.mjs",
-    "predev": "node scripts/gen-public-data.mjs && node scripts/gen-careers.mjs && node scripts/gen-affinity.mjs",
+    "gen-data": "node scripts/gen-public-data.mjs && node scripts/gen-careers.mjs && node scripts/gen-affinity.mjs && node scripts/gen-scout-insights.mjs && node scripts/gen-employer-affinity.mjs",
+    "predev": "node scripts/gen-public-data.mjs && node scripts/gen-careers.mjs && node scripts/gen-affinity.mjs && node scripts/gen-scout-insights.mjs && node scripts/gen-employer-affinity.mjs",
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "prebuild": "node scripts/gen-public-data.mjs && node scripts/gen-careers.mjs && node scripts/gen-affinity.mjs",
+    "prebuild": "node scripts/gen-public-data.mjs && node scripts/gen-careers.mjs && node scripts/gen-affinity.mjs && node scripts/gen-scout-insights.mjs && node scripts/gen-employer-affinity.mjs",
     "build": "vite build --config vite.config.ts",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"

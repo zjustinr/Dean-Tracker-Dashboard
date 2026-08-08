@@ -45,7 +45,9 @@ function miles(a: { lat: number; lng: number }, b: { lat: number; lng: number })
 
 // Shared analysis so the map and the assessment can render as separate, adjacent
 // components (map on the right, read on the left) while computing from the same data.
-function useCareerAnalysis(steps: CareerStep[], tenure: TenureInfo | undefined, roots: Root[] | undefined) {
+// Exported so other surfaces (e.g. ScoutAssistant's compact per-row badge) can pull
+// just the `rating` without rendering the full CareerAssessment block.
+export function useCareerAnalysis(steps: CareerStep[], tenure: TenureInfo | undefined, roots: Root[] | undefined) {
   const { located, worldLocated, unlocated, useWorld } = useMemo(() => {
     const us: Located[] = [];
     const world: Located[] = [];
