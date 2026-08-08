@@ -2,11 +2,12 @@ import { useState, useEffect, useMemo } from "react";
 import { useDataset } from "@/data/DatasetContext";
 import { useAllDeans } from "@/data/useData";
 import {
-  useScoutInsights, loadAffinity, getAffinityCache,
+  useScoutInsights, loadAffinity, getAffinityCache, usePhotoMap, enrichKey,
   type ScoutIndexInsights, type ScoutTrait, type AffMap, type AffEntry,
 } from "@/data/enrichment";
 import type { Dean } from "@/data/types";
 import { BOOLEAN_LABELS, CATEGORICAL_LABELS } from "@/data/types";
+import DeanProfile from "@/components/DeanProfile";
 
 // Labels for the pre-appointment traits gen-scout-insights.mjs mines (types.ts's
 // BOOLEAN_LABELS/CATEGORICAL_LABELS cover most of them already; these are the
@@ -117,11 +118,44 @@ function Methodology({ idx, label }: { idx: ScoutIndexInsights; label: string })
  * divide-y rows) rather than the shadcn Card primitives used elsewhere in the
  * app, so it reads as part of the same list rather than a bolted-on module.
  */
-export default function ScoutAssistant({ university, onOpenLeader }: { university: string; onOpenLeader?: (index: string | null, fullName: string) => void }) {
+export default function ScoutAssistant({
+  university, onOpenSchool, onOpenLeader,
+}: {
+  university: string;
+  onOpenSchool?: (university: string, school: string) => void;
+  onOpenLeader?: (index: string | null, fullName: string) => void;
+}) {
   const { datasetId, meta } = useDataset();
   const allDeans = useAllDeans();
   const allInsights = useScoutInsights();
   const idx = allInsights[datasetId];
+  const photos = usePhotoMap();
+  const [expandedBenchId, setExpandedBenchId] = useState<number | null>(null);
+
+  // Bench candidates are full Dean records from the currently-loaded index, so
+  // they expand inline into a full DeanProfile exactly like the results list
+  // above. Affinity candidates can live in a different, unloaded index -- we
+  // only have their tie evidence, not their full record -- so those still open
+  // via onOpenLeader (same cross-index navigation the pre-existing affinity
+  // selector elsewhere in this file already uses for the same data shape).
+  function Avatar({ dean }: { dean: Dean }) {
+    const p = photos[enrichKey(dean.dean, dean.university)];
+    if (p?.photo) return <img src={p.photo} alt="" loading="lazy" className="w-9 h-9 rounded-full object-cover shrink-0 border border-border" />;
+    return (
+      <div className="w-9 h-9 rounded-full bg-[#011F5B]/10 flex items-center justify-center shrink-0">
+        <span className="text-xs font-bold text-[#011F5B]">{dean.dean.split(" ").map((n) => n[0]).join("").slice(0, 2)}</span>
+      </div>
+    );
+  }
+  function AffAvatar({ entry }: { entry: AffEntry }) {
+    const p = photos[entry.enrichKey];
+    if (p?.photo) return <img src={p.photo} alt="" loading="lazy" className="w-9 h-9 rounded-full object-cover shrink-0 border border-border" />;
+    return (
+      <div className="w-9 h-9 rounded-full bg-[#8C1D40]/10 flex items-center justify-center shrink-0">
+        <span className="text-xs font-bold text-[#8C1D40]">{entry.name.split(/\s+/).map((n) => n[0]).join("").slice(0, 2)}</span>
+      </div>
+    );
+  }
 
   const [affinityMap, setAffinityMap] = useState<AffMap | null>(getAffinityCache());
   useEffect(() => {
@@ -160,17 +194,17 @@ export default function ScoutAssistant({ university, onOpenLeader }: { universit
 
   return (
     <div className="mt-4 bg-card border border-border rounded-xl overflow-hidden">
-      <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30 flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-sm font-medium">Scout Assistant — {university}</p>
-          <p className="text-xs text-muted-foreground mt-0.5">
-            Candidates scored against patterns mined from our own {meta.label.toLowerCase()} appointment history — a
-            fit to this school's historical pattern, not a recommendation. See Methodology below.
-          </p>
-        </div>
-        <span className="shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 border border-amber-300/60 dark:border-amber-700/60">
-          Experimental
-        </span>
+      <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
+        <p className="text-sm font-medium flex items-center gap-2 flex-wrap">
+          <span>Scout Assistant</span>
+          <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 border border-amber-300/60 dark:border-amber-700/60">
+            Experimental
+          </span>
+        </p>
+        <p className="text-xs text-muted-foreground mt-0.5">
+          Candidates scored against patterns mined from our own {meta.label.toLowerCase()} appointment history — a
+          fit to this school's historical pattern, not a recommendation. See Methodology below.
+        </p>
       </div>
 
       {idx.lowConfidence && (
@@ -184,47 +218,61 @@ export default function ScoutAssistant({ university, onOpenLeader }: { universit
       ) : (
         <div className="divide-y divide-border">
           {benchCandidates.length > 0 && (
-            <div className="px-4 sm:px-5 py-3">
-              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide mb-2">From the feeder bench</p>
-              <div className="space-y-2">
-                {benchCandidates.map(({ dean, matched }) => (
-                  <button
-                    key={dean.id}
-                    onClick={() => onOpenLeader?.(datasetId, dean.dean)}
-                    className="w-full text-left rounded-lg border border-border px-3 py-2 hover:border-[#A31F34]/50 hover:bg-accent/40 transition-colors"
-                  >
-                    <div className="flex justify-between items-baseline gap-2">
-                      <span className="text-sm font-semibold">{dean.dean}</span>
-                      <span className="text-xs text-muted-foreground shrink-0">{dean.discipline || dean.priorTitle}</span>
+            <div>
+              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide px-4 sm:px-5 pt-3 pb-1">From the feeder bench</p>
+              <div className="divide-y divide-border">
+                {benchCandidates.map(({ dean, matched }) => {
+                  const isOpen = expandedBenchId === dean.id;
+                  return (
+                    <div key={dean.id}>
+                      <button
+                        onClick={() => setExpandedBenchId(isOpen ? null : dean.id)}
+                        className={["w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left transition-colors", isOpen ? "bg-[#011F5B]/5" : "hover:bg-accent/40"].join(" ")}
+                      >
+                        <Avatar dean={dean} />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold truncate">{dean.dean}</p>
+                          <p className="text-xs text-muted-foreground truncate">{dean.discipline || dean.priorTitle}</p>
+                          {matched.length > 0 ? (
+                            <p className="text-xs text-[#A31F34] mt-0.5">{traitSentence(matched[0])}</p>
+                          ) : (
+                            <p className="text-xs text-muted-foreground italic mt-0.5">No strong pattern match — included as a current bench member.</p>
+                          )}
+                        </div>
+                        <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
+                      </button>
+                      {isOpen && (
+                        <div className="px-4 sm:px-5 pb-4 pt-1 bg-[#011F5B]/5 border-l-2 border-[#011F5B]">
+                          <DeanProfile dean={dean} onClose={() => setExpandedBenchId(null)} onOpenSchool={onOpenSchool} hideAssessment />
+                        </div>
+                      )}
                     </div>
-                    {matched.length > 0 ? (
-                      <p className="mt-1 text-xs text-muted-foreground">{traitSentence(matched[0])}</p>
-                    ) : (
-                      <p className="mt-1 text-xs text-muted-foreground italic">No strong pattern match — included as a current bench member.</p>
-                    )}
-                  </button>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
 
           {affinityCandidates.length > 0 && (
-            <div className="px-4 sm:px-5 py-3">
-              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide mb-2">Connected across our database</p>
-              <div className="space-y-2">
+            <div>
+              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide px-4 sm:px-5 pt-3 pb-1">Connected across our database</p>
+              <div className="divide-y divide-border">
                 {affinityCandidates.map(({ entry }) => (
                   <button
                     key={entry.enrichKey}
                     onClick={() => onOpenLeader?.(entry.index, entry.name)}
-                    className="w-full text-left rounded-lg border border-border px-3 py-2 hover:border-[#A31F34]/50 hover:bg-accent/40 transition-colors"
+                    title={`Open ${entry.name}'s profile`}
+                    className="w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left hover:bg-accent/40 transition-colors"
                   >
-                    <div className="flex justify-between items-baseline gap-2">
-                      <span className="text-sm font-semibold">{entry.name}</span>
-                      <span className="text-xs text-muted-foreground shrink-0">{entry.role}{entry.university ? ` · ${entry.university}` : ""}</span>
+                    <AffAvatar entry={entry} />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold truncate">{entry.name}</p>
+                      <p className="text-xs text-muted-foreground truncate">{entry.role}{entry.university ? ` · ${entry.university}` : ""}</p>
+                      <p className="text-xs text-[#8C1D40] mt-0.5 truncate">
+                        {AFF_LABELS.filter(([k]) => entry[k].length).map(([k, label]) => `${label}: ${entry[k][0]}`).join(" · ")}
+                      </p>
                     </div>
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      {AFF_LABELS.filter(([k]) => entry[k].length).map(([k, label]) => `${label}: ${entry[k][0]}`).join(" · ")}
-                    </p>
+                    <span className="text-[#8C1D40] text-base shrink-0" aria-hidden="true">›</span>
                   </button>
                 ))}
               </div>

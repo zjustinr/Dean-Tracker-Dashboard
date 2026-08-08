@@ -1029,7 +1029,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       {/* As soon as a specific school is picked, not gated on the results list
           above having any matches -- Scout Assistant draws from the feeder bench
           and cross-index affinity ties, independent of the other filters. */}
-      {affinityOn && <ScoutAssistant university={school} onOpenLeader={onOpenLeader} />}
+      {affinityOn && <ScoutAssistant university={school} onOpenSchool={onOpenSchool} onOpenLeader={onOpenLeader} />}
     </div>
 
 
