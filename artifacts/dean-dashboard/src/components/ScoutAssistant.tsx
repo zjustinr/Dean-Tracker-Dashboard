@@ -274,27 +274,35 @@ export default function ScoutAssistant({
   }, [affinityMap]);
 
   const schoolDeans = useMemo(() => allDeans.filter((d) => d.university === university), [allDeans, university]);
-  const sittingKeys = useMemo(() => new Set(
-    schoolDeans.filter((d) => d.endYear == null && d.roleType !== "subdean").map((d) => `${d.dean.trim().toLowerCase()}|${d.university.trim().toLowerCase()}`)
+  // Scout Assistant is for finding the NEXT leader, not re-suggesting a past
+  // (or the current) one -- so anyone who has ever actually held this exact
+  // role at this school (any non-bench spell, current or past) is excluded
+  // from both candidate pools. Matched by name only: schoolDeans is already
+  // scoped to this university within the currently-loaded index, so this
+  // correctly catches a former titleholder surfacing in "Connected across our
+  // database" via an affinity tie whose home identity is elsewhere, not just
+  // the person currently sitting in the seat.
+  const everHeldNames = useMemo(() => new Set(
+    schoolDeans.filter((d) => d.roleType !== "subdean").map((d) => d.dean.trim().toLowerCase())
   ), [schoolDeans]);
 
   const benchCandidates = useMemo(() => {
     if (!idx || !idx.hasFeederBench) return [];
     return schoolDeans
-      .filter((d) => d.roleType === "subdean" && !sittingKeys.has(`${d.dean.trim().toLowerCase()}|${d.university.trim().toLowerCase()}`))
+      .filter((d) => d.roleType === "subdean" && !everHeldNames.has(d.dean.trim().toLowerCase()))
       .map((d) => ({ dean: d, ...scoreBench(d, idx.traits) }))
       .sort((a, b) => b.score - a.score)
       .slice(0, 6);
-  }, [schoolDeans, sittingKeys, idx]);
+  }, [schoolDeans, everHeldNames, idx]);
 
   const affinityCandidates = useMemo(() => {
     const list = affinityMap?.[university] || [];
     return list
-      .filter((e) => !sittingKeys.has(e.enrichKey))
+      .filter((e) => !everHeldNames.has(e.name.trim().toLowerCase()))
       .map((e) => ({ entry: e, score: tieScore(e) }))
       .sort((a, b) => b.score - a.score)
       .slice(0, 6);
-  }, [affinityMap, university, sittingKeys]);
+  }, [affinityMap, university, everHeldNames]);
 
   // Resolve every visible affinity candidate's full record in the background (not
   // just on click) so their Movability Index badge can render without waiting for
