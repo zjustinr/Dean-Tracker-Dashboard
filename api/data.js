@@ -71,6 +71,7 @@ const ENRICHMENT = {
   "leader-careers.json": () => require("../artifacts/dean-dashboard/src/data/leader-careers.json"),
   "affinity-by-school.json": () => require("../artifacts/dean-dashboard/src/data/affinity-by-school.json"),
   "scout-insights.json": () => require("../artifacts/dean-dashboard/src/data/scout-insights.json"),
+  "employer-affinity.json": () => require("../artifacts/dean-dashboard/src/data/employer-affinity.json"),
 };
 
 function splitOpsFromIS(deans) {
@@ -143,6 +144,13 @@ function filteredScoutInsights(scope) {
   for (const id in full) if (scope.has(id)) out[id] = full[id];
   return out;
 }
+// Same shape/gate as scout-insights.json (keyed by dataset id at the top level).
+function filteredEmployerAffinity(scope) {
+  const full = ENRICHMENT["employer-affinity.json"]();
+  const out = {};
+  for (const id in full) if (scope.has(id)) out[id] = full[id];
+  return out;
+}
 
 // Lightweight usage logging to Vercel KV / Upstash (fail-safe: a no-op until the
 // KV_REST_API_* env vars exist). Keyed by the token's client tag `c`, so every
@@ -179,6 +187,7 @@ module.exports = async function handler(req, res) {
   const isResearch = f === "leader-research.json";
   const isAffinity = f === "affinity-by-school.json";
   const isScoutInsights = f === "scout-insights.json";
+  const isEmployerAffinity = f === "employer-affinity.json";
 
   const secret = process.env.TRIAL_SECRET;
   let reason = "disarmed", setCookie = null;
@@ -220,6 +229,7 @@ module.exports = async function handler(req, res) {
     if (isResearch) body = JSON.stringify(scope && !scope.has("*") ? filteredResearch(scope) : ENRICHMENT[f]());
     else if (isAffinity) body = JSON.stringify(scope && !scope.has("*") ? filteredAffinity(scope) : ENRICHMENT[f]());
     else if (isScoutInsights) body = JSON.stringify(scope && !scope.has("*") ? filteredScoutInsights(scope) : ENRICHMENT[f]());
+    else if (isEmployerAffinity) body = JSON.stringify(scope && !scope.has("*") ? filteredEmployerAffinity(scope) : ENRICHMENT[f]());
     else if (ENRICHMENT[f]) body = JSON.stringify(ENRICHMENT[f]());
     else if (SPEC[id]) body = JSON.stringify(assemble(id));
     else { res.status(404).json({ error: "not_found" }); return; }
@@ -228,7 +238,7 @@ module.exports = async function handler(req, res) {
     res.status(500).json({ error: "server_error" }); return;
   }
 
-  await logUsage(req, isResearch ? "research" : isAffinity ? "affinity" : isScoutInsights ? "scout-insights" : isPhotos ? "photos" : "data", client, f);
+  await logUsage(req, isResearch ? "research" : isAffinity ? "affinity" : isScoutInsights ? "scout-insights" : isEmployerAffinity ? "employer-affinity" : isPhotos ? "photos" : "data", client, f);
   if (setCookie) res.setHeader("set-cookie", setCookie);
   res.setHeader("content-type", "application/json; charset=utf-8");
   res.setHeader("cache-control", "private, max-age=300");

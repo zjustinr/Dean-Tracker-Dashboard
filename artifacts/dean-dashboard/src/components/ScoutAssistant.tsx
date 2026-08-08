@@ -2,8 +2,8 @@ import { useState, useEffect, useMemo } from "react";
 import { useDataset } from "@/data/DatasetContext";
 import { useAllDeans } from "@/data/useData";
 import {
-  useScoutInsights, loadAffinity, getAffinityCache, usePhotoMap, useResearchMap, enrichKey,
-  type ScoutIndexInsights, type ScoutTrait, type AffMap, type AffEntry,
+  useScoutInsights, useEmployerAffinity, loadAffinity, getAffinityCache, usePhotoMap, useResearchMap, enrichKey,
+  type ScoutIndexInsights, type ScoutTrait, type AffMap, type AffEntry, type WeakLinkEntry, type EmployerSchoolProfile,
 } from "@/data/enrichment";
 import type { Dean } from "@/data/types";
 import { BOOLEAN_LABELS, CATEGORICAL_LABELS } from "@/data/types";
@@ -78,7 +78,26 @@ function tieDescriptor(e: AffEntry): { label: string; detail: string } {
   return { label: "Connected to this school", detail: "" };
 }
 
-function Methodology({ idx, label }: { idx: ScoutIndexInsights; label: string }) {
+// Reasoning line for a weak-link candidate: which shared-background category
+// matched, and the specific piece of their record that earned it.
+function weakLinkDescriptor(w: WeakLinkEntry): { label: string; detail: string } {
+  const top = w.matchedCategories[0];
+  return { label: `${top.category} background`, detail: top.evidence };
+}
+
+// AffEntry and WeakLinkEntry are otherwise differently shaped (tie-evidence
+// arrays vs. matched-category list), but both carry enough to resolve and open
+// a profile -- so the click/expand/resolve machinery below works on either.
+type ResolvableEntry = { name: string; enrichKey: string; index: string | null; university: string };
+
+function Methodology({
+  idx, label, employerProfile, validation,
+}: {
+  idx: ScoutIndexInsights;
+  label: string;
+  employerProfile?: EmployerSchoolProfile;
+  validation: { hitRate: number; baselineHitRate: number; n: number } | null;
+}) {
   const [open, setOpen] = useState(false);
   const promo = idx.traits.filter((t) => t.kind === "promotion");
   const trend = idx.traits.filter((t) => t.kind === "trend");
@@ -127,6 +146,28 @@ function Methodology({ idx, label }: { idx: ScoutIndexInsights; label: string })
               </ul>
             </div>
           )}
+          {employerProfile && (
+            <div>
+              <p className="font-semibold">Weak links — shared-background signal</p>
+              <p className="mt-1 text-muted-foreground">
+                {employerProfile.group} appointments here draw from {employerProfile.categories.map((c) => `${c.category} (×${c.lift} vs. this index's average)`).join(", ")},
+                based on {employerProfile.sampleSize} external hires with that discipline.
+                {employerProfile.lowConfidence && " That's a modest sample — treat this as a lead, not a settled finding."}
+              </p>
+              {validation && (
+                <p className="mt-1 text-muted-foreground">
+                  Validated by holding out one hire at a time across the whole index: a flagged category predicted the
+                  held-out hire's actual background {pct(validation.hitRate)} of the time, vs. {pct(validation.baselineHitRate)} if
+                  you'd guessed that category blindly (n={validation.n}). Rare backgrounds are hard to call in absolute
+                  terms even with real signal — the ratio between those two numbers is what to look at, not the raw hit rate.
+                </p>
+              )}
+              <p className="mt-1 text-[11px] text-muted-foreground italic">
+                This reflects the discipline broadly, not this specific school — every school sharing this discipline's
+                hiring history will show the same categories and, often, the same candidates.
+              </p>
+            </div>
+          )}
           <p className="text-[11px] text-muted-foreground italic">
             These are historical associations mined from our own dataset, not causal findings and not a hiring
             recommendation — small indices and data-collection gaps can both produce misleading lift numbers.
@@ -158,6 +199,8 @@ export default function ScoutAssistant({
   const allDeans = useAllDeans();
   const allInsights = useScoutInsights();
   const idx = allInsights[datasetId];
+  const allEmployerAffinity = useEmployerAffinity();
+  const employerProfile = allEmployerAffinity[datasetId]?.schools[university];
   const photos = usePhotoMap();
   const researchMap = useResearchMap();
   const [expandedBenchId, setExpandedBenchId] = useState<number | null>(null);
@@ -219,9 +262,9 @@ export default function ScoutAssistant({
   // home index's dataset on demand and cache the result so re-opening is instant.
   const [expandedAffKey, setExpandedAffKey] = useState<string | null>(null);
   const [resolvedProfiles, setResolvedProfiles] = useState<Record<string, Dean | "not-found">>({});
-  const affKey = (entry: AffEntry) => `${entry.enrichKey}|${entry.index ?? ""}`;
+  const affKey = (entry: ResolvableEntry) => `${entry.enrichKey}|${entry.index ?? ""}`;
 
-  async function resolveAffinityProfile(entry: AffEntry) {
+  async function resolveAffinityProfile(entry: ResolvableEntry) {
     const key = affKey(entry);
     if (resolvedProfiles[key]) return;
     let deans: Dean[] | null = null;
@@ -239,7 +282,7 @@ export default function ScoutAssistant({
     setResolvedProfiles((p) => ({ ...p, [key]: best ?? "not-found" }));
   }
 
-  function handleAffinityClick(entry: AffEntry) {
+  function handleAffinityClick(entry: ResolvableEntry) {
     const key = affKey(entry);
     if (expandedAffKey === key) { setExpandedAffKey(null); return; }
     setExpandedAffKey(key);
@@ -255,7 +298,7 @@ export default function ScoutAssistant({
       </div>
     );
   }
-  function AffAvatar({ entry }: { entry: AffEntry }) {
+  function AffAvatar({ entry }: { entry: ResolvableEntry }) {
     const p = photos[entry.enrichKey];
     if (p?.photo) return <img src={p.photo} alt="" loading="lazy" className="w-9 h-9 rounded-full object-cover shrink-0 border border-border" />;
     return (
@@ -313,9 +356,32 @@ export default function ScoutAssistant({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [affinityCandidates]);
 
+  // Weak links: leaders with a career background matching what this school's
+  // DISCIPLINE tends to draw from (see gen-employer-affinity.mjs) -- a much
+  // looser signal than a direct alumni/faculty/admin tie, so anyone already
+  // surfaced by name above (feeder bench, direct affinity, or who's already
+  // held the role) is excluded here on purpose: this section exists to add
+  // NEW possibilities, not repeat ones already shown.
+  const weakLinkCandidates = useMemo(() => {
+    if (!employerProfile) return [];
+    const affinityNames = new Set((affinityMap?.[university] || []).map((e) => e.name.trim().toLowerCase()));
+    const benchNames = new Set(schoolDeans.filter((d) => d.roleType === "subdean").map((d) => d.dean.trim().toLowerCase()));
+    return employerProfile.weakLinks
+      .filter((w) => {
+        const nameL = w.name.trim().toLowerCase();
+        return !everHeldNames.has(nameL) && !affinityNames.has(nameL) && !benchNames.has(nameL);
+      })
+      .slice(0, 6);
+  }, [employerProfile, affinityMap, university, everHeldNames, schoolDeans]);
+
+  useEffect(() => {
+    weakLinkCandidates.forEach((w) => { resolveAffinityProfile(w); });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [weakLinkCandidates]);
+
   if (!idx) return null; // no mined patterns for this index yet -- nothing useful to show
 
-  const totalCandidates = benchCandidates.length + affinityCandidates.length;
+  const totalCandidates = benchCandidates.length + affinityCandidates.length + weakLinkCandidates.length;
 
   return (
     <div className="mt-4 bg-card border border-border rounded-xl overflow-hidden">
@@ -422,11 +488,59 @@ export default function ScoutAssistant({
               </div>
             </div>
           )}
+
+          {weakLinkCandidates.length > 0 && employerProfile && (
+            <div>
+              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide px-4 sm:px-5 pt-3">Weak links — shared background</p>
+              <p className="text-[11px] text-muted-foreground px-4 sm:px-5 pb-1">
+                {employerProfile.group} appointments broadly draw from {employerProfile.categories.map((c) => c.category).join(" or ")} backgrounds —
+                these leaders have no direct tie to {university}, just a matching career background.
+              </p>
+              <div className="divide-y divide-border">
+                {weakLinkCandidates.map((w) => {
+                  const key = affKey(w);
+                  const isOpen = expandedAffKey === key;
+                  const resolved = resolvedProfiles[key];
+                  const { label, detail } = weakLinkDescriptor(w);
+                  return (
+                    <div key={key}>
+                      <button
+                        onClick={() => handleAffinityClick(w)}
+                        className={["w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left transition-colors", isOpen ? "bg-amber-500/5" : "hover:bg-accent/40"].join(" ")}
+                      >
+                        <AffAvatar entry={w} />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold truncate">{w.name}</p>
+                          <p className="text-xs text-muted-foreground truncate">{w.role}{w.university ? ` · ${w.university}` : ""}</p>
+                          <p className="text-xs text-amber-700 dark:text-amber-500 mt-0.5 truncate">
+                            <span className="font-semibold">{label}</span>{detail ? ` — ${detail}` : ""}
+                          </p>
+                        </div>
+                        {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
+                        <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
+                      </button>
+                      {isOpen && (
+                        <div className="px-4 sm:px-5 pb-4 pt-1 bg-amber-500/5 border-l-2 border-amber-500">
+                          {!resolved ? (
+                            <p className="text-xs text-muted-foreground py-3">Loading profile…</p>
+                          ) : resolved === "not-found" ? (
+                            <p className="text-xs text-muted-foreground py-3">No detailed profile on file for {w.name} yet.</p>
+                          ) : (
+                            <ExpandedProfile dean={resolved} onClose={() => setExpandedAffKey(null)} />
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
       <div className="border-t border-border">
-        <Methodology idx={idx} label={meta.label} />
+        <Methodology idx={idx} label={meta.label} employerProfile={employerProfile} validation={allEmployerAffinity[datasetId]?.validation ?? null} />
       </div>
     </div>
   );

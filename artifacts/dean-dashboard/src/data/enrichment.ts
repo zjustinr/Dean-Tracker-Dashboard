@@ -133,6 +133,28 @@ export interface ScoutIndexInsights {
 const scoutInsights = makeJsonMap<ScoutIndexInsights>("scout-insights.json");
 export const useScoutInsights = scoutInsights.useMap;
 
+// Scout Assistant "weak link" mining output (scripts/gen-employer-affinity.mjs),
+// keyed by dataset id. A discipline-level (not per-school -- too thin a sample)
+// shared-employer-background signal, complementary to affinity-by-school.json's
+// direct ties. Only indices where a held-out validation actually beat chance
+// appear here at all -- most indices won't, and that's an honest result of the
+// mining pass, not a bug.
+export interface EmployerCategory { category: string; n: number; rate: number; indexRate: number; lift: number }
+export interface EmployerMatchedCategory { category: string; lift: number; evidence: string }
+export interface WeakLinkEntry {
+  name: string; enrichKey: string; index: string | null; indexLabel: string | null;
+  university: string; role: string; matchedCategories: EmployerMatchedCategory[];
+}
+export interface EmployerSchoolProfile {
+  categories: EmployerCategory[]; weakLinks: WeakLinkEntry[]; group: string; sampleSize: number; lowConfidence: boolean;
+}
+export interface EmployerIndexAffinity {
+  validation: { hitRate: number; baselineHitRate: number; n: number } | null;
+  schools: Record<string, EmployerSchoolProfile>;
+}
+const employerAffinity = makeJsonMap<EmployerIndexAffinity>("employer-affinity.json");
+export const useEmployerAffinity = employerAffinity.useMap;
+
 export const enrichKey = (dean: string, university: string) =>
   `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
 
