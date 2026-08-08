@@ -7,6 +7,7 @@ import {
 } from "@/data/enrichment";
 import type { Dean } from "@/data/types";
 import { BOOLEAN_LABELS, CATEGORICAL_LABELS } from "@/data/types";
+import { loadDatasetData, type DatasetId } from "@/data/datasets";
 import DeanProfile from "@/components/DeanProfile";
 
 // Labels for the pre-appointment traits gen-scout-insights.mjs mines (types.ts's
@@ -41,14 +42,37 @@ function scoreBench(d: Dean, traits: ScoutTrait[]): { score: number; matched: Sc
   return { score: matched.reduce((s, t) => s + Math.log(t.lift), 0), matched };
 }
 
-type TieKey = "admin" | "faculty" | "grad" | "undergrad";
-const AFF_LABELS: [TieKey, string][] = [
-  ["admin", "Administration"], ["faculty", "Faculty"], ["grad", "Graduate Degree"], ["undergrad", "Undergraduate"],
-];
 // Admin/faculty ties mean they actually worked there; alumni ties are a weaker
 // signal. Simple weighted count, not a calibrated model -- just an ordering.
 function tieScore(e: AffEntry): number {
   return e.admin.length * 2 + e.faculty.length * 1.5 + e.grad.length + e.undergrad.length;
+}
+
+// Cabinet-level titles within an "admin" tie (dean/provost/president/chancellor)
+// vs. lower-level administrative roles the broader ADMIN match in gen-affinity.mjs
+// also catches (chair, director, coordinator, ...).
+const CABINET_RE = /\b(dean|provost|chancellor|president)\b/i;
+const isCurrentEvidence = (evidence: string[]) => evidence.some((e) => /present/i.test(e));
+
+// A short, intuitive label for why this person is connected to the school --
+// "current cabinet member" / "alum" / "former faculty" -- rather than dumping
+// the raw tie-evidence string. Priority: admin > faculty > grad > undergrad
+// (a stronger tie wins), paired with the single most relevant evidence line.
+function tieDescriptor(e: AffEntry): { label: string; detail: string } {
+  if (e.admin.length) {
+    const cabinetEvidence = e.admin.find((x) => CABINET_RE.test(x));
+    const current = isCurrentEvidence(e.admin);
+    return {
+      label: `${current ? "Current" : "Former"} ${cabinetEvidence ? "cabinet member" : "administrator"}`,
+      detail: cabinetEvidence ?? e.admin[0],
+    };
+  }
+  if (e.faculty.length) {
+    return { label: isCurrentEvidence(e.faculty) ? "Current faculty" : "Former faculty", detail: e.faculty[0] };
+  }
+  if (e.grad.length) return { label: "Graduate alum", detail: e.grad[0] };
+  if (e.undergrad.length) return { label: "Undergraduate alum", detail: e.undergrad[0] };
+  return { label: "Connected to this school", detail: "" };
 }
 
 function Methodology({ idx, label }: { idx: ScoutIndexInsights; label: string }) {
@@ -117,13 +141,15 @@ function Methodology({ idx, label }: { idx: ScoutIndexInsights; label: string })
  * results section above it (bg-card border rounded-xl, muted header bar,
  * divide-y rows) rather than the shadcn Card primitives used elsewhere in the
  * app, so it reads as part of the same list rather than a bolted-on module.
+ * Every candidate row -- feeder bench or cross-index affinity tie -- expands
+ * inline into its full DeanProfile on click, same as the results list; nothing
+ * here navigates the user away from the section.
  */
 export default function ScoutAssistant({
-  university, onOpenSchool, onOpenLeader,
+  university, onOpenSchool,
 }: {
   university: string;
   onOpenSchool?: (university: string, school: string) => void;
-  onOpenLeader?: (index: string | null, fullName: string) => void;
 }) {
   const { datasetId, meta } = useDataset();
   const allDeans = useAllDeans();
@@ -132,12 +158,40 @@ export default function ScoutAssistant({
   const photos = usePhotoMap();
   const [expandedBenchId, setExpandedBenchId] = useState<number | null>(null);
 
-  // Bench candidates are full Dean records from the currently-loaded index, so
-  // they expand inline into a full DeanProfile exactly like the results list
-  // above. Affinity candidates can live in a different, unloaded index -- we
-  // only have their tie evidence, not their full record -- so those still open
-  // via onOpenLeader (same cross-index navigation the pre-existing affinity
-  // selector elsewhere in this file already uses for the same data shape).
+  // Affinity candidates only carry tie evidence, not a full Dean record, and may
+  // live in an index that isn't currently loaded. To expand them inline (same as
+  // bench candidates) rather than navigating away, resolve their full record on
+  // click: reuse allDeans if they're in the current index, otherwise fetch their
+  // home index's dataset on demand and cache the result so re-opening is instant.
+  const [expandedAffKey, setExpandedAffKey] = useState<string | null>(null);
+  const [resolvedProfiles, setResolvedProfiles] = useState<Record<string, Dean | "not-found">>({});
+  const affKey = (entry: AffEntry) => `${entry.enrichKey}|${entry.index ?? ""}`;
+
+  async function resolveAffinityProfile(entry: AffEntry) {
+    const key = affKey(entry);
+    if (resolvedProfiles[key]) return;
+    let deans: Dean[] | null = null;
+    if (!entry.index) {
+      deans = null;
+    } else if (entry.index === datasetId) {
+      deans = allDeans;
+    } else {
+      try { deans = (await loadDatasetData(entry.index as DatasetId)).deans; } catch { deans = null; }
+    }
+    const nameL = entry.name.trim().toLowerCase();
+    const uniL = entry.university.trim().toLowerCase();
+    const matches = (deans || []).filter((d) => d.dean.trim().toLowerCase() === nameL && d.university.trim().toLowerCase() === uniL);
+    const best = matches.find((d) => d.endYear == null) ?? matches.sort((a, b) => (b.startYear || 0) - (a.startYear || 0))[0] ?? null;
+    setResolvedProfiles((p) => ({ ...p, [key]: best ?? "not-found" }));
+  }
+
+  function handleAffinityClick(entry: AffEntry) {
+    const key = affKey(entry);
+    if (expandedAffKey === key) { setExpandedAffKey(null); return; }
+    setExpandedAffKey(key);
+    if (!resolvedProfiles[key]) resolveAffinityProfile(entry);
+  }
+
   function Avatar({ dean }: { dean: Dean }) {
     const p = photos[enrichKey(dean.dean, dean.university)];
     if (p?.photo) return <img src={p.photo} alt="" loading="lazy" className="w-9 h-9 rounded-full object-cover shrink-0 border border-border" />;
@@ -257,24 +311,41 @@ export default function ScoutAssistant({
             <div>
               <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide px-4 sm:px-5 pt-3 pb-1">Connected across our database</p>
               <div className="divide-y divide-border">
-                {affinityCandidates.map(({ entry }) => (
-                  <button
-                    key={entry.enrichKey}
-                    onClick={() => onOpenLeader?.(entry.index, entry.name)}
-                    title={`Open ${entry.name}'s profile`}
-                    className="w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left hover:bg-accent/40 transition-colors"
-                  >
-                    <AffAvatar entry={entry} />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold truncate">{entry.name}</p>
-                      <p className="text-xs text-muted-foreground truncate">{entry.role}{entry.university ? ` · ${entry.university}` : ""}</p>
-                      <p className="text-xs text-[#8C1D40] mt-0.5 truncate">
-                        {AFF_LABELS.filter(([k]) => entry[k].length).map(([k, label]) => `${label}: ${entry[k][0]}`).join(" · ")}
-                      </p>
+                {affinityCandidates.map(({ entry }) => {
+                  const key = affKey(entry);
+                  const isOpen = expandedAffKey === key;
+                  const resolved = resolvedProfiles[key];
+                  const { label, detail } = tieDescriptor(entry);
+                  return (
+                    <div key={key}>
+                      <button
+                        onClick={() => handleAffinityClick(entry)}
+                        className={["w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left transition-colors", isOpen ? "bg-[#8C1D40]/5" : "hover:bg-accent/40"].join(" ")}
+                      >
+                        <AffAvatar entry={entry} />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold truncate">{entry.name}</p>
+                          <p className="text-xs text-muted-foreground truncate">{entry.role}{entry.university ? ` · ${entry.university}` : ""}</p>
+                          <p className="text-xs text-[#8C1D40] mt-0.5 truncate">
+                            <span className="font-semibold">{label}</span>{detail ? ` — ${detail}` : ""}
+                          </p>
+                        </div>
+                        <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
+                      </button>
+                      {isOpen && (
+                        <div className="px-4 sm:px-5 pb-4 pt-1 bg-[#8C1D40]/5 border-l-2 border-[#8C1D40]">
+                          {!resolved ? (
+                            <p className="text-xs text-muted-foreground py-3">Loading profile…</p>
+                          ) : resolved === "not-found" ? (
+                            <p className="text-xs text-muted-foreground py-3">No detailed profile on file for {entry.name} yet.</p>
+                          ) : (
+                            <DeanProfile dean={resolved} onClose={() => setExpandedAffKey(null)} onOpenSchool={onOpenSchool} hideAssessment />
+                          )}
+                        </div>
+                      )}
                     </div>
-                    <span className="text-[#8C1D40] text-base shrink-0" aria-hidden="true">›</span>
-                  </button>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
