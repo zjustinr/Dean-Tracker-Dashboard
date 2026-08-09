@@ -18,6 +18,16 @@ export const BREAKING_JSON = resolve(__dirname, "../src/data/breaking-news.json"
 export const LOG_PATH = resolve(ROOT, "attached_assets/news_scout_log.csv");
 export const ENRICH_QUEUE = resolve(ROOT, "attached_assets/enrichment_queue.json");
 
+// Most <id>-deans.json files are stored compact (single line); a few (notably
+// deans.json, after enough prior auto-applies) drifted to 2-space pretty.
+// Writing unconditionally with one style previously reformatted whichever
+// files didn't match it -- a single-field change ballooning into an 80k-line
+// diff. Detect and preserve each file's own format instead.
+function writeDeansJson(path, rawBefore, arr) {
+  const pretty = /^\[\r?\n\s/.test(rawBefore);
+  writeFileSync(path, pretty ? JSON.stringify(arr, null, 2) : JSON.stringify(arr));
+}
+
 // schoolType (from the scout's dataset table) -> the app dataset it feeds.
 // Every index, including business, is a standalone <deans> JSON that is itself
 // the source of truth the app serves, so applyAppointmentGeneric() appends to it
@@ -122,7 +132,8 @@ export function applyAppointment(e) {
   wb.Sheets["B-School"] = XLSX.utils.json_to_sheet(rows, { header: cols });
   XLSX.writeFile(wb, XLSX_PATH);
 
-  const deans = JSON.parse(readFileSync(DEANS_JSON, "utf8"));
+  const deansRaw = readFileSync(DEANS_JSON, "utf8");
+  const deans = JSON.parse(deansRaw);
   const sibs = deans.filter((d) => d.university.toLowerCase() === e.university.toLowerCase());
   if (sibs.length && !sibs.some((d) => lastName(d.dean) === lastName(e.dean) && Math.abs((d.startYear || 0) - yr) <= 1)) {
     const openT = sibs.filter((d) => d.endYear == null);
@@ -145,7 +156,7 @@ export function applyAppointment(e) {
       surpriseDeparture: false, surpriseEvidence: "", involuntary: false,
       convertedToPermanent: false, connectionType: "", hadPriorConnection: false,
     });
-    writeFileSync(DEANS_JSON, JSON.stringify(deans, null, 2));
+    writeDeansJson(DEANS_JSON, deansRaw, deans);
   }
   return "added";
 }
@@ -167,12 +178,13 @@ export function closeTenure(e) {
   wb.Sheets["B-School"] = XLSX.utils.json_to_sheet(rows, { header: cols });
   XLSX.writeFile(wb, XLSX_PATH);
 
-  const deans = JSON.parse(readFileSync(DEANS_JSON, "utf8"));
+  const deansRaw = readFileSync(DEANS_JSON, "utf8");
+  const deans = JSON.parse(deansRaw);
   const openT = deans.filter((d) => d.university.toLowerCase() === e.university.toLowerCase() && d.endYear == null);
   if (openT.length === 1) {
     openT[0].endYear = yr;
     openT[0].endLabel = ml;
-    writeFileSync(DEANS_JSON, JSON.stringify(deans, null, 2));
+    writeDeansJson(DEANS_JSON, deansRaw, deans);
   }
   return "closed";
 }
@@ -266,7 +278,8 @@ export function applyAppointmentGeneric(e, deansFile) {
   const yr = e.date.getFullYear();
   const ml = monthLabel(e.date);
   const path = resolve(DATA_DIR, deansFile);
-  const deans = JSON.parse(readFileSync(path, "utf8"));
+  const raw = readFileSync(path, "utf8");
+  const deans = JSON.parse(raw);
   const sibs = deans.filter((d) => (d.university || "").toLowerCase() === e.university.toLowerCase());
   if (!sibs.length) return "no_sibling"; // university not tracked in this dataset
   if (sibs.some((d) => lastName(d.dean) === lastName(e.dean) && Math.abs((d.startYear || 0) - yr) <= 1)) {
@@ -305,7 +318,7 @@ export function applyAppointmentGeneric(e, deansFile) {
     sourceUrl: e.url, convertedToPermanent: false, connectionType: "",
   };
   deans.push(rec);
-  writeFileSync(path, JSON.stringify(deans, null, 2));
+  writeDeansJson(path, raw, deans);
   return "added";
 }
 

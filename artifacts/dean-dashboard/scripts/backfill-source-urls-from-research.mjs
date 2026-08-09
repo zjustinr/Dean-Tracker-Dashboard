@@ -16,10 +16,20 @@ const research = JSON.parse(readFileSync(join(SRC, "leader-research.json"), "utf
 
 const files = readdirSync(SRC).filter((f) => /deans.*\.json$/.test(f) && !/schools/.test(f) && f !== "dean-photos.json");
 
+// Most dataset files are stored compact (single line); a couple have drifted
+// to 2-space pretty via prior auto-applies. Preserve whichever the file is
+// already in -- rewriting with the wrong one turns a one-field change into a
+// diff spanning the entire file.
+function writeDeansJson(path, rawBefore, arr) {
+  const pretty = /^\[\r?\n\s/.test(rawBefore);
+  writeFileSync(path, pretty ? JSON.stringify(arr, null, 2) : JSON.stringify(arr));
+}
+
 let total = 0, filled = 0;
 for (const f of files) {
   const p = join(SRC, f);
-  const arr = JSON.parse(readFileSync(p, "utf8"));
+  const raw = readFileSync(p, "utf8");
+  const arr = JSON.parse(raw);
   let changed = false;
   for (const r of arr) {
     if (r.sourceUrl || !r.dean || !r.university) continue;
@@ -32,6 +42,6 @@ for (const f of files) {
     if (!DRY) r.sourceUrl = url;
     console.log(`${f}#${r.id}: ${r.dean} (${r.university}) -> ${url}`);
   }
-  if (changed && !DRY) writeFileSync(p, JSON.stringify(arr, null, 2));
+  if (changed && !DRY) writeDeansJson(p, raw, arr);
 }
 console.log(`\n${filled} / ${total} missing sourceUrls filled from curated research.${DRY ? " (dry run, nothing written)" : ""}`);
