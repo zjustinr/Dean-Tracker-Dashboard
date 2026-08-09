@@ -42,6 +42,14 @@
 //    year, so a tie that only exists because of something the person did AFTER
 //    being hired elsewhere doesn't leak in. Evidence with no parseable year
 //    (mostly bare "MA, X University" degree lines) is treated as pre-existing.
+//  - Tie-CATEGORY weighting (admin vs. faculty vs. grad vs. undergrad) uses
+//    gen-scout-insights.mjs's shipped idx.tieLift, which validates against a
+//    corpus-wide external-hire baseline -- but like the employer-affinity
+//    figures below, tieLift itself is NOT re-mined leave-one-out per test case
+//    here (that pass re-derives a global baseline across every index, too
+//    expensive to redo per hire); it's the shipped, already-validated figures.
+//    Only 5 of 19 indices currently clear that validation gate at all -- the
+//    rest correctly contribute 0 for every tie category, not a guess.
 //  - Employer/weak-link category match uses the hire's own recorded
 //    priorInstitution, categorized with the exact same regex gen-employer-
 //    affinity.mjs uses -- but the CATEGORY LIFT figures themselves (which
@@ -67,8 +75,8 @@
 //
 // The scoring logic below (PRE_HIRE_BOOL/PRE_HIRE_CATEGORICAL/liftEntry from
 // gen-scout-insights.mjs; CATEGORY_PATTERNS from gen-employer-affinity.mjs;
-// TIE_CONNECTION_TYPES/traitFitScore/affinityTieFitScore/employerMatchScoreFor
-// from ScoutAssistant.tsx) is duplicated on purpose, same as every other
+// traitFitScore/affinityTieFitScore/employerMatchScoreFor from
+// ScoutAssistant.tsx) is duplicated on purpose, same as every other
 // gen-*.mjs script in this directory -- each runs standalone. If you change
 // how ScoutAssistant.tsx scores candidates, update the copy here too, or this
 // backtest silently stops testing what's actually shipped.
@@ -178,22 +186,10 @@ function categorize(org) {
 }
 
 // ---- copied from ScoutAssistant.tsx -----------------------------------------
-const TIE_CONNECTION_TYPES = {
-  admin: ["Board-member", "Prior-institutional-role", "Former-dean"],
-  faculty: ["Former-faculty", "Current faculty", "Alumni-and-former-faculty"],
-  grad: ["Alumni", "Alumni-and-former-faculty"],
-  undergrad: ["Alumni", "Alumni-and-former-faculty"],
-};
-const FALLBACK_TIE_RATE = { admin: 0.12, faculty: 0.09, grad: 0.06, undergrad: 0.06 };
-const TIE_BASELINE = 0.25;
-function tieCategoryRates(idx) {
-  const bucket = idx.connectionPatterns.external;
-  if (!bucket) return FALLBACK_TIE_RATE;
-  const rateOf = (values) => bucket.connectionType.filter((c) => values.includes(c.value)).reduce((s, c) => s + c.rate, 0);
-  const rates = {};
-  for (const tie of Object.keys(TIE_CONNECTION_TYPES)) { const r = rateOf(TIE_CONNECTION_TYPES[tie]); rates[tie] = r > 0 ? r : FALLBACK_TIE_RATE[tie]; }
-  return rates;
-}
+// Tie-category weighting now comes straight from gen-scout-insights.mjs's
+// validated tieLift (idx.tieLift.categories), computed against a corpus-wide
+// external-hire baseline -- no more guessed fallback constant. An index with
+// no validated tieLift contributes 0 for every tie, not a guess.
 function traitFitScore(d, traits) {
   const matched = traits.filter((t) => d[t.field] === t.value);
   return matched.reduce((s, t) => s + Math.log(t.lift), 0);
@@ -205,10 +201,12 @@ function strongestCategory(e) {
   if (e.undergrad.length) return "undergrad";
   return null;
 }
-function affinityTieFitScore(e, rates) {
+function affinityTieFitScore(e, idx) {
   const cat = strongestCategory(e);
   if (!cat) return { score: 0, category: null };
-  return { score: Math.log(rates[cat] / TIE_BASELINE), category: cat };
+  const c = idx.tieLift?.categories?.[cat];
+  if (!c) return { score: 0, category: cat };
+  return { score: Math.log(c.lift), category: cat };
 }
 function employerMatchScoreFor(priorInstitution, employerProfile) {
   if (!employerProfile) return { score: 0, category: null };
@@ -296,13 +294,12 @@ for (const H of sample) {
 
   const hireRowsLOO = hireRows.filter((r) => r.id !== H.id);
   const traitsLOO = traitsForIndexLOO(hireRowsLOO, benchRows, hasFeederBench);
-  const tieRates = tieCategoryRates(idx);
   const employerProfile = employerAffinity[id]?.schools[H.university];
 
   function scoreOf(dean, affEntryRaw) {
     const t = traitFitScore(dean, traitsLOO);
     const affFiltered = affEntryRaw ? dateFilteredAffEntry(affEntryRaw, H.startYear) : { admin: [], faculty: [], grad: [], undergrad: [] };
-    const { score: tieScore, category: tieCat } = affinityTieFitScore(affFiltered, tieRates);
+    const { score: tieScore, category: tieCat } = affinityTieFitScore(affFiltered, idx);
     const { score: empScore, category: empCat } = employerMatchScoreFor(dean.priorInstitution, employerProfile);
     return { total: t + tieScore + empScore, trait: t, tie: tieScore, tieCat, emp: empScore, empCat };
   }

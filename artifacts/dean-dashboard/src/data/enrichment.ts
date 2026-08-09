@@ -124,11 +124,18 @@ export interface ScoutConnectionBucket {
   n: number; connectionType: { value: string; rate: number; n: number }[]; flags: Record<string, number>;
 }
 export interface ScoutBacktest { auc: number; pairs: number; folds: number; hireN: number; benchN: number }
+export interface ScoutTieCategory { globalRate: number; hireRate: number; lift: number; n: number }
+export interface ScoutTieLift {
+  categories: Partial<Record<"admin" | "faculty" | "grad" | "undergrad", ScoutTieCategory>>;
+  validation: { hitRate: number; baselineHitRate: number; n: number };
+  hireN: number; withTieN: number;
+}
 export interface ScoutIndexInsights {
   sampleSize: number; benchSize: number; hasFeederBench: boolean; lowConfidence: boolean;
   connectionPatterns: { all: ScoutConnectionBucket | null; external: ScoutConnectionBucket | null };
   traits: ScoutTrait[];
   backtest: ScoutBacktest | null;
+  tieLift: ScoutTieLift | null;
 }
 const scoutInsights = makeJsonMap<ScoutIndexInsights>("scout-insights.json");
 export const useScoutInsights = scoutInsights.useMap;

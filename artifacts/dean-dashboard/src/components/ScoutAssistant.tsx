@@ -48,48 +48,23 @@ function traitFitScore(d: Dean, traits: ScoutTrait[]): { score: number; matched:
   return { score: matched.reduce((s, t) => s + Math.log(t.lift), 0), matched };
 }
 
-// Which recorded connectionType values (hand-coded per successor at hire time,
-// see types.ts) correspond to each affinity-tie category gen-affinity.mjs mines
-// (admin/faculty/grad/undergrad). Used to weight tie categories by how often
-// that *kind* of connection actually shows up among this index's real external
-// hires -- i.e. validated against outcomes, not an arbitrary hand-picked ratio.
-const TIE_CONNECTION_TYPES: Record<"admin" | "faculty" | "grad" | "undergrad", string[]> = {
-  admin: ["Board-member", "Prior-institutional-role", "Former-dean"],
-  faculty: ["Former-faculty", "Current faculty", "Alumni-and-former-faculty"],
-  grad: ["Alumni", "Alumni-and-former-faculty"],
-  undergrad: ["Alumni", "Alumni-and-former-faculty"],
-};
-// Flat fallback ratio (admin/faculty ties read as slightly stronger than a bare
-// alumni tie) for indices too small to break the external-hire connectionType
-// distribution down -- clearly a guess, only used when there's nothing mined to
-// validate against.
-const FALLBACK_TIE_RATE: Record<"admin" | "faculty" | "grad" | "undergrad", number> = {
-  admin: 0.12, faculty: 0.09, grad: 0.06, undergrad: 0.06,
-};
-// Chance baseline across the four tie categories, so a category's mined rate
-// converts into a log-lift number directly comparable to trait-fit scores above
-// (both become "log(observed / chance)").
-const TIE_BASELINE = 0.25;
-
-function tieCategoryRates(idx: ScoutIndexInsights): Record<"admin" | "faculty" | "grad" | "undergrad", number> {
-  const bucket = idx.connectionPatterns.external;
-  if (!bucket) return FALLBACK_TIE_RATE;
-  const rateOf = (values: string[]) => bucket.connectionType.filter((c) => values.includes(c.value)).reduce((s, c) => s + c.rate, 0);
-  const rates = {} as Record<"admin" | "faculty" | "grad" | "undergrad", number>;
-  for (const tie of Object.keys(TIE_CONNECTION_TYPES) as (keyof typeof TIE_CONNECTION_TYPES)[]) {
-    const r = rateOf(TIE_CONNECTION_TYPES[tie]);
-    rates[tie] = r > 0 ? r : FALLBACK_TIE_RATE[tie];
-  }
-  return rates;
-}
-
-// An affinity candidate's strongest tie category (same priority order as
-// tieDescriptor below: a working tie beats a merely alumni one) and its
-// log-lift score against this index's real external-hire connection mix.
-function affinityTieFit(e: AffEntry, rates: Record<"admin" | "faculty" | "grad" | "undergrad", number>): { score: number; category: "admin" | "faculty" | "grad" | "undergrad" | null } {
+// An affinity candidate's strongest tie category (admin > faculty > grad >
+// undergrad -- a working tie beats a merely alumni one, same priority order
+// as tieDescriptor below) and its log-lift score from gen-scout-insights.mjs's
+// tieLift: how often THIS category shows up among this index's real external
+// hires, vs. how often it shows up among external hires corpus-wide. Only
+// scored where that comparison actually validated (idx.tieLift is null
+// otherwise) -- an unvalidated index contributes exactly 0, not a guess. Two
+// earlier designs guessed here (a connectionType cross-mapping starved of
+// data, then a baseline pool dominated by this corpus's own leader-heavy
+// composition) and both produced a scoring bias; see gen-scout-insights.mjs's
+// tieCategoryLiftForIndex for why this version doesn't.
+function affinityTieFit(e: AffEntry, idx: ScoutIndexInsights): { score: number; category: "admin" | "faculty" | "grad" | "undergrad" | null } {
   const category = e.admin.length ? "admin" : e.faculty.length ? "faculty" : e.grad.length ? "grad" : e.undergrad.length ? "undergrad" : null;
   if (!category) return { score: 0, category: null };
-  return { score: Math.log(rates[category] / TIE_BASELINE), category };
+  const cat = idx.tieLift?.categories[category];
+  if (!cat) return { score: 0, category };
+  return { score: Math.log(cat.lift), category };
 }
 
 // A weak-link candidate's shared-employer-background fit -- already a sum of
@@ -174,7 +149,6 @@ function Methodology({
   const [open, setOpen] = useState(false);
   const promo = idx.traits.filter((t) => t.kind === "promotion");
   const trend = idx.traits.filter((t) => t.kind === "trend");
-  const tieRates = tieCategoryRates(idx);
   return (
     <div className="px-4 sm:px-5 py-3">
       <button onClick={() => setOpen((o) => !o)} className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1.5">
@@ -202,13 +176,28 @@ function Methodology({
                   <li key={c.value}>{c.value}: {pct(c.rate)} (n={c.n})</li>
                 ))}
               </ul>
+            </div>
+          )}
+          {idx.tieLift ? (
+            <div>
+              <p className="font-semibold">What kind of tie predicts a hire here</p>
               <p className="mt-1 text-muted-foreground">
-                That same breakdown is what ranks "Connected" candidates below: an admin/board tie is weighted at
-                ×{(tieRates.admin / TIE_BASELINE).toFixed(1)} chance, faculty at ×{(tieRates.faculty / TIE_BASELINE).toFixed(1)},
-                alumni at ×{(tieRates.grad / TIE_BASELINE).toFixed(1)} — this index's actual mix of how external hires were
-                connected, not a hand-picked ratio.
+                Among {idx.tieLift.hireN.toLocaleString()} external hires, {idx.tieLift.withTieN} had a documented pre-existing
+                tie to the hiring school; {Object.entries(idx.tieLift.categories).map(([cat, c]) => `${cat} ties are ×${c.lift} as common as the typical external hire's (n=${c.n})`).join("; ")}.
+                That's what ranks "Connected" candidates below.
+              </p>
+              <p className="mt-1 text-muted-foreground">
+                Validated leave-one-hire-out: the most-distinctive tie type predicted the held-out hire's actual tie{" "}
+                {pct(idx.tieLift.validation.hitRate)} of the time, vs. {pct(idx.tieLift.validation.baselineHitRate)} by
+                chance (n={idx.tieLift.validation.n}).
               </p>
             </div>
+          ) : (
+            <p className="text-muted-foreground">
+              Not enough external hires with a documented pre-existing tie to calibrate a tie-type weighting for{" "}
+              {label.toLowerCase()} — "Connected" candidates below are still shown and ranked by trait fit, just
+              without a tie-type score bonus.
+            </p>
           )}
           {promo.length > 0 && (
             <div>
@@ -399,8 +388,6 @@ export default function ScoutAssistant({
     schoolDeans.filter((d) => d.roleType !== "subdean").map((d) => d.dean.trim().toLowerCase())
   ), [schoolDeans]);
 
-  const tieRates = useMemo(() => (idx ? tieCategoryRates(idx) : null), [idx]);
-
   // Pre-filtered shortlists, sorted by each source's synchronous score (no
   // resolved record needed yet) -- keeps the number of profiles we go fetch to
   // a bounded ~12 per source instead of resolving an entire affinity pool that
@@ -424,12 +411,12 @@ export default function ScoutAssistant({
   }, [schoolDeans, everHeldNames, idx]);
 
   const affinityShortlist = useMemo<Candidate[]>(() => {
-    if (!idx || !tieRates) return [];
+    if (!idx) return [];
     const list = affinityMap?.[university] || [];
     return list
       .filter((e) => !everHeldNames.has(e.name.trim().toLowerCase()))
       .map((e) => {
-        const { score, category } = affinityTieFit(e, tieRates);
+        const { score, category } = affinityTieFit(e, idx);
         const resolvable: ResolvableEntry = { name: e.name, enrichKey: e.enrichKey, index: e.index, university: e.university };
         return {
           key: `aff:${affKey(resolvable)}`, source: "affinity" as const, name: e.name, university: e.university,
@@ -441,7 +428,7 @@ export default function ScoutAssistant({
       })
       .sort((a, b) => b.score - a.score)
       .slice(0, 12);
-  }, [affinityMap, university, everHeldNames, idx, tieRates]);
+  }, [affinityMap, university, everHeldNames, idx]);
 
   // Weak links: leaders with a career background matching what this school's
   // DISCIPLINE tends to draw from (see gen-employer-affinity.mjs) -- a much
