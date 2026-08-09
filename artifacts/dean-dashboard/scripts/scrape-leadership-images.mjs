@@ -6,25 +6,16 @@
 //
 //   node scripts/scrape-leadership-images.mjs <leads.json> <out.json> [--limit N]
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-
-const HERE = dirname(fileURLToPath(import.meta.url));
-const SRC = join(HERE, "..", "src", "data");
-const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36";
+import { join } from "node:path";
+import { SRC, PHOTOS_PATH, UA, photoKey, extractImgs, matchByName } from "./photo-lib.mjs";
 
 const [leadsFile, outFile, ...rest] = process.argv.slice(2);
 if (!leadsFile || !outFile) { console.error("usage: scrape-leadership-images.mjs <leads.json> <out.json> [--limit N]"); process.exit(1); }
 const limitIdx = rest.indexOf("--limit");
 const limit = limitIdx >= 0 ? parseInt(rest[limitIdx + 1], 10) : Infinity;
 
-const norm = (s) => (s || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z\s]/g, " ").replace(/\s+/g, " ").trim();
-const lastName = (full) => { const parts = norm(full).split(" ").filter(Boolean); return parts[parts.length - 1] || ""; };
-const firstName = (full) => { const parts = norm(full).split(" ").filter(Boolean); return parts[0] || ""; };
-
 // Load missing subdean records grouped by university.
-const photos = JSON.parse(readFileSync(join(SRC, "dean-photos.json"), "utf8"));
-const key = (d, u) => `${d.trim().toLowerCase()}|${u.trim().toLowerCase()}`;
+const photos = JSON.parse(readFileSync(PHOTOS_PATH, "utf8"));
 const files = readdirSync(SRC).filter((f) => /deans.*\.json$/.test(f) && !/schools/.test(f) && f !== "dean-photos.json");
 const missingByUni = {};
 for (const f of files) {
@@ -32,59 +23,18 @@ for (const f of files) {
   if (!Array.isArray(arr)) continue;
   for (const r of arr) {
     if (r.roleType !== "subdean" || !r.dean || !r.university) continue;
-    if (photos[key(r.dean, r.university)]) continue;
+    if (photos[photoKey(r.dean, r.university)]) continue;
     (missingByUni[r.university] ||= []).push(r.dean);
   }
 }
 
 const leads = JSON.parse(readFileSync(leadsFile, "utf8"));
 
-// Pull the filename (minus extension and common size suffixes like -300x300)
-// as a fallback text source, since many sites leave alt="" but encode the
-// person's name in the image filename (e.g. "Chris-Storm-300x300.jpg").
-function filenameText(src) {
-  try {
-    const path = new URL(src).pathname;
-    const base = path.split("/").pop() || "";
-    return base
-      .replace(/\.(jpe?g|png|webp|gif|avif)$/i, "")
-      .replace(/-\d{2,4}x\d{2,4}$/i, "")
-      .replace(/[-_]+/g, " ");
-  } catch { return ""; }
-}
-
-function extractImgs(html, pageUrl) {
-  const imgs = [];
-  const re = /<img\b[^>]*>/gi;
-  let m;
-  while ((m = re.exec(html))) {
-    const tag = m[0];
-    const src = /\bsrc\s*=\s*["']([^"']+)["']/i.exec(tag)?.[1];
-    const alt = /\balt\s*=\s*["']([^"']*)["']/i.exec(tag)?.[1] || "";
-    if (!src) continue;
-    let abs;
-    try { abs = new URL(src, pageUrl).href; } catch { continue; }
-    // Grab a window of surrounding HTML (often a name/title sits in a
-    // <h3>/<p> right after a card's image) and strip tags to plain text.
-    const context = html
-      .slice(m.index, Math.min(html.length, m.index + 500))
-      .replace(/<[^>]+>/g, " ");
-    imgs.push({ src: abs, alt, filename: filenameText(abs), context });
-  }
-  return imgs;
-}
-
-function matchDean(img, candidates) {
-  const sources = [norm(img.alt), norm(img.filename), norm(img.context)];
-  for (const c of candidates) {
-    const ln = lastName(c), fn = firstName(c);
-    if (ln.length < 3) continue;
-    for (const s of sources) {
-      if (!s) continue;
-      if (s.includes(ln) && (s.includes(fn) || fn.length < 3)) return c;
-    }
-  }
-  return null;
+// matchByName from photo-lib expects {dean, university, ...} candidates;
+// here candidates are bare dean-name strings, so wrap them.
+function matchDean(img, candidateNames) {
+  const cand = matchByName(img, candidateNames.map((dean) => ({ dean })));
+  return cand ? cand.dean : null;
 }
 
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -111,7 +61,6 @@ for (const lead of leads) {
     } catch (e) { report.fetchFailed.push(`${pageUrl}: ${e.message}`); continue; }
     const imgs = extractImgs(html, pageUrl);
     for (const img of imgs) {
-      if (/\.(svg)(\?|$)/i.test(img.src)) continue;
       const dean = matchDean(img, candidates.filter((c) => !claimed.has(c)));
       if (!dean) continue;
       claimed.add(dean);

@@ -4,15 +4,13 @@
 // URL and fuzzy-matching against it, fetch each STILL-MISSING record's own
 // sourceUrl directly and look for their headshot there. Many sourceUrls are
 // shared department directory/contact pages, so we dedupe by URL first.
+// Covers both primary deans and subdeans (vice/associate/assistant/interim)
+// — any role is eligible once it has a sourceUrl and no photo yet.
 //
 //   node scripts/scrape-source-pages.mjs <out.json> [--limit N] [--offset N]
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-
-const HERE = dirname(fileURLToPath(import.meta.url));
-const SRC = join(HERE, "..", "src", "data");
-const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36";
+import { join } from "node:path";
+import { SRC, PHOTOS_PATH, UA, photoKey, extractImgs, matchByName } from "./photo-lib.mjs";
 
 const [outFile, ...rest] = process.argv.slice(2);
 if (!outFile) { console.error("usage: scrape-source-pages.mjs <out.json> [--limit N] [--offset N]"); process.exit(1); }
@@ -21,21 +19,16 @@ const limit = limitIdx >= 0 ? parseInt(rest[limitIdx + 1], 10) : Infinity;
 const offsetIdx = rest.indexOf("--offset");
 const offset = offsetIdx >= 0 ? parseInt(rest[offsetIdx + 1], 10) : 0;
 
-const norm = (s) => (s || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z\s]/g, " ").replace(/\s+/g, " ").trim();
-const lastName = (full) => { const parts = norm(full).split(" ").filter(Boolean); return parts[parts.length - 1] || ""; };
-const firstName = (full) => { const parts = norm(full).split(" ").filter(Boolean); return parts[0] || ""; };
-
-const photos = JSON.parse(readFileSync(join(SRC, "dean-photos.json"), "utf8"));
-const key = (d, u) => `${d.trim().toLowerCase()}|${u.trim().toLowerCase()}`;
+const photos = JSON.parse(readFileSync(PHOTOS_PATH, "utf8"));
 const files = readdirSync(SRC).filter((f) => /deans.*\.json$/.test(f) && !/schools/.test(f) && f !== "dean-photos.json");
 const missing = [];
 for (const f of files) {
   const arr = JSON.parse(readFileSync(join(SRC, f), "utf8"));
   if (!Array.isArray(arr)) continue;
   for (const r of arr) {
-    if (r.roleType !== "subdean" || !r.dean || !r.university || !r.sourceUrl) continue;
+    if ((r.roleType !== "subdean" && r.roleType !== "dean") || !r.dean || !r.university || !r.sourceUrl) continue;
     if (!/^https?:\/\//.test(r.sourceUrl)) continue;
-    if (photos[key(r.dean, r.university)]) continue;
+    if (photos[photoKey(r.dean, r.university)]) continue;
     missing.push({ dean: r.dean, university: r.university, sourceUrl: r.sourceUrl });
   }
 }
@@ -47,45 +40,6 @@ for (const r of missing) {
 }
 let urls = [...byUrl.keys()];
 urls = urls.slice(offset, offset + limit);
-
-function filenameText(src) {
-  try {
-    const p = new URL(src).pathname;
-    const base = p.split("/").pop() || "";
-    return base.replace(/\.(jpe?g|png|webp|gif|avif)$/i, "").replace(/-\d{2,4}x\d{2,4}$/i, "").replace(/[-_]+/g, " ");
-  } catch { return ""; }
-}
-
-function extractImgs(html, pageUrl) {
-  const imgs = [];
-  const re = /<img\b[^>]*>/gi;
-  let m;
-  while ((m = re.exec(html))) {
-    const tag = m[0];
-    const src = /\bsrc\s*=\s*["']([^"']+)["']/i.exec(tag)?.[1];
-    const alt = /\balt\s*=\s*["']([^"']*)["']/i.exec(tag)?.[1] || "";
-    if (!src) continue;
-    let abs;
-    try { abs = new URL(src, pageUrl).href; } catch { continue; }
-    if (/\.(svg)(\?|$)/i.test(abs)) continue;
-    const context = html.slice(m.index, Math.min(html.length, m.index + 500)).replace(/<[^>]+>/g, " ");
-    imgs.push({ src: abs, alt, filename: filenameText(abs), context, index: m.index });
-  }
-  return imgs;
-}
-
-function matchByName(img, candidates) {
-  const sources = [norm(img.alt), norm(img.filename), norm(img.context)];
-  for (const c of candidates) {
-    const ln = lastName(c.dean), fn = firstName(c.dean);
-    if (ln.length < 3) continue;
-    for (const s of sources) {
-      if (!s) continue;
-      if (s.includes(ln) && (s.includes(fn) || fn.length < 3)) return c;
-    }
-  }
-  return null;
-}
 
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 const DELAY_MS = parseInt(process.env.SCRAPE_DELAY_MS || "500", 10);

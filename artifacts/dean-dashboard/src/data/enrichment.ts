@@ -13,7 +13,11 @@ declare const __BUILD_ID__: string;
 // re-render when the fetch resolves. Until then the map is empty, so portraits
 // fall back to monograms and the research panel simply isn't shown yet.
 
-export interface PhotoRec { photo: string; source?: string; page?: string }
+// A retired photo for this dean|university slot, kept when a genuinely
+// different image replaces it (archived, never deleted). `capturedAt` is the
+// date the archive event happened (not when the photo was originally taken).
+export interface PhotoHistoryEntry { photo: string; source?: string; page?: string; capturedAt: string; hash?: string }
+export interface PhotoRec { photo: string; source?: string; page?: string; hash?: string; capturedAt?: string; history?: PhotoHistoryEntry[] }
 
 export interface NewsItem { title: string; url: string; source?: string; date?: string }
 export interface CareerStep { role: string; org?: string; years?: string }
