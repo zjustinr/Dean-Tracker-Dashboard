@@ -6,7 +6,11 @@ import IndividualSearch, { DeanSearchPrefill } from "@/components/IndividualSear
 import MeetTheDean from "@/components/MeetTheDean";
 import type { Dean } from "@/data/types";
 import LiveJobMarket from "@/components/LiveJobMarket";
+// Discipline Search is temporarily hidden from the module grid while Scout
+// Assistant takes its slot -- the import/tab-content mapping stay in place
+// (see DEFAULT_TABS below) so restoring it later is a one-line uncomment.
 import DisciplineSearch from "@/components/DisciplineSearch";
+import ScoutAssistantPage from "@/components/ScoutAssistantPage";
 import Insights from "@/components/Insights";
 import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/FreeTierMeter";
 import BreakingNews from "@/components/BreakingNews";
@@ -45,9 +49,12 @@ interface TabDef {
 // slot (the most prominent by reading order) and is the default open tab.
 const DEFAULT_TABS: TabDef[] = [
   { value: "search", label: "Slate Builder", desc: "Filter sitting leaders by school, discipline, or tenure — then assemble a shortlist and open any profile." },
+  { value: "scout", label: "Scout Assistant", desc: "Adjustable-stringency candidate scouting for a specific opening — from our tightest combined model down to the full eligible pool." },
   { value: "explorer", label: "School Explorer", desc: "Browse leader histories by school with interactive tenure timelines and list/map views." },
   { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics — including interim appointments." },
-  { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
+  // Temporarily hidden to make room for Scout Assistant above -- re-add this
+  // entry to bring it back (DisciplineSearch/buildTabContent are untouched).
+  // { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
   { value: "jobmarket", label: "Leadership News & Market", desc: "Stay updated with the latest leadership news and market activity." },
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
 ];
@@ -65,6 +72,7 @@ function buildTabContent(
     trends: <AggregateTrends />,
     analysis: <CrossSchoolAnalysis />,
     search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} onOpenLeader={onOpenLeader} />,
+    scout: <ScoutAssistantPage onOpenSchool={onOpenSchool} />,
     jobmarket: <LiveJobMarket />,
     discipline: <DisciplineSearch />,
   };
@@ -275,6 +283,7 @@ function AppInner() {
               {tabs.map((tab) => {
                 const isActive = entered && activeTab === tab.value;
                 const isFeatured = tab.value === "search";
+                const isAiExperimental = tab.value === "scout";
 
                 return (
                   <button
@@ -301,6 +310,11 @@ function AppInner() {
                           "text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded",
                           isActive ? "bg-white/20 text-white" : "bg-[#011F5B] text-white",
                         ].join(" ")}>Start here</span>
+                      )}
+                      {isAiExperimental && (
+                        <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300/60">
+                          AI - Experimental
+                        </span>
                       )}
                     </span>
                     <span className={[

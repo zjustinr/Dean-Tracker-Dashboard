@@ -63,6 +63,7 @@ for (const [file, [role, ord]] of Object.entries(IDX)) {
   let rows;
   try { rows = JSON.parse(readFileSync(join(SRC, file), "utf8")); } catch { continue; }
   for (const r of rows) {
+    if (r.roleType === "subdean") continue; // feeder-bench row, not a dean-rung appointment
     const k = norm(r.dean);
     if (!k) continue;
     (byName[k] = byName[k] || []).push({
