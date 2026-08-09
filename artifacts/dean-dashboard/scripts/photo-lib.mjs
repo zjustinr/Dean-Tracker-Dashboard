@@ -164,3 +164,28 @@ export async function downloadAndRecordPhoto({ dean, university, imageUrl, pageU
   photos[kk] = { photo: `/deans/${file}`, page: pageUrl || "", source: imageUrl, hash: newHash, capturedAt: today() };
   return existing ? "updated" : "added";
 }
+
+/**
+ * Used by the news-scout auto-apply loop right after a brand-new record is
+ * added: fetch the record's own sourceUrl (the article/bio page just cited),
+ * look for that one person's headshot on it via the same name-matching used
+ * by the bulk scrapers, and record it if found. A single-page, single-
+ * candidate version of scrape-source-pages.mjs's batch flow.
+ *
+ * Returns "added" | "updated" | "unchanged" | "fail:no-match" | a string
+ * starting with "fail:" on fetch/validation failure. Does NOT write
+ * dean-photos.json to disk — call savePhotos() after the caller's batch.
+ */
+export async function autoFetchPhotoForRecord({ dean, university, sourceUrl, photos }) {
+  if (photos[photoKey(dean, university)]) return "unchanged"; // already have a photo for this exact role
+  let html;
+  try {
+    const r = await fetch(sourceUrl, { headers: { "User-Agent": UA, Accept: "text/html" }, redirect: "follow", signal: AbortSignal.timeout(15000) });
+    if (!r.ok) return `fail:HTTP ${r.status}`;
+    html = await r.text();
+  } catch (e) { return `fail:${e.message}`; }
+
+  const img = extractImgs(html, sourceUrl).find((i) => matchByName(i, [{ dean, university }]));
+  if (!img) return "fail:no-match";
+  return downloadAndRecordPhoto({ dean, university, imageUrl: img.src, pageUrl: sourceUrl, photos });
+}

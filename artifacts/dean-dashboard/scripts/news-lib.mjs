@@ -83,9 +83,10 @@ export function logCSV(rows) {
   appendFileSync(LOG_PATH, rows.map((l) => l.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")).join("\n") + "\n");
 }
 
-/** Apply an appointment to Excel + deans.json. Returns "added" | "duplicate". */
+/** Apply an appointment to Excel + deans.json. Returns "added" | "duplicate" | "no_source". */
 export function applyAppointment(e) {
   // e: {university, school, dean, interim, date (Date), url, title}
+  if (!e.url) return "no_source"; // every auto-added record must carry a citable sourceUrl
   const yr = e.date.getFullYear();
   const ml = monthLabel(e.date);
 
@@ -258,9 +259,10 @@ const decade = (yr) => `${Math.floor(yr / 10) * 10}s`;
  * fields and marks everything person-specific as "pending enrichment" (blank /
  * Unknown), which the scheduled enrichment task later fills. Closes the one open
  * tenure at that university if there is exactly one.
- * Returns "added" | "duplicate" | "no_sibling".
+ * Returns "added" | "duplicate" | "no_sibling" | "no_source".
  */
 export function applyAppointmentGeneric(e, deansFile) {
+  if (!e.url) return "no_source"; // every auto-added record must carry a citable sourceUrl
   const yr = e.date.getFullYear();
   const ml = monthLabel(e.date);
   const path = resolve(DATA_DIR, deansFile);
