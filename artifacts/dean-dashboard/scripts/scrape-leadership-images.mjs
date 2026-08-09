@@ -65,6 +65,9 @@ function matchDean(alt, candidates) {
   return null;
 }
 
+const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+const DELAY_MS = parseInt(process.env.SCRAPE_DELAY_MS || "600", 10);
+
 const results = [];
 const report = { fetched: 0, fetchFailed: [], matched: 0, universities: 0 };
 let n = 0;
@@ -76,6 +79,7 @@ for (const lead of leads) {
   report.universities++;
   const claimed = new Set();
   for (const pageUrl of lead.leadUrls || []) {
+    if (report.fetched > 0) await sleep(DELAY_MS);
     let html;
     try {
       const r = await fetch(pageUrl, { headers: { "User-Agent": UA, Accept: "text/html" }, redirect: "follow", signal: AbortSignal.timeout(15000) });

@@ -43,12 +43,16 @@ const photos = JSON.parse(readFileSync(PHOTOS, "utf8"));
 const key = (d, u) => `${d.trim().toLowerCase()}|${u.trim().toLowerCase()}`;
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36";
 
+const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+const DELAY_MS = parseInt(process.env.DOWNLOAD_DELAY_MS || "300", 10);
+
 const PUBLIC = join(HERE, "..", "public");
 let ok = 0, skipped = 0; const fails = [];
 for (const t of targets) {
   try {
     const kk = key(t.dean, t.university);
     if (photos[kk]?.photo && existsSync(join(PUBLIC, photos[kk].photo.replace(/^\//, "")))) { skipped++; continue; }
+    await sleep(DELAY_MS);
     const r = await fetch(t.imageUrl, { headers: { "User-Agent": UA, "Accept": "image/avif,image/webp,image/*,*/*" }, redirect: "follow", signal: AbortSignal.timeout(15000) });
     if (!r.ok) { fails.push(`${t.slug}: HTTP ${r.status}`); continue; }
     const buf = Buffer.from(await r.arrayBuffer());
