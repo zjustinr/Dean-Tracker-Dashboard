@@ -150,7 +150,7 @@ export default function ScoutAssistant({
         <p className="text-sm font-medium flex items-center gap-2 flex-wrap">
           <span>Scout Assistant</span>
           <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 border border-amber-300/60 dark:border-amber-700/60">
-            Experimental
+            AI - Experimental
           </span>
         </p>
         <p className="text-xs text-muted-foreground mt-0.5">
