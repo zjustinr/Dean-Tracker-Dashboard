@@ -46,10 +46,13 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 const DELAY_MS = parseInt(process.env.DOWNLOAD_DELAY_MS || "300", 10);
 
+const PLACEHOLDER_RE = /placeholder|no[-_]?photo|no[-_]?image|default[-_]?avatar|silhouette|generic[-_]?(user|person|avatar)|blank[-_]?(profile|avatar)|missing[-_]?photo|avatar[-_]?default|person[-_]?default/i;
+
 const PUBLIC = join(HERE, "..", "public");
 let ok = 0, skipped = 0; const fails = [];
 for (const t of targets) {
   try {
+    if (PLACEHOLDER_RE.test(t.imageUrl)) { fails.push(`${t.slug}: placeholder image URL`); continue; }
     const kk = key(t.dean, t.university);
     if (photos[kk]?.photo && existsSync(join(PUBLIC, photos[kk].photo.replace(/^\//, "")))) { skipped++; continue; }
     await sleep(DELAY_MS);
