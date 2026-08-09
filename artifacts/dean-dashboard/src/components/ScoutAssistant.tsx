@@ -1,96 +1,10 @@
-import { useState, useEffect, useMemo } from "react";
-import { useDataset } from "@/data/DatasetContext";
-import { useAllDeans } from "@/data/useData";
-import {
-  useScoutInsights, useEmployerAffinity, loadAffinity, getAffinityCache, usePhotoMap, useResearchMap, enrichKey,
-  type ScoutIndexInsights, type ScoutTrait, type AffMap, type AffEntry, type WeakLinkEntry, type EmployerSchoolProfile,
-} from "@/data/enrichment";
-import type { Dean } from "@/data/types";
-import { BOOLEAN_LABELS, CATEGORICAL_LABELS } from "@/data/types";
-import { loadDatasetData, type DatasetId } from "@/data/datasets";
-import DeanProfile from "@/components/DeanProfile";
-import { CareerAssessment, useCareerAnalysis, type Root } from "@/components/CareerMap";
-import { MovabilityGaugeIcon } from "@/components/MovabilityGaugeIcon";
-import careerRoots from "@/data/career-roots.json";
+import { useState } from "react";
+import { useScoutCandidateEngine, pct, traitSentence } from "@/data/useScoutCandidates";
+import type { ScoutIndexInsights } from "@/data/enrichment";
+import type { EmployerSchoolProfile } from "@/data/enrichment";
+import ScoutCandidateList from "@/components/ScoutCandidateList";
 
-// Labels for the pre-appointment traits gen-scout-insights.mjs mines (types.ts's
-// BOOLEAN_LABELS/CATEGORICAL_LABELS cover most of them already; these are the
-// handful specific to Scout Assistant, e.g. connection fields).
-const EXTRA_LABELS: Record<string, string> = {
-  priorInstitutionElite: "Prior Institution Elite",
-  hadDeptChairRole: "Prior Dept. Chair Role",
-  hasConsultingBg: "Consulting Background",
-  hasInstitutionalLink: "Institutional Link to This School",
-  fromSameUniversityDiffSchool: "Moved From a Different School, Same University",
-  connectionType: "Connection Type",
-};
-const fieldLabel = (f: string): string =>
-  (BOOLEAN_LABELS as Record<string, string>)[f] || (CATEGORICAL_LABELS as Record<string, string>)[f] || EXTRA_LABELS[f] || f;
-
-function pct(x: number): string { return `${Math.round(x * 100)}%`; }
-
-function traitSentence(t: ScoutTrait): string {
-  const label = fieldLabel(t.field);
-  const head = typeof t.value === "string" ? `${label}: ${t.value}` : label;
-  return t.kind === "promotion"
-    ? `${head} — ${pct(t.rate)} of hires here had this, vs. ${pct(t.compareRate)} of the associate/feeder bench (×${t.lift})`
-    : `${head} — ${pct(t.rate)} of hires in the last 15 years, vs. ${pct(t.compareRate)} before that (×${t.lift})`;
-}
-
-// A bench candidate's fit score: sum of log(lift) over every promotion trait they
-// match. log(lift) so a ×2 trait and a ×0.5 trait cancel out rather than both
-// pushing the score the same direction.
-function scoreBench(d: Dean, traits: ScoutTrait[]): { score: number; matched: ScoutTrait[] } {
-  const matched = traits.filter((t) => t.kind === "promotion" && (d as unknown as Record<string, unknown>)[t.field] === t.value);
-  return { score: matched.reduce((s, t) => s + Math.log(t.lift), 0), matched };
-}
-
-// Admin/faculty ties mean they actually worked there; alumni ties are a weaker
-// signal. Simple weighted count, not a calibrated model -- just an ordering.
-function tieScore(e: AffEntry): number {
-  return e.admin.length * 2 + e.faculty.length * 1.5 + e.grad.length + e.undergrad.length;
-}
-
-// Cabinet-level titles within an "admin" tie (dean/provost/president/chancellor)
-// vs. lower-level administrative roles the broader ADMIN match in gen-affinity.mjs
-// also catches (chair, director, coordinator, ...).
-const CABINET_RE = /\b(dean|provost|chancellor|president)\b/i;
-const isCurrentEvidence = (evidence: string[]) => evidence.some((e) => /present/i.test(e));
-
-// A short, intuitive label for why this person is connected to the school --
-// "current cabinet member" / "alum" / "former faculty" -- rather than dumping
-// the raw tie-evidence string. Priority: admin > faculty > grad > undergrad
-// (a stronger tie wins), paired with the single most relevant evidence line.
-function tieDescriptor(e: AffEntry): { label: string; detail: string } {
-  if (e.admin.length) {
-    const cabinetEvidence = e.admin.find((x) => CABINET_RE.test(x));
-    const current = isCurrentEvidence(e.admin);
-    return {
-      label: `${current ? "Current" : "Former"} ${cabinetEvidence ? "cabinet member" : "administrator"}`,
-      detail: cabinetEvidence ?? e.admin[0],
-    };
-  }
-  if (e.faculty.length) {
-    return { label: isCurrentEvidence(e.faculty) ? "Current faculty" : "Former faculty", detail: e.faculty[0] };
-  }
-  if (e.grad.length) return { label: "Graduate alum", detail: e.grad[0] };
-  if (e.undergrad.length) return { label: "Undergraduate alum", detail: e.undergrad[0] };
-  return { label: "Connected to this school", detail: "" };
-}
-
-// Reasoning line for a weak-link candidate: which shared-background category
-// matched, and the specific piece of their record that earned it.
-function weakLinkDescriptor(w: WeakLinkEntry): { label: string; detail: string } {
-  const top = w.matchedCategories[0];
-  return { label: `${top.category} background`, detail: top.evidence };
-}
-
-// AffEntry and WeakLinkEntry are otherwise differently shaped (tie-evidence
-// arrays vs. matched-category list), but both carry enough to resolve and open
-// a profile -- so the click/expand/resolve machinery below works on either.
-type ResolvableEntry = { name: string; enrichKey: string; index: string | null; university: string };
-
-function Methodology({
+export function Methodology({
   idx, label, employerProfile, validation,
 }: {
   idx: ScoutIndexInsights;
@@ -130,6 +44,27 @@ function Methodology({
               </ul>
             </div>
           )}
+          {idx.tieLift ? (
+            <div>
+              <p className="font-semibold">What kind of tie predicts a hire here</p>
+              <p className="mt-1 text-muted-foreground">
+                Among {idx.tieLift.hireN.toLocaleString()} external hires, {idx.tieLift.withTieN} had a documented pre-existing
+                tie to the hiring school; {Object.entries(idx.tieLift.categories).map(([cat, c]) => `${cat} ties are ×${c.lift} as common as the typical external hire's (n=${c.n})`).join("; ")}.
+                That's what ranks "Connected" candidates below.
+              </p>
+              <p className="mt-1 text-muted-foreground">
+                Validated leave-one-hire-out: the most-distinctive tie type predicted the held-out hire's actual tie{" "}
+                {pct(idx.tieLift.validation.hitRate)} of the time, vs. {pct(idx.tieLift.validation.baselineHitRate)} by
+                chance (n={idx.tieLift.validation.n}).
+              </p>
+            </div>
+          ) : (
+            <p className="text-muted-foreground">
+              Not enough external hires with a documented pre-existing tie to calibrate a tie-type weighting for{" "}
+              {label.toLowerCase()} — "Connected" candidates below are still shown and ranked by trait fit, just
+              without a tie-type score bonus.
+            </p>
+          )}
           {promo.length > 0 && (
             <div>
               <p className="font-semibold">What predicts promotion from the bench here</p>
@@ -168,6 +103,12 @@ function Methodology({
               </p>
             </div>
           )}
+          <p className="text-muted-foreground">
+            Feeder-bench, connected, and weak-link candidates are ranked together in one list: bench members and anyone
+            whose full record we've resolved are scored against every trait above (promotion and trend alike), and that
+            score is added on top of the connection- or background-fit score for that source — so a well-connected
+            candidate who also matches this school's hiring pattern outranks one who only has one or the other.
+          </p>
           <p className="text-[11px] text-muted-foreground italic">
             These are historical associations mined from our own dataset, not causal findings and not a hiring
             recommendation — small indices and data-collection gaps can both produce misleading lift numbers.
@@ -178,16 +119,19 @@ function Methodology({
   );
 }
 
+const EMBEDDED_CAP = 10;
+
 /**
  * Embedded in Slate Builder (IndividualSearch.tsx), directly below the results
  * list, as soon as the user narrows to a single school -- not a standalone tab.
+ * A fixed top-10, no-filters, no-broader-pool view (the most stringent tier of
+ * the full model); the standalone Scout Assistant module (ScoutAssistantPage.tsx)
+ * exposes the adjustable stringency slider, roster filters, job-description
+ * matching, and map over the same underlying engine (useScoutCandidateEngine).
  * Deliberately styled with the same plain-div/Tailwind card chrome as the
  * results section above it (bg-card border rounded-xl, muted header bar,
  * divide-y rows) rather than the shadcn Card primitives used elsewhere in the
  * app, so it reads as part of the same list rather than a bolted-on module.
- * Every candidate row -- feeder bench or cross-index affinity tie -- expands
- * inline into its full DeanProfile on click, same as the results list; nothing
- * here navigates the user away from the section.
  */
 export default function ScoutAssistant({
   university, onOpenSchool,
@@ -195,193 +139,10 @@ export default function ScoutAssistant({
   university: string;
   onOpenSchool?: (university: string, school: string) => void;
 }) {
-  const { datasetId, meta } = useDataset();
-  const allDeans = useAllDeans();
-  const allInsights = useScoutInsights();
-  const idx = allInsights[datasetId];
-  const allEmployerAffinity = useEmployerAffinity();
-  const employerProfile = allEmployerAffinity[datasetId]?.schools[university];
-  const photos = usePhotoMap();
-  const researchMap = useResearchMap();
-  const [expandedBenchId, setExpandedBenchId] = useState<number | null>(null);
-
-  // Cohort tenure distribution for the Movability Index, mirroring IndividualSearch's
-  // own tenureFor (same cohort-wide percentiles, so the rating reads identically
-  // whether it's shown here or in the results list).
-  function tenureFor(dn: Dean) {
-    const NOW = 2026;
-    const lens = allDeans.filter((x) => x.endYear != null && !x.isInterim && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number).sort((a, b) => a - b);
-    const p = (q: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(q * lens.length))] : null);
-    const past = allDeans.filter((x) => x.dean === dn.dean && x.id !== dn.id && x.endYear != null && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number);
-    const personalAvg = past.length ? past.reduce((a, b) => a + b, 0) / past.length : null;
-    return {
-      sitting: dn.endYear == null,
-      currentTenure: dn.endYear == null && dn.startYear ? NOW - dn.startYear : dn.tenureLength ?? null,
-      median: p(0.5), p75: p(0.75), personalAvg, cohortN: lens.length,
-    };
-  }
-
-  // Compact per-row indicator: just the gauge + label, no map/stats. Used to the
-  // right of every row where a full Dean record is already on hand.
-  function MovabilityBadge({ dean }: { dean: Dean }) {
-    const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
-    const roots = (careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)];
-    const { rating } = useCareerAnalysis(career || [], tenureFor(dean), roots);
-    if (!rating) return null;
-    return (
-      <div className="flex flex-col items-center gap-0.5 shrink-0 w-14" title={`Movability Index: ${rating.label}`}>
-        <MovabilityGaugeIcon tone={rating.tone} size={22} />
-        <span className={`text-[9px] font-semibold px-1 py-0.5 rounded leading-none whitespace-nowrap ${rating.cls}`}>{rating.label}</span>
-      </div>
-    );
-  }
-
-  // Expanded row content: the profile on the left, the full Movability Index
-  // module in its own column on the right -- same split IndividualSearch uses
-  // between its results list and its sticky map/assessment column, just brought
-  // inline per-row here instead of living in a page-level sidebar.
-  function ExpandedProfile({ dean, onClose }: { dean: Dean; onClose: () => void }) {
-    const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
-    const roots = (careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)];
-    return (
-      <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_260px] items-start">
-        <DeanProfile dean={dean} onClose={onClose} onOpenSchool={onOpenSchool} hideAssessment />
-        {career && career.length > 0 && (
-          <div className="lg:sticky lg:top-4">
-            <CareerAssessment steps={career} tenure={tenureFor(dean)} roots={roots} />
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // Affinity candidates only carry tie evidence, not a full Dean record, and may
-  // live in an index that isn't currently loaded. To expand them inline (same as
-  // bench candidates) rather than navigating away, resolve their full record on
-  // click: reuse allDeans if they're in the current index, otherwise fetch their
-  // home index's dataset on demand and cache the result so re-opening is instant.
-  const [expandedAffKey, setExpandedAffKey] = useState<string | null>(null);
-  const [resolvedProfiles, setResolvedProfiles] = useState<Record<string, Dean | "not-found">>({});
-  const affKey = (entry: ResolvableEntry) => `${entry.enrichKey}|${entry.index ?? ""}`;
-
-  async function resolveAffinityProfile(entry: ResolvableEntry) {
-    const key = affKey(entry);
-    if (resolvedProfiles[key]) return;
-    let deans: Dean[] | null = null;
-    if (!entry.index) {
-      deans = null;
-    } else if (entry.index === datasetId) {
-      deans = allDeans;
-    } else {
-      try { deans = (await loadDatasetData(entry.index as DatasetId)).deans; } catch { deans = null; }
-    }
-    const nameL = entry.name.trim().toLowerCase();
-    const uniL = entry.university.trim().toLowerCase();
-    const matches = (deans || []).filter((d) => d.dean.trim().toLowerCase() === nameL && d.university.trim().toLowerCase() === uniL);
-    const best = matches.find((d) => d.endYear == null) ?? matches.sort((a, b) => (b.startYear || 0) - (a.startYear || 0))[0] ?? null;
-    setResolvedProfiles((p) => ({ ...p, [key]: best ?? "not-found" }));
-  }
-
-  function handleAffinityClick(entry: ResolvableEntry) {
-    const key = affKey(entry);
-    if (expandedAffKey === key) { setExpandedAffKey(null); return; }
-    setExpandedAffKey(key);
-    if (!resolvedProfiles[key]) resolveAffinityProfile(entry);
-  }
-
-  function Avatar({ dean }: { dean: Dean }) {
-    const p = photos[enrichKey(dean.dean, dean.university)];
-    if (p?.photo) return <img src={p.photo} alt="" loading="lazy" className="w-9 h-9 rounded-full object-cover shrink-0 border border-border" />;
-    return (
-      <div className="w-9 h-9 rounded-full bg-[#011F5B]/10 flex items-center justify-center shrink-0">
-        <span className="text-xs font-bold text-[#011F5B]">{dean.dean.split(" ").map((n) => n[0]).join("").slice(0, 2)}</span>
-      </div>
-    );
-  }
-  function AffAvatar({ entry }: { entry: ResolvableEntry }) {
-    const p = photos[entry.enrichKey];
-    if (p?.photo) return <img src={p.photo} alt="" loading="lazy" className="w-9 h-9 rounded-full object-cover shrink-0 border border-border" />;
-    return (
-      <div className="w-9 h-9 rounded-full bg-[#8C1D40]/10 flex items-center justify-center shrink-0">
-        <span className="text-xs font-bold text-[#8C1D40]">{entry.name.split(/\s+/).map((n) => n[0]).join("").slice(0, 2)}</span>
-      </div>
-    );
-  }
-
-  const [affinityMap, setAffinityMap] = useState<AffMap | null>(getAffinityCache());
-  useEffect(() => {
-    if (affinityMap) return;
-    let alive = true;
-    loadAffinity().then((m) => { if (alive) setAffinityMap(m); });
-    return () => { alive = false; };
-  }, [affinityMap]);
-
-  const schoolDeans = useMemo(() => allDeans.filter((d) => d.university === university), [allDeans, university]);
-  // Scout Assistant is for finding the NEXT leader, not re-suggesting a past
-  // (or the current) one -- so anyone who has ever actually held this exact
-  // role at this school (any non-bench spell, current or past) is excluded
-  // from both candidate pools. Matched by name only: schoolDeans is already
-  // scoped to this university within the currently-loaded index, so this
-  // correctly catches a former titleholder surfacing in "Connected across our
-  // database" via an affinity tie whose home identity is elsewhere, not just
-  // the person currently sitting in the seat.
-  const everHeldNames = useMemo(() => new Set(
-    schoolDeans.filter((d) => d.roleType !== "subdean").map((d) => d.dean.trim().toLowerCase())
-  ), [schoolDeans]);
-
-  const benchCandidates = useMemo(() => {
-    if (!idx || !idx.hasFeederBench) return [];
-    return schoolDeans
-      .filter((d) => d.roleType === "subdean" && !everHeldNames.has(d.dean.trim().toLowerCase()))
-      .map((d) => ({ dean: d, ...scoreBench(d, idx.traits) }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 6);
-  }, [schoolDeans, everHeldNames, idx]);
-
-  const affinityCandidates = useMemo(() => {
-    const list = affinityMap?.[university] || [];
-    return list
-      .filter((e) => !everHeldNames.has(e.name.trim().toLowerCase()))
-      .map((e) => ({ entry: e, score: tieScore(e) }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 6);
-  }, [affinityMap, university, everHeldNames]);
-
-  // Resolve every visible affinity candidate's full record in the background (not
-  // just on click) so their Movability Index badge can render without waiting for
-  // an expand. resolveAffinityProfile's own cache means this is at most one fetch
-  // per distinct home index represented in the list, not one per candidate.
-  useEffect(() => {
-    affinityCandidates.forEach(({ entry }) => { resolveAffinityProfile(entry); });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [affinityCandidates]);
-
-  // Weak links: leaders with a career background matching what this school's
-  // DISCIPLINE tends to draw from (see gen-employer-affinity.mjs) -- a much
-  // looser signal than a direct alumni/faculty/admin tie, so anyone already
-  // surfaced by name above (feeder bench, direct affinity, or who's already
-  // held the role) is excluded here on purpose: this section exists to add
-  // NEW possibilities, not repeat ones already shown.
-  const weakLinkCandidates = useMemo(() => {
-    if (!employerProfile) return [];
-    const affinityNames = new Set((affinityMap?.[university] || []).map((e) => e.name.trim().toLowerCase()));
-    const benchNames = new Set(schoolDeans.filter((d) => d.roleType === "subdean").map((d) => d.dean.trim().toLowerCase()));
-    return employerProfile.weakLinks
-      .filter((w) => {
-        const nameL = w.name.trim().toLowerCase();
-        return !everHeldNames.has(nameL) && !affinityNames.has(nameL) && !benchNames.has(nameL);
-      })
-      .slice(0, 6);
-  }, [employerProfile, affinityMap, university, everHeldNames, schoolDeans]);
-
-  useEffect(() => {
-    weakLinkCandidates.forEach((w) => { resolveAffinityProfile(w); });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [weakLinkCandidates]);
+  const { idx, meta, datasetId, employerProfile, employerValidation, candidates, resolvedProfiles, resolveProfile, allDeans } =
+    useScoutCandidateEngine({ university, cap: EMBEDDED_CAP, includeBroad: false });
 
   if (!idx) return null; // no mined patterns for this index yet -- nothing useful to show
-
-  const totalCandidates = benchCandidates.length + affinityCandidates.length + weakLinkCandidates.length;
 
   return (
     <div className="mt-4 bg-card border border-border rounded-xl overflow-hidden">
@@ -394,7 +155,8 @@ export default function ScoutAssistant({
         </p>
         <p className="text-xs text-muted-foreground mt-0.5">
           Candidates scored against patterns mined from our own {meta.label.toLowerCase()} appointment history — a
-          fit to this school's historical pattern, not a recommendation. See Methodology below.
+          fit to this school's historical pattern, not a recommendation. See Methodology below. For the full
+          adjustable model (stringency slider, filters, job-description matching, map), open the Scout Assistant module.
         </p>
       </div>
 
@@ -404,143 +166,17 @@ export default function ScoutAssistant({
         </p>
       )}
 
-      {totalCandidates === 0 ? (
-        <p className="px-4 sm:px-5 py-4 text-sm text-muted-foreground">No feeder-bench or cross-index connections on file for {university} yet.</p>
-      ) : (
-        <div className="divide-y divide-border">
-          {benchCandidates.length > 0 && (
-            <div>
-              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide px-4 sm:px-5 pt-3 pb-1">From the feeder bench</p>
-              <div className="divide-y divide-border">
-                {benchCandidates.map(({ dean, matched }) => {
-                  const isOpen = expandedBenchId === dean.id;
-                  return (
-                    <div key={dean.id}>
-                      <button
-                        onClick={() => setExpandedBenchId(isOpen ? null : dean.id)}
-                        className={["w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left transition-colors", isOpen ? "bg-[#011F5B]/5" : "hover:bg-accent/40"].join(" ")}
-                      >
-                        <Avatar dean={dean} />
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold truncate">{dean.dean}</p>
-                          <p className="text-xs text-muted-foreground truncate">{dean.discipline || dean.priorTitle}</p>
-                          {matched.length > 0 ? (
-                            <p className="text-xs text-[#A31F34] mt-0.5">{traitSentence(matched[0])}</p>
-                          ) : (
-                            <p className="text-xs text-muted-foreground italic mt-0.5">No strong pattern match — included as a current bench member.</p>
-                          )}
-                        </div>
-                        <MovabilityBadge dean={dean} />
-                        <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
-                      </button>
-                      {isOpen && (
-                        <div className="px-4 sm:px-5 pb-4 pt-1 bg-[#011F5B]/5 border-l-2 border-[#011F5B]">
-                          <ExpandedProfile dean={dean} onClose={() => setExpandedBenchId(null)} />
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {affinityCandidates.length > 0 && (
-            <div>
-              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide px-4 sm:px-5 pt-3 pb-1">Connected across our database</p>
-              <div className="divide-y divide-border">
-                {affinityCandidates.map(({ entry }) => {
-                  const key = affKey(entry);
-                  const isOpen = expandedAffKey === key;
-                  const resolved = resolvedProfiles[key];
-                  const { label, detail } = tieDescriptor(entry);
-                  return (
-                    <div key={key}>
-                      <button
-                        onClick={() => handleAffinityClick(entry)}
-                        className={["w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left transition-colors", isOpen ? "bg-[#8C1D40]/5" : "hover:bg-accent/40"].join(" ")}
-                      >
-                        <AffAvatar entry={entry} />
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold truncate">{entry.name}</p>
-                          <p className="text-xs text-muted-foreground truncate">{entry.role}{entry.university ? ` · ${entry.university}` : ""}</p>
-                          <p className="text-xs text-[#8C1D40] mt-0.5 truncate">
-                            <span className="font-semibold">{label}</span>{detail ? ` — ${detail}` : ""}
-                          </p>
-                        </div>
-                        {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
-                        <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
-                      </button>
-                      {isOpen && (
-                        <div className="px-4 sm:px-5 pb-4 pt-1 bg-[#8C1D40]/5 border-l-2 border-[#8C1D40]">
-                          {!resolved ? (
-                            <p className="text-xs text-muted-foreground py-3">Loading profile…</p>
-                          ) : resolved === "not-found" ? (
-                            <p className="text-xs text-muted-foreground py-3">No detailed profile on file for {entry.name} yet.</p>
-                          ) : (
-                            <ExpandedProfile dean={resolved} onClose={() => setExpandedAffKey(null)} />
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {weakLinkCandidates.length > 0 && employerProfile && (
-            <div>
-              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide px-4 sm:px-5 pt-3">Weak links — shared background</p>
-              <p className="text-[11px] text-muted-foreground px-4 sm:px-5 pb-1">
-                {employerProfile.group} appointments broadly draw from {employerProfile.categories.map((c) => c.category).join(" or ")} backgrounds —
-                these leaders have no direct tie to {university}, just a matching career background.
-              </p>
-              <div className="divide-y divide-border">
-                {weakLinkCandidates.map((w) => {
-                  const key = affKey(w);
-                  const isOpen = expandedAffKey === key;
-                  const resolved = resolvedProfiles[key];
-                  const { label, detail } = weakLinkDescriptor(w);
-                  return (
-                    <div key={key}>
-                      <button
-                        onClick={() => handleAffinityClick(w)}
-                        className={["w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left transition-colors", isOpen ? "bg-amber-500/5" : "hover:bg-accent/40"].join(" ")}
-                      >
-                        <AffAvatar entry={w} />
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold truncate">{w.name}</p>
-                          <p className="text-xs text-muted-foreground truncate">{w.role}{w.university ? ` · ${w.university}` : ""}</p>
-                          <p className="text-xs text-amber-700 dark:text-amber-500 mt-0.5 truncate">
-                            <span className="font-semibold">{label}</span>{detail ? ` — ${detail}` : ""}
-                          </p>
-                        </div>
-                        {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
-                        <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
-                      </button>
-                      {isOpen && (
-                        <div className="px-4 sm:px-5 pb-4 pt-1 bg-amber-500/5 border-l-2 border-amber-500">
-                          {!resolved ? (
-                            <p className="text-xs text-muted-foreground py-3">Loading profile…</p>
-                          ) : resolved === "not-found" ? (
-                            <p className="text-xs text-muted-foreground py-3">No detailed profile on file for {w.name} yet.</p>
-                          ) : (
-                            <ExpandedProfile dean={resolved} onClose={() => setExpandedAffKey(null)} />
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
+      <ScoutCandidateList
+        candidates={candidates}
+        resolvedProfiles={resolvedProfiles}
+        resolveProfile={resolveProfile}
+        allDeans={allDeans}
+        onOpenSchool={onOpenSchool}
+        emptyMessage={`No feeder-bench or cross-index connections on file for ${university} yet.`}
+      />
 
       <div className="border-t border-border">
-        <Methodology idx={idx} label={meta.label} employerProfile={employerProfile} validation={allEmployerAffinity[datasetId]?.validation ?? null} />
+        <Methodology idx={idx} label={meta.label} employerProfile={employerProfile} validation={employerValidation} />
       </div>
     </div>
   );

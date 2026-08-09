@@ -31,6 +31,7 @@ import { dirname, join } from "node:path";
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
 const OUT = join(SRC, "scout-insights.json");
+const AFFINITY_FILE = "affinity-by-school.json";
 
 // Mirrors scripts/gen-affinity.mjs's FILE_ID map (kept independent/duplicated
 // on purpose — each generator script is meant to run standalone).
@@ -112,6 +113,120 @@ function connectionPatterns(rows) {
   const flags = {};
   for (const f of CONNECTION_BOOL) flags[f] = round(rate(rows, (r) => r[f] === true));
   return { n: rows.length, connectionType, flags };
+}
+
+// ---- tie-category lift: does having a direct alumni/faculty/admin tie
+// (gen-affinity.mjs's affinity-by-school.json) to the hiring school actually
+// predict getting hired, and if so, which tie TYPE matters most?
+//
+// Two earlier attempts at this baseline were both wrong, in instructive ways:
+//   1. Mapping tie categories onto the hand-researched connectionType field
+//      and comparing against a flat 25%-per-category chance baseline. That
+//      cross-mapping was starved of data (18 of 19 indices never had enough
+//      external hires with one of the specific connectionType values, so
+//      they silently fell back to guessed constants below the 25% baseline --
+//      meaning a REAL tie scored as a NEGATIVE signal almost everywhere,
+//      backwards from the intent).
+//   2. Baselining against "everyone with any tie to a school this index
+//      tracks" (pooled from affinity-by-school.json directly). That pool
+//      is dominated by OTHER leaders in this same leader-tracking corpus, so
+//      65%+ of it has "admin" as its strongest tie just because being an
+//      administrator SOMEWHERE is what got someone into this database in the
+//      first place -- an artifact of what the corpus even is, not a real
+//      base rate for "how connected is a random plausible candidate."
+// This version baselines against the ONE population that's actually
+// comparable: the tie-category mix among EXTERNAL HIRES ACROSS THE WHOLE
+// CORPUS (every index pooled), using the same date-filtered pre-existing-tie
+// definition -- so the question becomes "is THIS index's external-hire tie
+// mix distinctively different from the typical external hire's, anywhere,"
+// which is the same shape of comparison gen-employer-affinity.mjs already
+// validated (subgroup rate vs. the broader population's own rate).
+// Gated on a leave-one-hire-out validation: does the most-distinctive category
+// trained on every OTHER external hire in this index actually predict the
+// held-out hire's real tie category more often than that category's GLOBAL
+// base rate would by chance? An index that doesn't clear this bar contributes
+// no tie-lift data at all -- ScoutAssistant.tsx should treat that as "no
+// calibrated signal," not fall back to a guess.
+function evidenceYear(ev) {
+  const m = String(ev).match(/(\d{4})/);
+  return m ? parseInt(m[1], 10) : null;
+}
+function filterEvidenceBefore(list, cutoffYear) {
+  return (list || []).filter((ev) => { const y = evidenceYear(ev); return y == null || y <= cutoffYear - 1; });
+}
+const TIE_CATEGORIES = ["admin", "faculty", "grad", "undergrad"];
+function strongestTieCategory(entry) {
+  for (const cat of TIE_CATEGORIES) if (entry[cat] && entry[cat].length) return cat;
+  return null;
+}
+function tieCategoryFor(hire, affinityBySchool) {
+  const entries = affinityBySchool[hire.university] || [];
+  const raw = entries.find((e) => e.name.trim().toLowerCase() === hire.dean.trim().toLowerCase());
+  if (!raw) return null;
+  const filtered = {
+    admin: filterEvidenceBefore(raw.admin, hire.startYear), faculty: filterEvidenceBefore(raw.faculty, hire.startYear),
+    grad: filterEvidenceBefore(raw.grad, hire.startYear), undergrad: filterEvidenceBefore(raw.undergrad, hire.startYear),
+  };
+  return strongestTieCategory(filtered);
+}
+
+const MIN_TIE_N = 15; // hires-with-a-tie below this, per index, is too noisy to validate a category split
+const TIE_LIFT_THRESHOLD = 1.4; // matches gen-employer-affinity.mjs's bar for "distinctive"
+
+/** Global tie-category rate among external hires across every index, pooled -- the shared baseline every index's own rate gets compared against. */
+function globalTieRates(allExternalHires, affinityBySchool) {
+  const cats = allExternalHires.map((h) => tieCategoryFor(h, affinityBySchool));
+  const counts = new Map();
+  for (const c of cats) if (c) counts.set(c, (counts.get(c) || 0) + 1);
+  const n = allExternalHires.length;
+  const rates = {};
+  for (const cat of TIE_CATEGORIES) rates[cat] = (counts.get(cat) || 0) / n;
+  return rates;
+}
+
+function tieCategoryLiftForIndex(hireRows, affinityBySchool, globalRates) {
+  const externalHires = hireRows.filter((r) => r.isExternal === true && r.university && r.dean && r.startYear);
+  const hireCats = externalHires.map((h) => tieCategoryFor(h, affinityBySchool));
+  const withTie = hireCats.filter(Boolean).length;
+  if (withTie < MIN_TIE_N) return null;
+
+  const hireCatCounts = new Map();
+  for (const c of hireCats) if (c) hireCatCounts.set(c, (hireCatCounts.get(c) || 0) + 1);
+  const hireRate = (cat) => (hireCatCounts.get(cat) || 0) / externalHires.length;
+
+  // Leave-one-hire-out: exclude the held-out hire, recompute which category is
+  // most distinctive from everyone else (vs. the fixed GLOBAL rate -- removing
+  // one hire from a 5000+ pool doesn't meaningfully move it), check whether it
+  // matches the held-out hire's actual (date-filtered) category.
+  let hits = 0, baselineSum = 0, evaluated = 0;
+  for (let i = 0; i < hireCats.length; i++) {
+    if (!hireCats[i]) continue; // no tie at all isn't something a tie-based signal could have predicted
+    const trainCats = hireCats.filter((_, j) => j !== i);
+    const trainCounts = new Map();
+    for (const c of trainCats) if (c) trainCounts.set(c, (trainCounts.get(c) || 0) + 1);
+    const distinctive = TIE_CATEGORIES
+      .map((cat) => ({ cat, lift: globalRates[cat] > 0 ? ((trainCounts.get(cat) || 0) / trainCats.length) / globalRates[cat] : 0 }))
+      .filter((d) => Number.isFinite(d.lift) && d.lift >= TIE_LIFT_THRESHOLD)
+      .sort((a, b) => b.lift - a.lift)[0];
+    if (!distinctive) continue;
+    evaluated++;
+    if (hireCats[i] === distinctive.cat) hits++;
+    baselineSum += globalRates[distinctive.cat];
+  }
+  const validation = evaluated >= 10
+    ? { hitRate: round(hits / evaluated), baselineHitRate: round(baselineSum / evaluated), n: evaluated }
+    : null;
+  const validated = !!validation && validation.hitRate >= validation.baselineHitRate * 2 && validation.hitRate >= 0.1;
+  if (!validated) return null;
+
+  const categories = {};
+  for (const cat of TIE_CATEGORIES) {
+    const gr = globalRates[cat], hr = hireRate(cat), n = hireCatCounts.get(cat) || 0;
+    if (!gr || n < 3) continue; // matches gen-employer-affinity.mjs's own floor -- a 1-2-hire "category" is noise, not a rate
+    categories[cat] = { globalRate: round(gr), hireRate: round(hr), lift: round(hr / gr, 2), n };
+  }
+  if (!Object.keys(categories).length) return null;
+  return { categories, validation, hireN: externalHires.length, withTieN: withTie };
 }
 
 // Every (field, value) lift computable between two row sets, boolean + categorical
@@ -217,11 +332,24 @@ function backtestIndex(hireRows, benchRows) {
   return { auc: round((wins + 0.5 * ties) / total, 3), pairs: total, folds: foldsUsed, hireN: hireRows.length, benchN: benchRows.length };
 }
 
-const insights = {};
-let processed = 0;
+const affinityBySchool = read(AFFINITY_FILE);
+
+// First pass: gather every external hire across every index, so the tie-lift
+// baseline reflects the whole corpus (see tieCategoryLiftForIndex's comment)
+// before the per-index second pass uses it.
+const allRowsByIndex = {};
+const allExternalHires = [];
 for (const [file, id] of Object.entries(FILE_ID)) {
   const rows = read(file);
   if (!rows.length) continue;
+  allRowsByIndex[id] = rows;
+  for (const r of rows) if (r.roleType !== "subdean" && r.isExternal === true && r.university && r.dean && r.startYear) allExternalHires.push(r);
+}
+const globalRates = globalTieRates(allExternalHires, affinityBySchool);
+
+const insights = {};
+let processed = 0;
+for (const [id, rows] of Object.entries(allRowsByIndex)) {
   const hireRows = rows.filter((r) => r.roleType !== "subdean");
   const benchRows = rows.filter((r) => r.roleType === "subdean");
   const hasFeederBench = benchRows.length >= MIN_N;
@@ -238,11 +366,17 @@ for (const [file, id] of Object.entries(FILE_ID)) {
     },
     traits: traitsForIndex(hireRows, benchRows, hasFeederBench),
     backtest: hasFeederBench ? backtestIndex(hireRows, benchRows) : null,
+    tieLift: tieCategoryLiftForIndex(hireRows, affinityBySchool, globalRates),
   };
   processed++;
 }
 
 writeFileSync(OUT, JSON.stringify(insights) + "\n");
 const withBacktest = Object.values(insights).filter((x) => x.backtest);
+const withTieLift = Object.entries(insights).filter(([, x]) => x.tieLift);
 console.log(`scout-insights.json: ${processed} indices, ${Object.values(insights).reduce((n, x) => n + x.traits.length, 0)} trait entries`);
 console.log(`backtest AUC (hire vs. never-promoted bench, held-out folds): ${withBacktest.map((x) => x.backtest.auc).join(", ") || "none (no index had enough feeder-bench data)"}`);
+console.log(`tie-category lift validated for ${withTieLift.length}/${processed} indices:`);
+for (const [id, x] of withTieLift) {
+  console.log(`  ${id}: leave-one-out hit rate ${x.tieLift.validation.hitRate} vs. baseline ${x.tieLift.validation.baselineHitRate} (n=${x.tieLift.validation.n}) -- ${Object.entries(x.tieLift.categories).map(([cat, c]) => `${cat} ×${c.lift}`).join(", ")}`);
+}
