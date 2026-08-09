@@ -39,6 +39,20 @@ for (const f of files) {
 
 const leads = JSON.parse(readFileSync(leadsFile, "utf8"));
 
+// Pull the filename (minus extension and common size suffixes like -300x300)
+// as a fallback text source, since many sites leave alt="" but encode the
+// person's name in the image filename (e.g. "Chris-Storm-300x300.jpg").
+function filenameText(src) {
+  try {
+    const path = new URL(src).pathname;
+    const base = path.split("/").pop() || "";
+    return base
+      .replace(/\.(jpe?g|png|webp|gif|avif)$/i, "")
+      .replace(/-\d{2,4}x\d{2,4}$/i, "")
+      .replace(/[-_]+/g, " ");
+  } catch { return ""; }
+}
+
 function extractImgs(html, pageUrl) {
   const imgs = [];
   const re = /<img\b[^>]*>/gi;
@@ -50,17 +64,25 @@ function extractImgs(html, pageUrl) {
     if (!src) continue;
     let abs;
     try { abs = new URL(src, pageUrl).href; } catch { continue; }
-    imgs.push({ src: abs, alt });
+    // Grab a window of surrounding HTML (often a name/title sits in a
+    // <h3>/<p> right after a card's image) and strip tags to plain text.
+    const context = html
+      .slice(m.index, Math.min(html.length, m.index + 500))
+      .replace(/<[^>]+>/g, " ");
+    imgs.push({ src: abs, alt, filename: filenameText(abs), context });
   }
   return imgs;
 }
 
-function matchDean(alt, candidates) {
-  const altNorm = norm(alt);
-  if (!altNorm) return null;
+function matchDean(img, candidates) {
+  const sources = [norm(img.alt), norm(img.filename), norm(img.context)];
   for (const c of candidates) {
     const ln = lastName(c), fn = firstName(c);
-    if (ln.length >= 3 && altNorm.includes(ln) && (altNorm.includes(fn) || fn.length < 3)) return c;
+    if (ln.length < 3) continue;
+    for (const s of sources) {
+      if (!s) continue;
+      if (s.includes(ln) && (s.includes(fn) || fn.length < 3)) return c;
+    }
   }
   return null;
 }
@@ -90,7 +112,7 @@ for (const lead of leads) {
     const imgs = extractImgs(html, pageUrl);
     for (const img of imgs) {
       if (/\.(svg)(\?|$)/i.test(img.src)) continue;
-      const dean = matchDean(img.alt, candidates.filter((c) => !claimed.has(c)));
+      const dean = matchDean(img, candidates.filter((c) => !claimed.has(c)));
       if (!dean) continue;
       claimed.add(dean);
       results.push({ dean, university: lead.university, imageUrl: img.src, pageUrl });
