@@ -16,13 +16,13 @@ const research = JSON.parse(readFileSync(join(SRC, "leader-research.json"), "utf
 
 const files = readdirSync(SRC).filter((f) => /deans.*\.json$/.test(f) && !/schools/.test(f) && f !== "dean-photos.json");
 
-// Most dataset files are stored compact (single line); a couple have drifted
-// to 2-space pretty via prior auto-applies. Preserve whichever the file is
-// already in -- rewriting with the wrong one turns a one-field change into a
-// diff spanning the entire file.
+// Dataset files use a mix of indent widths (0/compact, 1, or 2 spaces).
+// Rewriting with the wrong one turns a one-field change into a diff spanning
+// the entire file, so measure the exact indent and reproduce it.
 function writeDeansJson(path, rawBefore, arr) {
-  const pretty = /^\[\r?\n\s/.test(rawBefore);
-  writeFileSync(path, pretty ? JSON.stringify(arr, null, 2) : JSON.stringify(arr));
+  const m = /^\[\r?\n( *)/.exec(rawBefore);
+  const indent = m ? m[1].length : 0;
+  writeFileSync(path, indent ? JSON.stringify(arr, null, indent) : JSON.stringify(arr));
 }
 
 let total = 0, filled = 0;

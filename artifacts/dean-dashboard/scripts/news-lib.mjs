@@ -18,14 +18,17 @@ export const BREAKING_JSON = resolve(__dirname, "../src/data/breaking-news.json"
 export const LOG_PATH = resolve(ROOT, "attached_assets/news_scout_log.csv");
 export const ENRICH_QUEUE = resolve(ROOT, "attached_assets/enrichment_queue.json");
 
-// Most <id>-deans.json files are stored compact (single line); a few (notably
-// deans.json, after enough prior auto-applies) drifted to 2-space pretty.
-// Writing unconditionally with one style previously reformatted whichever
-// files didn't match it -- a single-field change ballooning into an 80k-line
-// diff. Detect and preserve each file's own format instead.
+// <id>-deans.json files use a mix of indent widths (0/compact, 1, or 2
+// spaces) depending on which script last wrote them. Writing unconditionally
+// with one style previously reformatted whichever files didn't match it --
+// a single-field change ballooning into an 80k-line diff, and a binary
+// pretty/compact test isn't enough (1-space vs 2-space both count as
+// "pretty" but produce a full reformat against each other). Measure the
+// exact indent width and reproduce it.
 function writeDeansJson(path, rawBefore, arr) {
-  const pretty = /^\[\r?\n\s/.test(rawBefore);
-  writeFileSync(path, pretty ? JSON.stringify(arr, null, 2) : JSON.stringify(arr));
+  const m = /^\[\r?\n( *)/.exec(rawBefore);
+  const indent = m ? m[1].length : 0;
+  writeFileSync(path, indent ? JSON.stringify(arr, null, indent) : JSON.stringify(arr));
 }
 
 // schoolType (from the scout's dataset table) -> the app dataset it feeds.

@@ -16,8 +16,9 @@ const [deansFile, resultsFile] = process.argv.slice(2).filter((a) => !a.startsWi
 if (!deansFile || !resultsFile) { console.error("usage: apply-source-url-results.mjs <deans-file> <results.json> [--dry-run]"); process.exit(1); }
 
 function writeDeansJson(path, rawBefore, arr) {
-  const pretty = /^\[\r?\n\s/.test(rawBefore);
-  writeFileSync(path, pretty ? JSON.stringify(arr, null, 2) : JSON.stringify(arr));
+  const m = /^\[\r?\n( *)/.exec(rawBefore);
+  const indent = m ? m[1].length : 0;
+  writeFileSync(path, indent ? JSON.stringify(arr, null, indent) : JSON.stringify(arr));
 }
 
 const path = join(SRC, deansFile);
