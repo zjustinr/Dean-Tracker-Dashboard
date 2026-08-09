@@ -6,14 +6,30 @@
 // build, and it's a model-health check for a developer to read, not shipped
 // data any component consumes):
 //
-//   node scripts/scout-backtest.mjs [N] [seed]
+//   node scripts/scout-backtest.mjs [N] [seed] [mode]
 //
 // N (default 50): how many currently-sitting leaders to sample.
 // seed (default 20260809): PRNG seed, for a different (still reproducible) draw.
+// mode (default "random"): "random" draws N leaders uniformly from every
+//   sitting leader hired since 2000 -- representative of reality, but reality
+//   is mostly internal promotions, so it mostly exercises the bench/trait-fit
+//   pathway and barely touches the connected/weak-link pathway (see below).
+//   "stratified" instead draws N/2 from that same general pool and N/2
+//   specifically from EXTERNAL hires who had a genuine, dated, pre-existing
+//   affinity tie or a validated employer-category match to their hiring
+//   school -- so the connected/weak-link pathway actually gets exercised in
+//   the same run, not left to chance. The point of merging bench + connected +
+//   weak-link into one list (see ScoutAssistant.tsx) is to maximize the set a
+//   headhunter gets to choose from, not to pick a single best guess -- so
+//   "stratified" is the more honest test of the MERGED system: does the union
+//   of both pathways actually cover more real hires than either alone would?
 //
 // Question: for N CURRENTLY SITTING leaders, if we'd run Scout Assistant for
 // their school right before they were hired, would they have appeared in the
-// top 10 suggested candidates?
+// suggested candidates? Reported at several list sizes (top 3/5/10/25) since
+// the product goal is a headhunter's longlist, not a single #1 guess --
+// "would this person have been in the set we showed" matters more than
+// "would they have out-scored literally everyone else."
 //
 // Methodology, and its honest limits:
 //  - Trait-lift weights (idx.traits) are RE-MINED per test case, excluding the
@@ -65,6 +81,7 @@ const read = (f) => JSON.parse(readFileSync(join(SRC, f), "utf8"));
 
 const N = parseInt(process.argv[2], 10) || 50;
 const SEED = parseInt(process.argv[3], 10) || 20260809;
+const MODE = process.argv[4] === "stratified" ? "stratified" : "random";
 
 const FILE_ID = {
   "r1-bschool-deans.json": "r1bschool", "r1-eschool-deans.json": "r1eschool",
@@ -229,17 +246,43 @@ function seededShuffle(rows, rng) {
 }
 
 // ---- build eligible sample: currently-sitting leaders hired since 2000 -----
+function hasGenuinePreexistingTie(entry, cutoffYear) {
+  if (!entry) return false;
+  for (const cat of ["admin", "faculty", "grad", "undergrad"]) {
+    for (const ev of entry[cat]) { const y = evidenceYear(ev); if (y == null || y <= cutoffYear - 1) return true; }
+  }
+  return false;
+}
 const eligible = [];
+const connectedEligible = []; // external hires with a real pre-existing tie or a validated employer-category match -- the subset that can actually exercise the connected/weak-link pathway
 for (const [id, rows] of Object.entries(ROWS_BY_INDEX)) {
   if (!scoutInsights[id]) continue;
   for (const r of rows) {
     if (r.roleType === "subdean" || r.endYear != null || !r.startYear || r.startYear < 2000 || !r.dean || !r.university) continue;
     if (/^\(/.test(r.dean.trim())) continue; // placeholder rows ("(vacant — in search)", etc.)
-    eligible.push({ ...r, __index: id });
+    const row = { ...r, __index: id };
+    eligible.push(row);
+    if (r.isExternal !== true) continue;
+    const uniAff = affinityBySchool[r.university] || [];
+    const affEntry = uniAff.find((e) => e.name.trim().toLowerCase() === r.dean.trim().toLowerCase());
+    const employerProfile = employerAffinity[id]?.schools[r.university];
+    if (hasGenuinePreexistingTie(affEntry, r.startYear) || employerProfile) connectedEligible.push({ ...row, __stratum: "connected" });
   }
 }
+for (const r of eligible) r.__stratum = "general";
+
 const rng = mulberry32(SEED);
-const sample = seededShuffle(eligible, rng).slice(0, N);
+let sample;
+if (MODE === "stratified") {
+  const half = Math.floor(N / 2);
+  const generalPart = seededShuffle(eligible, rng).slice(0, N - half);
+  const connectedPart = seededShuffle(connectedEligible, rng).slice(0, half);
+  sample = [...generalPart, ...connectedPart];
+  console.log(`Stratified draw: ${generalPart.length} general + ${connectedPart.length} connected-eligible (pool of ${connectedEligible.length} external hires with a real pre-existing tie or employer match)`);
+  if (connectedPart.length < half) console.log(`  Note: only ${connectedEligible.length} connected-eligible hires exist in the corpus -- couldn't fill the requested ${half}.`);
+} else {
+  sample = seededShuffle(eligible, rng).slice(0, N);
+}
 
 // ---- run backtest ------------------------------------------------------------
 const results = [];
@@ -295,22 +338,44 @@ for (const H of sample) {
   const rank = 1 + poolScores.filter((s) => s > hScore.total).length;
   const poolSize = poolScores.length + 1;
   results.push({
-    dean: H.dean, university: H.university, index: id, startYear: H.startYear,
+    dean: H.dean, university: H.university, index: id, startYear: H.startYear, stratum: H.__stratum,
     hScore: round(hScore.total, 3), rank, poolSize,
     signals: { trait: round(hScore.trait, 3), tie: round(hScore.tie, 3), tieCat: hScore.tieCat, emp: round(hScore.emp, 3), empCat: hScore.empCat },
-    hit10: rank <= 10, hit5: rank <= 5, hit3: rank <= 3,
+    hit25: rank <= 25, hit10: rank <= 10, hit5: rank <= 5, hit3: rank <= 3,
   });
 }
 
 // ---- report -------------------------------------------------------------
-const hit10 = results.filter((r) => r.hit10).length;
-const hit5 = results.filter((r) => r.hit5).length;
-const hit3 = results.filter((r) => r.hit3).length;
+// "Headhunter longlist" framing: the product goal is the union of both
+// pathways giving the widest good candidate set, so recall at a few list
+// sizes (not just a strict top-10) is the metric that actually matters --
+// hit@25 answers "would this person have been in the set at all," which is
+// closer to what a headhunter reviewing a longlist experiences than hit@3.
+function reportOn(label, rows) {
+  if (!rows.length) { console.log(`${label}: (no cases)`); return; }
+  const pct = (n) => round((n / rows.length) * 100, 1);
+  const c25 = rows.filter((r) => r.hit25).length, c10 = rows.filter((r) => r.hit10).length;
+  const c5 = rows.filter((r) => r.hit5).length, c3 = rows.filter((r) => r.hit3).length;
+  console.log(`${label} (n=${rows.length}):`);
+  console.log(`  Hit @25: ${c25}/${rows.length} (${pct(c25)}%)`);
+  console.log(`  Hit @10: ${c10}/${rows.length} (${pct(c10)}%)`);
+  console.log(`  Hit @5:  ${c5}/${rows.length} (${pct(c5)}%)`);
+  console.log(`  Hit @3:  ${c3}/${rows.length} (${pct(c3)}%)`);
+}
+
+console.log(`N = ${results.length} (seed ${SEED}, mode ${MODE})`);
+console.log("");
+reportOn("Combined", results);
+if (MODE === "stratified") {
+  console.log("");
+  reportOn("  General stratum", results.filter((r) => r.stratum === "general"));
+  reportOn("  Connected-eligible stratum", results.filter((r) => r.stratum === "connected"));
+  const connectedRows = results.filter((r) => r.stratum === "connected");
+  const carriedByTieOrEmp = connectedRows.filter((r) => r.hit10 && (r.signals.tieCat || r.signals.empCat)).length;
+  console.log(`  Of the connected-eligible hits@10, ${carriedByTieOrEmp}/${connectedRows.filter((r) => r.hit10).length} had a nonzero tie or employer signal (the rest were carried by trait-fit alone despite being eligible).`);
+}
 const zeroSignal = results.filter((r) => r.hScore <= 0).length;
-console.log(`N = ${results.length} (seed ${SEED})`);
-console.log(`Hit @10: ${hit10}/${results.length} (${round(hit10 / results.length * 100, 1)}%)`);
-console.log(`Hit @5:  ${hit5}/${results.length} (${round(hit5 / results.length * 100, 1)}%)`);
-console.log(`Hit @3:  ${hit3}/${results.length} (${round(hit3 / results.length * 100, 1)}%)`);
+console.log("");
 console.log(`No positive signal at all (score <= 0): ${zeroSignal}/${results.length}`);
 console.log("");
 console.log("By index:");
@@ -323,5 +388,5 @@ for (const [id, rs] of Object.entries(byIdx)) {
 console.log("");
 console.log("Per-case detail:");
 for (const r of results.sort((a, b) => a.rank - b.rank)) {
-  console.log(`  [rank ${String(r.rank).padStart(3)}/${r.poolSize}] ${r.hit10 ? "HIT " : "miss"} ${r.dean} — ${r.university} (${r.index}, ${r.startYear}) score=${r.hScore} [trait=${r.signals.trait} tie=${r.signals.tie}${r.signals.tieCat ? "/" + r.signals.tieCat : ""} emp=${r.signals.emp}${r.signals.empCat ? "/" + r.signals.empCat : ""}]`);
+  console.log(`  [rank ${String(r.rank).padStart(3)}/${r.poolSize}] ${r.hit10 ? "HIT " : "miss"} (${r.stratum}) ${r.dean} — ${r.university} (${r.index}, ${r.startYear}) score=${r.hScore} [trait=${r.signals.trait} tie=${r.signals.tie}${r.signals.tieCat ? "/" + r.signals.tieCat : ""} emp=${r.signals.emp}${r.signals.empCat ? "/" + r.signals.empCat : ""}]`);
 }
