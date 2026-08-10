@@ -159,6 +159,29 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   useSearchLog("slate-keyword", keyword, trialClient);
   useSearchLog("slate-school", school, trialClient);
 
+  // Mirror the shortlist to the server for real (trial/paid) clients only — not
+  // the anonymous free tier, which never sees the consent gate. Debounced sync
+  // keeps bi:slate:<client> current as candidates are added/removed; exportSlate()
+  // below fires an immediate, undebounced "export" call so the dashboard shows
+  // exactly when and how many candidates were exported.
+  const postSlate = (action: "sync" | "export") => {
+    if (!trialClient) return;
+    const items = slate.map((d) => ({ name: d.dean, school: d.school, university: d.university }));
+    fetch("/api/slate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ client: trialClient, items, action }),
+    }).catch(() => { /* best-effort */ });
+  };
+  const slateSyncTimer = useRef<number | null>(null);
+  useEffect(() => {
+    if (!trialClient) return;
+    if (slateSyncTimer.current) window.clearTimeout(slateSyncTimer.current);
+    slateSyncTimer.current = window.setTimeout(() => postSlate("sync"), 800);
+    return () => { if (slateSyncTimer.current) window.clearTimeout(slateSyncTimer.current); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slate, trialClient]);
+
   // Credential detection for the Ph.D. / Professor screens. Broad recall so the
   // default (both on) does not hide legitimate candidates on data-thin rows.
   const DOCT_RE = /\b(ph\.?\s?d|d\.?\s?phil|ed\.?\s?d|sc\.?\s?d|d\.?sc|dr\.?p\.?h|d\.?n\.?p|d\.?b\.?a|dvm|m\.?d|j\.?d|doctora)\b/i;
@@ -569,6 +592,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     a.href = url; a.download = "baton-index-slate.csv";
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
+    postSlate("export");
   };
 
   const sel = "w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30";

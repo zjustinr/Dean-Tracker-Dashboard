@@ -60,18 +60,40 @@ module.exports = async function handler(req, res) {
     return;
   }
 
+  // Per-client revocation switch — instantly cuts one client's access without
+  // rotating TRIAL_SECRET (which would kill every trial/paid link at once).
+  // Checked by api/data.js + api/trial.js on every request.
+  const blockTarget = req.query && (req.query.block || req.query.unblock);
+  if (blockTarget) {
+    if (!kvCreds().url || !kvCreds().tok) { res.status(200).send("KV not enabled."); return; }
+    const c = String(blockTarget).slice(0, 80);
+    try {
+      if (req.query.block) await kv([["SET", `bi:blocked:${c}`, "1"]]);
+      else await kv([["DEL", `bi:blocked:${c}`]]);
+      res.setHeader("location", `/api/usage?key=${encodeURIComponent(key)}`);
+      res.status(302).send("");
+    } catch (e) { res.status(502).send("update failed: " + esc(e.message)); }
+    return;
+  }
+
   if (!kvCreds().url || !kvCreds().tok) {
     res.setHeader("content-type", "text/html; charset=utf-8");
     res.status(200).send("<body style='font-family:sans-serif;padding:40px'><h2>Usage logging not enabled yet</h2><p>Create a Vercel KV store (Storage tab) to switch it on — it auto-injects the KV_REST_API_* env vars, then this page fills in.</p></body>");
     return;
   }
 
-  let events = [], clients = [], hashes = [];
+  let events = [], clients = [], hashes = [], blockedFlags = [], slateBlobs = [];
   try {
     const [ev, cl] = await kv([["LRANGE", "bi:events", "0", "300"], ["SMEMBERS", "bi:clients"]]);
     events = (ev || []).map((s) => { try { return JSON.parse(s); } catch { return null; } }).filter(Boolean);
     clients = cl || [];
-    if (clients.length) hashes = await kv(clients.map((c) => ["HGETALL", `bi:client:${c}`]));
+    if (clients.length) {
+      [hashes, blockedFlags, slateBlobs] = await Promise.all([
+        kv(clients.map((c) => ["HGETALL", `bi:client:${c}`])),
+        kv(clients.map((c) => ["GET", `bi:blocked:${c}`])),
+        kv(clients.map((c) => ["GET", `bi:slate:${c}`])),
+      ]);
+    }
   } catch (e) {
     res.status(502).send("KV read failed: " + esc(e.message));
     return;
@@ -82,14 +104,32 @@ module.exports = async function handler(req, res) {
     const flat = hashes[i] || [];
     const h = {};
     for (let j = 0; j < flat.length; j += 2) h[flat[j]] = flat[j + 1];
-    return { c, hits: Number(h.hits || 0), last: Number(h.last || 0), lastEvent: h.lastEvent || "", lastFile: h.lastFile || "", lastQuery: h.lastQuery || "" };
+    let slate = [];
+    try { slate = JSON.parse(slateBlobs[i] || "[]"); } catch { slate = []; }
+    return {
+      c, hits: Number(h.hits || 0), last: Number(h.last || 0), lastEvent: h.lastEvent || "",
+      lastFile: h.lastFile || "", lastQuery: h.lastQuery || "",
+      consentedAt: Number(h.consentedAt || 0), blocked: !!blockedFlags[i], slate,
+    };
   }).sort((a, b) => b.last - a.last);
 
   const summary = rows.map((r) => `<tr>
-    <td><b>${esc(r.c)}</b></td><td style="text-align:right">${r.hits}</td>
+    <td><b>${esc(r.c)}</b>${r.blocked ? ' <span style="color:#A31F34;font-weight:700">· blocked</span>' : ""}</td>
+    <td style="text-align:right">${r.hits}</td>
     <td>${r.last ? ago(r.last) : "—"}</td><td>${esc(r.lastEvent)}</td>
     <td style="color:#5B6B7B">${esc(r.lastEvent === "search" ? r.lastQuery : r.lastFile)}</td>
-  </tr>`).join("") || `<tr><td colspan="5" style="color:#98A2AF">No activity logged yet.</td></tr>`;
+    <td>${r.consentedAt ? ago(r.consentedAt) : "—"}</td>
+    <td>${r.slate.length
+      ? `<details><summary style="cursor:pointer;color:#011F5B">${r.slate.length} candidate(s)</summary>` +
+        `<div style="margin-top:4px;color:#5B6B7B">${r.slate.map((s) => esc(`${s.name}${s.university ? " — " + s.university : ""}`)).join("<br>")}</div></details>`
+      : "—"}</td>
+    <td>
+      <a href="/api/usage?key=${encodeURIComponent(key)}&${r.blocked ? "unblock" : "block"}=${encodeURIComponent(r.c)}"
+         style="color:${r.blocked ? "#1a7f4b" : "#A31F34"};font-weight:600;text-decoration:none">
+        ${r.blocked ? "Unblock" : "Block"}
+      </a>
+    </td>
+  </tr>`).join("") || `<tr><td colspan="8" style="color:#98A2AF">No activity logged yet.</td></tr>`;
 
   const feed = events.slice(0, 200).map((e) => `<tr>
     <td style="white-space:nowrap;color:#5B6B7B">${hhmm(e.t)}</td>
@@ -108,7 +148,7 @@ module.exports = async function handler(req, res) {
   <body><div class="wrap">
     <h1>Baton Index — usage</h1><div style="font-size:13px;color:#5B6B7B">${rows.length} client(s) · ${events.length} recent events</div>
     <h2>Clients</h2>
-    <table><tr><th>Client</th><th style="text-align:right">Hits</th><th>Last seen</th><th>Last event</th><th>Last file / query</th></tr>${summary}</table>
+    <table><tr><th>Client</th><th style="text-align:right">Hits</th><th>Last seen</th><th>Last event</th><th>Last file / query</th><th>Consented</th><th>Slate</th><th>Access</th></tr>${summary}</table>
     <h2>Recent activity</h2>
     <table><tr><th>Time (UTC)</th><th>Client</th><th>Event</th><th>File / query</th><th>IP</th></tr>${feed}</table>
   </div></body></html>`);
