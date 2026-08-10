@@ -4,6 +4,7 @@ import { useAllDeans } from "@/data/useData";
 import {
   useScoutInsights, useEmployerAffinity, loadAffinity, getAffinityCache,
   type ScoutIndexInsights, type ScoutTrait, type AffMap, type AffEntry, type WeakLinkEntry, type EmployerSchoolProfile,
+  type ScoutOriginCategory,
 } from "@/data/enrichment";
 import type { Dean } from "@/data/types";
 import { BOOLEAN_LABELS, CATEGORICAL_LABELS } from "@/data/types";
@@ -159,6 +160,49 @@ export function employerMatchScore(w: WeakLinkEntry): number {
   return w.matchedCategories.reduce((s, c) => s + Math.log(c.lift), 0);
 }
 
+// A candidate's fit against the origin-category lift mined by gen-scout-
+// insights.mjs -- "when this index hires from outside, what kind of position
+// was the person coming from, and how well did that category tend to work
+// out" (see the BatonIndex research brief "The Path Before the Deanship").
+// Deliberately scoped to the two sources where a candidate's current-position
+// category is unambiguous and safe to infer structurally, without touching
+// the affinity/weak-link sources at all:
+//   - "broad" candidates are, by construction, someone currently sitting as
+//     dean at another school this SAME index tracks (broadShortlist only
+//     ever pulls from useAllDeans(), which is scoped to the active dataset) --
+//     always "dean-same-type", never "dean-other-type" (this app has no
+//     cross-index broader pool, so that category is mined for completeness/
+//     transparency but never actually reachable by a candidate here).
+//   - "bench" candidates carry their own roleTier ("Associate Dean"/"Vice
+//     Dean"/"Assistant Dean" vs. "Department Chair") straight from the data.
+// Extending this to affinity/weak-link candidates would require inferring a
+// connected person's CURRENT position across index boundaries, which is
+// exactly the kind of cross-domain inference that produced the false-positive
+// bug ownDomainTies exists to fix above -- left out on purpose rather than
+// risk reintroducing that failure mode.
+// idx.originLift's "adjustedLift" is already the historical hire-rate lift
+// multiplied by a tenure-length factor (that category's average tenure vs.
+// this index's overall external-hire average) -- a category that gets picked
+// often but tends toward a shorter tenure is dampened, not just rewarded for
+// being popular. log() puts it on the same additive scale as every other
+// score component here.
+export function originFitScore(
+  source: SourceKind, dean: Dean | undefined, idx: ScoutIndexInsights
+): { score: number; category: ScoutOriginCategory | null } {
+  if (!idx.originLift) return { score: 0, category: null };
+  let category: ScoutOriginCategory | null = null;
+  if (source === "broad") category = "dean-same-type";
+  else if (source === "bench") {
+    const tier = dean?.roleTier;
+    if (tier === "Department Chair") category = "dept-chair";
+    else if (tier === "Associate Dean" || tier === "Vice Dean" || tier === "Assistant Dean") category = "assoc-vice-dean";
+  }
+  if (!category) return { score: 0, category: null };
+  const cat = idx.originLift.categories[category];
+  if (!cat) return { score: 0, category };
+  return { score: Math.log(cat.adjustedLift), category };
+}
+
 // Cabinet-level titles within an "admin" tie (dean/provost/president/chancellor)
 // vs. lower-level administrative roles the broader ADMIN match in gen-affinity.mjs
 // also catches (chair, director, coordinator, ...).
@@ -300,12 +344,13 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
       .filter((d) => d.roleType === "subdean" && !everHeldNames.has(d.dean.trim().toLowerCase()))
       .map((d) => {
         const { score, matched } = traitFitScore(d, idx.traits);
+        const origin = originFitScore("bench", d, idx);
         return {
           key: `bench:${d.id}`, source: "bench" as const, name: d.dean, university: d.university,
           subtitle: d.discipline || d.priorTitle || "",
           dean: d,
           reasoning: matched.length > 0 ? traitReasoning(matched[0]) : null,
-          score,
+          score: score + origin.score,
         };
       })
       .sort((a, b) => b.score - a.score)
@@ -365,12 +410,14 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
   }, [employerProfile, affinityMap, university, everHeldNames, schoolDeans]);
 
   // The broader eligible pool: every OTHER currently-sitting leader tracked by
-  // this index, not already surfaced by name above -- scored by trait fit
-  // alone (no tie to this specific school, so no tie/employer bonus). This is
-  // what lets the stringency dial widen all the way to "everyone eligible,"
-  // not just people with a documented connection: a strong trait-fit match who
-  // has simply never worked at or near this school can still surface, just
-  // ranked on that signal alone.
+  // this index, not already surfaced by name above -- scored by trait fit (no
+  // tie to this specific school, so no tie/employer bonus) plus the
+  // origin-fit bonus every "broad" candidate qualifies for by construction
+  // (they're always a sitting dean at another same-type school -- see
+  // originFitScore). This is what lets the stringency dial widen all the way
+  // to "everyone eligible," not just people with a documented connection: a
+  // strong trait-fit match who has simply never worked at or near this school
+  // can still surface, just ranked on that signal alone.
   const broadShortlist = useMemo<ScoutCandidate[]>(() => {
     if (!idx || !includeBroad) return [];
     const affinityNames = new Set((affinityMap?.[university] || []).map((e) => e.name.trim().toLowerCase()));
@@ -384,12 +431,13 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
       if (d.university === university) continue; // already covered by bench/everHeld for this school
       seen.add(nameL);
       const { score, matched } = traitFitScore(d, idx.traits);
+      const origin = originFitScore("broad", d, idx);
       out.push({
         key: `broad:${d.id}`, source: "broad", name: d.dean, university: d.university,
         subtitle: `${d.school ? d.school + ", " : ""}${d.university}`,
         dean: d,
         reasoning: matched.length > 0 ? traitReasoning(matched[0]) : null,
-        score,
+        score: score + origin.score,
       });
     }
     return out.sort((a, b) => b.score - a.score).slice(0, SHORTLIST_CAP);

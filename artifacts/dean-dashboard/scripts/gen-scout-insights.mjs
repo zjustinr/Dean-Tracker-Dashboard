@@ -332,6 +332,142 @@ function backtestIndex(hireRows, benchRows) {
   return { auc: round((wins + 0.5 * ties) / total, 3), pairs: total, folds: foldsUsed, hireN: hireRows.length, benchN: benchRows.length };
 }
 
+// ---- origin-category lift: when a hire comes from outside, what were they
+// doing right before -- already a dean somewhere (same kind of school, or a
+// different kind), an associate/vice dean, a department chair, straight from
+// industry, or faculty with no admin title at all? Mined the same shape as
+// tie-category lift above: a category mix compared against the GLOBAL mix
+// among external hires pooled across the whole corpus, gated on a
+// leave-one-hire-out validation. See the BatonIndex research brief "The Path
+// Before the Deanship" for the r1bschool-specific deep dive this generalizes.
+//
+// Mirrors useScoutCandidates.ts's SCHOOL_DOMAIN_RE (kept independent/
+// duplicated on purpose, same as the FILE_ID map above) -- needed here to
+// split "dean elsewhere" into same-kind-of-school vs. a different kind, since
+// only the same-kind case is ever reachable by this app's "broader pool"
+// candidate source (which only ever pulls from the SAME index/school type),
+// and the two buckets are not interchangeable: in the r1bschool brief, the
+// same-kind-of-school case had a materially SHORTER average tenure (5.3yr)
+// than the cross-kind case (6.6yr) or a faculty-only hire (7.9yr).
+const SCHOOL_DOMAIN_RE = {
+  business: /business school|school of business|college of business|school of management/i,
+  engineering: /school of engineering|college of engineering|engineering school/i,
+  medical: /school of medicine|medical school|college of medicine|health sciences center/i,
+  law: /law school|school of law|college of law/i,
+  agriculture: /college of agriculture|school of agriculture|\bforestry\b/i,
+  nursing: /school of nursing|college of nursing/i,
+  pharmacy: /school of pharmacy|college of pharmacy/i,
+  education: /school of education|college of education/i,
+  arts: /college of arts (?:and|&) sciences|school of arts (?:and|&) sciences/i,
+  publichealth: /school of public health/i,
+  veterinary: /veterinary medicine|school of veterinary/i,
+  creativearts: /school of the arts|school of music|school of fine arts|\bconservatory\b/i,
+  graduate: /graduate school|graduate college/i,
+};
+// Only indices that mean "one specific school among several at a university" --
+// deliberately excludes university/provost/system/r2/liberal-arts/advancement,
+// same exemption as useScoutCandidates.ts's ownDomainTies, where "was a dean of
+// some specific school" is the norm rather than a same-kind/different-kind split.
+const ID_SCHOOL_TYPE = {
+  r1bschool: "business", r1eschool: "engineering", r1medical: "medical", r1law: "law",
+  usag: "agriculture", usnursing: "nursing", uspharmacy: "pharmacy", useducation: "education",
+  r1arts: "arts", uspublichealth: "publichealth", usvet: "veterinary", uscreativearts: "creativearts",
+  usgrad: "graduate",
+};
+
+const ORIGIN_CATEGORIES = ["dean-same-type", "dean-other-type", "assoc-vice-dean", "dept-chair", "industry", "faculty-only"];
+const DEAN_TITLE_RE = /\bdean\b/i;
+const NON_HEAD_DEAN_RE = /(assoc|asst|assistant|vice|interim|deputy)[^,]*\bdean\b/i;
+const ASSOC_VICE_DEAN_RE = /associate dean|assoc\.? dean|vice dean|deputy dean|senior associate dean/i;
+const DEPT_CHAIR_RE = /department chair|dept\.? chair|department head|\bchair of\b|chair,/i;
+const FACULTY_RE = /professor|faculty/i;
+
+function originCategory(row, ownType) {
+  const title = row.priorTitle || "";
+  const inst = row.priorInstitution || "";
+  if (DEAN_TITLE_RE.test(title) && !NON_HEAD_DEAN_RE.test(title)) {
+    if (!ownType) return "dean-same-type"; // no same-kind/different-kind concept for this index -- don't split
+    const ownRe = SCHOOL_DOMAIN_RE[ownType];
+    // Conservative: only counts as same-type if the prior title/institution
+    // EXPLICITLY names our own domain; an ambiguous/generic "Dean" mention
+    // defaults to "other-type" rather than inflating the bucket the broader
+    // pool actually draws candidates from.
+    return ownRe && (ownRe.test(title) || ownRe.test(inst)) ? "dean-same-type" : "dean-other-type";
+  }
+  if (ASSOC_VICE_DEAN_RE.test(title)) return "assoc-vice-dean";
+  if (DEPT_CHAIR_RE.test(title)) return "dept-chair";
+  if (row.hasIndustryExp === true) return "industry";
+  if (FACULTY_RE.test(title)) return "faculty-only";
+  return null;
+}
+
+const MIN_ORIGIN_N = 15; // mirrors MIN_TIE_N -- classified external hires below this, per index, is too noisy to validate
+const ORIGIN_LIFT_THRESHOLD = 1.4; // mirrors TIE_LIFT_THRESHOLD
+
+function globalOriginRates(allExternalHiresWithType) {
+  const cats = allExternalHiresWithType.map(({ row, ownType }) => originCategory(row, ownType));
+  const counts = new Map();
+  for (const c of cats) if (c) counts.set(c, (counts.get(c) || 0) + 1);
+  const n = allExternalHiresWithType.length;
+  const rates = {};
+  for (const cat of ORIGIN_CATEGORIES) rates[cat] = (counts.get(cat) || 0) / n;
+  return rates;
+}
+
+function originCategoryLiftForIndex(hireRows, ownType, globalRates) {
+  const externalHires = hireRows.filter((r) => r.isExternal === true && r.priorTitle);
+  const cats = externalHires.map((h) => originCategory(h, ownType));
+  const classified = cats.filter(Boolean).length;
+  if (classified < MIN_ORIGIN_N) return null;
+
+  // Leave-one-hire-out validation, identical shape to tieCategoryLiftForIndex's:
+  // does the most-distinctive category (trained on every OTHER hire, vs. the
+  // fixed global rate) actually predict the held-out hire's real category?
+  let hits = 0, baselineSum = 0, evaluated = 0;
+  for (let i = 0; i < cats.length; i++) {
+    if (!cats[i]) continue;
+    const trainCats = cats.filter((_, j) => j !== i);
+    const trainCounts = new Map();
+    for (const c of trainCats) if (c) trainCounts.set(c, (trainCounts.get(c) || 0) + 1);
+    const distinctive = ORIGIN_CATEGORIES
+      .map((cat) => ({ cat, lift: globalRates[cat] > 0 ? ((trainCounts.get(cat) || 0) / trainCats.length) / globalRates[cat] : 0 }))
+      .filter((d) => Number.isFinite(d.lift) && d.lift >= ORIGIN_LIFT_THRESHOLD)
+      .sort((a, b) => b.lift - a.lift)[0];
+    if (!distinctive) continue;
+    evaluated++;
+    if (cats[i] === distinctive.cat) hits++;
+    baselineSum += globalRates[distinctive.cat];
+  }
+  const validation = evaluated >= 10
+    ? { hitRate: round(hits / evaluated), baselineHitRate: round(baselineSum / evaluated), n: evaluated }
+    : null;
+  const validated = !!validation && validation.hitRate >= validation.baselineHitRate * 2 && validation.hitRate >= 0.1;
+  if (!validated) return null;
+
+  const tenureOf = (rows) => {
+    const vals = rows.map((r) => r.tenureLength).filter((t) => typeof t === "number");
+    return vals.length >= 5 ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+  };
+  const overallAvgTenure = tenureOf(externalHires);
+
+  const categories = {};
+  for (const cat of ORIGIN_CATEGORIES) {
+    const gr = globalRates[cat];
+    const rowsInCat = externalHires.filter((_, i) => cats[i] === cat);
+    const n = rowsInCat.length;
+    if (!gr || n < 3) continue;
+    const hr = n / externalHires.length;
+    const lift = round(hr / gr, 2);
+    const avgTenure = tenureOf(rowsInCat);
+    // A category with too few tenure-having rows, or no corpus-wide average to
+    // compare against, gets a neutral 1.0 factor rather than a noisy estimate.
+    const tenureFactor = avgTenure != null && overallAvgTenure ? round(avgTenure / overallAvgTenure, 2) : 1;
+    categories[cat] = { globalRate: round(gr), hireRate: round(hr), lift, n, avgTenure: round(avgTenure, 1), tenureFactor, adjustedLift: round(lift * tenureFactor, 2) };
+  }
+  if (!Object.keys(categories).length) return null;
+  return { categories, validation, hireN: externalHires.length, classifiedN: classified };
+}
+
 const affinityBySchool = read(AFFINITY_FILE);
 
 // First pass: gather every external hire across every index, so the tie-lift
@@ -339,13 +475,19 @@ const affinityBySchool = read(AFFINITY_FILE);
 // before the per-index second pass uses it.
 const allRowsByIndex = {};
 const allExternalHires = [];
+const allExternalHiresWithType = [];
 for (const [file, id] of Object.entries(FILE_ID)) {
   const rows = read(file);
   if (!rows.length) continue;
   allRowsByIndex[id] = rows;
-  for (const r of rows) if (r.roleType !== "subdean" && r.isExternal === true && r.university && r.dean && r.startYear) allExternalHires.push(r);
+  for (const r of rows) {
+    if (r.roleType === "subdean" || r.isExternal !== true) continue;
+    if (r.university && r.dean && r.startYear) allExternalHires.push(r);
+    if (r.priorTitle) allExternalHiresWithType.push({ row: r, ownType: ID_SCHOOL_TYPE[id] ?? null });
+  }
 }
 const globalRates = globalTieRates(allExternalHires, affinityBySchool);
+const globalOrigin = globalOriginRates(allExternalHiresWithType);
 
 const insights = {};
 let processed = 0;
@@ -367,6 +509,7 @@ for (const [id, rows] of Object.entries(allRowsByIndex)) {
     traits: traitsForIndex(hireRows, benchRows, hasFeederBench),
     backtest: hasFeederBench ? backtestIndex(hireRows, benchRows) : null,
     tieLift: tieCategoryLiftForIndex(hireRows, affinityBySchool, globalRates),
+    originLift: originCategoryLiftForIndex(hireRows, ID_SCHOOL_TYPE[id] ?? null, globalOrigin),
   };
   processed++;
 }
@@ -374,9 +517,14 @@ for (const [id, rows] of Object.entries(allRowsByIndex)) {
 writeFileSync(OUT, JSON.stringify(insights) + "\n");
 const withBacktest = Object.values(insights).filter((x) => x.backtest);
 const withTieLift = Object.entries(insights).filter(([, x]) => x.tieLift);
+const withOriginLift = Object.entries(insights).filter(([, x]) => x.originLift);
 console.log(`scout-insights.json: ${processed} indices, ${Object.values(insights).reduce((n, x) => n + x.traits.length, 0)} trait entries`);
 console.log(`backtest AUC (hire vs. never-promoted bench, held-out folds): ${withBacktest.map((x) => x.backtest.auc).join(", ") || "none (no index had enough feeder-bench data)"}`);
 console.log(`tie-category lift validated for ${withTieLift.length}/${processed} indices:`);
 for (const [id, x] of withTieLift) {
   console.log(`  ${id}: leave-one-out hit rate ${x.tieLift.validation.hitRate} vs. baseline ${x.tieLift.validation.baselineHitRate} (n=${x.tieLift.validation.n}) -- ${Object.entries(x.tieLift.categories).map(([cat, c]) => `${cat} ×${c.lift}`).join(", ")}`);
+}
+console.log(`origin-category lift validated for ${withOriginLift.length}/${processed} indices:`);
+for (const [id, x] of withOriginLift) {
+  console.log(`  ${id}: leave-one-out hit rate ${x.originLift.validation.hitRate} vs. baseline ${x.originLift.validation.baselineHitRate} (n=${x.originLift.validation.n}) -- ${Object.entries(x.originLift.categories).map(([cat, c]) => `${cat} ×${c.adjustedLift} (raw ×${c.lift}, tenure ×${c.tenureFactor})`).join(", ")}`);
 }

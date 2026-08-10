@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { useScoutCandidateEngine, pct, traitSentence } from "@/data/useScoutCandidates";
-import type { ScoutIndexInsights } from "@/data/enrichment";
+import type { ScoutIndexInsights, ScoutOriginCategory } from "@/data/enrichment";
 import type { EmployerSchoolProfile } from "@/data/enrichment";
 import ScoutCandidateList from "@/components/ScoutCandidateList";
+
+const ORIGIN_CATEGORY_LABEL: Record<ScoutOriginCategory, string> = {
+  "dean-same-type": "already a dean at another school like this one",
+  "dean-other-type": "already a dean at a different kind of school",
+  "assoc-vice-dean": "an associate or vice dean",
+  "dept-chair": "a department chair",
+  industry: "straight from industry",
+  "faculty-only": "faculty with no administrative title on file",
+};
 
 export function Methodology({
   idx, label, employerProfile, validation,
@@ -64,6 +73,25 @@ export function Methodology({
               {label.toLowerCase()} — "Connected" candidates below are still shown and ranked by trait fit, just
               without a tie-type score bonus.
             </p>
+          )}
+          {idx.originLift && (
+            <div>
+              <p className="font-semibold">What they were doing right before</p>
+              <p className="mt-1 text-muted-foreground">
+                Among {idx.originLift.hireN.toLocaleString()} external hires here, {Object.entries(idx.originLift.categories)
+                  .sort((a, b) => b[1].adjustedLift - a[1].adjustedLift)
+                  .map(([cat, c]) => `being ${ORIGIN_CATEGORY_LABEL[cat as ScoutOriginCategory]} runs ×${c.adjustedLift} the base rate`)
+                  .join("; ")}. That figure already discounts a category for a shorter-than-average tenure once
+                hired (and credits one for a longer one) — see the "Insights" research brief on prior positions
+                for the full picture. It's why the broader pool (every other sitting leader here) and the
+                associate-dean / department-chair bench below get a small score adjustment on top of trait fit.
+              </p>
+              <p className="mt-1 text-muted-foreground">
+                Validated leave-one-hire-out: the most-distinctive category predicted the held-out hire's actual
+                prior position {pct(idx.originLift.validation.hitRate)} of the time, vs. {pct(idx.originLift.validation.baselineHitRate)} by
+                chance (n={idx.originLift.validation.n}).
+              </p>
+            </div>
           )}
           {promo.length > 0 && (
             <div>

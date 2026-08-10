@@ -5,8 +5,9 @@ export interface StringencyLevel { cap: number; includeBroad: boolean; short: st
 // not just the count:
 //   - the CAP (how deep into the ranked list you look), and
 //   - whether the BROADER pool (every other currently-sitting leader in this
-//     index, scored on trait fit alone -- no tie to this specific school) is
-//     even in the running.
+//     index -- no tie to this specific school, scored on trait fit plus a
+//     same-type-dean-elsewhere origin-fit bonus, see originFitScore) is even
+//     in the running.
 // The broad source has to stay OUT at the tightest settings: it's scored the
 // same way bench/connected/weak-link candidates are, so on an index without a
 // validated tie-type weighting (most of them -- see gen-scout-insights.mjs),
@@ -21,7 +22,7 @@ export interface StringencyLevel { cap: number; includeBroad: boolean; short: st
 export const STRINGENCY_LEVELS: StringencyLevel[] = [
   { cap: 10, includeBroad: false, short: "Best fit", label: "Best fit only", desc: "Top 10 from our combined model — feeder bench, direct connections, and shared-background weak links only, the tightest and highest-confidence cut." },
   { cap: 25, includeBroad: false, short: "Strong fit", label: "Strong fit", desc: "Top 25, same sources as Best fit only — just a deeper cut of the same ranked list." },
-  { cap: 75, includeBroad: true, short: "Broad", label: "Broad shortlist", desc: "Top 75 — starts blending in other currently-sitting leaders with no direct tie to this school, ranked on trait fit alone." },
+  { cap: 75, includeBroad: true, short: "Broad", label: "Broad shortlist", desc: "Top 75 — starts blending in other currently-sitting leaders with no direct tie to this school, ranked on trait fit plus how their current position historically fares here." },
   { cap: 200, includeBroad: true, short: "Wide net", label: "Wide net", desc: "Top 200 across every source." },
   { cap: Infinity, includeBroad: true, short: "All eligible", label: "All eligible", desc: "Every eligible candidate in this index, ranked — the largest pool, for a headhunter to work from." },
 ];
