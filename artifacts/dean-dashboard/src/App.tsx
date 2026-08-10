@@ -283,7 +283,6 @@ function AppInner() {
               {tabs.map((tab) => {
                 const isActive = entered && activeTab === tab.value;
                 const isFeatured = tab.value === "search";
-                const isAiExperimental = tab.value === "scout";
 
                 return (
                   <button
@@ -310,11 +309,6 @@ function AppInner() {
                           "text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded",
                           isActive ? "bg-white/20 text-white" : "bg-[#011F5B] text-white",
                         ].join(" ")}>Start here</span>
-                      )}
-                      {isAiExperimental && (
-                        <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300/60">
-                          AI - Experimental
-                        </span>
                       )}
                     </span>
                     <span className={[

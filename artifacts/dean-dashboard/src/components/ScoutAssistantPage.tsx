@@ -188,7 +188,6 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
         <div className="-mx-4 sm:-mx-6 -mt-4 sm:-mt-6 mb-4 px-4 sm:px-6 py-3.5 bg-gradient-to-r from-[#011F5B] to-[#0a3a8f] rounded-t-xl">
           <h2 className="text-lg font-bold text-white leading-tight flex items-center gap-2 flex-wrap">
             <span>Scout Assistant</span>
-            <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300/60">AI - Experimental</span>
           </h2>
           <p className="text-sm text-white/75">
             Pick a school, dial how wide a net to cast, optionally match a position announcement, and filter the pool

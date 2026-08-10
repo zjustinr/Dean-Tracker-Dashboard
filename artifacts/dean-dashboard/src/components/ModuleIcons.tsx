@@ -49,13 +49,14 @@ const PATHS: Record<string, ReactNode> = {
       <path d="M9 4v14M15 6v14" />
     </>
   ),
-  // Scout Assistant — binoculars
+  // Scout Assistant — radar sweep locating a candidate
   scout: (
     <>
-      <path d="M9 13a3 3 0 1 0 6 0" />
-      <path d="M12 4v3" />
-      <path d="M6 8h4l2 5-2 5H6l-2-5Z" />
-      <path d="M18 8h-4l-2 5 2 5h4l2-5Z" />
+      <circle cx="12" cy="12" r="8.5" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="0.6" />
+      <path d="M12 12 18.5 6.5" />
+      <circle cx="18.5" cy="6.5" r="1.3" />
     </>
   ),
   // Leadership News & Market — newspaper
