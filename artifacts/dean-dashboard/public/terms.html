@@ -1,0 +1,133 @@
+<!doctype html>
+<!--
+  Starting draft, matching the actual product (invitation-only pilots +
+  paid day-pass access, see api/data.js / api/trial.js / lib/trial-token.mjs).
+  Have counsel review before relying on it as binding — in particular the
+  governing-law placeholder below.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terms of Service — Baton Index</title>
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<style>
+  :root { --navy: #011F5B; --crimson: #A31F34; --ink: #16233A; --muted: #5B6B7B; --line: #E6E9EE; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #F6F8FB; color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .top-bar { height: 4px; background: var(--crimson); }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { margin-bottom: 32px; }
+  header a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); }
+  header img { height: 32px; width: 32px; }
+  header span { font-weight: 700; font-size: 18px; }
+  h1 {
+    font-family: 'EB Garamond', Garamond, Georgia, serif; font-weight: 600;
+    font-size: 30px; color: var(--navy); margin: 0 0 6px;
+  }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 36px; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .04em; color: var(--crimson); margin: 36px 0 10px; }
+  p, li { font-size: 15px; color: var(--ink); }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  a.inline { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: rgba(1,31,91,.35); }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 24px 28px; margin-top: 8px;
+  }
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+<div class="wrap">
+  <header>
+    <a href="/"><img src="/logo.svg" alt="" /><span>Baton Index</span></a>
+  </header>
+
+  <h1>Terms of Service</h1>
+  <p class="meta">Effective August 10, 2026</p>
+
+  <div class="card">
+    <p>
+      These terms govern your access to and use of Baton Index (the "Service"), operated by
+      Baton Index ("we," "us"). By using an access link or code we've issued to you, or by using
+      the free public tier, you agree to these terms.
+    </p>
+
+    <h2>The service</h2>
+    <p>
+      Baton Index provides leadership succession data for higher education, made available on a
+      free tier and through invitation-only pilots and paid access (day pass, project, or firm
+      plans). The scope of data you can see depends on the tier or access link you hold.
+    </p>
+
+    <h2>Access & accounts</h2>
+    <ul>
+      <li>Access links and codes are issued to a specific person or firm and are not to be shared, published, or redistributed.</li>
+      <li>You're responsible for keeping your access link confidential. We may treat unusual activity on a link as a security event.</li>
+      <li>We may modify, extend, or revoke access at any time, including before a stated trial period ends, at our discretion — for example, if these terms are violated.</li>
+    </ul>
+
+    <h2>Acceptable use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Scrape, bulk-export, or systematically copy the underlying dataset beyond ordinary use of the product's own export features for your internal evaluation or business use;</li>
+      <li>Resell, sublicense, or redistribute the data to third parties;</li>
+      <li>Reverse-engineer, probe, or attempt to circumvent the access controls or scope restrictions;</li>
+      <li>Use the Service in a way that infringes on the privacy or rights of the individuals described in the data.</li>
+    </ul>
+
+    <h2>Data & confidentiality</h2>
+    <p>
+      The leadership and institutional data made available through the Service is proprietary to
+      Baton Index. Candidate lists, exports, and search activity you generate while using a paid
+      or trial access link are logged as described in our
+      <a class="inline" href="/privacy.html">Privacy Policy</a>, so that we can support your
+      evaluation and operate the Service.
+    </p>
+
+    <h2>Trials and paid access</h2>
+    <p>
+      Trial access is offered for the period stated in your invitation, for evaluation purposes.
+      Day passes and other paid access are described at checkout. Continued or expanded access
+      beyond a trial or pass requires a separate agreement with us.
+    </p>
+
+    <h2>No warranty</h2>
+    <p>
+      The Service and its data are provided "as is." While we work to keep the dataset accurate
+      and current, we make no warranty that it is complete or error-free, and it should not be
+      the sole basis for a hiring, appointment, or personnel decision.
+    </p>
+
+    <h2>Limitation of liability</h2>
+    <p>
+      To the maximum extent permitted by law, Baton Index is not liable for indirect,
+      incidental, or consequential damages arising from your use of the Service.
+    </p>
+
+    <h2>Governing law</h2>
+    <p>
+      These terms are governed by the laws of the Commonwealth of Massachusetts, without regard
+      to conflict-of-law principles. <em>[Placeholder — confirm venue/jurisdiction before this is relied on.]</em>
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      We may update these terms as the product evolves. Material changes will be reflected here
+      with a new effective date; continued use after a change constitutes acceptance.
+    </p>
+  </div>
+
+  <footer>
+    Questions: <a class="inline" href="mailto:ren@bu.edu">ren@bu.edu</a> ·
+    See also our <a class="inline" href="/privacy.html">Privacy Policy</a>
+  </footer>
+</div>
+</body>
+</html>

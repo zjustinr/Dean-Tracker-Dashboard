@@ -13,6 +13,7 @@ import DisciplineSearch from "@/components/DisciplineSearch";
 import ScoutAssistantPage from "@/components/ScoutAssistantPage";
 import Insights from "@/components/Insights";
 import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/FreeTierMeter";
+import ConsentGate from "@/components/ConsentGate";
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
@@ -385,6 +386,7 @@ function AppInner() {
         <FreeTierNotice meter={meter} />
         <MeterBadge meter={meter} />
         <Paywall meter={meter} />
+        <ConsentGate />
         <FeatureRequestWidget />
       </div>
     </div>

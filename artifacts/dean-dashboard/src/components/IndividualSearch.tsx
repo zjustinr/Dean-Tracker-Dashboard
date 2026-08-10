@@ -10,6 +10,7 @@ import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, type AffEntry, type AffMap } from "@/data/enrichment";
 import ScoutAssistant from "@/components/ScoutAssistant";
+import { useTrial } from "@/data/TrialContext";
 
 // Cross-index AFFINITY selector kinds (see @/data/enrichment for the fetch/cache
 // itself, shared with ScoutAssistant's candidate pool).
@@ -22,6 +23,27 @@ export interface DeanSearchPrefill {
   first: string;
   last: string;
   token: number;
+}
+
+// Debounced, best-effort search-term logging (see api/search-log.js). Fires only
+// once a value settles for SEARCH_LOG_DELAY_MS, so normal typing sends one event
+// per pause rather than one per keystroke.
+const SEARCH_LOG_DELAY_MS = 700;
+function useSearchLog(source: "slate-name" | "slate-keyword" | "slate-school", value: string, client?: string) {
+  const timer = useRef<number | null>(null);
+  useEffect(() => {
+    const q = value.trim();
+    if (!q) return;
+    if (timer.current) window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(() => {
+      fetch("/api/search-log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ q, source, client }),
+      }).catch(() => { /* best-effort, never block the UI */ });
+    }, SEARCH_LOG_DELAY_MS);
+    return () => { if (timer.current) window.clearTimeout(timer.current); };
+  }, [value, source, client]);
 }
 
 const pkey = (dean: string, uni: string) => `${dean.trim().toLowerCase()}|${uni.trim().toLowerCase()}`;
@@ -131,6 +153,34 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const [keyword, setKeyword] = useState("");
   const researchMap = useResearchMap();
   const openRowRef = useRef<HTMLDivElement | null>(null);
+
+  const { client: trialClient } = useTrial();
+  useSearchLog("slate-name", query, trialClient);
+  useSearchLog("slate-keyword", keyword, trialClient);
+  useSearchLog("slate-school", school, trialClient);
+
+  // Mirror the shortlist to the server for real (trial/paid) clients only — not
+  // the anonymous free tier, which never sees the consent gate. Debounced sync
+  // keeps bi:slate:<client> current as candidates are added/removed; exportSlate()
+  // below fires an immediate, undebounced "export" call so the dashboard shows
+  // exactly when and how many candidates were exported.
+  const postSlate = (action: "sync" | "export") => {
+    if (!trialClient) return;
+    const items = slate.map((d) => ({ name: d.dean, school: d.school, university: d.university }));
+    fetch("/api/slate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ client: trialClient, items, action }),
+    }).catch(() => { /* best-effort */ });
+  };
+  const slateSyncTimer = useRef<number | null>(null);
+  useEffect(() => {
+    if (!trialClient) return;
+    if (slateSyncTimer.current) window.clearTimeout(slateSyncTimer.current);
+    slateSyncTimer.current = window.setTimeout(() => postSlate("sync"), 800);
+    return () => { if (slateSyncTimer.current) window.clearTimeout(slateSyncTimer.current); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slate, trialClient]);
 
   // Credential detection for the Ph.D. / Professor screens. Broad recall so the
   // default (both on) does not hide legitimate candidates on data-thin rows.
@@ -542,6 +592,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     a.href = url; a.download = "baton-index-slate.csv";
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
+    postSlate("export");
   };
 
   const sel = "w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30";
