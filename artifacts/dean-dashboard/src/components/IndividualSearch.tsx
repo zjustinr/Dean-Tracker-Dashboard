@@ -160,6 +160,63 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   useSearchLog("slate-keyword", keyword);
   useSearchLog("slate-school", school);
 
+  // Debounced snapshot of the filter panel (see api/log.js, kind: "filter"),
+  // sent whenever the active combination settles. Sparse by design — only
+  // non-default values are included — so clearing back to defaults doesn't
+  // itself read as a fresh filter action, and idle browsing stays quiet.
+  const filterSnapshot = useMemo(() => {
+    const f: Record<string, string | number | boolean | string[]> = {};
+    if (discipline) f.discipline = discipline;
+    if (sortBy !== "name") f.sort = sortBy;
+    if (includeGender !== "all") f.gender = includeGender;
+    if (apptType !== "all") f.apptType = apptType;
+    if (regions.size) f.regions = Array.from(regions);
+    if (states.size) f.states = Array.from(states);
+    if (tenureWin !== "sitting") f.tenureWin = tenureWin;
+    if (servedMin !== 0 || servedMax !== SERVED_CAP) f.served = `${servedMin}-${servedMax}`;
+    if (yrFrom != null || yrTo != null) f.years = `${yrFrom ?? ""}-${yrTo ?? ""}`;
+    if (requirePhd) f.requirePhd = true;
+    if (requireProf) f.requireProf = true;
+    if (letter) f.letter = letter;
+    if (showHazard) f.showHazard = true;
+    if (affinity.size) f.affinity = Array.from(affinity);
+    return f;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [discipline, sortBy, includeGender, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, letter, showHazard, affinity]);
+  const filterLogTimer = useRef<number | null>(null);
+  const filterLogSig = useRef<string>("{}");
+  useEffect(() => {
+    const sig = JSON.stringify(filterSnapshot);
+    if (sig === filterLogSig.current) return;
+    if (filterLogTimer.current) window.clearTimeout(filterLogTimer.current);
+    filterLogTimer.current = window.setTimeout(() => {
+      filterLogSig.current = sig;
+      if (Object.keys(filterSnapshot).length === 0) return;
+      fetch("/api/log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ kind: "filter", filters: filterSnapshot }),
+      }).catch(() => { /* best-effort, never block the UI */ });
+    }, 800);
+    return () => { if (filterLogTimer.current) window.clearTimeout(filterLogTimer.current); };
+  }, [filterSnapshot]);
+
+  // A candidate's detail row opened — log which one (see api/log.js, kind:
+  // "detail"). Fires only on open, not close, so toggling a row shut isn't a
+  // second event.
+  const detailLogged = useRef<number | null>(null);
+  useEffect(() => {
+    if (expandedId == null || detailLogged.current === expandedId) return;
+    detailLogged.current = expandedId;
+    const d = allDeans.find((x) => x.id === expandedId);
+    if (!d) return;
+    fetch("/api/log", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ kind: "detail", name: d.dean, university: d.university }),
+    }).catch(() => { /* best-effort, never block the UI */ });
+  }, [expandedId, allDeans]);
+
   // Mirror the shortlist to the server for real (trial/paid) clients only — not
   // the anonymous free tier, which never sees the consent gate. Debounced sync
   // keeps bi:slate:<client> current as candidates are added/removed; exportSlate()
