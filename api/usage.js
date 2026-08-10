@@ -82,17 +82,19 @@ module.exports = async function handler(req, res) {
     const flat = hashes[i] || [];
     const h = {};
     for (let j = 0; j < flat.length; j += 2) h[flat[j]] = flat[j + 1];
-    return { c, hits: Number(h.hits || 0), last: Number(h.last || 0), lastEvent: h.lastEvent || "", lastFile: h.lastFile || "" };
+    return { c, hits: Number(h.hits || 0), last: Number(h.last || 0), lastEvent: h.lastEvent || "", lastFile: h.lastFile || "", lastQuery: h.lastQuery || "" };
   }).sort((a, b) => b.last - a.last);
 
   const summary = rows.map((r) => `<tr>
     <td><b>${esc(r.c)}</b></td><td style="text-align:right">${r.hits}</td>
-    <td>${r.last ? ago(r.last) : "—"}</td><td>${esc(r.lastEvent)}</td><td style="color:#5B6B7B">${esc(r.lastFile)}</td>
+    <td>${r.last ? ago(r.last) : "—"}</td><td>${esc(r.lastEvent)}</td>
+    <td style="color:#5B6B7B">${esc(r.lastEvent === "search" ? r.lastQuery : r.lastFile)}</td>
   </tr>`).join("") || `<tr><td colspan="5" style="color:#98A2AF">No activity logged yet.</td></tr>`;
 
   const feed = events.slice(0, 200).map((e) => `<tr>
     <td style="white-space:nowrap;color:#5B6B7B">${hhmm(e.t)}</td>
-    <td><b>${esc(e.c)}</b></td><td>${esc(e.ev)}</td><td style="color:#5B6B7B">${esc(e.f || "")}</td>
+    <td><b>${esc(e.c)}</b></td><td>${esc(e.ev)}</td>
+    <td style="color:#5B6B7B">${esc(e.ev === "search" ? `${e.src || ""}: ${e.q || ""}` : (e.f || ""))}</td>
     <td style="color:#98A2AF">${esc(e.ip || "")}</td>
   </tr>`).join("");
 
@@ -106,8 +108,8 @@ module.exports = async function handler(req, res) {
   <body><div class="wrap">
     <h1>Baton Index — usage</h1><div style="font-size:13px;color:#5B6B7B">${rows.length} client(s) · ${events.length} recent events</div>
     <h2>Clients</h2>
-    <table><tr><th>Client</th><th style="text-align:right">Hits</th><th>Last seen</th><th>Last event</th><th>Last file</th></tr>${summary}</table>
+    <table><tr><th>Client</th><th style="text-align:right">Hits</th><th>Last seen</th><th>Last event</th><th>Last file / query</th></tr>${summary}</table>
     <h2>Recent activity</h2>
-    <table><tr><th>Time (UTC)</th><th>Client</th><th>Event</th><th>File</th><th>IP</th></tr>${feed}</table>
+    <table><tr><th>Time (UTC)</th><th>Client</th><th>Event</th><th>File / query</th><th>IP</th></tr>${feed}</table>
   </div></body></html>`);
 };

@@ -10,6 +10,7 @@ import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, type AffEntry, type AffMap } from "@/data/enrichment";
 import ScoutAssistant from "@/components/ScoutAssistant";
+import { useTrial } from "@/data/TrialContext";
 
 // Cross-index AFFINITY selector kinds (see @/data/enrichment for the fetch/cache
 // itself, shared with ScoutAssistant's candidate pool).
@@ -22,6 +23,27 @@ export interface DeanSearchPrefill {
   first: string;
   last: string;
   token: number;
+}
+
+// Debounced, best-effort search-term logging (see api/search-log.js). Fires only
+// once a value settles for SEARCH_LOG_DELAY_MS, so normal typing sends one event
+// per pause rather than one per keystroke.
+const SEARCH_LOG_DELAY_MS = 700;
+function useSearchLog(source: "slate-name" | "slate-keyword" | "slate-school", value: string, client?: string) {
+  const timer = useRef<number | null>(null);
+  useEffect(() => {
+    const q = value.trim();
+    if (!q) return;
+    if (timer.current) window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(() => {
+      fetch("/api/search-log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ q, source, client }),
+      }).catch(() => { /* best-effort, never block the UI */ });
+    }, SEARCH_LOG_DELAY_MS);
+    return () => { if (timer.current) window.clearTimeout(timer.current); };
+  }, [value, source, client]);
 }
 
 const pkey = (dean: string, uni: string) => `${dean.trim().toLowerCase()}|${uni.trim().toLowerCase()}`;
@@ -131,6 +153,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const [keyword, setKeyword] = useState("");
   const researchMap = useResearchMap();
   const openRowRef = useRef<HTMLDivElement | null>(null);
+
+  const { client: trialClient } = useTrial();
+  useSearchLog("slate-name", query, trialClient);
+  useSearchLog("slate-keyword", keyword, trialClient);
+  useSearchLog("slate-school", school, trialClient);
 
   // Credential detection for the Ph.D. / Professor screens. Broad recall so the
   // default (both on) does not hide legitimate candidates on data-thin rows.
