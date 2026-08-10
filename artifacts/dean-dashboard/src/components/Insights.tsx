@@ -48,6 +48,20 @@ const REPORTS: Report[] = [
     ],
   },
   {
+    id: "deanship-clock",
+    title: "The Graduate Deanship Clock",
+    subtitle:
+      "How long the graduate-college deanship really lasts, when exit risk peaks, and the text-mined hiring signature behind who gets promoted into it. A companion methods brief to The Graduate College Dean Pipeline, covering 277 graduate deans nationwide.",
+    cover: "/insights/cover-grad-deanship-clock.png",
+    pdf: "/insights/baton-graduate-deanship-clock-brief.pdf",
+    pages: 5,
+    findings: [
+      "The naive completed-tenure median looks like 4 years — but that sample excludes every dean still sitting. Correcting with a Kaplan-Meier estimator puts the true median tenure at 7 years.",
+      "Exit risk isn't flat: the year-by-year hazard rate climbs through year six, then holds at an elevated 17–29% band in years 7–10 — the real succession-planning watch-window.",
+      "This is an internal-ladder office: 42% of deans were promoted from an explicit associate/vice-provost/interim feeder title, 25% from \"associate dean\" specifically.",
+    ],
+  },
+  {
     id: "discipline",
     title: "The Discipline Behind the Dean",
     subtitle:
