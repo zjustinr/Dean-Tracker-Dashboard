@@ -6,8 +6,33 @@
 // as the rest of the usage log: a no-op until KV_REST_API_* env vars exist,
 // and never throws back to the client. Self-contained CommonJS, mirroring
 // api/feature-request.js / api/data.js.
+const crypto = require("crypto");
 const MAX_QUERY_CHARS = 200;
 const SOURCES = new Set(["slate-name", "slate-keyword", "slate-school"]);
+
+// The client tag must come from the signed bi_trial cookie, never from the
+// request body -- otherwise anyone who guesses a client name (e.g.
+// "opus-associate") could POST fake search activity attributed to them. Same
+// HMAC verify as api/data.js / api/trial.js, duplicated per that file's
+// established self-contained-function convention.
+function b64urlDecode(s) { return Buffer.from(s.replace(/-/g, "+").replace(/_/g, "/"), "base64").toString("utf8"); }
+function hmac(secret, msg) { return crypto.createHmac("sha256", secret).update(msg).digest("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function timingSafe(a, b) { const ba = Buffer.from(a), bb = Buffer.from(b); return ba.length === bb.length && crypto.timingSafeEqual(ba, bb); }
+function trustedClient(req) {
+  const secret = process.env.TRIAL_SECRET;
+  if (!secret) return null;
+  const cookie = req.headers.cookie || "";
+  const m = cookie.match(/(?:^|;\s*)bi_trial=([^;]+)/);
+  const token = m ? decodeURIComponent(m[1]) : "";
+  if (!token || !token.includes(".")) return null;
+  const dot = token.indexOf(".");
+  const body = token.slice(0, dot), sig = token.slice(dot + 1);
+  let payload;
+  try { payload = JSON.parse(b64urlDecode(body)); } catch { return null; }
+  if (!timingSafe(sig, hmac(secret, body))) return null;
+  if (!payload || typeof payload.c !== "string") return null;
+  return payload.c;
+}
 
 async function logSearch(req, client, source, q) {
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
@@ -41,7 +66,7 @@ module.exports = async function handler(req, res) {
 
   const q = (typeof body.q === "string" ? body.q : "").trim().slice(0, MAX_QUERY_CHARS);
   const source = SOURCES.has(body.source) ? body.source : "slate-name";
-  const client = typeof body.client === "string" ? body.client.slice(0, 80) : null;
+  const client = trustedClient(req);
 
   if (!q) { res.status(200).json({ ok: true, logged: false }); return; }
 
