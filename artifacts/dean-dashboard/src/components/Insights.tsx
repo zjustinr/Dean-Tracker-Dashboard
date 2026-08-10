@@ -20,38 +20,10 @@ type Report = {
 
 const REPORTS: Report[] = [
   {
-    id: "law-pipeline",
-    title: "The Law School Dean Pipeline",
-    subtitle:
-      "Where R1 law deans come from, and how a search can focus on the right channel. A read on 1,010 dean appointments across R1 law schools, 94 sitting.",
-    cover: "/insights/cover-law-pipeline.png",
-    pdf: "/insights/baton-law-dean-pipeline-brief.pdf",
-    pages: 2,
-    findings: [
-      "The decanal ladder is the channel: 50% of sitting deans rose straight from an associate or vice dean chair; 99% come from legal academia, not practice or the bench.",
-      "The market tilted external and diversified fast: external hires went from 8% (pre-1980) to 71% in the 2020s; women from 3% to 53% of new deans.",
-      "The T14 credential funnel is real but a trap: 64% hold a top-14 law degree, Harvard and Yale over a quarter of those. Use pedigree as a tiebreak, not a gate.",
-    ],
-  },
-  {
-    id: "grad-pipeline",
-    title: "The Graduate College Dean Pipeline",
-    subtitle:
-      "A provost-track office that turns over fast (median six-year tenure), draws from every discipline, and sits near gender parity. 162 sitting central graduate-school heads across 156 US public research universities, with charts.",
-    cover: "/insights/cover-grad-pipeline.png",
-    pdf: "/insights/baton-graduate-college-pipeline-brief.pdf",
-    pages: 3,
-    findings: [
-      "The seat runs short: across 85 completed tenures the median is just 6 years, and 62% of sitting heads were appointed since 2023, the most churn-heavy line we track.",
-      "It is a provost office, not a college deanship: about 50% carry a Vice Provost or Associate Provost title. Screen it like a provost search.",
-      "The pool is discipline-agnostic and near gender parity (about 48% women), because the office spans every graduate program rather than one field.",
-    ],
-  },
-  {
     id: "deanship-clock",
     title: "The Graduate Deanship Clock",
     subtitle:
-      "How long the graduate-college deanship really lasts, when exit risk peaks, and the text-mined hiring signature behind who gets promoted into it. A companion methods brief to The Graduate College Dean Pipeline, covering 277 graduate deans nationwide.",
+      "How long the graduate-college deanship really lasts, when exit risk peaks, and the text-mined hiring signature behind who gets promoted into it. Covers 277 graduate deans nationwide.",
     cover: "/insights/cover-grad-deanship-clock.png",
     pdf: "/insights/baton-graduate-deanship-clock-brief.pdf",
     pages: 5,
@@ -101,6 +73,20 @@ const REPORTS: Report[] = [
       "The two default channels for an outside hire: an associate/vice dean promoted up (26.7%) or a sitting dean recruited from another business school (25.0%).",
       "When it is a lateral dean move, it's almost always same-discipline — 78.2% come from another business school, not a different kind of school, roughly the reverse of the popular assumption.",
       "Only 17.2% of interim deans convert to permanent — 60.8% are succeeded by an outside sitting or former dean.",
+    ],
+  },
+  {
+    id: "lateral-divide",
+    title: "The Lateral Dean Divide",
+    subtitle:
+      "Which academic fields run an active market for sitting deans, and which don't. Compared across 14,343 appointments in 18 BatonIndex role families.",
+    cover: "/insights/cover-lateral-divide.png",
+    pdf: "/insights/baton-lateral-divide-brief.pdf",
+    pages: 8,
+    findings: [
+      "Only four fields run an active lateral-dean market: business, law, nursing, and pharmacy cluster at 31–33% of external hires already a dean elsewhere; most other fields sit at 12–27%.",
+      "Provost is a different mechanism, not the same pattern: 57.4% of external provost hires were already a dean somewhere, but that's a promotion path, not a same-level lateral swap.",
+      "The interim-underdog pattern is nearly universal — in field after field, most resolved interim spells end with an outside hire, not a conversion to permanent.",
     ],
   },
 ];
