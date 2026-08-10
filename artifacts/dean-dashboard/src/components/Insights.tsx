@@ -96,10 +96,10 @@ const REPORTS: Report[] = [
       "Where business-school deans come from when they come from elsewhere — and why the in-house interim rarely wins. Drawn from the same 796-appointment R1 census.",
     cover: "/insights/cover-prior-position.png",
     pdf: "/insights/baton-prior-position-brief.pdf",
-    pages: 10,
+    pages: 11,
     findings: [
-      "49.4% of external hires already hold or held a dean title elsewhere — the default outside hire, not the exception.",
-      "That lateral-dean share has nearly doubled since the 1990s, from 35.5% to 62.2% of external hires.",
+      "The two default channels for an outside hire: an associate/vice dean promoted up (26.7%) or a sitting dean recruited from another business school (25.0%).",
+      "When it is a lateral dean move, it's almost always same-discipline — 78.2% come from another business school, not a different kind of school, roughly the reverse of the popular assumption.",
       "Only 17.2% of interim deans convert to permanent — 60.8% are succeeded by an outside sitting or former dean.",
     ],
   },
