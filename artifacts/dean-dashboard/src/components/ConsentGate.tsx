@@ -1,8 +1,8 @@
 /**
  * One-time click-through agreement to the Terms of Service / Privacy Policy
  * for anyone using a real (non-public-tier) access link. Shown once per
- * browser per consent version; recorded server-side (api/consent.js) so it
- * doubles as an audit trail, not just a UI nag.
+ * browser per consent version; recorded server-side (api/log.js, kind:
+ * "consent") so it doubles as an audit trail, not just a UI nag.
  */
 import { useEffect, useState } from "react";
 import { useTrial } from "@/data/TrialContext";
@@ -32,10 +32,10 @@ export default function ConsentGate() {
   const onAgree = async () => {
     setBusy(true);
     try {
-      await fetch("/api/consent", {
+      await fetch("/api/log", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ client }),
+        body: JSON.stringify({ kind: "consent" }),
       });
     } catch { /* best-effort; still unlock locally so a network blip doesn't lock someone out */ }
     markConsented(client);

@@ -25,25 +25,26 @@ export interface DeanSearchPrefill {
   token: number;
 }
 
-// Debounced, best-effort search-term logging (see api/search-log.js). Fires only
-// once a value settles for SEARCH_LOG_DELAY_MS, so normal typing sends one event
-// per pause rather than one per keystroke.
+// Debounced, best-effort search-term logging (see api/log.js, kind: "search").
+// Fires only once a value settles for SEARCH_LOG_DELAY_MS, so normal typing
+// sends one event per pause rather than one per keystroke. The client tag is
+// derived server-side from the trial cookie, not sent here.
 const SEARCH_LOG_DELAY_MS = 700;
-function useSearchLog(source: "slate-name" | "slate-keyword" | "slate-school", value: string, client?: string) {
+function useSearchLog(source: "slate-name" | "slate-keyword" | "slate-school", value: string) {
   const timer = useRef<number | null>(null);
   useEffect(() => {
     const q = value.trim();
     if (!q) return;
     if (timer.current) window.clearTimeout(timer.current);
     timer.current = window.setTimeout(() => {
-      fetch("/api/search-log", {
+      fetch("/api/log", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ q, source, client }),
+        body: JSON.stringify({ kind: "search", q, source }),
       }).catch(() => { /* best-effort, never block the UI */ });
     }, SEARCH_LOG_DELAY_MS);
     return () => { if (timer.current) window.clearTimeout(timer.current); };
-  }, [value, source, client]);
+  }, [value, source]);
 }
 
 const pkey = (dean: string, uni: string) => `${dean.trim().toLowerCase()}|${uni.trim().toLowerCase()}`;
@@ -155,22 +156,24 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const openRowRef = useRef<HTMLDivElement | null>(null);
 
   const { client: trialClient } = useTrial();
-  useSearchLog("slate-name", query, trialClient);
-  useSearchLog("slate-keyword", keyword, trialClient);
-  useSearchLog("slate-school", school, trialClient);
+  useSearchLog("slate-name", query);
+  useSearchLog("slate-keyword", keyword);
+  useSearchLog("slate-school", school);
 
   // Mirror the shortlist to the server for real (trial/paid) clients only — not
   // the anonymous free tier, which never sees the consent gate. Debounced sync
   // keeps bi:slate:<client> current as candidates are added/removed; exportSlate()
   // below fires an immediate, undebounced "export" call so the dashboard shows
-  // exactly when and how many candidates were exported.
-  const postSlate = (action: "sync" | "export") => {
+  // exactly when and how many candidates were exported. The client tag itself
+  // is derived server-side from the trial cookie (see api/log.js); trialClient
+  // here only gates whether we bother sending anything at all.
+  const postSlate = (mode: "sync" | "export") => {
     if (!trialClient) return;
     const items = slate.map((d) => ({ name: d.dean, school: d.school, university: d.university }));
-    fetch("/api/slate", {
+    fetch("/api/log", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ client: trialClient, items, action }),
+      body: JSON.stringify({ kind: "slate", items, mode }),
     }).catch(() => { /* best-effort */ });
   };
   const slateSyncTimer = useRef<number | null>(null);
