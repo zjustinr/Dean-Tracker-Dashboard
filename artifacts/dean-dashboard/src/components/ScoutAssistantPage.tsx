@@ -4,7 +4,7 @@ import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { genderNorm } from "@/data/types";
 import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
-import { useScoutCandidateEngine, affKey } from "@/data/useScoutCandidates";
+import { useScoutCandidateEngine, affKey, SOURCE_THEME, type ScoutCandidate } from "@/data/useScoutCandidates";
 import { Methodology } from "@/components/ScoutAssistant";
 import ScoutCandidateList from "@/components/ScoutCandidateList";
 import StringencyToggle, { STRINGENCY_LEVELS } from "@/components/StringencyToggle";
@@ -50,14 +50,20 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   const [jdKeywords, setJdKeywords] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [mapExpandedId, setMapExpandedId] = useState<number | null>(null);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [compareOpen, setCompareOpen] = useState(false);
 
   // Reset everything when the active dataset (index) changes -- a school,
   // state, or JD match chosen for one index doesn't carry meaning in another.
   useEffect(() => {
     setUniversity(""); setStringency(1); setIncludeGender("all"); setRequirePhd(false); setRequireProf(false);
     setApptType("all"); setRegions(new Set()); setStates(new Set()); setJdKeywords([]); setVisibleCount(PAGE_SIZE);
+    setSelected(new Set()); setCompareOpen(false);
   }, [datasetId]);
   useEffect(() => { setVisibleCount(PAGE_SIZE); }, [university, stringency]);
+  // A slate built against one target school doesn't carry meaning once the
+  // school changes -- candidate keys are scoped to the ranking they came from.
+  useEffect(() => { setSelected(new Set()); setCompareOpen(false); }, [university]);
 
   const universities = useMemo(() => [...new Set(allDeans.map((d) => d.university))].sort((a, b) => a.localeCompare(b)), [allDeans]);
 
@@ -182,7 +188,65 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
 
   const stateList = useMemo(() => [...new Set(stateOf.values())].sort(), [stateOf]);
 
+  // A candidate's full record where we have one -- bench/broad carry it
+  // directly, affinity/weak-link candidates only once resolveProfile has
+  // streamed it in. Slate/compare/export all key off this.
+  const resolvedDean = useCallback((c: ScoutCandidate): Dean | undefined => {
+    const resolved = c.dean ?? (c.resolvable ? engine.resolvedProfiles[affKey(c.resolvable)] : undefined);
+    return resolved && resolved !== "not-found" ? resolved : undefined;
+  }, [engine.resolvedProfiles]);
+
+  const isSelected = useCallback((c: ScoutCandidate) => selected.has(c.key), [selected]);
+  const toggleSelect = useCallback((c: ScoutCandidate) => {
+    setSelected((cur) => { const n = new Set(cur); n.has(c.key) ? n.delete(c.key) : n.add(c.key); return n; });
+  }, []);
+  // Preserve rank order, not selection order -- matches how Slate Builder's
+  // own compare/export reads (whatever order the list showed them in).
+  const selectedCandidates = useMemo(
+    () => engine.candidates.filter((c) => selected.has(c.key)),
+    [engine.candidates, selected]
+  );
+
+  // Export the SELECTED candidates only (the user's hand-picked few), not the
+  // full ranked pool -- mirrors Slate Builder's exportSlate. Falls back to
+  // whatever the candidate row itself knows (name/university/subtitle/source)
+  // for anyone whose full profile hasn't resolved yet.
+  const exportSelected = () => {
+    const esc = (v: unknown) => { const s = String(v ?? ""); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+    const head = ["Name", "Source", "School", "University", "State", "Discipline", "Appointed", "Left", "Tenure (yrs)", "Prior Role", "Why flagged"];
+    const lines = [head.join(",")];
+    for (const c of selectedCandidates) {
+      const d = resolvedDean(c);
+      const why = c.reasoning ? `${c.reasoning.label}${c.reasoning.detail ? ` — ${c.reasoning.detail}` : ""}` : "";
+      lines.push([
+        c.name, SOURCE_THEME[c.source].label, d?.school || "", d?.university || c.university,
+        d ? stateOf.get(d.university.toLowerCase()) || "" : "",
+        d?.disciplineBroad || "", d?.startYear || "", d ? (d.endYear || "Present") : "",
+        d?.tenureLength ?? "", d?.priorTitle || "", why,
+      ].map(esc).join(","));
+    }
+    const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "scout-assistant-candidates.csv";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  function CompareAvatar({ c }: { c: ScoutCandidate }) {
+    const d = resolvedDean(c);
+    const key = d ? enrichKey(d.dean, d.university) : c.resolvable?.enrichKey;
+    const p = key ? PHOTOS[key]?.photo : undefined;
+    if (p) return <img src={p} alt="" loading="lazy" className="w-9 h-9 rounded-full object-cover shrink-0 border border-border" />;
+    return (
+      <div className="w-9 h-9 rounded-full bg-[#011F5B]/10 flex items-center justify-center shrink-0">
+        <span className="text-xs font-bold text-[#011F5B]">{c.name.split(/\s+/).map((n) => n[0]).join("").slice(0, 2)}</span>
+      </div>
+    );
+  }
+
   return (
+    <>
     <div className="space-y-4">
       <div className="bg-[#011F5B]/[0.05] dark:bg-[#011F5B]/15 border border-[#011F5B]/40 rounded-xl p-4 sm:p-6">
         <div className="-mx-4 sm:-mx-6 -mt-4 sm:-mt-6 mb-4 px-4 sm:px-6 py-3.5 bg-gradient-to-r from-[#011F5B] to-[#0a3a8f] rounded-t-xl">
@@ -274,6 +338,27 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
             </div>
           </div>
 
+          {selected.size > 0 && (
+            <div className="bg-[#011F5B]/5 border border-[#011F5B]/25 rounded-xl p-4">
+              <div className="flex items-center justify-between mb-2 gap-2 flex-wrap">
+                <p className="text-sm font-semibold text-[#011F5B]">Your slate — {selected.size}</p>
+                <div className="flex items-center gap-2">
+                  <button onClick={exportSelected} className="text-xs font-semibold px-2.5 py-1 rounded border border-[#011F5B]/40 text-[#011F5B] hover:bg-[#011F5B]/10">Export CSV</button>
+                  <button onClick={() => setSelected(new Set())} className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2">Clear</button>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {selectedCandidates.map((c) => (
+                  <span key={c.key} className="inline-flex items-center gap-1.5 bg-card border border-border rounded-full pl-3 pr-1 py-1 text-xs">
+                    <span className="font-medium">{c.name}</span>
+                    <span className="text-muted-foreground">· {c.university}</span>
+                    <button onClick={() => toggleSelect(c)} aria-label={`Remove ${c.name}`} className="w-4 h-4 rounded-full hover:bg-muted flex items-center justify-center text-muted-foreground">×</button>
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px] items-start">
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
@@ -283,6 +368,21 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
                 <p className="text-xs text-muted-foreground mt-0.5">
                   Scored against patterns mined from our own {meta.label.toLowerCase()} appointment history for {university} — a fit to this school's historical pattern, not a recommendation.
                 </p>
+                {/* Always visible as an action cue: muted until 2+ candidates are
+                    checked, then it lights up and opens the compare view. */}
+                <button
+                  onClick={() => setCompareOpen(true)}
+                  disabled={selected.size < 2}
+                  title={selected.size < 2 ? "Check 2 or more candidates to compare them" : undefined}
+                  className={[
+                    "mt-1.5 inline-flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded transition-colors",
+                    selected.size >= 2
+                      ? "bg-[#011F5B] text-white shadow-sm hover:brightness-110"
+                      : "bg-muted text-muted-foreground border border-border cursor-not-allowed",
+                  ].join(" ")}
+                >
+                  Select <span className="inline-block w-3.5 h-3.5 border-2 border-current rounded-[3px]" aria-hidden="true" /> to compare{selected.size >= 2 ? ` (${selected.size})` : ""}
+                </button>
               </div>
               <ScoutCandidateList
                 candidates={shown}
@@ -290,6 +390,9 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
                 resolveProfile={engine.resolveProfile}
                 allDeans={engine.allDeans}
                 onOpenSchool={onOpenSchool}
+                selectable
+                isSelected={isSelected}
+                onToggleSelect={toggleSelect}
                 emptyMessage={`No eligible candidates found for ${university} at this stringency/filter combination yet.`}
               />
               {engine.candidates.length > visibleCount && (
@@ -312,5 +415,53 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
         </>
       )}
     </div>
+
+    {compareOpen && selected.size >= 2 && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-label="Compare slate" onClick={() => setCompareOpen(false)}>
+        <div className="w-full max-w-4xl max-h-[85vh] overflow-auto rounded-xl border border-border bg-card shadow-xl" onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center justify-between px-5 py-3 border-b border-border sticky top-0 bg-card">
+            <p className="font-semibold">Compare — {selectedCandidates.length}</p>
+            <button onClick={() => setCompareOpen(false)} aria-label="Close" className="text-muted-foreground hover:text-foreground text-lg leading-none px-1">×</button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="text-sm min-w-full">
+              <tbody>
+                <tr className="border-b border-border">
+                  <td className="p-3 font-medium text-muted-foreground align-top w-32">Candidate</td>
+                  {selectedCandidates.map((c) => (
+                    <td key={c.key} className="p-3 align-top min-w-[180px]">
+                      <div className="flex items-center gap-2">
+                        <CompareAvatar c={c} />
+                        <div className="min-w-0">
+                          <p className="font-semibold truncate">{c.name}</p>
+                          <span className={`text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded shrink-0 ${SOURCE_THEME[c.source].pill}`}>{SOURCE_THEME[c.source].label}</span>
+                        </div>
+                      </div>
+                    </td>
+                  ))}
+                </tr>
+                {([
+                  ["School", (c: ScoutCandidate, d?: Dean) => d?.school || "—"],
+                  ["University", (c: ScoutCandidate, d?: Dean) => d?.university || c.university],
+                  ["State", (c: ScoutCandidate, d?: Dean) => (d ? stateOf.get(d.university.toLowerCase()) || "—" : "—")],
+                  ["Discipline", (c: ScoutCandidate, d?: Dean) => (d?.disciplineBroad && d.disciplineBroad !== "Unknown" ? d.disciplineBroad : "—")],
+                  ["Appointed", (c: ScoutCandidate, d?: Dean) => d?.startYear || "—"],
+                  ["Status", (c: ScoutCandidate, d?: Dean) => (d ? (d.endYear == null ? "Sitting" : `Left ${d.endYear}`) : "—")],
+                  ["Tenure", (c: ScoutCandidate, d?: Dean) => (d?.tenureLength ? `${d.tenureLength} yr${d.tenureLength !== 1 ? "s" : ""}` : "—")],
+                  ["Prior role", (c: ScoutCandidate, d?: Dean) => d?.priorTitle || "—"],
+                  ["Why flagged", (c: ScoutCandidate) => (c.reasoning ? <>{c.reasoning.label}{c.reasoning.detail ? ` — ${c.reasoning.detail}` : ""}</> : "No strong pattern match.")],
+                ] as [string, (c: ScoutCandidate, d?: Dean) => React.ReactNode][]).map(([label, fn]) => (
+                  <tr key={label} className="border-b border-border">
+                    <td className="p-3 font-medium text-muted-foreground align-top">{label}</td>
+                    {selectedCandidates.map((c) => <td key={c.key} className="p-3 align-top">{fn(c, resolvedDean(c))}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
