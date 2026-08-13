@@ -5,6 +5,7 @@ import type { Dean } from "@/data/types";
 import { genderNorm } from "@/data/types";
 import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
 import { useScoutCandidateEngine, affKey } from "@/data/useScoutCandidates";
+import { matchKeywords, type Keyword } from "@/data/keywordMatch";
 import { Methodology } from "@/components/ScoutAssistant";
 import ScoutCandidateList from "@/components/ScoutCandidateList";
 import StringencyToggle, { STRINGENCY_LEVELS } from "@/components/StringencyToggle";
@@ -47,7 +48,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   const [apptType, setApptType] = useState<"all" | "perm" | "interim">("all");
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
-  const [jdKeywords, setJdKeywords] = useState<string[]>([]);
+  const [jdKeywords, setJdKeywords] = useState<Keyword[]>([]);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [mapExpandedId, setMapExpandedId] = useState<number | null>(null);
   const [matchNotice, setMatchNotice] = useState<string | null>(null);
@@ -145,33 +146,48 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
     return true;
   }, [requirePhd, requireProf, includeGender, apptType, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
 
-  // Job-description keyword boost: a heuristic overlap score against the
-  // person's own expertise tags / discipline / career text, NOT a validated
-  // statistical lift like the rest of the model -- kept as a soft additive
-  // score at every tier, and promoted to a HARD requirement (>=1 match) only
-  // at the strictest tier, matching "mine the posting for the tightest fit."
-  const keywordMatchCount = useCallback((dean: Dean | undefined): number => {
-    if (!jdKeywords.length || !dean) return 0;
-    const expertise = researchMap[enrichKey(dean.dean, dean.university)]?.expertise || [];
-    const text = `${dean.discipline || ""} ${dean.careerBackground || ""} ${dean.priorTitle || ""} ${expertise.join(" ")}`.toLowerCase();
-    let n = 0;
-    for (const kw of jdKeywords) if (text.includes(kw.toLowerCase())) n++;
-    return n;
-  }, [jdKeywords, researchMap]);
+  // Job-description keyword boost: a heuristic overlap score against a broad
+  // text surface for each candidate -- discipline, career background, prior
+  // title, researched brief/education, expertise tags, and career-step
+  // roles/orgs -- NOT a validated statistical lift like the rest of the
+  // model. Matching is fuzzy (stemmed word roots for single-word keywords,
+  // substring for phrases/tags), so posting language doesn't have to appear
+  // verbatim to connect: a candidate's brief saying "innovative" still
+  // matches a posting that said "innovation." The intent at this stage is a
+  // broad net -- ANY of the many extracted keywords is enough to surface a
+  // candidate -- with the stringency dial doing the real narrowing. Kept as
+  // a soft additive score at every tier, and promoted to a HARD requirement
+  // (>=1 match) only at the strictest tier, matching "mine the posting for
+  // the tightest fit."
+  const candidateMatchText = useCallback((dean: Dean | undefined, name: string, subtitle: string): string => {
+    const research = dean ? researchMap[enrichKey(dean.dean, dean.university)] : undefined;
+    const careerText = research?.career?.flatMap((c) => [c.role, c.org]) || [];
+    return [
+      dean?.discipline, dean?.careerBackground, dean?.priorTitle,
+      research?.summary, research?.education,
+      ...(research?.expertise || []),
+      ...careerText,
+      name, subtitle,
+    ].filter(Boolean).join(" ");
+  }, [researchMap]);
+
+  const keywordMatch = useCallback((dean: Dean | undefined, name: string, subtitle: string): { score: number; matched: string[] } => {
+    if (!jdKeywords.length) return { score: 0, matched: [] };
+    const hits = matchKeywords(candidateMatchText(dean, name, subtitle), jdKeywords);
+    return { score: hits.length * 0.5, matched: hits.map((k) => k.display) };
+  }, [jdKeywords, candidateMatchText]);
 
   const combinedFilter = useCallback((d: Dean): boolean => {
     if (!rosterFilter(d)) return false;
-    if (jdKeywords.length > 0 && stringency === 1 && keywordMatchCount(d) === 0) return false;
+    if (jdKeywords.length > 0 && stringency === 1 && keywordMatch(d, d.dean, d.priorTitle || "").matched.length === 0) return false;
     return true;
-  }, [rosterFilter, jdKeywords, stringency, keywordMatchCount]);
-
-  const keywordScore = useCallback((dean: Dean | undefined) => keywordMatchCount(dean) * 0.5, [keywordMatchCount]);
+  }, [rosterFilter, jdKeywords, stringency, keywordMatch]);
 
   const level = STRINGENCY_LEVELS[stringency - 1];
   const engine = useScoutCandidateEngine({
     university, cap: level.cap, includeBroad: level.includeBroad,
     filter: university ? combinedFilter : undefined,
-    keywordScore: jdKeywords.length > 0 ? keywordScore : undefined,
+    keywordScore: jdKeywords.length > 0 ? keywordMatch : undefined,
   });
 
   const shown = engine.candidates.slice(0, visibleCount);

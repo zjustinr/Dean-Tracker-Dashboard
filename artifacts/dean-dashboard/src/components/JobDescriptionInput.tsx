@@ -1,50 +1,26 @@
 import { useState, useRef } from "react";
-
-/**
- * Generic English + job-posting boilerplate we never want surfaced as a
- * "distinctive" keyword (institution/HR filler, not a signal about the role
- * or the ideal candidate). Kept lowercase; extraction lowercases first.
- */
-const STOPWORDS = new Set([
-  "the","and","for","are","but","not","you","your","with","this","that","from","have","has","had",
-  "will","shall","should","would","could","can","may","might","must","its","it's","their","they","them",
-  "our","ours","who","whom","which","what","when","where","how","why","all","any","both","each","few",
-  "more","most","other","some","such","only","own","same","than","too","very","just","about","above",
-  "after","again","against","because","before","being","below","between","during","further","into",
-  "once","over","under","while","then","there","here","also","within","without","upon","per",
-  "position","candidate","candidates","applicant","applicants","application","applications","apply",
-  "applying","university","college","school","institution","institutions","dean","deanship","director",
-  "provost","president","chancellor","office","department","division","committee","search","searches",
-  "seeking","seeks","looking","invites","invited","invite","welcome","welcomes","opportunity","role",
-  "qualifications","qualified","qualification","responsibilities","responsibility","requirements",
-  "required","requires","requiring","preferred","preference","minimum","maximum","years","year",
-  "including","include","includes","included","experience","experienced","skills","skill","ability",
-  "abilities","strong","excellent","demonstrated","proven","successful","success","ideal","plus",
-  "please","review","reviews","reviewed","salary","benefits","compensation","apply","resume","resumes",
-  "cover","letter","letters","references","reference","submit","submitted","submission","deadline",
-  "review","interview","interviews","committee","process","processes","email","phone","contact",
-  "equal","employer","employment","opportunity","affirmative","action","diversity","inclusion","policy",
-  "policies","statement","statements","information","additional","further","details","detail","about",
-  "join","joining","seeking","seeks","new","current","currently","serves","serve","serving","served",
-]);
+import { extractKeywords, type Keyword } from "@/data/keywordMatch";
 
 /**
  * Optional job-description input for Scout Assistant: paste text, upload a
- * plain-text file, or point at a URL, then extract distinctive keywords from
- * the text itself (see extractKeywords below) plus any of this index's known
- * expertise/discipline tags that literally appear in it. The result is a soft
- * keyword-match score bonus at every stringency tier, and a hard requirement
- * (at least one match) at the strictest tier only -- see ScoutAssistantPage.
+ * plain-text file, or point at a URL, then extract a broad set of candidate
+ * keywords from the text itself (see extractKeywords in data/keywordMatch.ts)
+ * plus any of this index's known expertise/discipline tags that literally
+ * appear in it. Matching against candidates is fuzzy (stemmed word roots),
+ * not exact-substring -- this stage is meant to cast a wide net; the
+ * stringency dial is what narrows it. See ScoutAssistantPage for scoring.
  *
  * The extraction used to ONLY check the pasted text against the closed
  * `vocabulary` list (expertise tags already present on some candidate in this
  * index), so a real, substantive term in a posting -- "trans-disciplinary",
  * "entrepreneurial", "global", "shared-governance" -- was invisible unless it
- * happened to already be a tag on file. `extractKeywords` below runs a plain
- * stopword-filtered frequency extraction over the pasted text directly, so
- * novel posting language shows up too; the closed-vocabulary hits are unioned
- * in on top since they're still useful (multi-word tags like "human-computer
- * interaction" that the single-token extractor below won't catch whole).
+ * happened to already be a tag on file, and even a literal match like
+ * "innovation" wouldn't connect to a candidate's brief that said "innovative."
+ * extractKeywords now pulls stemmed single words AND two-word phrases
+ * directly out of the pasted text (broad net, not vocabulary-limited), with
+ * the closed-vocabulary tags unioned in on top since they still catch
+ * multi-word tags the phrase pass won't reassemble (e.g. "human-computer
+ * interaction").
  *
  * Scope note: only .txt/.md files are parsed directly (native FileReader, no
  * new dependencies). PDF/Word uploads are not parsed in-browser -- this is a
@@ -55,43 +31,11 @@ const STOPWORDS = new Set([
  * (server-side fetch + tag-strip, see api/parse-jd-url.js) and will yield
  * little or nothing on a JS-rendered job board -- also disclosed inline.
  */
-export function extractKeywords(raw: string, vocabulary: string[], max = 32): string[] {
-  const lower = raw.toLowerCase();
-
-  // Known multi-word expertise/discipline tags already on file, that appear
-  // verbatim in the text -- catches compound phrases single-token extraction
-  // below can't (e.g. "human-computer interaction").
-  const vocabHits = vocabulary.filter((kw) => lower.includes(kw.toLowerCase()));
-
-  // General extraction: words and hyphenated compounds (>= 4 letters), minus
-  // stopwords/boilerplate, ranked by frequency in this specific text.
-  const tokens = lower.match(/[a-z][a-z-]{2,}[a-z]/g) || [];
-  const freq = new Map<string, number>();
-  for (const t of tokens) {
-    const term = t.replace(/^-+|-+$/g, "");
-    if (term.length < 4 || STOPWORDS.has(term)) continue;
-    freq.set(term, (freq.get(term) || 0) + 1);
-  }
-  const extracted = [...freq.entries()]
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .map(([t]) => t);
-
-  const seen = new Set(vocabHits.map((v) => v.toLowerCase()));
-  const merged = [...vocabHits];
-  for (const t of extracted) {
-    if (seen.has(t)) continue;
-    seen.add(t);
-    merged.push(t);
-    if (merged.length >= max) break;
-  }
-  return merged;
-}
-
 export default function JobDescriptionInput({
   vocabulary, onKeywords, onMatch,
 }: {
   vocabulary: string[];
-  onKeywords: (keywords: string[], rawText: string) => void;
+  onKeywords: (keywords: Keyword[], rawText: string) => void;
   /** Fired when "Match Candidates" is clicked -- an explicit, visible confirmation
    *  that the algorithm ran, since the auto-match-on-keystroke behavior alone gave
    *  no clear signal anything had happened. */
@@ -103,7 +47,7 @@ export default function JobDescriptionInput({
   const [urlStatus, setUrlStatus] = useState<"idle" | "loading" | "error">("idle");
   const [urlError, setUrlError] = useState("");
   const [fileError, setFileError] = useState("");
-  const [keywords, setKeywords] = useState<string[]>([]);
+  const [keywords, setKeywords] = useState<Keyword[]>([]);
   const [justMatched, setJustMatched] = useState(false);
   const fileRef = useRef<HTMLInputElement | null>(null);
 
@@ -257,7 +201,16 @@ export default function JobDescriptionInput({
           {keywords.length > 0 && (
             <div className="flex flex-wrap gap-1">
               {keywords.map((k) => (
-                <span key={k} className="text-[10px] px-1.5 py-0.5 rounded bg-[#011F5B]/10 text-[#011F5B] font-medium">{k}</span>
+                <span
+                  key={k.stem}
+                  title={k.kind === "tag" ? "Known expertise tag on file" : k.kind === "phrase" ? "Two-word phrase from the posting" : "Term from the posting (matched by root, e.g. “innovative” also matches “innovation”)"}
+                  className={[
+                    "text-[10px] px-1.5 py-0.5 rounded font-medium",
+                    k.kind === "tag" ? "bg-[#011F5B]/10 text-[#011F5B]" : k.kind === "phrase" ? "bg-emerald-600/10 text-emerald-700 dark:text-emerald-400" : "bg-muted text-muted-foreground",
+                  ].join(" ")}
+                >
+                  {k.display}
+                </span>
               ))}
             </div>
           )}

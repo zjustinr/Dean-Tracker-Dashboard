@@ -115,6 +115,16 @@ export default function ScoutCandidateList({
                 ) : (
                   <p className="text-xs text-muted-foreground italic mt-0.5">No strong pattern match.</p>
                 )}
+                {!!c.matchedKeywords?.length && (
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {c.matchedKeywords.slice(0, 6).map((k) => (
+                      <span key={k} className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">{k}</span>
+                    ))}
+                    {c.matchedKeywords.length > 6 && (
+                      <span className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-muted text-muted-foreground">+{c.matchedKeywords.length - 6} more</span>
+                    )}
+                  </div>
+                )}
               </div>
               {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
               <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>

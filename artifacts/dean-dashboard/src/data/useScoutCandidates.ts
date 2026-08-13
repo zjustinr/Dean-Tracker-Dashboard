@@ -271,6 +271,8 @@ export interface ScoutCandidate {
   resolvable?: ResolvableEntry;
   reasoning: { label: string; detail: string } | null;
   score: number;
+  /** Job-description keywords (display form) that matched this candidate, if a posting was supplied -- drives the match-label badges under each row. */
+  matchedKeywords?: string[];
 }
 
 export const affKey = (entry: ResolvableEntry) => `${entry.enrichKey}|${entry.index ?? ""}`;
@@ -283,8 +285,8 @@ export interface ScoutEngineOptions {
   includeBroad?: boolean;
   /** Roster filter (gender/PhD/appointment/region, etc.) -- applied wherever a resolved Dean record is available. Candidates not yet resolved are held out of the filtered view rather than shown-then-removed once resolution lands. */
   filter?: (dean: Dean) => boolean;
-  /** Extra score from a job-description keyword match (0 if none), added on top of the base score. */
-  keywordScore?: (dean: Dean | undefined, name: string, subtitle: string) => number;
+  /** Extra score from a job-description keyword match (0 if none), added on top of the base score, plus which keywords (display form) actually matched. */
+  keywordScore?: (dean: Dean | undefined, name: string, subtitle: string) => { score: number; matched: string[] };
 }
 
 const SHORTLIST_CAP = 400; // per-source pre-merge cap -- generous enough that "all eligible" tiers see the real pool, just a guard against a pathological source size
@@ -463,9 +465,14 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
       const resolved = c.dean ?? (c.resolvable ? resolvedProfiles[affKey(c.resolvable)] : undefined);
       const dean = c.dean ?? (resolved && resolved !== "not-found" ? resolved : undefined);
       let score = c.score;
+      let matchedKeywords: string[] | undefined;
       if (dean && c.resolvable) score += traitFitScore(dean, idx.traits).score; // bonus only for resolved affinity/weak (bench/broad already scored on their own record)
-      if (keywordScore) score += keywordScore(dean, c.name, c.subtitle);
-      return { c: { ...c, score }, resolved };
+      if (keywordScore) {
+        const r = keywordScore(dean, c.name, c.subtitle);
+        score += r.score;
+        matchedKeywords = r.matched;
+      }
+      return { c: { ...c, score, matchedKeywords }, resolved };
     };
     const all = [...benchShortlist, ...affinityShortlist, ...weakLinkShortlist, ...broadShortlist].map(withExtras);
     const filtered = filter
