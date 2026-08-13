@@ -13,6 +13,10 @@ import JobDescriptionInput from "@/components/JobDescriptionInput";
 import ResultsMap from "@/components/ResultsMap";
 import RegionMap from "@/components/RegionMap";
 import careerRoots from "@/data/career-roots.json";
+import careerGeo from "@/data/career-geo.json";
+
+interface GeoEntry { lat: number; lng: number; state?: string | null; city?: string; country?: string }
+const CAREER_GEO = careerGeo as unknown as Record<string, GeoEntry>;
 
 const REGIONS: Record<string, string[]> = {
   Northeast: ["CT", "ME", "MA", "NH", "RI", "VT", "NJ", "NY", "PA"],
@@ -79,6 +83,15 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   }, [bundle.schools]);
   const geoOf = useMemo(() => {
     const m = new Map<string, { lat: number; lng: number }>();
+    // Corpus-wide fallback first -- Scout Assistant draws candidates from every
+    // index (affinity/weak-link cross-index matches), so a candidate's
+    // university is often outside this index's own schools roster and would
+    // otherwise silently drop into "without a location" on the map even
+    // though it has real coordinates elsewhere in the corpus. The current
+    // index's own schools.json then overrides with its entry where both exist.
+    for (const [uni, g] of Object.entries(CAREER_GEO)) {
+      if (isAlbersUsaMappable(g)) m.set(uni, { lat: g.lat, lng: g.lng });
+    }
     for (const s of (bundle.schools as unknown as { university?: string; state?: string; lat?: number | null; lng?: number | null }[])) {
       if (s.university && isAlbersUsaMappable(s) && s.lat != null && s.lng != null) m.set(s.university.toLowerCase(), { lat: s.lat, lng: s.lng });
     }
