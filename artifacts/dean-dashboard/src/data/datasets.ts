@@ -12,7 +12,7 @@ declare const __BUILD_ID__: string;
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts" | "usadvancement" | "uslac";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts" | "usadvancement" | "uslac" | "usadminleaders";
 
 export interface SchoolInfo {
   university: string;
@@ -44,7 +44,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts" | "advancement" | "liberalarts";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts" | "advancement" | "liberalarts" | "adminleaders";
   yearRange: string;
 }
 
@@ -280,6 +280,25 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     schoolType: "liberalarts",
     yearRange: "1996-2026",
   },
+
+  // Senior administrative (non-academic-dean) leadership: the VP/AVP/director
+  // tier that runs the operational side of a university -- HR, legal, finance,
+  // facilities, IT, audit, campus safety, communications, research
+  // administration, student affairs, and institute/center directorships.
+  // Built from search-firm current-and-closed listings (Opus Partners,
+  // Greenwood/Asher, ACES, Summit Search Solutions, RH Perry) rather than a
+  // single institution roster, since this role family isn't tied to one
+  // school type. Title rides in `discipline` (like provost/advancement);
+  // the function bucket rides in `disciplineBroad` for filtering.
+  usadminleaders: {
+    id: "usadminleaders",
+    label: "US Senior Administrative Leaders",
+    shortLabel: "Administrative",
+    description: "VP/AVP/director-level administrative leadership at US universities: HR & labor relations, legal & general counsel, finance & budget, facilities & infrastructure, IT & security, audit & compliance, campus operations, communications, research administration, student affairs, and institute/center directors.",
+    rankLabel: "—",
+    schoolType: "adminleaders",
+    yearRange: "2015-2026",
+  },
 };
 
 // Controls which datasets appear in the switcher. DATASETS_META still holds every
@@ -306,6 +325,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.uscreativearts,
   DATASETS_META.usadvancement,
   DATASETS_META.uslac,
+  DATASETS_META.usadminleaders,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,
