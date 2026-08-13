@@ -1,11 +1,50 @@
 import { useState, useRef } from "react";
 
 /**
+ * Generic English + job-posting boilerplate we never want surfaced as a
+ * "distinctive" keyword (institution/HR filler, not a signal about the role
+ * or the ideal candidate). Kept lowercase; extraction lowercases first.
+ */
+const STOPWORDS = new Set([
+  "the","and","for","are","but","not","you","your","with","this","that","from","have","has","had",
+  "will","shall","should","would","could","can","may","might","must","its","it's","their","they","them",
+  "our","ours","who","whom","which","what","when","where","how","why","all","any","both","each","few",
+  "more","most","other","some","such","only","own","same","than","too","very","just","about","above",
+  "after","again","against","because","before","being","below","between","during","further","into",
+  "once","over","under","while","then","there","here","also","within","without","upon","per",
+  "position","candidate","candidates","applicant","applicants","application","applications","apply",
+  "applying","university","college","school","institution","institutions","dean","deanship","director",
+  "provost","president","chancellor","office","department","division","committee","search","searches",
+  "seeking","seeks","looking","invites","invited","invite","welcome","welcomes","opportunity","role",
+  "qualifications","qualified","qualification","responsibilities","responsibility","requirements",
+  "required","requires","requiring","preferred","preference","minimum","maximum","years","year",
+  "including","include","includes","included","experience","experienced","skills","skill","ability",
+  "abilities","strong","excellent","demonstrated","proven","successful","success","ideal","plus",
+  "please","review","reviews","reviewed","salary","benefits","compensation","apply","resume","resumes",
+  "cover","letter","letters","references","reference","submit","submitted","submission","deadline",
+  "review","interview","interviews","committee","process","processes","email","phone","contact",
+  "equal","employer","employment","opportunity","affirmative","action","diversity","inclusion","policy",
+  "policies","statement","statements","information","additional","further","details","detail","about",
+  "join","joining","seeking","seeks","new","current","currently","serves","serve","serving","served",
+]);
+
+/**
  * Optional job-description input for Scout Assistant: paste text, upload a
- * plain-text file, or point at a URL, then extract which of this index's known
- * expertise/discipline keywords actually appear in it. The result is a soft
+ * plain-text file, or point at a URL, then extract distinctive keywords from
+ * the text itself (see extractKeywords below) plus any of this index's known
+ * expertise/discipline tags that literally appear in it. The result is a soft
  * keyword-match score bonus at every stringency tier, and a hard requirement
  * (at least one match) at the strictest tier only -- see ScoutAssistantPage.
+ *
+ * The extraction used to ONLY check the pasted text against the closed
+ * `vocabulary` list (expertise tags already present on some candidate in this
+ * index), so a real, substantive term in a posting -- "trans-disciplinary",
+ * "entrepreneurial", "global", "shared-governance" -- was invisible unless it
+ * happened to already be a tag on file. `extractKeywords` below runs a plain
+ * stopword-filtered frequency extraction over the pasted text directly, so
+ * novel posting language shows up too; the closed-vocabulary hits are unioned
+ * in on top since they're still useful (multi-word tags like "human-computer
+ * interaction" that the single-token extractor below won't catch whole).
  *
  * Scope note: only .txt/.md files are parsed directly (native FileReader, no
  * new dependencies). PDF/Word uploads are not parsed in-browser -- this is a
@@ -16,11 +55,47 @@ import { useState, useRef } from "react";
  * (server-side fetch + tag-strip, see api/parse-jd-url.js) and will yield
  * little or nothing on a JS-rendered job board -- also disclosed inline.
  */
+export function extractKeywords(raw: string, vocabulary: string[], max = 32): string[] {
+  const lower = raw.toLowerCase();
+
+  // Known multi-word expertise/discipline tags already on file, that appear
+  // verbatim in the text -- catches compound phrases single-token extraction
+  // below can't (e.g. "human-computer interaction").
+  const vocabHits = vocabulary.filter((kw) => lower.includes(kw.toLowerCase()));
+
+  // General extraction: words and hyphenated compounds (>= 4 letters), minus
+  // stopwords/boilerplate, ranked by frequency in this specific text.
+  const tokens = lower.match(/[a-z][a-z-]{2,}[a-z]/g) || [];
+  const freq = new Map<string, number>();
+  for (const t of tokens) {
+    const term = t.replace(/^-+|-+$/g, "");
+    if (term.length < 4 || STOPWORDS.has(term)) continue;
+    freq.set(term, (freq.get(term) || 0) + 1);
+  }
+  const extracted = [...freq.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([t]) => t);
+
+  const seen = new Set(vocabHits.map((v) => v.toLowerCase()));
+  const merged = [...vocabHits];
+  for (const t of extracted) {
+    if (seen.has(t)) continue;
+    seen.add(t);
+    merged.push(t);
+    if (merged.length >= max) break;
+  }
+  return merged;
+}
+
 export default function JobDescriptionInput({
-  vocabulary, onKeywords,
+  vocabulary, onKeywords, onMatch,
 }: {
   vocabulary: string[];
   onKeywords: (keywords: string[], rawText: string) => void;
+  /** Fired when "Match Candidates" is clicked -- an explicit, visible confirmation
+   *  that the algorithm ran, since the auto-match-on-keystroke behavior alone gave
+   *  no clear signal anything had happened. */
+  onMatch?: (keywordCount: number) => void;
 }) {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -29,13 +104,22 @@ export default function JobDescriptionInput({
   const [urlError, setUrlError] = useState("");
   const [fileError, setFileError] = useState("");
   const [keywords, setKeywords] = useState<string[]>([]);
+  const [justMatched, setJustMatched] = useState(false);
   const fileRef = useRef<HTMLInputElement | null>(null);
 
   const extract = (raw: string) => {
-    const lower = raw.toLowerCase();
-    const hits = vocabulary.filter((kw) => lower.includes(kw.toLowerCase()));
+    const hits = extractKeywords(raw, vocabulary);
     setKeywords(hits);
     onKeywords(hits, raw);
+    return hits;
+  };
+
+  const handleMatchClick = () => {
+    const hits = extract(text);
+    setOpen(true);
+    setJustMatched(true);
+    onMatch?.(hits.length);
+    window.setTimeout(() => setJustMatched(false), 2500);
   };
 
   const applyText = (raw: string) => {
@@ -113,9 +197,10 @@ export default function JobDescriptionInput({
         <div className="px-3 pb-3 space-y-2.5 border-t border-muted-foreground/20 pt-2.5">
           <p className="text-[11px] text-muted-foreground leading-snug">
             Paste the posting text, upload a .txt file, or fetch a URL (best-effort — many job boards render text via
-            JavaScript and won't yield anything; paste is the reliable option). We match against this index's known
-            expertise/discipline keywords, not a full language model — it's a heuristic boost, not a validated
-            statistical signal like the rest of the model.
+            JavaScript and won't yield anything; paste is the reliable option), then click Match Candidates. We pull
+            the distinctive terms out of the posting itself (not just this index's known expertise tags), then
+            re-score candidates by overlap — it's a heuristic boost, not a validated statistical signal like the rest
+            of the model.
           </p>
           <textarea
             value={text}
@@ -152,10 +237,22 @@ export default function JobDescriptionInput({
               <button onClick={clear} className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2">Clear</button>
             )}
           </div>
+          <div>
+            <button
+              onClick={handleMatchClick}
+              disabled={!text.trim()}
+              className="h-9 px-4 rounded-lg text-sm font-bold bg-green-700 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-110 inline-flex items-center gap-1.5"
+            >
+              {justMatched ? "✓ Matched" : "🔎 Match Candidates"}
+            </button>
+            {!text.trim() && (
+              <span className="ml-2 text-[11px] text-muted-foreground">Paste, upload, or fetch text above first</span>
+            )}
+          </div>
           {fileError && <p className="text-[11px] text-amber-700 dark:text-amber-500">{fileError}</p>}
           {urlError && <p className="text-[11px] text-amber-700 dark:text-amber-500">{urlError}</p>}
           {text && keywords.length === 0 && (
-            <p className="text-[11px] text-muted-foreground">No known keywords matched this text yet — matching still works, it just won't add a score boost.</p>
+            <p className="text-[11px] text-muted-foreground">No distinctive keywords found in this text yet — try pasting more of the posting, or click Match Candidates once you have.</p>
           )}
           {keywords.length > 0 && (
             <div className="flex flex-wrap gap-1">

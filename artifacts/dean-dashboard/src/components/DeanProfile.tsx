@@ -8,7 +8,7 @@ import { FullPortrait } from "./DeanPortrait";
 import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
-import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps } from "@/data/enrichment";
+import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps, type NewsItem } from "@/data/enrichment";
 
 function formatMoney(val: number | null): string {
   if (!val) return "–";
@@ -95,10 +95,12 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
 
   return (
     <div className="bg-accent/30 rounded-xl p-5">
-      <div className="flex gap-5 items-start">
-      <div className="flex-1 min-w-0">
-      <div className="flex items-start justify-between mb-3">
-        <div>
+      {/* Only the identity header (name/school/photo/close) shares width with the
+          portrait -- everything below (Career Path, News & Media, etc.) runs the
+          full card width instead of being squeezed by a shrink-0 photo column that,
+          past this point, has nothing left in it. */}
+      <div className="flex gap-5 items-start justify-between mb-3">
+        <div className="flex-1 min-w-0">
           <h3 className="text-lg font-bold">{dean.dean}</h3>
           <p className="text-sm text-muted-foreground">
             {onOpenSchool ? (
@@ -136,6 +138,20 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
               </a>
             </p>
           )}
+        </div>
+
+        <div className="flex flex-col items-end gap-2 shrink-0">
+          {onClose && (
+            <button
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              onClick={onClose}
+            >
+              ✕ Close
+            </button>
+          )}
+          <div className="max-sm:hidden">
+            <FullPortrait dean={dean} onSchoolHistory={onOpenSchool ? () => onOpenSchool(dean.university, dean.school) : undefined} />
+          </div>
         </div>
       </div>
 
@@ -218,7 +234,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
           specific appointment (how they got it, how it's going or how it ended).
           Keeps both columns populated instead of one tall column and one mostly
           empty one. */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+      <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
         <div className="grid grid-cols-[140px_1fr] gap-y-1.5">
           <span className="text-muted-foreground font-medium">Origin</span>
           <span>{ORIGIN_LABELS[dean.origin] || dean.origin}</span>
@@ -323,7 +339,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
           <>
           <div className="mt-4 pt-3 border-t border-border">
             <h4 className="text-sm font-bold mb-3">Career Path</h4>
-            <div className={mapRenders ? "grid gap-5 items-start lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)]" : ""}>
+            <div className={mapRenders ? "grid gap-5 items-start grid-cols-[minmax(0,220px)_minmax(0,1fr)]" : ""}>
             <div>
             <div className="relative ml-1">
               {display.map((step, j) => {
@@ -393,18 +409,27 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
         </div>
         {hasNews ? (
           <ul className="space-y-1.5">
-            {research!.news!.map((n, i) => (
+            {research!.news!.map((raw, i) => {
+              // A handful of research entries (a batch pass on the Creative Arts
+              // index) stored bare headline strings instead of {title,url} --
+              // render those as plain text instead of a blank, href-less link.
+              const n: Partial<NewsItem> = typeof raw === "string" ? { title: raw } : raw;
+              return (
               <li key={i} className="text-sm flex gap-2">
                 <span aria-hidden className="text-muted-foreground select-none">›</span>
                 <span className="min-w-0">
-                  <a
-                    href={n.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-primary hover:underline underline-offset-2 break-words"
-                  >
-                    {n.title}
-                  </a>
+                  {n.url ? (
+                    <a
+                      href={n.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary hover:underline underline-offset-2 break-words"
+                    >
+                      {n.title}
+                    </a>
+                  ) : (
+                    <span className="break-words">{n.title}</span>
+                  )}
                   {(n.source || n.date) && (
                     <span className="text-xs text-muted-foreground">
                       {" "}— {[n.source, n.date].filter(Boolean).join(", ")}
@@ -412,7 +437,8 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
                   )}
                 </span>
               </li>
-            ))}
+              );
+            })}
           </ul>
         ) : (
           <p className="text-xs text-muted-foreground">No curated coverage on file yet — search live sources:</p>
@@ -442,22 +468,6 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
       {dean.notes && (
         <p className="text-xs text-muted-foreground mt-3 pt-2 border-t border-border italic">{dean.notes}</p>
       )}
-      </div>
-
-      <div className="flex flex-col items-end gap-2 shrink-0">
-        {onClose && (
-          <button
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-            onClick={onClose}
-          >
-            ✕ Close
-          </button>
-        )}
-        <div className="max-sm:hidden">
-          <FullPortrait dean={dean} onSchoolHistory={onOpenSchool ? () => onOpenSchool(dean.university, dean.school) : undefined} />
-        </div>
-      </div>
-      </div>
     </div>
   );
 }

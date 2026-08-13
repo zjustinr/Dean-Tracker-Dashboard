@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
@@ -50,6 +50,14 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   const [jdKeywords, setJdKeywords] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [mapExpandedId, setMapExpandedId] = useState<number | null>(null);
+  const [matchNotice, setMatchNotice] = useState<string | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  const handleMatch = useCallback((n: number) => {
+    setMatchNotice(n > 0 ? `Matched ${n} keyword${n === 1 ? "" : "s"} from the posting -- candidates below are re-scored.` : "No distinctive keywords found in that text -- try pasting more of the posting.");
+    resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => setMatchNotice(null), 5000);
+  }, []);
 
   // Reset everything when the active dataset (index) changes -- a school,
   // state, or JD match chosen for one index doesn't carry meaning in another.
@@ -218,7 +226,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
         <>
           <div className="bg-card border border-border rounded-xl p-4 sm:p-6 space-y-4">
             <StringencyToggle value={stringency} onChange={setStringency} />
-            <JobDescriptionInput vocabulary={keywordVocabulary} onKeywords={setJdKeywords} />
+            <JobDescriptionInput vocabulary={keywordVocabulary} onKeywords={setJdKeywords} onMatch={handleMatch} />
 
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <span className="text-xs font-medium text-muted-foreground">Include</span>
@@ -273,8 +281,13 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
             </div>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px] items-start">
+          <div ref={resultsRef} className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px] items-start scroll-mt-4">
             <div className="bg-card border border-border rounded-xl overflow-hidden">
+              {matchNotice && (
+                <div className="px-4 sm:px-5 py-2 border-b border-border bg-green-50 dark:bg-green-950 text-green-800 dark:text-green-300 text-xs font-medium flex items-center gap-1.5">
+                  <span aria-hidden>✓</span> {matchNotice}
+                </div>
+              )}
               <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
                 <p className="text-sm font-medium">
                   {engine.totalRanked === 0 ? "No" : Math.min(shown.length, engine.totalRanked).toLocaleString()} of {engine.totalRanked.toLocaleString()} eligible candidate{engine.totalRanked === 1 ? "" : "s"} shown
