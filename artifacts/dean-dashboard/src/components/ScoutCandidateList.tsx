@@ -60,10 +60,10 @@ export default function ScoutCandidateList({
     const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
     const roots = (careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)];
     return (
-      <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_260px] items-start">
+      <div className="grid gap-3 grid-cols-[minmax(0,1fr)_260px] items-start">
         <DeanProfile dean={dean} onClose={onClose} onOpenSchool={onOpenSchool} hideAssessment />
         {career && career.length > 0 && (
-          <div className="lg:sticky lg:top-4">
+          <div className="sticky top-4">
             <CareerAssessment steps={career} tenure={tenureFor(dean)} roots={roots} />
           </div>
         )}
