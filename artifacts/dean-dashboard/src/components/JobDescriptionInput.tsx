@@ -1,11 +1,26 @@
 import { useState, useRef } from "react";
+import { extractKeywords, type Keyword } from "@/data/keywordMatch";
 
 /**
  * Optional job-description input for Scout Assistant: paste text, upload a
- * plain-text file, or point at a URL, then extract which of this index's known
- * expertise/discipline keywords actually appear in it. The result is a soft
- * keyword-match score bonus at every stringency tier, and a hard requirement
- * (at least one match) at the strictest tier only -- see ScoutAssistantPage.
+ * plain-text file, or point at a URL, then extract a broad set of candidate
+ * keywords from the text itself (see extractKeywords in data/keywordMatch.ts)
+ * plus any of this index's known expertise/discipline tags that literally
+ * appear in it. Matching against candidates is fuzzy (stemmed word roots),
+ * not exact-substring -- this stage is meant to cast a wide net; the
+ * stringency dial is what narrows it. See ScoutAssistantPage for scoring.
+ *
+ * The extraction used to ONLY check the pasted text against the closed
+ * `vocabulary` list (expertise tags already present on some candidate in this
+ * index), so a real, substantive term in a posting -- "trans-disciplinary",
+ * "entrepreneurial", "global", "shared-governance" -- was invisible unless it
+ * happened to already be a tag on file, and even a literal match like
+ * "innovation" wouldn't connect to a candidate's brief that said "innovative."
+ * extractKeywords now pulls stemmed single words AND two-word phrases
+ * directly out of the pasted text (broad net, not vocabulary-limited), with
+ * the closed-vocabulary tags unioned in on top since they still catch
+ * multi-word tags the phrase pass won't reassemble (e.g. "human-computer
+ * interaction").
  *
  * Scope note: only .txt/.md files are parsed directly (native FileReader, no
  * new dependencies). PDF/Word uploads are not parsed in-browser -- this is a
@@ -17,10 +32,14 @@ import { useState, useRef } from "react";
  * little or nothing on a JS-rendered job board -- also disclosed inline.
  */
 export default function JobDescriptionInput({
-  vocabulary, onKeywords,
+  vocabulary, onKeywords, onMatch,
 }: {
   vocabulary: string[];
-  onKeywords: (keywords: string[], rawText: string) => void;
+  onKeywords: (keywords: Keyword[], rawText: string) => void;
+  /** Fired when "Match Candidates" is clicked -- an explicit, visible confirmation
+   *  that the algorithm ran, since the auto-match-on-keystroke behavior alone gave
+   *  no clear signal anything had happened. */
+  onMatch?: (keywordCount: number) => void;
 }) {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -28,14 +47,23 @@ export default function JobDescriptionInput({
   const [urlStatus, setUrlStatus] = useState<"idle" | "loading" | "error">("idle");
   const [urlError, setUrlError] = useState("");
   const [fileError, setFileError] = useState("");
-  const [keywords, setKeywords] = useState<string[]>([]);
+  const [keywords, setKeywords] = useState<Keyword[]>([]);
+  const [justMatched, setJustMatched] = useState(false);
   const fileRef = useRef<HTMLInputElement | null>(null);
 
   const extract = (raw: string) => {
-    const lower = raw.toLowerCase();
-    const hits = vocabulary.filter((kw) => lower.includes(kw.toLowerCase()));
+    const hits = extractKeywords(raw, vocabulary);
     setKeywords(hits);
     onKeywords(hits, raw);
+    return hits;
+  };
+
+  const handleMatchClick = () => {
+    const hits = extract(text);
+    setOpen(true);
+    setJustMatched(true);
+    onMatch?.(hits.length);
+    window.setTimeout(() => setJustMatched(false), 2500);
   };
 
   const applyText = (raw: string) => {
@@ -113,9 +141,10 @@ export default function JobDescriptionInput({
         <div className="px-3 pb-3 space-y-2.5 border-t border-muted-foreground/20 pt-2.5">
           <p className="text-[11px] text-muted-foreground leading-snug">
             Paste the posting text, upload a .txt file, or fetch a URL (best-effort — many job boards render text via
-            JavaScript and won't yield anything; paste is the reliable option). We match against this index's known
-            expertise/discipline keywords, not a full language model — it's a heuristic boost, not a validated
-            statistical signal like the rest of the model.
+            JavaScript and won't yield anything; paste is the reliable option), then click Match Candidates. We pull
+            the distinctive terms out of the posting itself (not just this index's known expertise tags), then
+            re-score candidates by overlap — it's a heuristic boost, not a validated statistical signal like the rest
+            of the model.
           </p>
           <textarea
             value={text}
@@ -152,15 +181,36 @@ export default function JobDescriptionInput({
               <button onClick={clear} className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2">Clear</button>
             )}
           </div>
+          <div>
+            <button
+              onClick={handleMatchClick}
+              disabled={!text.trim()}
+              className="h-9 px-4 rounded-lg text-sm font-bold bg-green-700 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-110 inline-flex items-center gap-1.5"
+            >
+              {justMatched ? "✓ Matched" : "🔎 Match Candidates"}
+            </button>
+            {!text.trim() && (
+              <span className="ml-2 text-[11px] text-muted-foreground">Paste, upload, or fetch text above first</span>
+            )}
+          </div>
           {fileError && <p className="text-[11px] text-amber-700 dark:text-amber-500">{fileError}</p>}
           {urlError && <p className="text-[11px] text-amber-700 dark:text-amber-500">{urlError}</p>}
           {text && keywords.length === 0 && (
-            <p className="text-[11px] text-muted-foreground">No known keywords matched this text yet — matching still works, it just won't add a score boost.</p>
+            <p className="text-[11px] text-muted-foreground">No distinctive keywords found in this text yet — try pasting more of the posting, or click Match Candidates once you have.</p>
           )}
           {keywords.length > 0 && (
             <div className="flex flex-wrap gap-1">
               {keywords.map((k) => (
-                <span key={k} className="text-[10px] px-1.5 py-0.5 rounded bg-[#011F5B]/10 text-[#011F5B] font-medium">{k}</span>
+                <span
+                  key={k.stem}
+                  title={k.kind === "tag" ? "Known expertise tag on file" : k.kind === "phrase" ? "Two-word phrase from the posting" : "Term from the posting (matched by root, e.g. “innovative” also matches “innovation”)"}
+                  className={[
+                    "text-[10px] px-1.5 py-0.5 rounded font-medium",
+                    k.kind === "tag" ? "bg-[#011F5B]/10 text-[#011F5B]" : k.kind === "phrase" ? "bg-emerald-600/10 text-emerald-700 dark:text-emerald-400" : "bg-muted text-muted-foreground",
+                  ].join(" ")}
+                >
+                  {k.display}
+                </span>
               ))}
             </div>
           )}

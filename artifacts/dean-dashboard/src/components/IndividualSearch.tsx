@@ -1049,7 +1049,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       )}
 
       {shown.length > 0 && (
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px] items-start">
+        <div className="grid gap-4 grid-cols-[minmax(0,1fr)_300px] items-start">
         <div className="bg-card border border-border rounded-xl overflow-hidden">
           <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
             <p className="text-sm font-medium">{results.length} result{results.length !== 1 ? "s" : ""}</p>
