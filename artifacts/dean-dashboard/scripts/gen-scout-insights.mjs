@@ -46,6 +46,7 @@ const FILE_ID = {
   "r1-vet-deans.json": "usvet", "r1-grad-deans.json": "usgrad",
   "r1-camd-deans.json": "uscreativearts",
   "r1-advancement-deans.json": "usadvancement", "r1-lac-deans.json": "uslac",
+  "r1-adminleaders-deans.json": "usadminleaders",
 };
 
 const read = (f) => { try { return JSON.parse(readFileSync(join(SRC, f), "utf8")); } catch { return []; } };
