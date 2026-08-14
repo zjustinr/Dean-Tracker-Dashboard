@@ -95,6 +95,12 @@ const REGIONS: Record<string, string[]> = {
   West: ["AZ", "CO", "ID", "MT", "NV", "NM", "UT", "WY", "AK", "CA", "HI", "OR", "WA"],
 };
 
+// Institution-tier display order (Carnegie-driven, plus a couple of buckets for
+// institutions Carnegie doesn't classify as a single doctoral/baccalaureate
+// campus). Sparsely populated indices with only one tier still work fine — the
+// toggle just renders one button. See bundle.schools[].carnegie for the source.
+const TIER_ORDER = ["R1", "R2", "R3 / Other Doctoral", "Regional / Master's", "Liberal Arts College", "Community College", "Specialized / Professional School", "System Office / Consortium"];
+
 /**
  * Slate Builder — the flagship view.
  *
@@ -115,7 +121,12 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
 
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState("");
-  const [discipline, setDiscipline] = useState("");
+  // Function/discipline filter (disciplineBroad). Multi-select like regions/states
+  // -- empty set = no narrowing, pick one for the old single-value behavior, pick
+  // several to browse across functions at once. Most indices only ever have a
+  // handful of distinct values; it earns its keep most on messier, cross-function
+  // indices like Senior Administrative Leaders (11 buckets: HR, Legal, Finance...).
+  const [disciplines, setDisciplines] = useState<Set<string>>(new Set());
   const [school, setSchool] = useState("");
   const [tenureWin, setTenureWin] = useState<"sitting" | "5" | "10" | "any">("sitting");
   // Permanent vs interim. "interim" among sitting leaders = institutions in
@@ -132,6 +143,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const [yrTo, setYrTo] = useState<number | null>(null);
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
+  // Institution-tier toggle (carnegie), same multi-select shape as disciplines
+  // above. Sparsely populated indices (one tier) still work fine -- a single
+  // button. Earns its keep on cross-tier indices spanning R1s down to community
+  // colleges, like Senior Administrative Leaders.
+  const [tiers, setTiers] = useState<Set<string>>(new Set());
   const [sortBy, setSortBy] = useState<"name" | "tenure" | "recent" | "sofar">("name");
   // Credential screens (Ph.D. / Professor). Off by default across every index —
   // they narrow the slate, so a searcher opts in rather than discovering
@@ -166,7 +182,8 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // itself read as a fresh filter action, and idle browsing stays quiet.
   const filterSnapshot = useMemo(() => {
     const f: Record<string, string | number | boolean | string[]> = {};
-    if (discipline) f.discipline = discipline;
+    if (disciplines.size) f.discipline = Array.from(disciplines);
+    if (tiers.size) f.tier = Array.from(tiers);
     if (sortBy !== "name") f.sort = sortBy;
     if (includeGender !== "all") f.gender = includeGender;
     if (apptType !== "all") f.apptType = apptType;
@@ -182,7 +199,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     if (affinity.size) f.affinity = Array.from(affinity);
     return f;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [discipline, sortBy, includeGender, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, letter, showHazard, affinity]);
+  }, [disciplines, tiers, sortBy, includeGender, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, letter, showHazard, affinity]);
   const filterLogTimer = useRef<number | null>(null);
   const filterLogSig = useRef<string>("{}");
   useEffect(() => {
@@ -331,6 +348,13 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     }
     return m;
   }, [bundle.schools]);
+  const tierOf = useMemo(() => {
+    const m = new Map<string, string>();
+    for (const s of (bundle.schools as unknown as { university?: string; carnegie?: string }[])) {
+      if (s.university && s.carnegie) m.set(s.university.toLowerCase(), s.carnegie);
+    }
+    return m;
+  }, [bundle.schools]);
 
   // University -> map point, for the candidate map. Only schools geoAlbersUsa can
   // project (excludes territories / missing coords) so a Marker never gets a null.
@@ -350,7 +374,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // b-schools" bug (filter in B-school, switch index, see nothing). Defined
   // before the prefill effect so a prefill arriving in the same commit still wins.
   useEffect(() => {
-    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword(""); setAffinity(new Set());
+    setQuery(""); setLetter(""); setDisciplines(new Set()); setTiers(new Set()); setSchool(""); setKeyword(""); setAffinity(new Set());
     setTenureWin("sitting"); setServedMin(0); setServedMax(SERVED_CAP);
     setApptType("all"); setYrFrom(null); setYrTo(null);
     setRegions(new Set()); setStates(new Set()); setExpandedId(null);
@@ -359,7 +383,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   useEffect(() => {
     if (!prefill) return;
     setQuery(prefill.fullName);
-    setLetter(""); setDiscipline(""); setSchool(""); setTenureWin("any");
+    setLetter(""); setDisciplines(new Set()); setTiers(new Set()); setSchool(""); setTenureWin("any");
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set());
     // Clear every narrowing filter too, so the requested person is never filtered
     // out of results (which would leave "View full profile" opening nothing) — e.g.
@@ -374,19 +398,22 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prefill?.token, allDeans]);
 
-  const { disciplines, schoolList, stateList } = useMemo(() => {
-    const dSet = new Set<string>(), sSet = new Set<string>(), stSet = new Set<string>();
+  const { disciplineOptions, schoolList, stateList, tierOptions } = useMemo(() => {
+    const dSet = new Set<string>(), sSet = new Set<string>(), stSet = new Set<string>(), tSet = new Set<string>();
     for (const d of allDeans) {
       if (d.disciplineBroad && d.disciplineBroad !== "Unknown") dSet.add(d.disciplineBroad);
       if (d.university) sSet.add(d.university);
+      const t = tierOf.get(d.university.toLowerCase());
+      if (t) tSet.add(t);
     }
     for (const st of stateOf.values()) stSet.add(st);
     return {
-      disciplines: [...dSet].sort((a, b) => a.localeCompare(b)),
+      disciplineOptions: [...dSet].sort((a, b) => a.localeCompare(b)),
       schoolList: [...sSet].sort((a, b) => a.localeCompare(b)),
       stateList: [...stSet].sort(),
+      tierOptions: TIER_ORDER.filter((t) => tSet.has(t)),
     };
-  }, [allDeans, stateOf]);
+  }, [allDeans, stateOf, tierOf]);
 
   const effectiveStates = useMemo(() => {
     const s = new Set(states);
@@ -394,7 +421,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     return s;
   }, [states, regions]);
 
-  const hasFilter = query.trim() !== "" || !!letter || !!discipline || !!school || keyword.trim() !== "" ||
+  const hasFilter = query.trim() !== "" || !!letter || disciplines.size > 0 || tiers.size > 0 || !!school || keyword.trim() !== "" ||
     tenureWin !== "any" || apptType !== "all" || servedMin > 0 || servedMax < SERVED_CAP || effectiveStates.size > 0;
 
   // Keyword universe for the current index: every distinct expertise tag on a
@@ -456,14 +483,18 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       }
       if (q && !d.dean.toLowerCase().includes(q)) return false;
       if (letter && last[0] !== letter.toLowerCase()) return false;
-      if (discipline && d.disciplineBroad !== discipline) return false;
+      if (disciplines.size && !disciplines.has(d.disciplineBroad || "")) return false;
+      if (tiers.size) {
+        const t = tierOf.get(d.university.toLowerCase());
+        if (!t || !tiers.has(t)) return false;
+      }
       if (school && d.university !== school) return false;
       const key = d.dean + "|" + d.university + "|" + d.school;
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
     });
-  }, [allDeans, query, keyword, researchMap, letter, discipline, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, includeGender, hasFilter]);
+  }, [allDeans, query, keyword, researchMap, letter, disciplines, tiers, tierOf, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, includeGender, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -508,7 +539,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       if (!d.startYear) continue;
       if (d.isInterim) continue; // interims serve ~1 yr and skew the norm
       if ((d as { roleType?: string }).roleType === "subdean") continue; // feeder bench, not deans
-      if (discipline && d.disciplineBroad !== discipline) continue;
+      if (disciplines.size && !disciplines.has(d.disciplineBroad || "")) continue;
+      if (tiers.size) {
+        const t = tierOf.get(d.university.toLowerCase());
+        if (!t || !tiers.has(t)) continue;
+      }
       if (effectiveStates.size) {
         const st = stateOf.get(d.university.toLowerCase());
         if (!st || !effectiveStates.has(st)) continue;
@@ -557,7 +592,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     const hazSeries = fit ?? hazard.slice(0, lastBin + 1);
     const hazPeak = hazSeries.length ? Math.max(...hazSeries) : 0;
     return { bins, bw: 252 / NB, tmax: TMAX, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, fit, hazPeak, lastBin, atRiskN: atRisk[0] };
-  }, [allDeans, discipline, effectiveStates, stateOf, yFrom, yTo]);
+  }, [allDeans, disciplines, tiers, tierOf, effectiveStates, stateOf, yFrom, yTo]);
 
   // Narrow, recent windows read short: long tenures started in that window have
   // not finished, so only the quick exits are counted. Flag it honestly.
@@ -631,7 +666,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     setter((cur) => { const n = new Set(cur); n.has(v) ? n.delete(v) : n.add(v); return n; });
 
   const clearAll = () => {
-    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword(""); setAffinity(new Set());
+    setQuery(""); setLetter(""); setDisciplines(new Set()); setTiers(new Set()); setSchool(""); setKeyword(""); setAffinity(new Set());
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
     setRequirePhd(false); setRequireProf(false); setIncludeGender("all"); setYrFrom(null); setYrTo(null);
   };
@@ -714,10 +749,6 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                 <option value="10">Served in last 10 yrs</option>
                 <option value="any">Any time</option>
               </select>
-              <select className={sel} value={discipline} onChange={(e) => { setDiscipline(e.target.value); setExpandedId(null); }} aria-label="Discipline">
-                <option value="">All disciplines</option>
-                {disciplines.map((d) => <option key={d} value={d}>{d}</option>)}
-              </select>
               <select className={sel} value={school} onChange={(e) => { setSchool(e.target.value); setExpandedId(null); }} aria-label="School">
                 <option value="">All schools</option>
                 {schoolList.map((sc) => <option key={sc} value={sc}>{sc}</option>)}
@@ -753,6 +784,30 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               </label>
               <span className="text-[10px] text-muted-foreground">(held a doctorate / faculty rank)</span>
             </div>
+
+            {disciplineOptions.length > 1 && (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                <span className="text-xs font-medium text-muted-foreground">Function</span>
+                {disciplineOptions.map((d) => (
+                  <label key={d} className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
+                    <input type="checkbox" checked={disciplines.has(d)} onChange={() => { toggleSet(setDisciplines, d); setExpandedId(null); }} className="accent-[#011F5B] w-3.5 h-3.5" />
+                    {d}
+                  </label>
+                ))}
+              </div>
+            )}
+
+            {tierOptions.length > 1 && (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                <span className="text-xs font-medium text-muted-foreground">Institution tier</span>
+                {tierOptions.map((t) => (
+                  <label key={t} className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
+                    <input type="checkbox" checked={tiers.has(t)} onChange={() => { toggleSet(setTiers, t); setExpandedId(null); }} className="accent-[#011F5B] w-3.5 h-3.5" />
+                    {t}
+                  </label>
+                ))}
+              </div>
+            )}
 
             {affinityOn && (
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 rounded-lg bg-[#8C1D40]/8 border border-[#8C1D40]/25 px-2.5 py-1.5">
@@ -848,7 +903,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
             <h3 className="text-sm font-bold mb-0.5">Tenure benchmark</h3>
             <p className="text-[11px] text-muted-foreground mb-2 leading-snug">
               {hist.n
-                ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""}</>
+                ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{disciplines.size ? ` · ${Array.from(disciplines).join(", ")}` : ""}</>
                 : "No completed permanent tenures in this range yet."}
               {(datasetId === "usgrad" || datasetId === "usadvancement") && hist.n < 5 && (
                 <span className="block mt-0.5 text-muted-foreground/80">

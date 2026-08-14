@@ -25,6 +25,11 @@ const REGIONS: Record<string, string[]> = {
   West: ["AZ", "CO", "ID", "MT", "NV", "NM", "UT", "WY", "AK", "CA", "HI", "OR", "WA"],
 };
 
+// Institution-tier display order -- see IndividualSearch.tsx's TIER_ORDER for the
+// full rationale. Kept in sync manually (this file duplicates several other small
+// constants from IndividualSearch already, e.g. REGIONS/DOCT_RE/PROF_RE).
+const TIER_ORDER = ["R1", "R2", "R3 / Other Doctoral", "Regional / Master's", "Liberal Arts College", "Community College", "Specialized / Professional School", "System Office / Consortium"];
+
 const DOCT_RE = /\b(ph\.?\s?d|d\.?\s?phil|ed\.?\s?d|sc\.?\s?d|d\.?sc|dr\.?p\.?h|d\.?n\.?p|d\.?b\.?a|dvm|m\.?d|j\.?d|doctora)\b/i;
 const PROF_RE = /\b(professor|faculty)\b/i;
 
@@ -52,6 +57,13 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   const [apptType, setApptType] = useState<"all" | "perm" | "interim">("all");
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
+  // Function (disciplineBroad) and institution-tier (carnegie) toggles -- same
+  // multi-select shape and rationale as Slate Builder's. New here (Scout Assistant
+  // never had a discipline/function filter before); most indices only have one or
+  // a handful of distinct values, so these stay out of the way until an index like
+  // Senior Administrative Leaders actually needs them.
+  const [functions, setFunctions] = useState<Set<string>>(new Set());
+  const [tiers, setTiers] = useState<Set<string>>(new Set());
   const [jdKeywords, setJdKeywords] = useState<Keyword[]>([]);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [mapExpandedId, setMapExpandedId] = useState<number | null>(null);
@@ -68,7 +80,8 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   // state, or JD match chosen for one index doesn't carry meaning in another.
   useEffect(() => {
     setUniversity(""); setStringency(1); setIncludeGender("all"); setRequirePhd(false); setRequireProf(false);
-    setApptType("all"); setRegions(new Set()); setStates(new Set()); setJdKeywords([]); setVisibleCount(PAGE_SIZE);
+    setApptType("all"); setRegions(new Set()); setStates(new Set()); setFunctions(new Set()); setTiers(new Set());
+    setJdKeywords([]); setVisibleCount(PAGE_SIZE);
   }, [datasetId]);
   useEffect(() => { setVisibleCount(PAGE_SIZE); }, [university, stringency]);
 
@@ -81,6 +94,25 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
     }
     return m;
   }, [bundle.schools]);
+  const tierOf = useMemo(() => {
+    const m = new Map<string, string>();
+    for (const s of (bundle.schools as unknown as { university?: string; carnegie?: string }[])) {
+      if (s.university && s.carnegie) m.set(s.university.toLowerCase(), s.carnegie);
+    }
+    return m;
+  }, [bundle.schools]);
+  const { functionOptions, tierOptions } = useMemo(() => {
+    const fSet = new Set<string>(), tSet = new Set<string>();
+    for (const d of allDeans) {
+      if (d.disciplineBroad && d.disciplineBroad !== "Unknown") fSet.add(d.disciplineBroad);
+      const t = tierOf.get(d.university.toLowerCase());
+      if (t) tSet.add(t);
+    }
+    return {
+      functionOptions: [...fSet].sort((a, b) => a.localeCompare(b)),
+      tierOptions: TIER_ORDER.filter((t) => tSet.has(t)),
+    };
+  }, [allDeans, tierOf]);
   const geoOf = useMemo(() => {
     const m = new Map<string, { lat: number; lng: number }>();
     // Corpus-wide fallback first -- Scout Assistant draws candidates from every
@@ -152,12 +184,17 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
     const isSub = (d as { roleType?: string }).roleType === "subdean";
     if (apptType === "perm" && (isSub || d.isInterim)) return false;
     if (apptType === "interim" && !isSub && !d.isInterim) return false;
+    if (functions.size && !functions.has(d.disciplineBroad || "")) return false;
+    if (tiers.size) {
+      const t = tierOf.get(d.university.toLowerCase());
+      if (!t || !tiers.has(t)) return false;
+    }
     if (effectiveStates.size) {
       const st = stateOf.get(d.university.toLowerCase());
       if (!st || !effectiveStates.has(st)) return false;
     }
     return true;
-  }, [requirePhd, requireProf, includeGender, apptType, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
+  }, [requirePhd, requireProf, includeGender, apptType, functions, tiers, tierOf, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
 
   // Job-description keyword boost: a heuristic overlap score against a broad
   // text surface for each candidate -- discipline, career background, prior
@@ -285,6 +322,30 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
                 Professor
               </label>
             </div>
+
+            {functionOptions.length > 1 && (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                <span className="text-xs font-medium text-muted-foreground">Function</span>
+                {functionOptions.map((f) => (
+                  <label key={f} className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
+                    <input type="checkbox" checked={functions.has(f)} onChange={() => toggleSet(setFunctions, f)} className="accent-[#011F5B] w-3.5 h-3.5" />
+                    {f}
+                  </label>
+                ))}
+              </div>
+            )}
+
+            {tierOptions.length > 1 && (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                <span className="text-xs font-medium text-muted-foreground">Institution tier</span>
+                {tierOptions.map((t) => (
+                  <label key={t} className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
+                    <input type="checkbox" checked={tiers.has(t)} onChange={() => toggleSet(setTiers, t)} className="accent-[#011F5B] w-3.5 h-3.5" />
+                    {t}
+                  </label>
+                ))}
+              </div>
+            )}
 
             <div className="flex gap-3 items-start">
               <div className="flex-1 min-w-0">
