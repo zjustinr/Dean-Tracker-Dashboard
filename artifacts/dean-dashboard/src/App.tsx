@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import SchoolExplorer from "@/components/SchoolExplorer";
 import CrossSchoolAnalysis from "@/components/CrossSchoolAnalysis";
 import AggregateTrends from "@/components/AggregateTrends";
@@ -19,6 +19,7 @@ import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
 import FeatureRequestWidget from "@/components/FeatureRequestWidget";
 import ModuleIcon from "@/components/ModuleIcons";
+import { animateScrollIntoView } from "@/lib/utils";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 import { TrialProvider, useTrial } from "@/data/TrialContext";
 import { DATASET_LIST } from "@/data/datasets";
@@ -104,10 +105,26 @@ function AppInner() {
   const tabs = DEFAULT_TABS;
   const [activeTab, setActiveTab] = useState(DEFAULT_TABS[0].value);
   const [entered, setEntered] = useState(false);
+  // Card clicks should float the opened module to the top of the viewport, the
+  // way every other module-select in the app already brings its target into
+  // view. Scoped to a ref rather than the effect just watching [activeTab,
+  // entered] so it fires only for direct card clicks -- deep-link callbacks
+  // below (openDeanProfile etc.) also flip activeTab/entered but already scroll
+  // to a specific row themselves, and firing both would fight over window.scrollY.
+  const panelRef = useRef<HTMLDivElement>(null);
+  const scrollOnNextPanelRef = useRef(false);
   const openModule = useCallback((value: string) => {
+    scrollOnNextPanelRef.current = true;
     setActiveTab(value);
     setEntered(true);
   }, []);
+  useEffect(() => {
+    if (!entered || !scrollOnNextPanelRef.current) return;
+    scrollOnNextPanelRef.current = false;
+    const el = panelRef.current;
+    if (!el) return;
+    requestAnimationFrame(() => animateScrollIntoView(el));
+  }, [activeTab, entered]);
   const [deanPrefill, setDeanPrefill] = useState<DeanSearchPrefill | null>(null);
   const [schoolPrefill, setSchoolPrefill] = useState<SchoolPrefill | null>(null);
 
@@ -326,7 +343,7 @@ function AppInner() {
             </div>
 
             {entered && (
-              <div className="pt-2 border-t border-border">
+              <div ref={panelRef} className="pt-2 border-t border-border">
                 {tabs.map(tab => (
                   <div
                     key={tab.value}
