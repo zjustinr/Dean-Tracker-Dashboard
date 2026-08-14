@@ -41,6 +41,7 @@ const INDICES = [
   ["usr2", "R2 Universities"],
   ["usvet", "Veterinary"],
   ["usgrad", "Graduate College"],
+  ["usadminleaders", "Administrative Leaders"],
 ];
 const ALL_IDS = INDICES.map(([id]) => id);
 
