@@ -786,26 +786,32 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
             </div>
 
             {disciplineOptions.length > 1 && (
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                <span className="text-xs font-medium text-muted-foreground">Function</span>
-                {disciplineOptions.map((d) => (
-                  <label key={d} className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
-                    <input type="checkbox" checked={disciplines.has(d)} onChange={() => { toggleSet(setDisciplines, d); setExpandedId(null); }} className="accent-[#011F5B] w-3.5 h-3.5" />
-                    {d}
-                  </label>
-                ))}
+              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
+                <span className="text-xs font-medium text-muted-foreground pt-1">Function</span>
+                {/* Pill toggle like Region: All (no filter) is the default; clicking a
+                    pill adds/removes it from the multi-select set. */}
+                <div className="flex flex-wrap gap-1.5">
+                  <button onClick={() => { setDisciplines(new Set()); setExpandedId(null); }}
+                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
+                  {disciplineOptions.map((d) => (
+                    <button key={d} onClick={() => { toggleSet(setDisciplines, d); setExpandedId(null); }}
+                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.has(d) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{d}</button>
+                  ))}
+                </div>
               </div>
             )}
 
             {tierOptions.length > 1 && (
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                <span className="text-xs font-medium text-muted-foreground">Institution tier</span>
-                {tierOptions.map((t) => (
-                  <label key={t} className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
-                    <input type="checkbox" checked={tiers.has(t)} onChange={() => { toggleSet(setTiers, t); setExpandedId(null); }} className="accent-[#011F5B] w-3.5 h-3.5" />
-                    {t}
-                  </label>
-                ))}
+              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
+                <span className="text-xs font-medium text-muted-foreground pt-1">Institution tier</span>
+                <div className="flex flex-wrap gap-1.5">
+                  <button onClick={() => { setTiers(new Set()); setExpandedId(null); }}
+                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", tiers.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
+                  {tierOptions.map((t) => (
+                    <button key={t} onClick={() => { toggleSet(setTiers, t); setExpandedId(null); }}
+                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", tiers.has(t) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{t}</button>
+                  ))}
+                </div>
               </div>
             )}
 
