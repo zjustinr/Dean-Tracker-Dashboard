@@ -6,6 +6,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
 
 export const HERE = dirname(fileURLToPath(import.meta.url));
 export const SRC = join(HERE, "..", "src", "data");
@@ -15,6 +16,18 @@ export const ARCHIVE_DIR = join(DEANS_DIR, "archive");
 export const PHOTOS_PATH = join(SRC, "dean-photos.json");
 
 export const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36";
+
+// Some CDNs (Akamai/Cloudflare bot managers, e.g. on Harvard/GMU/NYU/etc.)
+// fingerprint-block Node's fetch() with a 403 even with a matching User-Agent,
+// while curl with identical headers succeeds. Shell out to curl for binary
+// image downloads to route around that; caller catches thrown errors.
+export function curlFetchBuffer(url) {
+  return execFileSync(
+    "curl",
+    ["-sS", "-f", "-L", "--max-time", "20", "-A", UA, "-H", "Accept: image/avif,image/webp,image/*,*/*", url],
+    { maxBuffer: 20 * 1024 * 1024 }
+  );
+}
 
 export const norm = (s) => (s || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z\s]/g, " ").replace(/\s+/g, " ").trim();
 export const lastName = (full) => { const parts = norm(full).split(" ").filter(Boolean); return parts[parts.length - 1] || ""; };
@@ -120,9 +133,15 @@ export async function downloadAndRecordPhoto({ dean, university, imageUrl, pageU
   let buf;
   try {
     const r = await fetch(imageUrl, { headers: { "User-Agent": UA, Accept: "image/avif,image/webp,image/*,*/*" }, redirect: "follow", signal: AbortSignal.timeout(15000) });
-    if (!r.ok) return `fail:HTTP ${r.status}`;
-    buf = Buffer.from(await r.arrayBuffer());
-  } catch (e) { return `fail:${e.message}`; }
+    if (!r.ok) {
+      if (r.status !== 403) return `fail:HTTP ${r.status}`;
+      try { buf = curlFetchBuffer(imageUrl); } catch { return `fail:HTTP ${r.status}`; }
+    } else {
+      buf = Buffer.from(await r.arrayBuffer());
+    }
+  } catch (e) {
+    try { buf = curlFetchBuffer(imageUrl); } catch { return `fail:${e.message}`; }
+  }
 
   const ext = imgExt(buf);
   if (!ext) return "fail:not-an-image";
