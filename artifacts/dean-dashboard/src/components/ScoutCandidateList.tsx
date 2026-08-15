@@ -15,6 +15,7 @@ import careerRoots from "@/data/career-roots.json";
  */
 export default function ScoutCandidateList({
   candidates, resolvedProfiles, resolveProfile, allDeans, onOpenSchool, emptyMessage,
+  selectable, isSelected, onToggleSelect,
 }: {
   candidates: ScoutCandidate[];
   resolvedProfiles: Record<string, Dean | "not-found">;
@@ -22,6 +23,10 @@ export default function ScoutCandidateList({
   allDeans: Dean[];
   onOpenSchool?: (university: string, school: string) => void;
   emptyMessage: string;
+  /** Adds a per-row checkbox so candidates can be picked into a slate to compare/export -- opt-in, off by default so the embedded Slate-Builder section (which has its own top-level slate) stays unchanged. */
+  selectable?: boolean;
+  isSelected?: (candidate: ScoutCandidate) => boolean;
+  onToggleSelect?: (candidate: ScoutCandidate) => void;
 }) {
   const photos = usePhotoMap();
   const researchMap = useResearchMap();
@@ -94,41 +99,52 @@ export default function ScoutCandidateList({
         const resolved = c.dean ?? (c.resolvable ? resolvedProfiles[affKey(c.resolvable)] : undefined);
         return (
           <div key={c.key}>
-            <button
-              onClick={() => {
-                setExpandedKey(isOpen ? null : c.key);
-                if (!isOpen && c.resolvable) resolveProfile(c.resolvable);
-              }}
-              className={["w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left transition-colors", isOpen ? theme.row : "hover:bg-accent/40"].join(" ")}
-            >
-              <CandidateAvatar enrichKeyStr={c.dean ? enrichKey(c.dean.dean, c.dean.university) : c.resolvable!.enrichKey} name={c.name} theme={c.source} />
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate flex items-center gap-1.5">
-                  <span className="truncate">{c.name}</span>
-                  <span className={`text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded shrink-0 ${theme.pill}`}>{theme.label}</span>
-                </p>
-                <p className="text-xs text-muted-foreground truncate">{c.subtitle}</p>
-                {c.reasoning ? (
-                  <p className={`text-xs mt-0.5 truncate ${theme.text}`}>
-                    <span className="font-semibold">{c.reasoning.label}</span>{c.reasoning.detail ? ` — ${c.reasoning.detail}` : ""}
+            <div className={["w-full flex items-center gap-2 px-4 sm:px-5 py-2.5 transition-colors", isOpen ? theme.row : "hover:bg-accent/40"].join(" ")}>
+              {selectable && (
+                <input
+                  type="checkbox"
+                  checked={isSelected?.(c) ?? false}
+                  onChange={() => onToggleSelect?.(c)}
+                  aria-label={`Select ${c.name}`}
+                  className="accent-[#011F5B] w-4 h-4 shrink-0"
+                />
+              )}
+              <button
+                onClick={() => {
+                  setExpandedKey(isOpen ? null : c.key);
+                  if (!isOpen && c.resolvable) resolveProfile(c.resolvable);
+                }}
+                className="flex-1 min-w-0 flex items-center gap-3 text-left"
+              >
+                <CandidateAvatar enrichKeyStr={c.dean ? enrichKey(c.dean.dean, c.dean.university) : c.resolvable!.enrichKey} name={c.name} theme={c.source} />
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold truncate flex items-center gap-1.5">
+                    <span className="truncate">{c.name}</span>
+                    <span className={`text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded shrink-0 ${theme.pill}`}>{theme.label}</span>
                   </p>
-                ) : (
-                  <p className="text-xs text-muted-foreground italic mt-0.5">No strong pattern match.</p>
-                )}
-                {!!c.matchedKeywords?.length && (
-                  <div className="flex flex-wrap gap-1 mt-1">
-                    {c.matchedKeywords.slice(0, 6).map((k) => (
-                      <span key={k} className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">{k}</span>
-                    ))}
-                    {c.matchedKeywords.length > 6 && (
-                      <span className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-muted text-muted-foreground">+{c.matchedKeywords.length - 6} more</span>
-                    )}
-                  </div>
-                )}
-              </div>
-              {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
-              <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
-            </button>
+                  <p className="text-xs text-muted-foreground truncate">{c.subtitle}</p>
+                  {c.reasoning ? (
+                    <p className={`text-xs mt-0.5 truncate ${theme.text}`}>
+                      <span className="font-semibold">{c.reasoning.label}</span>{c.reasoning.detail ? ` — ${c.reasoning.detail}` : ""}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground italic mt-0.5">No strong pattern match.</p>
+                  )}
+                  {!!c.matchedKeywords?.length && (
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {c.matchedKeywords.slice(0, 6).map((k) => (
+                        <span key={k} className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">{k}</span>
+                      ))}
+                      {c.matchedKeywords.length > 6 && (
+                        <span className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-muted text-muted-foreground">+{c.matchedKeywords.length - 6} more</span>
+                      )}
+                    </div>
+                  )}
+                </div>
+                {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
+                <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
+              </button>
+            </div>
             {isOpen && (
               <div className={`px-4 sm:px-5 pb-4 pt-1 border-l-2 ${theme.row} ${theme.border}`}>
                 {!resolved ? (
