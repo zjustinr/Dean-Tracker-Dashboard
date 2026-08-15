@@ -20,8 +20,26 @@ const norm = (s: string) => s.toLowerCase().trim();
 // point project to null, which throws inside <Marker>/<Line> and blanks the page.
 // Every plotted coordinate (career steps AND alma-mater rings) must pass this.
 const US_TERRITORIES = new Set(["PR", "GU", "VI", "MP", "AS"]);
-const projectableUS = (country: string | null | undefined, state: string | null | undefined, lat: number | null | undefined, lng: number | null | undefined): lat is number =>
-  (country ?? "US") === "US" && lat != null && lng != null && !US_TERRITORIES.has((state || "").toUpperCase());
+const US_STATE_CODES = new Set([
+  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA",
+  "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK",
+  "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY", "DC",
+]);
+// Career-step Geo entries always set `country` explicitly (from geocoding), so
+// this only changes behavior for Root (alma-mater) entries, whose `country` is
+// optional and frequently absent even for foreign schools -- e.g. career-roots.json
+// has entries like { school: "Gauhati University", state: "India", country: undefined }.
+// Defaulting a missing country to "US" (the old behavior) misclassified those as
+// domestic and fed their India-based lat/lng into the Albers USA projection, which
+// returns null for anything outside the US and crashes the Marker that renders it.
+// A missing country is only trusted as domestic when `state` is itself a real
+// US state/DC code -- a foreign country name like "India" or "Germany" never is.
+const projectableUS = (country: string | null | undefined, state: string | null | undefined, lat: number | null | undefined, lng: number | null | undefined): lat is number => {
+  if (lat == null || lng == null) return false;
+  const st = (state || "").toUpperCase();
+  if (US_TERRITORIES.has(st)) return false;
+  return country == null ? US_STATE_CODES.has(st) : country === "US";
+};
 
 interface Located { num: number; role: string; org: string; years: string; geo: Geo; isCurrent: boolean; lat: number; lng: number; x: number; y: number }
 
