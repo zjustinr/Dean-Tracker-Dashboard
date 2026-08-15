@@ -29,6 +29,17 @@ export function curlFetchBuffer(url) {
   );
 }
 
+// Same fingerprint-block issue as curlFetchBuffer, but for HTML leadership/
+// directory pages: several CDNs 403 Node's fetch() while curl with an
+// identical UA succeeds. Used as a fallback when fetch() fails.
+export function curlFetchText(url) {
+  return execFileSync(
+    "curl",
+    ["-sS", "-f", "-L", "--max-time", "20", "-A", UA, "-H", "Accept: text/html,application/xhtml+xml", url],
+    { maxBuffer: 20 * 1024 * 1024 }
+  ).toString("utf8");
+}
+
 export const norm = (s) => (s || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z\s]/g, " ").replace(/\s+/g, " ").trim();
 export const lastName = (full) => { const parts = norm(full).split(" ").filter(Boolean); return parts[parts.length - 1] || ""; };
 export const firstName = (full) => { const parts = norm(full).split(" ").filter(Boolean); return parts[0] || ""; };
