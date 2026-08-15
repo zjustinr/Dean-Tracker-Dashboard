@@ -57,12 +57,15 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
     const isProvost = meta.schoolType === "provost";
     const isGrad = meta.schoolType === "graduate";
     const isAdv = meta.schoolType === "advancement";
+    const isAdminLeaders = meta.schoolType === "adminleaders";
     // Datasets that carry the officeholder's real title in `discipline`
     // (graduate-college heads carry titles like "Vice Provost and Dean";
-    // advancement heads like "Vice President for Advancement" / foundation CEO).
-    const titleVaries = isUniv || isProvost || isGrad || isAdv;
-    const noun = isUniv ? "Leader" : isProvost ? "Provost" : isAdv ? "Advancement VP" : "Dean";
-    const nounPlural = isUniv ? "Leaders" : isProvost ? "Provosts" : isAdv ? "Advancement VPs" : "Deans";
+    // advancement heads like "Vice President for Advancement" / foundation CEO;
+    // admin leaders like "Vice President and Chief People Officer" -- the
+    // function bucket rides in disciplineBroad instead, for filtering).
+    const titleVaries = isUniv || isProvost || isGrad || isAdv || isAdminLeaders;
+    const noun = isUniv ? "Leader" : isProvost ? "Provost" : isAdv ? "Advancement VP" : isAdminLeaders ? "Leader" : "Dean";
+    const nounPlural = isUniv ? "Leaders" : isProvost ? "Provosts" : isAdv ? "Advancement VPs" : isAdminLeaders ? "Leaders" : "Deans";
     const titleOf = (d: { discipline?: string | null; roleType?: string | null } | null | undefined): string => {
       const isSub = d?.roleType === "subdean";
       if (titleVaries || isSub) {

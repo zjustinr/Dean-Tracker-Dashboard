@@ -18,6 +18,19 @@ export const BREAKING_JSON = resolve(__dirname, "../src/data/breaking-news.json"
 export const LOG_PATH = resolve(ROOT, "attached_assets/news_scout_log.csv");
 export const ENRICH_QUEUE = resolve(ROOT, "attached_assets/enrichment_queue.json");
 
+// <id>-deans.json files use a mix of indent widths (0/compact, 1, or 2
+// spaces) depending on which script last wrote them. Writing unconditionally
+// with one style previously reformatted whichever files didn't match it --
+// a single-field change ballooning into an 80k-line diff, and a binary
+// pretty/compact test isn't enough (1-space vs 2-space both count as
+// "pretty" but produce a full reformat against each other). Measure the
+// exact indent width and reproduce it.
+function writeDeansJson(path, rawBefore, arr) {
+  const m = /^\[\r?\n( *)/.exec(rawBefore);
+  const indent = m ? m[1].length : 0;
+  writeFileSync(path, indent ? JSON.stringify(arr, null, indent) : JSON.stringify(arr));
+}
+
 // schoolType (from the scout's dataset table) -> the app dataset it feeds.
 // Every index, including business, is a standalone <deans> JSON that is itself
 // the source of truth the app serves, so applyAppointmentGeneric() appends to it
@@ -83,9 +96,10 @@ export function logCSV(rows) {
   appendFileSync(LOG_PATH, rows.map((l) => l.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")).join("\n") + "\n");
 }
 
-/** Apply an appointment to Excel + deans.json. Returns "added" | "duplicate". */
+/** Apply an appointment to Excel + deans.json. Returns "added" | "duplicate" | "no_source". */
 export function applyAppointment(e) {
   // e: {university, school, dean, interim, date (Date), url, title}
+  if (!e.url) return "no_source"; // every auto-added record must carry a citable sourceUrl
   const yr = e.date.getFullYear();
   const ml = monthLabel(e.date);
 
@@ -121,7 +135,8 @@ export function applyAppointment(e) {
   wb.Sheets["B-School"] = XLSX.utils.json_to_sheet(rows, { header: cols });
   XLSX.writeFile(wb, XLSX_PATH);
 
-  const deans = JSON.parse(readFileSync(DEANS_JSON, "utf8"));
+  const deansRaw = readFileSync(DEANS_JSON, "utf8");
+  const deans = JSON.parse(deansRaw);
   const sibs = deans.filter((d) => d.university.toLowerCase() === e.university.toLowerCase());
   if (sibs.length && !sibs.some((d) => lastName(d.dean) === lastName(e.dean) && Math.abs((d.startYear || 0) - yr) <= 1)) {
     const openT = sibs.filter((d) => d.endYear == null);
@@ -144,7 +159,7 @@ export function applyAppointment(e) {
       surpriseDeparture: false, surpriseEvidence: "", involuntary: false,
       convertedToPermanent: false, connectionType: "", hadPriorConnection: false,
     });
-    writeFileSync(DEANS_JSON, JSON.stringify(deans, null, 2));
+    writeDeansJson(DEANS_JSON, deansRaw, deans);
   }
   return "added";
 }
@@ -166,12 +181,13 @@ export function closeTenure(e) {
   wb.Sheets["B-School"] = XLSX.utils.json_to_sheet(rows, { header: cols });
   XLSX.writeFile(wb, XLSX_PATH);
 
-  const deans = JSON.parse(readFileSync(DEANS_JSON, "utf8"));
+  const deansRaw = readFileSync(DEANS_JSON, "utf8");
+  const deans = JSON.parse(deansRaw);
   const openT = deans.filter((d) => d.university.toLowerCase() === e.university.toLowerCase() && d.endYear == null);
   if (openT.length === 1) {
     openT[0].endYear = yr;
     openT[0].endLabel = ml;
-    writeFileSync(DEANS_JSON, JSON.stringify(deans, null, 2));
+    writeDeansJson(DEANS_JSON, deansRaw, deans);
   }
   return "closed";
 }
@@ -258,13 +274,15 @@ const decade = (yr) => `${Math.floor(yr / 10) * 10}s`;
  * fields and marks everything person-specific as "pending enrichment" (blank /
  * Unknown), which the scheduled enrichment task later fills. Closes the one open
  * tenure at that university if there is exactly one.
- * Returns "added" | "duplicate" | "no_sibling".
+ * Returns "added" | "duplicate" | "no_sibling" | "no_source".
  */
 export function applyAppointmentGeneric(e, deansFile) {
+  if (!e.url) return "no_source"; // every auto-added record must carry a citable sourceUrl
   const yr = e.date.getFullYear();
   const ml = monthLabel(e.date);
   const path = resolve(DATA_DIR, deansFile);
-  const deans = JSON.parse(readFileSync(path, "utf8"));
+  const raw = readFileSync(path, "utf8");
+  const deans = JSON.parse(raw);
   const sibs = deans.filter((d) => (d.university || "").toLowerCase() === e.university.toLowerCase());
   if (!sibs.length) return "no_sibling"; // university not tracked in this dataset
   if (sibs.some((d) => lastName(d.dean) === lastName(e.dean) && Math.abs((d.startYear || 0) - yr) <= 1)) {
@@ -303,7 +321,7 @@ export function applyAppointmentGeneric(e, deansFile) {
     sourceUrl: e.url, convertedToPermanent: false, connectionType: "",
   };
   deans.push(rec);
-  writeFileSync(path, JSON.stringify(deans, null, 2));
+  writeDeansJson(path, raw, deans);
   return "added";
 }
 

@@ -1,0 +1,134 @@
+<!doctype html>
+<!--
+  Starting draft, written to match how Baton Index's trial/usage logging
+  actually works (see api/data.js, api/log.js). Have counsel review before
+  relying on it as binding — in particular the retention window and
+  governing-law placeholder below.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy — Baton Index</title>
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<style>
+  :root { --navy: #011F5B; --crimson: #A31F34; --ink: #16233A; --muted: #5B6B7B; --line: #E6E9EE; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #F6F8FB; color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .top-bar { height: 4px; background: var(--crimson); }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { margin-bottom: 32px; }
+  header a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); }
+  header img { height: 32px; width: 32px; }
+  header span { font-weight: 700; font-size: 18px; }
+  h1 {
+    font-family: 'EB Garamond', Garamond, Georgia, serif; font-weight: 600;
+    font-size: 30px; color: var(--navy); margin: 0 0 6px;
+  }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 36px; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .04em; color: var(--crimson); margin: 36px 0 10px; }
+  p, li { font-size: 15px; color: var(--ink); }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  a.inline { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: rgba(1,31,91,.35); }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 24px 28px; margin-top: 8px;
+  }
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+<div class="wrap">
+  <header>
+    <a href="/"><img src="/logo.svg" alt="" /><span>Baton Index</span></a>
+  </header>
+
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective August 10, 2026</p>
+
+  <div class="card">
+    <p>
+      Baton Index ("Baton Index," "we," "us") provides leadership succession data for higher
+      education to a limited set of search firms and institutions under invitation-only pilots
+      and paid access. This policy explains what we collect when you use the product and why.
+    </p>
+
+    <h2>Information we collect</h2>
+    <ul>
+      <li><b>Contact information</b> you or your firm provide when requesting access — name, email, firm name.</li>
+      <li><b>Access credentials</b> — the access link or code issued to your firm, and a session cookie that keeps you signed in.</li>
+      <li>
+        <b>Usage activity</b> while you're signed in with an access link, including which datasets
+        you open, search terms you enter (for example, a person's name, a school, or a keyword),
+        the filters and sort order you apply (discipline, state, tenure window, and similar),
+        which individual candidate profiles you view, and candidate lists you build or export
+        within the product — including their contents at the time of export.
+      </li>
+      <li><b>Technical data</b> — IP address, timestamp, and basic request metadata, logged for security and support.</li>
+    </ul>
+    <p>
+      The free public tier does not require an account; anonymous browsing on that tier is
+      metered locally in your browser and is not tied to your identity.
+    </p>
+
+    <h2>How we use it</h2>
+    <ul>
+      <li>To operate the product and enforce the access scope your firm has been granted.</li>
+      <li>To understand how a pilot or subscription is being used, so we can support your evaluation and improve the product.</li>
+      <li>To detect misuse, prevent unauthorized sharing of access links, and maintain security.</li>
+      <li>To communicate with you about your trial, account, or the service.</li>
+    </ul>
+    <p>
+      We do not sell your information, and we do not share it with third parties for their own
+      marketing purposes.
+    </p>
+
+    <h2>Who we share it with</h2>
+    <p>
+      We share data only with service providers who help us run the product — hosting and
+      infrastructure (Vercel), and email delivery for account communications — under
+      confidentiality obligations, and only to the extent needed to provide the service.
+    </p>
+
+    <h2>Retention</h2>
+    <p>
+      Usage activity is retained for as long as reasonably needed to support your pilot or
+      subscription and for a limited period afterward for security and record-keeping, after
+      which it is deleted or anonymized. Contact us if you'd like your activity data deleted
+      sooner.
+    </p>
+
+    <h2>Your choices</h2>
+    <p>
+      You can ask us what data we hold about your firm's usage, request a copy, or request
+      deletion, by emailing us below. If your firm's access is part of an active engagement,
+      some data may be retained as part of that business relationship.
+    </p>
+
+    <h2>Security</h2>
+    <p>
+      Access links are signed and time-limited. We use industry-standard hosting infrastructure
+      and restrict access to usage data to Baton Index personnel who need it to operate the
+      product.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      We may update this policy as the product evolves. Material changes will be reflected here
+      with a new effective date.
+    </p>
+  </div>
+
+  <footer>
+    Questions or requests: <a class="inline" href="mailto:ren@bu.edu">ren@bu.edu</a> ·
+    See also our <a class="inline" href="/terms.html">Terms of Service</a>
+  </footer>
+</div>
+</body>
+</html>

@@ -29,7 +29,7 @@ export function useSchoolList() {
       if (a.rank && b.rank) return a.rank - b.rank;
       if (a.rank) return -1;
       if (b.rank) return 1;
-      return a.school.localeCompare(b.school);
+      return a.university.localeCompare(b.university) || a.school.localeCompare(b.school);
     });
   }, [allDeans]);
 }

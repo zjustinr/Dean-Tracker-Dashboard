@@ -21,6 +21,7 @@ import { readFileSync, writeFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import { ROOT, applyEvent, enqueueEnrichment, updateJobMarket, logCSV, loadBreaking, saveBreaking, today, assertDatasetCoverage } from "./news-lib.mjs";
+import { loadPhotos, savePhotos, autoFetchPhotoForRecord } from "./photo-lib.mjs";
 
 // Fail loudly (non-zero exit, visible in the Actions run) rather than silently
 // missing a whole index the way usgrad/uscreativearts/usadvancement went
@@ -355,6 +356,8 @@ const bannerOnly = events
 let applied = 0;
 const logLines = [];
 const breaking = loadBreaking();
+const photos = loadPhotos();
+let photosChanged = false;
 
 if (!DRY) {
   for (const e of toApply) {
@@ -366,6 +369,13 @@ if (!DRY) {
         const jm = updateJobMarket({ kind: "filled", university: e.university });
         if (jm === "removed") logLines.push([today(), "position_filled", e.university, e.dean, "jobmarket", "high", e.url]);
       }
+      // Best-effort headshot fetch from the same source page the record was
+      // just added from (e.url is guaranteed present -- applyEvent returns
+      // "no_source" and skips the add otherwise). Never blocks/fails the run.
+      try {
+        const photoStatus = await autoFetchPhotoForRecord({ dean: e.dean, university: e.university, sourceUrl: e.url, photos });
+        if (photoStatus === "added" || photoStatus === "updated") photosChanged = true;
+      } catch { /* photo fetch is a nice-to-have, never fail the appointment add */ }
       breaking.items.unshift({
         id: e.id, type: "applied", date: e.date.toISOString().slice(0, 10),
         headline: `${e.dean} named ${e.interim ? "interim " : ""}${e.role} at ${e.university}${e.school ? ` (${e.school})` : ""}`,
@@ -374,6 +384,7 @@ if (!DRY) {
     }
     logLines.push([today(), status === "added" ? "added" : `skip_${status}`, e.university, e.dean, `${e.schoolType}/${e.type}${e.interim ? "/interim" : ""}`, e.confidence, e.url]);
   }
+  if (photosChanged) savePhotos(photos);
 
   // Medium items -> review queue (the daily digest signs Approve/Dismiss links
   // from these) + a "pending confirmation" banner so the app still surfaces them.

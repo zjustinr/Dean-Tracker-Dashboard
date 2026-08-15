@@ -177,9 +177,6 @@ export default function ScoutAssistant({
       <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
         <p className="text-sm font-medium flex items-center gap-2 flex-wrap">
           <span>Scout Assistant</span>
-          <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 border border-amber-300/60 dark:border-amber-700/60">
-            AI - Experimental
-          </span>
         </p>
         <p className="text-xs text-muted-foreground mt-0.5">
           Candidates scored against patterns mined from our own {meta.label.toLowerCase()} appointment history — a

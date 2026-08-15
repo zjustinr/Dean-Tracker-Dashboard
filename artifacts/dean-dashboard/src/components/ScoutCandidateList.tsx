@@ -65,10 +65,10 @@ export default function ScoutCandidateList({
     const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
     const roots = (careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)];
     return (
-      <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_260px] items-start">
+      <div className="grid gap-3 grid-cols-[minmax(0,1fr)_260px] items-start">
         <DeanProfile dean={dean} onClose={onClose} onOpenSchool={onOpenSchool} hideAssessment />
         {career && career.length > 0 && (
-          <div className="lg:sticky lg:top-4">
+          <div className="sticky top-4">
             <CareerAssessment steps={career} tenure={tenureFor(dean)} roots={roots} />
           </div>
         )}
@@ -129,6 +129,16 @@ export default function ScoutCandidateList({
                     </p>
                   ) : (
                     <p className="text-xs text-muted-foreground italic mt-0.5">No strong pattern match.</p>
+                  )}
+                  {!!c.matchedKeywords?.length && (
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {c.matchedKeywords.slice(0, 6).map((k) => (
+                        <span key={k} className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">{k}</span>
+                      ))}
+                      {c.matchedKeywords.length > 6 && (
+                        <span className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-muted text-muted-foreground">+{c.matchedKeywords.length - 6} more</span>
+                      )}
+                    </div>
                   )}
                 </div>
                 {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
