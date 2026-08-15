@@ -28,7 +28,7 @@ const raw = readFileSync(path, "utf8");
 const deans = JSON.parse(raw);
 const byKey = new Map();
 for (const r of deans) {
-  const k = key(r.dean, r.university, r.discipline);
+  const k = key(r.dean, r.university, r.discipline || r.title);
   if (!byKey.has(k)) byKey.set(k, []);
   byKey.get(k).push(r);
 }
