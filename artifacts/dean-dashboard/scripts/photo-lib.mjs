@@ -46,7 +46,7 @@ export const firstName = (full) => { const parts = norm(full).split(" ").filter(
 export const photoKey = (d, u) => `${d.trim().toLowerCase()}|${u.trim().toLowerCase()}`;
 export const slugify = (d, u) => `${d} ${u}`.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-export const PLACEHOLDER_RE = /placeholder|no[-_]?photo|no[-_]?image|default[-_]?avatar|silhouette|generic[-_]?(user|person|avatar)|blank[-_]?(profile|avatar)|missing[-_]?photo|avatar[-_]?default|person[-_]?default/i;
+export const PLACEHOLDER_RE = /place[-_]?holder|no[-_]?photo|no[-_]?image|default[-_]?avatar|silhouette|generic[-_]?(user|person|avatar)|blank[-_]?(profile|avatar)|missing[-_]?photo|avatar[-_]?default|person[-_]?default/i;
 
 // Pull the filename (minus extension and common size suffixes like -300x300)
 // as a fallback text source, since many sites leave alt="" but encode the
