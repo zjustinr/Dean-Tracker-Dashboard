@@ -64,6 +64,7 @@ const SPEC = {
   usgrad:      { deans: () => require("../artifacts/dean-dashboard/src/data/r1-grad-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-grad-schools.json"), split: false },
   uscreativearts: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-camd-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-camd-schools.json"), split: false },
   usadvancement: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-advancement-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-advancement-schools.json"), split: false },
+  usadminleaders: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-adminleaders-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-adminleaders-schools.json"), split: false },
 };
 const ENRICHMENT = {
   "dean-photos.json": () => require("../artifacts/dean-dashboard/src/data/dean-photos.json"),
@@ -152,6 +153,27 @@ function filteredEmployerAffinity(scope) {
   return out;
 }
 
+// Per-client revocation switch, set/cleared by the owner from the usage
+// dashboard (api/usage.js ?block=/?unblock=). Stateless HMAC tokens can't be
+// revoked individually before their baked-in expiry without rotating
+// TRIAL_SECRET (which kills every link at once) -- this KV flag is the
+// per-client kill switch. Fail-open (never blocks) until KV is configured.
+async function isBlocked(client) {
+  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+  const tok = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !tok || !client) return false;
+  try {
+    const r = await fetch(`${url}/pipeline`, {
+      method: "POST",
+      headers: { authorization: `Bearer ${tok}`, "content-type": "application/json" },
+      body: JSON.stringify([["GET", `bi:blocked:${client}`]]),
+    });
+    if (!r.ok) return false;
+    const [row] = await r.json();
+    return !!(row && row.result);
+  } catch { return false; }
+}
+
 // Lightweight usage logging to Vercel KV / Upstash (fail-safe: a no-op until the
 // KV_REST_API_* env vars exist). Keyed by the token's client tag `c`, so every
 // trial/paid link is attributable with no per-link setup.
@@ -201,7 +223,8 @@ module.exports = async function handler(req, res) {
     const queryK = (req.query && req.query.k) || "";
     const token = cookieTok || queryK || "";
     const v = token ? verify(token, secret) : { ok: false, reason: "no_token" };
-    if (v.ok) {
+    const blocked = v.ok && (await isBlocked(v.payload.c));
+    if (v.ok && !blocked) {
       scope = new Set(v.payload.s || []);
       reason = "armed";
       client = v.payload.c || null;
@@ -210,9 +233,10 @@ module.exports = async function handler(req, res) {
         setCookie = `bi_trial=${encodeURIComponent(token)}; Path=/; Max-Age=${maxAge}; Secure; SameSite=Lax`;
       }
     } else {
-      // No / invalid / expired token -> the public free tier.
+      // No / invalid / expired / blocked token -> the public free tier.
+      if (blocked) client = v.payload.c || null;
       scope = new Set(PUBLIC_SCOPE);
-      reason = "public";
+      reason = blocked ? "blocked" : "public";
     }
     // Enforce dataset scope. Photos are public; research is served filtered below.
     // A "*" wildcard scope (owner link) grants every index, present and future.

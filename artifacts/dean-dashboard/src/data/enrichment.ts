@@ -134,12 +134,23 @@ export interface ScoutTieLift {
   validation: { hitRate: number; baselineHitRate: number; n: number };
   hireN: number; withTieN: number;
 }
+export type ScoutOriginCategory = "dean-same-type" | "dean-other-type" | "assoc-vice-dean" | "dept-chair" | "industry" | "faculty-only";
+export interface ScoutOriginCategoryStat {
+  globalRate: number; hireRate: number; lift: number; n: number;
+  avgTenure: number | null; tenureFactor: number; adjustedLift: number;
+}
+export interface ScoutOriginLift {
+  categories: Partial<Record<ScoutOriginCategory, ScoutOriginCategoryStat>>;
+  validation: { hitRate: number; baselineHitRate: number; n: number };
+  hireN: number; classifiedN: number;
+}
 export interface ScoutIndexInsights {
   sampleSize: number; benchSize: number; hasFeederBench: boolean; lowConfidence: boolean;
   connectionPatterns: { all: ScoutConnectionBucket | null; external: ScoutConnectionBucket | null };
   traits: ScoutTrait[];
   backtest: ScoutBacktest | null;
   tieLift: ScoutTieLift | null;
+  originLift: ScoutOriginLift | null;
 }
 const scoutInsights = makeJsonMap<ScoutIndexInsights>("scout-insights.json");
 export const useScoutInsights = scoutInsights.useMap;

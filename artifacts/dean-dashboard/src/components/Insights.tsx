@@ -48,6 +48,20 @@ const REPORTS: Report[] = [
     ],
   },
   {
+    id: "deanship-clock",
+    title: "The Graduate Deanship Clock",
+    subtitle:
+      "How long the graduate-college deanship really lasts, when exit risk peaks, and the text-mined hiring signature behind who gets promoted into it. A companion methods brief to The Graduate College Dean Pipeline, covering 277 graduate deans nationwide.",
+    cover: "/insights/cover-grad-deanship-clock.png",
+    pdf: "/insights/baton-graduate-deanship-clock-brief.pdf",
+    pages: 5,
+    findings: [
+      "The naive completed-tenure median looks like 4 years — but that sample excludes every dean still sitting. Correcting with a Kaplan-Meier estimator puts the true median tenure at 7 years.",
+      "Exit risk isn't flat: the year-by-year hazard rate climbs through year six, then holds at an elevated 17–29% band in years 7–10 — the real succession-planning watch-window.",
+      "This is an internal-ladder office: 42% of deans were promoted from an explicit associate/vice-provost/interim feeder title, 25% from \"associate dean\" specifically.",
+    ],
+  },
+  {
     id: "discipline",
     title: "The Discipline Behind the Dean",
     subtitle:
@@ -73,6 +87,20 @@ const REPORTS: Report[] = [
       "Women's share of the deanship rose from 1.2% to 31.4% — but unevenly by discipline.",
       "Female access ranges from 28% in strategy to just 6.5% in operations.",
       "The shortfall is a leaky pipeline upstream, compounded by an interim trap.",
+    ],
+  },
+  {
+    id: "prior-position",
+    title: "The Path Before the Deanship",
+    subtitle:
+      "Where business-school deans come from when they come from elsewhere — and why the in-house interim rarely wins. Drawn from the same 796-appointment R1 census.",
+    cover: "/insights/cover-prior-position.png",
+    pdf: "/insights/baton-prior-position-brief.pdf",
+    pages: 10,
+    findings: [
+      "49.4% of external hires already hold or held a dean title elsewhere — the default outside hire, not the exception.",
+      "That lateral-dean share has nearly doubled since the 1990s, from 35.5% to 62.2% of external hires.",
+      "Only 17.2% of interim deans convert to permanent — 60.8% are succeeded by an outside sitting or former dean.",
     ],
   },
 ];

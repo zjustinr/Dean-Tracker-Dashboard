@@ -61,6 +61,7 @@ const FILE_ID = {
   "r1-vet-deans.json": "usvet", "r1-grad-deans.json": "usgrad",
   "r1-camd-deans.json": "uscreativearts",
   "r1-advancement-deans.json": "usadvancement", "r1-lac-deans.json": "uslac",
+  "r1-adminleaders-deans.json": "usadminleaders",
 };
 const INDEX_LABEL = {
   r1bschool: "Business", r1eschool: "Engineering", r1university: "President",
@@ -69,6 +70,7 @@ const INDEX_LABEL = {
   r1arts: "Arts & Sciences", usr2: "R2", ussystem: "System",
   uspublichealth: "Public Health", usvet: "Veterinary", usgrad: "Graduate College",
   uscreativearts: "Creative Arts", usadvancement: "Advancement", uslac: "LAC President",
+  usadminleaders: "Administrative",
 };
 
 const read = (f) => { try { return JSON.parse(readFileSync(join(SRC, f), "utf8")); } catch { return null; } };

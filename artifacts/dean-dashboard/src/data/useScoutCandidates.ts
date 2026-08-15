@@ -4,10 +4,11 @@ import { useAllDeans } from "@/data/useData";
 import {
   useScoutInsights, useEmployerAffinity, loadAffinity, getAffinityCache,
   type ScoutIndexInsights, type ScoutTrait, type AffMap, type AffEntry, type WeakLinkEntry, type EmployerSchoolProfile,
+  type ScoutOriginCategory,
 } from "@/data/enrichment";
 import type { Dean } from "@/data/types";
 import { BOOLEAN_LABELS, CATEGORICAL_LABELS } from "@/data/types";
-import { loadDatasetData, type DatasetId } from "@/data/datasets";
+import { loadDatasetData, DATASETS_META, type DatasetId } from "@/data/datasets";
 
 // Scout Assistant's candidate-scoring engine -- shared by the section embedded
 // in Slate Builder (ScoutAssistant.tsx, fixed at a top-10 cap, no filters) and
@@ -68,14 +69,84 @@ export function traitFitScore(d: Dean, traits: ScoutTrait[]): { score: number; m
   return { score: matched.reduce((s, t) => s + Math.log(t.lift), 0), matched };
 }
 
+// gen-affinity.mjs's ADMIN/faculty ties are keyed at the UNIVERSITY level --
+// its ADMIN regex just matches generic title keywords (dean, provost, chair,
+// director, ...) with no notion of which SCHOOL within that university the
+// title belongs to. That's fine for Slate Builder's own "affinity to this
+// school" browser (which wants every connection for any reason), but it's a
+// real false-positive source for Scout Assistant: a sitting Dean of Medicine
+// at a university registers as an "admin" tie to that WHOLE university, so a
+// business-school search for that same university would treat them as
+// equally "connected" as someone who actually worked in the business school.
+// Checked directly against the data before writing this: of 369 real
+// external r1bschool hires, zero had any medicine/law/engineering background,
+// and even a same-university-DIFFERENT-SCHOOL move at all is rare (3/369,
+// 0.8%) -- so a tie whose own evidence text names a different professional
+// school than the one being scouted isn't real signal here and shouldn't
+// count as a connection. Scoped to schoolTypes that mean "one specific
+// school among several at a university" -- deliberately EXCLUDES
+// university/provost/r2university/system/liberalarts/advancement, where a
+// past deanship of some specific school is a genuine, common, and validated
+// path (e.g. a former dean becoming provost or president), not a false
+// positive.
+const SCHOOL_DOMAIN_RE: Partial<Record<string, RegExp>> = {
+  business: /business school|school of business|college of business|school of management/i,
+  engineering: /school of engineering|college of engineering|engineering school/i,
+  medical: /school of medicine|medical school|college of medicine|health sciences center/i,
+  law: /law school|school of law|college of law/i,
+  agriculture: /college of agriculture|school of agriculture|\bforestry\b/i,
+  nursing: /school of nursing|college of nursing/i,
+  pharmacy: /school of pharmacy|college of pharmacy/i,
+  education: /school of education|college of education/i,
+  arts: /college of arts (?:and|&) sciences|school of arts (?:and|&) sciences/i,
+  publichealth: /school of public health/i,
+  veterinary: /veterinary medicine|school of veterinary/i,
+  creativearts: /school of the arts|school of music|school of fine arts|\bconservatory\b/i,
+  graduate: /graduate school|graduate college/i,
+};
+const SINGLE_SCHOOL_TYPES = new Set(Object.keys(SCHOOL_DOMAIN_RE));
+const ANY_SCHOOL_DOMAIN_RE = new RegExp(Object.values(SCHOOL_DOMAIN_RE).filter((r): r is RegExp => !!r).map((r) => r.source).join("|"), "i");
+
+// Admin/faculty evidence with cross-domain lines stripped (grad/undergrad
+// untouched -- an alumni tie legitimately spans any later field, that's the
+// whole point of an alumni signal, so it isn't subject to this filter).
+// Two ways a line gets excluded:
+//   1. It explicitly NAMES a different specific school ("...School of
+//      Medicine...") -- always dropped, regardless of anything else.
+//   2. It's a generic title with no school named at all ("Associate Dean for
+//      Faculty Affairs", "Dean ad interim") AND this person's own best-known
+//      leadership record (AffEntry.index, e.g. "r1medical") is a DIFFERENT
+//      single-school domain than the one being searched. A generic title
+//      alone doesn't say which school it belongs to, but knowing the person
+//      is, say, a sitting Dean of Medicine elsewhere in her career is enough
+//      to infer that a same-university admin line without further detail is
+//      almost certainly about medicine too, not business -- catching cases
+//      the per-line text match alone would miss (that generic title never
+//      says "medicine" anywhere, but the person's whole career does).
+// A line that explicitly names OUR OWN domain always survives both checks.
+function ownDomainTies(e: AffEntry, datasetId: string): AffEntry {
+  const searchType = DATASETS_META[datasetId as DatasetId]?.schoolType;
+  if (!searchType || !SINGLE_SCHOOL_TYPES.has(searchType)) return e; // this index isn't "one school among several" -- filter doesn't apply
+  const ownDomainRe = SCHOOL_DOMAIN_RE[searchType];
+  const entryType = e.index ? DATASETS_META[e.index as DatasetId]?.schoolType : undefined;
+  const homeIsDifferentSchool = !!entryType && SINGLE_SCHOOL_TYPES.has(entryType) && entryType !== searchType;
+  const keep = (ev: string) => {
+    if (ownDomainRe?.test(ev)) return true; // explicitly confirms OUR domain
+    if (ANY_SCHOOL_DOMAIN_RE.test(ev)) return false; // explicitly names a DIFFERENT domain
+    return !homeIsDifferentSchool; // generic/no domain named -- trust it only if their career isn't rooted in a different single-school domain
+  };
+  return { ...e, admin: e.admin.filter(keep), faculty: e.faculty.filter(keep) };
+}
+
 // An affinity candidate's strongest tie category (admin > faculty > grad >
 // undergrad -- a working tie beats a merely alumni one) and its log-lift score
 // from gen-scout-insights.mjs's tieLift: how often THIS category shows up
 // among this index's real external hires, vs. corpus-wide. Only scored where
 // that comparison actually validated (idx.tieLift is null otherwise) -- an
 // unvalidated index contributes exactly 0, not a guess.
-export function affinityTieFit(e: AffEntry, idx: ScoutIndexInsights): { score: number; category: "admin" | "faculty" | "grad" | "undergrad" | null } {
-  const category = e.admin.length ? "admin" : e.faculty.length ? "faculty" : e.grad.length ? "grad" : e.undergrad.length ? "undergrad" : null;
+export function affinityTieFit(e: AffEntry, idx: ScoutIndexInsights, datasetId: string): { score: number; category: "admin" | "faculty" | "grad" | "undergrad" | null } {
+  const own = ownDomainTies(e, datasetId);
+  const category = own.admin.length ? "admin" : own.faculty.length ? "faculty" : own.grad.length ? "grad" : own.undergrad.length ? "undergrad" : null;
   if (!category) return { score: 0, category: null };
   const cat = idx.tieLift?.categories[category];
   if (!cat) return { score: 0, category };
@@ -89,6 +160,49 @@ export function employerMatchScore(w: WeakLinkEntry): number {
   return w.matchedCategories.reduce((s, c) => s + Math.log(c.lift), 0);
 }
 
+// A candidate's fit against the origin-category lift mined by gen-scout-
+// insights.mjs -- "when this index hires from outside, what kind of position
+// was the person coming from, and how well did that category tend to work
+// out" (see the BatonIndex research brief "The Path Before the Deanship").
+// Deliberately scoped to the two sources where a candidate's current-position
+// category is unambiguous and safe to infer structurally, without touching
+// the affinity/weak-link sources at all:
+//   - "broad" candidates are, by construction, someone currently sitting as
+//     dean at another school this SAME index tracks (broadShortlist only
+//     ever pulls from useAllDeans(), which is scoped to the active dataset) --
+//     always "dean-same-type", never "dean-other-type" (this app has no
+//     cross-index broader pool, so that category is mined for completeness/
+//     transparency but never actually reachable by a candidate here).
+//   - "bench" candidates carry their own roleTier ("Associate Dean"/"Vice
+//     Dean"/"Assistant Dean" vs. "Department Chair") straight from the data.
+// Extending this to affinity/weak-link candidates would require inferring a
+// connected person's CURRENT position across index boundaries, which is
+// exactly the kind of cross-domain inference that produced the false-positive
+// bug ownDomainTies exists to fix above -- left out on purpose rather than
+// risk reintroducing that failure mode.
+// idx.originLift's "adjustedLift" is already the historical hire-rate lift
+// multiplied by a tenure-length factor (that category's average tenure vs.
+// this index's overall external-hire average) -- a category that gets picked
+// often but tends toward a shorter tenure is dampened, not just rewarded for
+// being popular. log() puts it on the same additive scale as every other
+// score component here.
+export function originFitScore(
+  source: SourceKind, dean: Dean | undefined, idx: ScoutIndexInsights
+): { score: number; category: ScoutOriginCategory | null } {
+  if (!idx.originLift) return { score: 0, category: null };
+  let category: ScoutOriginCategory | null = null;
+  if (source === "broad") category = "dean-same-type";
+  else if (source === "bench") {
+    const tier = dean?.roleTier;
+    if (tier === "Department Chair") category = "dept-chair";
+    else if (tier === "Associate Dean" || tier === "Vice Dean" || tier === "Assistant Dean") category = "assoc-vice-dean";
+  }
+  if (!category) return { score: 0, category: null };
+  const cat = idx.originLift.categories[category];
+  if (!cat) return { score: 0, category };
+  return { score: Math.log(cat.adjustedLift), category };
+}
+
 // Cabinet-level titles within an "admin" tie (dean/provost/president/chancellor)
 // vs. lower-level administrative roles the broader ADMIN match in gen-affinity.mjs
 // also catches (chair, director, coordinator, ...).
@@ -99,20 +213,25 @@ const isCurrentEvidence = (evidence: string[]) => evidence.some((e) => /present/
 // "current cabinet member" / "alum" / "former faculty" -- rather than dumping
 // the raw tie-evidence string. Priority: admin > faculty > grad > undergrad
 // (a stronger tie wins), paired with the single most relevant evidence line.
-export function tieDescriptor(e: AffEntry): { label: string; detail: string } {
-  if (e.admin.length) {
-    const cabinetEvidence = e.admin.find((x) => CABINET_RE.test(x));
-    const current = isCurrentEvidence(e.admin);
+// Applies the same cross-domain filter affinityTieFit scores against, so the
+// displayed reasoning never claims a connection the score didn't actually
+// credit (e.g. never captions someone "current cabinet member" on the
+// strength of a deanship in a different professional school entirely).
+export function tieDescriptor(e: AffEntry, datasetId: string): { label: string; detail: string } {
+  const own = ownDomainTies(e, datasetId);
+  if (own.admin.length) {
+    const cabinetEvidence = own.admin.find((x) => CABINET_RE.test(x));
+    const current = isCurrentEvidence(own.admin);
     return {
       label: `${current ? "Current" : "Former"} ${cabinetEvidence ? "cabinet member" : "administrator"}`,
-      detail: cabinetEvidence ?? e.admin[0],
+      detail: cabinetEvidence ?? own.admin[0],
     };
   }
-  if (e.faculty.length) {
-    return { label: isCurrentEvidence(e.faculty) ? "Current faculty" : "Former faculty", detail: e.faculty[0] };
+  if (own.faculty.length) {
+    return { label: isCurrentEvidence(own.faculty) ? "Current faculty" : "Former faculty", detail: own.faculty[0] };
   }
-  if (e.grad.length) return { label: "Graduate alum", detail: e.grad[0] };
-  if (e.undergrad.length) return { label: "Undergraduate alum", detail: e.undergrad[0] };
+  if (own.grad.length) return { label: "Graduate alum", detail: own.grad[0] };
+  if (own.undergrad.length) return { label: "Undergraduate alum", detail: own.undergrad[0] };
   return { label: "Connected to this school", detail: "" };
 }
 
@@ -152,6 +271,8 @@ export interface ScoutCandidate {
   resolvable?: ResolvableEntry;
   reasoning: { label: string; detail: string } | null;
   score: number;
+  /** Job-description keywords (display form) that matched this candidate, if a posting was supplied -- drives the match-label badges under each row. */
+  matchedKeywords?: string[];
 }
 
 export const affKey = (entry: ResolvableEntry) => `${entry.enrichKey}|${entry.index ?? ""}`;
@@ -164,8 +285,8 @@ export interface ScoutEngineOptions {
   includeBroad?: boolean;
   /** Roster filter (gender/PhD/appointment/region, etc.) -- applied wherever a resolved Dean record is available. Candidates not yet resolved are held out of the filtered view rather than shown-then-removed once resolution lands. */
   filter?: (dean: Dean) => boolean;
-  /** Extra score from a job-description keyword match (0 if none), added on top of the base score. */
-  keywordScore?: (dean: Dean | undefined, name: string, subtitle: string) => number;
+  /** Extra score from a job-description keyword match (0 if none), added on top of the base score, plus which keywords (display form) actually matched. */
+  keywordScore?: (dean: Dean | undefined, name: string, subtitle: string) => { score: number; matched: string[] };
 }
 
 const SHORTLIST_CAP = 400; // per-source pre-merge cap -- generous enough that "all eligible" tiers see the real pool, just a guard against a pathological source size
@@ -225,12 +346,13 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
       .filter((d) => d.roleType === "subdean" && !everHeldNames.has(d.dean.trim().toLowerCase()))
       .map((d) => {
         const { score, matched } = traitFitScore(d, idx.traits);
+        const origin = originFitScore("bench", d, idx);
         return {
           key: `bench:${d.id}`, source: "bench" as const, name: d.dean, university: d.university,
           subtitle: d.discipline || d.priorTitle || "",
           dean: d,
           reasoning: matched.length > 0 ? traitReasoning(matched[0]) : null,
-          score,
+          score: score + origin.score,
         };
       })
       .sort((a, b) => b.score - a.score)
@@ -242,15 +364,24 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
     const list = affinityMap?.[university] || [];
     return list
       .filter((e) => !everHeldNames.has(e.name.trim().toLowerCase()))
-      .map((e) => {
-        const { score, category } = affinityTieFit(e, idx);
+      .map((e) => ({ e, fit: affinityTieFit(e, idx, datasetId) }))
+      // A candidate whose only tie evidence was cross-domain (see
+      // ownDomainTies -- e.g. a sitting Dean of Medicine's admin tie to a
+      // university, surfacing under a business-school search for that same
+      // university) has no REAL connection left once that's filtered out.
+      // Drop them from the affinity source entirely rather than keep them as
+      // a zero-reasoning "Connected" row -- if their trait fit is strong
+      // enough on its own, they can still surface through the broader-pool
+      // source at the tiers where that source is included.
+      .filter(({ fit }) => fit.category !== null)
+      .map(({ e, fit }) => {
         const resolvable: ResolvableEntry = { name: e.name, enrichKey: e.enrichKey, index: e.index, university: e.university };
         return {
           key: `aff:${affKey(resolvable)}`, source: "affinity" as const, name: e.name, university: e.university,
           subtitle: `${e.role}${e.university ? ` · ${e.university}` : ""}`,
           resolvable,
-          reasoning: category ? tieDescriptor(e) : null,
-          score,
+          reasoning: tieDescriptor(e, datasetId),
+          score: fit.score,
         };
       })
       .sort((a, b) => b.score - a.score)
@@ -281,12 +412,14 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
   }, [employerProfile, affinityMap, university, everHeldNames, schoolDeans]);
 
   // The broader eligible pool: every OTHER currently-sitting leader tracked by
-  // this index, not already surfaced by name above -- scored by trait fit
-  // alone (no tie to this specific school, so no tie/employer bonus). This is
-  // what lets the stringency dial widen all the way to "everyone eligible,"
-  // not just people with a documented connection: a strong trait-fit match who
-  // has simply never worked at or near this school can still surface, just
-  // ranked on that signal alone.
+  // this index, not already surfaced by name above -- scored by trait fit (no
+  // tie to this specific school, so no tie/employer bonus) plus the
+  // origin-fit bonus every "broad" candidate qualifies for by construction
+  // (they're always a sitting dean at another same-type school -- see
+  // originFitScore). This is what lets the stringency dial widen all the way
+  // to "everyone eligible," not just people with a documented connection: a
+  // strong trait-fit match who has simply never worked at or near this school
+  // can still surface, just ranked on that signal alone.
   const broadShortlist = useMemo<ScoutCandidate[]>(() => {
     if (!idx || !includeBroad) return [];
     const affinityNames = new Set((affinityMap?.[university] || []).map((e) => e.name.trim().toLowerCase()));
@@ -300,12 +433,13 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
       if (d.university === university) continue; // already covered by bench/everHeld for this school
       seen.add(nameL);
       const { score, matched } = traitFitScore(d, idx.traits);
+      const origin = originFitScore("broad", d, idx);
       out.push({
         key: `broad:${d.id}`, source: "broad", name: d.dean, university: d.university,
         subtitle: `${d.school ? d.school + ", " : ""}${d.university}`,
         dean: d,
         reasoning: matched.length > 0 ? traitReasoning(matched[0]) : null,
-        score,
+        score: score + origin.score,
       });
     }
     return out.sort((a, b) => b.score - a.score).slice(0, SHORTLIST_CAP);
@@ -331,9 +465,14 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
       const resolved = c.dean ?? (c.resolvable ? resolvedProfiles[affKey(c.resolvable)] : undefined);
       const dean = c.dean ?? (resolved && resolved !== "not-found" ? resolved : undefined);
       let score = c.score;
+      let matchedKeywords: string[] | undefined;
       if (dean && c.resolvable) score += traitFitScore(dean, idx.traits).score; // bonus only for resolved affinity/weak (bench/broad already scored on their own record)
-      if (keywordScore) score += keywordScore(dean, c.name, c.subtitle);
-      return { c: { ...c, score }, resolved };
+      if (keywordScore) {
+        const r = keywordScore(dean, c.name, c.subtitle);
+        score += r.score;
+        matchedKeywords = r.matched;
+      }
+      return { c: { ...c, score, matchedKeywords }, resolved };
     };
     const all = [...benchShortlist, ...affinityShortlist, ...weakLinkShortlist, ...broadShortlist].map(withExtras);
     const filtered = filter

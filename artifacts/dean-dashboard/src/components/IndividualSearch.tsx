@@ -10,6 +10,7 @@ import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, type AffEntry, type AffMap } from "@/data/enrichment";
 import ScoutAssistant from "@/components/ScoutAssistant";
+import { useTrial } from "@/data/TrialContext";
 
 // Cross-index AFFINITY selector kinds (see @/data/enrichment for the fetch/cache
 // itself, shared with ScoutAssistant's candidate pool).
@@ -22,6 +23,28 @@ export interface DeanSearchPrefill {
   first: string;
   last: string;
   token: number;
+}
+
+// Debounced, best-effort search-term logging (see api/log.js, kind: "search").
+// Fires only once a value settles for SEARCH_LOG_DELAY_MS, so normal typing
+// sends one event per pause rather than one per keystroke. The client tag is
+// derived server-side from the trial cookie, not sent here.
+const SEARCH_LOG_DELAY_MS = 700;
+function useSearchLog(source: "slate-name" | "slate-keyword" | "slate-school", value: string) {
+  const timer = useRef<number | null>(null);
+  useEffect(() => {
+    const q = value.trim();
+    if (!q) return;
+    if (timer.current) window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(() => {
+      fetch("/api/log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ kind: "search", q, source }),
+      }).catch(() => { /* best-effort, never block the UI */ });
+    }, SEARCH_LOG_DELAY_MS);
+    return () => { if (timer.current) window.clearTimeout(timer.current); };
+  }, [value, source]);
 }
 
 const pkey = (dean: string, uni: string) => `${dean.trim().toLowerCase()}|${uni.trim().toLowerCase()}`;
@@ -72,6 +95,12 @@ const REGIONS: Record<string, string[]> = {
   West: ["AZ", "CO", "ID", "MT", "NV", "NM", "UT", "WY", "AK", "CA", "HI", "OR", "WA"],
 };
 
+// Institution-tier display order (Carnegie-driven, plus a couple of buckets for
+// institutions Carnegie doesn't classify as a single doctoral/baccalaureate
+// campus). Sparsely populated indices with only one tier still work fine — the
+// toggle just renders one button. See bundle.schools[].carnegie for the source.
+const TIER_ORDER = ["R1", "R2", "R3 / Other Doctoral", "Regional / Master's", "Liberal Arts College", "Community College", "Specialized / Professional School", "System Office / Consortium"];
+
 /**
  * Slate Builder — the flagship view.
  *
@@ -92,7 +121,12 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
 
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState("");
-  const [discipline, setDiscipline] = useState("");
+  // Function/discipline filter (disciplineBroad). Multi-select like regions/states
+  // -- empty set = no narrowing, pick one for the old single-value behavior, pick
+  // several to browse across functions at once. Most indices only ever have a
+  // handful of distinct values; it earns its keep most on messier, cross-function
+  // indices like Senior Administrative Leaders (11 buckets: HR, Legal, Finance...).
+  const [disciplines, setDisciplines] = useState<Set<string>>(new Set());
   const [school, setSchool] = useState("");
   const [tenureWin, setTenureWin] = useState<"sitting" | "5" | "10" | "any">("sitting");
   // Permanent vs interim. "interim" among sitting leaders = institutions in
@@ -109,6 +143,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const [yrTo, setYrTo] = useState<number | null>(null);
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
+  // Institution-tier toggle (carnegie), same multi-select shape as disciplines
+  // above. Sparsely populated indices (one tier) still work fine -- a single
+  // button. Earns its keep on cross-tier indices spanning R1s down to community
+  // colleges, like Senior Administrative Leaders.
+  const [tiers, setTiers] = useState<Set<string>>(new Set());
   const [sortBy, setSortBy] = useState<"name" | "tenure" | "recent" | "sofar">("name");
   // Credential screens (Ph.D. / Professor). Off by default across every index —
   // they narrow the slate, so a searcher opts in rather than discovering
@@ -131,6 +170,94 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const [keyword, setKeyword] = useState("");
   const researchMap = useResearchMap();
   const openRowRef = useRef<HTMLDivElement | null>(null);
+
+  const { client: trialClient } = useTrial();
+  useSearchLog("slate-name", query);
+  useSearchLog("slate-keyword", keyword);
+  useSearchLog("slate-school", school);
+
+  // Debounced snapshot of the filter panel (see api/log.js, kind: "filter"),
+  // sent whenever the active combination settles. Sparse by design — only
+  // non-default values are included — so clearing back to defaults doesn't
+  // itself read as a fresh filter action, and idle browsing stays quiet.
+  const filterSnapshot = useMemo(() => {
+    const f: Record<string, string | number | boolean | string[]> = {};
+    if (disciplines.size) f.discipline = Array.from(disciplines);
+    if (tiers.size) f.tier = Array.from(tiers);
+    if (sortBy !== "name") f.sort = sortBy;
+    if (includeGender !== "all") f.gender = includeGender;
+    if (apptType !== "all") f.apptType = apptType;
+    if (regions.size) f.regions = Array.from(regions);
+    if (states.size) f.states = Array.from(states);
+    if (tenureWin !== "sitting") f.tenureWin = tenureWin;
+    if (servedMin !== 0 || servedMax !== SERVED_CAP) f.served = `${servedMin}-${servedMax}`;
+    if (yrFrom != null || yrTo != null) f.years = `${yrFrom ?? ""}-${yrTo ?? ""}`;
+    if (requirePhd) f.requirePhd = true;
+    if (requireProf) f.requireProf = true;
+    if (letter) f.letter = letter;
+    if (showHazard) f.showHazard = true;
+    if (affinity.size) f.affinity = Array.from(affinity);
+    return f;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [disciplines, tiers, sortBy, includeGender, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, letter, showHazard, affinity]);
+  const filterLogTimer = useRef<number | null>(null);
+  const filterLogSig = useRef<string>("{}");
+  useEffect(() => {
+    const sig = JSON.stringify(filterSnapshot);
+    if (sig === filterLogSig.current) return;
+    if (filterLogTimer.current) window.clearTimeout(filterLogTimer.current);
+    filterLogTimer.current = window.setTimeout(() => {
+      filterLogSig.current = sig;
+      if (Object.keys(filterSnapshot).length === 0) return;
+      fetch("/api/log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ kind: "filter", filters: filterSnapshot }),
+      }).catch(() => { /* best-effort, never block the UI */ });
+    }, 800);
+    return () => { if (filterLogTimer.current) window.clearTimeout(filterLogTimer.current); };
+  }, [filterSnapshot]);
+
+  // A candidate's detail row opened — log which one (see api/log.js, kind:
+  // "detail"). Fires only on open, not close, so toggling a row shut isn't a
+  // second event.
+  const detailLogged = useRef<number | null>(null);
+  useEffect(() => {
+    if (expandedId == null || detailLogged.current === expandedId) return;
+    detailLogged.current = expandedId;
+    const d = allDeans.find((x) => x.id === expandedId);
+    if (!d) return;
+    fetch("/api/log", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ kind: "detail", name: d.dean, university: d.university }),
+    }).catch(() => { /* best-effort, never block the UI */ });
+  }, [expandedId, allDeans]);
+
+  // Mirror the shortlist to the server for real (trial/paid) clients only — not
+  // the anonymous free tier, which never sees the consent gate. Debounced sync
+  // keeps bi:slate:<client> current as candidates are added/removed; exportSlate()
+  // below fires an immediate, undebounced "export" call so the dashboard shows
+  // exactly when and how many candidates were exported. The client tag itself
+  // is derived server-side from the trial cookie (see api/log.js); trialClient
+  // here only gates whether we bother sending anything at all.
+  const postSlate = (mode: "sync" | "export") => {
+    if (!trialClient) return;
+    const items = slate.map((d) => ({ name: d.dean, school: d.school, university: d.university }));
+    fetch("/api/log", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ kind: "slate", items, mode }),
+    }).catch(() => { /* best-effort */ });
+  };
+  const slateSyncTimer = useRef<number | null>(null);
+  useEffect(() => {
+    if (!trialClient) return;
+    if (slateSyncTimer.current) window.clearTimeout(slateSyncTimer.current);
+    slateSyncTimer.current = window.setTimeout(() => postSlate("sync"), 800);
+    return () => { if (slateSyncTimer.current) window.clearTimeout(slateSyncTimer.current); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slate, trialClient]);
 
   // Credential detection for the Ph.D. / Professor screens. Broad recall so the
   // default (both on) does not hide legitimate candidates on data-thin rows.
@@ -221,6 +348,13 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     }
     return m;
   }, [bundle.schools]);
+  const tierOf = useMemo(() => {
+    const m = new Map<string, string>();
+    for (const s of (bundle.schools as unknown as { university?: string; carnegie?: string }[])) {
+      if (s.university && s.carnegie) m.set(s.university.toLowerCase(), s.carnegie);
+    }
+    return m;
+  }, [bundle.schools]);
 
   // University -> map point, for the candidate map. Only schools geoAlbersUsa can
   // project (excludes territories / missing coords) so a Marker never gets a null.
@@ -240,7 +374,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // b-schools" bug (filter in B-school, switch index, see nothing). Defined
   // before the prefill effect so a prefill arriving in the same commit still wins.
   useEffect(() => {
-    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword(""); setAffinity(new Set());
+    setQuery(""); setLetter(""); setDisciplines(new Set()); setTiers(new Set()); setSchool(""); setKeyword(""); setAffinity(new Set());
     setTenureWin("sitting"); setServedMin(0); setServedMax(SERVED_CAP);
     setApptType("all"); setYrFrom(null); setYrTo(null);
     setRegions(new Set()); setStates(new Set()); setExpandedId(null);
@@ -249,7 +383,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   useEffect(() => {
     if (!prefill) return;
     setQuery(prefill.fullName);
-    setLetter(""); setDiscipline(""); setSchool(""); setTenureWin("any");
+    setLetter(""); setDisciplines(new Set()); setTiers(new Set()); setSchool(""); setTenureWin("any");
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set());
     // Clear every narrowing filter too, so the requested person is never filtered
     // out of results (which would leave "View full profile" opening nothing) — e.g.
@@ -264,19 +398,22 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prefill?.token, allDeans]);
 
-  const { disciplines, schoolList, stateList } = useMemo(() => {
-    const dSet = new Set<string>(), sSet = new Set<string>(), stSet = new Set<string>();
+  const { disciplineOptions, schoolList, stateList, tierOptions } = useMemo(() => {
+    const dSet = new Set<string>(), sSet = new Set<string>(), stSet = new Set<string>(), tSet = new Set<string>();
     for (const d of allDeans) {
       if (d.disciplineBroad && d.disciplineBroad !== "Unknown") dSet.add(d.disciplineBroad);
       if (d.university) sSet.add(d.university);
+      const t = tierOf.get(d.university.toLowerCase());
+      if (t) tSet.add(t);
     }
     for (const st of stateOf.values()) stSet.add(st);
     return {
-      disciplines: [...dSet].sort((a, b) => a.localeCompare(b)),
+      disciplineOptions: [...dSet].sort((a, b) => a.localeCompare(b)),
       schoolList: [...sSet].sort((a, b) => a.localeCompare(b)),
       stateList: [...stSet].sort(),
+      tierOptions: TIER_ORDER.filter((t) => tSet.has(t)),
     };
-  }, [allDeans, stateOf]);
+  }, [allDeans, stateOf, tierOf]);
 
   const effectiveStates = useMemo(() => {
     const s = new Set(states);
@@ -284,7 +421,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     return s;
   }, [states, regions]);
 
-  const hasFilter = query.trim() !== "" || !!letter || !!discipline || !!school || keyword.trim() !== "" ||
+  const hasFilter = query.trim() !== "" || !!letter || disciplines.size > 0 || tiers.size > 0 || !!school || keyword.trim() !== "" ||
     tenureWin !== "any" || apptType !== "all" || servedMin > 0 || servedMax < SERVED_CAP || effectiveStates.size > 0;
 
   // Keyword universe for the current index: every distinct expertise tag on a
@@ -346,14 +483,18 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       }
       if (q && !d.dean.toLowerCase().includes(q)) return false;
       if (letter && last[0] !== letter.toLowerCase()) return false;
-      if (discipline && d.disciplineBroad !== discipline) return false;
+      if (disciplines.size && !disciplines.has(d.disciplineBroad || "")) return false;
+      if (tiers.size) {
+        const t = tierOf.get(d.university.toLowerCase());
+        if (!t || !tiers.has(t)) return false;
+      }
       if (school && d.university !== school) return false;
       const key = d.dean + "|" + d.university + "|" + d.school;
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
     });
-  }, [allDeans, query, keyword, researchMap, letter, discipline, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, includeGender, hasFilter]);
+  }, [allDeans, query, keyword, researchMap, letter, disciplines, tiers, tierOf, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, includeGender, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -398,7 +539,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       if (!d.startYear) continue;
       if (d.isInterim) continue; // interims serve ~1 yr and skew the norm
       if ((d as { roleType?: string }).roleType === "subdean") continue; // feeder bench, not deans
-      if (discipline && d.disciplineBroad !== discipline) continue;
+      if (disciplines.size && !disciplines.has(d.disciplineBroad || "")) continue;
+      if (tiers.size) {
+        const t = tierOf.get(d.university.toLowerCase());
+        if (!t || !tiers.has(t)) continue;
+      }
       if (effectiveStates.size) {
         const st = stateOf.get(d.university.toLowerCase());
         if (!st || !effectiveStates.has(st)) continue;
@@ -447,7 +592,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     const hazSeries = fit ?? hazard.slice(0, lastBin + 1);
     const hazPeak = hazSeries.length ? Math.max(...hazSeries) : 0;
     return { bins, bw: 252 / NB, tmax: TMAX, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, fit, hazPeak, lastBin, atRiskN: atRisk[0] };
-  }, [allDeans, discipline, effectiveStates, stateOf, yFrom, yTo]);
+  }, [allDeans, disciplines, tiers, tierOf, effectiveStates, stateOf, yFrom, yTo]);
 
   // Narrow, recent windows read short: long tenures started in that window have
   // not finished, so only the quick exits are counted. Flag it honestly.
@@ -521,7 +666,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     setter((cur) => { const n = new Set(cur); n.has(v) ? n.delete(v) : n.add(v); return n; });
 
   const clearAll = () => {
-    setQuery(""); setLetter(""); setDiscipline(""); setSchool(""); setKeyword(""); setAffinity(new Set());
+    setQuery(""); setLetter(""); setDisciplines(new Set()); setTiers(new Set()); setSchool(""); setKeyword(""); setAffinity(new Set());
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
     setRequirePhd(false); setRequireProf(false); setIncludeGender("all"); setYrFrom(null); setYrTo(null);
   };
@@ -542,6 +687,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     a.href = url; a.download = "baton-index-slate.csv";
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
+    postSlate("export");
   };
 
   const sel = "w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30";
@@ -603,10 +749,6 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                 <option value="10">Served in last 10 yrs</option>
                 <option value="any">Any time</option>
               </select>
-              <select className={sel} value={discipline} onChange={(e) => { setDiscipline(e.target.value); setExpandedId(null); }} aria-label="Discipline">
-                <option value="">All disciplines</option>
-                {disciplines.map((d) => <option key={d} value={d}>{d}</option>)}
-              </select>
               <select className={sel} value={school} onChange={(e) => { setSchool(e.target.value); setExpandedId(null); }} aria-label="School">
                 <option value="">All schools</option>
                 {schoolList.map((sc) => <option key={sc} value={sc}>{sc}</option>)}
@@ -642,6 +784,36 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               </label>
               <span className="text-[10px] text-muted-foreground">(held a doctorate / faculty rank)</span>
             </div>
+
+            {disciplineOptions.length > 1 && (
+              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
+                <span className="text-xs font-medium text-muted-foreground pt-1">Function</span>
+                {/* Pill toggle like Region: All (no filter) is the default; clicking a
+                    pill adds/removes it from the multi-select set. */}
+                <div className="flex flex-wrap gap-1.5">
+                  <button onClick={() => { setDisciplines(new Set()); setExpandedId(null); }}
+                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
+                  {disciplineOptions.map((d) => (
+                    <button key={d} onClick={() => { toggleSet(setDisciplines, d); setExpandedId(null); }}
+                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.has(d) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{d}</button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {tierOptions.length > 1 && (
+              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
+                <span className="text-xs font-medium text-muted-foreground pt-1">Institution tier</span>
+                <div className="flex flex-wrap gap-1.5">
+                  <button onClick={() => { setTiers(new Set()); setExpandedId(null); }}
+                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", tiers.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
+                  {tierOptions.map((t) => (
+                    <button key={t} onClick={() => { toggleSet(setTiers, t); setExpandedId(null); }}
+                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", tiers.has(t) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{t}</button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {affinityOn && (
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 rounded-lg bg-[#8C1D40]/8 border border-[#8C1D40]/25 px-2.5 py-1.5">
@@ -737,7 +909,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
             <h3 className="text-sm font-bold mb-0.5">Tenure benchmark</h3>
             <p className="text-[11px] text-muted-foreground mb-2 leading-snug">
               {hist.n
-                ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{discipline ? ` · ${discipline}` : ""}</>
+                ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{disciplines.size ? ` · ${Array.from(disciplines).join(", ")}` : ""}</>
                 : "No completed permanent tenures in this range yet."}
               {(datasetId === "usgrad" || datasetId === "usadvancement") && hist.n < 5 && (
                 <span className="block mt-0.5 text-muted-foreground/80">
@@ -938,7 +1110,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       )}
 
       {shown.length > 0 && (
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px] items-start">
+        <div className="grid gap-4 grid-cols-[minmax(0,1fr)_300px] items-start">
         <div className="bg-card border border-border rounded-xl overflow-hidden">
           <div className="px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
             <p className="text-sm font-medium">{results.length} result{results.length !== 1 ? "s" : ""}</p>
