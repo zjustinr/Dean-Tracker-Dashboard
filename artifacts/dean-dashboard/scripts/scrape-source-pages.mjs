@@ -7,20 +7,23 @@
 // Covers both primary deans and subdeans (vice/associate/assistant/interim)
 // — any role is eligible once it has a sourceUrl and no photo yet.
 //
-//   node scripts/scrape-source-pages.mjs <out.json> [--limit N] [--offset N]
+//   node scripts/scrape-source-pages.mjs <out.json> [--limit N] [--offset N] [--only file1.json,file2.json]
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { SRC, PHOTOS_PATH, UA, photoKey, extractImgs, matchByName } from "./photo-lib.mjs";
 
 const [outFile, ...rest] = process.argv.slice(2);
-if (!outFile) { console.error("usage: scrape-source-pages.mjs <out.json> [--limit N] [--offset N]"); process.exit(1); }
+if (!outFile) { console.error("usage: scrape-source-pages.mjs <out.json> [--limit N] [--offset N] [--only file1.json,file2.json]"); process.exit(1); }
 const limitIdx = rest.indexOf("--limit");
 const limit = limitIdx >= 0 ? parseInt(rest[limitIdx + 1], 10) : Infinity;
 const offsetIdx = rest.indexOf("--offset");
 const offset = offsetIdx >= 0 ? parseInt(rest[offsetIdx + 1], 10) : 0;
+const onlyIdx = rest.indexOf("--only");
+const only = onlyIdx >= 0 ? new Set(rest[onlyIdx + 1].split(",")) : null;
 
 const photos = JSON.parse(readFileSync(PHOTOS_PATH, "utf8"));
-const files = readdirSync(SRC).filter((f) => /deans.*\.json$/.test(f) && !/schools/.test(f) && f !== "dean-photos.json");
+let files = readdirSync(SRC).filter((f) => /deans.*\.json$/.test(f) && !/schools/.test(f) && f !== "dean-photos.json");
+if (only) files = files.filter((f) => only.has(f));
 const missing = [];
 for (const f of files) {
   const arr = JSON.parse(readFileSync(join(SRC, f), "utf8"));
