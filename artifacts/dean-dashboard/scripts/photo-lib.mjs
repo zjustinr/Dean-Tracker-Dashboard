@@ -24,7 +24,7 @@ export const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 
 export function curlFetchBuffer(url) {
   return execFileSync(
     "curl",
-    ["-sS", "-f", "-L", "--max-time", "20", "-A", UA, "-H", "Accept: image/avif,image/webp,image/*,*/*", url],
+    ["-sS", "-f", "-g", "-L", "--max-time", "20", "-A", UA, "-H", "Accept: image/avif,image/webp,image/*,*/*", url],
     { maxBuffer: 20 * 1024 * 1024 }
   );
 }
