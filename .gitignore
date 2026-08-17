@@ -52,6 +52,16 @@ Thumbs.db
 .trial-secret
 trials.log
 
+# Sales and outreach working documents (never commit).
+# This repository is public. Outreach material carries named contacts at third-party
+# firms, their email addresses -- some of them inferred rather than published --
+# pipeline status, and pricing positions. None of that should be world-readable, and
+# a stop-hook nudge to "commit untracked files" is not a reason to publish it.
+# Keep these in a scratch directory outside the repo.
+*Outreach*.docx
+*Pitch*.docx
+*Call_Sequence*.xlsx
+
 # Step 2: public/data is a build artifact regenerated from src/data by
 # artifacts/dean-dashboard/scripts/gen-public-data.ts (vercel.json build + local pre* hooks).
 artifacts/dean-dashboard/public/data/
