@@ -63,14 +63,14 @@ numbers survive.
 `node scripts/gen-industry-experience.mjs` — about a second, deterministic,
 writes `src/data/industry-experience.json`. Never touches the dean JSONs.
 
-Over 28,249 unique people:
+Over 28,250 unique people:
 
 | verdict | people |
 |---|---|
 | **yes**, with a named firm | 494 |
 | **yes**, on a corroborating flag only | 399 |
 | **no** — evidence exists, all academic / government / nonprofit / health | 12,658 |
-| **unknown** — nothing to classify | 14,698 (52%) |
+| **unknown** — nothing to classify | 14,699 (52%) |
 
 458 distinct firms. The ranking axes:
 
@@ -130,7 +130,7 @@ board seat is a current, named, direct relationship, usually worth more than a
 job someone left in 1998.
 
 `tieKindOf()` now separates them, and the result is stark: **zero board ties in
-the entire corpus.** Across 28,249 people, board or advisory service appears in
+the entire corpus.** Across 28,250 people, board or advisory service appears in
 29 research summaries, 5 career steps and 22 dean notes — all prose, none of it
 in a structured role field. The pass can represent board ties; the data has none
 to give it. That is the single highest-value thing a research pass could collect.
