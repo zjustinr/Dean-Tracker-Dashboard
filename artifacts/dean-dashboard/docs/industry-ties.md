@@ -63,25 +63,25 @@ numbers survive.
 `node scripts/gen-industry-experience.mjs` — about a second, deterministic,
 writes `src/data/industry-experience.json`. Never touches the dean JSONs.
 
-Over 26,740 unique people:
+Over 28,249 unique people:
 
 | verdict | people |
 |---|---|
-| **yes**, with a named firm | 472 |
+| **yes**, with a named firm | 494 |
 | **yes**, on a corroborating flag only | 399 |
-| **no** — evidence exists, all academic / government / nonprofit / health | 12,241 |
-| **unknown** — nothing to classify | 13,628 (51%) |
+| **no** — evidence exists, all academic / government / nonprofit / health | 12,658 |
+| **unknown** — nothing to classify | 14,698 (52%) |
 
-439 distinct firms. The ranking axes:
+458 distinct firms. The ranking axes:
 
 | ties by seniority | | ties by kind | |
 |---|---|---|---|
-| executive | 183 | employment | 505 |
-| senior | 97 | advisory | 3 |
-| professional | 132 | **board** | **0** |
-| unknown | 96 | | |
+| executive | 188 | employment | 530 |
+| senior | 108 | advisory | 3 |
+| professional | 136 | **board** | **0** |
+| unknown | 101 | | |
 
-**The shippable population is 208 sitting leaders with a named-firm tie, 105 of
+**The shippable population is 260 sitting leaders with a named-firm tie, 135 of
 them at senior or executive rank.** That is small — and it is the real finding.
 The research pass is the product here, not the derivation.
 
@@ -103,7 +103,7 @@ is deterministic rather than drifting with the wall clock.
 
 **Recall against human ground truth is 27%.** The 293 people hand-labelled
 `hasIndustryExp: true` are the only ground truth available. Ignoring that label,
-the pass independently reproduces 79 of them from a named employer.
+the pass independently reproduces 78 of them from a named employer.
 `priorInstitution` records the job *immediately before* the deanship, so six
 years at a firm followed by twenty on a faculty is indistinguishable from a
 lifelong academic:
@@ -114,7 +114,7 @@ lifelong academic:
 | Ed Grier | Virginia Commonwealth University School of Business | Academic/Industry |
 | James G. Ellis | University of Southern California | Academic and Industry |
 
-**84% of "no" verdicts rest on a single career stop** (10,275 of 12,241). That is
+**84% of "no" verdicts rest on a single career stop** (10,618 of 12,658). That is
 "the one job we recorded was academic", not "never worked in industry".
 
 Under a census framing these numbers are damning. Under a ranking framing they
@@ -130,7 +130,7 @@ board seat is a current, named, direct relationship, usually worth more than a
 job someone left in 1998.
 
 `tieKindOf()` now separates them, and the result is stark: **zero board ties in
-the entire corpus.** Across 26,740 people, board or advisory service appears in
+the entire corpus.** Across 28,249 people, board or advisory service appears in
 29 research summaries, 5 career steps and 22 dean notes — all prose, none of it
 in a structured role field. The pass can represent board ties; the data has none
 to give it. That is the single highest-value thing a research pass could collect.
@@ -143,12 +143,11 @@ from," and it survives a leave-one-out validation on two indices:
 | index | hit rate | baseline | lift | n |
 |---|---|---|---|---|
 | R1 business | 5.1% | 1.5% | 3.4× | 157 |
-| Admin leaders | 10.7% | 3.2% | 3.3× | 421 |
+| Admin leaders | 9.4% | 2.4% | 3.9× | 727 |
 
 Consolidating onto the shared taxonomy grew both samples (n 136→157 and
-302→421) and added a category: **Industry & Manufacturing** is now distinctive
-for 17 schools, worth 340 weak-link slots that previously fell into the
-discarded "Other" bucket.
+302→727) and added a category: **Industry & Manufacturing** is now distinctive,
+worth weak-link slots that previously fell into the discarded "Other" bucket.
 
 So the feature's home is a **two-sided match in Scout Assistant** — this school's
 revealed hiring pattern wants Finance & Consulting ties, here are the sitting
@@ -186,24 +185,24 @@ a display string that becomes a de-facto grouping key the moment anyone builds a
 
 ## 9. Priority order
 
-1. **Ship the ranked view** off the 105 sitting senior ties. Small, but real, and it puts
+1. **Ship the ranked view** off the 135 sitting senior ties. Small, but real, and it puts
    something in front of users to react to. *(Data is ready; the UI is not built.)* Note
    the file is **not** in `lib/dataset-assembly.mjs`'s `ENRICHMENT` set yet, so the API
    does not serve it — that is deliberate while nothing consumes it, and it is a one-line
    addition alongside `leader-research.json` when the UI lands. It also decides gating:
    everything in that set is trial-gated proprietary payload.
 2. **Board-service sweep across sitting leaders.** Highest value per token: currently zero coverage, and a narrower question than a full career history, so cheaper per person.
-3. **Career histories for the 2,985 sitting leaders who lack one**, ordered by where `employer-affinity` says the demand is, returning seniority and years — not just the employer name.
-4. **Resolve rank on the ~228 ties** currently landing in `professional` or `unknown` seniority. Cheap, and it upgrades records that already exist.
+3. **Career histories for the 5,082 sitting leaders who lack one**, ordered by where `employer-affinity` says the demand is, returning seniority and years — not just the employer name.
+4. **Resolve rank on the ~237 ties** currently landing in `professional` or `unknown` seniority. Cheap, and it upgrades records that already exist.
 
-The ~21,000 historical people stay `unknown`, correctly labelled. They are not
+The ~20,900 historical people stay `unknown`, correctly labelled. They are not
 worth researching for a field consulted about sitting candidates.
 
 ## 10. Known limits
 
 - **`careerBackground` is two different fields.** A short label in business/engineering ("Academic/Industry"), a paragraph-long bio in advancement/nursing/admin. Substring-matching the prose flagged "corporate and foundation relations" and "board-certified family nurse practitioner" as industry experience — 75 false positives, now guarded by requiring a whole label component to match.
 - **Hospitals and health systems are excluded** from the yes bucket. In nursing, medical and pharmacy a health system is where a clinical academic normally works, and counting it would flip large parts of those indices on a contested definition. `makeClassifier(..., { countHealthProviderAsIndustry: true })` flips it.
-- **~1,018 org strings still match no rule.** `--dump-unclassified` lists them; each is either a vocabulary addition or a genuine unknown.
+- **~1,065 org strings still match no rule.** `--dump-unclassified` lists them; each is either a vocabulary addition or a genuine unknown.
 - **Recency is thin.** Only 44 ties carry explicit years; the rest use the appointment year as the end-of-tie date, which is a real signal but a coarse one.
 - **Two upstream bugs, both fixed here, both worth recognizing elsewhere:**
   1. `career-geo.json` is a general *organization* geocoder, not a school list — it contains "mckinsey & company", "goldman sachs" and "boeing". Seeding an academic gazetteer from all its keys marks those firms academic.

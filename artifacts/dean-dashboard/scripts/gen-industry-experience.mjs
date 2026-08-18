@@ -14,7 +14,7 @@
 // `hasIndustryExp` -- the boolean already on every dean record -- is the wrong
 // container for it twice over:
 //
-//   1. It is empty. 12 of the 21 indices (17,013 rows) never set it once;
+//   1. It is empty. 12 of the 21 indices (19,263 rows) never set it once;
 //      build-publichealth.mjs and news-lib.mjs write `false` literally. A
 //      boolean cannot say "nobody looked", so that `false` reads as a
 //      researched No and every percentage built on it understates.
@@ -36,7 +36,7 @@
 //
 // WHAT IT READS
 // -------------
-//   priorInstitution + priorTitle   every index, ~12.9k of 29.6k rows
+//   priorInstitution + priorTitle   every index, ~14k of 31.9k rows
 //   leader-research.json .career    ~2.3k people, ~8.2k dated career stops
 //   careerBackground                a label in some indices, a bio in others
 //   hasConsultingBg                 existing boolean, business/engineering only
