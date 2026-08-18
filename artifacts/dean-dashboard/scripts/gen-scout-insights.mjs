@@ -28,26 +28,19 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { assertRegistered, FILE_ID } from "./lib/indices.mjs";
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
+
+assertRegistered(SRC);
 const OUT = join(SRC, "scout-insights.json");
 const AFFINITY_FILE = "affinity-by-school.json";
 
-// Mirrors scripts/gen-affinity.mjs's FILE_ID map (kept independent/duplicated
-// on purpose — each generator script is meant to run standalone).
-const FILE_ID = {
-  "r1-bschool-deans.json": "r1bschool", "r1-eschool-deans.json": "r1eschool",
-  "r1-university-deans.json": "r1university", "r1-medschool-deans.json": "r1medical",
-  "r1-lawschool-deans.json": "r1law", "r1-provost-deans.json": "r1provost",
-  "r1-agschool-deans.json": "usag", "r1-nursing-deans.json": "usnursing",
-  "r1-pharmacy-deans.json": "uspharmacy", "r1-education-deans.json": "useducation",
-  "r1-arts-deans.json": "r1arts", "r1-r2public-deans.json": "usr2",
-  "r1-system-deans.json": "ussystem", "r1-publichealth-deans.json": "uspublichealth",
-  "r1-vet-deans.json": "usvet", "r1-grad-deans.json": "usgrad",
-  "r1-camd-deans.json": "uscreativearts",
-  "r1-advancement-deans.json": "usadvancement", "r1-lac-deans.json": "uslac",
-  "r1-adminleaders-deans.json": "usadminleaders",
-};
+// FILE_ID / INDEX_LABEL now come from lib/indices.mjs. They used to be copied
+// into each generator on the theory that standalone scripts should stay
+// independent; in practice the copies drifted -- scout-backtest.mjs never
+// learned about r1-adminleaders-deans.json, the largest index -- so a new index
+// silently reached some passes and not others.
 
 const read = (f) => { try { return JSON.parse(readFileSync(join(SRC, f), "utf8")); } catch { return []; } };
 

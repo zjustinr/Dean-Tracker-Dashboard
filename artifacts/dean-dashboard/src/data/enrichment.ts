@@ -177,6 +177,85 @@ export interface EmployerIndexAffinity {
 const employerAffinity = makeJsonMap<EmployerIndexAffinity>("employer-affinity.json");
 export const useEmployerAffinity = employerAffinity.useMap;
 
+// Industry-tie derivation output (scripts/gen-industry-experience.mjs). Unlike
+// the other sidecars this is a WRAPPED document, not a bare person map: the
+// scoring weights, asOf year and corpus counts ride alongside `people` so a
+// stored score is auditable client-side and no reserved key ever sits inside
+// the person map (see PROJECT.md's institution-name contract post-mortem for
+// why that matters). `people` is keyed `"<name lower>|<university lower>"`
+// like leader-research/dean-photos, and is scope-gated server-side the same
+// way research is -- a scoped visitor only receives ties for leaders in
+// indices they can browse, so every count shown in the UI must be computed
+// from the received `people`, never read off `counts`.
+export type TieKind = "employment" | "board" | "advisory";
+export type TieSeniority = "executive" | "senior" | "professional" | "unknown";
+export interface IndustryTie {
+  kind: TieKind;
+  industry: string;
+  firm: string;
+  role?: string;
+  seniority: TieSeniority;
+  years?: string;
+  endYear?: number;
+  source: string;
+  score: number;
+}
+export interface IndustryTieRecord {
+  name: string;
+  university: string;
+  status: "yes" | "no";
+  confidence: "high" | "low" | "medium";
+  sitting: boolean;
+  // dataset ids the person appears in, sitting-seat index first (for opening a
+  // cross-index profile); absent only for people outside every registered index
+  indices?: string[];
+  // present only on status "yes" with a named firm (confidence "high"):
+  score?: number;
+  seniority?: TieSeniority;
+  industries?: string[];
+  firms?: string[];
+  ties?: IndustryTie[];
+  // present only on status "no":
+  stops?: number;
+  sectors?: string[];
+  flags?: string[];
+}
+export interface IndustryTiesDoc {
+  asOf: number;
+  scoring: { seniority: Record<TieSeniority, number>; kind: Record<TieKind, number>; recency: string; note: string };
+  industries: string[];
+  counts: Record<string, number>;
+  people: Record<string, IndustryTieRecord>;
+}
+
+// Same reactive single-fetch pattern as makeJsonMap, but the snapshot is the
+// whole document (or null while loading) instead of a string-keyed map.
+function makeJsonDoc<T>(file: string) {
+  let data: T | null = null;
+  let started = false;
+  const listeners = new Set<() => void>();
+  function ensure() {
+    if (started) return;
+    started = true;
+    fetch(`${import.meta.env.BASE_URL}data/${file}?v=${__BUILD_ID__}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { data = (d ?? null) as T | null; listeners.forEach((l) => l()); })
+      .catch(() => { started = false; }); // allow a later mount to retry
+  }
+  function subscribe(cb: () => void) { listeners.add(cb); return () => { listeners.delete(cb); }; }
+  const snapshot = () => data;
+  return {
+    ensure,
+    current: () => data,
+    useDoc(): T | null {
+      ensure();
+      return useSyncExternalStore(subscribe, snapshot, snapshot);
+    },
+  };
+}
+const industryTies = makeJsonDoc<IndustryTiesDoc>("industry-experience.json");
+export const useIndustryTies = industryTies.useDoc;
+
 export const enrichKey = (dean: string, university: string) =>
   `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;
 

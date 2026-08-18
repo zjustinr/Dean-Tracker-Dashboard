@@ -67,6 +67,16 @@ const PATHS: Record<string, ReactNode> = {
       <path d="M7 8h7M7 11h7M7 14h4" />
     </>
   ),
+  // Industry Ties — briefcase with an outgoing connection node
+  industryties: (
+    <>
+      <rect x="3" y="8" width="15" height="11" rx="1.5" />
+      <path d="M7.5 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+      <path d="M3 12.5h15" />
+      <path d="m18 12.5 2.8-2.8" />
+      <circle cx="21" cy="9" r="1.4" />
+    </>
+  ),
   // Build Your Own Analysis — grid / pivot
   analysis: (
     <>

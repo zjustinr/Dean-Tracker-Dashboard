@@ -56,7 +56,7 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 - New fields: appt_origin_4, surprise_departure, from_elite_institution, had_prior_connection, source_url
 - Removed fields: avgAnnualGifts, totalGifts, maxAnnualGifts, avgEndowment, fundraisingYears, enrollmentStart, gradEnrollment, estBizEnrollment, businessPctStart
 
-### Features (8 tabs)
+### Features (7 module tabs)
 1. **School Explorer** — Unified school exploration view combining dean data with BSQ research
    - List View: dropdown school selector with rank/alpha sort toggle, school info badges
    - Map View: interactive US map with clickable school markers (sized by faculty count) via react-simple-maps
@@ -71,9 +71,22 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 5. **Discipline Search** (tab: "discipline", between Aggregate Trends and Individual Search) — Dynamic US map colored by the academic discipline of the dean serving in the selected year. Year slider (dataset min–2026, default 2026) with Play animation (1 yr / 350 ms), dean last-name labels (toggleable), hover tooltip, click marker → DeanProfile. Legend shows per-year counts by discipline (top-9 by frequency get chart colors; rest fold into "Other"; "Unknown" light gray). Below: stacked-area chart of discipline composition of sitting deans over time with a ReferenceLine tracking the slider year and a Legend. Component: `DisciplineSearch.tsx`. Note: react-simple-maps' Marker `style` prop is ignored — put cursor styles on the `<circle>` itself.
 6. **Dean News & Market** (tab: "jobmarket") — Current dean openings from curated spreadsheet data (23 positions). KPI cards (5 columns when news hires present), searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening, New Appointment), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. Layout: KPIs → filters → Map → News feed. **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours via `/api/pq-news`.
 
+7. **Industry Ties** (tab: "industryties") — Ranked view of leaders with a NAMED-FIRM
+   industry tie, from `industry-experience.json` (runtime-loaded, scope-gated like
+   leader-research). Rank = tie score (seniority-dominant, recency-decayed,
+   board/advisory weighted above past employment; weights ship inside the data file
+   and the in-app "How the ranking works" panel reads them from there). Filters:
+   search, industry, seniority chips, sitting-only toggle. "Open profile" uses the
+   record's `indices[0]` (sitting-seat index first) via App's `openLeaderCrossIndex`.
+   Coverage note is load-bearing: absence from the list is never evidence of no
+   industry background. Component: `IndustryTies.tsx`.
+
 ### Key Fields
 - Demographics: gender, discipline, career background
-- Career: prior dean experience, assoc. dean role, PhD, industry exp
+- Career: prior dean experience, assoc. dean role, PhD, industry exp — but the legacy
+  `hasIndustryExp` boolean is unpopulated in 12 of 21 indices and cannot say "nobody
+  looked"; the live signal is `industry-experience.json` (see the industry-tie
+  contract below)
 - Appointment: origin (internal/external/interim — interim always a separate category, never merged), era, tenure length
 - Post-dean: next role (faculty, another deanship, provost, retirement, etc.)
 - School: US News rank, tier, elite institution status
@@ -114,6 +127,78 @@ Like `phdInstitution`, this flag has **no schema guard** and no ETL writes it �
 - `gen-affinity.mjs` writes ties under one canonical key per school, then **aliases every observed variant spelling onto the same array**. That alias layer is load-bearing: consumers look up `affinityMap[school]` using the raw `university` string of whichever dataset they are showing, and `api/data.js`'s `filteredAffinity()` calls `.filter` on every value — so aliases must be real arrays, never a reserved key. It costs ~1.1 MB in the generated file.
 - Run `node scripts/check-school-names.mjs` after any collection wave. It reports which spellings were auto-folded and lists prefix near-misses to confirm are genuinely different schools. It exits 0 by design (the near-miss list is dominated by real campuses); read it, don't gate on it.
 
+### Shared script libraries (read before adding an index)
+
+Three modules under `artifacts/dean-dashboard/scripts/lib/` are the single source
+of truth for anything that spans indices. None of them names an index, so an
+index added later inherits all of it.
+
+- **`indices.mjs`** — `FILE_ID`, `INDEX_LABEL`, `deanFiles()`, `assertRegistered()`.
+  **Adding an index is one line here**, and that is the only place it belongs.
+  This map used to be copy-pasted into `gen-affinity.mjs`,
+  `gen-employer-affinity.mjs`, `gen-scout-insights.mjs` and `scout-backtest.mjs`
+  with a note in each saying the duplication was deliberate. It drifted:
+  `scout-backtest.mjs` never learned about `r1-adminleaders-deans.json`, the
+  largest index, so the backtest silently sampled a corpus missing a fifth of
+  its people and nothing failed. Every index-wide pass now calls
+  `assertRegistered(SRC)`, which warns about any dean file the registry has not
+  been told about — a partial rollout is loud instead of silent.
+- **`org-classify.mjs`** — the organization taxonomy: org string → sector
+  (Academic / Government / Nonprofit / Healthcare Provider / Industry+industry /
+  Unclassified), seniority bands, tie kinds, and `affinityCategory()` mapping the
+  fine sectors onto the coarse names `employer-affinity.json` publishes.
+  **Vocabulary grows here and every consumer picks it up on its next run.**
+  Two traps it exists to not repeat:
+  - Every pattern compiles through `stems()`, which anchors a word boundary at
+    the START of a term only. Written the obvious way — `/\b(universit|technolog)\b/i`
+    — the trailing `\b` applies to every branch, so a stem only matches when
+    followed by a non-word character: `universit` never matches "University",
+    `technolog` never matches "Technology". Terms needing a closing boundary
+    (bare abbreviations like `mit`, `ge`, `bcg`) carry their own `\b`.
+  - `career-geo.json` is a general **organization** geocoder, not a list of
+    schools — it holds "mckinsey & company", "goldman sachs" and "boeing"
+    alongside the alma maters. `buildAcademicIndex()` takes only its
+    academically-worded entries; seeding from all its keys marks those firms
+    academic.
+- **`school-canon.mjs`** — institution-name canonicalization (see the
+  institution-name contract above).
+
+### Industry-tie contract (research/enrichment waves)
+
+`industry-experience.json` is generated by `scripts/gen-industry-experience.mjs`
+(part of `gen-data`/`predev`/`prebuild`) from `priorInstitution`/`priorTitle`,
+`leader-research.json` career steps, `careerBackground` and `hasConsultingBg`.
+It is a regenerable sidecar keyed `"<name lower>|<university lower>"` and never
+writes into the dean JSONs. It is SERVED: registered in both ENRICHMENT sets
+(`lib/dataset-assembly.mjs` for the dev server, `api/data.js` for prod, where
+`filteredIndustryTies` scope-gates the `people` map like research — so every
+count shown in the UI must be computed from received `people`, never from the
+pass-through `counts` block). Consumers: `IndustryTies.tsx` (ranked view),
+`DeanProfile.tsx` (firm-named badge), `CompareSchools.tsx` ("Industry Exp % (of
+researched)" over known verdicts, dash when none), `ScoutCandidateList.tsx`
+(tie chip on candidate rows). Full evaluation: `docs/industry-ties.md`.
+
+The purpose is a **connections** signal — which leaders carry a corporate network
+a school can tap — so it models **ties**, not a boolean: person → firm → sector →
+seniority → recency → kind. `hasIndustryExp` (the legacy boolean on the `Dean`
+interface) is unpopulated in 12 of 21 indices and cannot distinguish "no" from
+"nobody looked"; do not build percentages on it.
+
+Any wave collecting industry ties must return:
+
+- **Employer's full name only** — "McKinsey & Company", never "Senior Partner at McKinsey". Role is its own field.
+- **One entry per employer**, not per title. Three promotions at IBM is one tie.
+- **The most senior title held** at that employer. This drives the score and is the field most often dropped.
+- **Years** as a span. Recency is a scoring axis.
+- **Kind**: `employment`, `board`, or `advisory`. Board seats are currently at **zero** across the whole corpus and are the highest-value gap.
+- **Sector** from `INDUSTRY_NAMES` in `org-classify.mjs`, so the taxonomy does not fork.
+- **Employment distinguished from affiliation** — board service, advisory panels, consulting while on faculty and company-funded chairs are separate kinds, not employment.
+- **"None found" explicitly** when a career was entirely academic. Without it a "no" only means "the one job we recorded was academic" — which is 84% of today's negatives.
+
+Run `node scripts/gen-industry-experience.mjs --dump-unclassified` after any wave:
+every org it lists is either a vocabulary addition for `org-classify.mjs` or a
+genuine unknown.
+
 ### Daily news scout (automated dataset updates)
 GitHub Action `.github/workflows/news-scout.yml` runs daily (13:00 UTC) + manual dispatch: `scripts/news-scout.mjs` scans Google News RSS + Poets&Quants for dean events, matches against tracked universities/unique school names, and AUTO-APPLIES high-confidence appointments (max 5/run, ≤30 days old) to the v7 Excel + deans.json, closes the predecessor's open spell, then regenerates R1 JSONs and pushes (Vercel auto-deploys). Medium-confidence hits go to `attached_assets/news_scout_review.json`; every action logs to `news_scout_log.csv`; dedup state in `news_scout_state.json`. New rows carry `verification_sweep_2026 = "news-scout"` and origin/discipline "Unknown" pending review.
 
@@ -129,6 +214,11 @@ GitHub Action `.github/workflows/news-scout.yml` runs daily (13:00 UTC) + manual
 - `schools.ts` — SCHOOL_INFO array (50 schools with lat/lng, faculty, type, departments) + SCHOOL_NAME_MAP for deterministic matching between map markers and dean data school names
 - `types.ts` — Dean interface, field types, color constants, label maps
 - `useData.ts` — React hooks for dean data access
+- `industry-experience.json` — generated industry TIES (person → firm → sector →
+  seniority → recency → kind) with a transparent score, plus `asOf` and the scoring
+  weights. Wrapped as `{asOf, scoring, industries, counts, people}` rather than a bare
+  person map, so meta never sits beside person records the way a reserved key would.
+  Regenerate with `node scripts/gen-industry-experience.mjs`.
 
 ### Tech
 - React + Vite + Tailwind CSS v4 + shadcn/ui
