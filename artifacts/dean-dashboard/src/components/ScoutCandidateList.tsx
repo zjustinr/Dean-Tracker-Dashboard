@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Dean } from "@/data/types";
-import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, useIndustryTies } from "@/data/enrichment";
 import { affKey, SOURCE_THEME, type ScoutCandidate } from "@/data/useScoutCandidates";
 import DeanProfile from "@/components/DeanProfile";
 import { CareerAssessment, useCareerAnalysis, type Root } from "@/components/CareerMap";
@@ -25,6 +25,10 @@ export default function ScoutCandidateList({
 }) {
   const photos = usePhotoMap();
   const researchMap = useResearchMap();
+  // Named-firm industry ties (scripts/gen-industry-experience.mjs): a candidate
+  // who carries a senior corporate network gets a chip saying WHICH firm at WHAT
+  // rank -- exactly the door-opening signal the connections use case scouts for.
+  const tiesPeople = useIndustryTies()?.people ?? null;
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
 
   // Cohort tenure distribution for the Movability Index, mirroring IndividualSearch's
@@ -115,6 +119,19 @@ export default function ScoutCandidateList({
                 ) : (
                   <p className="text-xs text-muted-foreground italic mt-0.5">No strong pattern match.</p>
                 )}
+                {(() => {
+                  const k = c.dean ? enrichKey(c.dean.dean, c.dean.university) : c.resolvable?.enrichKey;
+                  const rec = k && tiesPeople ? tiesPeople[k] : null;
+                  const tie = rec?.status === "yes" && rec.ties?.length ? rec.ties[0] : null;
+                  if (!tie) return null;
+                  const rank = tie.seniority === "executive" ? "Executive" : tie.seniority === "senior" ? "Senior" : null;
+                  return (
+                    <p className="text-[10px] mt-0.5 truncate text-teal-700 dark:text-teal-400" title="Named-firm industry tie from recorded career stops">
+                      <span className="font-semibold">Industry tie:</span> {rank ? `${rank} — ` : ""}{tie.firm}
+                      {tie.kind !== "employment" ? ` (${tie.kind === "board" ? "board seat" : "advisory"})` : ""}
+                    </p>
+                  );
+                })()}
                 {!!c.matchedKeywords?.length && (
                   <div className="flex flex-wrap gap-1 mt-1">
                     {c.matchedKeywords.slice(0, 6).map((k) => (

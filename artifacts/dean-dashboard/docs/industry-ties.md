@@ -185,12 +185,13 @@ a display string that becomes a de-facto grouping key the moment anyone builds a
 
 ## 9. Priority order
 
-1. **Ship the ranked view** off the 135 sitting senior ties. Small, but real, and it puts
-   something in front of users to react to. *(Data is ready; the UI is not built.)* Note
-   the file is **not** in `lib/dataset-assembly.mjs`'s `ENRICHMENT` set yet, so the API
-   does not serve it — that is deliberate while nothing consumes it, and it is a one-line
-   addition alongside `leader-research.json` when the UI lands. It also decides gating:
-   everything in that set is trial-gated proprietary payload.
+1. ~~**Ship the ranked view**~~ **Shipped** (Aug 2026): the Industry Ties module tab
+   (`IndustryTies.tsx`) ranks the named-firm pool with industry/seniority/sitting
+   filters and opens cross-index profiles. The sidecar is served through both
+   ENRICHMENT sets, scope-gated per visitor like leader-research; DeanProfile's badge
+   now names the firm, CompareSchools computes "Industry Exp % (of researched)" over
+   known verdicts (dash when none — no more fake 0%), and Scout Assistant candidate
+   rows carry a named-firm tie chip.
 2. **Board-service sweep across sitting leaders.** Highest value per token: currently zero coverage, and a narrower question than a full career history, so cheaper per person.
 3. **Career histories for the 5,082 sitting leaders who lack one**, ordered by where `employer-affinity` says the demand is, returning seniority and years — not just the employer name.
 4. **Resolve rank on the ~237 ties** currently landing in `professional` or `unknown` seniority. Cheap, and it upgrades records that already exist.

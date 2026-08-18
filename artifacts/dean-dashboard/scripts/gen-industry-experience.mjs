@@ -184,7 +184,13 @@ for (const f of files) {
     p.name ||= r.dean;
     p.university ||= r.university;
     if (id) p.indices.add(id);
-    if (r.endYear == null && r.roleType !== "subdean") p.sitting = true;
+    if (r.endYear == null && r.roleType !== "subdean") {
+      p.sitting = true;
+      // Remember which dataset holds the sitting seat: the UI's "open profile"
+      // action has to pick ONE index to switch to, and the one where the person
+      // currently serves is the only choice that always shows a live record.
+      if (id && !p.sittingIndex) p.sittingIndex = id;
+    }
 
     for (const org of splitOrgs(r.priorInstitution)) {
       // A prior institution is a job the person left when they took this seat,
@@ -310,12 +316,19 @@ for (const [k, p] of P) {
   // corpus actually has evidence for.
   if (status === "unknown") continue;
 
+  // Dataset ids this person appears in, sitting-seat index first -- the UI
+  // needs a concrete index to open a cross-index profile, and any other order
+  // risks landing on a historical spell instead of the live one.
+  const indices = [...p.indices].sort((a, b) =>
+    (a === p.sittingIndex ? -1 : b === p.sittingIndex ? 1 : a.localeCompare(b)));
+
   out[k] = {
     name: p.name,
     university: p.university,
     status,
     confidence,
     sitting: p.sitting,
+    ...(indices.length ? { indices } : {}),
     ...(ties.length
       ? {
           // Person score is the best single tie, not a sum: one executive seat

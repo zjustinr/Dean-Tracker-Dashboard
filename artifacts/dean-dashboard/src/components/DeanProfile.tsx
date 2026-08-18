@@ -8,7 +8,7 @@ import { FullPortrait } from "./DeanPortrait";
 import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
-import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps, usePhotoMap, type NewsItem } from "@/data/enrichment";
+import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps, usePhotoMap, useIndustryTies, type NewsItem } from "@/data/enrichment";
 
 function formatArchiveDate(capturedAt: string): string {
   // capturedAt is YYYYMMDD (see photo-lib.mjs's today()).
@@ -37,6 +37,12 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
   const careerPositions = useDeanCareer(dean.dean);
   const title = titleOf(dean);
   const research = useResearchMap()[enrichKey(dean.dean, dean.university)] || null;
+  // Industry-tie record (scripts/gen-industry-experience.mjs). When it names a
+  // firm, the badge says WHICH firm -- for the connections use case the employer
+  // is the information, not the boolean. The legacy hasIndustryExp flag stays as
+  // the fallback for hand-labelled people the derivation couldn't reproduce.
+  const industryRec = useIndustryTies()?.people[enrichKey(dean.dean, dean.university)] ?? null;
+  const industryTie = industryRec?.status === "yes" && industryRec.ties?.length ? industryRec.ties[0] : null;
   const photoHistory = usePhotoMap()[enrichKey(dean.dean, dean.university)]?.history || [];
   const hasNews = !!research?.news?.length;
   const hasCareer = !!research?.career?.length;
@@ -171,7 +177,16 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
         {dean.isFirstTimeDean && <Badge variant="secondary">First-Time Dean</Badge>}
         {dean.hasPriorDeanExp && <Badge variant="secondary">Prior Dean Experience</Badge>}
         {dean.hasPhd && <Badge variant="secondary">PhD</Badge>}
-        {dean.hasIndustryExp && <Badge variant="secondary">Industry Experience</Badge>}
+        {industryTie ? (
+          <Badge
+            variant="secondary"
+            title={`${industryTie.role ? industryTie.role + ", " : ""}${industryTie.firm}${industryTie.years ? " (" + industryTie.years + ")" : ""} — from recorded career stops`}
+          >
+            Industry: {industryTie.firm}{(industryRec?.firms?.length ?? 0) > 1 ? ` +${industryRec!.firms!.length - 1}` : ""}
+          </Badge>
+        ) : (
+          dean.hasIndustryExp && <Badge variant="secondary">Industry Experience</Badge>
+        )}
         {dean.hasConsultingBg && <Badge variant="secondary">Consulting Background</Badge>}
       </div>
 
