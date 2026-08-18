@@ -11,6 +11,7 @@ import LiveJobMarket from "@/components/LiveJobMarket";
 // (see DEFAULT_TABS below) so restoring it later is a one-line uncomment.
 import DisciplineSearch from "@/components/DisciplineSearch";
 import ScoutAssistantPage from "@/components/ScoutAssistantPage";
+import IndustryTies from "@/components/IndustryTies";
 import Insights from "@/components/Insights";
 import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/FreeTierMeter";
 import ConsentGate from "@/components/ConsentGate";
@@ -59,6 +60,7 @@ const DEFAULT_TABS: TabDef[] = [
   // entry to bring it back (DisciplineSearch/buildTabContent are untouched).
   // { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
   { value: "jobmarket", label: "Leadership News & Market", desc: "Stay updated with the latest leadership news and market activity." },
+  { value: "industryties", label: "Industry Ties", desc: "Leaders who carry a corporate network — ranked by seniority, recency, and whether the tie is employment, a board seat, or advisory." },
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
 ];
 
@@ -77,6 +79,7 @@ function buildTabContent(
     search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} onOpenLeader={onOpenLeader} />,
     scout: <ScoutAssistantPage onOpenSchool={onOpenSchool} />,
     jobmarket: <LiveJobMarket />,
+    industryties: <IndustryTies onOpenLeader={onOpenLeader} />,
     discipline: <DisciplineSearch />,
   };
 }
@@ -292,11 +295,11 @@ function AppInner() {
             </div>
 
             {/* items-stretch on desktop so the module grid and the Meet-a-Leader panel
-                end flush; grid-rows-3 lets the six cards share that height evenly
-                rather than hugging their text. */}
+                end flush; grid-rows-4 lets the seven cards share that height evenly
+                rather than hugging their text (the eighth cell stays empty). */}
             <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-stretch">
             <div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-3 gap-4 flex-1 w-full"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-4 gap-4 flex-1 w-full"
               role="tablist"
             >
               {tabs.map((tab) => {

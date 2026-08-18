@@ -5,7 +5,7 @@ import careerGeo from "@/data/career-geo.json";
 import { MovabilityGaugeIcon } from "./MovabilityGaugeIcon";
 
 const { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } = RSM;
-type Hover = { kind: "career"; num: number; role: string; org: string; place: string; years: string } | { kind: "alma"; school: string; level: string; state: string };
+type Hover = { kind: "career"; num: number; role: string; org: string; place: string; years: string } | { kind: "alma"; school: string; level: string; state: string | null };
 // Line ships in react-simple-maps v3 at runtime but is missing from the installed types.
 const Line = (RSM as unknown as { Line: React.FC<any> }).Line;
 
@@ -34,7 +34,10 @@ export interface TenureInfo {
   cohortN: number;
 }
 
-export interface Root { school: string; state: string; level: string; country?: string; lat: number | null; lng: number | null }
+// state is null for derived roots whose alma mater has no US state (foreign or
+// unresolved institutions) -- career-roots.json started carrying those in Aug 2026,
+// and every consumer already guards (.filter(Boolean), projectableUS, hover?.state).
+export interface Root { school: string; state: string | null; level: string; country?: string; lat: number | null; lng: number | null }
 
 function miles(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
   const R = 3959, r = (x: number) => (x * Math.PI) / 180;

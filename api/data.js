@@ -73,6 +73,7 @@ const ENRICHMENT = {
   "affinity-by-school.json": () => require("../artifacts/dean-dashboard/src/data/affinity-by-school.json"),
   "scout-insights.json": () => require("../artifacts/dean-dashboard/src/data/scout-insights.json"),
   "employer-affinity.json": () => require("../artifacts/dean-dashboard/src/data/employer-affinity.json"),
+  "industry-experience.json": () => require("../artifacts/dean-dashboard/src/data/industry-experience.json"),
 };
 
 function splitOpsFromIS(deans) {
@@ -152,6 +153,18 @@ function filteredEmployerAffinity(scope) {
   for (const id in full) if (scope.has(id)) out[id] = full[id];
   return out;
 }
+// industry-experience.json is a WRAPPED document ({asOf, scoring, industries,
+// counts, people}) rather than a bare person map -- the meta rides outside the
+// map so no consumer ever trips over a reserved key. Scope-gate only the
+// `people` map (same leader-key filter as research); the meta and corpus-wide
+// counts are aggregate numbers, not per-leader payload, so they pass through.
+function filteredIndustryTies(scope) {
+  const full = ENRICHMENT["industry-experience.json"]();
+  const keys = leaderKeysForScope(scope);
+  const people = {};
+  for (const k in full.people) if (keys.has(k)) people[k] = full.people[k];
+  return Object.assign({}, full, { people });
+}
 
 // Per-client revocation switch, set/cleared by the owner from the usage
 // dashboard (api/usage.js ?block=/?unblock=). Stateless HMAC tokens can't be
@@ -210,6 +223,7 @@ module.exports = async function handler(req, res) {
   const isAffinity = f === "affinity-by-school.json";
   const isScoutInsights = f === "scout-insights.json";
   const isEmployerAffinity = f === "employer-affinity.json";
+  const isIndustryTies = f === "industry-experience.json";
 
   const secret = process.env.TRIAL_SECRET;
   let reason = "disarmed", setCookie = null;
@@ -254,6 +268,7 @@ module.exports = async function handler(req, res) {
     else if (isAffinity) body = JSON.stringify(scope && !scope.has("*") ? filteredAffinity(scope) : ENRICHMENT[f]());
     else if (isScoutInsights) body = JSON.stringify(scope && !scope.has("*") ? filteredScoutInsights(scope) : ENRICHMENT[f]());
     else if (isEmployerAffinity) body = JSON.stringify(scope && !scope.has("*") ? filteredEmployerAffinity(scope) : ENRICHMENT[f]());
+    else if (isIndustryTies) body = JSON.stringify(scope && !scope.has("*") ? filteredIndustryTies(scope) : ENRICHMENT[f]());
     else if (ENRICHMENT[f]) body = JSON.stringify(ENRICHMENT[f]());
     else if (SPEC[id]) body = JSON.stringify(assemble(id));
     else { res.status(404).json({ error: "not_found" }); return; }
@@ -262,7 +277,7 @@ module.exports = async function handler(req, res) {
     res.status(500).json({ error: "server_error" }); return;
   }
 
-  await logUsage(req, isResearch ? "research" : isAffinity ? "affinity" : isScoutInsights ? "scout-insights" : isEmployerAffinity ? "employer-affinity" : isPhotos ? "photos" : "data", client, f);
+  await logUsage(req, isResearch ? "research" : isAffinity ? "affinity" : isScoutInsights ? "scout-insights" : isEmployerAffinity ? "employer-affinity" : isIndustryTies ? "industry-ties" : isPhotos ? "photos" : "data", client, f);
   if (setCookie) res.setHeader("set-cookie", setCookie);
   res.setHeader("content-type", "application/json; charset=utf-8");
   res.setHeader("cache-control", "private, max-age=300");

@@ -10,46 +10,17 @@
 // career-roots.json alma-mater degrees (undergrad/grad). New index files matching
 // r1-*-deans.json are picked up automatically (glob); add a label to INDEX_LABEL
 // for a nicer source badge.
-import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { buildCanon } from "./lib/school-canon.mjs";
+import { assertRegistered, deanFiles as listDeanFiles, FILE_ID, INDEX_LABEL } from "./lib/indices.mjs";
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
 // Committed alongside leader-research.json (its main input) and served through the
 // gated /data endpoint with per-scope filtering. Regenerated on every build/deploy.
 const OUT = join(SRC, "affinity-by-school.json");
 
-const FILE_ID = {
-  "r1-bschool-deans.json": "r1bschool", "r1-eschool-deans.json": "r1eschool",
-  "r1-university-deans.json": "r1university", "r1-medschool-deans.json": "r1medical",
-  "r1-lawschool-deans.json": "r1law", "r1-provost-deans.json": "r1provost",
-  "r1-agschool-deans.json": "usag", "r1-nursing-deans.json": "usnursing",
-  "r1-pharmacy-deans.json": "uspharmacy", "r1-education-deans.json": "useducation",
-  "r1-arts-deans.json": "r1arts", "r1-r2public-deans.json": "usr2",
-  "r1-system-deans.json": "ussystem", "r1-publichealth-deans.json": "uspublichealth",
-  "r1-vet-deans.json": "usvet", "r1-grad-deans.json": "usgrad",
-  "r1-camd-deans.json": "uscreativearts",
-  "r1-advancement-deans.json": "usadvancement", "r1-lac-deans.json": "uslac",
-  // Explicit override, not just a nicer label: without this, the fallback
-  // f.replace(/^r1-|-deans\.json$/g, "") derives "adminleaders" -- a string
-  // that isn't a real DatasetId (the registered id is "usadminleaders", see
-  // datasets.ts). That mismatch silently breaks cross-index resolution for
-  // every affinity tie sourced from this file (useScoutCandidates.ts's
-  // resolveProfile calls loadDatasetData(entry.index), which throws/no-ops
-  // for an unknown id) -- every adminleaders-sourced affinity candidate
-  // elsewhere in the app would resolve to "not-found".
-  "r1-adminleaders-deans.json": "usadminleaders",
-};
-const INDEX_LABEL = {
-  r1bschool: "Business", r1eschool: "Engineering", r1university: "President",
-  r1medical: "Medical", r1law: "Law", r1provost: "Provost", usag: "Ag & Forestry",
-  usnursing: "Nursing", uspharmacy: "Pharmacy", useducation: "Education",
-  r1arts: "Arts & Sciences", usr2: "R2", ussystem: "System",
-  uspublichealth: "Public Health", usvet: "Veterinary", usgrad: "Graduate College",
-  uscreativearts: "Creative Arts", usadvancement: "Advancement", uslac: "LAC President",
-  usadminleaders: "Administrative",
-};
 // Fallback label for an index file not yet in the map (a newly added index).
 const labelFor = (id) => INDEX_LABEL[id] || id.replace(/^r1|^us/, "").replace(/^\w/, (c) => c.toUpperCase());
 
@@ -61,7 +32,8 @@ const UGRAD = /\b(ba|bs|bsc|ab|bachelor|undergrad)\b/i;
 const ADMIN = /\b(dean|provost|chancellor|president|chair|director|vice president|vice provost|head|officer|coordinator|rector|principal|superintendent)\b/i;
 
 // ---- load all leadership files (glob, so new indices auto-include) ------------
-const deanFiles = readdirSync(SRC).filter((f) => /^r1-.*-deans\.json$/.test(f)).sort();
+assertRegistered(SRC);
+const deanFiles = listDeanFiles(SRC).filter((f) => FILE_ID[f]);
 const DEANS = []; // { rec, idx }
 // Proper-cased display name per normalized key. career-roots.json / leader-research.json
 // are keyed lowercase, so without this the lowercase spelling can win over the dean
