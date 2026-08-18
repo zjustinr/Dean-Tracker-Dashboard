@@ -14,6 +14,37 @@ function eq(a, b) {
   return ba.length === bb.length && crypto.timingSafeEqual(ba, bb);
 }
 
+// --- owner mint (?mint=<tier>&client=<slug>[&days=N]) ------------------------
+// Server-side twin of scripts/mint-trial.mjs, so the owner can mint from the
+// usage dashboard without a local checkout + .trial-secret. Signs with the
+// production TRIAL_SECRET, so links are always valid in production. Keep
+// ALL_IDS + TIERS in sync with scripts/mint-trial.mjs, or a dashboard-minted
+// link would grant different access than one minted by hand.
+const ALL_IDS = [
+  "r1bschool", "r1eschool", "r1university", "r1medical", "r1law", "r1provost",
+  "usag", "usnursing", "uspharmacy", "useducation", "r1arts", "uspublichealth",
+  "uslac", "ussystem", "usr2", "usvet", "usgrad", "usadminleaders",
+];
+const TIERS = {
+  day:     { label: "Day Pass",     scope: ["r1bschool", "r1university", "r1provost"], days: 1 },
+  project: { label: "Project Pass", scope: ALL_IDS,                                    days: 30 },
+  firm:    { label: "Firm Plan",    scope: ALL_IDS,                                    days: 365 },
+  owner:   { label: "Owner (all indices + future)", scope: ["*"],                      days: 3650 },
+};
+const MINT_DOMAIN = (process.env.BI_DOMAIN || "https://batonindex.com").replace(/\/+$/, "");
+
+// Trial-token signing, matching lib/trial-token.mjs's format exactly (same
+// Node-crypto reimplementation as api/stripe-webhook.js's mintDayPassToken).
+function b64urlEncode(str) { return Buffer.from(str, "utf8").toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function hmacToken(secret, msg) { return crypto.createHmac("sha256", secret).update(msg).digest("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function mintToken(client, scope, days, secret) {
+  const nowSec = Math.floor(Date.now() / 1000);
+  const expSec = nowSec + days * 86400;
+  const payload = { c: client, s: scope, x: expSec, i: nowSec };
+  const body = b64urlEncode(JSON.stringify(payload));
+  return { token: `${body}.${hmacToken(secret, body)}`, expSec };
+}
+
 function kvCreds() {
   return {
     url: process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL,
@@ -85,6 +116,37 @@ module.exports = async function handler(req, res) {
       res.setHeader("location", `/api/usage?key=${encodeURIComponent(key)}`);
       res.status(302).send("");
     } catch (e) { res.status(502).send("update failed: " + esc(e.message)); }
+    return;
+  }
+
+  // Owner mint: ?key=...&mint=<tier>&client=<slug>[&days=N] — returns the link.
+  if (req.query && req.query.mint) {
+    const tierKey = String(req.query.mint);
+    const tier = TIERS[tierKey];
+    const client = String(req.query.client || "").trim().slice(0, 80);
+    const days = Math.min(3650, Math.max(1, parseInt(req.query.days, 10) || (tier ? tier.days : 0)));
+    const fail = (code, msg) => { res.setHeader("content-type", "text/html; charset=utf-8"); res.status(code).send(`<body style='font-family:sans-serif;padding:40px'><h2>Mint failed</h2><p>${esc(msg)}</p><p><a href="/api/usage?key=${encodeURIComponent(key)}">← back to usage</a></p></body>`); };
+    if (!tier) { fail(400, `Unknown tier "${tierKey}". Use one of: ${Object.keys(TIERS).join(", ")}.`); return; }
+    if (!client) { fail(400, "A client tag is required (e.g. opus-associate)."); return; }
+    const trialSecret = process.env.TRIAL_SECRET;
+    if (!trialSecret) { fail(503, "TRIAL_SECRET is not set in Vercel, so a production-valid link can't be signed."); return; }
+
+    const { token, expSec } = mintToken(client, tier.scope, days, trialSecret);
+    const link = `${MINT_DOMAIN}/?k=${token}`;
+    const expiryISO = new Date(expSec * 1000).toISOString().slice(0, 10);
+    const scopeLabel = tier.scope.includes("*") ? "ALL indices (wildcard — includes any future index)" : `all ${tier.scope.length} indices`;
+    // Audit trail only: record the mint in the event feed, but don't touch the
+    // bi:client:<c> hash — hits/last-seen must stay pure client activity.
+    if (kvCreds().url && kvCreds().tok) {
+      try { await kv([["LPUSH", "bi:events", JSON.stringify({ c: client, ev: "mint", f: `${tierKey} · ${days}d`, t: Date.now() })], ["LTRIM", "bi:events", "0", "1999"]]); } catch { /* best-effort */ }
+    }
+    res.setHeader("content-type", "text/html; charset=utf-8");
+    res.status(200).send(`<body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;padding:40px;max-width:760px">
+      <h2 style="color:#A31F34">Link minted</h2>
+      <p><b>Client:</b> ${esc(client)}<br><b>Tier:</b> ${esc(tier.label)}<br><b>Indices:</b> ${esc(scopeLabel)}<br><b>Expires:</b> ${esc(expiryISO)} (${days} days)</p>
+      <p><input readonly value="${esc(link)}" onclick="this.select()" style="width:100%;padding:10px;font-size:13px;border:1px solid #E6E9EE;border-radius:8px"></p>
+      <p style="color:#5B6B7B;font-size:13px">Click the field to select, then copy. The link is stateless — it is not stored anywhere, so copy it now.</p>
+      <p><a href="/api/usage?key=${encodeURIComponent(key)}">← back to usage</a></p></body>`);
     return;
   }
 
@@ -163,5 +225,16 @@ module.exports = async function handler(req, res) {
     <table><tr><th>Client</th><th style="text-align:right">Hits</th><th>Last seen</th><th>Last event</th><th>Detail</th><th>Consented</th><th>Slate</th><th>Access</th></tr>${summary}</table>
     <h2>Recent activity</h2>
     <table><tr><th>Time (UTC)</th><th>Client</th><th>Event</th><th>Detail</th><th>IP</th></tr>${feed}</table>
+    <h2>Mint a link</h2>
+    <form method="get" action="/api/usage" style="background:#fff;border-radius:10px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;font-size:13px">
+      <input type="hidden" name="key" value="${esc(key)}">
+      <label>Client<br><input name="client" placeholder="opus-associate" required style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
+      <label>Tier<br><select name="mint" style="padding:7px;border:1px solid #E6E9EE;border-radius:7px">
+        <option value="project">Project Pass (all indices)</option><option value="day">Day Pass (3 indices)</option>
+        <option value="firm">Firm Plan (all indices)</option><option value="owner">Owner (wildcard)</option>
+      </select></label>
+      <label>Days (blank = tier default)<br><input name="days" type="number" min="1" max="3650" placeholder="21" style="width:90px;padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
+      <button style="padding:8px 14px;background:#A31F34;color:#fff;border:none;border-radius:7px;font-weight:600;cursor:pointer">Mint</button>
+    </form>
   </div></body></html>`);
 };
