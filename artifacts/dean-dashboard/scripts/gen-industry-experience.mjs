@@ -1,416 +1,156 @@
-// Industry-experience derivation pass.
+// Industry-tie derivation pass.
 //
 //   node scripts/gen-industry-experience.mjs                       # write src/data/industry-experience.json
-//   node scripts/gen-industry-experience.mjs --report              # print the coverage report only
+//   node scripts/gen-industry-experience.mjs --report              # coverage report only, no write
 //   node scripts/gen-industry-experience.mjs --dump-unclassified   # list orgs no rule matched
-//
-// `--dump-unclassified` is the tuning loop: every org in that list is one the
-// pass could not call either way, so it is both the recall ceiling and the
-// worklist for extending the gazetteers below.
 //
 // WHY THIS EXISTS
 // ---------------
-// `hasIndustryExp` is already a field on every dean record and already drives a
-// badge in DeanProfile/DeanTimeline, a KPI in CompareSchools, and a boolean
-// filter in Correlation Analysis. It is also, in 17 of the 21 indices, wholly
-// unpopulated: build-publichealth.mjs and news-lib.mjs hardcode `false`, and the
-// committed JSONs for the admin / nursing / medical / university / law waves
-// carry zero `true` values even on rows whose priorInstitution plainly names a
-// company. A boolean cannot say "nobody asked" -- so today's `false` reads as a
-// researched No when it is really an unfilled cell, and every percentage built
-// on top of it (CompareSchools' industryExpPct, the correlation cross-tabs)
-// silently understates.
+// Schools increasingly want leaders who bring a corporate network they can tap
+// for gifts, partnerships, executive education and placement. That makes the
+// question "whose connections are worth something", which is a RANKING problem,
+// not the census problem a boolean implies.
 //
-// This pass derives what the corpus can actually support, and -- critically --
-// keeps "no industry found" separate from "no evidence to look at". It never
-// writes back into the dean JSONs; it emits a sidecar keyed the same way
-// leader-research.json and dean-photos.json are (`"<name lower>|<university
-// lower>"`), so it can be regenerated, diffed, and thrown away without touching
-// the datasets.
+// `hasIndustryExp` -- the boolean already on every dean record -- is the wrong
+// container for it twice over:
+//
+//   1. It is empty. 12 of the 21 indices (17,013 rows) never set it once;
+//      build-publichealth.mjs and news-lib.mjs write `false` literally. A
+//      boolean cannot say "nobody looked", so that `false` reads as a
+//      researched No and every percentage built on it understates.
+//   2. Even where it is filled, it collapses the part that decides the answer.
+//      A Goldman managing director who left in 2019 and a software engineer who
+//      left in 1991 are both `true`, and only one can make a call that lands.
+//
+// So this pass emits TIES, not a flag: person -> firm -> sector -> seniority ->
+// recency -> how they were attached (employed, board seat, advisory). The firm
+// is the asset; the sector is only how you group it.
+//
+// SYSTEM-WIDE BY CONSTRUCTION
+// ---------------------------
+// Nothing here names an index. Files come from `lib/indices.mjs`, the taxonomy
+// from `lib/org-classify.mjs`, and both are index-agnostic -- an index added
+// next year is covered by existing, and `assertRegistered` complains if one
+// shows up that the registry has not been told about. Vocabulary grows in
+// org-classify.mjs and every consumer picks it up on its next run.
 //
 // WHAT IT READS
 // -------------
 //   priorInstitution + priorTitle   every index, ~12.9k of 29.6k rows
 //   leader-research.json .career    ~2.3k people, ~8.2k dated career stops
-//   careerBackground                free-text label, occasionally "Industry"
+//   careerBackground                a label in some indices, a bio in others
 //   hasConsultingBg                 existing boolean, business/engineering only
 //
 // It deliberately does NOT mine `notes` or research `summary` prose. That was
 // measured: a phrase-level regex over all 14.6k people with free text returned
-// 125 hits, and hand-checking those showed real false positives ("the KPMG
+// 125 hits, and hand-checking them showed real false positives ("the KPMG
 // Academic Research Panel", "Walton's Walmart-anchored strength in retail") --
 // prose mentions a firm for many reasons other than employment. Low yield at
 // visibly poor precision is not worth the maintenance.
 //
-// THE ORG->SECTOR CALL
-// --------------------
-// Same pragmatic keyword approach as gen-employer-affinity.mjs's categorizer,
-// with one important addition: an academic gazetteer built from the corpus's own
-// institution names. That matters because the single biggest failure mode of a
-// pattern-only categorizer here is informal school names -- "UCLA", "Stanford
-// GSB", "NYU Stern", "Haas UC Berkeley" match no academic keyword and would land
-// in the residual bucket, where a for-profit-marker rule would then read them as
-// firms. Of the 1,611 priorInstitution values that gen-employer-affinity.mjs
-// files as "Other", most are exactly that. Checking the corpus's own ~2.4k
-// institution spellings (plus school-canon's ALIAS/MERGE maps, and the
-// academically-worded slice of career-geo.json) first removes them before any
-// firm rule runs.
-import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+// It never writes back into the dean JSONs. Output is a regenerable sidecar.
+import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { snorm, vkey, ALIAS, MERGE } from "./lib/school-canon.mjs";
+import { assertRegistered, deanFiles, FILE_ID } from "./lib/indices.mjs";
+import {
+  buildAcademicIndex, makeClassifier, splitOrgs,
+  seniorityOf, tieKindOf, SENIORITY_BANDS, INDUSTRY_NAMES,
+} from "./lib/org-classify.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SRC = join(HERE, "..", "src", "data");
 const OUT = join(SRC, "industry-experience.json");
 const REPORT_ONLY = process.argv.includes("--report");
 const DUMP_UNCLASSIFIED = process.argv.includes("--dump-unclassified");
-const UNCLASSIFIED = new Map(); // org -> times seen, for --dump-unclassified
 
 const read = (f) => { try { return JSON.parse(readFileSync(join(SRC, f), "utf8")); } catch { return null; } };
 const nkey = (s) => String(s || "").trim().toLowerCase();
 const ekey = (name, uni) => `${nkey(name)}|${nkey(uni)}`;
 
-// ---------------------------------------------------------------------------
-// academic gazetteer
-// ---------------------------------------------------------------------------
-// Every institution the corpus knows about, under every spelling it uses, keyed
-// through school-canon so "University of California, Berkeley" and "University
-// of California Berkeley" collapse to one entry. Anything in here is Academic,
-// full stop, no matter what company-like words its name contains.
-const ACAD = new Set();
-const addAcad = (s) => { const k = vkey(snorm(s)); if (k && k.length > 2) ACAD.add(k); };
+// The year every recency decay is measured against. Written into the output so
+// a stored score is auditable, and so regenerating is deterministic rather than
+// quietly drifting with the wall clock.
+const AS_OF = 2026;
 
-const deanFiles = readdirSync(SRC).filter((f) => /^(r1-.*-deans|deans)\.json$/.test(f)).sort();
-const ROWS = {};
-for (const f of deanFiles) {
-  ROWS[f] = read(f) || [];
-  for (const r of ROWS[f]) { addAcad(r.university); addAcad(r.school); }
-}
-for (const [a, b] of Object.entries(ALIAS)) { addAcad(a); addAcad(b); }
-for (const [a, b] of Object.entries(MERGE)) { addAcad(a); addAcad(b); }
-// career-geo.json is a general organization geocoder, NOT a list of schools: it
-// carries "mckinsey & company", "goldman sachs", "boeing" and "bell labs"
-// alongside the alma maters, because it also geocodes non-academic career stops.
-// Seeding the gazetteer from all 2,365 of its keys marked those firms Academic
-// and made "McKinsey & Company" read as a school. Only its academically-worded
-// entries are trustworthy here, and they are added after ACAD_RE is defined.
+assertRegistered(SRC);
 
-// Every pattern in this file is compiled through `stems`, which anchors a word
-// boundary at the START of each term and deliberately leaves the END open.
+// ---------------------------------------------------------------------------
+// load
+// ---------------------------------------------------------------------------
+const files = deanFiles(SRC);
+const ROWS = Object.fromEntries(files.map((f) => [f, read(f) || []]));
+const ALL_ROWS = files.flatMap((f) => ROWS[f]);
+
+const academic = buildAcademicIndex({
+  records: ALL_ROWS,
+  // career-geo.json is a general ORGANIZATION geocoder, not a school list -- it
+  // carries "mckinsey & company", "goldman sachs" and "boeing" alongside the
+  // alma maters. buildAcademicIndex takes only its academically-worded entries;
+  // passing the raw keys marked those firms academic, which is what made
+  // "McKinsey & Company" classify as a university in an earlier cut.
+  extraNames: Object.keys(read("career-geo.json") || {}),
+});
+
+const UNCLASSIFIED = new Map();
+const classifyOrg = makeClassifier(academic, {
+  onUnclassified: (org) => UNCLASSIFIED.set(org, (UNCLASSIFIED.get(org) || 0) + 1),
+});
+
+// ---------------------------------------------------------------------------
+// scoring
+// ---------------------------------------------------------------------------
+// A transparent additive score, not a fitted model -- there is no outcome label
+// to fit against, and a made-up weighting that LOOKS learned would be worse than
+// one a user can read off the page and argue with.
 //
-// The obvious spelling -- `/\b(universit|pricewaterhouse|semiconductor)\b/i` --
-// is wrong in a way that fails silently: the trailing \b applies to every
-// branch, so a stem only matches when the next character is a non-word one.
-// "universit" never matches "University", "pricewaterhouse" never matches
-// "PricewaterhouseCoopers", "semiconductor" never matches "semiconductors".
-// This file's first draft was written that way, which is why plain
-// "<X> University" strings were landing in the residual bucket.
-// gen-employer-affinity.mjs's categorizer has the same shape; most of its terms
-// are complete words and unaffected, but `technolog` and `philanthrop` are stems
-// and do misfire there today. Terms that genuinely need a closing boundary -- bare
-// abbreviations like `mit`, `ge`, `bcg`, where an open end would match "mitigate"
-// or "general" -- carry an explicit \b of their own.
-const stems = (terms) => new RegExp(`\\b(?:${terms.join("|")})`, "i");
+// Seniority dominates because it is what actually determines whether a network
+// transfers: a managing director leaves a firm with relationships, an analyst
+// leaves with a resume line.
+const SENIORITY_POINTS = { executive: 45, senior: 32, professional: 14, unknown: 18 };
 
-// Generic academic wording, for institutions outside the corpus (foreign
-// universities, community colleges, a leader's undergraduate college).
-const ACAD_RE = stems([
-  "universit", "college", "institute of technolog", "polytechnic", "school of",
-  "business school", "law school", "medical school", "graduate school", "academy",
-  "seminary", "conservator", "campus", "suny\\b", "cuny\\b", "community college",
-  "higher education", "board of (?:regents|trustees|governors)", "insead\\b",
-  "imd\\b", "caltech", "georgia tech", "virginia tech", "mit\\b",
-]);
+// A sitting board seat is a current, named, direct relationship -- for opening a
+// door it beats a job the person left a decade ago, which is why board and
+// advisory service are tracked separately from employment rather than folded in.
+const KIND_POINTS = { board: 18, advisory: 8, employment: 0 };
 
-// Now that the academic-wording test exists, fold in the schools career-geo does
-// know about (foreign universities and small colleges the dean indices never
-// name as an employer), and rebuild the substring list over the combined set.
-for (const k of Object.keys(read("career-geo.json") || {})) if (ACAD_RE.test(k)) addAcad(k);
-// Longest-first, for the substring pass in containsKnownSchool. Short entries are
-// excluded because a 4-character name matches inside far too many unrelated strings.
-const ACAD_LONG = [...ACAD].filter((k) => k.length >= 9).sort((a, b) => b.length - a.length);
-
-// Business-, law- and engineering-school brand names. In this corpus these are
-// never anything but a school: "Stanford GSB", "UCLA Anderson", "Vanderbilt
-// Owen", "UNC Kenan-Flagler" carry no academic keyword at all, and several
-// ("Anderson", "Owen", "Johnson", "Marshall") read as surnames or companies to
-// any generic rule.
-const SCHOOL_BRAND = stems([
-  "gsb\\b", "stern\\b", "booth\\b", "wharton", "kellogg school", "haas\\b", "anderson school",
-  "fuqua", "darden", "ross school", "sloan\\b", "tuck\\b", "johnson school", "marshall school",
-  "mccombs", "kenan[- ]flagler", "owen graduate", "goizueta", "olin business", "tepper",
-  "smeal", "foster school", "carlson school", "broad college", "krannert", "mendoza",
-  "cox school", "jones graduate", "leavey", "argyros", "graziadio", "lerner college",
-  "kogod", "questrom", "mays business", "terry college", "warrington", "eller\\b",
-  "katz graduate", "simon business", "weatherhead", "freeman school", "scheller",
-  "kelley school", "gies\\b", "farmer school", "lundquist", "rady school", "merage",
-  "bauer college", "neeley", "jindal school", "trulaske", "isenberg", "d'amore[- ]mckim",
-  "carey business", "smith school", "robins school",
-  // Named without a school-word in the corpus's own prior-institution cells.
-  "vanderbilt owen", "kennedy school", "the citadel", "william ?(?:&|and) ?mary",
-  "institutions of higher learning", "cal ?arts", "juilliard", "pratt institute",
-]);
-
-// Bare abbreviations for institutions the corpus refers to informally. These
-// carry no academic keyword and are too short for the substring gazetteer, so
-// they need naming outright. school-canon's ALIAS map covers the ones that show
-// up in degree free text; these are the extras seen in priorInstitution.
-const ACAD_ABBREV = stems([
-  "uab\\b", "uah\\b", "unlv\\b", "umbc\\b", "utsa\\b", "utep\\b", "unc\\b", "ucf\\b",
-  "usf\\b", "fiu\\b", "fau\\b", "vcu\\b", "vt\\b", "wvu\\b", "lsu\\b", "tcu\\b",
-  "smu\\b", "byu\\b", "rpi\\b", "njit\\b", "iupui\\b", "ou\\b", "osu\\b", "psu\\b",
-  "cu boulder", "cu denver", "uc [a-z]", "ut [a-z]", "um[a-z]{2,}\\b", "unsw",
-  "nyu\\b", "ucla", "ucsd", "ucsf", "ucsb", "uf-ifas", "stevens institute", "cornell\\b",
-]);
-
-function isAcademic(s) {
-  if (ACAD.has(vkey(snorm(s)))) return true;
-  return ACAD_RE.test(s) || SCHOOL_BRAND.test(s) || ACAD_ABBREV.test(s);
+/** Points for how long ago the tie ended. Unknown sits low-middle: no date is not
+ *  evidence of staleness, but it must not outrank a tie known to be recent. */
+function recencyPoints(year) {
+  if (year == null) return 8;
+  const age = AS_OF - year;
+  if (age <= 5) return 25;
+  if (age <= 12) return 18;
+  if (age <= 20) return 10;
+  if (age <= 30) return 4;
+  return 0;
 }
 
-/**
- * Last-resort academic check: does a known institution name appear anywhere
- * inside this string? Catches the informal spellings that carry a real school
- * name plus decoration -- "Haas UC Berkeley", "Cornell University Johnson
- * School", "Wharton School, University of Pennsylvania". Run only after every
- * other rule has declined, because it is the most expensive and the loosest.
- */
-function containsKnownSchool(s) {
-  const n = vkey(snorm(s));
-  if (n.length < 6) return false;
-  return ACAD_LONG.some((k) => n.includes(k));
+const tieScore = (t) =>
+  Math.min(100, (SENIORITY_POINTS[t.seniority] ?? 18) + (KIND_POINTS[t.kind] ?? 0) + recencyPoints(t.endYear));
+
+/** Last year mentioned in a free-text span like "1985-1991" or "2002-present". */
+function endYearOf(years) {
+  const s = String(years || "");
+  if (!s) return null;
+  if (/present|current|now/i.test(s)) return AS_OF;
+  const all = s.match(/\b(?:19|20)\d{2}\b/g);
+  return all ? Number(all[all.length - 1]) : null;
 }
-
-// ---------------------------------------------------------------------------
-// sector rules
-// ---------------------------------------------------------------------------
-// Values that are research bookkeeping rather than an employer name. These are
-// real strings in the data ("Uncertain -- not Franklin Financial Corp per
-// available sources") and would otherwise be read as firms on the strength of
-// the word "Corp".
-const NON_ORG = /^(?:unknown|n\/a|none|external|internal|private sector|private practice|industry|various|design|tbd|-+)$/i;
-const BOOKKEEPING = stems([
-  "uncertain", "unclear", "not confirmed", "unconfirmed", "per available sources",
-  "no further bio", "same institution", "not applicable",
-]);
-
-// Government before any firm rule: "U.S. International Development Finance
-// Corporation" and "Tennessee Valley Authority" are federal, not industry.
-const US_ENTITY = /(?:\bu\.?s\.?\b|\bunited states\b|\bnational\b|\bfederal\b).{0,40}\b(?:corporation|authority|administration|agency|commission|bureau|service|committee|board)\b/i;
-const GOVT = stems([
-  "department of", "dept\\.? of", "u\\.?s\\.? (?:army|navy|air force|marine corps|coast guard|government)",
-  "united states (?:army|navy|air force|marine corps|coast guard)", "federal (?:government|agency|reserve|bureau)",
-  "white house", "congress", "senate", "house of representatives", "pentagon",
-  "nasa\\b", "nih\\b", "cdc\\b", "darpa\\b", "fda\\b", "epa\\b", "nsf\\b", "sec\\b", "gao\\b",
-  "centers for disease control", "national institutes of health", "world bank",
-  "international monetary fund", "united nations", "city of", "state of",
-  "commonwealth of", "county of", "ministry of", "census bureau",
-  "national laborator", "sandia", "los alamos", "oak ridge", "argonne",
-  "lawrence livermore", "public schools", "school district", "embassy",
-  "governor's office", "attorney general", "district attorney", "highway patrol",
-  "police department", "peace corps", "pcaob\\b", "regional authority",
-  // A judicial clerkship or a seat on the bench is public service, not private
-  // practice -- and without these the law indices file every court as a firm on
-  // the strength of nothing more than the residual marker rules.
-  "supreme court", "court of appeals", "district court", "circuit court",
-  "federal court", "u\\.?s\\.? courts", "judiciary", "public health service",
-]);
-
-const NONPROFIT = stems([
-  "foundation", "nonprofit", "non-profit", "ngo\\b", "charitable", "philanthrop",
-  "association", "society", "council", "institute for", "museum", "public library",
-  "ymca\\b", "red cross", "united way", "think tank", "brookings", "rand corporation",
-  "urban institute", "aspen institute", "carnegie (?:corporation|endowment)",
-  "ford foundation", "gates foundation", "acls\\b", "aacsb\\b", "naacp\\b",
-  "girl scouts", "boy scouts", "goodwill", "habitat for humanity", "church",
-  "diocese", "archdiocese", "synagogue", "ministries", "sisters of", "congregation",
-]);
-
-// A hospital or health system is its own thing: often nonprofit, frequently
-// university-affiliated, and in the nursing / medical / pharmacy indices it is
-// the normal place a clinical academic works. Counting it as "industry" would
-// flip a large share of those indices on a definition their own users would
-// dispute, so it gets a distinct sector and does NOT set the boolean. Flip
-// COUNT_HEALTH_PROVIDER_AS_INDUSTRY if the intended reading of "industry
-// experience" is "worked outside the university", not "worked in a company".
-const HEALTH_PROVIDER = stems([
-  "hospital", "health system", "healthcare system", "medical cent", "health cent",
-  "clinic\\b", "clinics\\b", "infirmary", "vamc\\b", "veterans affairs",
-  "adventhealth", "commonspirit", "beaumont health", "loma linda university health",
-  "uconn health", "johns hopkins medicine", "mass general brigham", "baystate health",
-  "partners healthcare", "atrium health", "university hospitals",
-]);
-const COUNT_HEALTH_PROVIDER_AS_INDUSTRY = false;
-
-// Named industries. First match wins, so the specific lists precede the generic
-// ones. Firms are named explicitly wherever the sector word alone would be
-// ambiguous in this corpus -- "bank" is safe, "capital" and "equity" are not
-// ("capital campaign", "diversity, equity, and inclusion"), the same trap
-// gen-employer-affinity.mjs documents.
-const INDUSTRY = [
-  ["Consulting", stems([
-    "mckinsey", "bain (?:&|and) (?:company|co\\b)", "boston consulting", "bcg\\b",
-    "deloitte", "accenture", "booz allen", "booz ?(?:&|and) ?co", "a\\.?t\\.? kearney",
-    "oliver wyman", "pwc\\b", "pricewaterhouse", "price waterhouse", "kpmg",
-    "ernst ?(?:&|and) ?young", "arthur andersen", "arthur d\\.? little", "mercer\\b",
-    "towers watson", "willis towers", "gartner", "forrester", "management consult",
-    "strategy consult", "consultancy", "consulting (?:group|firm|services|llc|inc|partners)",
-    "bentz whaley flessner", "ccs fundraising", "grenzebach glier", "marts ?(?:&|and) ?lundy",
-  ])],
-  ["Financial Services", stems([
-    "goldman sachs", "morgan stanley", "j\\.?p\\.? ?morgan", "jpmorgan", "chase manhattan",
-    "merrill lynch", "lehman", "bear stearns", "salomon brothers", "smith barney",
-    "citigroup", "citibank", "credit suisse", "first boston", "ubs\\b", "barclays",
-    "deutsche bank", "hsbc", "wells fargo", "bank of america", "bankers trust",
-    "blackstone", "blackrock", "kkr\\b", "kohlberg kravis", "carlyle group",
-    "apollo global", "bain capital", "tpg capital", "warburg pincus", "vanguard",
-    "fidelity investments", "pimco", "state street", "charles schwab", "american express",
-    "visa inc", "mastercard", "prudential", "metlife", "aetna", "allstate", "geico",
-    "berkshire hathaway", "federal reserve bank", "private equity", "venture capital",
-    "hedge fund", "investment bank", "investment management", "asset management",
-    "wealth management", "bank\\b", "banking", "capital (?:partners|management|group|markets)",
-    "equity (?:partners|firm)", "securities", "brokerage", "insurance (?:company|group|co\\b)",
-    "actuarial", "trust company", "westpac",
-  ])],
-  ["Technology", stems([
-    "google", "alphabet inc", "microsoft", "amazon(?:\\.com| web services)?\\b",
-    "apple (?:inc|computer)", "meta\\b", "facebook", "ibm\\b", "intel\\b", "oracle\\b",
-    "cisco\\b", "adobe\\b", "salesforce", "sap\\b", "tesla\\b", "spacex", "nvidia",
-    "qualcomm", "broadcom", "hewlett[- ]?packard", "hp inc\\b", "dell\\b", "compaq",
-    "motorola", "nokia", "ericsson", "texas instruments", "bell lab", "at&t",
-    "xerox", "parc\\b", "sun microsystems", "siemens", "samsung", "lg electronics",
-    "panasonic", "uber\\b", "lyft\\b", "airbnb", "netflix", "spotify", "linkedin",
-    "twitter", "palantir", "stripe\\b", "paypal", "ebay", "yahoo", "aol\\b", "dynetics",
-    "software", "semiconductor", "telecommunications", "information technology (?:services|consult)",
-  ])],
-  ["Healthcare & Pharma", stems([
-    "pfizer", "merck\\b", "johnson ?(?:&|and) ?johnson", "j&j\\b", "novartis",
-    "astrazeneca", "glaxosmithkline", "gsk\\b", "sanofi", "roche\\b", "bayer\\b",
-    "abbvie", "abbott labor", "bristol[- ]myers", "eli lilly", "lilly and company",
-    "genentech", "amgen", "biogen", "moderna", "gilead", "regeneron",
-    "vertex pharmaceutical", "medtronic", "boston scientific", "stryker\\b",
-    "becton dickinson", "baxter (?:international|healthcare)", "cardinal health",
-    "mckesson", "cvs health", "walgreens", "unitedhealth", "humana\\b", "cigna\\b",
-    "kaiser permanente", "biotech", "pharmaceutic", "life sciences (?:company|inc)",
-  ])],
-  ["Energy & Industrials", stems([
-    "exxon", "mobil corp", "chevron", "conocophillips", "schlumberger", "halliburton",
-    "baker hughes", "royal dutch", "bp (?:p\\.?l\\.?c|america)", "shell oil",
-    "marathon (?:oil|petroleum)", "duke energy", "southern company", "exelon",
-    "ge\\b", "general electric", "westinghouse", "boeing", "lockheed", "raytheon",
-    "northrop", "general dynamics", "bae systems", "honeywell", "united technologies",
-    "pratt ?(?:&|and) ?whitney", "rolls[- ]royce", "3m\\b", "caterpillar",
-    "deere ?(?:&|and) ?company", "john deere", "dow chemical", "dupont", "monsanto",
-    "basf", "air products", "alcoa", "us steel", "nucor", "ford motor", "general motors",
-    "chrysler", "stellantis", "toyota", "honda motor", "nissan", "volkswagen",
-    "daimler", "bmw group", "bechtel", "fluor corp", "jacobs engineering", "aecom",
-    "briggs ?(?:&|and) ?stratton", "aerospace (?:corp|company)", "manufactur",
-    "utility company",
-  ])],
-  ["Consumer & Retail", stems([
-    "procter ?(?:&|and) ?gamble", "p&g\\b", "unilever", "colgate[- ]palmolive",
-    "kimberly[- ]clark", "nestl", "pepsico", "pepsi[- ]cola", "coca[- ]cola",
-    "anheuser[- ]busch", "kraft", "mondelez", "sara lee", "general mills",
-    "kellogg company", "conagra", "tyson foods", "cargill", "mars, incorporated",
-    "walmart", "wal[- ]mart", "target corp", "costco", "kroger", "home depot",
-    "lowe's companies", "best buy", "macy's", "nordstrom", "gap inc", "nike\\b",
-    "adidas", "under armour", "levi strauss", "starbucks", "mcdonald's", "yum! brands",
-    "darden restaurants", "sodexo", "aramark", "compass group", "marriott",
-    "hilton (?:worldwide|hotels)", "hyatt", "delta air", "united airlines",
-    "american airlines", "southwest airlines", "fedex", "ups\\b", "united parcel",
-  ])],
-  ["Media & Entertainment", stems([
-    "walt disney", "disney\\b", "warner (?:bros|media|communications)", "time warner",
-    "comcast", "nbc\\b", "cbs\\b", "abc (?:news|television)", "fox (?:news|corporation)",
-    "viacom", "paramount pictures", "sony (?:pictures|music)", "universal (?:studios|music)",
-    "lionsgate", "blockbuster", "broadcasting (?:company|system|corp)", "new york times",
-    "washington post", "wall street journal", "los angeles times", "daily press",
-    "bloomberg\\b", "reuters", "associated press", "conde nast", "hearst",
-    "mcgraw[- ]hill", "pearson (?:plc|education)", "houghton mifflin", "wiley\\b",
-    "elsevier", "springer nature", "publishing (?:company|house|group)",
-    "advertising agency", "ogilvy", "wpp\\b", "omnicom",
-  ])],
-  ["Law (private practice)", stems([
-    "llp\\b", "law firm", "jones day", "latham ?(?:&|and) ?watkins", "skadden",
-    "sidley austin", "kirkland ?(?:&|and) ?ellis", "covington ?(?:&|and) ?burling",
-    "wilmerhale", "wilmer cutler", "cravath", "sullivan ?(?:&|and) ?cromwell",
-    "davis polk", "debevoise", "gibson dunn", "paul weiss", "arnold ?(?:&|and) ?porter",
-    "morrison ?(?:&|and) ?foerster", "baker mckenzie", "hogan lovells", "dla piper",
-    "greenberg traurig", "k&l gates", "burr ?(?:&|and) ?forman", "attorneys at law",
-  ])],
-];
-
-// Residual for-profit markers, applied only after every rule above has passed.
-// An org that survives to here is not a school, not a government body, not a
-// nonprofit, not a hospital, and carries a legal-entity or company-shaped
-// suffix -- e.g. "TETRA Technologies", "Westpac Banking Corporation".
-const FIRM_MARKER = /(?:^|[\s,(])(?:inc\.?|incorporated|corp\.?|corporation|company|co\.|llc|l\.l\.c\.|ltd\.?|limited|plc|gmbh|s\.a\.|a\.g\.|n\.v\.|holdings|group|partners|ventures|technologies|systems|solutions|labs|laboratories|industries|enterprises|associates|worldwide)(?:$|[\s,.)])/i;
-
-// Trailing collection annotations, not part of the employer's name:
-// "UAB (internal)", "Cleveland State University (internal promotion)",
-// "University of Puerto Rico (same system)". Left in place they defeat the
-// exact-match gazetteer, since snorm turns them into extra tokens.
-const ANNOTATION = /\s*\((internal|external|same (system|institution|university)|internal (promotion|appointment)|interim|acting|now [^)]*|\d[^)]*)\)\s*$/i;
-
-/** One org string -> { sector, industry?, firm? }, or null if it isn't an org. */
-function classifyOrg(raw) {
-  const s = String(raw || "").trim().replace(/\s+/g, " ").replace(ANNOTATION, "").trim();
-  if (!s || s.length < 2 || NON_ORG.test(s) || BOOKKEEPING.test(s)) return null;
-  if (isAcademic(s)) return { sector: "Academic" };
-  if (GOVT.test(s)) return { sector: "Government" };
-  if (NONPROFIT.test(s)) return { sector: "Nonprofit" };
-  if (HEALTH_PROVIDER.test(s)) {
-    return COUNT_HEALTH_PROVIDER_AS_INDUSTRY
-      ? { sector: "Industry", industry: "Healthcare & Pharma", firm: s }
-      : { sector: "Healthcare Provider" };
-  }
-  for (const [industry, re] of INDUSTRY) if (re.test(s)) return { sector: "Industry", industry, firm: s };
-  // Substring gazetteer before the firm marker, not after: "Johns Hopkins
-  // University Applied Physics Laboratory" carries "Laboratories"-shaped
-  // wording and would otherwise be filed as a company.
-  if (containsKnownSchool(s)) return { sector: "Academic" };
-  if (FIRM_MARKER.test(s)) return { sector: "Industry", industry: "Other industry", firm: s };
-  UNCLASSIFIED.set(s, (UNCLASSIFIED.get(s) || 0) + 1);
-  return { sector: "Unclassified" };
-}
-
-// Several priorInstitution cells pack two employers into one string --
-// "UAB (internal); previously partner at Burr & Forman LLP",
-// "Stevens Institute / AT&T Bell Labs". Splitting on the separators recovers
-// the buried one; without it the academic half wins and the firm is lost.
-//
-// Splitting can cut through a parenthetical -- "Banking industry (Huntington,
-// WV) / University System of West Virginia" separates on the slash and leaves
-// the first half with an unclosed "(". Rebalancing afterwards keeps the stored
-// firm string readable, since it is what a profile panel would show.
-const rebalance = (x) => {
-  const open = (x.match(/\(/g) || []).length;
-  const close = (x.match(/\)/g) || []).length;
-  if (open > close) return x + ")".repeat(open - close);
-  if (close > open) return x.replace(/\)+$/, "");
-  return x;
-};
-const splitOrgs = (s) =>
-  String(s || "")
-    .split(/\s*(?:;|\s\/\s|\bpreviously\b|\bformerly\b|\bprior to that\b)\s*/i)
-    .map((x) => rebalance(x.trim()).replace(/^\((.*)\)$/, "$1").trim())
-    .filter(Boolean);
 
 /**
  * `careerBackground` as a corroborating flag -- but only where it is a LABEL.
  *
- * In the business and engineering indices the field holds a short taxonomy value
- * ("Industry", "Academic/Industry", "Industry/Government"), which is exactly the
- * signal wanted here. In the advancement, nursing and admin indices the same
+ * In business and engineering the field holds a short taxonomy value
+ * ("Industry", "Academic/Industry"). In advancement, nursing and admin the same
  * field holds a paragraph-long researched bio, and substring-matching that prose
  * is wrong in both directions: "corporate and foundation relations" is a
  * fundraising job, "board-certified family nurse practitioner" is clinical
- * nursing, and "industry/innovation partnerships" is a university office. Every
- * one of those was flagged as industry experience before this guard existed.
+ * nursing, "industry/innovation partnerships" is a university office. All three
+ * were being flagged as industry experience before this guard -- 75 people.
  *
- * So: split on the separators a label uses, and require a WHOLE component to be
- * one of the known industry-ish label values. A paragraph never satisfies that.
+ * So: split on the separators a label uses, and require a WHOLE component to
+ * match. A paragraph never satisfies that.
  */
 const CB_LABELS = new Set([
   "industry", "consulting", "consultant", "corporate", "private sector",
@@ -427,41 +167,60 @@ function careerBackgroundFlag(raw) {
 // evidence assembly
 // ---------------------------------------------------------------------------
 // One entry per person, keyed name|university the way every other sidecar in
-// src/data is. A person who appears in several indices (dean, then provost,
+// src/data is. Someone who appears across several indices (dean, then provost,
 // then president at the same university) pools all their rows.
 const P = new Map();
 const person = (k) => {
   let p = P.get(k);
-  if (!p) { p = { key: k, stops: [], flags: [], indices: new Set() }; P.set(k, p); }
+  if (!p) { p = { stops: [], flags: [], indices: new Set(), sitting: false }; P.set(k, p); }
   return p;
 };
 
-for (const f of deanFiles) {
-  const indexId = f.replace(/^(r1-)?/, "").replace(/-?deans\.json$/, "") || "top100";
+for (const f of files) {
+  const id = FILE_ID[f];
   for (const r of ROWS[f]) {
     if (!r.dean || !r.university) continue;
     const p = person(ekey(r.dean, r.university));
-    p.indices.add(indexId);
     p.name ||= r.dean;
     p.university ||= r.university;
+    if (id) p.indices.add(id);
+    if (r.endYear == null && r.roleType !== "subdean") p.sitting = true;
+
     for (const org of splitOrgs(r.priorInstitution)) {
-      p.stops.push({ org, role: String(r.priorTitle || "").trim(), source: "priorInstitution" });
+      // A prior institution is a job the person left when they took this seat,
+      // so the appointment's start year dates the END of that tie. It is the
+      // only recency signal available for the ~90% of ties carrying no explicit
+      // years, and it is a real one.
+      p.stops.push({
+        org,
+        role: String(r.priorTitle || "").trim(),
+        endYear: r.startYear ?? null,
+        source: "priorInstitution",
+      });
     }
+
     if (r.hasConsultingBg === true) p.flags.push("hasConsultingBg");
     if (r.hasIndustryExp === true) p.flags.push("hasIndustryExp (existing)");
-    const cbFlag = careerBackgroundFlag(r.careerBackground);
-    if (cbFlag) p.flags.push(`careerBackground: ${cbFlag}`);
+    const cb = careerBackgroundFlag(r.careerBackground);
+    if (cb) p.flags.push(`careerBackground: ${cb}`);
   }
 }
 
-// leader-research career stops: sparser (about 1 person in 11) but multi-stop,
-// so it reaches employers a single priorInstitution cell can never show.
+// leader-research career stops: sparser (about 1 person in 11) but multi-stop
+// and sometimes dated, so they reach employers a single priorInstitution cell
+// can never show -- and they are the only place a board seat currently appears.
 for (const [k, rec] of Object.entries(read("leader-research.json") || {})) {
   const p = P.get(k);
   if (!p) continue;
   for (const st of rec.career || []) {
     for (const org of splitOrgs(st.org)) {
-      p.stops.push({ org, role: String(st.role || "").trim(), years: st.years || "", source: "leader-research.career" });
+      p.stops.push({
+        org,
+        role: String(st.role || "").trim(),
+        years: st.years || "",
+        endYear: endYearOf(st.years),
+        source: "leader-research.career",
+      });
     }
   }
 }
@@ -469,22 +228,20 @@ for (const [k, rec] of Object.entries(read("leader-research.json") || {})) {
 // ---------------------------------------------------------------------------
 // verdicts
 // ---------------------------------------------------------------------------
-// Three states, because two cannot tell the difference between a researched No
-// and an empty cell -- which is the whole reason this pass exists:
+// Three states, because two cannot tell a researched No from an empty cell --
+// which is the whole reason this pass exists:
 //
-//   "yes"     at least one stop classified Industry, or a corroborating flag
-//   "no"      stops exist and every one of them is academic/government/etc.
+//   "yes"     at least one industry tie, or a corroborating flag
+//   "no"      stops exist and every one is academic/government/nonprofit/health
 //   "unknown" nothing to classify -- no prior institution, no researched career
 //
-// confidence on a "yes": "high" when a named firm is attached, "low" when only
-// a flag (hasConsultingBg / a careerBackground string) supports it with no
-// employer to point at.
+// confidence: "high" when a named firm is attached, "low" when only a flag
+// supports it with no employer to point at.
 const out = {};
 const stats = {
-  people: P.size, yes: 0, no: 0, unknown: 0,
-  yesHigh: 0, yesLow: 0, noSingleStop: 0,
-  industries: {}, sectors: {}, sources: {},
-  firms: new Set(),
+  people: P.size, yes: 0, no: 0, unknown: 0, yesHigh: 0, yesLow: 0, noSingleStop: 0,
+  industries: {}, sectors: {}, sources: {}, seniority: {}, kinds: {},
+  firms: new Set(), sittingWithTie: 0, sittingSeniorTie: 0,
 };
 
 for (const [k, p] of P) {
@@ -500,29 +257,57 @@ for (const [k, p] of P) {
     stats.sectors[c.sector] = (stats.sectors[c.sector] || 0) + 1;
   }
 
-  const industryStops = classified.filter((c) => c.sector === "Industry");
+  const ties = classified
+    .filter((c) => c.sector === "Industry")
+    .map((c) => {
+      const kind = tieKindOf(c.role);
+      const seniority = seniorityOf(c.role);
+      return {
+        kind,
+        industry: c.industry,
+        firm: c.firm,
+        ...(c.role ? { role: c.role } : {}),
+        seniority,
+        ...(c.years ? { years: c.years } : {}),
+        ...(c.endYear != null ? { endYear: c.endYear } : {}),
+        source: c.source,
+        score: tieScore({ kind, seniority, endYear: c.endYear ?? null }),
+      };
+    })
+    .sort((a, b) => b.score - a.score);
+
   const flags = [...new Set(p.flags)];
 
   let status, confidence;
-  if (industryStops.length) { status = "yes"; confidence = "high"; }
+  if (ties.length) { status = "yes"; confidence = "high"; }
   else if (flags.length) { status = "yes"; confidence = "low"; }
   else if (classified.length) { status = "no"; confidence = "medium"; }
   else { status = "unknown"; confidence = "none"; }
 
   stats[status]++;
   if (status === "yes") stats[confidence === "high" ? "yesHigh" : "yesLow"]++;
+  // The number that decides how much this pass is really worth: a "no" resting
+  // on one career stop only says "the job immediately before this one was
+  // academic", which is a different claim from "never worked in industry".
   if (status === "no" && classified.length === 1) stats.noSingleStop++;
 
-  const industries = [...new Set(industryStops.map((c) => c.industry))];
-  const firms = [...new Set(industryStops.map((c) => c.firm))];
-  for (const i of industries) stats.industries[i] = (stats.industries[i] || 0) + 1;
-  for (const fm of firms) stats.firms.add(fm);
-  for (const c of industryStops) stats.sources[c.source] = (stats.sources[c.source] || 0) + 1;
+  if (ties.length) {
+    for (const t of ties) {
+      stats.industries[t.industry] = (stats.industries[t.industry] || 0) + 1;
+      stats.seniority[t.seniority] = (stats.seniority[t.seniority] || 0) + 1;
+      stats.kinds[t.kind] = (stats.kinds[t.kind] || 0) + 1;
+      stats.sources[t.source] = (stats.sources[t.source] || 0) + 1;
+      stats.firms.add(t.firm);
+    }
+    if (p.sitting) {
+      stats.sittingWithTie++;
+      if (ties[0].seniority === "executive" || ties[0].seniority === "senior") stats.sittingSeniorTie++;
+    }
+  }
 
-  // Only people with something to say are written out. A consumer treats a
-  // missing key exactly like status "unknown", which keeps the file to the
-  // ~13k people the corpus actually has evidence for instead of 26.7k mostly
-  // empty records.
+  // People with nothing to say are omitted. A consumer treats a missing key
+  // exactly like status "unknown", which keeps the file to the people the
+  // corpus actually has evidence for.
   if (status === "unknown") continue;
 
   out[k] = {
@@ -530,54 +315,76 @@ for (const [k, p] of P) {
     university: p.university,
     status,
     confidence,
-    ...(industries.length ? { industries } : {}),
-    ...(firms.length ? { firms } : {}),
-    ...(flags.length ? { flags } : {}),
-    // Full per-stop evidence on a "yes" -- that is the claim a user will want to
-    // check, and the firm/role/years are what a profile panel would render.
-    // A "no" gets only the sector tally and the stop count: spelling out a dozen
-    // universities to justify "no industry found" quadrupled the file (5.6 MB ->
-    // this) to say nothing a reader needs.
-    ...(status === "yes"
+    sitting: p.sitting,
+    ...(ties.length
       ? {
-          evidence: classified.map((c) => ({
-            sector: c.sector,
-            ...(c.industry ? { industry: c.industry } : {}),
-            org: c.org,
-            ...(c.role ? { role: c.role } : {}),
-            ...(c.years ? { years: c.years } : {}),
-            source: c.source,
-          })),
+          // Person score is the best single tie, not a sum: one executive seat
+          // at a household-name firm opens more doors than four junior stints,
+          // and summing would rank the four above it.
+          score: ties[0].score,
+          seniority: ties[0].seniority,
+          industries: [...new Set(ties.map((t) => t.industry))],
+          firms: [...new Set(ties.map((t) => t.firm))],
+          ties,
         }
-      : { stops: classified.length, sectors: [...new Set(classified.map((c) => c.sector))] }),
+      : // A "no" gets the sector tally and stop count only. Spelling out a dozen
+        // universities to justify "no industry found" quadrupled the file to say
+        // nothing a reader needs.
+        { stops: classified.length, sectors: [...new Set(classified.map((c) => c.sector))] }),
+    ...(flags.length ? { flags } : {}),
   };
 }
 
 // ---------------------------------------------------------------------------
-const pct = (n) => `${((n / stats.people) * 100).toFixed(1)}%`;
+// report
+// ---------------------------------------------------------------------------
+const pct = (n, d = stats.people) => `${((n / d) * 100).toFixed(1)}%`;
+const rank = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]);
+
 console.log(`people in corpus:          ${stats.people}`);
-console.log(`  yes  (industry found):   ${stats.yes}  (${pct(stats.yes)})  high=${stats.yesHigh} low=${stats.yesLow}`);
-console.log(`  no   (evidence, no firm):${stats.no}  (${pct(stats.no)})`);
-// The number that decides how much this pass is really worth: a "no" resting on
-// one career stop only says "the job immediately before this one was academic",
-// which is a different claim from "never worked in industry". Anyone who did a
-// stint at a firm and then spent fifteen years on a faculty before the deanship
-// looks identical to a lifelong academic in this data.
-console.log(`         of which single-stop: ${stats.noSingleStop}  (${((stats.noSingleStop / (stats.no || 1)) * 100).toFixed(1)}% of the No bucket -- a weak No)`);
+console.log(`  yes  (industry tie):     ${stats.yes}  (${pct(stats.yes)})  named-firm=${stats.yesHigh} flag-only=${stats.yesLow}`);
+console.log(`  no   (evidence, no tie): ${stats.no}  (${pct(stats.no)})`);
+console.log(`         of which single-stop: ${stats.noSingleStop}  (${pct(stats.noSingleStop, stats.no || 1)} of the No bucket -- a weak No)`);
 console.log(`  unknown (no evidence):   ${stats.unknown}  (${pct(stats.unknown)})`);
 console.log(`distinct firms named:      ${stats.firms.size}`);
-console.log(`industries:`, Object.entries(stats.industries).sort((a, b) => b[1] - a[1]));
-console.log(`org sectors seen:`, Object.entries(stats.sectors).sort((a, b) => b[1] - a[1]));
-console.log(`evidence source of industry stops:`, stats.sources);
+console.log(`\nsitting leaders with a named-firm tie:      ${stats.sittingWithTie}`);
+console.log(`  ...at senior or executive rank (v1 pool):  ${stats.sittingSeniorTie}`);
+console.log(`\nties by seniority: ${SENIORITY_BANDS.map((b) => `${b}=${stats.seniority[b] || 0}`).join("  ")}`);
+console.log(`ties by kind:      ${rank(stats.kinds).map(([k, n]) => `${k}=${n}`).join("  ")}`);
+console.log(`industries:`, rank(stats.industries));
+console.log(`org sectors seen:`, rank(stats.sectors));
+console.log(`evidence source of ties:`, stats.sources);
 
 if (DUMP_UNCLASSIFIED) {
   const rows = [...UNCLASSIFIED].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   console.log(`\n=== ${rows.length} distinct orgs no rule matched ===`);
+  console.log(`(each is either a vocabulary addition in lib/org-classify.mjs, or a genuine unknown)`);
   for (const [org, n] of rows) console.log(String(n).padStart(4), org);
 }
 
 if (!REPORT_ONLY && !DUMP_UNCLASSIFIED) {
-  const sorted = Object.fromEntries(Object.keys(out).sort().map((k) => [k, out[k]]));
-  writeFileSync(OUT, JSON.stringify(sorted, null, 1) + "\n");
-  console.log(`\nwrote ${OUT} (${Object.keys(sorted).length} people)`);
+  // Wrapped rather than a bare person map on purpose. Every other sidecar here
+  // is keyed person -> record, and PROJECT.md documents what happens when a
+  // generator sneaks a reserved key into one of those maps: consumers iterate
+  // the values and choke on the entry that is not a record. Meta lives outside
+  // the map instead of beside the people.
+  const payload = {
+    asOf: AS_OF,
+    scoring: {
+      seniority: SENIORITY_POINTS,
+      kind: KIND_POINTS,
+      recency: "<=5y:25  <=12y:18  <=20y:10  <=30y:4  older:0  unknown:8",
+      note: "person score = best single tie, not a sum",
+    },
+    industries: INDUSTRY_NAMES,
+    counts: {
+      people: stats.people, yes: stats.yes, no: stats.no, unknown: stats.unknown,
+      namedFirm: stats.yesHigh, flagOnly: stats.yesLow,
+      firms: stats.firms.size,
+      sittingWithTie: stats.sittingWithTie, sittingSeniorTie: stats.sittingSeniorTie,
+    },
+    people: Object.fromEntries(Object.keys(out).sort().map((k) => [k, out[k]])),
+  };
+  writeFileSync(OUT, JSON.stringify(payload, null, 1) + "\n");
+  console.log(`\nwrote ${OUT} (${Object.keys(out).length} people, asOf ${AS_OF})`);
 }
