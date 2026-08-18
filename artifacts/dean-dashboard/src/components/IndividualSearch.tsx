@@ -747,7 +747,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                 mechanical dropdowns (tenure window, specific school, sort order). */}
             {disciplineOptions.length > 1 && (
               <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
-                <span className="text-xs font-medium text-muted-foreground pt-1">Function</span>
+                {/* Mirrors Scout Assistant's "If you have a specific school in mind"
+                    prompt, in the same first-filter slot: Slate Builder's entry
+                    framing is the position/function you're filling, not a target school. */}
+                <span className="text-xs font-medium text-muted-foreground pt-1">For a specific position</span>
                 {/* Pill toggle like Region: All (no filter) is the default; clicking a
                     pill adds/removes it from the multi-select set. */}
                 <div className="flex flex-wrap gap-1.5">
