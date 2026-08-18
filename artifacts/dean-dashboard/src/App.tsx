@@ -41,6 +41,7 @@ interface TabDef {
   value: string;
   label: string;
   desc: string;
+  badge?: string;
 }
 
 // Descriptions deliberately say "leader" rather than "dean": the app spans deans,
@@ -50,8 +51,8 @@ interface TabDef {
 // Individual Search leads: it is the flagship view, so it takes the top-left
 // slot (the most prominent by reading order) and is the default open tab.
 const DEFAULT_TABS: TabDef[] = [
-  { value: "search", label: "Slate Builder", desc: "Filter sitting leaders by school, discipline, or tenure — then assemble a shortlist and open any profile." },
-  { value: "scout", label: "Scout Assistant", desc: "Adjustable-stringency candidate scouting for a specific opening — from our tightest combined model down to the full eligible pool." },
+  { value: "search", label: "Slate Builder", desc: "Filter sitting leaders by school, discipline, or tenure — then assemble a shortlist and open any profile.", badge: "Start here" },
+  { value: "scout", label: "Scout Assistant", desc: "Adjustable-stringency candidate scouting for a specific opening — from our tightest combined model down to the full eligible pool.", badge: "For a specific school" },
   { value: "explorer", label: "School Explorer", desc: "Browse leader histories by school with interactive tenure timelines and list/map views." },
   { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics — including interim appointments." },
   // Temporarily hidden to make room for Scout Assistant above -- re-add this
@@ -322,11 +323,11 @@ function AppInner() {
                     <span className="flex items-center gap-2">
                       <ModuleIcon id={tab.value} className={isActive ? "text-white/90" : "text-[#011F5B]"} />
                       <span className="text-sm font-semibold">{relabel(tab.label)}</span>
-                      {isFeatured && (
+                      {tab.badge && (
                         <span className={[
                           "text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded",
                           isActive ? "bg-white/20 text-white" : "bg-[#011F5B] text-white",
-                        ].join(" ")}>Start here</span>
+                        ].join(" ")}>{tab.badge}</span>
                       )}
                     </span>
                     <span className={[
