@@ -271,7 +271,11 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
 
         <div className="grid gap-3 sm:grid-cols-2">
           <div>
-            <span className="text-xs font-medium text-muted-foreground">School with the opening</span>
+            {/* Distinguishes Scout Assistant from Slate Builder's "School" dropdown,
+                which is just one filter among many for browsing a whole cohort.
+                Here the school IS the starting point -- everything below is scored
+                against that one target's historical hiring pattern. */}
+            <span className="text-xs font-medium text-muted-foreground">If you have a specific school in mind</span>
             <select className={`${sel} mt-1`} value={university} onChange={(e) => setUniversity(e.target.value)} aria-label="Target school">
               <option value="">Select a school…</option>
               {universities.map((u) => <option key={u} value={u}>{u}</option>)}

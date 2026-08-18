@@ -742,24 +742,24 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               )}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <select className={sel} value={tenureWin} onChange={(e) => { setTenureWin(e.target.value as "sitting" | "5" | "10" | "any"); setExpandedId(null); }} aria-label="Tenure window">
-                <option value="sitting">Sitting now</option>
-                <option value="5">Served in last 5 yrs</option>
-                <option value="10">Served in last 10 yrs</option>
-                <option value="any">Any time</option>
-              </select>
-              <select className={sel} value={school} onChange={(e) => { setSchool(e.target.value); setExpandedId(null); }} aria-label="School">
-                <option value="">All schools</option>
-                {schoolList.map((sc) => <option key={sc} value={sc}>{sc}</option>)}
-              </select>
-              <select className={sel} value={sortBy} onChange={(e) => setSortBy(e.target.value as "name" | "tenure" | "recent" | "sofar")} aria-label="Sort by">
-                <option value="name">Sort: name</option>
-                <option value="tenure">Sort: longest tenure</option>
-                <option value="sofar">Sort: tenure so far</option>
-                <option value="recent">Sort: most recently appointed</option>
-              </select>
-            </div>
+            {/* Toggles first, selectors last -- a headhunter narrows by role/function,
+                then diversity of slate, then credentials, before touching the more
+                mechanical dropdowns (tenure window, specific school, sort order). */}
+            {disciplineOptions.length > 1 && (
+              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
+                <span className="text-xs font-medium text-muted-foreground pt-1">Function</span>
+                {/* Pill toggle like Region: All (no filter) is the default; clicking a
+                    pill adds/removes it from the multi-select set. */}
+                <div className="flex flex-wrap gap-1.5">
+                  <button onClick={() => { setDisciplines(new Set()); setExpandedId(null); }}
+                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
+                  {disciplineOptions.map((d) => (
+                    <button key={d} onClick={() => { toggleSet(setDisciplines, d); setExpandedId(null); }}
+                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.has(d) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{d}</button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <span className="text-xs font-medium text-muted-foreground">Include</span>
@@ -784,22 +784,6 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               </label>
               <span className="text-[10px] text-muted-foreground">(held a doctorate / faculty rank)</span>
             </div>
-
-            {disciplineOptions.length > 1 && (
-              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
-                <span className="text-xs font-medium text-muted-foreground pt-1">Function</span>
-                {/* Pill toggle like Region: All (no filter) is the default; clicking a
-                    pill adds/removes it from the multi-select set. */}
-                <div className="flex flex-wrap gap-1.5">
-                  <button onClick={() => { setDisciplines(new Set()); setExpandedId(null); }}
-                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
-                  {disciplineOptions.map((d) => (
-                    <button key={d} onClick={() => { toggleSet(setDisciplines, d); setExpandedId(null); }}
-                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.has(d) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{d}</button>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {tierOptions.length > 1 && (
               <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
@@ -876,6 +860,27 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               <div className="shrink-0 w-[38%] max-w-[220px] pt-4">
                 <RegionMap selected={effectiveStates} />
               </div>
+            </div>
+
+            {/* Selectors last: tenure window / specific school / sort order are
+                mechanics, not the headhunter's framing decisions above. */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <select className={sel} value={tenureWin} onChange={(e) => { setTenureWin(e.target.value as "sitting" | "5" | "10" | "any"); setExpandedId(null); }} aria-label="Tenure window">
+                <option value="sitting">Sitting now</option>
+                <option value="5">Served in last 5 yrs</option>
+                <option value="10">Served in last 10 yrs</option>
+                <option value="any">Any time</option>
+              </select>
+              <select className={sel} value={school} onChange={(e) => { setSchool(e.target.value); setExpandedId(null); }} aria-label="School">
+                <option value="">All schools</option>
+                {schoolList.map((sc) => <option key={sc} value={sc}>{sc}</option>)}
+              </select>
+              <select className={sel} value={sortBy} onChange={(e) => setSortBy(e.target.value as "name" | "tenure" | "recent" | "sofar")} aria-label="Sort by">
+                <option value="name">Sort: name</option>
+                <option value="tenure">Sort: longest tenure</option>
+                <option value="sofar">Sort: tenure so far</option>
+                <option value="recent">Sort: most recently appointed</option>
+              </select>
             </div>
 
             <div>
