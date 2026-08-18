@@ -48,6 +48,19 @@ const EDUCATION = [
   /\b(SUNY|CUNY|Cal State|Texas A&M|Virginia Tech|MIT|Caltech)\b/,
   /\b(community college|technical college|junior college)\b/i,
   /\beducational testing service\b/i,
+  // "(internal)" marks a promotion from within the same institution, so the
+  // prior employer IS the university -- these are not outside hires at all.
+  /\(internal\)/i,
+  // Campus shorthand the full-name patterns above cannot see. UC/CSU campuses
+  // are spelled out because a bare /\bUC\b/ would also catch company acronyms.
+  /\bUC\s?(Berkeley|Davis|Irvine|Los Angeles|Merced|Riverside|San Diego|San Francisco|Santa Barbara|Santa Cruz)\b/i,
+  /\b(UCLA|UCSD|UCSF|UCSB|UCSC|UCI|UCR|UCM)\b/,
+  /\b(CSU|Cal Poly|SDSU|SFSU|SJSU)\b/,
+  /\b(UAB|UNC|USC|NYU|LSU|TCU|SMU|BYU|VCU|ODU|JMU|GMU|RIT|RPI|WPI|NJIT|UMBC|UMKC|UTSA|UTEP|FIU|FAU|UCF|USF|UNLV|UNM|UIC|UIUC|UMass|UConn|UGA|UF|FSU)\b/,
+  /\b(Ohio State|Penn State|Virginia Tech|Georgia Tech|UT Austin|Texas A&M)\b/i,
+  // Statewide systems and governing boards. Without these, "Nevada System of
+  // Higher Education" hits the INDUSTRY "System" pattern and reads as a company.
+  /\b(Higher Education|Board of Regents|Board of Trustees|Board of Governors)\b/i,
 ];
 
 const MILITARY = [
@@ -68,7 +81,13 @@ const GOVERNMENT = [
   /\b(Municipal|Metropolitan|Regional) (Government|Authority|Transit|Water|Utility)\b/i,
   /\b(Court|Judiciary|Judicial|Supreme Court)\b/i,
   /\b(Sandia|Los Alamos|Oak Ridge|Argonne|Fermilab|Brookhaven|Lawrence Livermore|Jet Propulsion) (National )?Laborator/i,
-  /\bnational laboratory\b/i,
+  /\bnational laborator(y|ies)\b/i,
+  // Any "National ... Laboratory" (NREL, NETL, ...) -- federally funded, and
+  // otherwise caught by INDUSTRY on words like "Energy".
+  /\bNational\b.*\bLaborator(y|ies)\b/i,
+  // State/city departments and offices. EDUCATION is matched first, so an
+  // academic "Department of ..." never reaches this line.
+  /\bDepartment of\b/i,
   /\b(Peace Corps|AmeriCorps|Smithsonian|Library of Congress|Census Bureau)\b/i,
   /\bstate (system|board|department|agency|commission)\b/i,
   /\bpublic (utility|transit|housing|works|safety)\b/i,
@@ -89,7 +108,7 @@ const NONPROFIT = [
 const HEALTHCARE = [
   /\b(Hospitals?|Health Systems?|Healthcare Systems?|Medical Centers?|Health Networks?|Clinics?|Infirmary)\b/i,
   /\b(Mayo|Cleveland Clinic|Kaiser Permanente|Johns Hopkins Medicine|MD Anderson|Cedars-Sinai)\b/i,
-  /\b(Health Sciences Center|Medical Group|Health Services|Public Health Department)\b/i,
+  /\b(Health Sciences Center|Medical Group|Health Services|Public Health Department|Healthcare)\b/i,
   /\bhealth (systems?|authority|district)\b/i,
 ];
 
@@ -104,7 +123,10 @@ const INDUSTRY = [
   /\b(Energy|Petroleum|Oil|Gas|Mining|Utilities|Power Company)\b/i,
   /\b(Airlines?|Aerospace|Motors|Automotive|Manufacturing|Logistics|Freight)\b/i,
   /\b(Media Group|Publishing|Broadcasting Company|Entertainment|Studios)\b/i,
-  /\b(Law Firm|Attorneys at Law|Counsel LLP|LLP)\b/i,
+  /\b(Law Firm|Attorneys at Law|Counsel LLP|LLP|LLO|PLLC)\b/i,
+  /,\s*(P\.?A\.?|P\.?C\.?)\s*$/i,          // law/medical partnership suffixes
+  /\b(Inc|Corp|Ltd)\b\.?/i,
+  /\b(Group|Holdings?|Agency|Credit Union|Firm)\b/i,
   // Named private-sector employers seen in this dataset and its peers.
   /\b(IBM|Microsoft|Google|Alphabet|Amazon|Apple|Meta|Facebook|Intel|Cisco|Oracle|Dell|Hewlett|HP|SAP|Salesforce|Adobe|Nvidia|Qualcomm)\b/i,
   /\b(Boeing|Lockheed|Raytheon|Northrop|General Dynamics|Leidos|Dynetics|SAIC|Booz Allen|Battelle|MITRE|Aerojet)\b/i,
@@ -113,6 +135,40 @@ const INDUSTRY = [
   /\b(General Electric|Siemens|Honeywell|3M|Johnson & Johnson|Pfizer|Merck|Novartis|AstraZeneca|Genentech|Amgen|Eli Lilly)\b/i,
   /\b(Walmart|Target|Nike|Disney|Comcast|Verizon|AT&T|T-Mobile|Charter|Nielsen|Thomson Reuters|Elsevier|Wiley|Pearson|McGraw)\b/i,
   /\b(ACI Worldwide|Career Education Corporation|Blackbaud|Ellucian|Workday|ServiceNow|Anthology|Instructure|Coursera|2U)\b/i,
+];
+
+// Named employers that no general pattern should be stretched to cover. Checked
+// FIRST, so a curated decision always beats a heuristic. Every entry here was
+// read individually off the admin-leaders review pile; keep it that way rather
+// than inventing a regex that happens to catch three of them.
+const OVERRIDES = [
+  // --- private sector -------------------------------------------------------
+  [/\b(Leafly|Sodexo|Barclays|Bacardi|Xerox|Kraft Heinz|Abbott Laboratories|Briggs & Stratton|ExxonMobil|Cox Communications|Gannett|PeopleSoft|Trustpilot|Techstars|Corpay|FLEETCOR|Elevance)\b/i, SECTOR.INDUSTRY],
+  [/\b(APCO Worldwide|Rubenstein|Synergis Education|Auto Europe|Valdese Weavers|Rhino Foods|CoverMyMeds|Samson Resources|USA Mobility|Elliott Aviation|Browning Construction|Avolve Sports|LogistiCare|Scientific Atlanta|Smith Meter|AmWINS|Ascendant|LF Distribution)\b/i, SECTOR.INDUSTRY],
+  [/\b(Buffalo Bills|NFL|ESPN|The Tennessean|Bound to Stay Bound|The Springs Living|CommunityAmerica Credit Union|Four Score Strategies|Ervin & Smith|The Childress Agency|The Beale Agency)\b/i, SECTOR.INDUSTRY],
+  [/^ABC and ESPN$/i, SECTOR.INDUSTRY],
+  // Law firms -- partnership names carry no generic marker, so they are listed.
+  [/\b(Gray Plant Mooty|Nelson \| Williams|Lex Politica|Jones Day|BakerHostetler|Lathrop GPM|Waller Lansden|Archer & Greiner|Hinckley, Allen|Wyatt, Tarrant|McGrath North|Allen Norton & Blue|McMillan, Turner|Fessenden Firm)\b/i, SECTOR.INDUSTRY],
+  [/\bPrivate practice\b/i, SECTOR.INDUSTRY],
+  // --- education ------------------------------------------------------------
+  [/\b(The Citadel|Middlebury Institute|WashU|William & Mary|Lutheran High)\b/i, SECTOR.EDUCATION],
+  // --- nonprofit ------------------------------------------------------------
+  [/\b(DigitalC|The People Concern|Communication Service for the Deaf|Upjohn Institute|New Vista|Centerstone|Loomis Communities|Lutheran Social Services|Florida Sheriffs Youth Ranches|Chan Zuckerberg|Republican National Committee|Democratic National Committee)\b/i, SECTOR.NONPROFIT],
+  [/\b(Brooklyn Botanic|Metropolitan Opera|March of Dimes|Outward Bound|American Civil Liberties Union|ACLU|World Food Program|Seventh-day Adventists|Christian Union|St\.? Norbert Abbey)\b/i, SECTOR.NONPROFIT],
+  // --- healthcare -----------------------------------------------------------
+  [/\b(Sutter Health|PruittHealth|AdventHealth|Advocate Health|Wayne Health|Jefferson Health|Baystate Health|Froedtert|Rochester Regional Health|Health New England|Memorial Sloan Kettering)\b/i, SECTOR.HEALTHCARE],
+  // --- government -----------------------------------------------------------
+  [/\b(Police Department|Sheriff'?s Office|State Police|Highway Patrol|Secret Service|Department of Correction|Department of Sanitation)\b/i, SECTOR.GOVERNMENT],
+  [/\b(State Auditor|State Attorney|General Assembly|Legislative|Legislature|Port Authority)\b/i, SECTOR.GOVERNMENT],
+  [/\b(National Institutes of Health|National Accelerator Laboratory)\b/i, SECTOR.GOVERNMENT],
+  [/\b(Milwaukee County|Government of the|federal government)\b/i, SECTOR.GOVERNMENT],
+  [/\bAirport\b/i, SECTOR.GOVERNMENT],
+  // Public benefit corporations: legally "Corporation", functionally government.
+  // Listed individually rather than by pattern, because plenty of genuine
+  // private developers are also called "<Something> Development Corporation".
+  [/\b(New York City Economic Development Corporation|Lower Manhattan Development Corporation|Massachusetts Municipal Wholesale Electric)\b/i, SECTOR.GOVERNMENT],
+  // Intergovernmental, not a commercial bank.
+  [/\bWorld Bank\b/i, SECTOR.NONPROFIT],
 ];
 
 function anyMatch(patterns, s) {
@@ -127,6 +183,8 @@ function anyMatch(patterns, s) {
 export function classifyEmployer(raw) {
   const s = String(raw || "").trim();
   if (!s) return SECTOR.UNKNOWN;
+  // Curated decisions beat every heuristic below.
+  for (const [re, sector] of OVERRIDES) if (re.test(s)) return sector;
   // Non-industry sectors first -- see the note at the top of this file.
   if (anyMatch(EDUCATION, s)) return SECTOR.EDUCATION;
   if (anyMatch(MILITARY, s)) return SECTOR.MILITARY;
@@ -180,9 +238,31 @@ const CASES = [
   ["Mayo Clinic", SECTOR.HEALTHCARE],
   ["Geisinger Health System", SECTOR.HEALTHCARE],
   ["Geisinger Health Systems", SECTOR.HEALTHCARE],
-  // deliberately unresolved -- these belong in the manual review pile
-  ["DigitalC", SECTOR.UNKNOWN],
-  ["Lex Politica", SECTOR.UNKNOWN],
+  // curated one-offs: no general pattern should be stretched to cover these
+  ["DigitalC", SECTOR.NONPROFIT],
+  ["Lex Politica", SECTOR.INDUSTRY],
+  ["Gray Plant Mooty", SECTOR.INDUSTRY],
+  ["Sacramento County Sheriff's Office", SECTOR.GOVERNMENT],
+  ["Boston Police Department", SECTOR.GOVERNMENT],
+  ["Sutter Health", SECTOR.HEALTHCARE],
+  ["The Citadel", SECTOR.EDUCATION],
+  // Regressions caught by spot-checking the flagged list. Each of these was
+  // wrongly classified INDUSTRY by a single tempting word -- "System",
+  // "Financial", "Energy", "Corporation", "Consulting", "Bank".
+  ["Nevada System of Higher Education", SECTOR.EDUCATION],
+  ["Maine Department of Administrative and Financial Services", SECTOR.GOVERNMENT],
+  ["National Renewable Energy Laboratory", SECTOR.GOVERNMENT],
+  ["New York City Economic Development Corporation", SECTOR.GOVERNMENT],
+  ["Massachusetts Municipal Wholesale Electric Company", SECTOR.GOVERNMENT],
+  ["Norton Healthcare (via independent consulting)", SECTOR.HEALTHCARE],
+  ["World Bank", SECTOR.NONPROFIT],
+  // ...while genuine companies carrying the same words stay INDUSTRY.
+  ["Cisco Systems", SECTOR.INDUSTRY],
+  ["Encova Insurance", SECTOR.INDUSTRY],
+  ["Koch Industries Inc.", SECTOR.INDUSTRY],
+  ["Huron Consulting Group", SECTOR.INDUSTRY],
+  ["Citizens Business Bank", SECTOR.INDUSTRY],
+  // only a genuinely empty employer is UNKNOWN now that the pile is curated
   ["", SECTOR.UNKNOWN],
 ];
 
