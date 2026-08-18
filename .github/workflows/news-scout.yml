@@ -41,7 +41,8 @@ jobs:
                   attached_assets/news_scout_review.json \
                   attached_assets/news_scout_log.csv \
                   attached_assets/enrichment_queue.json \
-                  artifacts/dean-dashboard/src/data/ 2>/dev/null || true
+                  artifacts/dean-dashboard/src/data/ \
+                  artifacts/dean-dashboard/public/deans/ 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else

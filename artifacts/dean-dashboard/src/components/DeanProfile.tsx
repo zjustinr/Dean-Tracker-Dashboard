@@ -8,7 +8,13 @@ import { FullPortrait } from "./DeanPortrait";
 import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
-import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps, type NewsItem } from "@/data/enrichment";
+import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps, usePhotoMap, type NewsItem } from "@/data/enrichment";
+
+function formatArchiveDate(capturedAt: string): string {
+  // capturedAt is YYYYMMDD (see photo-lib.mjs's today()).
+  if (!/^\d{8}$/.test(capturedAt)) return capturedAt;
+  return `${capturedAt.slice(0, 4)}-${capturedAt.slice(4, 6)}-${capturedAt.slice(6, 8)}`;
+}
 
 function formatMoney(val: number | null): string {
   if (!val) return "–";
@@ -31,6 +37,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
   const careerPositions = useDeanCareer(dean.dean);
   const title = titleOf(dean);
   const research = useResearchMap()[enrichKey(dean.dean, dean.university)] || null;
+  const photoHistory = usePhotoMap()[enrichKey(dean.dean, dean.university)]?.history || [];
   const hasNews = !!research?.news?.length;
   const hasCareer = !!research?.career?.length;
   // The map/assessment fall back to a synthetic PhD -> current-seat trajectory
@@ -464,6 +471,37 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
           </a>
         </div>
       </div>
+
+      {photoHistory.length > 0 && (
+        <div className="mt-4 pt-3 border-t border-border">
+          <h4 className="text-sm font-bold mb-3">Historical Photos</h4>
+          <div className="flex gap-3 flex-wrap">
+            {photoHistory.map((h, i) => (
+              <figure key={i} className="w-20 shrink-0">
+                <img
+                  src={h.photo}
+                  alt={`${dean.dean}, earlier photo`}
+                  loading="lazy"
+                  className="w-20 h-24 object-cover rounded-md border border-border"
+                />
+                <figcaption className="text-center mt-1 text-[10px] text-muted-foreground leading-tight">
+                  {h.capturedAt && <div>{formatArchiveDate(h.capturedAt)}</div>}
+                  {h.page && (
+                    <a
+                      href={h.page}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary underline underline-offset-2 hover:opacity-80"
+                    >
+                      source ↗
+                    </a>
+                  )}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      )}
 
       {dean.notes && (
         <p className="text-xs text-muted-foreground mt-3 pt-2 border-t border-border italic">{dean.notes}</p>
