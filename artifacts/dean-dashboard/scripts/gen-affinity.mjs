@@ -82,6 +82,51 @@ const displayName = (raw) => PROPER.get(nkey(raw)) || titleCase(raw);
 // lib/school-canon.mjs -- see that file for why one school can carry two names.
 const { toCanon, canon, variants } = buildCanon(DEANS.map(({ r }) => r));
 
+// ---- recruitability: is this person reachable, or did they leave the stage? ---
+// Affinity feeds candidate sourcing in Slate Builder and Scout Assistant, so a tie
+// is only worth surfacing if the person could actually take a call. Every
+// leadership stint ever recorded used to produce a tie, which meant a search on
+// Arkansas at Little Rock returned eleven chancellors going back to 1927 -- ranked
+// ABOVE its living alumni, because ranking was by tie count alone and each dead
+// chancellor carries an admin tie.
+//
+// Institutional history is not lost by filtering here: School Explorer's succession
+// timeline reads the dean records directly and never touches this file.
+//
+// Two signals per person, computed across the whole corpus rather than per index,
+// because someone who left a deanship is often sitting in a provost seat elsewhere:
+//   sitting     -- holds an open-ended or current spell anywhere
+//   lastActive  -- latest year they appear in any spell
+// "Now" comes from the data, not the calendar and not a literal, so this keeps
+// working in 2030 without an edit. A spell with no end year is open; one whose end
+// year has reached the corpus frontier is still current.
+let corpusYear = 0;
+for (const { r } of DEANS) {
+  const y = Math.max(r.endYear || 0, r.startYear || 0);
+  if (y > corpusYear) corpusYear = y;
+}
+const RECRUITABLE = new Map(); // nkey(name) -> { sitting, lastActive }
+for (const { r } of DEANS) {
+  if (!r.dean) continue;
+  const k = nkey(r.dean);
+  const e = RECRUITABLE.get(k) || { sitting: false, lastActive: 0 };
+  if (r.endYear == null || r.endYear >= corpusYear - 1) e.sitting = true;
+  const y = Math.max(r.endYear || 0, r.startYear || 0);
+  if (y > e.lastActive) e.lastActive = y;
+  RECRUITABLE.set(k, e);
+}
+// Derived from the data rather than hardcoded, so it moves with the corpus instead
+// of silently going stale. Fifteen years is deliberately generous: someone who left
+// a seat a decade ago may well be sitting somewhere this corpus does not index, and
+// dropping a live candidate costs far more than carrying a retired one.
+const RECENCY_WINDOW = 15;
+const cutoff = corpusYear - RECENCY_WINDOW;
+const isRecruitable = (name) => {
+  const e = RECRUITABLE.get(nkey(name));
+  if (!e) return true; // unknown to the roster (alumni-only tie) -- keep, we cannot rule them out
+  return e.sitting || e.lastActive >= cutoff;
+};
+
 const lr = read("leader-research.json") || {};
 const roots = read("career-roots.json") || {};
 const photos = read("dean-photos.json") || {};
@@ -149,19 +194,33 @@ for (const { r, id } of DEANS) {
 
 // ---- assemble: { school -> [entries sorted by tie richness] } -----------------
 const bySchool = {};
+let dropped = 0;
 for (const e of L.values()) {
   const disp = e.disp || { role: "", university: "", index: null, indexLabel: null, enrichKey: ekey(e.name, "") };
   for (const [school, t] of e.ties) {
     if (!(t.undergrad.length || t.grad.length || t.faculty.length || t.admin.length)) continue;
+    if (!isRecruitable(e.name)) { dropped++; continue; }
+    const rec = RECRUITABLE.get(nkey(e.name));
     (bySchool[school] = bySchool[school] || []).push({
       name: displayName(e.name), role: disp.role, university: disp.university,
       index: disp.index, indexLabel: disp.indexLabel, enrichKey: disp.enrichKey,
+      // Surfaced so the UI can separate "in a seat now" from "was, and may be
+      // reachable" -- the generator knew this all along and threw it away.
+      sitting: !!(rec && rec.sitting), lastActive: (rec && rec.lastActive) || null,
       undergrad: t.undergrad, grad: t.grad, faculty: t.faculty, admin: t.admin,
     });
   }
 }
 const tieCount = (x) => x.undergrad.length + x.grad.length + x.faculty.length + x.admin.length;
-for (const s of Object.keys(bySchool)) bySchool[s].sort((a, b) => tieCount(b) - tieCount(a) || a.name.localeCompare(b.name));
+// Sitting leaders first. Tie count alone put a chancellor who left in 1930 above a
+// sitting dean who is an alum, because both carry exactly one tie.
+for (const s of Object.keys(bySchool)) {
+  bySchool[s].sort((a, b) =>
+    (b.sitting ? 1 : 0) - (a.sitting ? 1 : 0) ||
+    tieCount(b) - tieCount(a) ||
+    (b.lastActive || 0) - (a.lastActive || 0) ||
+    a.name.localeCompare(b.name));
+}
 
 // Ties are now keyed by ONE canonical spelling per school, but consumers look the
 // school up by the raw `university` string of whatever dataset they are showing
@@ -191,4 +250,6 @@ const canonical = [...canonicalKeys].map((k) => bySchool[k]);
 const schools = canonicalKeys.size;
 const pairs = canonical.reduce((n, a) => n + a.length, 0);
 const withFac = canonical.reduce((n, a) => n + a.filter((x) => x.faculty.length || x.undergrad.length || x.grad.length).length, 0);
-console.log(`affinity-by-school.json: ${schools} schools (+${aliased} spelling aliases), ${pairs} (school,leader) ties, ${withFac} with faculty/alumni ties`);
+const sittingRows = canonical.reduce((n, a) => n + a.filter((x) => x.sitting).length, 0);
+console.log(`affinity-by-school.json: ${schools} schools (+${aliased} spelling aliases), ${pairs} (school,leader) ties, ${withFac} with faculty/alumni ties, ${sittingRows} currently sitting`);
+console.log(`  dropped ${dropped} tie(s) for leaders with no seat since ${cutoff} and none current`);
