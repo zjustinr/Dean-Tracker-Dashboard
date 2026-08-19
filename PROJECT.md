@@ -71,7 +71,14 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 5. **Discipline Search** (tab: "discipline", between Aggregate Trends and Individual Search) — Dynamic US map colored by the academic discipline of the dean serving in the selected year. Year slider (dataset min–2026, default 2026) with Play animation (1 yr / 350 ms), dean last-name labels (toggleable), hover tooltip, click marker → DeanProfile. Legend shows per-year counts by discipline (top-9 by frequency get chart colors; rest fold into "Other"; "Unknown" light gray). Below: stacked-area chart of discipline composition of sitting deans over time with a ReferenceLine tracking the slider year and a Legend. Component: `DisciplineSearch.tsx`. Note: react-simple-maps' Marker `style` prop is ignored — put cursor styles on the `<circle>` itself.
 6. **Dean News & Market** (tab: "jobmarket") — Current dean openings from curated spreadsheet data (23 positions). KPI cards (5 columns when news hires present), searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening, New Appointment), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. Layout: KPIs → filters → Map → News feed. **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours via `/api/pq-news`.
 
-7. **Non-academic Experience** (tab: "nonacademic") — Ranked view of leaders with a
+7. **Non-academic Experience** — **no module card.** The signal belongs in candidate
+   research, not a browsing surface of its own, so it reaches users through the
+   always-present row on `DeanProfile` (which lists EVERY tie, ranked — organisation,
+   role, category, years, and a board/advisory chip) and the "Non-academic tie" filter
+   in Slate Builder and Scout Assistant. `NonAcademicExperience.tsx` and its
+   `buildTabContent` entry stay in place; restoring the standalone ranked view is a
+   one-line uncomment in `DEFAULT_TABS`, the same convention Discipline Search uses.
+   What that retired view did, for reference: ranked view of leaders with a
    NAMED-ORGANISATION tie outside the academy, from `nonacademic-experience.json`
    (runtime-loaded, scope-gated like leader-research). "Outside the academy" means
    company, government, nonprofit, foundation OR health system — an earlier cut
@@ -118,6 +125,15 @@ No ETL/build script writes `phdInstitution` — it's only ever set by ad-hoc res
 - Return the **full official institution name only** — no field-of-study prefix or suffix (never "Agricultural Education, Texas A&M University", just "Texas A&M University").
 - No truncation and no bare abbreviations — expand "MIT" → "Massachusetts Institute of Technology", "UCLA" → "University of California, Los Angeles".
 - For multi-campus systems (UC, SUNY, UT, Nebraska, Penn State, etc.), specify the campus, matching the existing spelling convention in `career-geo.json` (e.g. "University of California, Berkeley", not bare "Berkeley" or bare "University of California").
+- **A coordinate is only US-projectable if the COORDINATE says so.** `CareerMap`
+  renders with `geoAlbersUsa`, which returns `null` for anything outside the
+  contiguous states plus the Alaska/Hawaii insets — and a null coordinate throws
+  inside react-simple-maps' `<Marker>`, blanking the entire page. Do not trust a
+  `country` field to decide: `career-roots.json` omits `country` on 21,387 of its
+  22,961 located roots, so a country-only check read 801 foreign alma maters
+  (Toulouse, Mannheim, Rio de Janeiro) as American and took down every profile that
+  touched one. `projectableUS` in `CareerMap.tsx` bounds-checks lat/lng against the
+  Albers domain; keep any new plotted coordinate behind it.
 - Before writing a new value, check `career-geo.json` for an existing entry with the same institution (case-insensitive) and reuse its exact spelling — CareerMap/DeanProfile/DeanTimeline all look up alma maters via `name.toLowerCase().trim()` against that file, so a spelling mismatch silently fails to geocode.
 - Run `node scripts/check-phd-institution.mjs` after any research/enrichment pass touching `phdInstitution` — it flags comma-contamination patterns, bare abbreviations/fragments, and anything that fails the same geocode lookup, so a repeat of the bug gets caught before commit instead of sitting undetected for months.
 

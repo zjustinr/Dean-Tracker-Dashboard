@@ -177,7 +177,7 @@ export interface EmployerIndexAffinity {
 const employerAffinity = makeJsonMap<EmployerIndexAffinity>("employer-affinity.json");
 export const useEmployerAffinity = employerAffinity.useMap;
 
-// Industry-tie derivation output (scripts/gen-nonacademic-experience.mjs). Unlike
+// Non-academic experience derivation output (scripts/gen-nonacademic-experience.mjs). Unlike
 // the other sidecars this is a WRAPPED document, not a bare person map: the
 // scoring weights, asOf year and corpus counts ride alongside `people` so a
 // stored score is auditable client-side and no reserved key ever sits inside
@@ -191,7 +191,13 @@ export type TieKind = "employment" | "board" | "advisory";
 export type TieSeniority = "executive" | "senior" | "professional" | "unknown";
 export interface NonAcademicTie {
   kind: TieKind;
-  industry: string;
+  // One of CATEGORY_NAMES: an industry sub-sector, or Government & Public
+  // Sector / Nonprofit & Foundations / Healthcare Providers.
+  category: string;
+  // The coarse classifier bucket the category came from (Industry, Government,
+  // Nonprofit, Healthcare Provider) -- kept so a consumer can group without
+  // re-deriving it from the category string.
+  sector?: string;
   firm: string;
   role?: string;
   seniority: TieSeniority;
@@ -261,8 +267,8 @@ function makeJsonDoc<T>(file: string) {
     },
   };
 }
-const industryTies = makeJsonDoc<NonAcademicDoc>("nonacademic-experience.json");
-export const useNonAcademicExperience = industryTies.useDoc;
+const nonAcademic = makeJsonDoc<NonAcademicDoc>("nonacademic-experience.json");
+export const useNonAcademicExperience = nonAcademic.useDoc;
 
 export const enrichKey = (dean: string, university: string) =>
   `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;

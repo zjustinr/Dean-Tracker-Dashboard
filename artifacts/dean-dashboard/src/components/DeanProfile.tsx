@@ -41,15 +41,15 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
   // firm, the badge says WHICH firm -- for the connections use case the employer
   // is the information, not the boolean. The legacy hasIndustryExp flag stays as
   // the fallback for hand-labelled people the derivation couldn't reproduce.
-  const industryDoc = useNonAcademicExperience();
-  const industryRec = industryDoc?.people[enrichKey(dean.dean, dean.university)] ?? null;
-  const industryTies = industryRec?.status === "yes" ? industryRec.ties ?? [] : [];
-  const industryTie = industryTies[0] ?? null;
+  const naDoc = useNonAcademicExperience();
+  const naRec = naDoc?.people[enrichKey(dean.dean, dean.university)] ?? null;
+  const naTies = naRec?.status === "yes" ? naRec.ties ?? [] : [];
+  const naTie = naTies[0] ?? null;
   // Four states, and the profile reports ALL of them. Before, only the first
   // rendered anything: a named-firm tie exists for 494 of ~28,250 people, so
   // every other profile said nothing at all about industry -- which reads as
   // "no industry background" when the truth is usually "nobody researched it".
-  //   named    -> firm(s), rank, years
+  //   named    -> every tie, ranked: organisation, role, category, years, kind
   //   flagged  -> a corroborating label but no employer on record
   //   none     -> career stops exist and none is a company
   //   unknown  -> no career evidence at all (the record is simply absent)
@@ -57,11 +57,11 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
   // "no" means "the one job we recorded was academic"; a researched "no" means
   // someone read the bio and there was nothing there. Collapsing the two would
   // throw away the only strong negatives the corpus has.
-  const industryResearched = industryRec?.evidence === "research";
-  const industryState: "named" | "flagged" | "none" | "unknown" =
-    industryTie ? "named"
-    : industryRec?.status === "yes" ? "flagged"
-    : industryRec?.status === "no" ? "none"
+  const naResearched = naRec?.evidence === "research";
+  const naState: "named" | "flagged" | "none" | "unknown" =
+    naTie ? "named"
+    : naRec?.status === "yes" ? "flagged"
+    : naRec?.status === "no" ? "none"
     : "unknown";
   const photoHistory = usePhotoMap()[enrichKey(dean.dean, dean.university)]?.history || [];
   const hasNews = !!research?.news?.length;
@@ -197,12 +197,12 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
         {dean.isFirstTimeDean && <Badge variant="secondary">First-Time Dean</Badge>}
         {dean.hasPriorDeanExp && <Badge variant="secondary">Prior Dean Experience</Badge>}
         {dean.hasPhd && <Badge variant="secondary">PhD</Badge>}
-        {industryTie ? (
+        {naTie ? (
           <Badge
             variant="secondary"
-            title={`${industryTie.role ? industryTie.role + ", " : ""}${industryTie.firm}${industryTie.years ? " (" + industryTie.years + ")" : ""} — from recorded career stops`}
+            title={`${naTie.role ? naTie.role + ", " : ""}${naTie.firm}${naTie.years ? " (" + naTie.years + ")" : ""} — from recorded career stops`}
           >
-            Non-academic: {industryTie.firm}{(industryRec?.firms?.length ?? 0) > 1 ? ` +${industryRec!.firms!.length - 1}` : ""}
+            Non-academic: {naTie.firm}{(naRec?.firms?.length ?? 0) > 1 ? ` +${naRec!.firms!.length - 1}` : ""}
           </Badge>
         ) : (
           dean.hasIndustryExp && <Badge variant="secondary">Industry Experience</Badge>
@@ -284,44 +284,63 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
           <span>{dean.disciplineBroad || dean.discipline || "–"}</span>
           <span className="text-muted-foreground font-medium">Background</span>
           <span>{dean.careerBackground || "–"}</span>
-          {/* Always rendered, in all four states -- see industryState above for why
+          {/* Always rendered, in all four states -- see naState above for why
               silence was the wrong default. */}
           <span className="text-muted-foreground font-medium">Non-academic Experience</span>
           <span>
-            {industryState === "named" ? (
+            {naState === "named" ? (
+              // EVERY tie, not just the strongest. This row is where the signal
+              // is actually consumed -- someone reading one candidate wants the
+              // whole picture, and the second and third organisations are often
+              // the ones that matter for a given school. Ties arrive already
+              // sorted by score from the generator.
               <>
-                {(industryRec!.firms ?? []).join(", ")}
-                <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
-                  {industryTie!.role ? `${industryTie!.role} · ` : ""}
-                  {(industryRec!.categories ?? []).join(", ")}
-                  {industryTie!.years ? ` · ${industryTie!.years}` : industryTie!.endYear != null ? ` · until ${industryTie!.endYear}` : ""}
-                  {industryTie!.kind !== "employment" ? ` · ${industryTie!.kind === "board" ? "board seat" : "advisory"}` : ""}
-                  {industryResearched ? " · researched" : ""}
+                <ul className="space-y-1">
+                  {naTies.map((t, i) => (
+                    <li key={`${t.firm}-${i}`} className="leading-snug">
+                      <span className="font-medium">{t.firm}</span>
+                      {t.kind !== "employment" && (
+                        <span className="ml-1.5 text-[10px] uppercase tracking-wide font-semibold px-1 py-0.5 rounded bg-muted text-muted-foreground align-middle">
+                          {t.kind === "board" ? "board" : "advisory"}
+                        </span>
+                      )}
+                      <span className="block text-xs text-muted-foreground">
+                        {t.role ? `${t.role} · ` : ""}
+                        {t.category}
+                        {t.years ? ` · ${t.years}` : t.endYear != null ? ` · until ${t.endYear}` : ""}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <span className="block text-xs text-muted-foreground mt-1 leading-snug">
+                  {naResearched
+                    ? `Researched${naRec!.researchedOn ? ` ${naRec!.researchedOn}` : ""}`
+                    : "From recorded career stops"}
                 </span>
               </>
-            ) : industryState === "flagged" ? (
+            ) : naState === "flagged" ? (
               <>
 Noted, organisation not on record
                 <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
-                  {industryResearched
+                  {naResearched
                     ? "Researched — non-academic experience confirmed, but no public source names the organisation"
-                    : (industryRec!.flags ?? []).join("; ") || "Corroborating label only"}
+                    : (naRec!.flags ?? []).join("; ") || "Corroborating label only"}
                 </span>
               </>
-            ) : industryState === "none" ? (
+            ) : naState === "none" ? (
               <>
-                {industryResearched ? "None found" : "None outside the academy on record"}
+                {naResearched ? "None found" : "None outside the academy on record"}
                 <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
-                  {industryResearched
-                    ? `Researched${industryRec!.researchedOn ? ` ${industryRec!.researchedOn}` : ""} — career reviewed, no non-academic employer, board seat or advisory role`
-                    : industryRec!.stops === 1
+                  {naResearched
+                    ? `Researched${naRec!.researchedOn ? ` ${naRec!.researchedOn}` : ""} — career reviewed, no non-academic employer, board seat or advisory role`
+                    : naRec!.stops === 1
                     ? "Only one career stop on record — a weak signal"
-                    : `Across ${industryRec!.stops} recorded career stops — all academic`}
+                    : `Across ${naRec!.stops} recorded career stops — all academic`}
                 </span>
               </>
             ) : (
               <span className="text-muted-foreground">
-                {industryDoc ? "Not researched" : "Loading…"}
+                {naDoc ? "Not researched" : "Loading…"}
               </span>
             )}
           </span>

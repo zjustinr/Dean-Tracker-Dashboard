@@ -19,9 +19,26 @@ const norm = (s: string) => s.toLowerCase().trim();
 // geoAlbersUsa only projects the 50 states + DC; US territories and any non-US
 // point project to null, which throws inside <Marker>/<Line> and blanks the page.
 // Every plotted coordinate (career steps AND alma-mater rings) must pass this.
+//
+// The country field is NOT enough on its own. `career-roots.json` omits `country`
+// on 21,387 of its 22,961 located roots, so `country ?? "US"` reads a Toulouse or
+// Mannheim alma mater as American -- 801 roots corpus-wide pass a country-only
+// check and then project to null. That is not a cosmetic bug: one such root on
+// one profile throws inside <Marker> and blanks the whole page, which is what
+// took out the "View full profile" path off Meet a Leader.
+//
+// So the coordinate itself is the authority. geoAlbersUsa's domain is the
+// contiguous states plus the Alaska and Hawaii insets, and these boxes are
+// deliberately drawn a little tight: a point wrongly excluded silently goes
+// unplotted, a point wrongly included takes the page down.
 const US_TERRITORIES = new Set(["PR", "GU", "VI", "MP", "AS"]);
+const inAlbersUsa = (lat: number, lng: number) =>
+  (lat >= 24 && lat <= 50 && lng >= -125 && lng <= -66.5) ||   // contiguous + DC
+  (lat >= 51 && lat <= 72 && lng >= -170 && lng <= -129) ||    // Alaska inset
+  (lat >= 18.8 && lat <= 22.5 && lng >= -160.5 && lng <= -154.5); // Hawaii inset
 const projectableUS = (country: string | null | undefined, state: string | null | undefined, lat: number | null | undefined, lng: number | null | undefined): lat is number =>
-  (country ?? "US") === "US" && lat != null && lng != null && !US_TERRITORIES.has((state || "").toUpperCase());
+  (country ?? "US") === "US" && lat != null && lng != null &&
+  !US_TERRITORIES.has((state || "").toUpperCase()) && inAlbersUsa(lat, lng);
 
 interface Located { num: number; role: string; org: string; years: string; geo: Geo; isCurrent: boolean; lat: number; lng: number; x: number; y: number }
 
