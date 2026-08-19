@@ -50,6 +50,8 @@ const PER_SITE = argN("--per-site", 8);        // pages in flight within one ins
 const SITES_AT_ONCE = argN("--sites", 5);     // institutions crawled at once
 const CONCURRENCY = PER_SITE;
 const PAGE_BUDGET = argN("--budget", 45);
+const NO_READER = process.argv.includes("--no-reader");
+const TIMEOUT = String(argN("--timeout", 12));
 const UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 
 mkdirSync(CACHE, { recursive: true });
@@ -59,11 +61,12 @@ const key = (u) => createHash("sha1").update(u).digest("hex");
 
 // Node's fetch ignores HTTPS_PROXY and this sandbox only reaches the network
 // through one, so requests go out through curl.
-function curl(url) {
+function curl(url, plain = false) {
   return new Promise((resolve) => {
     execFile("curl", [
-      "-sSL", "--max-time", "12", "--max-filesize", "6000000", "--compressed",
-      "-A", UA, "-H", "accept: text/html,application/xhtml+xml,application/xml",
+      "-sSL", "--max-time", TIMEOUT, "--max-filesize", "6000000",
+      // The reader refuses a spoofed browser UA; university sites want one.
+      ...(plain ? [] : ["--compressed", "-A", UA, "-H", "accept: text/html,application/xhtml+xml,application/xml"]),
       "-w", "\n__META__%{http_code} %{url_effective}", url,
     ], { maxBuffer: 32 * 1024 * 1024, encoding: "utf8" }, (err, stdout) => {
       const s = String(stdout || "");
@@ -75,6 +78,13 @@ function curl(url) {
   });
 }
 
+// Bot walls and script-rendered rosters both hide a page from plain curl. The
+// r.jina.ai reader fetches and renders the same public page and hands back its
+// text, so those pages can be read -- and their names checked -- like any other.
+// It is a shared free service and throttles hard, so treat it as opportunistic:
+// what it hands back is used, what it refuses is left for the next run.
+const READER_WORTH_IT = new Set([401, 403, 406, 429, 451]);
+
 async function get(url) {
   const f = join(CACHE, key(url) + ".json");
   if (existsSync(f)) { try { return JSON.parse(readFileSync(f, "utf8")); } catch {} }
@@ -82,8 +92,32 @@ async function get(url) {
   const out = { url, status: r.status, finalUrl: r.finalUrl, body: "" };
   if (r.error) out.error = r.error;
   if (r.status >= 200 && r.status < 300 && /<[a-z!?]/i.test(r.body)) out.body = r.body.slice(0, 3_000_000);
+  if (!out.body && !NO_READER && READER_WORTH_IT.has(r.status)) {
+    const via = await readerGate(() => curl("https://r.jina.ai/" + url, true));
+    if (via.status === 200 && via.body.length > 300) {
+      out.body = via.body.slice(0, 2_000_000);
+      out.reader = true;
+      out.status = out.status || 200;
+    } else if (via.status === 0 || via.status === 429 || via.status >= 500) {
+      // The reader was busy, not the page unreadable. Leave it uncached so the
+      // next pass tries again rather than inheriting a false miss.
+      return out;
+    }
+  }
   writeFileSync(f, JSON.stringify(out));
   return out;
+}
+
+// The reader is a shared service; a wide fan-out just earns 429s, so calls to it
+// queue behind a small gate no matter how wide the crawl runs.
+const READER_LANES = argN("--reader-lanes", 3);
+let readerBusy = 0;
+const readerWaiting = [];
+async function readerGate(fn) {
+  if (readerBusy >= READER_LANES) await new Promise((r) => readerWaiting.push(r));
+  readerBusy++;
+  try { return await fn(); }
+  finally { readerBusy--; const next = readerWaiting.shift(); if (next) next(); }
 }
 
 async function pool(items, worker, n = CONCURRENCY) {
@@ -122,6 +156,21 @@ function stripTags(html) {
 }
 
 const fold = (s) => s.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
+
+/** [{ href, anchor }] for every markdown link in reader output. */
+function markdownLinks(md, base) {
+  const out = [];
+  const re = /\[([^\]]{0,120})\]\(([^)\s]+)/g;
+  let m;
+  while ((m = re.exec(md))) {
+    let href;
+    try { href = new URL(m[1] === "" ? m[2] : m[2], base).toString().split("#")[0]; } catch { continue; }
+    if (!/^https?:/.test(href)) continue;
+    out.push({ href, anchor: m[1].replace(/^Image \d+:\s*/, "").trim().slice(0, 120) });
+    if (out.length > 4000) break;
+  }
+  return out;
+}
 
 /** [{ href, anchor }] for every <a> on the page, resolved against `base`. */
 function links(html, base) {
@@ -177,7 +226,7 @@ const NEWSY = /\/(news|newsroom|press|stories|story|articles?|announcements?|gaz
 const JUNK = /\.(pdf|jpe?g|png|gif|svg|zip|docx?|xlsx?|pptx?|mp4|mp3|ics|css|js)($|\?)/i;
 const DIRISH = /(leadership|staff|team|directory|our-people|people|administration|cabinet|senior|about|contact|profile|bio|officers|executive|advancement|giving|alumni|development|foundation|philanthropy|engagement)/i;
 const STRONG = /(leadership|staff|team|directory|our-people|officers|administration|cabinet|meet-the|our-people)/i;
-const SUBDOMAINS = ["advancement", "giving", "alumni", "foundation", "give", "development", "support", "advance"];
+const SUBDOMAINS = ["advancement", "giving", "alumni", "foundation", "give", "development", "support", "advance", "ua", "philanthropy", "engagement"];
 
 function registrable(host) {
   const p = host.split(".");
@@ -329,13 +378,13 @@ async function crawlInstitution([univ, records]) {
     budget -= batch.length;
     const fetched = (await pool(batch, async (u) => {
       const r = await get(u);
-      return r.body ? { url: r.finalUrl || u, html: r.body } : null;
+      return r.body ? { url: r.finalUrl || u, html: r.body, reader: !!r.reader } : null;
     }, PER_SITE)).filter(Boolean);
 
     for (const page of fetched) {
-      const text = fold(stripTags(page.html));
+      const text = fold(page.reader ? page.html : stripTags(page.html));
       if (text.length < 200) continue;
-      const ls = links(page.html, page.url);
+      const ls = page.reader ? markdownLinks(page.html, page.url) : links(page.html, page.url);
       let host;
       try { host = registrable(new URL(page.url).hostname); } catch { continue; }
       if (!allowed.size) allowed.add(host);
@@ -430,7 +479,7 @@ async function guessBios([univ, records]) {
     const hits = await pool(urls.slice(0, 60), async (u) => {
       const res = await get(u);
       if (!res.body) return null;
-      const text = fold(stripTags(res.body));
+      const text = fold(res.reader ? res.body : stripTags(res.body));
       // A guessed slug can land on a soft-404 that echoes the query, so the page
       // has to be a real one: enough text, and the person named in it.
       return text.length > 400 && re.test(text) ? (res.finalUrl || u) : null;

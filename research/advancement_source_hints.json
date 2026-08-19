@@ -37,8 +37,9 @@
       "https://www.college.columbia.edu/alumni/about/staff"
     ],
     "Wake Forest University": [
-      "https://giving.wfu.edu/contact/",
-      "https://about.wfu.edu/leadership/senior-officers/"
+      "https://ua.wfu.edu/staff/",
+      "https://bulletin.wfu.edu/university/administration/",
+      "https://giving.wfu.edu/contact/"
     ],
     "Washington State University": [
       "https://foundation.wsu.edu/meet-our-team/",
@@ -69,6 +70,8 @@
     ],
     "Yale University": [
       "https://developmentoffice.yale.edu/staff-directory",
+      "https://developmentoffice.yale.edu/staff",
+      "https://forhumanity.yale.edu/contacts",
       "https://alumni.yale.edu/your-alumni-association/yaa-staff-directory"
     ],
     "Oregon State University": [
@@ -87,7 +90,9 @@
       "https://www.foriowa.org/contact/"
     ],
     "University of Notre Dame": [
+      "https://giving.nd.edu/about/contact/",
       "https://cfr.nd.edu/meet-the-team/",
+      "https://stewardship.nd.edu/meet-the-team/",
       "https://www.nd.edu/about/leadership/council/"
     ],
     "University of Missouri": [
@@ -175,6 +180,255 @@
       "https://ksufoundation.org/about/leadership/",
       "https://ksufoundation.org/about/careers/who-we-are/",
       "https://ksufoundation.org/about/contact-us/"
+    ],
+    "University of Hawaii at Manoa": [
+      "https://uhfoundation.org/about/leadership",
+      "https://uhfoundation.org/about/departments"
+    ],
+    "California State University, Fullerton": [
+      "https://ua.fullerton.edu/directory/",
+      "https://ua.fullerton.edu/directory/default.aspx?lDept_sk=1",
+      "https://president.fullerton.edu/cabinet/"
+    ],
+    "University of New Mexico": [
+      "https://www.unmfund.org/leadership/",
+      "https://www.unmfund.org/s/1959/22/interior.aspx?sid=1959&gid=2&pgid=523",
+      "https://www.unmfund.org/employees/"
+    ],
+    "University of California Davis": [
+      "https://devar.ucdavis.edu/meet-our-leadership",
+      "https://devar.ucdavis.edu/department-and-program-leadership",
+      "https://devar.ucdavis.edu/person-type/staff"
+    ],
+    "University of South Florida": [
+      "https://giving.usf.edu/about/our-team/senior-leadership",
+      "https://giving.usf.edu/about/our-team/development",
+      "https://giving.usf.edu/about/our-team"
+    ],
+    "San Jose State University": [
+      "https://www.sjsu.edu/advancement/about-us/contact-us.php",
+      "https://www.sjsu.edu/advancement/about-us/index.php",
+      "https://www.sjsu.edu/president/leadership/presidents-cabinet/index.php"
+    ],
+    "North Dakota State University": [
+      "https://ndsufoundation.com/staff-directory-leadership",
+      "https://ndsufoundation.com/staff-directory"
+    ],
+    "South Dakota State University": [
+      "https://www.sdstatefoundation.org/meet-the-team",
+      "https://www.sdstate.edu/office-president/university-leadership"
+    ],
+    "Harvard University": [
+      "https://alumni.harvard.edu/community/about-haa/staff",
+      "https://alumni.harvard.edu/help/contacts-links"
+    ],
+    "Georgia Institute of Technology": [
+      "https://development.gatech.edu/who-we-are",
+      "https://www.gtalumni.org/s/1481/alumni/19/interior.aspx?sid=1481&gid=21&pgid=686"
+    ],
+    "Iowa State University": [
+      "https://www.foundation.iastate.edu/s/who-we-are/leadership",
+      "https://www.foundation.iastate.edu/s/who-we-are/contact-us"
+    ],
+    "University of Texas at Austin": [
+      "https://giving.utexas.edu/jt_divi_accordion/meet-the-team/",
+      "https://www.utexas.edu/about/leadership",
+      "https://utexas.planmygift.org/meet-the-team"
+    ],
+    "University of Minnesota": [
+      "https://give.umn.edu/contact/key-contacts",
+      "https://give.umn.edu/giving/cfr/staff",
+      "https://www.umnalumni.org/s/1867/18/interior-wide.aspx?sid=1867&gid=2&pgid=827"
+    ],
+    "Clemson University": [
+      "https://www.clemson.edu/giving/contact-us/",
+      "https://www.clemson.edu/administration/elt.html"
+    ],
+    "University at Buffalo": [
+      "https://www.buffalo.edu/advancement/about-us/staff-directory.html",
+      "https://www.buffalo.edu/alumni/about-us/staff-directory.html",
+      "https://www.buffalo.edu/campaign/contact-us/staff-directory.html"
+    ],
+    "Case Western Reserve University": [
+      "https://case.edu/president/university-leadership",
+      "https://case.edu/advancingtogether/university-trustees-and-leadership/",
+      "https://case.edu/give/about"
+    ],
+    "Brandeis University": [
+      "https://alumni.brandeis.edu/about/contact-us/leadership/index.html",
+      "https://alumni.brandeis.edu/contact/advancement-administration/index.html",
+      "https://alumni.brandeis.edu/about/contact-us/administration/index.html"
+    ],
+    "Fordham University": [
+      "https://www.fordham.edu/give/contact-us/",
+      "https://www.fordham.edu/info/25241/development_and_university_relations",
+      "https://www.fordham.edu/info/20954/presidents_cabinet"
+    ],
+    "DePaul University": [
+      "https://alumni.depaul.edu/About/Advancement",
+      "https://www.depaul.edu/about/administration/Pages/default.aspx"
+    ],
+    "Illinois Institute of Technology": [
+      "https://alumni.iit.edu/staff-directory",
+      "https://www.iit.edu/president/about/senior-leaders"
+    ],
+    "Loyola University Maryland": [
+      "https://www.loyola.edu/department/advancement/contact-us.html",
+      "https://www.loyola.edu/department/president/executive-leadership/cabinet/"
+    ],
+    "University of San Diego": [
+      "https://www.sandiego.edu/advancement-services/staff/",
+      "https://www.sandiego.edu/about/leadership/"
+    ],
+    "University of New Hampshire": [
+      "https://www.unh.edu/give/directory/all",
+      "https://www.unh.edu/leadership/"
+    ],
+    "University of Missouri-St. Louis": [
+      "https://www.umsl.edu/advancement/directory/index.html",
+      "https://www.umsl.edu/chancellor/cabinet.html"
+    ],
+    "California State University, Long Beach": [
+      "https://www.csulb.edu/university-relations-and-development/development/contacts",
+      "https://www.csulb.edu/university-relations-and-development"
+    ],
+    "University of Miami": [
+      "https://people.miami.edu/administration/index.html",
+      "https://people.miami.edu/executive-leadership/index.html"
+    ],
+    "University of Utah": [
+      "https://administration.utah.edu/university-advancement/"
+    ],
+    "University of Louisville": [
+      "https://louisvillefoundation.org/staff/",
+      "https://give.louisville.edu/UofLFoundation",
+      "https://louisville.edu/about/leadership"
+    ],
+    "University of Tennessee Knoxville": [
+      "https://utfi.org/about/staff-directory/ut-knoxville-staff-2/",
+      "https://utfi.org/about/staff-directory/",
+      "https://giving.utk.edu/about"
+    ],
+    "University of Oregon": [
+      "https://giving.uoregon.edu/about-us/leadership",
+      "https://advancement.uoregon.edu/contact-us"
+    ],
+    "University of Nevada Reno": [
+      "https://www.unr.edu/giving/contact",
+      "https://www.unr.edu/about/leadership"
+    ],
+    "Texas Tech University": [
+      "https://give.ttu.edu/s/1422/20/interior.aspx?sid=1422&gid=1003&pgid=3251",
+      "http://www.give2tech.com/staff/",
+      "https://www.texastechalumni.org/s/1422/a22/interior.aspx?sid=1422&gid=1001&pgid=1376"
+    ],
+    "Texas Tech University Health Sciences Center": [
+      "https://www.ttuhsc.edu/institutional-advancement/contact.aspx"
+    ],
+    "University of Houston": [
+      "https://uh.edu/advancement-alumni/about-us/teams/",
+      "https://giveto.uh.edu/leadership/",
+      "https://uh.edu/advancement-alumni/about-us/"
+    ],
+    "University of Chicago": [
+      "https://alumniandfriends.uchicago.edu/s/info-staff-directory",
+      "https://directory.uchicago.edu/organizations/450?type=departments"
+    ],
+    "University of Colorado Boulder": [
+      "https://www.colorado.edu/advancement/directory/leadership-team",
+      "https://www.colorado.edu/advancement/directory",
+      "https://www.colorado.edu/advancement/about-us"
+    ],
+    "University of Delaware": [
+      "https://www.udel.edu/alumni-friends/about/contact-us/",
+      "https://www.udel.edu/about/leadership/",
+      "https://www.udel.edu/alumni-friends/about/"
+    ],
+    "Seton Hall University": [
+      "https://advancement.shu.edu/about/staff-directory.html",
+      "https://www.shu.edu/university-relations/staff.cfm"
+    ],
+    "Villanova University": [
+      "https://www.villanova.edu/university/advancement/staff.html",
+      "https://www.villanova.edu/university/leadership.html"
+    ],
+    "The New School": [
+      "https://www.newschool.edu/giving/contact-us/",
+      "https://www.newschool.edu/about/senior-leadership/"
+    ],
+    "Stevens Institute of Technology": [
+      "https://www.stevens.edu/development-alumni-engagement/contact-us",
+      "https://www.stevens.edu/development-alumni-engagement"
+    ],
+    "University of Akron": [
+      "https://www.uakron.edu/development/team/",
+      "https://www.uakron.edu/president/leadership-team/"
+    ],
+    "University of Texas at San Antonio": [
+      "https://www.utsa.edu/giving/contact-us/",
+      "https://www.utsa.edu/president/organization/"
+    ],
+    "University of California Riverside": [
+      "https://advancement.ucr.edu/advancement-administration-staff",
+      "https://advancement.ucr.edu/development-staff"
+    ],
+    "University of Texas at El Paso": [
+      "https://www.utep.edu/giving/about-us/ia-leadership.html",
+      "https://www.utep.edu/giving/about-us/development.html"
+    ],
+    "The University of Texas Rio Grande Valley": [
+      "https://www.utrgv.edu/institutional-advancement/about-message-vice-president/our-staff/index.htm",
+      "https://www.utrgv.edu/institutional-advancement/"
+    ],
+    "Portland State University": [
+      "https://www.psuf.org/about/staff",
+      "https://giving.psuf.org/",
+      "https://www.pdx.edu/president/executive-leadership"
+    ],
+    "Santa Clara University": [
+      "https://www.scu.edu/phonebook/University-Relations",
+      "https://www.scu.edu/phonebook/development-office",
+      "https://www.scu.edu/alumni/about/staff/"
+    ],
+    "Oklahoma State University": [
+      "https://osugiving.com/about/staff",
+      "https://osugiving.com/about/leadership"
+    ],
+    "Colorado State University": [
+      "https://csufoundation.org/foundation-staff/",
+      "https://giving.colostate.edu/careers/about-our-division/"
+    ],
+    "University of Arkansas for Medical Sciences": [
+      "https://giving.uams.edu/s/1496/16/interior.aspx?sid=1496&gid=1&pgid=588"
+    ],
+    "Indiana University": [
+      "https://www.myiu.org/about/people/senior-leadership/index.html",
+      "https://www.myiu.org/about/people/corporate-officers.html",
+      "https://alumni.iu.edu/contact/staff-directory"
+    ],
+    "Indiana University Indianapolis": [
+      "https://www.myiu.org/about/people/senior-leadership/index.html",
+      "https://www.myiu.org/about/people/corporate-officers.html",
+      "https://alumni.iu.edu/contact/staff-directory"
+    ],
+    "North Carolina A&T State University": [
+      "https://www.ncat.edu/dir/advancement.php",
+      "https://ncat.edu/about/leadership/"
+    ],
+    "Chapman University": [
+      "https://www.chapman.edu/about/our-family/leadership/evp-advancement/evp-admin-staff.aspx",
+      "https://www.chapman.edu/support-chapman/contact-us/index.aspx",
+      "https://www.chapman.edu/about/our-family/president/senior-staff/index.aspx"
+    ],
+    "Florida State University": [
+      "https://advance.fsu.edu/about/contact/staff/department",
+      "https://advance.fsu.edu/about/contact",
+      "https://advance.fsu.edu/about"
+    ],
+    "University of Florida": [
+      "https://www.uff.ufl.edu/about/our-people-work/",
+      "https://giving.uff.ufl.edu/contact/",
+      "https://giftplanning.uff.ufl.edu/staff-directory"
     ]
   },
   "records": {
