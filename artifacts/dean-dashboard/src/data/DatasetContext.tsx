@@ -11,6 +11,11 @@ interface DatasetCtx {
   // longer bundled). During loading `bundle` carries real meta but empty arrays,
   // so consumers render an empty state rather than crashing.
   loading: boolean;
+  // The fetch failed -- most often the trial gate answering 403 for a dataset
+  // outside the visitor's scope. Without this, `loading` (which is just !data)
+  // stays true forever on an error, so every consumer shows a spinner for a
+  // request that is never coming back.
+  failed: boolean;
   // Dataset-aware label for the person a row represents: "Dean" for
   // business/engineering/medical/law schools, "Leader" for university
   // president/chancellor data, "Provost" for chief-academic-officer data.
@@ -38,17 +43,20 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
   // Cache of already-fetched data, keyed by id, so switching back is instant.
   const [dataById, setDataById] = useState<Partial<Record<DatasetId, DatasetData>>>({});
 
+  const [failedIds, setFailedIds] = useState<Partial<Record<DatasetId, true>>>({});
+
   const data = dataById[datasetId];
-  const loading = !data;
+  const failed = !data && !!failedIds[datasetId];
+  const loading = !data && !failed;
 
   useEffect(() => {
-    if (dataById[datasetId]) return; // already loaded
+    if (dataById[datasetId] || failedIds[datasetId]) return; // already loaded, or already failed
     let alive = true;
     loadDatasetData(datasetId)
       .then((d) => { if (alive) setDataById((prev) => ({ ...prev, [datasetId]: d })); })
-      .catch((e) => { if (alive) console.error(e); });
+      .catch((e) => { if (alive) { console.error(e); setFailedIds((prev) => ({ ...prev, [datasetId]: true })); } });
     return () => { alive = false; };
-  }, [datasetId, dataById]);
+  }, [datasetId, dataById, failedIds]);
 
   const value = useMemo(() => {
     const meta = DATASETS_META[datasetId];
@@ -85,13 +93,14 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
       meta,
       list: DATASET_LIST,
       loading,
+      failed,
       noun,
       nounPlural,
       nounLower: noun.toLowerCase(),
       nounPluralLower: nounPlural.toLowerCase(),
       titleOf,
     };
-  }, [datasetId, data, loading]);
+  }, [datasetId, data, loading, failed]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
