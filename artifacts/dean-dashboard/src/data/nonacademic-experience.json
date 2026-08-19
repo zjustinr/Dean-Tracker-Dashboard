@@ -30,12 +30,12 @@
   "Healthcare Providers"
  ],
  "counts": {
-  "people": 28250,
-  "yes": 1707,
-  "no": 11844,
-  "unknown": 14699,
+  "people": 28251,
+  "yes": 1755,
+  "no": 11796,
+  "unknown": 14700,
   "namedFirm": 1342,
-  "flagOnly": 365,
+  "flagOnly": 413,
   "firms": 1210,
   "sittingWithTie": 730,
   "sittingSeniorTie": 353,
@@ -918,8 +918,8 @@
   "abigail crouse|university of st. thomas (minnesota)": {
    "name": "Abigail Crouse",
    "university": "University of St. Thomas (Minnesota)",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -927,6 +927,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "abigail g. wattley|williams college": {
@@ -3546,8 +3549,8 @@
   "alexa konstantinos|the college of wooster": {
    "name": "Alexa Konstantinos",
    "university": "The College of Wooster",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -3555,6 +3558,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "alexa w. gaeta|agnes scott college": {
@@ -4141,6 +4147,9 @@
      "source": "priorInstitution",
      "score": 36
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "alfred z. abuhamad|eastern virginia medical school": {
@@ -6969,6 +6978,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "amy gerald|university of tulsa": {
@@ -9752,8 +9764,8 @@
   "andrew oppmann|middle tennessee state university": {
    "name": "Andrew Oppmann",
    "university": "Middle Tennessee State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -9762,6 +9774,9 @@
    "stops": 3,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "andrew p. christ|new jersey institute of technology": {
@@ -14361,6 +14376,7 @@
     }
    ],
    "flags": [
+    "hasIndustryExp (existing)",
     "careerBackground: Finance and administration, chief financial officer"
    ]
   },
@@ -14564,6 +14580,9 @@
      "source": "priorInstitution",
      "score": 57
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "armand paliotta|university of oklahoma health sciences center": {
@@ -14595,6 +14614,9 @@
      "source": "priorInstitution",
      "score": 57
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "armin afsahi|university of chicago": {
@@ -15003,8 +15025,8 @@
   "arthur monger|saint leo university": {
    "name": "Arthur Monger",
    "university": "Saint Leo University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -15012,6 +15034,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "arthur p. ramirez|university of california santa cruz": {
@@ -15493,8 +15518,8 @@
   "ashly tilden-browning|linfield university": {
    "name": "Ashly Tilden-Browning",
    "university": "Linfield University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -15502,6 +15527,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "ashlyn sowell|johns hopkins university": {
@@ -15881,8 +15909,8 @@
   "audrey perry martin|brigham young university": {
    "name": "Audrey Perry Martin",
    "university": "Brigham Young University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -15890,6 +15918,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "audrey snyder|widener university": {
@@ -16024,8 +16055,8 @@
   "avery d. mcknight|florida agricultural and mechanical university": {
    "name": "Avery D. McKnight",
    "university": "Florida Agricultural and Mechanical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -16033,6 +16064,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "avery mcknight|florida agricultural and mechanical university": {
@@ -17722,6 +17756,9 @@
      "source": "priorInstitution",
      "score": 57
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "ben stubbs|maryville college": {
@@ -20345,8 +20382,8 @@
   "bob wisler|aquinas college": {
    "name": "Bob Wisler",
    "university": "Aquinas College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -20354,6 +20391,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "bobbie dell'aquilo|adelphi university": {
@@ -21444,8 +21484,8 @@
   "brad slutsky|emory university": {
    "name": "Brad Slutsky",
    "university": "Emory University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -21454,6 +21494,9 @@
    "stops": 2,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "brad story|university of arizona": {
@@ -22919,8 +22962,8 @@
   "brent w. thompson, esq.|simpson university": {
    "name": "Brent W. Thompson, Esq.",
    "university": "Simpson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -22928,6 +22971,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "brent waugh|washington state university": {
@@ -23132,6 +23178,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "brett josephson|george mason university": {
@@ -25880,8 +25929,8 @@
   "bruce baden|guilford college": {
    "name": "Bruce Baden",
    "university": "Guilford College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -25890,6 +25939,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "bruce blonigen|university of oregon": {
@@ -26707,8 +26759,8 @@
   "bryan t. mckinney|ouachita baptist university": {
    "name": "Bryan T. McKinney",
    "university": "Ouachita Baptist University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -26716,6 +26768,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "bryan uher|university of alaska fairbanks": {
@@ -27455,8 +27510,8 @@
   "caitlin goss|middlebury college": {
    "name": "Caitlin Goss",
    "university": "Middlebury College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -27464,6 +27519,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "caitlin robinett jachimowicz|santa clara university": {
@@ -27849,6 +27907,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "camino de paz espiago|yale university": {
@@ -28227,8 +28288,8 @@
   "carl crosby lehmann|st olaf college": {
    "name": "Carl Crosby Lehmann",
    "university": "St Olaf College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -28236,6 +28297,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "carl frick|colorado school of mines": {
@@ -31431,6 +31495,9 @@
      "source": "priorInstitution",
      "score": 57
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "chandra reddy|tennessee state university": {
@@ -34379,6 +34446,9 @@
      "source": "priorInstitution",
      "score": 43
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "chris pendleton|southern virginia university": {
@@ -37648,8 +37718,8 @@
   "clarence ray curtis|gardner-webb university": {
    "name": "Clarence Ray Curtis",
    "university": "Gardner-Webb University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -37657,6 +37727,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "clarence williams|cheyney university of pennsylvania": {
@@ -39776,6 +39849,9 @@
      "source": "priorInstitution",
      "score": 40
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "craig a. martin|university of kentucky": {
@@ -40009,8 +40085,8 @@
   "craig koch|marian university": {
    "name": "Craig Koch",
    "university": "Marian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -40018,6 +40094,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "craig menzemer|university of akron": {
@@ -41533,6 +41612,9 @@
      "source": "priorInstitution",
      "score": 32
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "dale wright|university of illinois urbana-champaign": {
@@ -42317,8 +42399,8 @@
   "dana k. bodine|rensselaer polytechnic institute": {
    "name": "Dana K. Bodine",
    "university": "Rensselaer Polytechnic Institute",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -42326,6 +42408,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "dana l. thomas|university of alaska fairbanks": {
@@ -46107,8 +46192,8 @@
   "david brickhouse|new college of florida": {
    "name": "David Brickhouse",
    "university": "New College of Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -46117,6 +46202,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "david broski|bradley university": {
@@ -49920,8 +50008,8 @@
   "david wilson|lipscomb university": {
    "name": "David Wilson",
    "university": "Lipscomb University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -49930,6 +50018,9 @@
    "stops": 2,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "david wippman|hamilton college": {
@@ -50426,6 +50517,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "dean tufts|case western reserve university": {
@@ -51350,6 +51444,9 @@
      "source": "priorInstitution",
      "score": 63
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "deborah spake|kent state university": {
@@ -52328,6 +52425,9 @@
      "source": "priorInstitution",
      "score": 40
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "denise j. jamieson|university of iowa": {
@@ -60603,6 +60703,9 @@
      "source": "priorInstitution",
      "score": 40
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "ellen daley|university of south florida": {
@@ -62540,8 +62643,8 @@
   "eric schacht|lawrence university": {
    "name": "Eric Schacht",
    "university": "Lawrence University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -62549,6 +62652,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "eric schick|missouri state university-springfield": {
@@ -65769,6 +65875,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "frances c. welch|college of charleston": {
@@ -67579,6 +67688,9 @@
      "source": "priorInstitution",
      "score": 57
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "gaelle h. gralnek|california state university, los angeles": {
@@ -72063,6 +72175,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "gregg goldman|university of minnesota twin cities": {
@@ -74285,6 +74400,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "harry lee williams|delaware state university": {
@@ -75614,8 +75732,8 @@
   "heidi w. grunkemeyer|creighton university": {
    "name": "Heidi W. Grunkemeyer",
    "university": "Creighton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -75624,6 +75742,9 @@
    "stops": 2,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "heidi woodbury|university of utah": {
@@ -77911,6 +78032,9 @@
      "source": "priorInstitution",
      "score": 36
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "ian m. macdonald|state university of new york college of agriculture and technology at cobleskill": {
@@ -78356,8 +78480,8 @@
   "irene karedis borys|augustana college": {
    "name": "Irene Karedis Borys",
    "university": "Augustana College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -78365,6 +78489,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "irene langran|albright college": {
@@ -80208,6 +80335,9 @@
      "source": "priorInstitution",
      "score": 57
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jacqueline a. travisano|wake forest university": {
@@ -83434,8 +83564,8 @@
   "james s. jansen|creighton university": {
    "name": "James S. Jansen",
    "university": "Creighton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -83444,6 +83574,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "james s. netherton|carson-newman university": {
@@ -83662,8 +83795,8 @@
   "james vasquez|yeshiva university": {
    "name": "James Vasquez",
    "university": "Yeshiva University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -83671,6 +83804,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "james w. (jim) strobel|erskine college": {
@@ -84060,6 +84196,9 @@
      "source": "priorInstitution",
      "score": 57
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jamie art|williams college": {
@@ -84090,6 +84229,9 @@
      "source": "priorInstitution",
      "score": 40
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jamie b. birch|missouri state university-springfield": {
@@ -84517,8 +84659,8 @@
   "jamison kravcak|saint leo university": {
    "name": "Jamison Kravcak",
    "university": "Saint Leo University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -84526,6 +84668,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jan baker|university of south carolina": {
@@ -85662,6 +85807,9 @@
      "source": "priorInstitution",
      "score": 26
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jared j. llorens|louisiana state university": {
@@ -87509,6 +87657,9 @@
      "source": "priorInstitution",
      "score": 26
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jean kramer crosby|ball state university": {
@@ -88600,8 +88751,8 @@
   "jeff matthews|d'youville university": {
    "name": "Jeff Matthews",
    "university": "D'Youville University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -88610,6 +88761,9 @@
    "stops": 2,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jeff mercer|campbell university": {
@@ -89042,6 +89196,7 @@
     }
    ],
    "flags": [
+    "hasIndustryExp (existing)",
     "careerBackground: Finance/IT; 30+ years, former IBM VP"
    ]
   },
@@ -90424,8 +90579,8 @@
   "jennifer brant-gargan|northeastern university": {
    "name": "Jennifer Brant-Gargan",
    "university": "Northeastern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -90433,6 +90588,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jennifer bretschneider|temple university": {
@@ -93602,6 +93760,9 @@
      "source": "priorInstitution",
      "score": 22
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jessica berger|chapman university": {
@@ -95767,6 +95928,9 @@
      "source": "priorInstitution",
      "score": 22
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "joan e. o'neill|yale university": {
@@ -98788,6 +98952,9 @@
      "source": "priorInstitution",
      "score": 53
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "john cunningham|loyola university new orleans": {
@@ -101865,8 +102032,8 @@
   "john t. rose|hunter college": {
    "name": "John T. Rose",
    "university": "Hunter College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -101874,6 +102041,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "john t. sebastian|loyola marymount university": {
@@ -103724,6 +103894,9 @@
      "source": "priorInstitution",
      "score": 43
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "jonathan piersol|university of mary washington": {
@@ -104709,8 +104882,8 @@
   "joseph capparelli|pace university": {
    "name": "Joseph Capparelli",
    "university": "Pace University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -104718,6 +104891,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "joseph cassady|south dakota state university": {
@@ -105801,6 +105977,9 @@
      "source": "priorInstitution",
      "score": 57
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "josh r. auld|west chester university of pennsylvania": {
@@ -106791,8 +106970,8 @@
   "judge b. wilson|berea college": {
    "name": "Judge B. Wilson",
    "university": "Berea College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -106800,6 +106979,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "judge wilson|berea college": {
@@ -106845,6 +107027,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "judi wilson|augusta university": {
@@ -107975,6 +108160,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "julie kornfeld|kenyon college": {
@@ -108038,6 +108226,9 @@
      "source": "priorInstitution",
      "score": 32
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "julie lessiter|texas state university": {
@@ -113712,6 +113903,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "kayla hale|university of science and arts of oklahoma": {
@@ -114721,6 +114915,9 @@
      "source": "priorInstitution",
      "score": 22
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "kellie r. appel|mercer university": {
@@ -115565,6 +115762,9 @@
      "source": "priorInstitution",
      "score": 26
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "ken horstman|university of minnesota twin cities": {
@@ -116646,8 +116846,8 @@
   "kent siltman|illinois college": {
    "name": "Kent Siltman",
    "university": "Illinois College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -116656,6 +116856,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "kenton watt|texas christian university": {
@@ -118967,8 +119170,8 @@
   "kimberly a. capadona|seton hall university": {
    "name": "Kimberly A. Capadona",
    "university": "Seton Hall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -118977,6 +119180,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "kimberly a. griffin|university of maryland, college park": {
@@ -119747,6 +119953,9 @@
      "source": "priorInstitution",
      "score": 36
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "kirk dombrowski|university of vermont": {
@@ -127856,6 +128065,9 @@
      "source": "priorInstitution",
      "score": 40
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "linda a. livingstone, phd|pepperdine university": {
@@ -128021,8 +128233,8 @@
   "linda chiarelli|new york university": {
    "name": "Linda Chiarelli",
    "university": "New York University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -128031,6 +128243,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "linda essig|cuny baruch college": {
@@ -129291,6 +129506,9 @@
      "source": "priorInstitution",
      "score": 50
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "lisa h. nishii|cornell university": {
@@ -132104,6 +132322,9 @@
      "source": "priorInstitution",
      "score": 53
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "luz e. herrera|texas a&m university": {
@@ -137836,6 +138057,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "mark kretschmer|thomas aquinas college": {
@@ -139366,8 +139590,8 @@
   "marti fessenden|agnes scott college": {
    "name": "Marti Fessenden",
    "university": "Agnes Scott College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -139376,6 +139600,9 @@
    "stops": 3,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "martin a. schmidt|rensselaer polytechnic institute": {
@@ -140159,8 +140386,8 @@
   "mary bowman hampton|mercer university": {
    "name": "Mary Bowman Hampton",
    "university": "Mercer University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -140168,6 +140395,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "mary brown|tufts university": {
@@ -142526,8 +142756,8 @@
   "matthew grossman|university of pennsylvania": {
    "name": "Matthew Grossman",
    "university": "University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -142536,6 +142766,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "matthew guterl|brown university": {
@@ -143123,6 +143356,9 @@
      "source": "priorInstitution",
      "score": 39
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "matthew redinger|chatham university": {
@@ -145292,8 +145528,8 @@
   "melissa morris|marian university": {
    "name": "Melissa Morris",
    "university": "Marian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -145301,6 +145537,9 @@
    "stops": 2,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "melissa mount|occidental college": {
@@ -147152,6 +147391,9 @@
      "source": "priorInstitution",
      "score": 26
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "michael e. norton|iowa state university": {
@@ -147183,6 +147425,9 @@
      "source": "priorInstitution",
      "score": 50
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "michael e. pippenger|university of notre dame": {
@@ -150167,6 +150412,9 @@
      "source": "priorInstitution",
      "score": 63
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "michael van sambeck|university of connecticut": {
@@ -152434,6 +152682,9 @@
      "source": "research",
      "score": 26
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "mira lalovic-hand|rowan university": {
@@ -155316,6 +155567,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "nathan a. moore|university of georgia": {
@@ -156383,6 +156637,9 @@
      "source": "priorInstitution",
      "score": 32
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "nichole fazio|emory university": {
@@ -156569,6 +156826,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "nick langridge|james madison university": {
@@ -157974,6 +158234,9 @@
      "source": "priorInstitution",
      "score": 26
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "noelle won|california state university, stanislaus": {
@@ -165101,8 +165364,8 @@
   "phanalphie rhue|bennett college": {
    "name": "Phanalphie Rhue",
    "university": "Bennett College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -165110,6 +165373,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "phelps|pennsylvania state university": {
@@ -170762,6 +171028,9 @@
      "source": "priorInstitution",
      "score": 53
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "rene love|old dominion university": {
@@ -173884,8 +174153,8 @@
   "richard y. uchida|colby college": {
    "name": "Richard Y. Uchida",
    "university": "Colby College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -173893,6 +174162,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "richelle d. payne|hampton university": {
@@ -173953,6 +174225,9 @@
      "source": "priorInstitution",
      "score": 40
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "richie c. hunter|university of michigan": {
@@ -175909,6 +176184,9 @@
      "source": "priorInstitution",
      "score": 22
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "robert h. bishop|texas a&m university": {
@@ -176221,6 +176499,9 @@
      "source": "priorInstitution",
      "score": 43
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "robert hoskins|arkansas state university": {
@@ -177624,6 +177905,9 @@
      "source": "priorInstitution",
      "score": 22
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "robert seniors|florida agricultural and mechanical university": {
@@ -178389,8 +178673,8 @@
   "robin maynard|harding university": {
    "name": "Robin Maynard",
    "university": "Harding University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -178399,6 +178683,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "robin oppenhuizen zondervan|hope college": {
@@ -178602,6 +178889,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "robyn blank|university of south florida": {
@@ -178963,6 +179253,9 @@
      "source": "priorInstitution",
      "score": 55
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "rodney d. smith|texas southern university": {
@@ -185352,6 +185645,9 @@
      "source": "priorInstitution",
      "score": 26
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "sara w. day|university of tennessee health science center": {
@@ -185487,8 +185783,8 @@
   "sarah barczyk|embry-riddle aeronautical university": {
    "name": "Sarah Barczyk",
    "university": "Embry-Riddle Aeronautical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -185497,6 +185793,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "sarah bousman|university of nevada reno": {
@@ -185944,6 +186243,9 @@
      "source": "priorInstitution",
      "score": 24
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "sarah m. whiting|harvard university": {
@@ -187390,8 +187692,8 @@
   "scott mcnamee|millsaps college": {
    "name": "Scott McNamee",
    "university": "Millsaps College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -187399,6 +187701,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "scott merlo|western michigan university": {
@@ -187516,6 +187821,9 @@
      "source": "priorInstitution",
      "score": 32
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "scott r. pilarz, s.j.|marquette university": {
@@ -189333,6 +189641,9 @@
      "source": "priorInstitution",
      "score": 53
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "sharon ayala|abilene christian university": {
@@ -189513,6 +189824,9 @@
      "source": "priorInstitution",
      "score": 39
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "sharon hewitt watkins|barnard college": {
@@ -189807,8 +190121,8 @@
   "sharonda williams|loyola university new orleans": {
    "name": "Sharonda Williams",
    "university": "Loyola University New Orleans",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -189816,6 +190130,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "sharra hynes|baylor university": {
@@ -192489,6 +192806,9 @@
      "source": "priorInstitution",
      "score": 40
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "sophie zdatny|vermont state colleges system": {
@@ -192911,6 +193231,9 @@
      "source": "priorInstitution",
      "score": 57
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "stacey grady|hartwick college": {
@@ -193594,6 +193917,9 @@
      "source": "priorInstitution",
      "score": 26
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "stefan fletcher|michigan state university": {
@@ -205191,8 +205517,8 @@
   "tim leslie|beloit college": {
    "name": "Tim Leslie",
    "university": "Beloit College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -205202,6 +205528,9 @@
    "sectors": [
     "Unclassified",
     "Academic"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "tim letzring|university of central florida": {
@@ -205438,8 +205767,8 @@
   "tim warren|tennessee state university": {
    "name": "Tim Warren",
    "university": "Tennessee State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
@@ -205447,6 +205776,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "tim whittum|university of puget sound": {
@@ -207454,8 +207786,8 @@
   "toney stroud|marshall university": {
    "name": "Toney Stroud",
    "university": "Marshall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -207464,6 +207796,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "toni murdock|antioch university": {
@@ -211025,6 +211360,9 @@
      "source": "priorInstitution",
      "score": 50
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "vicki reaume|eastern michigan university": {
@@ -211622,6 +211960,9 @@
      "source": "priorInstitution",
      "score": 70
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "vincent clark|pace university": {
@@ -213777,8 +214118,8 @@
   "wiley norvell|new york university": {
    "name": "Wiley Norvell",
    "university": "New York University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -213787,6 +214128,9 @@
    "stops": 2,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "will arvin|washington university in st. louis": {
@@ -215385,6 +215729,9 @@
      "source": "priorInstitution",
      "score": 43
     }
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "william j. cibes jr.|connecticut state colleges and universities": {
@@ -217970,8 +218317,8 @@
   "zena weist|ave maria university": {
    "name": "Zena Weist",
    "university": "Ave Maria University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
@@ -217980,6 +218327,9 @@
    "stops": 1,
    "sectors": [
     "Unclassified"
+   ],
+   "flags": [
+    "hasIndustryExp (existing)"
    ]
   },
   "zenobia lane|santa clara university": {
