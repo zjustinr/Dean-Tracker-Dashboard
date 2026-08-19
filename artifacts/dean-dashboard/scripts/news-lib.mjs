@@ -8,6 +8,10 @@ import { readFileSync, writeFileSync, existsSync, appendFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 import crypto from "crypto";
+import { dedupeBreakingItems, pushBreaking, breakingItemKeys, storyKeysForEvent, dedupeEvents } from "./news-dedupe.mjs";
+
+// Re-exported so callers can keep importing the whole news toolkit from here.
+export { dedupeBreakingItems, pushBreaking, breakingItemKeys, storyKeysForEvent, dedupeEvents, personKey, slugify, groupStories, STORY_WINDOW_DAYS } from "./news-dedupe.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 export const ROOT = resolve(__dirname, "../../..");
@@ -253,7 +257,9 @@ export function updateJobMarket(e) {
 export function loadBreaking() {
   const data = existsSync(BREAKING_JSON) ? JSON.parse(readFileSync(BREAKING_JSON, "utf8")) : { updated: today(), items: [] };
   const cutoff = Date.now() - 30 * 86400e3;
-  data.items = (data.items || []).filter((it) => new Date(it.date).getTime() >= cutoff);
+  // dedupeBreakingItems here is what heals a feed written before pushBreaking
+  // existed: every script that touches the banner loads it through this.
+  data.items = dedupeBreakingItems((data.items || []).filter((it) => new Date(it.date).getTime() >= cutoff));
   return data;
 }
 export function saveBreaking(data) {

@@ -13,7 +13,11 @@
   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE0zbDk5d0t2RkhkVDJYdkNad1FGWHJXSWg3eWVkZ1lsZ1BENjVTblg0UnpNeGs2REJrZ25yUW9QMEQ0NlZ3T2x6bDJKaHJDZWZ5cDhjeFByOVlBWDR6c2REUk9TX29NNGEydVFRLUxOZVBrU0t1RzBvTy04TQ?oc=5",
   "title": "Brown University’s President Resigns. What Comes Next? - Daily Signal",
   "confidence": "medium",
-  "digested": false
+  "digested": false,
+  "storyKeys": [
+   "u:departure:president:university:brown-university"
+  ],
+  "repeatOfPrior": false
  },
  {
   "id": "4143876282",
@@ -29,70 +33,30 @@
   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOX2dkM21ZYkh1ZEVoOWZJSjBid0p1MFd1NnBkamdBVEFBUDBKNUJtQ2tzRC0ySUJpbVF0Nk1HNlZRa0h4ZEg3aVZYdnhGN3lHSWN2c1F5ZDlTTVZsNllTZUJXTTY3ZXVMS3RIOXBMdzk5SFlZekM0Z1pmbDlBeVljX0tPZWJ0ZG1w0gGcAUFVX3lxTE81TTFVei1WMk83cFlKZUtFQ0hPaDZRWVVuUnQtU1hLTWNBYVd1ajh0RzdaZ0J0NWNJM1hVMHVZYkJUTDFHU0Z3SDVDSHdyNjVNTm1RSW5ZS2p6cndIRnBDUXEySjAtQXlIVzAtYkNFQXdJNkp4bW5NVnVlemZWWGlydlg0bk4zYXplQ2czeGd0OWFZSWRzMkYwdUFkcg?oc=5",
   "title": "Report: University of Michigan set to hire next president - WILX",
   "confidence": "medium",
-  "digested": false
+  "digested": false,
+  "storyKeys": [
+   "u:appointment:president:university:university-of-michigan"
+  ],
+  "repeatOfPrior": false
  },
  {
-  "id": "2167434291",
-  "recorded": "2026-08-18",
+  "id": "2398402331",
+  "recorded": "2026-08-19",
   "schoolType": "university",
   "role": "president",
   "type": "appointment",
   "interim": false,
-  "university": "University of Michigan",
+  "university": "Virginia Tech",
   "school": "Office of the President",
   "dean": null,
-  "date": "2026-08-18T12:44:00.000Z",
-  "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNQVNPS1E0d0pFWmZiVDRHanJSWUROMGhMNFhFOWdheUJUS2dMcUlIT2dmOTRPcGpYaTMyZ0liRXpfUzhuSDJWNnhCUW5SZlhBSWktUjZiRWJZR1dRcGt2VjU1QUhkVWI4bWxCMWZQUjY4UzRhclVvLVVXdXI0a2RHbjVCQVdpQWQ3Qm5jNUdfZWswQ3RTWnhrT24yN3I2Y0ZzZl85azJXUzd3V2ZkalJGMkZ3cG42T1c0SWlzeHZ5YzJkZnA1amNDbUpsNjBIdWY5aHNMcnpvdDRjRDVfRmt6TWF3?oc=5",
-  "title": "University of Michigan chooses second woman in history as next president - The Detroit News",
+  "date": "2026-08-18T21:25:31.000Z",
+  "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE8xSkJLY1hwdmF1SzRIZE1DbjNOMGZMeXMyUFNLMUtpQzZaa3hGZTZCMXFiaUtSeU5XUS0zcHNpNFpLS1ZuS2hvM3U0elFIZnhjWF9GRnFRRHF0WDRlR2NpVHRJeEU3QkFUVE9sQ3Z5cDVnVWtxQW53dQ?oc=5",
+  "title": "Thousands of new Hokies arrive at Virginia Tech as university continues search for next president - WSLS",
   "confidence": "medium",
-  "digested": false
- },
- {
-  "id": "3355701091",
-  "recorded": "2026-08-18",
-  "schoolType": "provost",
-  "role": "provost",
-  "type": "appointment",
-  "interim": false,
-  "university": "University of Michigan",
-  "school": "Office of the Provost and Executive Vice President for Academic Affairs",
-  "dean": null,
-  "date": "2026-08-18T13:06:18.000Z",
-  "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQTnMzY0s1SXFILUtuaDBhck44bTR5NjFuVmZNZlQzSUxoal9uVlV5MUp1RkNrZWU0di1iSzlLZmtRMmt4OWZpVVBrZWFEUHdhZEg4Z2t0MHlBbWNpVUVLNW9EdVZ4ZjQ3cmtpeXRfRkhtTzU3RGxNWTZfODlISHlLYVI1bGNXUENzVTIyRC1KNU5QMlRVWFh0ei1FeFp5bWg3Sjc4RW1wbENTZ01MWFV4SHgtZ2VMMGfSAbwBQVVfeXFMTUhMM1BoUFRqU0RjTUEyS3ZxdFFFWl8wbExzRk5SN0c3bzVvbXFaNWt4ZkFYTmlJeVl5OFNfUDlsSEpGTDRoX3FIalMzdlNMX0J0QkY3Tlp6STBHX1kySW43MDVfVUJsdVBwLUdnSFlkcGxjZkt0cEx1bzdjcHYwRUgyR1AzMGhheGZjTS15ell0QW9kNHNwSXgtVVNNZ3VUay1OMmFOSU5KSGlWb0hBUDRxSXloeWZ6YVZJWmY?oc=5",
-  "title": "Report: University of Michigan set to hire Vanderbilt provost as next president - WOODTV.com",
-  "confidence": "medium",
-  "digested": false
- },
- {
-  "id": "2086424102",
-  "recorded": "2026-08-18",
-  "schoolType": "university",
-  "role": "president",
-  "type": "appointment",
-  "interim": false,
-  "university": "University of Michigan",
-  "school": "Office of the President",
-  "dean": null,
-  "date": "2026-08-18T12:54:00.000Z",
-  "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQbDV0OXpZTi12MkF3eEZnQ0pWcThDdWNwSThscl9KcnRiZmY1S2hwZzllSHFZeGtUVW55WWhlZXUybTNneUNtbmJ6ZERHeW9XZmJUNXVfVWZKNmE0d0wxZDk0MGZFbERUWnpnT3lMbmc0M09DelpIREhqQ0paUGZpYjZwRjNCMjdneFpqN0d3dzN5VkxRYW1jTzU2ZXZMSFRaTFVtMG51bXlqNTdlUFNJbWlRRWs3QnZEbUpmVC1mZWVYUkFsMlQyT2VZdzdwVG1MRjV2MHg0b1ptN0RYSEdxOE5wSnZOVllYeEJxeGtNSDBJdVk?oc=5",
-  "title": "University of Michigan has picked its next president, sources say - Detroit Free Press",
-  "confidence": "medium",
-  "digested": false
- },
- {
-  "id": "296543246",
-  "recorded": "2026-08-18",
-  "schoolType": "provost",
-  "role": "provost",
-  "type": "appointment",
-  "interim": false,
-  "university": "University of Michigan",
-  "school": "Office of the Provost and Executive Vice President for Academic Affairs",
-  "dean": null,
-  "date": "2026-08-18T13:05:00.000Z",
-  "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9JYnhsdTZNZGtldEE2UUUzSTR5cTd1TjhjbXNrV29oYXlmcTVwOVpnbWcwS2ZaVTNtZmxkMlcydlNMa2ZTMG5JcnpodEJwOWJYSXo3U2ZSVTVTcHlpMlc5SlRySGRxdEZZRk5NODZmWEdPMGxCNTdkZEF3?oc=5",
-  "title": "University of Michigan expected to name Vanderbilt provost as its next president - Crain's Detroit",
-  "confidence": "medium",
-  "digested": false
+  "digested": false,
+  "storyKeys": [
+   "u:appointment:president:university:virginia-tech"
+  ],
+  "repeatOfPrior": false
  }
 ]

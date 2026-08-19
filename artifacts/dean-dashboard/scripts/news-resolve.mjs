@@ -5,6 +5,7 @@
  * Prints RESULT=<applied|closed|ignored|invalid> for the workflow.
  */
 import { applyAppointment, closeTenure, updateJobMarket, loadBreaking, saveBreaking, logCSV, today } from "./news-lib.mjs";
+import { pushBreaking, storyKeysForEvent } from "./news-dedupe.mjs";
 
 const issueBody = process.env.ISSUE_BODY || "";
 const comment = (process.env.COMMENT_BODY || "").trim();
@@ -47,10 +48,11 @@ if (["skip", "no", "2", "ignore"].includes(lower)) {
     dropBanner();
     if (status === "added") {
       updateJobMarket({ kind: "filled", university: payload.university });
-      breaking.items.unshift({
+      pushBreaking(breaking, {
         id: payload.id + "-applied", type: "applied", date: today(),
         headline: `${name} named ${payload.interim ? "interim " : ""}dean at ${payload.university}`,
         university: payload.university, dean: name, url: payload.url,
+        storyKeys: storyKeysForEvent({ type: "appointment", role: "dean", university: payload.university, dean: name }),
       });
       result = "applied";
       message = `Done - added ${name} as ${payload.interim ? "interim " : ""}dean at ${payload.university} and closed the predecessor's open tenure. Deploying.`;
