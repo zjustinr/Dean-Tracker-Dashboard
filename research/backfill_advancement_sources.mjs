@@ -195,7 +195,11 @@ const SUFFIX = new Set(["jr", "sr", "ii", "iii", "iv", "phd", "edd", "md", "dr",
 /** "Jackie (Jacqueline) Mabry" -> { firsts: [jackie, jacqueline], lasts: [mabry] } */
 function nameParts(raw) {
   const alts = [];
-  const base = String(raw).replace(/\(([^)]*)\)/g, (m, inner) => { alts.push(inner); return " "; });
+  // A nickname is written either way -- Kate (Kathleen) McDaniel, Margaret
+  // "Peggy" McCorkle -- and the roster usually prints only one of the two.
+  const base = String(raw)
+    .replace(/\(([^)]*)\)/g, (m, inner) => { alts.push(inner); return " "; })
+    .replace(/["\u201c\u201d\u2018\u2019']([^"\u201c\u201d\u2018\u2019']{2,})["\u201c\u201d\u2018\u2019']/g, (m, inner) => { alts.push(inner); return " "; });
   const toks = fold(base).split(" ").filter(Boolean);
   while (toks.length > 2 && SUFFIX.has(toks[toks.length - 1])) toks.pop();
   if (toks.length < 2) return null;
