@@ -71,22 +71,40 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
 5. **Discipline Search** (tab: "discipline", between Aggregate Trends and Individual Search) — Dynamic US map colored by the academic discipline of the dean serving in the selected year. Year slider (dataset min–2026, default 2026) with Play animation (1 yr / 350 ms), dean last-name labels (toggleable), hover tooltip, click marker → DeanProfile. Legend shows per-year counts by discipline (top-9 by frequency get chart colors; rest fold into "Other"; "Unknown" light gray). Below: stacked-area chart of discipline composition of sitting deans over time with a ReferenceLine tracking the slider year and a Legend. Component: `DisciplineSearch.tsx`. Note: react-simple-maps' Marker `style` prop is ignored — put cursor styles on the `<circle>` itself.
 6. **Dean News & Market** (tab: "jobmarket") — Current dean openings from curated spreadsheet data (23 positions). KPI cards (5 columns when news hires present), searchable/filterable list with expand-for-details, status badges (Active Search, Interim in Place, Opening, New Appointment), links to news articles and position descriptions. Data: `artifacts/dean-dashboard/src/data/jobmarket.json`. Layout: KPIs → filters → Map → News feed. **P&Q News Feed**: Auto-scans Poets & Quants RSS feed every 24 hours via `/api/pq-news`.
 
-7. **Industry Ties** (tab: "industryties") — Ranked view of leaders with a NAMED-FIRM
-   industry tie, from `industry-experience.json` (runtime-loaded, scope-gated like
-   leader-research). Rank = tie score (seniority-dominant, recency-decayed,
-   board/advisory weighted above past employment; weights ship inside the data file
-   and the in-app "How the ranking works" panel reads them from there). Filters:
-   search, industry, seniority chips, sitting-only toggle. "Open profile" uses the
-   record's `indices[0]` (sitting-seat index first) via App's `openLeaderCrossIndex`.
-   Coverage note is load-bearing: absence from the list is never evidence of no
-   industry background. Component: `IndustryTies.tsx`.
+7. **Non-academic Experience** — **no module card.** The signal belongs in candidate
+   research, not a browsing surface of its own, so it reaches users through the
+   always-present row on `DeanProfile` (which lists EVERY tie, ranked — organisation,
+   role, category, years, and a board/advisory chip) and the "Non-academic tie" filter
+   in Slate Builder and Scout Assistant. `NonAcademicExperience.tsx` and its
+   `buildTabContent` entry stay in place; restoring the standalone ranked view is a
+   one-line uncomment in `DEFAULT_TABS`, the same convention Discipline Search uses.
+   What that retired view did, for reference: ranked view of leaders with a
+   NAMED-ORGANISATION tie outside the academy, from `nonacademic-experience.json`
+   (runtime-loaded, scope-gated like leader-research). "Outside the academy" means
+   company, government, nonprofit, foundation OR health system — an earlier cut
+   counted companies only and scored a health-system board chair, a state budget
+   director and a foundation trustee at zero. Only Academic is the baseline;
+   Unclassified stays out because "no rule matched" is an open question, not a
+   finding. Rank = tie score (seniority-dominant, recency-decayed, board/advisory
+   weighted above past employment; weights ship inside the data file and the in-app
+   "How the ranking works" panel reads them from there). **Sector is deliberately not
+   a scoring input** — weighting it would re-introduce the hierarchy the widened
+   definition removes; the category filter is there for anyone who wants to weigh
+   sectors differently. Filters: search, category, seniority chips, sitting-only
+   toggle. "Open profile" uses the record's `indices[0]` (sitting-seat index first)
+   via App's `openLeaderCrossIndex`. Coverage note is load-bearing: absence from the
+   list is never evidence of no non-academic background. Component:
+   `NonAcademicExperience.tsx`.
+   A **"Non-academic tie" credential checkbox** also filters Slate Builder and Scout
+   Assistant to leaders with a named-organisation tie (confidence "high" only — a
+   flag-only yes has no employer, so a matching row could not explain itself).
 
 ### Key Fields
 - Demographics: gender, discipline, career background
 - Career: prior dean experience, assoc. dean role, PhD, industry exp — but the legacy
   `hasIndustryExp` boolean is unpopulated in 12 of 21 indices and cannot say "nobody
-  looked"; the live signal is `industry-experience.json` (see the industry-tie
-  contract below)
+  looked"; the live signal is `nonacademic-experience.json` (see the non-academic
+  experience contract below)
 - Appointment: origin (internal/external/interim — interim always a separate category, never merged), era, tenure length
 - Post-dean: next role (faculty, another deanship, provost, retirement, etc.)
 - School: US News rank, tier, elite institution status
@@ -114,6 +132,15 @@ No ETL/build script writes `phdInstitution` — it's only ever set by ad-hoc res
 - Return the **full official institution name only** — no field-of-study prefix or suffix (never "Agricultural Education, Texas A&M University", just "Texas A&M University").
 - No truncation and no bare abbreviations — expand "MIT" → "Massachusetts Institute of Technology", "UCLA" → "University of California, Los Angeles".
 - For multi-campus systems (UC, SUNY, UT, Nebraska, Penn State, etc.), specify the campus, matching the existing spelling convention in `career-geo.json` (e.g. "University of California, Berkeley", not bare "Berkeley" or bare "University of California").
+- **A coordinate is only US-projectable if the COORDINATE says so.** `CareerMap`
+  renders with `geoAlbersUsa`, which returns `null` for anything outside the
+  contiguous states plus the Alaska/Hawaii insets — and a null coordinate throws
+  inside react-simple-maps' `<Marker>`, blanking the entire page. Do not trust a
+  `country` field to decide: `career-roots.json` omits `country` on 21,387 of its
+  22,961 located roots, so a country-only check read 801 foreign alma maters
+  (Toulouse, Mannheim, Rio de Janeiro) as American and took down every profile that
+  touched one. `projectableUS` in `CareerMap.tsx` bounds-checks lat/lng against the
+  Albers domain; keep any new plotted coordinate behind it.
 - Before writing a new value, check `career-geo.json` for an existing entry with the same institution (case-insensitive) and reuse its exact spelling — CareerMap/DeanProfile/DeanTimeline all look up alma maters via `name.toLowerCase().trim()` against that file, so a spelling mismatch silently fails to geocode.
 - Run `node scripts/check-phd-institution.mjs` after any research/enrichment pass touching `phdInstitution` — it flags comma-contamination patterns, bare abbreviations/fragments, and anything that fails the same geocode lookup, so a repeat of the bug gets caught before commit instead of sitting undetected for months.
 
@@ -170,39 +197,68 @@ index added later inherits all of it.
 - **`school-canon.mjs`** — institution-name canonicalization (see the
   institution-name contract above).
 
-### Industry-tie contract (research/enrichment waves)
+### Non-academic experience contract (research/enrichment waves)
 
-`industry-experience.json` is generated by `scripts/gen-industry-experience.mjs`
+`nonacademic-experience.json` is generated by `scripts/gen-nonacademic-experience.mjs`
 (part of `gen-data`/`predev`/`prebuild`) from `priorInstitution`/`priorTitle`,
 `leader-research.json` career steps, `careerBackground` and `hasConsultingBg`.
 It is a regenerable sidecar keyed `"<name lower>|<university lower>"` and never
 writes into the dean JSONs. It is SERVED: registered in both ENRICHMENT sets
 (`lib/dataset-assembly.mjs` for the dev server, `api/data.js` for prod, where
-`filteredIndustryTies` scope-gates the `people` map like research — so every
+`filteredNonAcademic` scope-gates the `people` map like research — so every
 count shown in the UI must be computed from received `people`, never from the
-pass-through `counts` block). Consumers: `IndustryTies.tsx` (ranked view),
-`DeanProfile.tsx` (firm-named badge), `CompareSchools.tsx` ("Industry Exp % (of
-researched)" over known verdicts, dash when none), `ScoutCandidateList.tsx`
-(tie chip on candidate rows). Full evaluation: `docs/industry-ties.md`.
+pass-through `counts` block). Consumers: `NonAcademicExperience.tsx` (ranked view),
+`DeanProfile.tsx` (named-organisation badge PLUS an always-rendered "Non-academic
+Experience" row reporting all four states — named / flagged / none / not researched;
+before that row existed 1,199 of 1,267 R1 B-school profiles said nothing at all,
+which reads as "no non-academic background" when the truth is usually
+"nobody researched it"), `CompareSchools.tsx` ("Non-academic Exp % (of researched)"
+over known verdicts, dash when none), `ScoutCandidateList.tsx` (tie chip on
+candidate rows), and a "Non-academic tie" filter checkbox in `IndividualSearch.tsx`
+(Slate Builder) and `ScoutAssistantPage.tsx`. Full evaluation: `docs/nonacademic-experience.md`;
+measured research economics: `docs/nonacademic-experience-pilot.md`.
 
-The purpose is a **connections** signal — which leaders carry a corporate network
-a school can tap — so it models **ties**, not a boolean: person → firm → sector →
-seniority → recency → kind. `hasIndustryExp` (the legacy boolean on the `Dean`
+**The research ledger.** `artifacts/dean-dashboard/research/nonacademic-ties.jsonl` is
+an append-only JSONL file (one record per person per wave, last wave wins) that the
+generator reads if present and ignores if absent. Researched records **override**
+derived ones and carry `evidence: "research"` plus `researchedOn`, so consumers can
+tell "someone looked and found nothing" from "the one job we recorded was academic".
+Draw a reproducible research sample with
+`node scripts/sample-nonacademic-research.mjs --per 30 --seed <n>`, which stratifies the
+frame by seat type — administrative / professional / leadership / discipline — because
+an unstratified hit rate measures the sampler, not the population.
+
+The purpose is a **connections** signal — which leaders carry a network a school can
+tap — so it models **ties**, not a boolean: person → organisation → category →
+seniority → recency → kind. Companies, governments, nonprofits, foundations and
+health systems all count; only Academic is the baseline. `hasIndustryExp` (the legacy boolean on the `Dean`
 interface) is unpopulated in 12 of 21 indices and cannot distinguish "no" from
 "nobody looked"; do not build percentages on it.
 
-Any wave collecting industry ties must return:
+Any wave collecting non-academic experience must return:
 
-- **Employer's full name only** — "McKinsey & Company", never "Senior Partner at McKinsey". Role is its own field.
+- **Organisation's full name only** — "McKinsey & Company" or "W.K. Kellogg Foundation", never "Senior Partner at McKinsey". Role is its own field.
 - **One entry per employer**, not per title. Three promotions at IBM is one tie.
 - **The most senior title held** at that employer. This drives the score and is the field most often dropped.
 - **Years** as a span. Recency is a scoring axis.
-- **Kind**: `employment`, `board`, or `advisory`. Board seats are currently at **zero** across the whole corpus and are the highest-value gap.
-- **Sector** from `INDUSTRY_NAMES` in `org-classify.mjs`, so the taxonomy does not fork.
+- **Kind**: `employment`, `board`, or `advisory`. **Ask about board seats explicitly, in every query** — the August 2026 pilot turned up 24 of them where the corpus previously held zero, and not one appeared in a bio the person's own institution publishes. They are invisible to a question phrased about employment, and most of them are nonprofit.
+- **Seniority** as a field the researcher sets, from `SENIORITY_BANDS`. Do not leave it to be inferred: `seniorityOf` reads "Science Advisory Board member" as executive and "Chair of the Scientific Advisory Board" as unknown, so inference ranks board ties backwards.
+- **Category** from `CATEGORY_NAMES` in `org-classify.mjs`, so the taxonomy does not fork. Government, nonprofit, foundation and health-system employers all count — only Academic is the baseline.
 - **Employment distinguished from affiliation** — board service, advisory panels, consulting while on faculty and company-funded chairs are separate kinds, not employment.
-- **"None found" explicitly** when a career was entirely academic. Without it a "no" only means "the one job we recorded was academic" — which is 84% of today's negatives.
+- **"None found" explicitly** when a career was entirely academic. Without it a "no" only means "the one job we recorded was academic" — which is 85% of today's negatives, and which the pilot showed to be wrong for 9 of the 13 people who turned out to have a nameable firm.
+- **`kind: "unresolved"`** when the relationship is reported but unconfirmed. The merge DROPS these rather than downgrading them, keeping the note as a lead for the next wave.
 
-Run `node scripts/gen-industry-experience.mjs --dump-unclassified` after any wave:
+Cost, measured rather than estimated: **≈1,800 tokens per person** for a
+name-level verdict, one query each. Hit rate under the non-academic definition is
+**53% in administrative seats, 47% in institutional leadership, 20% in discipline
+deanships and 13% in professional schools** (pooled 33%, and that is a FLOOR — the
+pilot's queries asked about industry and boards, so government and nonprofit
+employers only turned up incidentally). Start with administrative + leadership:
+2,808 people, ≈5.1M tokens, ~85% of the yield for ~67% of the cost. Dates are the
+expensive part — only 17 of 75 pilot ties carried a year — so budget a second pass
+for recency and rank rather than paying for completeness up front.
+
+Run `node scripts/gen-nonacademic-experience.mjs --dump-unclassified` after any wave:
 every org it lists is either a vocabulary addition for `org-classify.mjs` or a
 genuine unknown.
 
@@ -221,11 +277,13 @@ GitHub Action `.github/workflows/news-scout.yml` runs daily (13:00 UTC) + manual
 - `schools.ts` — SCHOOL_INFO array (50 schools with lat/lng, faculty, type, departments) + SCHOOL_NAME_MAP for deterministic matching between map markers and dean data school names
 - `types.ts` — Dean interface, field types, color constants, label maps
 - `useData.ts` — React hooks for dean data access
-- `industry-experience.json` — generated industry TIES (person → firm → sector →
-  seniority → recency → kind) with a transparent score, plus `asOf` and the scoring
-  weights. Wrapped as `{asOf, scoring, industries, counts, people}` rather than a bare
-  person map, so meta never sits beside person records the way a reserved key would.
-  Regenerate with `node scripts/gen-industry-experience.mjs`.
+- `nonacademic-experience.json` — generated NON-ACADEMIC TIES (person → organisation →
+  category → seniority → recency → kind) with a transparent score, plus `asOf` and the
+  scoring weights. Wrapped as `{asOf, scoring, categories, counts, people}` rather than
+  a bare person map, so meta never sits beside person records the way a reserved key
+  would. Categories are the industry sub-sectors plus Government & Public Sector,
+  Nonprofit & Foundations and Healthcare Providers.
+  Regenerate with `node scripts/gen-nonacademic-experience.mjs`.
 
 ### Tech
 - React + Vite + Tailwind CSS v4 + shadcn/ui

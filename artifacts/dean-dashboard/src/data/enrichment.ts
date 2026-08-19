@@ -177,7 +177,7 @@ export interface EmployerIndexAffinity {
 const employerAffinity = makeJsonMap<EmployerIndexAffinity>("employer-affinity.json");
 export const useEmployerAffinity = employerAffinity.useMap;
 
-// Industry-tie derivation output (scripts/gen-industry-experience.mjs). Unlike
+// Non-academic experience derivation output (scripts/gen-nonacademic-experience.mjs). Unlike
 // the other sidecars this is a WRAPPED document, not a bare person map: the
 // scoring weights, asOf year and corpus counts ride alongside `people` so a
 // stored score is auditable client-side and no reserved key ever sits inside
@@ -189,9 +189,15 @@ export const useEmployerAffinity = employerAffinity.useMap;
 // from the received `people`, never read off `counts`.
 export type TieKind = "employment" | "board" | "advisory";
 export type TieSeniority = "executive" | "senior" | "professional" | "unknown";
-export interface IndustryTie {
+export interface NonAcademicTie {
   kind: TieKind;
-  industry: string;
+  // One of CATEGORY_NAMES: an industry sub-sector, or Government & Public
+  // Sector / Nonprofit & Foundations / Healthcare Providers.
+  category: string;
+  // The coarse classifier bucket the category came from (Industry, Government,
+  // Nonprofit, Healthcare Provider) -- kept so a consumer can group without
+  // re-deriving it from the category string.
+  sector?: string;
   firm: string;
   role?: string;
   seniority: TieSeniority;
@@ -200,7 +206,7 @@ export interface IndustryTie {
   source: string;
   score: number;
 }
-export interface IndustryTieRecord {
+export interface NonAcademicRecord {
   name: string;
   university: string;
   status: "yes" | "no";
@@ -209,23 +215,31 @@ export interface IndustryTieRecord {
   // dataset ids the person appears in, sitting-seat index first (for opening a
   // cross-index profile); absent only for people outside every registered index
   indices?: string[];
+  // "research" when a human read this person's career and recorded the result;
+  // absent when the record was derived from career stops the corpus already
+  // held. This is a claim about whether anyone LOOKED, not about what they
+  // found -- a researched "no" is a strong negative, a derived one is not.
+  evidence?: "research";
+  researchedOn?: string | null;
   // present only on status "yes" with a named firm (confidence "high"):
   score?: number;
   seniority?: TieSeniority;
-  industries?: string[];
+  // Category names from CATEGORY_NAMES: the industry sub-sectors plus
+  // Government & Public Sector, Nonprofit & Foundations, Healthcare Providers.
+  categories?: string[];
   firms?: string[];
-  ties?: IndustryTie[];
+  ties?: NonAcademicTie[];
   // present only on status "no":
   stops?: number;
   sectors?: string[];
   flags?: string[];
 }
-export interface IndustryTiesDoc {
+export interface NonAcademicDoc {
   asOf: number;
   scoring: { seniority: Record<TieSeniority, number>; kind: Record<TieKind, number>; recency: string; note: string };
-  industries: string[];
+  categories: string[];
   counts: Record<string, number>;
-  people: Record<string, IndustryTieRecord>;
+  people: Record<string, NonAcademicRecord>;
 }
 
 // Same reactive single-fetch pattern as makeJsonMap, but the snapshot is the
@@ -253,8 +267,8 @@ function makeJsonDoc<T>(file: string) {
     },
   };
 }
-const industryTies = makeJsonDoc<IndustryTiesDoc>("industry-experience.json");
-export const useIndustryTies = industryTies.useDoc;
+const nonAcademic = makeJsonDoc<NonAcademicDoc>("nonacademic-experience.json");
+export const useNonAcademicExperience = nonAcademic.useDoc;
 
 export const enrichKey = (dean: string, university: string) =>
   `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;

@@ -62,7 +62,7 @@ const ekey = (name, uni) => `${nkey(name)}|${nkey(uni)}`;
 
 // ---- organization categorizer --------------------------------------------
 // Delegates to lib/org-classify.mjs, the taxonomy shared with
-// gen-industry-experience.mjs, and maps its fine-grained sectors onto the coarse
+// gen-nonacademic-experience.mjs, and maps its fine-grained sectors onto the coarse
 // category names this file has always published (Scout Assistant renders them as
 // "<category> background").
 //
