@@ -20,10 +20,18 @@ function eq(a, b) {
 // production TRIAL_SECRET, so links are always valid in production. Keep
 // ALL_IDS + TIERS in sync with scripts/mint-trial.mjs, or a dashboard-minted
 // link would grant different access than one minted by hand.
+// MUST stay in the registry's order and contents -- `mint-trial.mjs --selftest`
+// parses this literal and fails if it has drifted from lib/indices.mjs.
+//
+// It is a literal rather than an import on purpose: this file is CommonJS and
+// the registry is ESM, and require()-ing api/data.js (the CJS list of servable
+// indices) would pull every dataset JSON into this function's bundle through
+// @vercel/nft's static-path tracing, for a list of twenty strings.
 const ALL_IDS = [
   "r1bschool", "r1eschool", "r1university", "r1medical", "r1law", "r1provost",
-  "usag", "usnursing", "uspharmacy", "useducation", "r1arts", "uspublichealth",
-  "uslac", "ussystem", "usr2", "usvet", "usgrad", "usadminleaders",
+  "usag", "usnursing", "uspharmacy", "useducation", "r1arts", "usr2",
+  "ussystem", "uspublichealth", "usvet", "usgrad", "uscreativearts",
+  "usadvancement", "uslac", "usadminleaders",
 ];
 const TIERS = {
   day:     { label: "Day Pass",     scope: ["r1bschool", "r1university", "r1provost"], days: 1 },
