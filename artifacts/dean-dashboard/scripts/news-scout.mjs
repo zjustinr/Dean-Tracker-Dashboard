@@ -21,6 +21,7 @@ import { readFileSync, writeFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import { ROOT, applyEvent, enqueueEnrichment, updateJobMarket, logCSV, loadBreaking, saveBreaking, today, assertDatasetCoverage } from "./news-lib.mjs";
+import { dedupeEvents, pushBreaking, storyKeysForEvent, extractName, appointedRole, STORY_WINDOW_DAYS } from "./news-dedupe.mjs";
 import { loadPhotos, savePhotos, autoFetchPhotoForRecord } from "./photo-lib.mjs";
 
 // Fail loudly (non-zero exit, visible in the Actions run) rather than silently
@@ -122,28 +123,6 @@ const hash = (s) => {
   return String(h >>> 0);
 };
 
-// ---------- extraction ----------
-const STOP_NAME_TOKENS = new Set([
-  "The","A","An","New","Next","Interim","Acting","Dean","Provost","President","Chancellor",
-  "Business","School","College","University","State","Its","His","Her","Their","First","Former",
-  "Names","Announces","Welcomes","Appoints","As","At","Of","For","To",
-]);
-
-function extractName(text) {
-  const pats = [
-    /([A-Z][\w'.-]+(?:\s+[A-Z][\w'.-]+){1,3})\s+(?:[Hh]as\s+[Bb]een\s+|[Ww]as\s+|[Ii]s\s+)?(?:[Nn]amed|[Aa]ppointed|[Ss]elected|[Tt]apped|[Cc]hosen)\b/,
-    /\b(?:[Nn]ames?|[Aa]ppoints?|[Tt]aps?|[Ss]elects?|[Ww]elcomes?)\s+(?:Dr\.\s+)?([A-Z][\w'.-]+(?:\s+[A-Z][\w'.-]+){1,3})/,
-    /\b(?:Dr\.\s+)?([A-Z][\w'.-]+(?:\s+[A-Z][\w'.-]+){1,3})\s+(?:[Ww]ill\s+|[Tt]o\s+)?(?:serve|lead|become|take(?:s)?\s+(?:over|the\s+helm))\b/,
-  ];
-  for (const p of pats) {
-    const m = text.match(p);
-    if (!m) continue;
-    const toks = m[1].split(/\s+/).filter((t) => !STOP_NAME_TOKENS.has(t));
-    if (toks.length >= 2 && toks.length <= 4) return toks.join(" ");
-  }
-  return null;
-}
-
 // ---------- tracked schools (all 12 datasets, indexed by type) ----------
 // A bare university name ("Harvard University") is a key in EVERY dataset, so we
 // never trust a loose cross-dataset match to pick the target index. Instead the
@@ -241,7 +220,15 @@ function classify(text) {
   // isAdvancement must win first: "Vice President for Advancement" contains the
   // bare word "President", which would otherwise make isPres true and misroute
   // every advancement story into the president/chancellor bucket.
-  const role = isAdvancement ? "advancement" : isProvost ? "provost" : isPres ? "president" : "dean";
+  // The role is the one the APPOINTMENT points at, not the first title the
+  // sentence happens to mention: "Michigan hires Vanderbilt provost C. Cybele
+  // Raver as next president" is a president story. Reading it as a provost
+  // story filed it under the provost index AND split one event across two
+  // banner lines ("New provost at Michigan?" + "New president at Michigan?"),
+  // which is where a good share of the duplicate banner lines came from.
+  // isAdvancement still wins outright -- see the comment above.
+  const role = isAdvancement ? "advancement"
+    : appointedRole(t) || (isProvost ? "provost" : isPres ? "president" : "dean");
   const interim = /\binterim\b|\bacting\b/i.test(t);
   const roleWords = "dean|provost|president|chancellor|vice\\s+president\\s+for\\s+advancement|chief\\s+advancement\\s+officer|chief\\s+development\\s+officer";
   const appt = /\b(named|appointed|selected|tapped|chosen|hired\s+as|picked\s+to\s+lead|takes?\s+over\s+as|to\s+lead|to\s+become|to\s+serve\s+as|will\s+(?:lead|serve|become))\b/i.test(t) ||
@@ -264,7 +251,7 @@ const state = existsSync(STATE_PATH) ? JSON.parse(readFileSync(STATE_PATH, "utf8
 const cutoffSeen = Date.now() - 120 * 86400e3;
 for (const [k, v] of Object.entries(state.seen)) if (new Date(v).getTime() < cutoffSeen) delete state.seen[k];
 
-const events = [];
+const rawEvents = [];
 for (const feed of FEEDS) {
   try {
     const res = await fetch(feed, { headers: { "user-agent": "dean-tracker-news-scout/1.0" } });
@@ -291,7 +278,7 @@ for (const feed of FEEDS) {
       if (hit && name && cls.type === "appointment") confidence = "high";
       else if (hit) confidence = "medium";
       else confidence = "low";
-      events.push({
+      rawEvents.push({
         ...cls, id, text,
         title: it.title, url: it.link, date: isNaN(pub.getTime()) ? NOW : pub,
         schoolType: hit ? targetType : null,
@@ -307,13 +294,26 @@ for (const feed of FEEDS) {
   }
 }
 
-// ---------- latest-news feed for the app (all classified events, any confidence) ----------
+// ---------- collapse articles to stories ----------
+// A single appointment is written up by every outlet on the wire and then
+// followed up for days, so without this one event became a dozen banner lines,
+// a dozen review-queue rows and a dozen "latest news" entries. dedupeEvents
+// keeps the best-informed article per story (see news-dedupe.mjs) and marks the
+// ones continuing a story an earlier run already surfaced.
+const priorStories = (state.stories || [])
+  .filter((st) => NOW.getTime() - new Date(st.date).getTime() <= STORY_WINDOW_DAYS * 86400e3);
+const { events, dropped } = dedupeEvents(rawEvents, priorStories);
+const repeats = events.filter((e) => e.repeatOfPrior);
+const fresh = events.filter((e) => !e.repeatOfPrior);
+console.log(`stories: ${events.length} (from ${rawEvents.length} articles; ${dropped.length} same-story duplicates dropped, ${repeats.length} already surfaced by an earlier run)`);
+
+// ---------- latest-news feed for the app (one entry per story, any confidence) ----------
 const LATEST_PATH = resolve(DATA, "latest-news.json");
 if (!DRY) {
   let latest = existsSync(LATEST_PATH) ? JSON.parse(readFileSync(LATEST_PATH, "utf8")) : [];
   const cut = Date.now() - 30 * 86400e3;
   latest = latest.filter((i) => new Date(i.date).getTime() >= cut);
-  for (const e of events) {
+  for (const e of fresh) {
     if (latest.some((i) => i.id === e.id)) continue;
     const srcMatch = e.title.match(/\s[-–|]\s([^-–|]{2,45})$/);
     const source = srcMatch ? srcMatch[1].trim() : e.url.includes("poetsandquants") ? "Poets&Quants" : "News";
@@ -328,7 +328,7 @@ if (!DRY) {
   writeFileSync(LATEST_PATH, JSON.stringify(latest.slice(0, 40), null, 1));
 }
 
-console.log(`scanned feeds: ${FEEDS.length}, leadership items: ${events.length}`);
+console.log(`scanned feeds: ${FEEDS.length}, leadership stories: ${events.length}`);
 for (const e of events) console.log(`  [${e.confidence}] ${e.role}/${e.type}${e.interim ? "/interim" : ""} | ${e.schoolType || "?"} | ${e.university || "?"} | ${e.dean || "?"} | ${e.title}`);
 
 // DECIDE actions. The target dataset + an explicit unit phrase (or the role, for
@@ -338,6 +338,12 @@ for (const e of events) console.log(`  [${e.confidence}] ${e.role}/${e.type}${e.
 //                                   then queue the new leader for enrichment.
 //   medium + targeted           -> review queue -> daily email digest.
 //   matched-but-untargeted      -> display-only banner (no mutation).
+// The review queue and the banner only ever see `fresh` stories: a follow-up
+// article about something an earlier run already queued or bannered adds
+// nothing but a duplicate line. Auto-apply deliberately still sees repeats --
+// yesterday's low-confidence mention of a story can be today's high-confidence,
+// name-carrying appointment, and applyEvent() has its own record-level
+// duplicate check, so nothing is applied twice.
 const perType = {};
 const toApply = [], overflow = [];
 for (const e of events) {
@@ -346,10 +352,10 @@ for (const e of events) {
     (perType[e.schoolType] <= MAX_AUTO_PER_RUN ? toApply : overflow).push(e);
   }
 }
-const toReview = events.filter((e) => e.confidence === "medium" && e.targeted &&
+const toReview = fresh.filter((e) => e.confidence === "medium" && e.targeted &&
   (e.type === "appointment" || e.type === "departure"));
 const actedIds = new Set([...toApply, ...toReview, ...overflow].map((e) => e.id));
-const bannerOnly = events
+const bannerOnly = fresh
   .filter((e) => e.university && !actedIds.has(e.id) && (e.type === "appointment" || e.type === "departure"))
   .slice(0, MAX_BANNER_PER_RUN);
 
@@ -376,10 +382,12 @@ if (!DRY) {
         const photoStatus = await autoFetchPhotoForRecord({ dean: e.dean, university: e.university, sourceUrl: e.url, photos });
         if (photoStatus === "added" || photoStatus === "updated") photosChanged = true;
       } catch { /* photo fetch is a nice-to-have, never fail the appointment add */ }
-      breaking.items.unshift({
+      // pushBreaking, not unshift: a confirmed appointment supersedes any
+      // "pending confirmation" line already on the banner for the same story.
+      pushBreaking(breaking, {
         id: e.id, type: "applied", date: e.date.toISOString().slice(0, 10),
         headline: `${e.dean} named ${e.interim ? "interim " : ""}${e.role} at ${e.university}${e.school ? ` (${e.school})` : ""}`,
-        university: e.university, dean: e.dean, url: e.url,
+        university: e.university, dean: e.dean, url: e.url, storyKeys: e.storyKeys,
       });
     }
     logLines.push([today(), status === "added" ? "added" : `skip_${status}`, e.university, e.dean, `${e.schoolType}/${e.type}${e.interim ? "/interim" : ""}`, e.confidence, e.url]);
@@ -396,26 +404,32 @@ if (!DRY) {
     digested: false,
   }));
   for (const e of toReview) {
-    breaking.items.unshift({
+    pushBreaking(breaking, {
       id: e.id, type: "question", date: e.date.toISOString().slice(0, 10),
       headline: e.title,
       question: e.type === "appointment"
         ? `New ${e.role} at ${e.university}? (pending confirmation)`
         : `${e.role} departure at ${e.university}? (pending confirmation)`,
-      url: e.url,
+      university: e.university, dean: e.dean || undefined, url: e.url, storyKeys: e.storyKeys,
     });
     logLines.push([today(), "review", e.university || "", e.dean || "", `${e.schoolType}/${e.type}`, e.confidence, e.url]);
   }
 
   // Display-only banner for leadership news across all indices (no data mutation).
   for (const e of bannerOnly) {
-    if (breaking.items.some((it) => it.id === e.id)) continue;
-    breaking.items.unshift({
+    const how = pushBreaking(breaking, {
       id: e.id, type: "applied", date: e.date.toISOString().slice(0, 10),
       headline: e.title, university: e.university, dean: e.dean || undefined, url: e.url,
+      storyKeys: e.storyKeys,
     });
+    if (how === "duplicate") continue;
     logLines.push([today(), "banner", e.university || "", e.dean || "", `${e.role}/${e.type}`, e.confidence, e.url]);
   }
+
+  // Audit trail for what the story collapse suppressed, so a wrong merge is
+  // visible in news_scout_log.csv rather than silently missing.
+  for (const e of dropped) logLines.push([today(), "skip_dup_story", e.university || "", e.dean || "", `${e.role}/${e.type}`, e.confidence, e.url]);
+  for (const e of repeats.filter((r) => !toApply.includes(r))) logLines.push([today(), "skip_story_seen", e.university || "", e.dean || "", `${e.role}/${e.type}`, e.confidence, e.url]);
 
   // dean-search announcements at tracked business schools refresh the openings board
   for (const e of events.filter((ev) => ev.type === "search" && ev.schoolType === "business" && ev.university)) {
@@ -425,12 +439,30 @@ if (!DRY) {
 
   for (const e of overflow) logLines.push([today(), "skip_overflow", e.university, e.dean, `${e.schoolType}/${e.type}`, e.confidence, e.url]);
 
+  // Story memory for the next runs: article ids (state.seen) only stop the same
+  // url twice, so without this the follow-up coverage that lands tomorrow under
+  // new urls would banner the same event all over again.
+  state.stories = [...priorStories, ...events.map((e) => ({
+    keys: e.storyKeys || storyKeysForEvent(e), date: e.date.toISOString(),
+    title: e.title, university: e.university, dean: e.dean, id: e.id,
+  }))].slice(-500);
   writeFileSync(STATE_PATH, JSON.stringify(state, null, 1));
 
-  // Merge into the review queue (dedupe by id, age out after 14 days).
+  // Merge into the review queue (dedupe by id AND by story, age out after 14
+  // days) -- one event asking the owner to confirm it a dozen times over is the
+  // same duplicate problem the banner had, and each row costs a digest email
+  // line and a decision.
   const prev = existsSync(REVIEW_PATH) ? JSON.parse(readFileSync(REVIEW_PATH, "utf8")) : [];
   const prevIds = new Set(prev.map((r) => r.id));
-  const merged = [...prev, ...reviewItems.filter((r) => !prevIds.has(r.id))]
+  const queued = [...prev];
+  const asStory = (r) => ({ keys: storyKeysForEvent(r), date: r.date, title: r.title, university: r.university, dean: r.dean });
+  for (const r of reviewItems) {
+    if (prevIds.has(r.id)) continue;
+    const [kept] = dedupeEvents([r], queued.map(asStory)).events;
+    if (!kept || kept.repeatOfPrior) continue;
+    queued.push(r);
+  }
+  const merged = queued
     .filter((r) => r.id != null && Date.now() - new Date(r.recorded || r.date || 0).getTime() < 14 * 86400e3);
   writeFileSync(REVIEW_PATH, JSON.stringify(merged, null, 1));
 

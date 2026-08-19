@@ -11,6 +11,8 @@ interface BreakingItem {
   dean?: string;
   url: string;
   issueUrl?: string;
+  /** Story identity written by scripts/news-dedupe.mjs — see storyKeysForEvent. */
+  storyKeys?: string[];
 }
 
 const SHOW_DAYS = 14;
@@ -25,9 +27,20 @@ export default function BreakingNews() {
 
   const items = useMemo(() => {
     const cutoff = Date.now() - SHOW_DAYS * 86400e3;
-    return ((breaking.items || []) as BreakingItem[]).filter(
-      (it) => new Date(it.date).getTime() >= cutoff && !dismissed.includes(it.id)
-    );
+    // One appointment gets written up by a dozen outlets, so the scout collapses
+    // that coverage to a single item before it writes the feed (news-dedupe.mjs).
+    // This is the last line of defence for anything already in the file: a story
+    // never gets two lines in the banner, whatever the data says.
+    const seen = new Set<string>();
+    return ((breaking.items || []) as BreakingItem[]).filter((it) => {
+      if (new Date(it.date).getTime() < cutoff || dismissed.includes(it.id)) return false;
+      const keys = it.storyKeys?.length
+        ? it.storyKeys
+        : [(it.question || it.headline || it.url).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()];
+      if (keys.some((k) => seen.has(k))) return false;
+      for (const k of keys) seen.add(k);
+      return true;
+    });
   }, [dismissed]);
 
   if (!items.length) return null;
