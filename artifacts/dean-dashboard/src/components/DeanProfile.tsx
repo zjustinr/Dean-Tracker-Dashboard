@@ -41,8 +41,23 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
   // firm, the badge says WHICH firm -- for the connections use case the employer
   // is the information, not the boolean. The legacy hasIndustryExp flag stays as
   // the fallback for hand-labelled people the derivation couldn't reproduce.
-  const industryRec = useIndustryTies()?.people[enrichKey(dean.dean, dean.university)] ?? null;
-  const industryTie = industryRec?.status === "yes" && industryRec.ties?.length ? industryRec.ties[0] : null;
+  const industryDoc = useIndustryTies();
+  const industryRec = industryDoc?.people[enrichKey(dean.dean, dean.university)] ?? null;
+  const industryTies = industryRec?.status === "yes" ? industryRec.ties ?? [] : [];
+  const industryTie = industryTies[0] ?? null;
+  // Four states, and the profile reports ALL of them. Before, only the first
+  // rendered anything: a named-firm tie exists for 494 of ~28,250 people, so
+  // every other profile said nothing at all about industry -- which reads as
+  // "no industry background" when the truth is usually "nobody researched it".
+  //   named    -> firm(s), rank, years
+  //   flagged  -> a corroborating label but no employer on record
+  //   none     -> career stops exist and none is a company
+  //   unknown  -> no career evidence at all (the record is simply absent)
+  const industryState: "named" | "flagged" | "none" | "unknown" =
+    industryTie ? "named"
+    : industryRec?.status === "yes" ? "flagged"
+    : industryRec?.status === "no" ? "none"
+    : "unknown";
   const photoHistory = usePhotoMap()[enrichKey(dean.dean, dean.university)]?.history || [];
   const hasNews = !!research?.news?.length;
   const hasCareer = !!research?.career?.length;
@@ -264,6 +279,42 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
           <span>{dean.disciplineBroad || dean.discipline || "–"}</span>
           <span className="text-muted-foreground font-medium">Background</span>
           <span>{dean.careerBackground || "–"}</span>
+          {/* Always rendered, in all four states -- see industryState above for why
+              silence was the wrong default. */}
+          <span className="text-muted-foreground font-medium">Industry Experience</span>
+          <span>
+            {industryState === "named" ? (
+              <>
+                {(industryRec!.firms ?? []).join(", ")}
+                <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
+                  {industryTie!.role ? `${industryTie!.role} · ` : ""}
+                  {(industryRec!.industries ?? []).join(", ")}
+                  {industryTie!.years ? ` · ${industryTie!.years}` : industryTie!.endYear != null ? ` · until ${industryTie!.endYear}` : ""}
+                  {industryTie!.kind !== "employment" ? ` · ${industryTie!.kind === "board" ? "board seat" : "advisory"}` : ""}
+                </span>
+              </>
+            ) : industryState === "flagged" ? (
+              <>
+                Noted, employer not on record
+                <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
+                  {(industryRec!.flags ?? []).join("; ") || "Corroborating label only"}
+                </span>
+              </>
+            ) : industryState === "none" ? (
+              <>
+                None in recorded career
+                <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
+                  {industryRec!.stops === 1
+                    ? "Only one career stop on record — a weak signal"
+                    : `Across ${industryRec!.stops} recorded career stops`}
+                </span>
+              </>
+            ) : (
+              <span className="text-muted-foreground">
+                {industryDoc ? "Not researched" : "Loading…"}
+              </span>
+            )}
+          </span>
           <span className="text-muted-foreground font-medium">PhD Field</span>
           <span>{dean.phdField || "–"}</span>
           <span className="text-muted-foreground font-medium">PhD Institution</span>

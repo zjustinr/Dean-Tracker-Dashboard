@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
@@ -8,7 +8,7 @@ import RegionMap from "@/components/RegionMap";
 import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
-import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, type AffEntry, type AffMap } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, useIndustryTies, type AffEntry, type AffMap } from "@/data/enrichment";
 import ScoutAssistant from "@/components/ScoutAssistant";
 import { useTrial } from "@/data/TrialContext";
 
@@ -154,6 +154,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // candidates got filtered out silently.
   const [requirePhd, setRequirePhd] = useState(false);
   const [requireProf, setRequireProf] = useState(false);
+  // "Has an industry tie" -- a NAMED-FIRM tie from industry-experience.json, not
+  // the legacy hasIndustryExp boolean (unpopulated in most indices, so filtering
+  // on it would silently empty the list). Filters to people the derivation can
+  // actually point at an employer for.
+  const [requireIndustryTie, setRequireIndustryTie] = useState(false);
   // Widen-the-pool control for building a diverse slate, not an exclusionary
   // screen: defaults to "all" and is framed as "Include", the same posture as
   // an affinity filter that surfaces candidates rather than filters them out.
@@ -194,12 +199,13 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     if (yrFrom != null || yrTo != null) f.years = `${yrFrom ?? ""}-${yrTo ?? ""}`;
     if (requirePhd) f.requirePhd = true;
     if (requireProf) f.requireProf = true;
+    if (requireIndustryTie) f.requireIndustryTie = true;
     if (letter) f.letter = letter;
     if (showHazard) f.showHazard = true;
     if (affinity.size) f.affinity = Array.from(affinity);
     return f;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [disciplines, tiers, sortBy, includeGender, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, letter, showHazard, affinity]);
+  }, [disciplines, tiers, sortBy, includeGender, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, requireIndustryTie, letter, showHazard, affinity]);
   const filterLogTimer = useRef<number | null>(null);
   const filterLogSig = useRef<string>("{}");
   useEffect(() => {
@@ -279,6 +285,15 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     const car = researchMap[enrichKey(d.dean, d.university)]?.career;
     return !!car && car.some((s) => PROF_RE.test(s.role || ""));
   };
+
+  // Named-firm industry tie (industry-experience.json). Deliberately requires
+  // confidence "high": a flag-only yes has no employer to show, so filtering on
+  // it would return people whose row cannot explain why they matched.
+  const industryPeople = useIndustryTies()?.people ?? null;
+  const hasIndustryTie = useCallback((d: Dean): boolean => {
+    const rec = industryPeople?.[enrichKey(d.dean, d.university)];
+    return !!rec && rec.status === "yes" && rec.confidence === "high" && !!rec.ties?.length;
+  }, [industryPeople]);
 
   // Tenure inputs for the movability assessment shown in the results-map column.
   // Mirrors DeanProfile's computation (cohort tenure distribution + this leader's
@@ -472,6 +487,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       if (apptType === "interim" && !isSub && !d.isInterim) return false;
       if (requirePhd && !hasDoctorate(d)) return false;
       if (requireProf && !wasProfessor(d)) return false;
+      if (requireIndustryTie && !hasIndustryTie(d)) return false;
       if (includeGender !== "all") {
         const g = genderNorm(d.gender);
         if (includeGender === "women" && g !== "F") return false;
@@ -494,7 +510,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       seen.add(key);
       return true;
     });
-  }, [allDeans, query, keyword, researchMap, letter, disciplines, tiers, tierOf, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, includeGender, hasFilter]);
+  }, [allDeans, query, keyword, researchMap, letter, disciplines, tiers, tierOf, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, requireIndustryTie, hasIndustryTie, includeGender, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -785,7 +801,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                 <input type="checkbox" checked={requireProf} onChange={(e) => { setRequireProf(e.target.checked); setExpandedId(null); }} className="accent-[#011F5B] w-3.5 h-3.5" />
                 Professor
               </label>
-              <span className="text-[10px] text-muted-foreground">(held a doctorate / faculty rank)</span>
+              <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
+                <input type="checkbox" checked={requireIndustryTie} onChange={(e) => { setRequireIndustryTie(e.target.checked); setExpandedId(null); }} className="accent-[#0d6a72] w-3.5 h-3.5" />
+                Industry tie
+              </label>
+              <span className="text-[10px] text-muted-foreground">(held a doctorate / faculty rank / a named-firm corporate tie)</span>
             </div>
 
             {tierOptions.length > 1 && (

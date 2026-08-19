@@ -80,6 +80,10 @@ Three datasets selectable via top-level switcher pills (DatasetContext):
    record's `indices[0]` (sitting-seat index first) via App's `openLeaderCrossIndex`.
    Coverage note is load-bearing: absence from the list is never evidence of no
    industry background. Component: `IndustryTies.tsx`.
+   An **"Industry tie" credential checkbox** also filters Slate Builder and Scout
+   Assistant to leaders with a NAMED-FIRM tie (confidence "high" only — a
+   flag-only yes has no employer, so a matching row could not explain itself).
+   Yields are small by design: e.g. 11 of 155 sitting R1 B-school leaders.
 
 ### Key Fields
 - Demographics: gender, discipline, career background
@@ -166,9 +170,14 @@ writes into the dean JSONs. It is SERVED: registered in both ENRICHMENT sets
 `filteredIndustryTies` scope-gates the `people` map like research — so every
 count shown in the UI must be computed from received `people`, never from the
 pass-through `counts` block). Consumers: `IndustryTies.tsx` (ranked view),
-`DeanProfile.tsx` (firm-named badge), `CompareSchools.tsx` ("Industry Exp % (of
-researched)" over known verdicts, dash when none), `ScoutCandidateList.tsx`
-(tie chip on candidate rows). Full evaluation: `docs/industry-ties.md`.
+`DeanProfile.tsx` (firm-named badge PLUS an always-rendered "Industry Experience"
+row reporting all four states — named / flagged / none / not researched; before
+that row existed 1,199 of 1,267 R1 B-school profiles said nothing at all about
+industry, which reads as "no industry background" when the truth is usually
+"nobody researched it"), `CompareSchools.tsx` ("Industry Exp % (of researched)"
+over known verdicts, dash when none), `ScoutCandidateList.tsx` (tie chip on
+candidate rows), and an "Industry tie" filter checkbox in `IndividualSearch.tsx`
+(Slate Builder) and `ScoutAssistantPage.tsx`. Full evaluation: `docs/industry-ties.md`.
 
 The purpose is a **connections** signal — which leaders carry a corporate network
 a school can tap — so it models **ties**, not a boolean: person → firm → sector →

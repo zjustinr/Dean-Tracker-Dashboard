@@ -3,7 +3,7 @@ import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { genderNorm } from "@/data/types";
-import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, useIndustryTies } from "@/data/enrichment";
 import { useScoutCandidateEngine, affKey } from "@/data/useScoutCandidates";
 import { matchKeywords, type Keyword } from "@/data/keywordMatch";
 import { Methodology } from "@/components/ScoutAssistant";
@@ -54,6 +54,9 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   const [includeGender, setIncludeGender] = useState<"all" | "women" | "men">("all");
   const [requirePhd, setRequirePhd] = useState(false);
   const [requireProf, setRequireProf] = useState(false);
+  // Named-firm industry tie (industry-experience.json), not the legacy
+  // hasIndustryExp boolean -- see hasIndustryTie below.
+  const [requireIndustryTie, setRequireIndustryTie] = useState(false);
   const [apptType, setApptType] = useState<"all" | "perm" | "interim">("all");
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
@@ -80,7 +83,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   // state, or JD match chosen for one index doesn't carry meaning in another.
   useEffect(() => {
     setUniversity(""); setStringency(1); setIncludeGender("all"); setRequirePhd(false); setRequireProf(false);
-    setApptType("all"); setRegions(new Set()); setStates(new Set()); setFunctions(new Set()); setTiers(new Set());
+    setApptType("all"); setRegions(new Set()); setStates(new Set()); setFunctions(new Set()); setTiers(new Set()); setRequireIndustryTie(false);
     setJdKeywords([]); setVisibleCount(PAGE_SIZE);
   }, [datasetId]);
   useEffect(() => { setVisibleCount(PAGE_SIZE); }, [university, stringency]);
@@ -173,9 +176,18 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
     return [...c.values()].sort((a, b) => b.n - a.n || a.display.localeCompare(b.display)).map((v) => v.display);
   }, [allDeans, researchMap]);
 
+  // Requires confidence "high" (a named firm): a flag-only yes has no employer,
+  // so a candidate row matching on it could not explain itself.
+  const industryPeople = useIndustryTies()?.people ?? null;
+  const hasIndustryTie = useCallback((d: Dean): boolean => {
+    const rec = industryPeople?.[enrichKey(d.dean, d.university)];
+    return !!rec && rec.status === "yes" && rec.confidence === "high" && !!rec.ties?.length;
+  }, [industryPeople]);
+
   const rosterFilter = useCallback((d: Dean): boolean => {
     if (requirePhd && !hasDoctorate(d)) return false;
     if (requireProf && !wasProfessor(d)) return false;
+    if (requireIndustryTie && !hasIndustryTie(d)) return false;
     if (includeGender !== "all") {
       const g = genderNorm(d.gender);
       if (includeGender === "women" && g !== "F") return false;
@@ -194,7 +206,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
       if (!st || !effectiveStates.has(st)) return false;
     }
     return true;
-  }, [requirePhd, requireProf, includeGender, apptType, functions, tiers, tierOf, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
+  }, [requirePhd, requireProf, requireIndustryTie, hasIndustryTie, includeGender, apptType, functions, tiers, tierOf, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
 
   // Job-description keyword boost: a heuristic overlap score against a broad
   // text surface for each candidate -- discipline, career background, prior
@@ -325,6 +337,11 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
                 <input type="checkbox" checked={requireProf} onChange={(e) => setRequireProf(e.target.checked)} className="accent-[#011F5B] w-3.5 h-3.5" />
                 Professor
               </label>
+              <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
+                <input type="checkbox" checked={requireIndustryTie} onChange={(e) => setRequireIndustryTie(e.target.checked)} className="accent-[#0d6a72] w-3.5 h-3.5" />
+                Industry tie
+              </label>
+              <span className="text-[10px] text-muted-foreground">(a named-firm corporate tie)</span>
             </div>
 
             {functionOptions.length > 1 && (
