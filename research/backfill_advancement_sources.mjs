@@ -370,6 +370,84 @@ async function crawlInstitution([univ, records]) {
 let done = 0;
 await pool(universities, crawlInstitution, SITES_AT_ONCE);
 
+
+// ------------------------------------------------- phase 2: guessed bio pages
+/**
+ * Plenty of advancement sites render their roster with script, so the crawl walks
+ * past a page whose HTML never contains a single name. Those same sites almost
+ * always give each person a plain server-rendered bio at a slug built from their
+ * name. Guessing that slug on hosts this institution is already known to publish
+ * from costs one request and is confirmed the same way as everything else: the
+ * page has to name the person.
+ */
+const BIO_PATTERNS = [
+  "/{slug}/", "/about/{slug}/", "/staff/{slug}/", "/team/{slug}/", "/people/{slug}/",
+  "/our-team/{slug}/", "/staff-directory/{slug}/", "/about/staff/{slug}/", "/leadership/{slug}/",
+];
+
+function slugsFor(raw) {
+  const parts = nameParts(raw);
+  if (!parts) return [];
+  const out = [];
+  // Middle names and two-part surnames both show up in slugs, so try the whole
+  // name as written alongside the plain first-last pair.
+  const whole = fold(String(raw).replace(/\([^)]*\)/g, " ")).replace(/\s+/g, "-");
+  if (whole.includes("-")) out.push(whole);
+  for (const f of parts.firsts) for (const l of parts.lasts) {
+    out.push(`${f}-${l}`.replace(/\s+/g, "-"));
+    out.push(`${f}${l}`.replace(/\s+/g, ""));
+    out.push(`${f}.${l}`.replace(/\s+/g, ""));
+  }
+  return [...new Set(out)].slice(0, 3);
+}
+
+/** Hosts this institution already publishes advancement pages from. */
+function knownHosts(records, domain) {
+  const hosts = new Set();
+  for (const r of records) {
+    const u = String(r.sourceUrl || "");
+    if (!/^https?:/.test(u)) continue;
+    try { const p = new URL(u); if (!NEWSY.test(p.pathname)) hosts.add(p.origin); } catch {}
+  }
+  if (domain) for (const s of ["advancement", "giving", "alumni", "foundation", "development"]) hosts.add(`https://${s}.${domain}`);
+  return [...hosts].slice(0, 3);
+}
+
+async function guessBios([univ, records]) {
+  const wanted = records.filter((r) => !String(r.sourceUrl || "").trim());
+  if (!wanted.length) return;
+  const domain = DOMAINS.get(univ) || "";
+  const hosts = knownHosts(records, domain);
+  if (!hosts.length) return;
+  let got = 0;
+
+  await pool(wanted, async (r) => {
+    const parts = nameParts(r.dean);
+    if (!parts) return;
+    const re = nameMatcher(parts);
+    const urls = [];
+    for (const host of hosts) for (const pat of BIO_PATTERNS) for (const slug of slugsFor(r.dean)) urls.push(host + pat.replace("{slug}", slug));
+    const hits = await pool(urls.slice(0, 60), async (u) => {
+      const res = await get(u);
+      if (!res.body) return null;
+      const text = fold(stripTags(res.body));
+      // A guessed slug can land on a soft-404 that echoes the query, so the page
+      // has to be a real one: enough text, and the person named in it.
+      return text.length > 400 && re.test(text) ? (res.finalUrl || u) : null;
+    }, 10);
+    const hit = hits.find(Boolean);
+    if (hit) { r.sourceUrl = hit; filled++; got++; }
+  }, 4);
+
+  if (got) console.error(`${String(got).padStart(2)}/${String(wanted.length).padEnd(2)} bios  ${univ}`);
+}
+
+if (!process.argv.includes("--no-bios")) {
+  const short = [...byUniv.entries()].filter(([, rs]) => rs.some((r) => !String(r.sourceUrl || "").trim()));
+  console.error(`\nguessing bio pages for ${short.length} institutions`);
+  await pool(short, guessBios, SITES_AT_ONCE);
+}
+
 const after = deans.filter((r) => String(r.sourceUrl || "").trim()).length;
 console.error(`\nfilled ${filled}; coverage ${after}/${deans.length} = ${(100 * after / deans.length).toFixed(1)}% (was ${(100 * before / deans.length).toFixed(1)}%)`);
 
