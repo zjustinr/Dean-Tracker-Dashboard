@@ -53,6 +53,11 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
   //   flagged  -> a corroborating label but no employer on record
   //   none     -> career stops exist and none is a company
   //   unknown  -> no career evidence at all (the record is simply absent)
+  // Whether a person LOOKED is a separate axis from what they found. A derived
+  // "no" means "the one job we recorded was academic"; a researched "no" means
+  // someone read the bio and there was nothing there. Collapsing the two would
+  // throw away the only strong negatives the corpus has.
+  const industryResearched = industryRec?.evidence === "research";
   const industryState: "named" | "flagged" | "none" | "unknown" =
     industryTie ? "named"
     : industryRec?.status === "yes" ? "flagged"
@@ -291,20 +296,25 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
                   {(industryRec!.industries ?? []).join(", ")}
                   {industryTie!.years ? ` · ${industryTie!.years}` : industryTie!.endYear != null ? ` · until ${industryTie!.endYear}` : ""}
                   {industryTie!.kind !== "employment" ? ` · ${industryTie!.kind === "board" ? "board seat" : "advisory"}` : ""}
+                  {industryResearched ? " · researched" : ""}
                 </span>
               </>
             ) : industryState === "flagged" ? (
               <>
                 Noted, employer not on record
                 <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
-                  {(industryRec!.flags ?? []).join("; ") || "Corroborating label only"}
+                  {industryResearched
+                    ? "Researched — industry background confirmed, but no public source names the employer"
+                    : (industryRec!.flags ?? []).join("; ") || "Corroborating label only"}
                 </span>
               </>
             ) : industryState === "none" ? (
               <>
-                None in recorded career
+                {industryResearched ? "None found" : "None in recorded career"}
                 <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
-                  {industryRec!.stops === 1
+                  {industryResearched
+                    ? `Researched${industryRec!.researchedOn ? ` ${industryRec!.researchedOn}` : ""} — career reviewed, no firm, board seat or advisory role`
+                    : industryRec!.stops === 1
                     ? "Only one career stop on record — a weak signal"
                     : `Across ${industryRec!.stops} recorded career stops`}
                 </span>

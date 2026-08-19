@@ -28,14 +28,15 @@
  ],
  "counts": {
   "people": 28250,
-  "yes": 893,
-  "no": 12658,
+  "yes": 903,
+  "no": 12648,
   "unknown": 14699,
-  "namedFirm": 494,
-  "flagOnly": 399,
-  "firms": 458,
-  "sittingWithTie": 260,
-  "sittingSeniorTie": 135
+  "namedFirm": 507,
+  "flagOnly": 396,
+  "firms": 476,
+  "sittingWithTie": 273,
+  "sittingSeniorTie": 143,
+  "researched": 120
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -2996,11 +2997,13 @@
    "name": "Albert D. Mosley",
    "university": "Bethune-Cookman University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 6,
    "sectors": [
     "Academic",
@@ -6560,11 +6563,13 @@
    "name": "Amy Ginsberg",
    "university": "William Paterson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -6678,6 +6683,8 @@
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -7006,11 +7013,13 @@
    "name": "Amy Marcus-Newhall",
    "university": "Scripps College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -7906,11 +7915,13 @@
    "name": "Andrea Chapdelaine",
    "university": "Connecticut College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -8812,12 +8823,14 @@
   "andrew hessick|university of north carolina": {
    "name": "Andrew Hessick",
    "university": "University of North Carolina",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 5,
    "sectors": [
     "Government",
@@ -10811,11 +10824,13 @@
    "name": "Anjala Krishen",
    "university": "University of Nevada Las Vegas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -13318,11 +13333,13 @@
    "name": "Arash Bashirullah",
    "university": "University of Houston",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -15688,11 +15705,13 @@
    "name": "Barbara M. Brizuela",
    "university": "Tufts University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -17337,11 +17356,13 @@
    "name": "Beth Brand",
    "university": "University of Delaware",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -19005,11 +19026,13 @@
    "name": "Bob Pierce",
    "university": "University of Alabama",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -19903,11 +19926,13 @@
    "name": "Brad Oechslin",
    "university": "Hollins University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -20979,11 +21004,13 @@
    "name": "Brendan B. Kelly",
    "university": "Eastern Michigan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -21991,11 +22018,13 @@
    "name": "Brian E. Konkol",
    "university": "Valparaiso University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -22077,11 +22106,13 @@
    "name": "Brian Gillespie",
    "university": "Montana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -28192,11 +28223,13 @@
    "name": "Cathann A. Kress",
    "university": "The Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usag"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 6,
    "sectors": [
     "Academic",
@@ -31502,12 +31535,14 @@
    "name": "Chris Heavey",
    "university": "University of Nevada Las Vegas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -33088,11 +33123,13 @@
    "name": "Christopher \"Mike\" Johnson",
    "university": "University of West Georgia",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -33407,11 +33444,13 @@
    "name": "Christopher D. Spilling",
    "university": "University of Missouri-St. Louis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -34743,12 +34782,14 @@
    "name": "Clare Shinnerl",
    "university": "University of California Davis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -34998,11 +35039,13 @@
    "name": "Claudia F. Lucchinetti",
    "university": "University of Texas at Austin",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Healthcare Provider",
@@ -35343,11 +35386,13 @@
    "name": "Clint Krehbiel",
    "university": "Texas Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usag"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 5,
    "sectors": [
     "Unclassified",
@@ -35752,11 +35797,13 @@
    "name": "Colin Mitchell",
    "university": "Louisiana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usvet"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -39038,11 +39085,13 @@
    "name": "Dana A. Strachan",
    "university": "Palm Beach Atlantic University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -40388,12 +40437,14 @@
    "name": "Daniel Scholl",
    "university": "South Dakota State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -40810,15 +40861,32 @@
   "danielle r. holley|mount holyoke college": {
    "name": "Danielle R. Holley",
    "university": "Mount Holyoke College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 22,
+   "seniority": "professional",
+   "industries": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Fulbright & Jaworski"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Law (private practice)",
+     "firm": "Fulbright & Jaworski",
+     "role": "Civil litigation associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "danielle schweiloch|columbia university": {
@@ -41616,12 +41684,14 @@
   "darron l. smith|tennessee technological university": {
    "name": "Darron L. Smith",
    "university": "Tennessee Technological University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usag"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Unclassified",
@@ -41790,11 +41860,13 @@
    "name": "Darse E. \"Del\" Crandall, Jr.",
    "university": "University of North Dakota",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Government"
@@ -42937,12 +43009,14 @@
    "name": "David C. Parkes",
    "university": "Harvard University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -43170,16 +43244,35 @@
   "david deswert|smith college": {
    "name": "David DeSwert",
    "university": "Smith College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 28,
+   "seniority": "unknown",
+   "industries": [
+    "Consulting"
+   ],
+   "firms": [
+    "Kosmont Companies"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Consulting",
+     "firm": "Kosmont Companies",
+     "role": "Not stated",
+     "seniority": "unknown",
+     "years": "2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 28
+    }
    ]
   },
   "david dietz|university of kansas": {
@@ -43383,11 +43476,13 @@
    "name": "David F. Maize",
    "university": "University of the Incarnate Word",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -46858,11 +46953,13 @@
    "name": "Deanna L. Kroetz",
    "university": "The Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -47453,11 +47550,13 @@
    "name": "Deborah L. Nelson",
    "university": "University of Chicago",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -47495,14 +47594,33 @@
    "name": "Deborah Maue",
    "university": "Aurora University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 0,
-   "sectors": [],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 26,
+   "seniority": "unknown",
+   "industries": [
+    "Consulting"
+   ],
+   "firms": [
+    "mStoner"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Consulting",
+     "firm": "mStoner",
+     "role": "Strategy and marketing",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
+   ],
    "flags": [
     "careerBackground: MBA Marketing and Finance, Kellogg School of Management, Northwestern University"
    ]
@@ -47626,11 +47744,13 @@
    "name": "Debra A. Schwinn",
    "university": "Palm Beach Atlantic University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -48253,11 +48373,13 @@
    "name": "Dena Evans",
    "university": "East Tennessee State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -49237,17 +49359,46 @@
   "derrick singleton|berea college": {
    "name": "Derrick Singleton",
    "university": "Berea College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 53,
+   "seniority": "executive",
+   "industries": [
+    "Consumer & Retail",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Coors",
+    "The Sherwin-Williams Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Consumer & Retail",
+     "firm": "Coors",
+     "role": "Corporate executive and operations management",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "industry": "Energy & Industrials",
+     "firm": "The Sherwin-Williams Company",
+     "role": "Plant and operations management",
+     "seniority": "senior",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "deryck j. van rensburg|pepperdine university": {
@@ -54499,11 +54650,13 @@
    "name": "Edward M. Feasel",
    "university": "Soka University of America",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -55304,11 +55457,13 @@
    "name": "Elissa Tenny",
    "university": "Bennington College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -57609,15 +57764,44 @@
   "eric j. nestler|icahn school of medicine at mount sinai": {
    "name": "Eric J. Nestler",
    "university": "Icahn School of Medicine at Mount Sinai",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 61,
+   "seniority": "executive",
+   "industries": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "BPGbio",
+    "Sparian Biosciences"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "industry": "Healthcare & Pharma",
+     "firm": "BPGbio",
+     "role": "Chair of the Scientific Advisory Board (member since 2023)",
+     "seniority": "executive",
+     "years": "2023",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "advisory",
+     "industry": "Healthcare & Pharma",
+     "firm": "Sparian Biosciences",
+     "role": "Science Advisory Board member",
+     "seniority": "senior",
+     "years": "2024",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "eric j. smith|state university of new york upstate medical university": {
@@ -57840,11 +58024,13 @@
    "name": "Eric Moyen",
    "university": "Kennesaw State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -62741,11 +62927,13 @@
    "name": "Gail Orum-Alexander",
    "university": "Marshall B. Ketchum University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -62813,11 +63001,13 @@
    "name": "Garey Fox",
    "university": "North Carolina State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usag"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -65155,11 +65345,13 @@
    "name": "Gina Craft",
    "university": "University of Louisiana at Monroe",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -65686,11 +65878,13 @@
    "name": "Glenn Boyce",
    "university": "University of Mississippi",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -70717,11 +70911,13 @@
    "name": "Herbert (Herbie) Lee",
    "university": "University of California Santa Cruz",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -72407,11 +72603,13 @@
    "name": "Indrajeet Chaubey",
    "university": "University of Arkansas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -73652,11 +73850,13 @@
    "name": "J. Walter Sterling",
    "university": "St. John's College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -75934,11 +76134,13 @@
    "name": "James Gallo",
    "university": "The University of Texas Medical Branch at Galveston",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 6,
    "sectors": [
     "Academic",
@@ -76993,11 +77195,13 @@
    "name": "James Payne",
    "university": "Oklahoma State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -77414,11 +77618,13 @@
    "name": "James T. Minor",
    "university": "Southern Illinois University-Edwardsville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -78053,16 +78259,58 @@
   "jamie moffitt|university of oregon": {
    "name": "Jamie Moffitt",
    "university": "University of Oregon",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 49,
+   "seniority": "executive",
+   "industries": [
+    "Technology",
+    "Consulting"
+   ],
+   "firms": [
+    "Beachfire",
+    "McKinsey & Company",
+    "Mediate.com"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Technology",
+     "firm": "Beachfire",
+     "role": "Vice President of Strategy and Professional Services",
+     "seniority": "executive",
+     "years": "2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 49
+    },
+    {
+     "kind": "employment",
+     "industry": "Consulting",
+     "firm": "McKinsey & Company",
+     "role": "Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "industry": "Technology",
+     "firm": "Mediate.com",
+     "role": "Staff",
+     "seniority": "unknown",
+     "years": "2001-2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jamie muller|northwestern university": {
@@ -78257,11 +78505,13 @@
    "name": "Jan D. Hirsch",
    "university": "University of California, Irvine",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -82284,11 +82534,13 @@
    "name": "Jeffrey A. Bates",
    "university": "Cedarville University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -83805,11 +84057,13 @@
    "name": "Jennifer Chrisler",
    "university": "Hampshire College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -86280,11 +86534,13 @@
    "name": "Jerry R. McMurtry",
    "university": "University of Idaho",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -87049,11 +87305,13 @@
    "name": "Jessica Zacher Pandya",
    "university": "California State University, Dominguez Hills",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -89225,11 +89483,13 @@
    "name": "Jodi Price",
    "university": "University of Alabama in Huntsville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -89621,15 +89881,32 @@
   "joe manok|clark university": {
    "name": "Joe Manok",
    "university": "Clark University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 53,
+   "seniority": "executive",
+   "industries": [
+    "Technology"
+   ],
+   "firms": [
+    "GlobalPhilanthropy.ai"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Technology",
+     "firm": "GlobalPhilanthropy.ai",
+     "role": "Founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "joe mazer|university of tennessee knoxville": {
@@ -90924,15 +91201,43 @@
   "john c. bravman|bucknell university": {
    "name": "John C. Bravman",
    "university": "Bucknell University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 71,
+   "seniority": "executive",
+   "industries": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Geisinger Health",
+    "Risant Health"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "industry": "Healthcare & Pharma",
+     "firm": "Geisinger Health",
+     "role": "Chair of the Board of Directors (2016-2023); director since 2012",
+     "seniority": "executive",
+     "years": "2012",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "industry": "Healthcare & Pharma",
+     "firm": "Risant Health",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "john c. buechner|university of colorado": {
@@ -91482,11 +91787,13 @@
    "name": "John Denning",
    "university": "Stonehill College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -92086,12 +92393,14 @@
    "name": "John H. Shaw",
    "university": "Harvard University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -96201,11 +96510,13 @@
    "name": "Jorge Oliver",
    "university": "Pratt Institute",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic",
@@ -99321,11 +99632,13 @@
    "name": "Julian Coaxum",
    "university": "Davidson College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -100788,11 +101101,13 @@
    "name": "Kalei Rapoza",
    "university": "University of Hawaii at Hilo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -102381,11 +102696,13 @@
    "name": "Karthik Kannan",
    "university": "University of Arizona",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -103048,11 +103365,13 @@
    "name": "Katherine M. Tromp",
    "university": "Northeast Ohio Medical University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -104301,13 +104620,15 @@
   "kathy r. pharr|university of georgia": {
    "name": "Kathy R. Pharr",
    "university": "University of Georgia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -105847,16 +106168,33 @@
   "keith werner|appalachian state university": {
    "name": "Keith Werner",
    "university": "Appalachian State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 53,
+   "seniority": "executive",
+   "industries": [
+    "Consulting"
+   ],
+   "firms": [
+    "Ernst & Young"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Consulting",
+     "firm": "Ernst & Young",
+     "role": "Public Sector Leader, North Carolina and South Carolina",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "keldon henley|ouachita baptist university": {
@@ -111810,12 +112148,14 @@
    "name": "Kristie Patten",
    "university": "New York University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts",
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -112468,13 +112808,15 @@
   "kristy l. michel|loyola university maryland": {
    "name": "Kristy L. Michel",
    "university": "Loyola University Maryland",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 0,
    "sectors": [],
    "flags": [
@@ -113244,11 +113586,13 @@
    "name": "Lacy Karpilo",
    "university": "Colorado College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -113330,11 +113674,13 @@
    "name": "Laku Chidambaram",
    "university": "University of Oklahoma",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -115611,11 +115957,13 @@
    "name": "Laurence Bray",
    "university": "George Mason University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -116369,11 +116717,13 @@
    "name": "Lee B. Kats",
    "university": "Pepperdine University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -118433,12 +118783,14 @@
    "name": "Linda Kroll",
    "university": "Claremont McKenna College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -119625,11 +119977,13 @@
    "name": "Lisa Huffman",
    "university": "University of Cincinnati",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -121299,11 +121653,13 @@
    "name": "Lori Stewart Gonzalez",
    "university": "Ohio University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -122323,14 +122679,33 @@
    "name": "Lynden A. Archer",
    "university": "Cornell University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 14,
+   "seniority": "professional",
+   "industries": [
+    "Technology"
+   ],
+   "firms": [
+    "AT&T Bell Laboratories"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Technology",
+     "firm": "AT&T Bell Laboratories",
+     "role": "Postdoctoral Member of Technical Staff",
+     "seniority": "professional",
+     "years": "1993-1994",
+     "endYear": 1994,
+     "source": "research",
+     "score": 14
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -122596,11 +122971,13 @@
    "name": "Lynne Allen",
    "university": "Boston University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 4,
    "sectors": [
     "Academic",
@@ -122780,11 +123157,13 @@
    "name": "M. Daniele Fallin",
    "university": "Emory University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspublichealth"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -124385,11 +124764,13 @@
    "name": "Marcel Rindisbacher",
    "university": "Boston University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -137935,11 +138316,13 @@
    "name": "Michael P. O'Malley",
    "university": "Fordham University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -141035,15 +141418,67 @@
   "mindy zumdome|augustana college": {
    "name": "Mindy Zumdome",
    "university": "Augustana College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 70,
+   "seniority": "executive",
+   "industries": [
+    "Energy & Industrials",
+    "Consumer & Retail",
+    "Other industry",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Elliott Aviation",
+    "HNI Corporation",
+    "Per Mar Security Services",
+    "The Kansas City Star"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Energy & Industrials",
+     "firm": "Elliott Aviation",
+     "role": "Vice President for Talent and Culture",
+     "seniority": "executive",
+     "years": "2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "industry": "Consumer & Retail",
+     "firm": "HNI Corporation",
+     "role": "Human resources",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "industry": "Other industry",
+     "firm": "Per Mar Security Services",
+     "role": "Human resources",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "industry": "Media & Entertainment",
+     "firm": "The Kansas City Star",
+     "role": "Human resources",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "mira lalovic-hand|rowan university": {
@@ -142144,11 +142579,13 @@
    "name": "Morgan D. Bazilian",
    "university": "Colorado School of Mines",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Government"
@@ -142850,11 +143287,13 @@
    "name": "Nancy Gonzales",
    "university": "Arizona State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -147537,11 +147976,13 @@
    "name": "Pamela Agoyo",
    "university": "Fort Lewis College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -147707,11 +148148,13 @@
    "name": "Pamela M. Norris",
    "university": "University of Delaware",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -148199,11 +148642,13 @@
    "name": "Patricia A. Prelock",
    "university": "University of Arizona",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -148822,12 +149267,14 @@
    "name": "Patrick Day",
    "university": "California State University, Los Angeles",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Unclassified"
@@ -148837,14 +149284,33 @@
    "name": "Patrick E. Hopkins",
    "university": "Indiana University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 14,
+   "seniority": "professional",
+   "industries": [
+    "Consulting"
+   ],
+   "firms": [
+    "Deloitte Haskins & Sells"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "industry": "Consulting",
+     "firm": "Deloitte Haskins & Sells",
+     "role": "Senior Consultant",
+     "seniority": "professional",
+     "years": "1986-1988",
+     "endYear": 1988,
+     "source": "research",
+     "score": 14
+    }
    ],
    "flags": [
     "hasConsultingBg"
@@ -150259,11 +150725,13 @@
    "name": "Paul J. O'Reilly",
    "university": "Thomas Aquinas College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -158496,11 +158964,13 @@
    "name": "Rev. Brian J. Shanley, O.P.",
    "university": "St. John's University-New York",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -158846,11 +159316,13 @@
    "name": "Rev. T. Shane Mathew",
    "university": "Gannon University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -159707,11 +160179,13 @@
    "name": "Richard D. Freer",
    "university": "Emory University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 4,
    "sectors": [
     "Government",
@@ -159779,11 +160253,13 @@
    "name": "Richard DiCarlo",
    "university": "Louisiana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -161567,11 +162043,13 @@
    "name": "Robb T. Brumfield",
    "university": "Louisiana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -162850,11 +163328,13 @@
    "name": "Robert H. Vela Jr.",
    "university": "Texas A&M University-Kingsville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -163428,15 +163908,32 @@
   "robert l. manuel|depaul university": {
    "name": "Robert L. Manuel",
    "university": "DePaul University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "score": 48,
+   "seniority": "senior",
+   "industries": [
+    "Consulting"
+   ],
+   "firms": [
+    "EAB"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "industry": "Consulting",
+     "firm": "EAB",
+     "role": "President's Advisory Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "robert l. manuel|university of indianapolis": {
@@ -165976,12 +166473,14 @@
   "roland faller|texas tech university": {
    "name": "Roland Faller",
    "university": "Texas Tech University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -168235,13 +168734,15 @@
   "ryan a. nesbit|university of georgia": {
    "name": "Ryan A. Nesbit",
    "university": "University of Georgia",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -169134,11 +169635,13 @@
    "name": "Sabrina Zirkel",
    "university": "Santa Clara University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -169380,11 +169883,13 @@
    "name": "Sally Kornbluth",
    "university": "Massachusetts Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -170703,11 +171208,13 @@
    "name": "Santanu Chatterjee",
    "university": "University of Georgia",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -171888,12 +172395,14 @@
    "name": "Sarah Phillips",
    "university": "Pacific University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -178471,11 +178980,13 @@
    "name": "Stacy Anderson",
    "university": "Lincoln Memorial University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usvet"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -180369,11 +180880,13 @@
    "name": "Stephen L. Mangum",
    "university": "University of Tennessee Knoxville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -181838,11 +182351,13 @@
    "name": "Steven L. Tait",
    "university": "Rensselaer Polytechnic Institute",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -183949,12 +184464,14 @@
    "name": "Susan S. Gabert",
    "university": "Saint Anselm College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186667,13 +187184,15 @@
   "teresa nichols|university of north florida": {
    "name": "Teresa Nichols",
    "university": "University of North Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -190855,11 +191374,13 @@
    "name": "Todd Diacon",
    "university": "Kent State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -191516,12 +192037,14 @@
   "tom landers|university of oklahoma": {
    "name": "Tom Landers",
    "university": "University of Oklahoma",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -192085,11 +192608,13 @@
    "name": "Tonya L. Peeples",
    "university": "Pennsylvania State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -195019,11 +195544,13 @@
    "name": "Vicki Kleist",
    "university": "Wayne State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -195207,12 +195734,14 @@
    "name": "Victoria Kohout",
    "university": "University of Nebraska at Omaha",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Unclassified"
@@ -197259,11 +197788,13 @@
    "name": "Wendy Robb",
    "university": "Cedar Crest College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -197474,11 +198005,13 @@
    "name": "Wesley Dykes",
    "university": "William Carey University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -198008,11 +198541,13 @@
    "name": "William A. Falls",
    "university": "University of Vermont",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -198182,11 +198717,13 @@
    "name": "William B. Farquhar",
    "university": "University of Delaware",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 3,
    "sectors": [
     "Unclassified",
@@ -200619,11 +201156,13 @@
    "name": "Yao",
    "university": "University of Delaware",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
    "stops": 1,
    "sectors": [
     "Academic"

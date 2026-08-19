@@ -129,8 +129,13 @@ That is right for a census and **wrong for this thesis**: a sitting corporate
 board seat is a current, named, direct relationship, usually worth more than a
 job someone left in 1998.
 
-`tieKindOf()` now separates them, and the result is stark: **zero board ties in
-the entire corpus.** Across 28,250 people, board or advisory service appears in
+> **Superseded in part by the August 2026 pilot** — see `industry-ties-pilot.md`.
+> Research found five board and advisory seats in 120 people, every one of them
+> invisible to a query phrased about employment. Board coverage is no longer
+> zero, and a board chair now tops the ranked list.
+
+`tieKindOf()` separates them, and the result was stark: **zero board ties in
+the entire corpus** before any research wave ran. Across 28,250 people, board or advisory service appears in
 29 research summaries, 5 career steps and 22 dean notes — all prose, none of it
 in a structured role field. The pass can represent board ties; the data has none
 to give it. That is the single highest-value thing a research pass could collect.
@@ -184,6 +189,11 @@ a display string that becomes a de-facto grouping key the moment anyone builds a
 - **"None found" explicitly** when a career was entirely academic. It is the only way the corpus ever gets a real No instead of a weak one.
 
 ## 9. Priority order
+
+> **Revised by the pilot.** The measured hit rate is 23% in administrative seats
+> and 0/30 in discipline deanships, at ≈1,800 tokens per person. Item 3 below
+> should be scoped to administrative and leadership seats only: two thirds of the
+> cost, 96% of the ties. See `industry-ties-pilot.md`.
 
 1. ~~**Ship the ranked view**~~ **Shipped** (Aug 2026): the Industry Ties module tab
    (`IndustryTies.tsx`) ranks the named-firm pool with industry/seniority/sitting

@@ -177,7 +177,18 @@ industry, which reads as "no industry background" when the truth is usually
 "nobody researched it"), `CompareSchools.tsx` ("Industry Exp % (of researched)"
 over known verdicts, dash when none), `ScoutCandidateList.tsx` (tie chip on
 candidate rows), and an "Industry tie" filter checkbox in `IndividualSearch.tsx`
-(Slate Builder) and `ScoutAssistantPage.tsx`. Full evaluation: `docs/industry-ties.md`.
+(Slate Builder) and `ScoutAssistantPage.tsx`. Full evaluation: `docs/industry-ties.md`;
+measured research economics: `docs/industry-ties-pilot.md`.
+
+**The research ledger.** `artifacts/dean-dashboard/research/industry-ties.jsonl` is
+an append-only JSONL file (one record per person per wave, last wave wins) that the
+generator reads if present and ignores if absent. Researched records **override**
+derived ones and carry `evidence: "research"` plus `researchedOn`, so consumers can
+tell "someone looked and found nothing" from "the one job we recorded was academic".
+Draw a reproducible research sample with
+`node scripts/sample-industry-research.mjs --per 30 --seed <n>`, which stratifies the
+frame by seat type — administrative / professional / leadership / discipline — because
+an unstratified hit rate measures the sampler, not the population.
 
 The purpose is a **connections** signal — which leaders carry a corporate network
 a school can tap — so it models **ties**, not a boolean: person → firm → sector →
@@ -191,10 +202,19 @@ Any wave collecting industry ties must return:
 - **One entry per employer**, not per title. Three promotions at IBM is one tie.
 - **The most senior title held** at that employer. This drives the score and is the field most often dropped.
 - **Years** as a span. Recency is a scoring axis.
-- **Kind**: `employment`, `board`, or `advisory`. Board seats are currently at **zero** across the whole corpus and are the highest-value gap.
+- **Kind**: `employment`, `board`, or `advisory`. **Ask about board seats explicitly, in every query** — the August 2026 pilot found five, and not one appeared in a bio the person's own institution publishes. They are invisible to a question phrased about employment.
+- **Seniority** as a field the researcher sets, from `SENIORITY_BANDS`. Do not leave it to be inferred: `seniorityOf` reads "Science Advisory Board member" as executive and "Chair of the Scientific Advisory Board" as unknown, so inference ranks board ties backwards.
 - **Sector** from `INDUSTRY_NAMES` in `org-classify.mjs`, so the taxonomy does not fork.
 - **Employment distinguished from affiliation** — board service, advisory panels, consulting while on faculty and company-funded chairs are separate kinds, not employment.
-- **"None found" explicitly** when a career was entirely academic. Without it a "no" only means "the one job we recorded was academic" — which is 84% of today's negatives.
+- **"None found" explicitly** when a career was entirely academic. Without it a "no" only means "the one job we recorded was academic" — which is 84% of today's negatives, and which the pilot showed to be wrong for 9 of the 13 people who turned out to have a nameable firm tie.
+- **`kind: "unresolved"`** when the relationship is reported but unconfirmed. The merge DROPS these rather than downgrading them, keeping the note as a lead for the next wave.
+
+Cost, measured rather than estimated: **≈1,800 tokens per person** for a firm-level
+verdict, one query each. Hit rate is 23% in administrative seats and **0/30 in
+discipline deanships**, so a wave scoped to administrative + leadership costs two
+thirds as much and returns 96% of the ties. Dates are the expensive part — only 10 of
+23 pilot ties carried a year — so budget a second pass for recency and rank rather
+than paying for completeness up front.
 
 Run `node scripts/gen-industry-experience.mjs --dump-unclassified` after any wave:
 every org it lists is either a vocabulary addition for `org-classify.mjs` or a

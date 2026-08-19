@@ -169,6 +169,76 @@ function careerBackgroundFlag(raw) {
 // One entry per person, keyed name|university the way every other sidecar in
 // src/data is. Someone who appears across several indices (dean, then provost,
 // then president at the same university) pools all their rows.
+// ---------------------------------------------------------------------------
+// the research ledger
+// ---------------------------------------------------------------------------
+// Everything above derives ties from career stops the corpus already holds, and
+// that ceiling is structural: `priorInstitution` records the ONE job before the
+// appointment, so a decade at a firm followed by twenty years on a faculty is
+// indistinguishable from a lifelong academic. The August 2026 pilot measured the
+// gap directly -- 120 sitting leaders, stratified, one web query each -- and 9 of
+// the 13 people with a nameable firm tie were derived as a confident "no".
+//
+// So researched records OVERRIDE derived ones rather than merging with them. A
+// researcher who looked and found nothing produces a strong no; the derivation's
+// no only ever meant "the one job we recorded was academic".
+//
+// The ledger is append-only JSONL, one record per person per wave, and its shape
+// is the output contract in PROJECT.md: employer name only, one entry per
+// employer, most senior title, years as a span, kind, sector from INDUSTRY_NAMES.
+const LEDGER = join(HERE, "..", "research", "industry-ties.jsonl");
+const RESEARCH = new Map();
+try {
+  for (const line of readFileSync(LEDGER, "utf8").split("\n")) {
+    if (!line.trim()) continue;
+    const r = JSON.parse(line);
+    if (!r.key || !r.verdict) continue;
+    // Last wave wins: a later pass supersedes an earlier one for the same person.
+    RESEARCH.set(r.key, r);
+  }
+} catch { /* no ledger yet -- derivation alone, exactly as before */ }
+
+/**
+ * Turn one ledger record into the tie shape the rest of this file speaks.
+ *
+ * Two deliberate asymmetries with the derived path:
+ *  - seniority comes from the researcher's title string through the SAME
+ *    `seniorityOf` the derivation uses, so a researched executive and a derived
+ *    one score identically and the ranked list stays comparable;
+ *  - seniority is a FIELD the researcher sets, not something inferred from the
+ *    title string. `seniorityOf` is a good employment-title parser and a bad
+ *    board-title one -- it reads "Science Advisory Board member" as executive and
+ *    "Chair of the Scientific Advisory Board" as unknown -- so inferring here
+ *    would rank the pilot's two strongest board ties backwards. It stays only as
+ *    a fallback for records that omit the field.
+ *  - a tie the researcher marked `kind: "unresolved"` is DROPPED, not downgraded.
+ *    An unconfirmed relationship must not enter a ranked list; the note on the
+ *    record keeps it as a lead for the next wave.
+ */
+function researchTies(r) {
+  return (r.ties || [])
+    .filter((t) => t.firm && t.sector && t.sector !== "Academic" && t.kind !== "unresolved")
+    .map((t) => {
+      const kind = t.kind || "employment";
+      const seniority = SENIORITY_BANDS.includes(t.seniority) ? t.seniority : seniorityOf(t.title || "");
+      const endYear = t.endYear ?? null;
+      return {
+        kind,
+        industry: t.sector,
+        firm: t.firm,
+        ...(t.title ? { role: t.title } : {}),
+        seniority,
+        ...(t.startYear || t.endYear
+          ? { years: [t.startYear, t.endYear].filter(Boolean).join("-") }
+          : {}),
+        ...(endYear != null ? { endYear } : {}),
+        source: "research",
+        score: tieScore({ kind, seniority, endYear }),
+      };
+    })
+    .sort((a, b) => b.score - a.score);
+}
+
 const P = new Map();
 const person = (k) => {
   let p = P.get(k);
@@ -247,7 +317,7 @@ const out = {};
 const stats = {
   people: P.size, yes: 0, no: 0, unknown: 0, yesHigh: 0, yesLow: 0, noSingleStop: 0,
   industries: {}, sectors: {}, sources: {}, seniority: {}, kinds: {},
-  firms: new Set(), sittingWithTie: 0, sittingSeniorTie: 0,
+  firms: new Set(), sittingWithTie: 0, sittingSeniorTie: 0, researched: 0,
 };
 
 for (const [k, p] of P) {
@@ -284,8 +354,16 @@ for (const [k, p] of P) {
 
   const flags = [...new Set(p.flags)];
 
+  const researched = RESEARCH.get(k);
+  const finalTies = researched ? researchTies(researched) : ties;
+
   let status, confidence;
-  if (ties.length) { status = "yes"; confidence = "high"; }
+  if (researched) {
+    // A human looked. Even the no is worth something now.
+    status = researched.verdict === "no" ? "no" : "yes";
+    confidence = finalTies.length ? "high" : researched.verdict === "no" ? "high" : "low";
+  }
+  else if (ties.length) { status = "yes"; confidence = "high"; }
   else if (flags.length) { status = "yes"; confidence = "low"; }
   else if (classified.length) { status = "no"; confidence = "medium"; }
   else { status = "unknown"; confidence = "none"; }
@@ -297,8 +375,8 @@ for (const [k, p] of P) {
   // academic", which is a different claim from "never worked in industry".
   if (status === "no" && classified.length === 1) stats.noSingleStop++;
 
-  if (ties.length) {
-    for (const t of ties) {
+  if (finalTies.length) {
+    for (const t of finalTies) {
       stats.industries[t.industry] = (stats.industries[t.industry] || 0) + 1;
       stats.seniority[t.seniority] = (stats.seniority[t.seniority] || 0) + 1;
       stats.kinds[t.kind] = (stats.kinds[t.kind] || 0) + 1;
@@ -307,14 +385,15 @@ for (const [k, p] of P) {
     }
     if (p.sitting) {
       stats.sittingWithTie++;
-      if (ties[0].seniority === "executive" || ties[0].seniority === "senior") stats.sittingSeniorTie++;
+      if (finalTies[0].seniority === "executive" || finalTies[0].seniority === "senior") stats.sittingSeniorTie++;
     }
   }
+  if (researched) stats.researched++;
 
   // People with nothing to say are omitted. A consumer treats a missing key
   // exactly like status "unknown", which keeps the file to the people the
   // corpus actually has evidence for.
-  if (status === "unknown") continue;
+  if (status === "unknown" && !researched) continue;
 
   // Dataset ids this person appears in, sitting-seat index first -- the UI
   // needs a concrete index to open a cross-index profile, and any other order
@@ -329,16 +408,17 @@ for (const [k, p] of P) {
     confidence,
     sitting: p.sitting,
     ...(indices.length ? { indices } : {}),
-    ...(ties.length
+    ...(researched ? { evidence: "research", researchedOn: researched.researchedOn || null } : {}),
+    ...(finalTies.length
       ? {
           // Person score is the best single tie, not a sum: one executive seat
           // at a household-name firm opens more doors than four junior stints,
           // and summing would rank the four above it.
-          score: ties[0].score,
-          seniority: ties[0].seniority,
-          industries: [...new Set(ties.map((t) => t.industry))],
-          firms: [...new Set(ties.map((t) => t.firm))],
-          ties,
+          score: finalTies[0].score,
+          seniority: finalTies[0].seniority,
+          industries: [...new Set(finalTies.map((t) => t.industry))],
+          firms: [...new Set(finalTies.map((t) => t.firm))],
+          ties: finalTies,
         }
       : // A "no" gets the sector tally and stop count only. Spelling out a dozen
         // universities to justify "no industry found" quadrupled the file to say
@@ -346,6 +426,32 @@ for (const [k, p] of P) {
         { stops: classified.length, sectors: [...new Set(classified.map((c) => c.sector))] }),
     ...(flags.length ? { flags } : {}),
   };
+}
+
+// A researched person the corpus has no career evidence for at all still belongs
+// in the file -- the whole point of the ledger is to speak for people the
+// derivation cannot. Without this they would silently vanish.
+for (const [k, r] of RESEARCH) {
+  if (out[k]) continue;
+  const ties = researchTies(r);
+  out[k] = {
+    name: r.name,
+    university: r.university,
+    status: r.verdict === "no" ? "no" : "yes",
+    confidence: ties.length || r.verdict === "no" ? "high" : "low",
+    sitting: true,
+    evidence: "research",
+    researchedOn: r.researchedOn || null,
+    ...(ties.length
+      ? {
+          score: ties[0].score, seniority: ties[0].seniority,
+          industries: [...new Set(ties.map((t) => t.industry))],
+          firms: [...new Set(ties.map((t) => t.firm))],
+          ties,
+        }
+      : { stops: 0, sectors: [] }),
+  };
+  stats.researched++;
 }
 
 // ---------------------------------------------------------------------------
@@ -395,6 +501,7 @@ if (!REPORT_ONLY && !DUMP_UNCLASSIFIED) {
       namedFirm: stats.yesHigh, flagOnly: stats.yesLow,
       firms: stats.firms.size,
       sittingWithTie: stats.sittingWithTie, sittingSeniorTie: stats.sittingSeniorTie,
+      researched: stats.researched,
     },
     people: Object.fromEntries(Object.keys(out).sort().map((k) => [k, out[k]])),
   };

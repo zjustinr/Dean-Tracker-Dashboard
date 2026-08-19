@@ -209,6 +209,12 @@ export interface IndustryTieRecord {
   // dataset ids the person appears in, sitting-seat index first (for opening a
   // cross-index profile); absent only for people outside every registered index
   indices?: string[];
+  // "research" when a human read this person's career and recorded the result;
+  // absent when the record was derived from career stops the corpus already
+  // held. This is a claim about whether anyone LOOKED, not about what they
+  // found -- a researched "no" is a strong negative, a derived one is not.
+  evidence?: "research";
+  researchedOn?: string | null;
   // present only on status "yes" with a named firm (confidence "high"):
   score?: number;
   seniority?: TieSeniority;
