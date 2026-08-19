@@ -177,7 +177,7 @@ export interface EmployerIndexAffinity {
 const employerAffinity = makeJsonMap<EmployerIndexAffinity>("employer-affinity.json");
 export const useEmployerAffinity = employerAffinity.useMap;
 
-// Industry-tie derivation output (scripts/gen-industry-experience.mjs). Unlike
+// Industry-tie derivation output (scripts/gen-nonacademic-experience.mjs). Unlike
 // the other sidecars this is a WRAPPED document, not a bare person map: the
 // scoring weights, asOf year and corpus counts ride alongside `people` so a
 // stored score is auditable client-side and no reserved key ever sits inside
@@ -189,7 +189,7 @@ export const useEmployerAffinity = employerAffinity.useMap;
 // from the received `people`, never read off `counts`.
 export type TieKind = "employment" | "board" | "advisory";
 export type TieSeniority = "executive" | "senior" | "professional" | "unknown";
-export interface IndustryTie {
+export interface NonAcademicTie {
   kind: TieKind;
   industry: string;
   firm: string;
@@ -200,7 +200,7 @@ export interface IndustryTie {
   source: string;
   score: number;
 }
-export interface IndustryTieRecord {
+export interface NonAcademicRecord {
   name: string;
   university: string;
   status: "yes" | "no";
@@ -218,20 +218,22 @@ export interface IndustryTieRecord {
   // present only on status "yes" with a named firm (confidence "high"):
   score?: number;
   seniority?: TieSeniority;
-  industries?: string[];
+  // Category names from CATEGORY_NAMES: the industry sub-sectors plus
+  // Government & Public Sector, Nonprofit & Foundations, Healthcare Providers.
+  categories?: string[];
   firms?: string[];
-  ties?: IndustryTie[];
+  ties?: NonAcademicTie[];
   // present only on status "no":
   stops?: number;
   sectors?: string[];
   flags?: string[];
 }
-export interface IndustryTiesDoc {
+export interface NonAcademicDoc {
   asOf: number;
   scoring: { seniority: Record<TieSeniority, number>; kind: Record<TieKind, number>; recency: string; note: string };
-  industries: string[];
+  categories: string[];
   counts: Record<string, number>;
-  people: Record<string, IndustryTieRecord>;
+  people: Record<string, NonAcademicRecord>;
 }
 
 // Same reactive single-fetch pattern as makeJsonMap, but the snapshot is the
@@ -259,8 +261,8 @@ function makeJsonDoc<T>(file: string) {
     },
   };
 }
-const industryTies = makeJsonDoc<IndustryTiesDoc>("industry-experience.json");
-export const useIndustryTies = industryTies.useDoc;
+const industryTies = makeJsonDoc<NonAcademicDoc>("nonacademic-experience.json");
+export const useNonAcademicExperience = industryTies.useDoc;
 
 export const enrichKey = (dean: string, university: string) =>
   `${dean.trim().toLowerCase()}|${university.trim().toLowerCase()}`;

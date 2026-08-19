@@ -67,8 +67,8 @@ const PATHS: Record<string, ReactNode> = {
       <path d="M7 8h7M7 11h7M7 14h4" />
     </>
   ),
-  // Industry Ties — briefcase with an outgoing connection node
-  industryties: (
+  // Non-academic Experience — briefcase with an outgoing connection node
+  nonacademic: (
     <>
       <rect x="3" y="8" width="15" height="11" rx="1.5" />
       <path d="M7.5 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />

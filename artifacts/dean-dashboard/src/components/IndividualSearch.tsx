@@ -8,7 +8,7 @@ import RegionMap from "@/components/RegionMap";
 import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
-import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, useIndustryTies, type AffEntry, type AffMap } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, useNonAcademicExperience, type AffEntry, type AffMap } from "@/data/enrichment";
 import ScoutAssistant from "@/components/ScoutAssistant";
 import { useTrial } from "@/data/TrialContext";
 
@@ -154,7 +154,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // candidates got filtered out silently.
   const [requirePhd, setRequirePhd] = useState(false);
   const [requireProf, setRequireProf] = useState(false);
-  // "Has an industry tie" -- a NAMED-FIRM tie from industry-experience.json, not
+  // "Has an industry tie" -- a NAMED-FIRM tie from nonacademic-experience.json, not
   // the legacy hasIndustryExp boolean (unpopulated in most indices, so filtering
   // on it would silently empty the list). Filters to people the derivation can
   // actually point at an employer for.
@@ -286,10 +286,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     return !!car && car.some((s) => PROF_RE.test(s.role || ""));
   };
 
-  // Named-firm industry tie (industry-experience.json). Deliberately requires
+  // Named-firm industry tie (nonacademic-experience.json). Deliberately requires
   // confidence "high": a flag-only yes has no employer to show, so filtering on
   // it would return people whose row cannot explain why they matched.
-  const industryPeople = useIndustryTies()?.people ?? null;
+  const industryPeople = useNonAcademicExperience()?.people ?? null;
   const hasIndustryTie = useCallback((d: Dean): boolean => {
     const rec = industryPeople?.[enrichKey(d.dean, d.university)];
     return !!rec && rec.status === "yes" && rec.confidence === "high" && !!rec.ties?.length;
@@ -803,7 +803,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               </label>
               <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
                 <input type="checkbox" checked={requireIndustryTie} onChange={(e) => { setRequireIndustryTie(e.target.checked); setExpandedId(null); }} className="accent-[#0d6a72] w-3.5 h-3.5" />
-                Industry tie
+                Non-academic tie
               </label>
               <span className="text-[10px] text-muted-foreground">(held a doctorate / faculty rank / a named-firm corporate tie)</span>
             </div>

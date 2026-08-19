@@ -1,18 +1,26 @@
 import { useMemo, useState } from "react";
 import {
-  useIndustryTies, usePhotoMap, enrichKey,
-  type IndustryTieRecord, type TieSeniority,
+  useNonAcademicExperience, usePhotoMap, enrichKey,
+  type NonAcademicRecord, type TieSeniority,
 } from "@/data/enrichment";
 import { useDataset } from "@/data/DatasetContext";
 
 /**
- * Industry Ties — the ranked view of leaders who carry a corporate network a
- * school could tap for gifts, partnerships, executive education or placement.
+ * Non-academic Experience — the ranked view of leaders who have worked outside
+ * the academy and carry a network a school could tap for gifts, partnerships,
+ * executive education or placement.
  *
- * Everything here reads from industry-experience.json (a derivation over
- * recorded career stops — see scripts/gen-industry-experience.mjs), and only
- * NAMED-FIRM ties are listed: a person appears because a specific employer at
- * a specific rank is on their record, never because of a bare flag. The
+ * "Outside the academy" deliberately means COMPANY, GOVERNMENT, NONPROFIT,
+ * FOUNDATION AND HEALTH SYSTEM alike. An earlier cut counted companies only,
+ * which scored a health-system board chair, a state budget director and a
+ * foundation trustee at zero — three of the strongest networks in the corpus.
+ * Only Academic is the baseline, and Unclassified stays out because "no rule
+ * matched" is an open question rather than a finding.
+ *
+ * Everything here reads from nonacademic-experience.json (a derivation over
+ * recorded career stops — see scripts/gen-nonacademic-experience.mjs), and only
+ * NAMED-ORGANISATION ties are listed: a person appears because a specific
+ * employer at a specific rank is on their record, never because of a bare flag. The
  * ranking is the tie score computed at generation time (seniority-dominant,
  * recency-decayed, board/advisory weighted above plain past employment); the
  * weights ship inside the file so the "How the ranking works" panel below
@@ -39,12 +47,12 @@ const SENIORITY_CLS: Record<TieSeniority, string> = {
 
 const PAGE_SIZE = 60;
 
-type Entry = { key: string; rec: IndustryTieRecord };
+type Entry = { key: string; rec: NonAcademicRecord };
 
-export default function IndustryTies({ onOpenLeader }: {
+export default function NonAcademicExperience({ onOpenLeader }: {
   onOpenLeader?: (index: string | null, fullName: string) => void;
 }) {
-  const doc = useIndustryTies();
+  const doc = useNonAcademicExperience();
   const photos = usePhotoMap();
   const { list } = useDataset();
   const indexLabel = useMemo(() => {
@@ -54,7 +62,7 @@ export default function IndustryTies({ onOpenLeader }: {
   }, [list]);
 
   const [query, setQuery] = useState("");
-  const [industry, setIndustry] = useState<string>("all");
+  const [category, setCategory] = useState<string>("all");
   const [seniorities, setSeniorities] = useState<Set<TieSeniority>>(new Set());
   const [sittingOnly, setSittingOnly] = useState(true);
   const [visible, setVisible] = useState(PAGE_SIZE);
@@ -76,9 +84,9 @@ export default function IndustryTies({ onOpenLeader }: {
     return out;
   }, [doc]);
 
-  const industryOptions = useMemo(() => {
+  const categoryOptions = useMemo(() => {
     const c = new Map<string, number>();
-    for (const { rec } of pool) for (const i of rec.industries ?? []) c.set(i, (c.get(i) ?? 0) + 1);
+    for (const { rec } of pool) for (const i of rec.categories ?? []) c.set(i, (c.get(i) ?? 0) + 1);
     return [...c.entries()].sort((a, b) => b[1] - a[1]);
   }, [pool]);
 
@@ -86,7 +94,7 @@ export default function IndustryTies({ onOpenLeader }: {
     const q = query.trim().toLowerCase();
     return pool.filter(({ rec }) => {
       if (sittingOnly && !rec.sitting) return false;
-      if (industry !== "all" && !(rec.industries ?? []).includes(industry)) return false;
+      if (category !== "all" && !(rec.categories ?? []).includes(category)) return false;
       if (seniorities.size && !seniorities.has(rec.seniority ?? "unknown")) return false;
       if (q) {
         const hay = `${rec.name} ${rec.university} ${(rec.firms ?? []).join(" ")}`.toLowerCase();
@@ -94,7 +102,7 @@ export default function IndustryTies({ onOpenLeader }: {
       }
       return true;
     });
-  }, [pool, query, industry, seniorities, sittingOnly]);
+  }, [pool, query, category, seniorities, sittingOnly]);
 
   const sittingCount = useMemo(() => pool.filter((e) => e.rec.sitting).length, [pool]);
 
@@ -110,7 +118,7 @@ export default function IndustryTies({ onOpenLeader }: {
   if (!doc) {
     return (
       <div className="bg-card rounded-xl border border-border p-6 text-sm text-muted-foreground">
-        Loading industry-tie data…
+        Loading non-academic experience data…
       </div>
     );
   }
@@ -120,21 +128,22 @@ export default function IndustryTies({ onOpenLeader }: {
       {/* Header + coverage framing */}
       <div className="bg-card rounded-xl border border-border p-4 sm:p-5">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="text-lg font-bold">Industry Ties</h2>
+          <h2 className="text-lg font-bold">Non-academic Experience</h2>
           <span className="text-xs text-muted-foreground">
-            {sittingCount} sitting leader{sittingCount === 1 ? "" : "s"} with a named-firm tie
+            {sittingCount} sitting leader{sittingCount === 1 ? "" : "s"} with a named organisation
             {pool.length > sittingCount ? ` · ${pool.length} incl. past leaders` : ""} · as of {doc.asOf}
           </span>
         </div>
         <p className="text-sm text-muted-foreground mt-1.5 max-w-3xl">
-          Leaders whose record names a specific company — ranked by how senior they were there, how
-          recent the tie is, and how they were attached (employment, board seat, advisory role). The
-          firm is the asset; use this to find who can open a door.
+          Leaders whose record names a specific organisation outside the academy — a company,
+          government body, nonprofit, foundation or health system — ranked by how senior they were
+          there, how recent the tie is, and how they were attached (employment, board seat, advisory
+          role). The organisation is the asset; use this to find who can open a door.
         </p>
         <p className="text-xs text-muted-foreground mt-2 max-w-3xl">
           <span className="font-semibold">Coverage note:</span> derived from recorded career stops.
           Roughly half the corpus has no career evidence either way, so absence from this list is
-          <span className="italic"> not</span> evidence of no industry background.
+          <span className="italic"> not</span> evidence of no non-academic background.
         </p>
         <button
           onClick={() => setShowMethod((v) => !v)}
@@ -157,7 +166,9 @@ export default function IndustryTies({ onOpenLeader }: {
             <p>
               Seniority and attachment come from the recorded role title; recency from recorded years, or
               the appointment year that ended the job. Weights ship inside the data file itself, so this
-              panel always describes the ranking actually shown.
+              panel always describes the ranking actually shown. Sector is deliberately <span className="font-semibold">not</span> a
+              scoring input — a foundation seat and a corporate one are ranked on the same axes, and the
+              category filter above is there for anyone who wants to weigh them differently.
             </p>
           </div>
         )}
@@ -169,17 +180,17 @@ export default function IndustryTies({ onOpenLeader }: {
           <input
             value={query}
             onChange={(e) => { setQuery(e.target.value); setVisible(PAGE_SIZE); }}
-            placeholder="Search name, university, or firm…"
+            placeholder="Search name, university, or organisation…"
             className="flex-1 min-w-[220px] px-3 py-1.5 text-sm rounded-md border border-border bg-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           />
           <select
-            value={industry}
-            onChange={(e) => { setIndustry(e.target.value); setVisible(PAGE_SIZE); }}
+            value={category}
+            onChange={(e) => { setCategory(e.target.value); setVisible(PAGE_SIZE); }}
             className="px-2 py-1.5 text-sm rounded-md border border-border bg-background"
-            aria-label="Filter by industry"
+            aria-label="Filter by category"
           >
-            <option value="all">All industries</option>
-            {industryOptions.map(([name, n]) => (
+            <option value="all">All categories</option>
+            {categoryOptions.map(([name, n]) => (
               <option key={name} value={name}>{name} ({n})</option>
             ))}
           </select>
@@ -216,7 +227,7 @@ export default function IndustryTies({ onOpenLeader }: {
         {filtered.length === 0 ? (
           <p className="px-5 py-6 text-sm text-muted-foreground">
             {pool.length === 0
-              ? "No industry-tie records are available in your current access scope."
+              ? "No non-academic experience records are available in your current access scope."
               : "No leaders match these filters."}
           </p>
         ) : (
@@ -261,7 +272,7 @@ export default function IndustryTies({ onOpenLeader }: {
                       <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${SENIORITY_CLS[rec.seniority ?? "unknown"]}`}>
                         {SENIORITY_LABEL[rec.seniority ?? "unknown"]}
                       </span>
-                      {(rec.industries ?? []).slice(0, 2).map((i) => (
+                      {(rec.categories ?? []).slice(0, 2).map((i) => (
                         <span key={i} className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-muted text-muted-foreground">{i}</span>
                       ))}
                       {top.kind !== "employment" && (

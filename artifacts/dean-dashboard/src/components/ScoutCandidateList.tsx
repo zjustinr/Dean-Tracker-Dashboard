@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Dean } from "@/data/types";
-import { usePhotoMap, useResearchMap, enrichKey, useIndustryTies } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, useNonAcademicExperience } from "@/data/enrichment";
 import { affKey, SOURCE_THEME, type ScoutCandidate } from "@/data/useScoutCandidates";
 import DeanProfile from "@/components/DeanProfile";
 import { CareerAssessment, useCareerAnalysis, type Root } from "@/components/CareerMap";
@@ -25,10 +25,10 @@ export default function ScoutCandidateList({
 }) {
   const photos = usePhotoMap();
   const researchMap = useResearchMap();
-  // Named-firm industry ties (scripts/gen-industry-experience.mjs): a candidate
+  // Named-firm industry ties (scripts/gen-nonacademic-experience.mjs): a candidate
   // who carries a senior corporate network gets a chip saying WHICH firm at WHAT
   // rank -- exactly the door-opening signal the connections use case scouts for.
-  const tiesPeople = useIndustryTies()?.people ?? null;
+  const tiesPeople = useNonAcademicExperience()?.people ?? null;
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
 
   // Cohort tenure distribution for the Movability Index, mirroring IndividualSearch's
@@ -126,8 +126,8 @@ export default function ScoutCandidateList({
                   if (!tie) return null;
                   const rank = tie.seniority === "executive" ? "Executive" : tie.seniority === "senior" ? "Senior" : null;
                   return (
-                    <p className="text-[10px] mt-0.5 truncate text-teal-700 dark:text-teal-400" title="Named-firm industry tie from recorded career stops">
-                      <span className="font-semibold">Industry tie:</span> {rank ? `${rank} — ` : ""}{tie.firm}
+                    <p className="text-[10px] mt-0.5 truncate text-teal-700 dark:text-teal-400" title="Named non-academic employer, board seat or advisory role">
+                      <span className="font-semibold">Non-academic:</span> {rank ? `${rank} — ` : ""}{tie.firm}
                       {tie.kind !== "employment" ? ` (${tie.kind === "board" ? "board seat" : "advisory"})` : ""}
                     </p>
                   );

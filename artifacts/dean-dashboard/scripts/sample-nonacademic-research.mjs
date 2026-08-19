@@ -10,7 +10,7 @@
 // should carry ties, discipline deanships should be near zero -- so the pilot
 // can report a LIFT rather than a bare percentage.
 //
-// Usage: node scripts/sample-industry-research.mjs [--per 30] [--seed 20260819]
+// Usage: node scripts/sample-nonacademic-research.mjs [--per 30] [--seed 20260819]
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { FILE_ID } from "./lib/indices.mjs";
 import { join, dirname } from "node:path";
@@ -46,7 +46,18 @@ function rng(seed) {
   return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
 }
 
-const doc = JSON.parse(readFileSync(join(SRC, "industry-experience.json"), "utf8"));
+const doc = JSON.parse(readFileSync(join(SRC, "nonacademic-experience.json"), "utf8"));
+
+// Never re-draw someone a previous wave already researched. Without this the
+// sampler would keep handing back the same people as the frame shrinks, and a
+// second wave would spend its whole budget re-confirming the first.
+const LEDGER = join(HERE, "..", "research", "nonacademic-ties.jsonl");
+const ALREADY = new Set();
+try {
+  for (const line of readFileSync(LEDGER, "utf8").split("\n")) {
+    if (line.trim()) ALREADY.add(JSON.parse(line).key);
+  }
+} catch { /* first wave */ }
 const enrichKey = (n, u) => `${String(n).trim().toLowerCase()}|${String(u).trim().toLowerCase()}`;
 
 // Pull the richest surviving row per person so the researcher has something to
@@ -77,13 +88,14 @@ for (const file of Object.keys(FILE_ID).concat(["deans.json"])) {
   }
 }
 
-// The frame: sitting leaders the derivation could NOT name a firm for. Anyone
-// who already has a named tie is excluded -- the pilot measures what research
-// ADDS, not what it re-confirms.
+// The frame: sitting leaders the derivation could NOT name an organisation for,
+// minus anyone a previous wave already researched. A sample drawn this way
+// measures what research ADDS, never what it re-confirms.
 const frame = { administrative: [], professional: [], discipline: [], leadership: [] };
 for (const [key, p] of Object.entries(doc.people)) {
   if (!p.sitting) continue;
   if (p.ties && p.ties.length) continue;
+  if (ALREADY.has(key)) continue;
   const stratum = STRATUM_OF[(p.indices || [])[0]];
   if (!stratum) continue;
   frame[stratum].push({ key, ...p, ctx: CTX.get(key) || null });
@@ -115,8 +127,8 @@ for (const [stratum, pool] of Object.entries(frame)) {
 
 // Same directory as the research ledger the generator reads, so a sample and
 // the findings it produced sit next to each other.
-const path = join(HERE, "..", "research", "industry-pilot-sample.json");
-writeFileSync(path, JSON.stringify({ seed: SEED, per: PER, strata: STRATA, frameSizes:
+const path = join(HERE, "..", "research", "nonacademic-sample.json");
+writeFileSync(path, JSON.stringify({ seed: SEED, per: PER, strata: STRATA, alreadyResearched: ALREADY.size, frameSizes:
   Object.fromEntries(Object.entries(frame).map(([k, v]) => [k, v.length])), sample: out }, null, 2));
 console.log(`frame: ${Object.entries(frame).map(([k, v]) => `${k}=${v.length}`).join("  ")}`);
 console.log(`sampled ${out.length} -> ${path}`);

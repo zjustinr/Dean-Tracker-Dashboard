@@ -1,4 +1,14 @@
-# Industry ties — what the corpus supports, and how the field is built
+# Non-academic experience — what the corpus supports, and how the field is built
+
+> **Definition widened, August 2026.** This document was written when the field
+> counted **companies only**. It now counts every non-academic employer —
+> companies, governments, nonprofits, foundations and health systems alike —
+> because the network a foundation trustee or a state budget director carries is
+> not a lesser thing than a consultant's, and the old rule scored all of them at
+> zero. Sections below that reason about *what makes a tie worth something* still
+> hold; the counts in §3 and the exclusion in §10 were written under the narrow
+> rule. Current numbers and the measured effect of the change:
+> `nonacademic-experience-pilot.md`.
 
 Schools increasingly want leaders who bring a corporate network they can tap for
 gifts, partnerships, executive education and placement. That is the thesis this
@@ -49,7 +59,7 @@ complains about any dean file the registry has not been told about, so a partial
 rollout is loud instead of silent.
 
 **Why the taxonomy moved.** `gen-employer-affinity.mjs` had its own
-`CATEGORY_PATTERNS`; `gen-industry-experience.mjs` had a fuller one. One
+`CATEGORY_PATTERNS`; `gen-nonacademic-experience.mjs` had a fuller one. One
 vocabulary now serves both, mapped onto the coarse category names
 `employer-affinity.json` already publishes so its shape and its validated
 numbers survive.
@@ -60,8 +70,8 @@ numbers survive.
 
 ## 3. What the existing data yields
 
-`node scripts/gen-industry-experience.mjs` — about a second, deterministic,
-writes `src/data/industry-experience.json`. Never touches the dean JSONs.
+`node scripts/gen-nonacademic-experience.mjs` — about a second, deterministic,
+writes `src/data/nonacademic-experience.json`. Never touches the dean JSONs.
 
 Over 28,250 unique people:
 
@@ -129,7 +139,7 @@ That is right for a census and **wrong for this thesis**: a sitting corporate
 board seat is a current, named, direct relationship, usually worth more than a
 job someone left in 1998.
 
-> **Superseded in part by the August 2026 pilot** — see `industry-ties-pilot.md`.
+> **Superseded in part by the August 2026 pilot** — see `nonacademic-experience-pilot.md`.
 > Research found five board and advisory seats in 120 people, every one of them
 > invisible to a query phrased about employment. Board coverage is no longer
 > zero, and a board chair now tops the ranked list.
@@ -193,10 +203,10 @@ a display string that becomes a de-facto grouping key the moment anyone builds a
 > **Revised by the pilot.** The measured hit rate is 23% in administrative seats
 > and 0/30 in discipline deanships, at ≈1,800 tokens per person. Item 3 below
 > should be scoped to administrative and leadership seats only: two thirds of the
-> cost, 96% of the ties. See `industry-ties-pilot.md`.
+> cost, 96% of the ties. See `nonacademic-experience-pilot.md`.
 
 1. ~~**Ship the ranked view**~~ **Shipped** (Aug 2026): the Industry Ties module tab
-   (`IndustryTies.tsx`) ranks the named-firm pool with industry/seniority/sitting
+   (`NonAcademicExperience.tsx`) ranks the named-firm pool with industry/seniority/sitting
    filters and opens cross-index profiles. The sidecar is served through both
    ENRICHMENT sets, scope-gated per visitor like leader-research; DeanProfile's badge
    now names the firm, CompareSchools computes "Industry Exp % (of researched)" over
@@ -212,7 +222,7 @@ worth researching for a field consulted about sitting candidates.
 ## 10. Known limits
 
 - **`careerBackground` is two different fields.** A short label in business/engineering ("Academic/Industry"), a paragraph-long bio in advancement/nursing/admin. Substring-matching the prose flagged "corporate and foundation relations" and "board-certified family nurse practitioner" as industry experience — 75 false positives, now guarded by requiring a whole label component to match.
-- **Hospitals and health systems are excluded** from the yes bucket. In nursing, medical and pharmacy a health system is where a clinical academic normally works, and counting it would flip large parts of those indices on a contested definition. `makeClassifier(..., { countHealthProviderAsIndustry: true })` flips it.
+- ~~**Hospitals and health systems are excluded** from the yes bucket.~~ **No longer true.** They kept a distinct sector so a consumer can still tell a health system from a pharma company, but they now count. The old note argued that counting them "would flip large parts of those indices on a contested definition" — the definition was subsequently settled the other way, and flipping those indices was the point: a health-system board chair is exactly the kind of relationship this field exists to surface. `countHealthProviderAsIndustry` is gone; there is nothing left to flip.
 - **~1,065 org strings still match no rule.** `--dump-unclassified` lists them; each is either a vocabulary addition or a genuine unknown.
 - **Recency is thin.** Only 44 ties carry explicit years; the rest use the appointment year as the end-of-tie date, which is a real signal but a coarse one.
 - **Two upstream bugs, both fixed here, both worth recognizing elsewhere:**

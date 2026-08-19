@@ -3,7 +3,7 @@ import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { genderNorm } from "@/data/types";
-import { usePhotoMap, useResearchMap, enrichKey, useIndustryTies } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, useNonAcademicExperience } from "@/data/enrichment";
 import { useScoutCandidateEngine, affKey } from "@/data/useScoutCandidates";
 import { matchKeywords, type Keyword } from "@/data/keywordMatch";
 import { Methodology } from "@/components/ScoutAssistant";
@@ -54,7 +54,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   const [includeGender, setIncludeGender] = useState<"all" | "women" | "men">("all");
   const [requirePhd, setRequirePhd] = useState(false);
   const [requireProf, setRequireProf] = useState(false);
-  // Named-firm industry tie (industry-experience.json), not the legacy
+  // Named-firm industry tie (nonacademic-experience.json), not the legacy
   // hasIndustryExp boolean -- see hasIndustryTie below.
   const [requireIndustryTie, setRequireIndustryTie] = useState(false);
   const [apptType, setApptType] = useState<"all" | "perm" | "interim">("all");
@@ -178,7 +178,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
 
   // Requires confidence "high" (a named firm): a flag-only yes has no employer,
   // so a candidate row matching on it could not explain itself.
-  const industryPeople = useIndustryTies()?.people ?? null;
+  const industryPeople = useNonAcademicExperience()?.people ?? null;
   const hasIndustryTie = useCallback((d: Dean): boolean => {
     const rec = industryPeople?.[enrichKey(d.dean, d.university)];
     return !!rec && rec.status === "yes" && rec.confidence === "high" && !!rec.ties?.length;
@@ -339,7 +339,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
               </label>
               <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
                 <input type="checkbox" checked={requireIndustryTie} onChange={(e) => setRequireIndustryTie(e.target.checked)} className="accent-[#0d6a72] w-3.5 h-3.5" />
-                Industry tie
+                Non-academic tie
               </label>
               <span className="text-[10px] text-muted-foreground">(a named-firm corporate tie)</span>
             </div>

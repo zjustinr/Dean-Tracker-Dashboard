@@ -8,7 +8,7 @@ import { FullPortrait } from "./DeanPortrait";
 import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
-import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps, usePhotoMap, useIndustryTies, type NewsItem } from "@/data/enrichment";
+import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps, usePhotoMap, useNonAcademicExperience, type NewsItem } from "@/data/enrichment";
 
 function formatArchiveDate(capturedAt: string): string {
   // capturedAt is YYYYMMDD (see photo-lib.mjs's today()).
@@ -37,11 +37,11 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
   const careerPositions = useDeanCareer(dean.dean);
   const title = titleOf(dean);
   const research = useResearchMap()[enrichKey(dean.dean, dean.university)] || null;
-  // Industry-tie record (scripts/gen-industry-experience.mjs). When it names a
+  // Industry-tie record (scripts/gen-nonacademic-experience.mjs). When it names a
   // firm, the badge says WHICH firm -- for the connections use case the employer
   // is the information, not the boolean. The legacy hasIndustryExp flag stays as
   // the fallback for hand-labelled people the derivation couldn't reproduce.
-  const industryDoc = useIndustryTies();
+  const industryDoc = useNonAcademicExperience();
   const industryRec = industryDoc?.people[enrichKey(dean.dean, dean.university)] ?? null;
   const industryTies = industryRec?.status === "yes" ? industryRec.ties ?? [] : [];
   const industryTie = industryTies[0] ?? null;
@@ -202,7 +202,7 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
             variant="secondary"
             title={`${industryTie.role ? industryTie.role + ", " : ""}${industryTie.firm}${industryTie.years ? " (" + industryTie.years + ")" : ""} — from recorded career stops`}
           >
-            Industry: {industryTie.firm}{(industryRec?.firms?.length ?? 0) > 1 ? ` +${industryRec!.firms!.length - 1}` : ""}
+            Non-academic: {industryTie.firm}{(industryRec?.firms?.length ?? 0) > 1 ? ` +${industryRec!.firms!.length - 1}` : ""}
           </Badge>
         ) : (
           dean.hasIndustryExp && <Badge variant="secondary">Industry Experience</Badge>
@@ -286,14 +286,14 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
           <span>{dean.careerBackground || "–"}</span>
           {/* Always rendered, in all four states -- see industryState above for why
               silence was the wrong default. */}
-          <span className="text-muted-foreground font-medium">Industry Experience</span>
+          <span className="text-muted-foreground font-medium">Non-academic Experience</span>
           <span>
             {industryState === "named" ? (
               <>
                 {(industryRec!.firms ?? []).join(", ")}
                 <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
                   {industryTie!.role ? `${industryTie!.role} · ` : ""}
-                  {(industryRec!.industries ?? []).join(", ")}
+                  {(industryRec!.categories ?? []).join(", ")}
                   {industryTie!.years ? ` · ${industryTie!.years}` : industryTie!.endYear != null ? ` · until ${industryTie!.endYear}` : ""}
                   {industryTie!.kind !== "employment" ? ` · ${industryTie!.kind === "board" ? "board seat" : "advisory"}` : ""}
                   {industryResearched ? " · researched" : ""}
@@ -301,22 +301,22 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
               </>
             ) : industryState === "flagged" ? (
               <>
-                Noted, employer not on record
+Noted, organisation not on record
                 <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
                   {industryResearched
-                    ? "Researched — industry background confirmed, but no public source names the employer"
+                    ? "Researched — non-academic experience confirmed, but no public source names the organisation"
                     : (industryRec!.flags ?? []).join("; ") || "Corroborating label only"}
                 </span>
               </>
             ) : industryState === "none" ? (
               <>
-                {industryResearched ? "None found" : "None in recorded career"}
+                {industryResearched ? "None found" : "None outside the academy on record"}
                 <span className="block text-xs text-muted-foreground mt-0.5 leading-snug">
                   {industryResearched
-                    ? `Researched${industryRec!.researchedOn ? ` ${industryRec!.researchedOn}` : ""} — career reviewed, no firm, board seat or advisory role`
+                    ? `Researched${industryRec!.researchedOn ? ` ${industryRec!.researchedOn}` : ""} — career reviewed, no non-academic employer, board seat or advisory role`
                     : industryRec!.stops === 1
                     ? "Only one career stop on record — a weak signal"
-                    : `Across ${industryRec!.stops} recorded career stops`}
+                    : `Across ${industryRec!.stops} recorded career stops — all academic`}
                 </span>
               </>
             ) : (

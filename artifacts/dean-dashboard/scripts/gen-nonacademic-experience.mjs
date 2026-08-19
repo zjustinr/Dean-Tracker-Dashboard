@@ -1,8 +1,8 @@
 // Industry-tie derivation pass.
 //
-//   node scripts/gen-industry-experience.mjs                       # write src/data/industry-experience.json
-//   node scripts/gen-industry-experience.mjs --report              # coverage report only, no write
-//   node scripts/gen-industry-experience.mjs --dump-unclassified   # list orgs no rule matched
+//   node scripts/gen-nonacademic-experience.mjs                       # write src/data/nonacademic-experience.json
+//   node scripts/gen-nonacademic-experience.mjs --report              # coverage report only, no write
+//   node scripts/gen-nonacademic-experience.mjs --dump-unclassified   # list orgs no rule matched
 //
 // WHY THIS EXISTS
 // ---------------
@@ -55,12 +55,12 @@ import { dirname, join } from "node:path";
 import { assertRegistered, deanFiles, FILE_ID } from "./lib/indices.mjs";
 import {
   buildAcademicIndex, makeClassifier, splitOrgs,
-  seniorityOf, tieKindOf, SENIORITY_BANDS, INDUSTRY_NAMES,
+  seniorityOf, tieKindOf, SENIORITY_BANDS, CATEGORY_NAMES, TIE_SECTORS,
 } from "./lib/org-classify.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SRC = join(HERE, "..", "src", "data");
-const OUT = join(SRC, "industry-experience.json");
+const OUT = join(SRC, "nonacademic-experience.json");
 const REPORT_ONLY = process.argv.includes("--report");
 const DUMP_UNCLASSIFIED = process.argv.includes("--dump-unclassified");
 
@@ -186,7 +186,7 @@ function careerBackgroundFlag(raw) {
 // The ledger is append-only JSONL, one record per person per wave, and its shape
 // is the output contract in PROJECT.md: employer name only, one entry per
 // employer, most senior title, years as a span, kind, sector from INDUSTRY_NAMES.
-const LEDGER = join(HERE, "..", "research", "industry-ties.jsonl");
+const LEDGER = join(HERE, "..", "research", "nonacademic-ties.jsonl");
 const RESEARCH = new Map();
 try {
   for (const line of readFileSync(LEDGER, "utf8").split("\n")) {
@@ -219,12 +219,15 @@ function researchTies(r) {
   return (r.ties || [])
     .filter((t) => t.firm && t.sector && t.sector !== "Academic" && t.kind !== "unresolved")
     .map((t) => {
+      // The ledger's `sector` field is a CATEGORY name from CATEGORY_NAMES --
+      // it is what a researcher picks from a list, not the coarse
+      // Industry/Government/Nonprofit split the classifier produces.
       const kind = t.kind || "employment";
       const seniority = SENIORITY_BANDS.includes(t.seniority) ? t.seniority : seniorityOf(t.title || "");
       const endYear = t.endYear ?? null;
       return {
         kind,
-        industry: t.sector,
+        category: t.sector,
         firm: t.firm,
         ...(t.title ? { role: t.title } : {}),
         seniority,
@@ -316,7 +319,7 @@ for (const [k, rec] of Object.entries(read("leader-research.json") || {})) {
 const out = {};
 const stats = {
   people: P.size, yes: 0, no: 0, unknown: 0, yesHigh: 0, yesLow: 0, noSingleStop: 0,
-  industries: {}, sectors: {}, sources: {}, seniority: {}, kinds: {},
+  categories: {}, sectors: {}, sources: {}, seniority: {}, kinds: {},
   firms: new Set(), sittingWithTie: 0, sittingSeniorTie: 0, researched: 0,
 };
 
@@ -333,14 +336,21 @@ for (const [k, p] of P) {
     stats.sectors[c.sector] = (stats.sectors[c.sector] || 0) + 1;
   }
 
+  // Every non-academic sector, not just companies. The earlier rule counted
+  // only firms, which meant a health-system board chair, a state budget
+  // director and a foundation trustee all scored zero -- and those are exactly
+  // the people a school hoping to build connections wants to hear about.
+  // Unclassified is deliberately NOT a tie: no rule matched is an open
+  // question, not a finding.
   const ties = classified
-    .filter((c) => c.sector === "Industry")
+    .filter((c) => TIE_SECTORS.has(c.sector))
     .map((c) => {
       const kind = tieKindOf(c.role);
       const seniority = seniorityOf(c.role);
       return {
         kind,
-        industry: c.industry,
+        category: c.category,
+        sector: c.sector,
         firm: c.firm,
         ...(c.role ? { role: c.role } : {}),
         seniority,
@@ -377,7 +387,7 @@ for (const [k, p] of P) {
 
   if (finalTies.length) {
     for (const t of finalTies) {
-      stats.industries[t.industry] = (stats.industries[t.industry] || 0) + 1;
+      stats.categories[t.category] = (stats.categories[t.category] || 0) + 1;
       stats.seniority[t.seniority] = (stats.seniority[t.seniority] || 0) + 1;
       stats.kinds[t.kind] = (stats.kinds[t.kind] || 0) + 1;
       stats.sources[t.source] = (stats.sources[t.source] || 0) + 1;
@@ -416,7 +426,7 @@ for (const [k, p] of P) {
           // and summing would rank the four above it.
           score: finalTies[0].score,
           seniority: finalTies[0].seniority,
-          industries: [...new Set(finalTies.map((t) => t.industry))],
+          categories: [...new Set(finalTies.map((t) => t.category))],
           firms: [...new Set(finalTies.map((t) => t.firm))],
           ties: finalTies,
         }
@@ -445,7 +455,7 @@ for (const [k, r] of RESEARCH) {
     ...(ties.length
       ? {
           score: ties[0].score, seniority: ties[0].seniority,
-          industries: [...new Set(ties.map((t) => t.industry))],
+          categories: [...new Set(ties.map((t) => t.category))],
           firms: [...new Set(ties.map((t) => t.firm))],
           ties,
         }
@@ -470,7 +480,7 @@ console.log(`\nsitting leaders with a named-firm tie:      ${stats.sittingWithTi
 console.log(`  ...at senior or executive rank (v1 pool):  ${stats.sittingSeniorTie}`);
 console.log(`\nties by seniority: ${SENIORITY_BANDS.map((b) => `${b}=${stats.seniority[b] || 0}`).join("  ")}`);
 console.log(`ties by kind:      ${rank(stats.kinds).map(([k, n]) => `${k}=${n}`).join("  ")}`);
-console.log(`industries:`, rank(stats.industries));
+console.log(`categories:`, rank(stats.categories));
 console.log(`org sectors seen:`, rank(stats.sectors));
 console.log(`evidence source of ties:`, stats.sources);
 
@@ -495,7 +505,7 @@ if (!REPORT_ONLY && !DUMP_UNCLASSIFIED) {
       recency: "<=5y:25  <=12y:18  <=20y:10  <=30y:4  older:0  unknown:8",
       note: "person score = best single tie, not a sum",
     },
-    industries: INDUSTRY_NAMES,
+    categories: CATEGORY_NAMES,
     counts: {
       people: stats.people, yes: stats.yes, no: stats.no, unknown: stats.unknown,
       namedFirm: stats.yesHigh, flagOnly: stats.yesLow,

@@ -12,7 +12,7 @@
 // every consumer picks it up on its next run.
 //
 // It replaces two divergent copies of this logic: gen-employer-affinity.mjs had
-// its own CATEGORY_PATTERNS, and gen-industry-experience.mjs had a fuller one.
+// its own CATEGORY_PATTERNS, and gen-nonacademic-experience.mjs had a fuller one.
 // `affinityCategory()` maps this module's fine-grained sectors onto the coarse
 // category names employer-affinity.json already publishes, so that file's shape
 // and its validated numbers survive the consolidation.
@@ -168,11 +168,11 @@ const NONPROFIT = stems([
 ]);
 // A hospital or health system is its own thing: often nonprofit, frequently
 // university-affiliated, and in the nursing / medical / pharmacy indices it is
-// the normal place a clinical academic works. Counting it as industry would flip
-// a large share of those indices on a definition their own users would dispute,
-// so it gets a distinct sector. `makeClassifier` takes a flag to change that for
-// a caller whose reading of "industry" is "worked outside the university" rather
-// than "worked in a company".
+// the normal place a clinical academic works. It keeps a distinct sector so a
+// consumer can still tell a health system from a pharma company -- but it is no
+// longer excluded from the tie pool. Chairing a multi-billion-dollar health
+// system board is a real, current, named relationship, and the earlier rule
+// scored it at zero.
 const HEALTH_PROVIDER = stems([
   "hospital", "health system", "healthcare system", "medical cent", "health cent",
   "clinic\\b", "clinics\\b", "infirmary", "vamc\\b", "veterans affairs",
@@ -280,6 +280,24 @@ const INDUSTRY = [
 /** The industry labels this module can return, in the order rules are tried. */
 export const INDUSTRY_NAMES = INDUSTRY.map(([name]) => name).concat("Other industry");
 
+// Non-academic sectors that are not companies. They are categories in their own
+// right rather than a residual bucket, because for a connections thesis they are
+// not lesser: a foundation program officer, a state budget director and a health
+// system trustee each carry a network a school can tap. The earlier taxonomy
+// counted only companies and therefore scored all three at zero.
+export const SECTOR_CATEGORY = {
+  Government: "Government & Public Sector",
+  Nonprofit: "Nonprofit & Foundations",
+  "Healthcare Provider": "Healthcare Providers",
+};
+
+/** Every category a tie can carry: the industry sub-sectors plus the three above. */
+export const CATEGORY_NAMES = INDUSTRY_NAMES.concat(Object.values(SECTOR_CATEGORY));
+
+/** Sectors that count as a tie. Academic is the baseline; Unclassified means no
+ *  rule matched, which is an open question rather than a finding. */
+export const TIE_SECTORS = new Set(["Industry", ...Object.keys(SECTOR_CATEGORY)]);
+
 // Residual for-profit markers, applied only after every rule above has passed.
 // An org that survives to here is not a school, not a government body, not a
 // nonprofit, not a hospital, and carries a legal-entity or company-shaped
@@ -297,30 +315,31 @@ const ANNOTATION = /\s*\((internal|external|same (system|institution|university)
  *
  * @param {{isAcademic: Function, containsKnownSchool: Function}} academic from buildAcademicIndex
  * @param {object} [opts]
- * @param {boolean} [opts.countHealthProviderAsIndustry] treat hospitals/health systems as industry
  * @param {(org: string) => void} [opts.onUnclassified] called for every org no rule matched;
  *   this list is the recall ceiling and the worklist for extending the vocabulary above
- * @returns {(org: string) => ({sector: string, industry?: string, firm?: string}|null)}
+ * @returns {(org: string) => ({sector: string, category?: string, firm?: string}|null)}
  *   null means "not an organization name at all" (blank, placeholder, research note)
  */
-export function makeClassifier(academic, { countHealthProviderAsIndustry = false, onUnclassified } = {}) {
+export function makeClassifier(academic, { onUnclassified } = {}) {
+  // Every non-academic sector carries the organisation's name in `firm`, not
+  // just the company ones. The name IS the asset -- "the Ford Foundation" and
+  // "the Ohio Department of Higher Education" are as specific and as
+  // door-opening as "McKinsey & Company", and dropping them left a Government
+  // or Nonprofit classification with nothing a profile could display.
+  const nonAcademic = (sector, s) => ({ sector, category: SECTOR_CATEGORY[sector], firm: s });
   return function classifyOrg(raw) {
     const s = String(raw || "").trim().replace(/\s+/g, " ").replace(ANNOTATION, "").trim();
     if (!s || s.length < 2 || NON_ORG.test(s) || BOOKKEEPING.test(s)) return null;
     if (academic.isAcademic(s)) return { sector: "Academic" };
-    if (GOVT.test(s) || US_ENTITY.test(s)) return { sector: "Government" };
-    if (NONPROFIT.test(s)) return { sector: "Nonprofit" };
-    if (HEALTH_PROVIDER.test(s)) {
-      return countHealthProviderAsIndustry
-        ? { sector: "Industry", industry: "Healthcare & Pharma", firm: s }
-        : { sector: "Healthcare Provider" };
-    }
-    for (const [industry, re] of INDUSTRY) if (re.test(s)) return { sector: "Industry", industry, firm: s };
+    if (GOVT.test(s) || US_ENTITY.test(s)) return nonAcademic("Government", s);
+    if (NONPROFIT.test(s)) return nonAcademic("Nonprofit", s);
+    if (HEALTH_PROVIDER.test(s)) return nonAcademic("Healthcare Provider", s);
+    for (const [category, re] of INDUSTRY) if (re.test(s)) return { sector: "Industry", category, firm: s };
     // Substring gazetteer before the firm marker, not after: "Johns Hopkins
     // University Applied Physics Laboratory" carries "Laboratories"-shaped
     // wording and would otherwise be filed as a company.
     if (academic.containsKnownSchool(s)) return { sector: "Academic" };
-    if (FIRM_MARKER.test(s)) return { sector: "Industry", industry: "Other industry", firm: s };
+    if (FIRM_MARKER.test(s)) return { sector: "Industry", category: "Other industry", firm: s };
     onUnclassified?.(s);
     return { sector: "Unclassified" };
   };
@@ -460,6 +479,6 @@ const AFFINITY_BY_SECTOR = {
  */
 export function affinityCategory(cls) {
   if (!cls) return null;
-  if (cls.sector === "Industry") return AFFINITY_BY_INDUSTRY[cls.industry] || "Other";
+  if (cls.sector === "Industry") return AFFINITY_BY_INDUSTRY[cls.category] || "Other";
   return AFFINITY_BY_SECTOR[cls.sector] || "Other";
 }

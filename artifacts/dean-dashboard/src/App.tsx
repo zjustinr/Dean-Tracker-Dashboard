@@ -11,7 +11,7 @@ import LiveJobMarket from "@/components/LiveJobMarket";
 // (see DEFAULT_TABS below) so restoring it later is a one-line uncomment.
 import DisciplineSearch from "@/components/DisciplineSearch";
 import ScoutAssistantPage from "@/components/ScoutAssistantPage";
-import IndustryTies from "@/components/IndustryTies";
+import NonAcademicExperience from "@/components/NonAcademicExperience";
 import Insights from "@/components/Insights";
 import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/FreeTierMeter";
 import ConsentGate from "@/components/ConsentGate";
@@ -60,7 +60,7 @@ const DEFAULT_TABS: TabDef[] = [
   // entry to bring it back (DisciplineSearch/buildTabContent are untouched).
   // { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
   { value: "jobmarket", label: "Leadership News & Market", desc: "Stay updated with the latest leadership news and market activity." },
-  { value: "industryties", label: "Industry Ties", desc: "Leaders who carry a corporate network — ranked by seniority, recency, and whether the tie is employment, a board seat, or advisory." },
+  { value: "nonacademic", label: "Non-academic Experience", desc: "Leaders who have worked outside the academy — company, government, nonprofit, foundation or health system — ranked by seniority, recency, and whether the tie is employment, a board seat, or advisory." },
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
 ];
 
@@ -79,7 +79,7 @@ function buildTabContent(
     search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} onOpenLeader={onOpenLeader} />,
     scout: <ScoutAssistantPage onOpenSchool={onOpenSchool} />,
     jobmarket: <LiveJobMarket />,
-    industryties: <IndustryTies onOpenLeader={onOpenLeader} />,
+    nonacademic: <NonAcademicExperience onOpenLeader={onOpenLeader} />,
     discipline: <DisciplineSearch />,
   };
 }
