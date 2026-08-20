@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1919,
-  "no": 11632,
+  "yes": 1925,
+  "no": 11626,
   "unknown": 14701,
-  "namedFirm": 1511,
+  "namedFirm": 1517,
   "flagOnly": 408,
-  "firms": 1492,
-  "sittingWithTie": 896,
-  "sittingSeniorTie": 476,
-  "researched": 603
+  "firms": 1500,
+  "sittingWithTie": 902,
+  "sittingSeniorTie": 479,
+  "researched": 616
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -163552,11 +163552,13 @@
    "name": "Noel E. Wilkin",
    "university": "University of Mississippi",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -163871,11 +163873,13 @@
    "name": "Norman Hall",
    "university": "Simpson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -166647,17 +166651,33 @@
   "patrick j. wolfe|purdue university": {
    "name": "Patrick J. Wolfe",
    "university": "Purdue University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Alan Turing Institute"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Alan Turing Institute",
+     "role": "Trustee and non-executive director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "patrick jacobson-schulte|briar cliff university": {
@@ -167129,15 +167149,55 @@
   "paul alivisatos|university of chicago": {
    "name": "Paul Alivisatos",
    "university": "University of Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Technology"
+   ],
+   "firms": [
+    "CZ Biohub Network",
+    "Nanosys",
+    "Quantum Dot Corporation (acquired by Thermo Fisher)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "CZ Biohub Network",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Nanosys",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "2001",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Quantum Dot Corporation (acquired by Thermo Fisher)",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "1998",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "paul allvin|george mason university": {
@@ -168636,15 +168696,56 @@
   "paul r. taylor, o.s.b.|saint vincent college": {
    "name": "Paul R. Taylor, O.S.B.",
    "university": "Saint Vincent College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Latrobe Area Hospital Charitable Foundation",
+    "Fort Ligonier",
+    "Straub Brewery, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Latrobe Area Hospital Charitable Foundation",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "years": "2008",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Fort Ligonier",
+     "role": "Trustee",
+     "seniority": "senior",
+     "years": "2016",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Consumer & Retail",
+     "firm": "Straub Brewery, Inc.",
+     "role": "Advisor to the board",
+     "seniority": "senior",
+     "years": "2010",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "paul rose|case western reserve university": {
@@ -168802,11 +168903,13 @@
    "name": "Paul Sniegowski",
    "university": "Earlham College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -169418,11 +169521,13 @@
    "name": "Peggy Agouris",
    "university": "College of William & Mary",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -169589,11 +169694,13 @@
    "name": "Penny L. Elkins",
    "university": "Mercer University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -170255,11 +170362,13 @@
    "name": "Peter J. Mohler",
    "university": "University of Alabama",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -170446,11 +170555,13 @@
    "name": "Peter Naccarato",
    "university": "Marymount Manhattan College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -170543,15 +170654,32 @@
   "peter rodriguez|wake forest university": {
    "name": "Peter Rodriguez",
    "university": "Wake Forest University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "JPMorgan Chase"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "JPMorgan Chase",
+     "role": "Associate, Global Energy Group",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "peter ryan|mississippi state university": {
@@ -170930,15 +171058,34 @@
   "phil schubert|abilene christian university": {
    "name": "Phil Schubert",
    "university": "Abilene Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Arthur Andersen & Co."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Arthur Andersen & Co.",
+     "role": "Auditor",
+     "seniority": "professional",
+     "years": "1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "phil tyler|gonzaga university": {
@@ -170972,15 +171119,34 @@
   "philip b. oldham|tennessee technological university": {
    "name": "Philip B. Oldham",
    "university": "Tennessee Technological University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Burroughs Wellcome Co. (now GlaxoSmithKline)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Burroughs Wellcome Co. (now GlaxoSmithKline)",
+     "role": "Wellcome Research Fellow",
+     "seniority": "professional",
+     "years": "1985-1986",
+     "endYear": 1986,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "philip d. hall|medical university of south carolina": {
