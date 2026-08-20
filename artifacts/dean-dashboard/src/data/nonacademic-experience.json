@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28251,
-  "yes": 1815,
-  "no": 11736,
+  "yes": 1824,
+  "no": 11727,
   "unknown": 14700,
-  "namedFirm": 1405,
+  "namedFirm": 1414,
   "flagOnly": 410,
-  "firms": 1324,
-  "sittingWithTie": 793,
-  "sittingSeniorTie": 402,
-  "researched": 269
+  "firms": 1336,
+  "sittingWithTie": 802,
+  "sittingSeniorTie": 407,
+  "researched": 293
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -52719,15 +52719,43 @@
   "deanne horner d'emilio, jd|gwynedd mercy university": {
    "name": "Deanne Horner D'Emilio, JD",
    "university": "Gwynedd Mercy University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Private legal practice",
+    "Court of Common Pleas of Allegheny County"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Private legal practice",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Court of Common Pleas of Allegheny County",
+     "role": "Arbitrator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "deb bakerjian|university of california, davis": {
@@ -53706,15 +53734,43 @@
   "debra m. townsley|albright college": {
    "name": "Debra M. Townsley",
    "university": "Albright College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology",
+    "Consulting"
+   ],
+   "firms": [
+    "IBM",
+    "Booz Allen Hamilton"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Business career start",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Booz Allen Hamilton",
+     "role": "Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "debra parker|university of findlay": {
@@ -54474,11 +54530,13 @@
    "name": "Denise Jones Gregory",
    "university": "Jackson State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -54704,11 +54762,13 @@
    "name": "Dennis J. Shields",
    "university": "Rutgers University-Camden",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -55600,11 +55660,13 @@
    "name": "Diana L. Rogers-Adkinson",
    "university": "Massachusetts College of Liberal Arts",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -55800,11 +55862,13 @@
    "name": "Diane Z. Chase",
    "university": "University of Houston",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -56199,11 +56263,13 @@
    "name": "Domenico Grasso",
    "university": "University of Michigan",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -56480,11 +56546,13 @@
    "name": "Donald B. Taylor",
    "university": "University of Detroit Mercy",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -56536,11 +56604,13 @@
    "name": "Donald E. Hall",
    "university": "Binghamton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -56717,15 +56787,32 @@
   "donald j. leo|university of alabama in huntsville": {
    "name": "Donald J. Leo",
    "university": "University of Alabama in Huntsville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Defense Advanced Research Projects Agency"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Defense Advanced Research Projects Agency",
+     "role": "Program Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "donald j. para|california state university, long beach": {
@@ -56773,15 +56860,32 @@
   "donald l. birx|keene state college": {
    "name": "Donald L. Birx",
    "university": "Keene State College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Systems Research Laboratories, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Systems Research Laboratories, Inc.",
+     "role": "Vice President and team leader, technology and new ventures",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "donald m. blackketter|university of idaho": {
@@ -57160,11 +57264,13 @@
    "name": "Donde Plowman",
    "university": "University of Tennessee Knoxville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -57173,15 +57279,34 @@
   "dondi e. costin|liberty university": {
    "name": "Dondi E. Costin",
    "university": "Liberty University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 36,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Major General, Chief of Chaplains",
+     "seniority": "unknown",
+     "years": "1986-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "dong sung an|university of california, los angeles": {
@@ -58005,11 +58130,13 @@
    "name": "Douglas A. Hicks",
    "university": "Davidson College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -58791,15 +58918,75 @@
   "dr. john j. petillo|sacred heart university": {
    "name": "Dr. John J. Petillo",
    "university": "Sacred Heart University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma",
+    "Financial Services",
+    "Other industry",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Blue Cross Blue Shield of New Jersey",
+    "CareAdvantage, Inc.",
+    "First Union Insurance Services",
+    "The Tribus Companies",
+    "Newark Alliance"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Blue Cross Blue Shield of New Jersey",
+     "role": "President and Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "CareAdvantage, Inc.",
+     "role": "Chairman, President and Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "First Union Insurance Services",
+     "role": "Regional President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "The Tribus Companies",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Newark Alliance",
+     "role": "President and Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "dr. johnny r. stephens|oklahoma state university": {
@@ -58920,11 +59107,13 @@
    "name": "Dr. Marco J. Clark",
    "university": "Holy Cross College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Unclassified",
@@ -58963,11 +59152,13 @@
    "name": "Dr. Matthew Shaftel",
    "university": "Russell Sage College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -59375,11 +59566,13 @@
    "name": "Dwaun J. Warmack",
    "university": "Claflin University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -59733,15 +59926,34 @@
   "earl f. \"marty\" martin|drake university": {
    "name": "Earl F. \"Marty\" Martin",
    "university": "Drake University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Judge Advocate General officer, retired lieutenant colonel",
+     "seniority": "senior",
+     "years": "1987-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "earl h. dowell|duke university": {
@@ -60373,15 +60585,32 @@
   "eduardo m. peñalver|georgetown university": {
    "name": "Eduardo M. Peñalver",
    "university": "Georgetown University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Supreme Court of the United States"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Supreme Court of the United States",
+     "role": "Law clerk to Justice John Paul Stevens",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "eduardo m. peñalver|seattle university": {
@@ -60743,11 +60972,13 @@
    "name": "Edward J. Balleisen",
    "university": "George Washington University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -61449,11 +61680,13 @@
    "name": "Eli Capilouto",
    "university": "University of Kentucky",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -61602,15 +61835,54 @@
   "elise baskel|colorado technical university-colorado springs": {
    "name": "Elise Baskel",
    "university": "Colorado Technical University-Colorado Springs",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail",
+    "Consulting"
+   ],
+   "firms": [
+    "Perdoceo Education Corporation",
+    "Business strategy consulting",
+    "Consumer packaged goods"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Perdoceo Education Corporation",
+     "role": "Senior Vice President",
+     "seniority": "executive",
+     "years": "2022",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Business strategy consulting",
+     "role": "Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Consumer packaged goods",
+     "role": "Management",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "elise eslinger|carleton college": {
@@ -61848,11 +62120,13 @@
    "name": "Elizabeth A. Wentz",
    "university": "Temple University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
