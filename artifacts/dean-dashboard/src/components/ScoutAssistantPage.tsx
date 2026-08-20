@@ -368,8 +368,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
                 </FilterRow>
               </FilterGroup>
 
-              <FilterGroup title="Person" summary={personSummary}
-                defaultOpen={includeGender !== "all" || requirePhd || requireProf || requireIndustryTie}>
+              <FilterGroup title="Person" summary={personSummary} defaultOpen>
                 <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
                   <SegGroup ariaLabel="Include" value={includeGender} onChange={setIncludeGender}
                     options={[["all", "All"], ["women", "Women"], ["men", "Men"]]} />
