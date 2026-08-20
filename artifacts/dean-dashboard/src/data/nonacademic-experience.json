@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1877,
-  "no": 11674,
+  "yes": 1882,
+  "no": 11669,
   "unknown": 14701,
-  "namedFirm": 1470,
-  "flagOnly": 407,
-  "firms": 1426,
-  "sittingWithTie": 858,
-  "sittingSeniorTie": 447,
-  "researched": 477
+  "namedFirm": 1476,
+  "flagOnly": 406,
+  "firms": 1438,
+  "sittingWithTie": 864,
+  "sittingSeniorTie": 452,
+  "researched": 485
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -121913,15 +121913,45 @@
   "kevin howell|north carolina state university": {
    "name": "Kevin Howell",
    "university": "North Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 43,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "UNC Health",
+    "North Carolina Court of Appeals"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UNC Health",
+     "role": "Chief of External Affairs",
+     "seniority": "unknown",
+     "years": "2023-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 43
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "North Carolina Court of Appeals",
+     "role": "Legal clerk",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kevin ingersent|university of florida": {
@@ -122119,15 +122149,52 @@
   "kevin m. guskiewicz|michigan state university": {
    "name": "Kevin M. Guskiewicz",
    "university": "Michigan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Business Leaders for Michigan",
+    "Detroit Regional Chamber",
+    "Detroit Economic Club"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Business Leaders for Michigan",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Detroit Regional Chamber",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Detroit Economic Club",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "kevin m. hayden|binghamton university": {
@@ -123803,15 +123870,42 @@
   "kimberly r. cline|long island university": {
    "name": "Kimberly R. Cline",
    "university": "Long Island University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Long Island Association",
+    "Center for Creative Leadership"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Long Island Association",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Center for Creative Leadership",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "kimberly s. illingworth|purdue university": {
@@ -123875,11 +123969,13 @@
    "name": "Kimberly van Noort",
    "university": "University of North Carolina Asheville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -123986,16 +124082,64 @@
   "kimo ah yun|marquette university": {
    "name": "Kimo Ah Yun",
    "university": "Marquette University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2",
     "uscreativearts"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Children's Wisconsin",
+    "Greater Milwaukee Committee",
+    "The Water Council",
+    "Near West Side Partners"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Children's Wisconsin",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Milwaukee Committee",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Water Council",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Near West Side Partners",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "kiran j. singh|yale university": {
@@ -125755,15 +125899,32 @@
    "name": "Kristine E. Dillon",
    "university": "Whittier College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 4,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Huron Consulting Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Huron Consulting Group",
+     "role": "Senior Advisor, higher education practice",
+     "seniority": "senior",
+     "years": "2019",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -126275,15 +126436,34 @@
   "kyle marrero|georgia southern university": {
    "name": "Kyle Marrero",
    "university": "Georgia Southern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Pensacola Opera"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Pensacola Opera",
+     "role": "Artistic Director",
+     "seniority": "senior",
+     "years": "2000-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "kyle marrero|university of west georgia": {
@@ -126518,11 +126698,13 @@
    "name": "L. Gregory (Greg) Jones",
    "university": "Belmont University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
