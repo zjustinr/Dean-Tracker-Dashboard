@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28251,
-  "yes": 1824,
-  "no": 11727,
+  "yes": 1840,
+  "no": 11711,
   "unknown": 14700,
-  "namedFirm": 1414,
+  "namedFirm": 1430,
   "flagOnly": 410,
-  "firms": 1336,
-  "sittingWithTie": 802,
-  "sittingSeniorTie": 407,
-  "researched": 293
+  "firms": 1356,
+  "sittingWithTie": 818,
+  "sittingSeniorTie": 419,
+  "researched": 336
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -62193,11 +62193,13 @@
    "name": "Elizabeth Burroughs",
    "university": "Montana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -62322,15 +62324,32 @@
   "elizabeth davis|furman university": {
    "name": "Elizabeth Davis",
    "university": "Furman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Arthur Andersen & Co."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Arthur Andersen & Co.",
+     "role": "Auditor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "elizabeth earle beske|american university": {
@@ -62551,16 +62570,34 @@
   "elizabeth kiss|union college": {
    "name": "Elizabeth Kiss",
    "university": "Union College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Rhodes Trust"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Rhodes Trust",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2018-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "elizabeth kronk warner|university of utah": {
@@ -62596,11 +62633,13 @@
    "name": "Elizabeth M. Bejar",
    "university": "Florida International University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -62610,11 +62649,13 @@
    "name": "Elizabeth MacLeod Walls",
    "university": "Washington & Jefferson College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -62722,11 +62763,13 @@
    "name": "Elizabeth S. Chilton",
    "university": "University of New Hampshire",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -62777,15 +62820,32 @@
   "elizabeth siegel watkins|university of california riverside": {
    "name": "Elizabeth Siegel Watkins",
    "university": "University of California Riverside",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Museum curatorship"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Museum curatorship",
+     "role": "Curator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "elizabeth spiller|university of south florida": {
@@ -63078,15 +63138,32 @@
   "ellen m. granberg|george washington university": {
    "name": "Ellen M. Granberg",
    "university": "George Washington University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Telecommunications industry"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Telecommunications industry",
+     "role": "Software development leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "ellen m. lavoie smith|university of alabama at birmingham": {
@@ -63761,11 +63838,13 @@
    "name": "Emily Messer",
    "university": "Texas Wesleyan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -64161,11 +64240,13 @@
    "name": "Eric Boynton",
    "university": "Beloit College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -64174,15 +64255,33 @@
   "eric bruntmyer|hardin-simmons university": {
    "name": "Eric Bruntmyer",
    "university": "Hardin-Simmons University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Private legal practice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Private legal practice",
+     "role": "Attorney, business and litigation",
+     "seniority": "professional",
+     "years": "1994",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "eric bymaster|vanderbilt university": {
@@ -64221,11 +64320,13 @@
    "name": "Eric Carl Link",
    "university": "University of North Dakota",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic",
@@ -64380,15 +64481,32 @@
   "eric halvorson|trinity international university-illinois": {
    "name": "Eric Halvorson",
    "university": "Trinity International University-Illinois",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Midwestern law firm"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Midwestern law firm",
+     "role": "Partner, corporate law",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "eric ham|south carolina state university": {
@@ -64672,12 +64790,14 @@
    "name": "Eric M. Wilcots",
    "university": "University of Wisconsin Madison",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -64998,15 +65118,32 @@
   "eric w. kaler|case western reserve university": {
    "name": "Eric W. Kaler",
    "university": "Case Western Reserve University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Greater Cleveland Partnership"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Cleveland Partnership",
+     "role": "Director; co-chair, Innovation and Growth Committee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "eric w. kaler|university of minnesota system": {
@@ -65405,11 +65542,13 @@
    "name": "Erik Luijten",
    "university": "Northwestern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -65433,11 +65572,13 @@
    "name": "Erik P. Ankerberg",
    "university": "Concordia University Wisconsin",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -67068,11 +67209,13 @@
    "name": "F. DuBois Bowman",
    "university": "Morehouse College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -67873,11 +68016,13 @@
    "name": "Floyd L. Wormley Jr.",
    "university": "Texas Christian University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -67957,11 +68102,13 @@
    "name": "Fotis Sotiropoulos",
    "university": "Pennsylvania State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -67986,11 +68133,13 @@
    "name": "Fouad Abd-El-Khalick",
    "university": "University of Massachusetts Amherst",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -68324,11 +68473,13 @@
    "name": "Francis J. Doyle III",
    "university": "Brown University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -68766,15 +68917,32 @@
   "frank neville|millsaps college": {
    "name": "Frank Neville",
    "university": "Millsaps College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of State"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of State",
+     "role": "Foreign Service Officer, postings in Beijing, Taipei, Chengdu and Guatemala City",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "frank p. incropera|university of notre dame": {
@@ -68795,11 +68963,13 @@
    "name": "Frank Shushok Jr.",
    "university": "Roanoke College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -68907,15 +69077,52 @@
   "franklin d. gilliam, jr.|university of north carolina at greensboro": {
    "name": "Franklin D. Gilliam, Jr.",
    "university": "University of North Carolina at Greensboro",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "RTI International",
+    "FrameWorks Institute",
+    "Piedmont Triad Partnership"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "RTI International",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "FrameWorks Institute",
+     "role": "Director (US and UK)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Piedmont Triad Partnership",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "franklin m. loew|cornell university": {
@@ -69697,11 +69904,13 @@
    "name": "G. Gabrielle Starr",
    "university": "Pomona College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -69830,11 +70039,13 @@
    "name": "Gabriel Paquette",
    "university": "University of Maine",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -69916,11 +70127,13 @@
    "name": "Gabriella Scarlatta",
    "university": "University of Michigan-Dearborn",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -70198,16 +70411,43 @@
   "garry w. jenkins|bates college": {
    "name": "Garry W. Jenkins",
    "university": "Bates College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Goldman Sachs Foundation",
+    "Simpson Thacher & Bartlett"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Goldman Sachs Foundation",
+     "role": "Chief Operating Officer and General Counsel",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Simpson Thacher & Bartlett",
+     "role": "Corporate transactional attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "garth saloner|stanford university": {
@@ -70242,11 +70482,13 @@
    "name": "Gary A. Olson",
    "university": "Daemen University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -70482,16 +70724,33 @@
   "gary e. raskob|university of oklahoma health sciences center": {
    "name": "Gary E. Raskob",
    "university": "University of Oklahoma Health Sciences Center",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2",
     "uspublichealth"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Oklahoma City-County Board of Health"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Oklahoma City-County Board of Health",
+     "role": "Chair",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "gary fethke|university of iowa": {
@@ -70975,15 +71234,42 @@
   "gayle d. beebe|westmont college": {
    "name": "Gayle D. Beebe",
    "university": "Westmont College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "United Way of Santa Barbara County",
+    "Santa Barbara Symphony Orchestra"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of Santa Barbara County",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Santa Barbara Symphony Orchestra",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "gaëtane jean-marie|rowan university": {
@@ -71076,11 +71362,13 @@
    "name": "Gene Pfeifer",
    "university": "Bethany Lutheran College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Unclassified",
@@ -71264,15 +71552,32 @@
   "geoffrey s. mearns|ball state university": {
    "name": "Geoffrey S. Mearns",
    "university": "Ball State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Justice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Justice",
+     "role": "Federal prosecutor; lead prosecutor, Oklahoma City bombing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "geoffrey s. mearns|northern kentucky university": {
@@ -71874,11 +72179,13 @@
    "name": "George T. French Jr.",
    "university": "Clark Atlanta University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -72016,11 +72323,13 @@
    "name": "Georgina Dopico",
    "university": "New York University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -72292,11 +72601,13 @@
    "name": "Gerard J. Rooney",
    "university": "St. John Fisher University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -72481,12 +72792,14 @@
    "name": "Gerry Bradley",
    "university": "University of Louisville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -72783,11 +73096,13 @@
    "name": "Gina S. Brown",
    "university": "Oakwood University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -73583,15 +73898,43 @@
   "glynis a. fitzgerald|alvernia university": {
    "name": "Glynis A. Fitzgerald",
    "university": "Alvernia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Reading Symphony Orchestra",
+    "Caron Treatment Centers"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Reading Symphony Orchestra",
+     "role": "Vice Chair",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Healthcare Providers",
+     "firm": "Caron Treatment Centers",
+     "role": "Central PA Advisory Board; Corporate Marketing Committee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "gokcen coskuner-balli|chapman university": {
@@ -73695,15 +74038,67 @@
   "gordon p. robertson|regent university": {
    "name": "Gordon P. Robertson",
    "university": "Regent University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment",
+    "Nonprofit & Foundations",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Christian Broadcasting Network",
+    "Operation Blessing International",
+    "CBN Asia",
+    "Private legal practice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Christian Broadcasting Network",
+     "role": "President and Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Operation Blessing International",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "CBN Asia",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "1994",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Private legal practice",
+     "role": "Attorney, Norfolk, Virginia",
+     "seniority": "professional",
+     "years": "1984-1994",
+     "endYear": 1994,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "gordon silverstein|yale university": {
@@ -74813,11 +75208,13 @@
    "name": "Gregory L. Fenves",
    "university": "Emory University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -74961,15 +75358,32 @@
   "gregory p. crawford|miami university": {
    "name": "Gregory P. Crawford",
    "university": "Miami University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Cintrifuse"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Cintrifuse",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "gregory p. prastacos|stevens institute of technology": {
