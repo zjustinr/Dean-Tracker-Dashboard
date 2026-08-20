@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1871,
-  "no": 11680,
+  "yes": 1873,
+  "no": 11678,
   "unknown": 14701,
-  "namedFirm": 1463,
+  "namedFirm": 1465,
   "flagOnly": 408,
-  "firms": 1416,
-  "sittingWithTie": 851,
+  "firms": 1418,
+  "sittingWithTie": 853,
   "sittingSeniorTie": 444,
-  "researched": 459
+  "researched": 469
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -115259,15 +115259,32 @@
   "katherine ankerson|university of nebraska lincoln": {
    "name": "Katherine Ankerson",
    "university": "University of Nebraska Lincoln",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Architecture practice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Architecture practice",
+     "role": "Practising architect",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "katherine baicker|university of chicago": {
@@ -115881,11 +115898,13 @@
    "name": "Kathleen E. Harring",
    "university": "Muhlenberg College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -116210,11 +116229,13 @@
    "name": "Kathryn \"Katie\" Cardarelli",
    "university": "University of Louisville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -116238,11 +116259,13 @@
    "name": "Kathryn A. Morris",
    "university": "St Lawrence University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -116529,11 +116552,13 @@
    "name": "Kathryn McClymond",
    "university": "Oglethorpe University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -116677,11 +116702,13 @@
    "name": "Kathy Brittain Richardson",
    "university": "Westminster College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -116924,11 +116951,13 @@
    "name": "Kathy S. Schwaig",
    "university": "Kennesaw State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -117007,15 +117036,54 @@
   "katia passerini|gonzaga university": {
    "name": "Katia Passerini",
    "university": "Gonzaga University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting",
+    "Government & Public Sector",
+    "Technology"
+   ],
+   "firms": [
+    "Booz Allen Hamilton",
+    "The World Bank",
+    "Automotive and telecommunications industry"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Booz Allen Hamilton",
+     "role": "Consultant, information technology projects",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "The World Bank",
+     "role": "Information technology projects",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Automotive and telecommunications industry",
+     "role": "Certified project management professional",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "katia passerini|seton hall university": {
@@ -117121,11 +117189,13 @@
    "name": "Katie Conboy",
    "university": "Saint Mary's College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -118740,11 +118810,13 @@
    "name": "Kelli R. Brown",
    "university": "Western Carolina University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
