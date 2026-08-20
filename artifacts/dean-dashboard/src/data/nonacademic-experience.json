@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1902,
-  "no": 11649,
+  "yes": 1905,
+  "no": 11646,
   "unknown": 14701,
-  "namedFirm": 1494,
+  "namedFirm": 1497,
   "flagOnly": 408,
-  "firms": 1464,
-  "sittingWithTie": 882,
-  "sittingSeniorTie": 459,
-  "researched": 547
+  "firms": 1469,
+  "sittingWithTie": 885,
+  "sittingSeniorTie": 462,
+  "researched": 551
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -144442,11 +144442,13 @@
    "name": "Martin A. Schmidt",
    "university": "Rensselaer Polytechnic Institute",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -144813,15 +144815,34 @@
   "marva johnson|florida agricultural and mechanical university": {
    "name": "Marva Johnson",
    "university": "Florida Agricultural and Mechanical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Charter Communications"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Charter Communications",
+     "role": "Group Vice President, State Government Affairs",
+     "seniority": "executive",
+     "years": "2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "marvin c. henberg|linfield university": {
@@ -145335,15 +145356,32 @@
   "mary dana hinton|hollins university": {
    "name": "Mary Dana Hinton",
    "university": "Hollins University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Teagle Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Teagle Foundation",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "mary dioise ramos|lsu health sciences center new orleans": {
@@ -146160,16 +146198,69 @@
   "mary pope maybank hutson|sweet briar college": {
    "name": "Mary Pope Maybank Hutson",
    "university": "Sweet Briar College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Land Trust Alliance",
+    "Lowcountry Open Land Trust",
+    "National Park System Advisory Board",
+    "U.S. Department of the Interior"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Land Trust Alliance",
+     "role": "Executive Vice President",
+     "seniority": "executive",
+     "years": "2002-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lowcountry Open Land Trust",
+     "role": "Executive Director",
+     "seniority": "senior",
+     "years": "1998-2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "National Park System Advisory Board",
+     "role": "Chair, appointed by the Secretary of the Interior",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of the Interior",
+     "role": "Office of Territorial and International Affairs",
+     "seniority": "professional",
+     "years": "1985-1989",
+     "endYear": 1989,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "mary randers|austin college": {
