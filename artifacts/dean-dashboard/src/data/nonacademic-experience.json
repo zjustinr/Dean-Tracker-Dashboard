@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1851,
-  "no": 11700,
+  "yes": 1856,
+  "no": 11695,
   "unknown": 14701,
-  "namedFirm": 1442,
-  "flagOnly": 409,
-  "firms": 1379,
-  "sittingWithTie": 830,
-  "sittingSeniorTie": 428,
-  "researched": 396
+  "namedFirm": 1448,
+  "flagOnly": 408,
+  "firms": 1390,
+  "sittingWithTie": 836,
+  "sittingSeniorTie": 431,
+  "researched": 405
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -98412,11 +98412,13 @@
    "name": "Jim Henderson",
    "university": "Louisiana Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -98575,13 +98577,15 @@
   "jim pfaendtner|north carolina state university": {
    "name": "Jim Pfaendtner",
    "university": "North Carolina State University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -98846,15 +98850,64 @@
   "jim troha|juniata college": {
    "name": "Jim Troha",
    "university": "Juniata College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Kish Bancorp, Inc.",
+    "Kish Bank",
+    "Penn Highlands Huntingdon",
+    "Huntingdon County Business and Industry"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Kish Bancorp, Inc.",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Kish Bank",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Penn Highlands Huntingdon",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Huntingdon County Business and Industry",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "jimmie foster jr.|college of charleston": {
@@ -99043,15 +99096,57 @@
   "jo bonner|university of south alabama": {
    "name": "Jo Bonner",
    "university": "University of South Alabama",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 39,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of the Governor of Alabama",
+    "U.S. House of Representatives"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Governor of Alabama",
+     "role": "Chief of Staff to Governor Kay Ivey",
+     "seniority": "professional",
+     "years": "2019-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 39
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. House of Representatives",
+     "role": "Press secretary then chief of staff to Rep. Sonny Callahan",
+     "seniority": "senior",
+     "years": "2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. House of Representatives",
+     "role": "Member of Congress, Alabama 1st district; chair, House Ethics Committee",
+     "seniority": "unknown",
+     "years": "2003-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 28
+    }
    ]
   },
   "jo ellen pinkham|rochester institute of technology": {
@@ -99305,15 +99400,32 @@
   "joan t. a. gabel|university of pittsburgh": {
    "name": "Joan T. A. Gabel",
    "university": "University of Pittsburgh",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Council on Competitiveness"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council on Competitiveness",
+     "role": "Vice Chair",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "joan t.a. gabel|university of missouri": {
@@ -99661,15 +99773,33 @@
   "joanne li|university of nebraska at omaha": {
    "name": "Joanne Li",
    "university": "University of Nebraska at Omaha",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Federal Reserve Bank of Kansas City, Omaha Branch"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Federal Reserve Bank of Kansas City, Omaha Branch",
+     "role": "Director; Branch Chair from 2026",
+     "seniority": "senior",
+     "years": "2023",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "joanne m. mahoney|state university of new york college of environmental science and forestry (suny-esf)": {
@@ -99720,16 +99850,55 @@
   "joanne m. mahoney|suny college of environmental science and forestry": {
    "name": "Joanne M. Mahoney",
    "university": "SUNY College of Environmental Science and Forestry",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 36,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Onondaga County",
+    "Onondaga County District Attorney's Office",
+    "Harris Beach"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Onondaga County",
+     "role": "County Executive",
+     "seniority": "unknown",
+     "years": "2008-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Onondaga County District Attorney's Office",
+     "role": "Criminal prosecutor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Harris Beach",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "joanne moore|loyola marymount university": {
@@ -99822,15 +99991,44 @@
   "jochen reiser|the university of texas medical branch at galveston": {
    "name": "Jochen Reiser",
    "university": "The University of Texas Medical Branch at Galveston",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Walden Biosciences",
+    "UTMB Health System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Walden Biosciences",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UTMB Health System",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2023",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "jodi bailey accavallo|temple university": {
@@ -100154,11 +100352,13 @@
    "name": "Joe Bertolino",
    "university": "Stockton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
