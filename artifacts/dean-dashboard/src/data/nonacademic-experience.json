@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28251,
-  "yes": 1772,
-  "no": 11779,
+  "yes": 1776,
+  "no": 11775,
   "unknown": 14700,
-  "namedFirm": 1359,
+  "namedFirm": 1363,
   "flagOnly": 413,
-  "firms": 1242,
-  "sittingWithTie": 747,
-  "sittingSeniorTie": 366,
-  "researched": 148
+  "firms": 1248,
+  "sittingWithTie": 751,
+  "sittingSeniorTie": 368,
+  "researched": 165
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -340,11 +340,13 @@
    "name": "A. Scott Weber",
    "university": "University at Buffalo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -1006,11 +1008,13 @@
    "name": "Abner Chou",
    "university": "The Master's University and Seminary",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -1134,15 +1138,62 @@
   "adam c. wright|dallas baptist university": {
    "name": "Adam C. Wright",
    "university": "Dallas Baptist University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "AT&T Performing Arts Center",
+    "Denison Forum",
+    "Media Alliance International",
+    "North Texas Crime Commission"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "AT&T Performing Arts Center",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Denison Forum",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Media Alliance International",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "North Texas Crime Commission",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "adam carroll|university of mary hardin-baylor": {
@@ -2401,11 +2452,13 @@
    "name": "Aimee W. Sapp",
    "university": "Meredith College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -2581,11 +2634,13 @@
    "name": "Ajay Vinzé",
    "university": "George Mason University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -3048,15 +3103,34 @@
   "alan sams|texas a&m university": {
    "name": "Alan Sams",
    "university": "Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Gold Kist Poultry, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Gold Kist Poultry, Inc.",
+     "role": "Quality Assurance Analyst",
+     "seniority": "professional",
+     "years": "1987",
+     "endYear": 1987,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "alan schomaker|loyola university new orleans": {
@@ -4880,12 +4954,14 @@
    "name": "Alison Carr-Chellman",
    "university": "Pace University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -9120,15 +9196,32 @@
   "andrea talentino|augustana college": {
    "name": "Andrea Talentino",
    "university": "Augustana College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 7,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "KAAE"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "KAAE",
+     "role": "Board of Trustees",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "andrea trisciuzzi|george washington university": {
@@ -9581,11 +9674,13 @@
    "name": "Andrew H. Feinstein",
    "university": "University of Northern Colorado",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -10111,11 +10206,13 @@
    "name": "Andrew P. Manion",
    "university": "Edgewood College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -10742,11 +10839,13 @@
    "name": "André-Denis Wright",
    "university": "University of Oklahoma",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -10800,11 +10899,13 @@
    "name": "Andy Feinstein",
    "university": "University of Northern Colorado",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -12278,11 +12379,13 @@
    "name": "Ann Huff Stevens",
    "university": "University of Colorado Boulder",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -12805,11 +12908,13 @@
    "name": "Anne D'Alleva",
    "university": "Binghamton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -12905,11 +13010,13 @@
    "name": "Anne F. Harris",
    "university": "Grinnell College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -14695,16 +14802,33 @@
   "arash mafi|university of kansas": {
    "name": "Arash Mafi",
    "university": "University of Kansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Corning Incorporated"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Corning Incorporated",
+     "role": "Senior Research Scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "arash t. dabestani|long island university": {
@@ -16146,11 +16270,13 @@
    "name": "Aswani K. Volety",
    "university": "University of North Carolina Wilmington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
