@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1925,
-  "no": 11626,
+  "yes": 1933,
+  "no": 11618,
   "unknown": 14701,
-  "namedFirm": 1517,
-  "flagOnly": 408,
-  "firms": 1500,
-  "sittingWithTie": 902,
-  "sittingSeniorTie": 479,
-  "researched": 616
+  "namedFirm": 1524,
+  "flagOnly": 409,
+  "firms": 1513,
+  "sittingWithTie": 909,
+  "sittingSeniorTie": 485,
+  "researched": 631
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -156613,11 +156613,13 @@
    "name": "Michelle L. Patrick",
    "university": "Robert Morris University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -157010,15 +157012,34 @@
   "miguel a. munoz munoz|university of puerto rico at mayaguez": {
    "name": "Miguel A. Munoz Munoz",
    "university": "University of Puerto Rico at Mayaguez",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 49,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Government of Puerto Rico, Department of Agriculture"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Government of Puerto Rico, Department of Agriculture",
+     "role": "Secretary and Under Secretary of Agriculture",
+     "seniority": "executive",
+     "years": "1993-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 49
+    }
    ]
   },
   "miguel a. munoz|university of puerto rico at mayaguez": {
@@ -157619,11 +157640,13 @@
    "name": "Mike Williams",
    "university": "Harding University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -158319,12 +158342,14 @@
   "mitzi m. montoya|university of utah": {
    "name": "Mitzi M. Montoya",
    "university": "University of Utah",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -158407,12 +158432,14 @@
    "name": "Moez Limayem",
    "university": "University of South Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -159008,11 +159035,13 @@
    "name": "Monique Guillory",
    "university": "Dillard University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -159915,15 +159944,52 @@
   "nancy cantor|hunter college": {
    "name": "Nancy Cantor",
    "university": "Hunter College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "American Institutes for Research",
+    "New Jersey Performing Arts Center",
+    "Ford Foundation International Fellows Program"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Institutes for Research",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "New Jersey Performing Arts Center",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Ford Foundation International Fellows Program",
+     "role": "Advisory council member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "nancy cantor|rutgers university-newark": {
@@ -160462,15 +160528,52 @@
   "nariman farvardin|stevens institute of technology": {
    "name": "Nariman Farvardin",
    "university": "Stevens Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Zagros Networks",
+    "NovaTherm Technologies",
+    "TechUnited (formerly New Jersey Tech Council)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Zagros Networks",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "NovaTherm Technologies",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "TechUnited (formerly New Jersey Tech Council)",
+     "role": "Board of advisors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "nariman farvardin|university of maryland college park": {
@@ -161218,16 +161321,33 @@
   "nathan urban|lehigh university": {
    "name": "Nathan Urban",
    "university": "Lehigh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Lehigh Valley Economic Development Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lehigh Valley Economic Development Corporation",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "nathaniel mays|lesley university": {
@@ -171553,11 +171673,13 @@
    "name": "Philomena V. Mantella",
    "university": "Grand Valley State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -171798,11 +171920,13 @@
    "name": "Prabhas V. Moghe",
    "university": "University of Texas at Dallas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -171963,15 +172087,63 @@
   "prasant mohapatra|university of south florida": {
    "name": "Prasant Mohapatra",
    "university": "University of South Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Intel Corporation",
+    "AT&T",
+    "Siemens",
+    "Panasonic Technologies"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Intel Corporation",
+     "role": "Visiting Scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "AT&T",
+     "role": "Visiting Scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Siemens",
+     "role": "Visiting Scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Panasonic Technologies",
+     "role": "Visiting Scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "prashant sakharkar|larkin university": {
@@ -172276,15 +172448,34 @@
   "quinton t. ross jr.|alabama state university": {
    "name": "Quinton T. Ross Jr.",
    "university": "Alabama State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Alabama Senate"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Alabama Senate",
+     "role": "State Senator; Minority Leader 2014-2017",
+     "seniority": "executive",
+     "years": "2002-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    }
    ]
   },
   "quisa foster|clark atlanta university": {
@@ -172554,11 +172745,13 @@
    "name": "R. Lorraine \"Laurie\" Bernotsky",
    "university": "West Chester University of Pennsylvania",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -172686,15 +172879,46 @@
   "rabbi dr. ari berman|yeshiva university": {
    "name": "Rabbi Dr. Ari Berman",
    "university": "Yeshiva University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Hechal Shlomo, The Jewish Heritage Center",
+    "The Jewish Center of Manhattan"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Hechal Shlomo, The Jewish Heritage Center",
+     "role": "Rosh hamerkaz (head of the centre)",
+     "seniority": "executive",
+     "years": "2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Jewish Center of Manhattan",
+     "role": "Rabbi from 1994; lead rabbi from 2000",
+     "seniority": "executive",
+     "years": "1994-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "rabbi dr. norman lamm|yeshiva university": {
