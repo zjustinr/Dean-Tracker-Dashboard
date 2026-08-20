@@ -72,6 +72,12 @@ export const MERGE = {
   "west chester university": "west chester university of pennsylvania",
   "lake erie college of osteopathic medicine lecom": "lake erie college of osteopathic medicine",
   "oberlin college and conservatory": "oberlin college",
+  "north carolina agricultural and technical state university":
+    "north carolina a and t state university",
+  "state university of new york college of environmental science and forestry suny esf":
+    "suny college of environmental science and forestry",
+  // 2025 rename, not a second campus: Texas A&M-Commerce became East Texas A&M.
+  "texas a and m university commerce": "east texas a and m university",
   "missouri state university springfield": "missouri state university",
   // Acronym suffixes on the same seat
   "university of texas medical branch at galveston utmb": "university of texas medical branch at galveston",
