@@ -30,16 +30,16 @@
   "Healthcare Providers"
  ],
  "counts": {
-  "people": 28251,
-  "yes": 1845,
-  "no": 11706,
-  "unknown": 14700,
-  "namedFirm": 1436,
+  "people": 28252,
+  "yes": 1846,
+  "no": 11705,
+  "unknown": 14701,
+  "namedFirm": 1437,
   "flagOnly": 409,
-  "firms": 1369,
-  "sittingWithTie": 824,
+  "firms": 1370,
+  "sittingWithTie": 825,
   "sittingSeniorTie": 425,
-  "researched": 366
+  "researched": 382
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -85396,11 +85396,13 @@
    "name": "James J. \"Jim\" Clark",
    "university": "Florida State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -85410,11 +85412,13 @@
    "name": "James J. Annarelli",
    "university": "Eckerd College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -85631,11 +85635,13 @@
    "name": "James L. Hurley",
    "university": "Tarleton State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -85810,11 +85816,13 @@
    "name": "James M. Glaser",
    "university": "Santa Clara University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -86069,11 +86077,13 @@
    "name": "James P. Burns",
    "university": "Saint Mary's University of Minnesota",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -86359,11 +86369,13 @@
    "name": "James R. Martin II",
    "university": "North Carolina A&T State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -86373,11 +86385,13 @@
    "name": "James R. Martin II",
    "university": "North Carolina Agricultural and Technical State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -86598,11 +86612,13 @@
    "name": "James T. Harris III",
    "university": "University of San Diego",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -86819,15 +86835,44 @@
   "james w. crawford iii|texas southern university": {
    "name": "James W. Crawford III",
    "university": "Texas Southern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 36,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy",
+    "NATO Rule of Law Field Support, Afghanistan"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Vice Admiral; 43rd Judge Advocate General of the Navy",
+     "seniority": "unknown",
+     "years": "1983-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "NATO Rule of Law Field Support, Afghanistan",
+     "role": "Commander",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "james w. curran|emory university": {
@@ -88484,11 +88529,13 @@
    "name": "Janet Schrunk Ericksen",
    "university": "University of Minnesota-Morris",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -88526,11 +88573,13 @@
    "name": "Janet Woodruff-Borden",
    "university": "University of Alabama at Birmingham",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -89073,11 +89122,13 @@
    "name": "Jason Geary",
    "university": "Rutgers University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -89191,11 +89242,13 @@
    "name": "Jason Keith",
    "university": "Iowa State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -89398,11 +89451,13 @@
    "name": "Jason McConnell",
    "university": "Lincoln Memorial University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -89868,11 +89923,13 @@
    "name": "Javier Reyes",
    "university": "University of Massachusetts Amherst",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -90072,11 +90129,13 @@
    "name": "Jay Hartzell",
    "university": "Southern Methodist University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
