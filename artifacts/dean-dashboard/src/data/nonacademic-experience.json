@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28251,
-  "yes": 1796,
-  "no": 11755,
+  "yes": 1815,
+  "no": 11736,
   "unknown": 14700,
-  "namedFirm": 1384,
-  "flagOnly": 412,
-  "firms": 1294,
-  "sittingWithTie": 772,
-  "sittingSeniorTie": 387,
-  "researched": 221
+  "namedFirm": 1405,
+  "flagOnly": 410,
+  "firms": 1324,
+  "sittingWithTie": 793,
+  "sittingSeniorTie": 402,
+  "researched": 269
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -36465,15 +36465,32 @@
   "christina drale|university of arkansas at little rock": {
    "name": "Christina Drale",
    "university": "University of Arkansas at Little Rock",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Arkansas Research Alliance"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Arkansas Research Alliance",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "christina f. hennessey|bowling green state university": {
@@ -36551,15 +36568,32 @@
   "christina paxson|brown university": {
    "name": "Christina Paxson",
    "university": "Brown University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Federal Reserve Bank of Boston"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Federal Reserve Bank of Boston",
+     "role": "Chair, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "christina phillips|university at albany, suny": {
@@ -37293,12 +37327,14 @@
    "name": "Christopher B. Roberts",
    "university": "Auburn University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -37435,15 +37471,42 @@
   "christopher callahan|university of the pacific": {
    "name": "Christopher Callahan",
    "university": "University of the Pacific",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Arizona PBS",
+    "The Associated Press"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Arizona PBS",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Associated Press",
+     "role": "Washington correspondent, reporter and editor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "christopher cannon|university of south alabama": {
@@ -37854,16 +37917,43 @@
   "christopher l. eisgruber|princeton university": {
    "name": "Christopher L. Eisgruber",
    "university": "Princeton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1provost"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Supreme Court of the United States",
+    "U.S. Court of Appeals, Fifth Circuit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Supreme Court of the United States",
+     "role": "Law clerk to Justice John Paul Stevens",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals, Fifth Circuit",
+     "role": "Law clerk to Judge Patrick Higginbotham",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "christopher l. gardner|wofford college": {
@@ -37885,11 +37975,13 @@
    "name": "Christopher L. Holoman",
    "university": "Centenary College of Louisiana",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -38151,11 +38243,13 @@
    "name": "Christopher P. Long",
    "university": "University of Oregon",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -40089,11 +40183,13 @@
    "name": "Colin Irvine",
    "university": "Concordia College at Moorhead",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -40132,16 +40228,32 @@
   "colin s. duckett|boston university": {
    "name": "Colin S. Duckett",
    "university": "Boston University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Baylor Scott & White Research Institute"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Baylor Scott & White Research Institute",
+     "role": "Chief Scientific Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "colleen bielitz|southern connecticut state university": {
@@ -40260,15 +40372,32 @@
   "colleen m. hanycz|xavier university": {
    "name": "Colleen M. Hanycz",
    "university": "Xavier University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Heenan Blaikie LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Heenan Blaikie LLP",
+     "role": "Securities and employment litigator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "colleen murphy|university of illinois urbana-champaign": {
@@ -40480,11 +40609,13 @@
    "name": "Connie Ledoux Book",
    "university": "Elon University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42344,11 +42475,13 @@
    "name": "Cynthia K. Larive",
    "university": "University of California Santa Cruz",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -42493,11 +42626,13 @@
    "name": "Cynthia Teniente-Matson",
    "university": "San Jose State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42735,11 +42870,13 @@
    "name": "D. Scott Hendrickson, S.J.",
    "university": "Regis University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -43045,15 +43182,32 @@
   "damián j. fernández|warren wilson college": {
    "name": "Damián J. Fernández",
    "university": "Warren Wilson College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Charlotte W. Newcombe Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Charlotte W. Newcombe Foundation",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "damon fleming|university of memphis": {
@@ -43611,11 +43765,13 @@
    "name": "Dan Shipp",
    "university": "Maryville University of Saint Louis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -44286,15 +44442,65 @@
   "daniel diermeier|vanderbilt university": {
    "name": "Daniel Diermeier",
    "university": "Vanderbilt University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Argonne National Laboratory",
+    "Vanderbilt University Medical Center",
+    "Field Museum",
+    "Nashville Area Chamber of Commerce"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Argonne National Laboratory",
+     "role": "Board of Governors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Vanderbilt University Medical Center",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Field Museum",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Nashville Area Chamber of Commerce",
+     "role": "Board Chair",
+     "seniority": "unknown",
+     "years": "2026",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "daniel elfenbein|washington university st. louis": {
@@ -44342,15 +44548,32 @@
   "daniel g. lugo|trinity college": {
    "name": "Daniel G. Lugo",
    "university": "Trinity College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Private legal practice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Private legal practice",
+     "role": "Intellectual property and entertainment attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "daniel g. short|texas christian university": {
@@ -44486,11 +44709,13 @@
    "name": "Daniel J. Allen",
    "university": "La Salle University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -44559,11 +44784,13 @@
    "name": "Daniel J. Heimmermann",
    "university": "University of South Carolina Aiken",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -44602,11 +44829,13 @@
    "name": "Daniel J. Myers",
    "university": "Misericordia University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -45064,11 +45293,13 @@
    "name": "Daniel S. Hendrickson, S.J.",
    "university": "Creighton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -45252,15 +45483,43 @@
    "name": "Daniel W. Pullin",
    "university": "Texas Christian University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2",
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Consulting"
+   ],
+   "firms": [
+    "Private equity",
+    "Management consulting"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Private equity",
+     "role": "Investor",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Management consulting",
+     "role": "Business analyst / consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasConsultingBg"
@@ -45626,11 +45885,13 @@
    "name": "Danielle Wilken",
    "university": "University of Bridgeport",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -46201,11 +46462,13 @@
    "name": "Darnell M. Hunt",
    "university": "University of California Los Angeles",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -46270,15 +46533,47 @@
   "darrell k. williams|hampton university": {
    "name": "Darrell K. Williams",
    "university": "Hampton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Leidos",
+    "Defense Logistics Agency"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Leidos",
+     "role": "UK Vice President and Managing Director, MoD LCST programme",
+     "seniority": "executive",
+     "years": "2020-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Defense Logistics Agency",
+     "role": "Director (Lieutenant General, U.S. Army)",
+     "seniority": "senior",
+     "years": "2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "darrell lockhart|university of nevada reno": {
@@ -46614,13 +46909,15 @@
   "darryll j. pines|university of maryland college park": {
    "name": "Darryll J. Pines",
    "university": "University of Maryland College Park",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic",
@@ -46864,15 +47161,53 @@
   "david a. armstrong|st. thomas university": {
    "name": "David A. Armstrong",
    "university": "St. Thomas University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Florida Chamber of Commerce",
+    "Florida Council of 100",
+    "Florida TaxWatch"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Florida Chamber of Commerce",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Florida Council of 100",
+     "role": "Member",
+     "seniority": "senior",
+     "years": "2022",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Florida TaxWatch",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "david a. asch, md, mba|university of pennsylvania": {
@@ -46963,15 +47298,42 @@
   "david a. greene|colby college": {
    "name": "David A. Greene",
    "university": "Colby College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "German Marshall Fund of the United States",
+    "Wyeth Foundation for American Art"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "German Marshall Fund of the United States",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Wyeth Foundation for American Art",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "david a. hodges|university of california berkeley": {
@@ -47054,11 +47416,13 @@
    "name": "David A. Puleo",
    "university": "University of Alabama in Huntsville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -47167,11 +47531,13 @@
    "name": "David A. Tirrell",
    "university": "California Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -47307,11 +47673,13 @@
    "name": "David B. Fithian",
    "university": "Clark University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -47985,11 +48353,13 @@
    "name": "David D. McManus",
    "university": "UMass Chan Medical School",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -48724,15 +49094,54 @@
   "david harpool|northcentral university": {
    "name": "David Harpool",
    "university": "Northcentral University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail",
+    "Law (private practice)",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Kaplan, Inc.",
+    "Private legal practice",
+    "NBC affiliates (Chicago and St. Louis)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Kaplan, Inc.",
+     "role": "Chief Operating Officer, Academic Division",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Private legal practice",
+     "role": "Counsel to colleges and universities",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "NBC affiliates (Chicago and St. Louis)",
+     "role": "Legal and political commentator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david harrison|university of texas at austin": {
@@ -48881,11 +49290,13 @@
    "name": "David J. Cook",
    "university": "Iowa State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -48894,15 +49305,43 @@
   "david j. dausey|duquesne university": {
    "name": "David J. Dausey",
    "university": "Duquesne University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "RAND Corporation",
+    "U.S. Department of Veterans Affairs"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "RAND Corporation",
+     "role": "Full-time researcher",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Veterans Affairs",
+     "role": "Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david j. flaspohler|michigan technological university": {
@@ -48983,15 +49422,59 @@
   "david j. russomanno|university of memphis": {
    "name": "David J. Russomanno",
    "university": "University of Memphis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials",
+    "Technology"
+   ],
+   "firms": [
+    "Pratt & Whitney",
+    "Michelin",
+    "Intergraph Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Pratt & Whitney",
+     "role": "Engineer",
+     "seniority": "professional",
+     "years": "1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 14
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Michelin",
+     "role": "Engineer",
+     "seniority": "professional",
+     "years": "1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 14
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Intergraph Corporation",
+     "role": "Engineer",
+     "seniority": "professional",
+     "years": "1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "david j. sargent|suffolk university": {
@@ -49124,15 +49607,75 @@
   "david k. wilson|morgan state university": {
    "name": "David K. Wilson",
    "university": "Morgan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "TIAA",
+    "Lumina Foundation",
+    "T. Rowe Price Charitable",
+    "White House Board of Advisors on HBCUs",
+    "Woodrow Wilson National Fellowship Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "TIAA",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lumina Foundation",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "T. Rowe Price Charitable",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "White House Board of Advisors on HBCUs",
+     "role": "Presidential appointee",
+     "seniority": "senior",
+     "years": "2010",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Woodrow Wilson National Fellowship Foundation",
+     "role": "Director, Office of Minority Programs",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "david k. winter|westmont college": {
@@ -49270,11 +49813,13 @@
    "name": "David L. Barnett",
    "university": "Brenau University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -49805,12 +50350,14 @@
    "name": "David Marshall",
    "university": "University of California Santa Barbara",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -50279,12 +50826,14 @@
    "name": "David Quigley",
    "university": "Boston College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -50336,11 +50885,13 @@
    "name": "David R. Shaw",
    "university": "Mississippi State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -50511,15 +51062,32 @@
   "david s. guzick|louisiana state university health sciences center, new orleans": {
    "name": "David S. Guzick",
    "university": "Louisiana State University Health Sciences Center, New Orleans",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "UF Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UF Health",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "david s. han|pepperdine university": {
@@ -50933,15 +51501,32 @@
   "david t. mcfaddin|eastern kentucky university": {
    "name": "David T. McFaddin",
    "university": "Eastern Kentucky University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "AT&T"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "AT&T",
+     "role": "Regional and statewide leadership, external affairs",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "david tillman|university of wisconsin madison": {
@@ -51060,15 +51645,33 @@
   "david w. andrews|university of massachusetts global": {
    "name": "David W. Andrews",
    "university": "University of Massachusetts Global",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "National Laboratory for Education Transformation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Laboratory for Education Transformation",
+     "role": "President",
+     "seniority": "executive",
+     "years": "2021",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "david w. blackwell|university of kentucky": {
@@ -51104,11 +51707,13 @@
    "name": "David W. Bushman",
    "university": "Bridgewater College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -51145,15 +51750,34 @@
   "david w. hahn|boise state university": {
    "name": "David W. Hahn",
    "university": "Boise State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Food and Drug Administration, Center for Devices and Radiological Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Food and Drug Administration, Center for Devices and Radiological Health",
+     "role": "Researcher",
+     "seniority": "professional",
+     "years": "1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "david w. hahn|university of arizona": {
@@ -51951,11 +52575,13 @@
    "name": "Deana Porterfield",
    "university": "Seattle Pacific University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
