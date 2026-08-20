@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1905,
-  "no": 11646,
+  "yes": 1908,
+  "no": 11643,
   "unknown": 14701,
-  "namedFirm": 1497,
+  "namedFirm": 1500,
   "flagOnly": 408,
-  "firms": 1469,
-  "sittingWithTie": 885,
-  "sittingSeniorTie": 462,
-  "researched": 551
+  "firms": 1473,
+  "sittingWithTie": 888,
+  "sittingSeniorTie": 463,
+  "researched": 555
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -144659,11 +144659,13 @@
    "name": "Martin S. Roth",
    "university": "University of Charleston",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146516,15 +146518,32 @@
   "mary-beth a. cooper|springfield college": {
    "name": "Mary-Beth A. Cooper",
    "university": "Springfield College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Community Foundation of Western Massachusetts"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Community Foundation of Western Massachusetts",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "mary-jane mclaughlin|lesley university": {
@@ -147065,15 +147084,63 @@
   "matt parlow|chapman university": {
    "name": "Matt Parlow",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Manatt, Phelps & Phillips, LLP",
+    "U.S. Court of Appeals, Ninth Circuit",
+    "White House Office of Legal Counsel",
+    "Office of the Mayor of Los Angeles"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Manatt, Phelps & Phillips, LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals, Ninth Circuit",
+     "role": "Law clerk to Judge Pamela Ann Rymer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "White House Office of Legal Counsel",
+     "role": "Staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Mayor of Los Angeles",
+     "role": "Press deputy and policy analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "matt price|gettysburg college": {
@@ -147816,16 +147883,64 @@
   "matthew j. parlow|chapman university": {
    "name": "Matthew J. Parlow",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1law"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Manatt, Phelps & Phillips, LLP",
+    "U.S. Court of Appeals, Ninth Circuit",
+    "White House Office of Legal Counsel",
+    "Office of the Mayor of Los Angeles"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Manatt, Phelps & Phillips, LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals, Ninth Circuit",
+     "role": "Law clerk to Judge Pamela Ann Rymer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "White House Office of Legal Counsel",
+     "role": "Staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Mayor of Los Angeles",
+     "role": "Press deputy and policy analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "matthew j. roeder|university of colorado boulder": {
