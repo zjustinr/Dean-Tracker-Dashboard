@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28251,
-  "yes": 1755,
-  "no": 11796,
+  "yes": 1763,
+  "no": 11788,
   "unknown": 14700,
-  "namedFirm": 1342,
+  "namedFirm": 1350,
   "flagOnly": 413,
-  "firms": 1210,
-  "sittingWithTie": 730,
-  "sittingSeniorTie": 353,
-  "researched": 120
+  "firms": 1223,
+  "sittingWithTie": 738,
+  "sittingSeniorTie": 358,
+  "researched": 133
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -904,15 +904,43 @@
   "abel antonio chávez|our lady of the lake university": {
    "name": "Abel Antonio Chávez",
    "university": "Our Lady of the Lake University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Anheuser-Busch",
+    "The Dow Chemical Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Anheuser-Busch",
+     "role": "Engineer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "The Dow Chemical Company",
+     "role": "Engineer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "abigail crouse|university of st. thomas (minnesota)": {
@@ -1297,11 +1325,13 @@
    "name": "Adam J. Morris",
    "university": "Azusa Pacific University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -1428,16 +1458,65 @@
   "adam s. weinberg|denison university": {
    "name": "Adam S. Weinberg",
    "university": "Denison University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Columbus Partnership",
+    "NCAA",
+    "World Learning",
+    "Council on Foreign Relations"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Columbus Partnership",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "NCAA",
+     "role": "Division III Presidents Council",
+     "seniority": "senior",
+     "years": "2024",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "World Learning",
+     "role": "President and Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2009-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council on Foreign Relations",
+     "role": "Member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "adam smith|mississippi state university": {
@@ -2862,11 +2941,13 @@
    "name": "Alan Kadish",
    "university": "Hebrew Theological College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -2876,11 +2957,13 @@
    "name": "Alan Kadish",
    "university": "Touro University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -2905,16 +2988,33 @@
   "alan m. garber|harvard university": {
    "name": "Alan M. Garber",
    "university": "Harvard University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1provost"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Veterans Affairs, Palo Alto Health Care System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Veterans Affairs, Palo Alto Health Care System",
+     "role": "Staff Physician",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "alan m. kelly|university of pennsylvania": {
@@ -3349,15 +3449,32 @@
   "alec d. gallimore|duke university": {
    "name": "Alec D. Gallimore",
    "university": "Duke University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Bechtel"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Energy & Industrials",
+     "firm": "Bechtel",
+     "role": "Leadership / board",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "alec d. gallimore|university of michigan": {
@@ -3789,11 +3906,13 @@
    "name": "Alexander N. Cartwright",
    "university": "University of Central Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -4183,15 +4302,32 @@
   "ali a. houshmand|rowan university": {
    "name": "Ali A. Houshmand",
    "university": "Rowan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "United Airlines"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "United Airlines",
+     "role": "Staff Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ali abolmaali|wayne state university": {
@@ -4905,11 +5041,13 @@
    "name": "Alison R. Byerly",
    "university": "Carleton College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -6753,15 +6891,33 @@
   "amy c. novak|saint ambrose university": {
    "name": "Amy C. Novak",
    "university": "Saint Ambrose University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Association of Catholic Colleges and Universities"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Association of Catholic Colleges and Universities",
+     "role": "Chair of the Board of Directors",
+     "seniority": "executive",
+     "years": "2026",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "amy charkowski|colorado state university": {
@@ -8547,16 +8703,43 @@
   "andrea goldsmith|stony brook university": {
    "name": "Andrea Goldsmith",
    "university": "Stony Brook University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Brookhaven Science Associates LLC",
+    "New York Climate Exchange"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Brookhaven Science Associates LLC",
+     "role": "Co-chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "New York Climate Exchange",
+     "role": "Chair of the Board",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "andrea gonzales|university of california riverside": {
@@ -218569,15 +218752,74 @@
   "ángel cabrera|georgia institute of technology": {
    "name": "Ángel Cabrera",
    "university": "Georgia Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "TIAA",
+    "National Geographic Society",
+    "Metro Atlanta Chamber",
+    "Bankinter Innovation Foundation",
+    "Aspen Institute"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "TIAA",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Geographic Society",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Metro Atlanta Chamber",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bankinter Innovation Foundation",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Aspen Institute",
+     "role": "Incoming President and Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2026",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "ángel collado schwarz|albizu university-miami": {
