@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1909,
-  "no": 11642,
+  "yes": 1912,
+  "no": 11639,
   "unknown": 14701,
-  "namedFirm": 1501,
+  "namedFirm": 1504,
   "flagOnly": 408,
-  "firms": 1474,
-  "sittingWithTie": 886,
-  "sittingSeniorTie": 461,
-  "researched": 568
+  "firms": 1481,
+  "sittingWithTie": 889,
+  "sittingSeniorTie": 470,
+  "researched": 581
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -44450,20 +44450,30 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 58,
-   "seniority": "senior",
+   "score": 71,
+   "seniority": "executive",
    "categories": [
+    "Nonprofit & Foundations",
     "Government & Public Sector",
-    "Healthcare Providers",
-    "Nonprofit & Foundations"
+    "Healthcare Providers"
    ],
    "firms": [
+    "Nashville Area Chamber of Commerce",
     "Argonne National Laboratory",
     "Vanderbilt University Medical Center",
-    "Field Museum",
-    "Nashville Area Chamber of Commerce"
+    "Field Museum"
    ],
    "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Nashville Area Chamber of Commerce",
+     "role": "Board Chair",
+     "seniority": "executive",
+     "years": "2026",
+     "source": "research",
+     "score": 71
+    },
     {
      "kind": "board",
      "category": "Government & Public Sector",
@@ -44490,16 +44500,6 @@
      "seniority": "senior",
      "source": "research",
      "score": 58
-    },
-    {
-     "kind": "board",
-     "category": "Nonprofit & Foundations",
-     "firm": "Nashville Area Chamber of Commerce",
-     "role": "Board Chair",
-     "seniority": "unknown",
-     "years": "2026",
-     "source": "research",
-     "score": 44
     }
    ]
   },
@@ -46568,11 +46568,11 @@
      "category": "Government & Public Sector",
      "firm": "Defense Logistics Agency",
      "role": "Director (Lieutenant General, U.S. Army)",
-     "seniority": "senior",
+     "seniority": "executive",
      "years": "2020",
      "endYear": 2020,
      "source": "research",
-     "score": 50
+     "score": 63
     }
    ]
   },
@@ -57287,8 +57287,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 36,
-   "seniority": "unknown",
+   "score": 63,
+   "seniority": "executive",
    "categories": [
     "Government & Public Sector"
    ],
@@ -57301,11 +57301,11 @@
      "category": "Government & Public Sector",
      "firm": "United States Air Force",
      "role": "Major General, Chief of Chaplains",
-     "seniority": "unknown",
+     "seniority": "executive",
      "years": "1986-2018",
      "endYear": 2018,
      "source": "research",
-     "score": 36
+     "score": 63
     }
    ]
   },
@@ -64489,8 +64489,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 40,
-   "seniority": "senior",
+   "score": 53,
+   "seniority": "executive",
    "categories": [
     "Law (private practice)"
    ],
@@ -64503,9 +64503,9 @@
      "category": "Law (private practice)",
      "firm": "Midwestern law firm",
      "role": "Partner, corporate law",
-     "seniority": "senior",
+     "seniority": "executive",
      "source": "research",
-     "score": 40
+     "score": 53
     }
    ]
   },
@@ -70735,8 +70735,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 44,
-   "seniority": "unknown",
+   "score": 71,
+   "seniority": "executive",
    "categories": [
     "Government & Public Sector"
    ],
@@ -70749,9 +70749,9 @@
      "category": "Government & Public Sector",
      "firm": "Oklahoma City-County Board of Health",
      "role": "Chair",
-     "seniority": "unknown",
+     "seniority": "executive",
      "source": "research",
-     "score": 44
+     "score": 71
     }
    ]
   },
@@ -86843,8 +86843,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 36,
-   "seniority": "unknown",
+   "score": 63,
+   "seniority": "executive",
    "categories": [
     "Government & Public Sector"
    ],
@@ -86858,20 +86858,20 @@
      "category": "Government & Public Sector",
      "firm": "United States Navy",
      "role": "Vice Admiral; 43rd Judge Advocate General of the Navy",
-     "seniority": "unknown",
+     "seniority": "executive",
      "years": "1983-2018",
      "endYear": 2018,
      "source": "research",
-     "score": 36
+     "score": 63
     },
     {
      "kind": "employment",
      "category": "Government & Public Sector",
      "firm": "NATO Rule of Law Field Support, Afghanistan",
      "role": "Commander",
-     "seniority": "unknown",
+     "seniority": "executive",
      "source": "research",
-     "score": 26
+     "score": 53
     }
    ]
   },
@@ -99125,8 +99125,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 39,
-   "seniority": "professional",
+   "score": 70,
+   "seniority": "executive",
    "categories": [
     "Government & Public Sector"
    ],
@@ -99140,11 +99140,22 @@
      "category": "Government & Public Sector",
      "firm": "Office of the Governor of Alabama",
      "role": "Chief of Staff to Governor Kay Ivey",
-     "seniority": "professional",
+     "seniority": "executive",
      "years": "2019-2021",
      "endYear": 2021,
      "source": "research",
-     "score": 39
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. House of Representatives",
+     "role": "Member of Congress, Alabama 1st district; chair, House Ethics Committee",
+     "seniority": "executive",
+     "years": "2003-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 55
     },
     {
      "kind": "employment",
@@ -99156,17 +99167,6 @@
      "endYear": 2002,
      "source": "research",
      "score": 36
-    },
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "firm": "U.S. House of Representatives",
-     "role": "Member of Congress, Alabama 1st district; chair, House Ethics Committee",
-     "seniority": "unknown",
-     "years": "2003-2013",
-     "endYear": 2013,
-     "source": "research",
-     "score": 28
     }
    ]
   },
@@ -99429,8 +99429,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 44,
-   "seniority": "unknown",
+   "score": 71,
+   "seniority": "executive",
    "categories": [
     "Nonprofit & Foundations"
    ],
@@ -99443,9 +99443,9 @@
      "category": "Nonprofit & Foundations",
      "firm": "Council on Competitiveness",
      "role": "Vice Chair",
-     "seniority": "unknown",
+     "seniority": "executive",
      "source": "research",
-     "score": 44
+     "score": 71
     }
    ]
   },
@@ -99774,8 +99774,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 40,
-   "seniority": "senior",
+   "score": 53,
+   "seniority": "executive",
    "categories": [
     "Consulting"
    ],
@@ -99788,9 +99788,9 @@
      "category": "Consulting",
      "firm": "1MountainRoad",
      "role": "Principal",
-     "seniority": "senior",
+     "seniority": "executive",
      "source": "research",
-     "score": 40
+     "score": 53
     }
    ]
   },
@@ -99819,8 +99819,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 58,
-   "seniority": "senior",
+   "score": 71,
+   "seniority": "executive",
    "categories": [
     "Government & Public Sector"
    ],
@@ -99833,10 +99833,10 @@
      "category": "Government & Public Sector",
      "firm": "Federal Reserve Bank of Kansas City, Omaha Branch",
      "role": "Director; Branch Chair from 2026",
-     "seniority": "senior",
+     "seniority": "executive",
      "years": "2023",
      "source": "research",
-     "score": 58
+     "score": 71
     }
    ]
   },
@@ -99896,8 +99896,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 36,
-   "seniority": "unknown",
+   "score": 63,
+   "seniority": "executive",
    "categories": [
     "Government & Public Sector",
     "Law (private practice)"
@@ -99913,11 +99913,11 @@
      "category": "Government & Public Sector",
      "firm": "Onondaga County",
      "role": "County Executive",
-     "seniority": "unknown",
+     "seniority": "executive",
      "years": "2008-2018",
      "endYear": 2018,
      "source": "research",
-     "score": 36
+     "score": 63
     },
     {
      "kind": "employment",
@@ -108119,11 +108119,13 @@
    "name": "Jose A. Frontera Agenjo",
    "university": "Pontifical Catholic University of Puerto Rico-Ponce",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -108737,13 +108739,13 @@
    "seniority": "senior",
    "categories": [
     "Nonprofit & Foundations",
-    "Government & Public Sector",
-    "Media & Entertainment"
+    "Media & Entertainment",
+    "Government & Public Sector"
    ],
    "firms": [
     "Institute for Natural Medicine",
-    "White House / federal health advisory commissions",
-    "Integrative Medicine: A Clinician's Journal"
+    "Integrative Medicine: A Clinician's Journal",
+    "White House / federal health advisory commissions"
    ],
    "ties": [
     {
@@ -108756,6 +108758,15 @@
      "score": 58
     },
     {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Integrative Medicine: A Clinician's Journal",
+     "role": "Editor-in-Chief",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
      "kind": "advisory",
      "category": "Government & Public Sector",
      "firm": "White House / federal health advisory commissions",
@@ -108763,15 +108774,6 @@
      "seniority": "senior",
      "source": "research",
      "score": 48
-    },
-    {
-     "kind": "employment",
-     "category": "Media & Entertainment",
-     "firm": "Integrative Medicine: A Clinician's Journal",
-     "role": "Editor-in-Chief",
-     "seniority": "unknown",
-     "source": "research",
-     "score": 26
     }
    ]
   },
@@ -112577,8 +112579,8 @@
    ],
    "firms": [
     "United Nations Foundation",
-    "World Health Organization",
-    "Government of Mexico"
+    "Government of Mexico",
+    "World Health Organization"
    ],
    "ties": [
     {
@@ -112593,24 +112595,24 @@
     {
      "kind": "employment",
      "category": "Government & Public Sector",
-     "firm": "World Health Organization",
-     "role": "Executive Director, Evidence and Information for Policy",
-     "seniority": "senior",
-     "years": "1998-2000",
-     "endYear": 2000,
+     "firm": "Government of Mexico",
+     "role": "Secretary of Health",
+     "seniority": "executive",
+     "years": "2000-2006",
+     "endYear": 2006,
      "source": "research",
-     "score": 36
+     "score": 55
     },
     {
      "kind": "employment",
      "category": "Government & Public Sector",
-     "firm": "Government of Mexico",
-     "role": "Secretary of Health",
-     "seniority": "unknown",
-     "years": "2000-2006",
-     "endYear": 2006,
+     "firm": "World Health Organization",
+     "role": "Executive Director, Evidence and Information for Policy",
+     "seniority": "executive",
+     "years": "1998-2000",
+     "endYear": 2000,
      "source": "research",
-     "score": 28
+     "score": 49
     }
    ]
   },
@@ -117916,11 +117918,13 @@
    "name": "Kayla Hale",
    "university": "University of Science and Arts of Oklahoma",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -121925,8 +121929,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 43,
-   "seniority": "unknown",
+   "score": 70,
+   "seniority": "executive",
    "categories": [
     "Healthcare Providers",
     "Government & Public Sector"
@@ -121941,11 +121945,11 @@
      "category": "Healthcare Providers",
      "firm": "UNC Health",
      "role": "Chief of External Affairs",
-     "seniority": "unknown",
+     "seniority": "executive",
      "years": "2023-2025",
      "endYear": 2025,
      "source": "research",
-     "score": 43
+     "score": 70
     },
     {
      "kind": "employment",
@@ -126448,8 +126452,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 50,
-   "seniority": "senior",
+   "score": 63,
+   "seniority": "executive",
    "categories": [
     "Nonprofit & Foundations"
    ],
@@ -126462,11 +126466,11 @@
      "category": "Nonprofit & Foundations",
      "firm": "Pensacola Opera",
      "role": "Artistic Director",
-     "seniority": "senior",
+     "seniority": "executive",
      "years": "2000-2017",
      "endYear": 2017,
      "source": "research",
-     "score": 50
+     "score": 63
     }
    ]
   },
@@ -127721,8 +127725,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 57,
-   "seniority": "senior",
+   "score": 70,
+   "seniority": "executive",
    "categories": [
     "Government & Public Sector"
    ],
@@ -127736,22 +127740,22 @@
      "category": "Government & Public Sector",
      "firm": "White House Office of Science and Technology Policy",
      "role": "Assistant Director for Polar Sciences",
-     "seniority": "senior",
+     "seniority": "executive",
      "years": "2020-2024",
      "endYear": 2024,
      "source": "research",
-     "score": 57
+     "score": 70
     },
     {
      "kind": "employment",
      "category": "Government & Public Sector",
      "firm": "Interagency Arctic Research Policy Committee",
      "role": "Executive Director",
-     "seniority": "senior",
+     "seniority": "executive",
      "years": "2024",
      "endYear": 2024,
      "source": "research",
-     "score": 57
+     "score": 70
     }
    ]
   },
@@ -129672,8 +129676,8 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
-   "score": 50,
-   "seniority": "senior",
+   "score": 63,
+   "seniority": "executive",
    "categories": [
     "Nonprofit & Foundations"
    ],
@@ -129686,11 +129690,11 @@
      "category": "Nonprofit & Foundations",
      "firm": "New Jersey Performing Arts Center",
      "role": "Head of arts education",
-     "seniority": "senior",
+     "seniority": "executive",
      "years": "2013-2014",
      "endYear": 2014,
      "source": "research",
-     "score": 50
+     "score": 63
     }
    ]
   },
@@ -137758,11 +137762,13 @@
    "name": "M. Wasiullah Khan",
    "university": "East-West University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -138823,11 +138829,13 @@
    "name": "Manuel Martinez, Ph.D.",
    "university": "Dominican University New York",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -143292,9 +143300,9 @@
      "category": "Consulting",
      "firm": "Forrester Research",
      "role": "Executive team member",
-     "seniority": "unknown",
+     "seniority": "executive",
      "source": "research",
-     "score": 26
+     "score": 53
     }
    ]
   },
@@ -146218,8 +146226,8 @@
    ],
    "firms": [
     "Land Trust Alliance",
-    "Lowcountry Open Land Trust",
     "National Park System Advisory Board",
+    "Lowcountry Open Land Trust",
     "U.S. Department of the Interior"
    ],
    "ties": [
@@ -146235,24 +146243,24 @@
      "score": 63
     },
     {
-     "kind": "employment",
-     "category": "Nonprofit & Foundations",
-     "firm": "Lowcountry Open Land Trust",
-     "role": "Executive Director",
-     "seniority": "senior",
-     "years": "1998-2002",
-     "endYear": 2002,
-     "source": "research",
-     "score": 36
-    },
-    {
      "kind": "advisory",
      "category": "Government & Public Sector",
      "firm": "National Park System Advisory Board",
      "role": "Chair, appointed by the Secretary of the Interior",
-     "seniority": "unknown",
+     "seniority": "executive",
      "source": "research",
-     "score": 34
+     "score": 61
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lowcountry Open Land Trust",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "years": "1998-2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 49
     },
     {
      "kind": "employment",
@@ -149072,11 +149080,13 @@
    "name": "Mayra Charriez Cordero",
    "university": "University of Puerto Rico at Río Piedras",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -149596,11 +149606,13 @@
    "name": "Meggan Madden",
    "university": "Principia College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -151561,15 +151573,32 @@
   "michael a. thomas|concordia university-irvine": {
    "name": "Michael A. Thomas",
    "university": "Concordia University-Irvine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Orange County Business Council"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Orange County Business Council",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "michael a.l. balboni|adelphi university": {
@@ -152173,11 +152202,13 @@
    "name": "Michael D. Hammond",
    "university": "Gordon College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -152434,16 +152465,74 @@
   "michael e. hill|randolph-macon college": {
    "name": "Michael E. Hill",
    "university": "Randolph-Macon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Chautauqua Institution",
+    "Youth for Understanding USA",
+    "United Cerebral Palsy",
+    "Washington National Cathedral",
+    "The Washington Ballet"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chautauqua Institution",
+     "role": "President",
+     "seniority": "executive",
+     "years": "2017-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Youth for Understanding USA",
+     "role": "President and CEO",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Cerebral Palsy",
+     "role": "Senior executive",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Washington National Cathedral",
+     "role": "Senior executive",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Washington Ballet",
+     "role": "Senior executive",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "michael e. johnson|morehouse college": {
@@ -152607,11 +152696,13 @@
    "name": "Michael E. Steiper",
    "university": "SUNY at Purchase College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -153135,13 +153226,15 @@
    "name": "Michael I. Kotlikoff",
    "university": "Cornell University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1provost",
     "usvet"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -153150,15 +153243,34 @@
   "michael ibba|chapman university": {
    "name": "Michael Ibba",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Novartis"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Novartis",
+     "role": "Industrial post-doctoral researcher",
+     "seniority": "professional",
+     "years": "1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "michael j. adanti|southern connecticut state university": {
@@ -153925,11 +154037,13 @@
    "name": "Michael Lewis",
    "university": "Saint Anselm College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"

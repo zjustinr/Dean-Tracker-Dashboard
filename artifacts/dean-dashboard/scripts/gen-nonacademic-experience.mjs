@@ -223,6 +223,17 @@ function researchTies(r) {
       // it is what a researcher picks from a list, not the coarse
       // Industry/Government/Nonprofit split the classifier produces.
       const kind = t.kind || "employment";
+      // A researcher-set seniority outside SENIORITY_BANDS falls back to parsing
+      // the title, and that fallback is quietly lossy: "exec" is not a band, and
+      // `seniorityOf("Member of Congress")` or `seniorityOf("Secretary of Health")`
+      // returns "unknown", so a typo silently demotes the most senior ties in the
+      // corpus. Warn so the next one surfaces instead of scoring wrong.
+      if (t.seniority && !SENIORITY_BANDS.includes(t.seniority)) {
+        console.warn(
+          `  ! ${r.key}: seniority "${t.seniority}" is not one of ${SENIORITY_BANDS.join("/")} ` +
+            `-- falling back to the title parse of "${t.title || ""}"`,
+        );
+      }
       const seniority = SENIORITY_BANDS.includes(t.seniority) ? t.seniority : seniorityOf(t.title || "");
       const endYear = t.endYear ?? null;
       return {
