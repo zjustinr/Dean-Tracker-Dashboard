@@ -39,7 +39,7 @@
   "firms": 1473,
   "sittingWithTie": 888,
   "sittingSeniorTie": 463,
-  "researched": 555
+  "researched": 559
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -145111,12 +145111,14 @@
    "name": "Mary Anne Fitzpatrick",
    "university": "University of South Carolina",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -148269,11 +148271,13 @@
    "name": "Matthew P. vandenBerg",
    "university": "Ohio Wesleyan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -148725,11 +148729,13 @@
    "name": "Maud Mandel",
    "university": "Williams College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -148986,11 +148992,13 @@
    "name": "Maurie D. McInnis",
    "university": "Yale University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
