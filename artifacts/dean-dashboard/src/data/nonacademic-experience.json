@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1863,
-  "no": 11688,
+  "yes": 1867,
+  "no": 11684,
   "unknown": 14701,
-  "namedFirm": 1455,
+  "namedFirm": 1459,
   "flagOnly": 408,
-  "firms": 1400,
-  "sittingWithTie": 843,
-  "sittingSeniorTie": 437,
-  "researched": 438
+  "firms": 1409,
+  "sittingWithTie": 847,
+  "sittingSeniorTie": 440,
+  "researched": 448
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -108407,11 +108407,13 @@
    "name": "Joseph Auner",
    "university": "Tufts University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -108494,11 +108496,13 @@
    "name": "Joseph C. Hartman",
    "university": "Western New England University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -108630,15 +108634,62 @@
   "joseph e. aoun|northeastern university": {
    "name": "Joseph E. Aoun",
    "university": "Northeastern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Greater Boston Chamber of Commerce",
+    "Massachusetts Business Roundtable",
+    "Boston Private Industry Council",
+    "The New England Council"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Boston Chamber of Commerce",
+     "role": "Executive Committee member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Massachusetts Business Roundtable",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Boston Private Industry Council",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The New England Council",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "joseph e. johnson|the university of tennessee system": {
@@ -108672,15 +108723,54 @@
   "joseph e. pizzorno jr., nd|bastyr university": {
    "name": "Joseph E. Pizzorno Jr., ND",
    "university": "Bastyr University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Institute for Natural Medicine",
+    "White House / federal health advisory commissions",
+    "Integrative Medicine: A Clinician's Journal"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Institute for Natural Medicine",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "White House / federal health advisory commissions",
+     "role": "Presidential appointee under Clinton and Bush",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Integrative Medicine: A Clinician's Journal",
+     "role": "Editor-in-Chief",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "joseph e. robertson jr., m.d., m.b.a.|oregon health & science university": {
@@ -108729,11 +108819,13 @@
    "name": "Joseph Glover",
    "university": "University of Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -108756,16 +108848,35 @@
   "joseph harroz jr.|university of oklahoma": {
    "name": "Joseph Harroz Jr.",
    "university": "University of Oklahoma",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 32,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Senate"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Senate",
+     "role": "Legislative director and legal counsel to Senator David Boren",
+     "seniority": "senior",
+     "years": "1995",
+     "endYear": 1995,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "joseph hope|colgate university": {
@@ -108871,26 +108982,56 @@
   "joseph j. helble|lehigh university": {
    "name": "Joseph J. Helble",
    "university": "Lehigh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Physical Sciences, Inc.",
+    "AAAS Revelle Fellowship, Washington DC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Physical Sciences, Inc.",
+     "role": "Research scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "AAAS Revelle Fellowship, Washington DC",
+     "role": "Environmental and technology policy fellow",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "joseph j. mccarthy|university of pittsburgh": {
    "name": "Joseph J. McCarthy",
    "university": "University of Pittsburgh",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -109178,11 +109319,13 @@
    "name": "Joseph R. Reilly",
    "university": "Seton Hall University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -110156,12 +110299,14 @@
    "name": "Joy K. Ward",
    "university": "Case Western Reserve University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
