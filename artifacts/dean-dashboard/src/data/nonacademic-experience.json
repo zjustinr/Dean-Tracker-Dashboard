@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1893,
-  "no": 11658,
+  "yes": 1894,
+  "no": 11657,
   "unknown": 14701,
-  "namedFirm": 1486,
+  "namedFirm": 1487,
   "flagOnly": 407,
-  "firms": 1452,
-  "sittingWithTie": 874,
+  "firms": 1454,
+  "sittingWithTie": 875,
   "sittingSeniorTie": 457,
-  "researched": 523
+  "researched": 529
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -133233,11 +133233,13 @@
    "name": "Linda T. M. Bui",
    "university": "Brandeis University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -137339,11 +137341,13 @@
    "name": "Lynne Coy-Ogan",
    "university": "Husson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -138470,15 +138474,42 @@
   "manfred h. m. van dulmen|university of maryland baltimore county": {
    "name": "Manfred H. M. van Dulmen",
    "university": "University of Maryland Baltimore County",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Elsevier",
+    "SAGE Publishing"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Elsevier",
+     "role": "Assistant Editor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "SAGE Publishing",
+     "role": "Editor, Emerging Adulthood",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "manfred paulini|carnegie mellon university": {
@@ -138561,11 +138592,13 @@
    "name": "Manohar Singh",
    "university": "University of Wisconsin-Oshkosh",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -138703,11 +138736,13 @@
    "name": "Mantosh Dewan",
    "university": "State University of New York Upstate Medical University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -138816,11 +138851,13 @@
    "name": "Manya Whitaker",
    "university": "Colorado College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
