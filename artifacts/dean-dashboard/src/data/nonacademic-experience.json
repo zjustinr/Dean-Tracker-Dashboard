@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28251,
-  "yes": 1763,
-  "no": 11788,
+  "yes": 1772,
+  "no": 11779,
   "unknown": 14700,
-  "namedFirm": 1350,
+  "namedFirm": 1359,
   "flagOnly": 413,
-  "firms": 1223,
-  "sittingWithTie": 738,
-  "sittingSeniorTie": 358,
-  "researched": 133
+  "firms": 1242,
+  "sittingWithTie": 747,
+  "sittingSeniorTie": 366,
+  "researched": 148
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -4375,15 +4375,32 @@
   "ali r. malekzadeh|roosevelt university": {
    "name": "Ali R. Malekzadeh",
    "university": "Roosevelt University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Association of Governing Boards of Universities and Colleges"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Association of Governing Boards of Universities and Colleges",
+     "role": "Senior Consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "ali s. khan|university of nebraska medical center": {
@@ -4765,15 +4782,54 @@
   "alisa white|sam houston state university": {
    "name": "Alisa White",
    "university": "Sam Houston State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 88,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "American Association of State Colleges and Universities",
+    "Conference USA",
+    "Council for Adult and Experiential Learning"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Association of State Colleges and Universities",
+     "role": "Chair of the Board of Directors",
+     "seniority": "executive",
+     "years": "2024-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 88
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Conference USA",
+     "role": "Vice Chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council for Adult and Experiential Learning",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "alisia \"ally\" eckert|depaul university": {
@@ -8326,12 +8382,14 @@
    "name": "Anantha P. Chandrakasan",
    "university": "Massachusetts Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -9280,15 +9338,55 @@
   "andrew armacost|university of north dakota": {
    "name": "Andrew Armacost",
    "university": "University of North Dakota",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "United States Air Force",
+    "Energy and Environmental Research Center Foundation",
+    "Military Operations Research Society"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Brigadier General; Dean of the Faculty, U.S. Air Force Academy",
+     "seniority": "executive",
+     "years": "2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Energy and Environmental Research Center Foundation",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Military Operations Research Society",
+     "role": "Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "andrew barton|azusa pacific university": {
@@ -9380,11 +9478,13 @@
    "name": "Andrew D. Martin",
    "university": "Washington University in St. Louis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -9981,11 +10081,13 @@
    "name": "Andrew P. Daire",
    "university": "North Carolina A&T State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -10285,30 +10387,98 @@
   "andrew t. guzman|university of southern california": {
    "name": "Andrew T. Guzman",
    "university": "University of Southern California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1law"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Institute for Transnational Arbitration",
+    "United States Court of Appeals for the First Circuit"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Institute for Transnational Arbitration",
+     "role": "Academic Council member; international arbitrator",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Court of Appeals for the First Circuit",
+     "role": "Law clerk to Chief Judge Juan Torruella",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "andrew t. hsu|college of charleston": {
    "name": "Andrew T. Hsu",
    "university": "College of Charleston",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Charleston Regional Development Alliance",
+    "Sverdrup Technology",
+    "Rolls-Royce"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Charleston Regional Development Alliance",
+     "role": "Leadership Council",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Sverdrup Technology",
+     "role": "Engineer (NASA contractor)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Rolls-Royce",
+     "role": "Engineer",
+     "seniority": "professional",
+     "years": "1997",
+     "endYear": 1997,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "andrew thoron|abraham baldwin agricultural college": {
@@ -10760,15 +10930,32 @@
   "andy vaughn|alliant international university-san diego": {
    "name": "Andy Vaughn",
    "university": "Alliant International University-San Diego",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Central Valley Education Consortium"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Central Valley Education Consortium",
+     "role": "Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "andy ward|university of chicago": {
@@ -11023,11 +11210,13 @@
    "name": "Angela Garcia Falconetti",
    "university": "University of North Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -11335,15 +11524,32 @@
   "angela v. olinto|columbia university": {
    "name": "Angela V. Olinto",
    "university": "Columbia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Fermi National Accelerator Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Fermi National Accelerator Laboratory",
+     "role": "Researcher",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "angela white|johnson c smith university": {
@@ -11956,11 +12162,13 @@
    "name": "Ann E. Cudd",
    "university": "Portland State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -13659,15 +13867,54 @@
   "anthony hilliard, md, facc|loma linda university": {
    "name": "Anthony Hilliard, MD, FACC",
    "university": "Loma Linda University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "American College of Cardiology",
+    "American Heart Association",
+    "Loma Linda University Health"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American College of Cardiology",
+     "role": "National leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Heart Association",
+     "role": "National leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Loma Linda University Health",
+     "role": "Chief Executive Officer of the hospitals; President",
+     "seniority": "executive",
+     "years": "2024",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "anthony j. \"tony\" aretz|mount saint joseph university": {
@@ -14345,11 +14592,13 @@
    "name": "Aondover Tarhule",
    "university": "Illinois State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -15150,15 +15399,63 @@
   "arthur keiser|keiser university-ft lauderdale": {
    "name": "Arthur Keiser",
    "university": "Keiser University-Ft Lauderdale",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "National Advisory Committee on Institutional Quality and Integrity",
+    "Career Education Colleges and Universities",
+    "Accrediting Commission of Career Schools and Colleges of Technology",
+    "Florida Board of Independent Colleges and Universities"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "National Advisory Committee on Institutional Quality and Integrity",
+     "role": "Chairman",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Career Education Colleges and Universities",
+     "role": "Chairman of the Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Accrediting Commission of Career Schools and Colleges of Technology",
+     "role": "Chairman",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Florida Board of Independent Colleges and Universities",
+     "role": "Gubernatorial appointee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "arthur l. centonze|pace university": {
