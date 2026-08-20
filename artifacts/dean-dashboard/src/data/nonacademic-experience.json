@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1958,
-  "no": 11593,
+  "yes": 1965,
+  "no": 11586,
   "unknown": 14701,
-  "namedFirm": 1547,
-  "flagOnly": 411,
-  "firms": 1542,
-  "sittingWithTie": 932,
-  "sittingSeniorTie": 501,
-  "researched": 701
+  "namedFirm": 1552,
+  "flagOnly": 413,
+  "firms": 1545,
+  "sittingWithTie": 937,
+  "sittingSeniorTie": 505,
+  "researched": 718
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -187955,12 +187955,14 @@
    "name": "Roy Haggerty",
    "university": "Oregon State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -190739,11 +190741,13 @@
    "name": "Samuel W. \"Dub\" Oliver",
    "university": "Union University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -191110,11 +191114,13 @@
    "name": "Sandra Minor Bulmer",
    "university": "Southern Connecticut State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -193811,11 +193817,13 @@
    "name": "Scott Douglas Miller",
    "university": "Virginia Wesleyan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -193838,15 +193846,32 @@
   "scott e. feller|wabash college": {
    "name": "Scott E. Feller",
    "university": "Wabash College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Institutes of Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Institutes of Health",
+     "role": "Post-doctoral research fellow",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "scott flanagan|edgewood college": {
@@ -194277,12 +194302,14 @@
   "scott pace|southeastern baptist theological seminary": {
    "name": "Scott Pace",
    "university": "Southeastern Baptist Theological Seminary",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -196045,11 +196072,13 @@
    "name": "Shari R. Veil",
    "university": "North Dakota State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -197318,12 +197347,14 @@
   "sheila k. gestring|university of south dakota": {
    "name": "Sheila K. Gestring",
    "university": "University of South Dakota",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -197402,15 +197433,32 @@
   "shekar n. kurpad, md, phd|medical college of wisconsin": {
    "name": "Shekar N. Kurpad, MD, PhD",
    "university": "Medical College of Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Clement J. Zablocki VA Medical Center (U.S. Department of Veterans Affairs)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Clement J. Zablocki VA Medical Center (U.S. Department of Veterans Affairs)",
+     "role": "Chief of Neurosurgery",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "shekhar garde|rensselaer polytechnic institute": {
@@ -198424,15 +198472,33 @@
   "sian leah beilock|dartmouth college": {
    "name": "Sian Leah Beilock",
    "university": "Dartmouth College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Bridgewater Associates"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Bridgewater Associates",
+     "role": "External Director, board of directors",
+     "seniority": "senior",
+     "years": "2021",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "sibani lisa biswal|rice university": {
@@ -198526,15 +198592,32 @@
   "sidney a. mcphee|middle tennessee state university": {
    "name": "Sidney A. McPhee",
    "university": "Middle Tennessee State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Council on Competitiveness"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council on Competitiveness",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "sidney a. ribeau|bowling green state university": {
@@ -198653,11 +198736,13 @@
    "name": "Sinda K. Vanderpool",
    "university": "University of St. Thomas (Houston)",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -199797,11 +199882,13 @@
    "name": "Stacey Robertson",
    "university": "Widener University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -200022,15 +200109,44 @@
   "stacy leeds|university of tulsa": {
    "name": "Stacy Leeds",
    "university": "University of Tulsa",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Cherokee Nation Supreme Court",
+    "Muscogee Nation courts"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Cherokee Nation Supreme Court",
+     "role": "Justice; first woman to serve on the court",
+     "seniority": "executive",
+     "years": "2002-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Muscogee Nation courts",
+     "role": "Judicial officer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "stacy meyer|california baptist university": {
@@ -201578,11 +201694,13 @@
    "name": "Stephen E. Thorsett",
    "university": "Willamette University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -202538,11 +202656,13 @@
    "name": "Steve Goldstein",
    "university": "University of New Mexico",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -203876,11 +203996,13 @@
    "name": "Steven Tepper",
    "university": "Hamilton College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
