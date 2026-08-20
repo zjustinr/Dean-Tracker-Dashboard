@@ -38,11 +38,20 @@ for (const f of Object.keys(FILE_ID).concat(["deans.json"])) {
     const c = {
       school: r.school || "", startYear: r.startYear ?? null,
       priorTitle: r.priorTitle || "", priorInstitution: r.priorInstitution || "",
+      sitting: r.endYear == null,
     };
-    const score = (o) => Object.values(o).filter(Boolean).length;
+    // A person can hold several seats at one university across a career, and the
+    // richest row is often an old one: Cornell's president showed up here as
+    // "College of Veterinary Medicine, start 2007", a deanship he left in 2015,
+    // which points the researcher at the wrong job. The seat they currently sit
+    // in always wins; richness only breaks ties within the same sitting state.
+    const score = (o) => Object.values(o).filter((v) => v && v !== true).length;
     const k = ekey(name, r.university);
     const prev = CTX.get(k);
-    if (!prev || score(c) > score(prev)) CTX.set(k, c);
+    const better = !prev
+      || (c.sitting && !prev.sitting)
+      || (c.sitting === prev.sitting && score(c) > score(prev));
+    if (better) CTX.set(k, c);
   }
 }
 
