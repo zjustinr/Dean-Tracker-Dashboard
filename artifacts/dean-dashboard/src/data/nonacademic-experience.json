@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1898,
-  "no": 11653,
+  "yes": 1899,
+  "no": 11652,
   "unknown": 14701,
-  "namedFirm": 1490,
+  "namedFirm": 1491,
   "flagOnly": 408,
-  "firms": 1458,
-  "sittingWithTie": 878,
+  "firms": 1460,
+  "sittingWithTie": 879,
   "sittingSeniorTie": 458,
-  "researched": 535
+  "researched": 541
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -141076,15 +141076,43 @@
   "marilyn j. wells|pennsylvania state university-penn state brandywine": {
    "name": "Marilyn J. Wells",
    "university": "Pennsylvania State University-Penn State Brandywine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare & Pharma",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Healthcare and hospitality businesses",
+    "State public health departments, Pennsylvania and Alabama"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Healthcare and hospitality businesses",
+     "role": "Private-sector roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "State public health departments, Pennsylvania and Alabama",
+     "role": "Public health posts",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "marin amundson-graham|knox college": {
@@ -141280,11 +141308,13 @@
    "name": "Marisa Kelly",
    "university": "Suffolk University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -141748,11 +141778,13 @@
    "name": "Mark Blegen",
    "university": "Linfield University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -141776,12 +141808,14 @@
    "name": "Mark Button",
    "university": "University of Nebraska Lincoln",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -142022,11 +142056,13 @@
    "name": "Mark D. West",
    "university": "Washington University in St. Louis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Unclassified",
@@ -142300,11 +142336,13 @@
    "name": "Mark Fuller",
    "university": "University of Massachusetts Dartmouth",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
