@@ -39,7 +39,7 @@
   "firms": 1452,
   "sittingWithTie": 874,
   "sittingSeniorTie": 457,
-  "researched": 517
+  "researched": 523
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -131743,11 +131743,13 @@
    "name": "Lesley Williams Reid",
    "university": "University of Alabama",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -134860,11 +134862,13 @@
    "name": "Lise M. Youngblade",
    "university": "Colorado State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -135129,12 +135133,14 @@
    "name": "Lois Agnew",
    "university": "Syracuse University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -135683,11 +135689,13 @@
    "name": "Lori Mann Bruce",
    "university": "The University of Tennessee-Chattanooga",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -136059,11 +136067,13 @@
    "name": "Lorrie A. Clemo",
    "university": "D'Youville University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -137237,11 +137247,13 @@
    "name": "Lynn Mahoney",
    "university": "San Francisco State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
