@@ -39,7 +39,7 @@
   "firms": 1452,
   "sittingWithTie": 874,
   "sittingSeniorTie": 457,
-  "researched": 504
+  "researched": 510
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -120638,11 +120638,13 @@
    "name": "Kenneth T. Christensen",
    "university": "University of Colorado Denver",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -121254,11 +121256,13 @@
    "name": "Kerry N. Prather",
    "university": "Franklin College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -128670,11 +128674,13 @@
    "name": "Laura Lee McIntyre",
    "university": "Michigan State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -129192,11 +129198,13 @@
    "name": "Laurel Bongiorno",
    "university": "Hartwick College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -133728,11 +133736,13 @@
    "name": "Lisa C. Freeman",
    "university": "Northern Illinois University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134323,11 +134333,13 @@
    "name": "Lisa Lambert",
    "university": "Chatham University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
