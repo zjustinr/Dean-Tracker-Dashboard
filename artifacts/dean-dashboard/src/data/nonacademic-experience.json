@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28251,
-  "yes": 1840,
-  "no": 11711,
+  "yes": 1845,
+  "no": 11706,
   "unknown": 14700,
-  "namedFirm": 1430,
-  "flagOnly": 410,
-  "firms": 1356,
-  "sittingWithTie": 818,
-  "sittingSeniorTie": 419,
-  "researched": 336
+  "namedFirm": 1436,
+  "flagOnly": 409,
+  "firms": 1369,
+  "sittingWithTie": 824,
+  "sittingSeniorTie": 425,
+  "researched": 366
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -67098,12 +67098,14 @@
   "evelyza crespo rivera|universidad ana g. mendez-gurabo campus": {
    "name": "Evelyza Crespo Rivera",
    "university": "Universidad Ana G. Mendez-Gurabo Campus",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -75535,15 +75537,65 @@
   "gregory washington|george mason university": {
    "name": "Gregory Washington",
    "university": "George Mason University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Energy & Industrials",
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "S&P Global",
+    "Washington Gas",
+    "Northern Virginia Technology Council",
+    "U.S. Air Force Scientific Advisory Board"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "S&P Global",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Energy & Industrials",
+     "firm": "Washington Gas",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Northern Virginia Technology Council",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Air Force Scientific Advisory Board",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "greta bauer|university of minnesota medical school": {
@@ -75665,11 +75717,13 @@
    "name": "Gretchen Ritter",
    "university": "University of Minnesota Twin Cities",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -75750,11 +75804,13 @@
    "name": "Gundolf Graml",
    "university": "Ursinus College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -75848,11 +75904,13 @@
    "name": "Guy Bailey",
    "university": "The University of Texas Rio Grande Valley",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -76072,15 +76130,65 @@
   "h. james williams|mount saint joseph university": {
    "name": "H. James Williams",
    "university": "Mount Saint Joseph University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations",
+    "Consulting",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Community Health Systems, Inc.",
+    "Cincinnati Shakespeare Company",
+    "Ernst & Young",
+    "Private legal practice"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Community Health Systems, Inc.",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Cincinnati Shakespeare Company",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Ernst & Young",
+     "role": "Accountant, audit division",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Private legal practice",
+     "role": "Corporate and tax attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "h. kim bottomly|wellesley college": {
@@ -76304,15 +76412,32 @@
   "hakim j. lucas|virginia union university": {
    "name": "Hakim J. Lucas",
    "university": "Virginia Union University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Southern Education Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Southern Education Foundation",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "hal boyd|brigham young university": {
@@ -76347,11 +76472,13 @@
    "name": "Hal S. Stern",
    "university": "University of California Irvine",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -76878,11 +77005,13 @@
    "name": "Harriet B. Nembhard",
    "university": "Harvey Mudd College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -77375,15 +77504,33 @@
   "havidan rodriguez|university at albany, suny": {
    "name": "Havidan Rodriguez",
    "university": "University at Albany, SUNY",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "White House Advisory Commission on Advancing Educational Equity for Hispanics"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "White House Advisory Commission on Advancing Educational Equity for Hispanics",
+     "role": "Presidential appointee and chair",
+     "seniority": "senior",
+     "years": "2022",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "hawken brackett|university of tennessee": {
@@ -77779,11 +77926,13 @@
    "name": "Heather Hulburt Norris",
    "university": "Appalachian State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -77793,11 +77942,13 @@
    "name": "Heather J. Shotton",
    "university": "Fort Lewis College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -78003,11 +78154,13 @@
    "name": "Heather Shipley",
    "university": "University of Texas at San Antonio",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -79051,15 +79204,53 @@
   "henry t. yang|university of california santa barbara": {
    "name": "Henry T. Yang",
    "university": "University of California Santa Barbara",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "The Kavli Foundation",
+    "U.S. Department of Defense / Air Force / Navy / NASA",
+    "President's Committee for the National Medal of Science"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Kavli Foundation",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Defense / Air Force / Navy / NASA",
+     "role": "Scientific advisory boards",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "President's Committee for the National Medal of Science",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "henry torres|texas woman's university": {
@@ -79311,11 +79502,13 @@
    "name": "Hilary L. Link",
    "university": "Drew University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -79887,11 +80080,13 @@
    "name": "Houston Davis",
    "university": "University of Central Arkansas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -80053,12 +80248,14 @@
    "name": "Howard Gillman",
    "university": "University of California Irvine",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -80642,11 +80839,13 @@
    "name": "Ian Baucom",
    "university": "Middlebury College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -81223,11 +81422,13 @@
    "name": "Irma Becerra",
    "university": "Marymount University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -81384,15 +81585,57 @@
   "isiaah crawford|university of puget sound": {
    "name": "Isiaah Crawford",
    "university": "University of Puget Sound",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 73,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "AIDS Foundation of Chicago",
+    "Swedish Health Services",
+    "Providence St. Joseph Health"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "AIDS Foundation of Chicago",
+     "role": "Board President",
+     "seniority": "executive",
+     "years": "1994-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 73
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Swedish Health Services",
+     "role": "Director",
+     "seniority": "senior",
+     "years": "2010-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 60
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Providence St. Joseph Health",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "ismael perez|the city college of new york": {
@@ -81754,11 +81997,13 @@
    "name": "J. Cole Smith",
    "university": "Clemson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -81926,12 +82171,14 @@
    "name": "J. Larry Jameson",
    "university": "University of Pennsylvania",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1medical"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -81941,11 +82188,13 @@
    "name": "J. Luke Wood",
    "university": "California State University, Sacramento",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -83425,11 +83674,13 @@
    "name": "Jaime R. Taylor",
    "university": "Lamar University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -83626,11 +83877,13 @@
    "name": "James \"Jay\" Gladden",
    "university": "Indiana University Indianapolis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic",
@@ -83672,11 +83925,13 @@
    "name": "James (Jim) Burkee",
    "university": "Saint Leo University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -84089,11 +84344,13 @@
    "name": "James C. Schmidt",
    "university": "James Madison University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -84204,11 +84461,13 @@
    "name": "James Cousins",
    "university": "Wilkes University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -84246,11 +84505,13 @@
    "name": "James D. Herbert",
    "university": "University of New England",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -84955,12 +85216,14 @@
    "name": "James H. Garrett Jr.",
    "university": "Carnegie Mellon University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
