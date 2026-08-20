@@ -39,7 +39,7 @@
   "firms": 1452,
   "sittingWithTie": 874,
   "sittingSeniorTie": 457,
-  "researched": 510
+  "researched": 517
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -135410,11 +135410,13 @@
    "name": "Loren J. Blanchard",
    "university": "California State University, Long Beach",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -135593,11 +135595,13 @@
    "name": "Lori E. Varlotta",
    "university": "Antioch University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 8,
    "sectors": [
     "Unclassified",
@@ -135807,11 +135811,13 @@
    "name": "Lori Rice-Spearman",
    "university": "Texas Tech University Health Sciences Center",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -135852,11 +135858,13 @@
    "name": "Lori S. White",
    "university": "DePauw University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -137257,11 +137265,13 @@
    "name": "Lynn Perry Wooten",
    "university": "Simmons University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -138002,11 +138012,13 @@
    "name": "Magnus Egerstedt",
    "university": "University of North Carolina",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -138131,11 +138143,13 @@
    "name": "Makola M. Abdullah",
    "university": "Virginia State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
