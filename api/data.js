@@ -239,7 +239,12 @@ module.exports = async function handler(req, res) {
     const v = token ? verify(token, secret) : { ok: false, reason: "no_token" };
     const blocked = v.ok && (await isBlocked(v.payload.c));
     if (v.ok && !blocked) {
-      scope = new Set(v.payload.s || []);
+      // UNION, not replace. A token widens access on top of the free tier -- it
+      // must never narrow it, or a trial link ends up with LESS than an
+      // anonymous visitor: every scoped link 403'd on r1bschool while the UI
+      // (TrialContext.allowed(), which does union PUBLIC_SCOPE) showed it as
+      // open, so the switcher advertised an index the API refused.
+      scope = new Set([...PUBLIC_SCOPE, ...(v.payload.s || [])]);
       reason = "armed";
       client = v.payload.c || null;
       if (!cookieTok && queryK) {
