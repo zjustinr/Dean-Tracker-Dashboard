@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1953,
-  "no": 11598,
+  "yes": 1958,
+  "no": 11593,
   "unknown": 14701,
-  "namedFirm": 1542,
+  "namedFirm": 1547,
   "flagOnly": 411,
-  "firms": 1537,
-  "sittingWithTie": 927,
-  "sittingSeniorTie": 499,
-  "researched": 684
+  "firms": 1542,
+  "sittingWithTie": 932,
+  "sittingSeniorTie": 501,
+  "researched": 701
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -188331,15 +188331,32 @@
   "russ kavalhuna|western michigan university": {
    "name": "Russ Kavalhuna",
    "university": "Western Michigan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Attorney's Office (Department of Justice)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Attorney's Office (Department of Justice)",
+     "role": "Federal prosecutor",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "russell carey|brown university": {
@@ -188450,11 +188467,13 @@
    "name": "Russell T. Keen",
    "university": "Augusta University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic",
@@ -189296,26 +189315,85 @@
   "s. brock blomberg|california institute of integral studies": {
    "name": "S. Brock Blomberg",
    "university": "California Institute of Integral Studies",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "President's Council of Economic Advisers",
+    "Federal Reserve Bank of New York",
+    "International Monetary Fund",
+    "World Bank",
+    "United States military"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "President's Council of Economic Advisers",
+     "role": "Senior economist",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Federal Reserve Bank of New York",
+     "role": "Economist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "International Monetary Fund",
+     "role": "Economist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "World Bank",
+     "role": "Economist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States military",
+     "role": "Service member (eight years)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "s. david wu|cuny baruch college": {
    "name": "S. David Wu",
    "university": "CUNY Baruch College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -189353,11 +189431,13 @@
    "name": "S. Jack Hu",
    "university": "University of California Riverside",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -189381,11 +189461,13 @@
    "name": "S. Pamir Alpay",
    "university": "University of Connecticut",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -189812,11 +189894,13 @@
    "name": "Safa Zaki",
    "university": "Bowdoin College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -189994,11 +190078,13 @@
    "name": "Sally Coleman Selden",
    "university": "University of Lynchburg",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -190066,15 +190152,43 @@
   "salvador d. aceves, edd|university of san francisco": {
    "name": "Salvador D. Aceves, EdD",
    "university": "University of San Francisco",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting",
+    "Financial Services"
+   ],
+   "firms": [
+    "Price Waterhouse",
+    "Citicorp"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Price Waterhouse",
+     "role": "Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Citicorp",
+     "role": "Professional staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "salvador d. aceves|regis university": {
@@ -190094,15 +190208,43 @@
   "salvador d. aceves|university of san francisco": {
    "name": "Salvador D. Aceves",
    "university": "University of San Francisco",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting",
+    "Financial Services"
+   ],
+   "firms": [
+    "Price Waterhouse",
+    "Citicorp"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Price Waterhouse",
+     "role": "Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Citicorp",
+     "role": "Professional staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "salvatore filardi|quinnipiac university": {
@@ -191507,15 +191649,32 @@
   "santiago schnell|dartmouth college": {
    "name": "Santiago Schnell",
    "university": "Dartmouth College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Procter & Gamble"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Procter & Gamble",
+     "role": "Formulation scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "saonee sarker|virginia tech": {
@@ -192173,11 +192332,13 @@
    "name": "Sarah C. Mangelsdorf",
    "university": "University of Rochester",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -192814,11 +192975,13 @@
    "name": "Sarah R. Bolton",
    "university": "Whitman College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -193043,11 +193206,13 @@
    "name": "Sarah Willie-LeBreton",
    "university": "Smith College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -193229,12 +193394,14 @@
    "name": "Satish K. Tripathi",
    "university": "University at Buffalo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -193272,11 +193439,13 @@
    "name": "Saúl Jiménez-Sandoval",
    "university": "California State University, Fresno",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -194357,11 +194526,13 @@
    "name": "Scott Strobel",
    "university": "Yale University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
