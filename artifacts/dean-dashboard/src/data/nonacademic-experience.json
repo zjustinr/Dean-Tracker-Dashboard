@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1933,
-  "no": 11618,
+  "yes": 1946,
+  "no": 11605,
   "unknown": 14701,
-  "namedFirm": 1524,
+  "namedFirm": 1537,
   "flagOnly": 409,
-  "firms": 1513,
-  "sittingWithTie": 909,
-  "sittingSeniorTie": 485,
-  "researched": 631
+  "firms": 1527,
+  "sittingWithTie": 922,
+  "sittingSeniorTie": 494,
+  "researched": 664
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -157830,11 +157830,13 @@
    "name": "Milton C. Moreland",
    "university": "Centre College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -159585,11 +159587,13 @@
    "name": "Mun Y. Choi",
    "university": "University of Missouri",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -160898,15 +160902,32 @@
   "nate evans|gardner-webb university": {
    "name": "Nate Evans",
    "university": "Gardner-Webb University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "nate stewart|roanoke college": {
@@ -161161,11 +161182,13 @@
    "name": "Nathan Long",
    "university": "University of Western States",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -172377,15 +172400,34 @@
   "quentin young|university of the cumberlands": {
    "name": "Quentin Young",
    "university": "University of the Cumberlands",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Forcht Group of Kentucky / Forcht Bank"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Forcht Group of Kentucky / Forcht Bank",
+     "role": "Senior Accountant, then Bank Officer, then Banking Center Manager",
+     "seniority": "senior",
+     "years": "2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "quiester craig|north carolina a&t state university": {
@@ -173642,15 +173684,47 @@
   "radenka maric|university of connecticut": {
    "name": "Radenka Maric",
    "university": "University of Connecticut",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "National Research Council Canada, Institute for Fuel Cell Innovation",
+    "Toyota"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Research Council Canada, Institute for Fuel Cell Innovation",
+     "role": "Group leader and programme manager",
+     "seniority": "senior",
+     "years": "2004-2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Toyota",
+     "role": "Researcher, materials science research division",
+     "seniority": "professional",
+     "years": "2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "radiah corn minor|north carolina agricultural and technical state university": {
@@ -173933,15 +174007,32 @@
   "raj echambadi|illinois institute of technology": {
    "name": "Raj Echambadi",
    "university": "Illinois Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Castrol"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Castrol",
+     "role": "Sales executive",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "raj echambadi|northeastern university": {
@@ -174862,11 +174953,13 @@
    "name": "Randy O'Rear",
    "university": "University of Mary Hardin-Baylor",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175106,12 +175199,14 @@
    "name": "Ravi V. Bellamkonda",
    "university": "Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -175251,16 +175346,33 @@
   "ray l. watts|university of alabama at birmingham": {
    "name": "Ray L. Watts",
    "university": "University of Alabama at Birmingham",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1medical"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Institutes of Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Institutes of Health",
+     "role": "Medical staff fellow",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ray m. keck iii|east texas a&m university": {
@@ -175810,11 +175922,13 @@
    "name": "Rebecca Cantor",
    "university": "Austin College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -175865,15 +175979,33 @@
   "rebecca cunningham|university of minnesota twin cities": {
    "name": "Rebecca Cunningham",
    "university": "University of Minnesota Twin Cities",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Medical Alley"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Medical Alley",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "years": "2024",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "rebecca dutch|university of kentucky": {
@@ -175894,11 +176026,13 @@
    "name": "Rebecca Ehretsman",
    "university": "Wartburg College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -176265,11 +176399,13 @@
    "name": "Rebecca W. Doerge",
    "university": "Rensselaer Polytechnic Institute",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -176623,13 +176759,15 @@
    "name": "Reginald DesRoches",
    "university": "Rice University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1eschool",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -177150,15 +177288,54 @@
   "renu khator|university of houston": {
    "name": "Renu Khator",
    "university": "University of Houston",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Financial Services",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Federal Reserve Bank of Dallas",
+    "TIAA-CREF",
+    "Greater Houston Partnership"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Federal Reserve Bank of Dallas",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "TIAA-CREF",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Houston Partnership",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "renu khator|university of houston system": {
@@ -177207,11 +177384,13 @@
    "name": "Renée M. Wachter",
    "university": "University of Wisconsin-Superior",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -177558,15 +177737,44 @@
   "rev. james j. greenfield, osfs|desales university": {
    "name": "Rev. James J. Greenfield, OSFS",
    "university": "DeSales University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Oblates of St. Francis de Sales, Eastern Province",
+    "Lehigh Valley Economic Development Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Oblates of St. Francis de Sales, Eastern Province",
+     "role": "Provincial",
+     "seniority": "executive",
+     "years": "2008-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lehigh Valley Economic Development Corporation",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "rev. james p. mccloskey, c.s.sp.|duquesne university": {
@@ -177687,11 +177895,13 @@
    "name": "Rev. Peter M. Donohue, O.S.A.",
    "university": "Villanova University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -177936,15 +178146,32 @@
   "rhett brown|wingate university": {
    "name": "Rhett Brown",
    "university": "Wingate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy Reserve (Seabees)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy Reserve (Seabees)",
+     "role": "Seabee, Operation Desert Storm",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "rhoberta haley|pacific lutheran university": {
@@ -178079,11 +178306,13 @@
    "name": "Rhonda Phillips",
    "university": "St. Mary's College of Maryland",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -178312,11 +178541,13 @@
    "name": "Richard \"Biff\" Williams",
    "university": "Missouri State University-Springfield",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -178339,16 +178570,33 @@
   "richard a. bierschbach|wayne state university": {
    "name": "Richard A. Bierschbach",
    "university": "Wayne State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Council on Competitiveness"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council on Competitiveness",
+     "role": "Council member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "richard a. carvajal|valdosta state university": {
@@ -178673,26 +178921,58 @@
   "richard d. mccullough|florida state university": {
    "name": "Richard D. McCullough",
    "university": "Florida State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Plextronics, Inc. (acquired by Solvay)",
+    "Liquid X Printed Metals"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Plextronics, Inc. (acquired by Solvay)",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "2002-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Liquid X Printed Metals",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "2013",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "richard d. muma|wichita state university": {
    "name": "Richard D. Muma",
    "university": "Wichita State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -179209,11 +179489,13 @@
    "name": "Richard L. Ludwick",
    "university": "The University of Findlay",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -179321,11 +179603,13 @@
    "name": "Richard Linton",
    "university": "Kansas State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -179467,15 +179751,43 @@
   "richard p. lifton|the rockefeller university": {
    "name": "Richard P. Lifton",
    "university": "The Rockefeller University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Roche",
+    "Genentech"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare & Pharma",
+     "firm": "Roche",
+     "role": "Member of the board of directors",
+     "seniority": "senior",
+     "years": "2015",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare & Pharma",
+     "firm": "Genentech",
+     "role": "Member of the board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "richard p. miller, jr.|hartwick college": {
@@ -179552,11 +179864,13 @@
    "name": "Richard Plumb",
    "university": "Saint Michael's College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -182460,11 +182774,13 @@
    "name": "Robert J. Jones",
    "university": "University of Washington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -183932,11 +184248,13 @@
    "name": "Robert W. Iuliano",
    "university": "Gettysburg College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -185795,15 +186113,46 @@
   "romaine seguin|william woods university": {
    "name": "Romaine Seguin",
    "university": "William Woods University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "United Parcel Service (UPS)",
+    "Good360"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "United Parcel Service (UPS)",
+     "role": "President, Global Freight Forwarding; President, UPS Americas Region; COO for Europe, Africa and the Middle East",
+     "seniority": "executive",
+     "years": "1983-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Good360",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2021",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "romayne l. botti|the rockefeller university": {
@@ -186260,11 +186609,13 @@
    "name": "Ronald J. Daniels",
    "university": "Johns Hopkins University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
