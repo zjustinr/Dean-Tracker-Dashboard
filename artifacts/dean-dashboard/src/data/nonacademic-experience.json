@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1912,
-  "no": 11639,
+  "yes": 1919,
+  "no": 11632,
   "unknown": 14701,
-  "namedFirm": 1504,
+  "namedFirm": 1511,
   "flagOnly": 408,
-  "firms": 1481,
-  "sittingWithTie": 889,
-  "sittingSeniorTie": 470,
-  "researched": 581
+  "firms": 1492,
+  "sittingWithTie": 896,
+  "sittingSeniorTie": 476,
+  "researched": 603
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -154094,15 +154094,65 @@
   "michael m. crow|arizona state university": {
    "name": "Michael M. Crow",
    "university": "Arizona State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "In-Q-Tel",
+    "Greater Phoenix Economic Council",
+    "Southern Arizona Leadership Council",
+    "National Advisory Council on Innovation and Entrepreneurship (U.S. Department of Commerce)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "In-Q-Tel",
+     "role": "Co-founder; chairman of the board of trustees and director",
+     "seniority": "executive",
+     "years": "1999",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Phoenix Economic Council",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Southern Arizona Leadership Council",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "National Advisory Council on Innovation and Entrepreneurship (U.S. Department of Commerce)",
+     "role": "Presidential appointee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "michael m. i. abecassis|university of arizona": {
@@ -154466,11 +154516,13 @@
    "name": "Michael P. Godard",
    "university": "Indiana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -154840,11 +154892,13 @@
    "name": "Michael Rao",
    "university": "Virginia Commonwealth University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -154956,11 +155010,13 @@
    "name": "Michael S. \"Mike\" Allen",
    "university": "Barry University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -155109,15 +155165,34 @@
   "michael s. roth|wesleyan university": {
    "name": "Michael S. Roth",
    "university": "Wesleyan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Getty Research Institute (J. Paul Getty Trust)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Getty Research Institute (J. Paul Getty Trust)",
+     "role": "Associate Director; head of scholars and seminars programs",
+     "seniority": "senior",
+     "years": "1996-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "michael s. tick|syracuse university": {
@@ -155271,11 +155346,13 @@
    "name": "Michael Sosulski",
    "university": "Lake Forest College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -155369,11 +155446,13 @@
    "name": "Michael T. Benson",
    "university": "West Virginia University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -155814,11 +155893,13 @@
    "name": "Michaele Whelan",
    "university": "Wheaton College (Massachusetts)",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -156126,15 +156207,45 @@
   "michelle b. larson|clarkson university": {
    "name": "Michelle B. Larson",
    "university": "Clarkson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Adler Planetarium",
+    "NASA Advisory Council, Science Committee"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Adler Planetarium",
+     "role": "President and CEO",
+     "seniority": "executive",
+     "years": "2013-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "NASA Advisory Council, Science Committee",
+     "role": "Committee member (federal advisory committee)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "michelle blackman|hunter college": {
@@ -156155,11 +156266,13 @@
    "name": "Michelle Bligh",
    "university": "Claremont Graduate University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -156441,11 +156554,13 @@
    "name": "Michelle Johnston",
    "university": "University of Montevallo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -161407,11 +161522,13 @@
    "name": "Neil MacKinnon",
    "university": "Central Michigan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -161479,13 +161596,15 @@
    "name": "Nell Jessup Newton",
    "university": "Wake Forest University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1law",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -161539,11 +161658,13 @@
    "name": "Nelson Edward Soto",
    "university": "Albizu University-Miami",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -161566,15 +161687,32 @@
   "neville g. pinto|university of cincinnati": {
    "name": "Neville G. Pinto",
    "university": "University of Cincinnati",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Ohio Governor's Office of Workforce Transformation"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Ohio Governor's Office of Workforce Transformation",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "neville g. pinto|university of louisville": {
@@ -162355,14 +162493,33 @@
    "name": "Nicole Farmer Hurd",
    "university": "Lafayette College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "College Advising Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "College Advising Corps",
+     "role": "Founder and CEO",
+     "seniority": "executive",
+     "years": "2005-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 70
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -162659,11 +162816,13 @@
    "name": "Nicole S. Sampson",
    "university": "University of Rochester",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -162771,15 +162930,34 @@
   "nicolle cestero|american international college": {
    "name": "Nicolle Cestero",
    "university": "American International College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Council on Foreign Relations"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council on Foreign Relations",
+     "role": "Staff role, member and public outreach",
+     "seniority": "professional",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "nicolle taylor|pepperdine university": {
@@ -164547,15 +164725,42 @@
   "p. barry butler|embry-riddle aeronautical university": {
    "name": "P. Barry Butler",
    "university": "Embry-Riddle Aeronautical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Hoover Presidential Foundation",
+    "The Wings Club"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Hoover Presidential Foundation",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Wings Club",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "p. christopher earley|purdue university": {
@@ -165128,12 +165333,14 @@
   "pamela whitten|indiana university bloomington": {
    "name": "Pamela Whitten",
    "university": "Indiana University Bloomington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -165730,11 +165937,13 @@
    "name": "Patricia Draves",
    "university": "Monmouth College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -166012,11 +166221,13 @@
    "name": "Patricia Ramsey",
    "university": "CUNY Medgar Evers College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
