@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1867,
-  "no": 11684,
+  "yes": 1871,
+  "no": 11680,
   "unknown": 14701,
-  "namedFirm": 1459,
+  "namedFirm": 1463,
   "flagOnly": 408,
-  "firms": 1409,
-  "sittingWithTie": 847,
-  "sittingSeniorTie": 440,
-  "researched": 448
+  "firms": 1416,
+  "sittingWithTie": 851,
+  "sittingSeniorTie": 444,
+  "researched": 459
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -106859,11 +106859,13 @@
    "name": "Jon S. Kulaga",
    "university": "Indiana Wesleyan University-National & Global",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -111737,15 +111739,53 @@
   "julie e. sullivan|santa clara university": {
    "name": "Julie E. Sullivan",
    "university": "Santa Clara University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Technology"
+   ],
+   "firms": [
+    "TCF Bank",
+    "PICO Holdings",
+    "AppliedMicro"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "TCF Bank",
+     "role": "Director and audit committee member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "PICO Holdings",
+     "role": "Director and audit committee member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "AppliedMicro",
+     "role": "Director and audit committee member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "julie e. wollman|widener university": {
@@ -111863,15 +111903,53 @@
   "julie h. sullivan|santa clara university": {
    "name": "Julie H. Sullivan",
    "university": "Santa Clara University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Technology"
+   ],
+   "firms": [
+    "TCF Bank",
+    "PICO Holdings",
+    "AppliedMicro"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "TCF Bank",
+     "role": "Director and audit committee member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "PICO Holdings",
+     "role": "Director and audit committee member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "AppliedMicro",
+     "role": "Director and audit committee member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "julie hixson-wallace|harding university": {
@@ -111954,11 +112032,13 @@
    "name": "Julie Kornfeld",
    "university": "Kenyon College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -112237,11 +112317,13 @@
    "name": "Julie Ross",
    "university": "Virginia Tech",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -112363,11 +112445,13 @@
    "name": "Julie V. Philley",
    "university": "The University of Texas at Tyler",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -112477,16 +112561,57 @@
   "julio frenk|ucla": {
    "name": "Julio Frenk",
    "university": "UCLA",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United Nations Foundation",
+    "World Health Organization",
+    "Government of Mexico"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Nations Foundation",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "World Health Organization",
+     "role": "Executive Director, Evidence and Information for Policy",
+     "seniority": "senior",
+     "years": "1998-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Government of Mexico",
+     "role": "Secretary of Health",
+     "seniority": "unknown",
+     "years": "2000-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 28
+    }
    ]
   },
   "julio m. ottino|northwestern university": {
@@ -112812,11 +112937,13 @@
    "name": "Justin Schwartz",
    "university": "University of Colorado Boulder",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -113851,11 +113978,13 @@
    "name": "Karen K. Petersen",
    "university": "Hendrix College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -114640,11 +114769,13 @@
    "name": "Karlyn Crowley",
    "university": "Kalamazoo College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -115054,15 +115185,33 @@
   "katherine a. rowe|college of william & mary": {
    "name": "Katherine A. Rowe",
    "university": "College of William & Mary",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Luminary Digital Media, LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Luminary Digital Media, LLC",
+     "role": "Co-founder and Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2011",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "katherine aikens|tennessee technological university": {
