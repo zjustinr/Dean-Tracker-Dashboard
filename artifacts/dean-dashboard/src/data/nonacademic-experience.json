@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1946,
-  "no": 11605,
+  "yes": 1953,
+  "no": 11598,
   "unknown": 14701,
-  "namedFirm": 1537,
-  "flagOnly": 409,
-  "firms": 1527,
-  "sittingWithTie": 922,
-  "sittingSeniorTie": 494,
-  "researched": 664
+  "namedFirm": 1542,
+  "flagOnly": 411,
+  "firms": 1537,
+  "sittingWithTie": 927,
+  "sittingSeniorTie": 499,
+  "researched": 684
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -180218,15 +180218,43 @@
   "richard walker|university of houston-clear lake": {
    "name": "Richard Walker",
    "university": "University of Houston-Clear Lake",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "HCA Houston Healthcare Clear Lake",
+    "Bay Area Houston Economic Partnership"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "HCA Houston Healthcare Clear Lake",
+     "role": "Board of trustees",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bay Area Houston Economic Partnership",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "richard warr|north carolina state university": {
@@ -180719,11 +180747,13 @@
    "name": "Risa E. Dickson",
    "university": "University of La Verne",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -181062,11 +181092,13 @@
    "name": "Robert (Rob) K. Vischer",
    "university": "University of St. Thomas (Minnesota)",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -181162,11 +181194,13 @@
    "name": "Robert A. Dowd, C.S.C.",
    "university": "University of Notre Dame",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -181861,11 +181895,13 @@
    "name": "Robert E. Continetti",
    "university": "University of California San Diego",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -182404,15 +182440,32 @@
   "robert h. jones|clemson university": {
    "name": "Robert H. Jones",
    "university": "Clemson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "South Carolina Research Authority (SCRA)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "South Carolina Research Authority (SCRA)",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "robert h. mealey|washington state university": {
@@ -182689,15 +182742,66 @@
   "robert j. (r.j.) nemer|university of akron": {
    "name": "Robert J. (R.J.) Nemer",
    "university": "University of Akron",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Nemer golf agency (sold to William Morris Endeavor/IMG)",
+    "Rock & Roll Hall of Fame",
+    "Greater Cleveland Sports Commission",
+    "IMG Golf"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Nemer golf agency (sold to William Morris Endeavor/IMG)",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Rock & Roll Hall of Fame",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Cleveland Sports Commission",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "IMG Golf",
+     "role": "Global leader",
+     "seniority": "executive",
+     "years": "2015",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "robert j. (rj) hinde|university of tennessee knoxville": {
@@ -183604,11 +183708,13 @@
    "name": "Robert Pearigen",
    "university": "The University of the South",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -183789,12 +183895,14 @@
    "name": "Robert S. DiPaola",
    "university": "University of Kentucky",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1medical"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Unclassified",
@@ -184354,15 +184462,42 @@
   "robert w. wagner|idaho state university": {
    "name": "Robert W. Wagner",
    "university": "Idaho State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Council on Competitiveness",
+    "Regional Economic Development for Eastern Idaho (REDI)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council on Competitiveness",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Regional Economic Development for Eastern Idaho (REDI)",
+     "role": "Executive board",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "robert watling|university of new hampshire": {
@@ -184472,11 +184607,13 @@
    "name": "Robert Williams",
    "university": "Portland State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -184645,11 +184782,13 @@
    "name": "Robin E. Baker",
    "university": "George Fox University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -184673,11 +184812,13 @@
    "name": "Robin Forman",
    "university": "Tulane University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -184715,11 +184856,13 @@
    "name": "Robin Holmes-Sullivan",
    "university": "Lewis & Clark College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -185446,12 +185589,14 @@
   "rodney k. rogers|bowling green state university": {
    "name": "Rodney K. Rogers",
    "university": "Bowling Green State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -185829,15 +185974,42 @@
   "roger parrott|belhaven university": {
    "name": "Roger Parrott",
    "university": "Belhaven University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Lausanne Movement",
+    "Mission America Coalition"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lausanne Movement",
+     "role": "Board leadership",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mission America Coalition",
+     "role": "Board leadership",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "roger taylor|knox college": {
@@ -186220,12 +186392,14 @@
   "ron cole|allegheny college": {
    "name": "Ron Cole",
    "university": "Allegheny College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186411,11 +186585,13 @@
    "name": "Ron Walcott",
    "university": "University of Georgia",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186667,11 +186843,13 @@
    "name": "Ronald L. Hendrick",
    "university": "Texas Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -186823,11 +187001,13 @@
    "name": "Ronald S. Rochon",
    "university": "California State University, Fullerton",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
