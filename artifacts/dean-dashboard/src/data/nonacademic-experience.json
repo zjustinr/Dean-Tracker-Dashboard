@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1894,
-  "no": 11657,
+  "yes": 1898,
+  "no": 11653,
   "unknown": 14701,
-  "namedFirm": 1487,
-  "flagOnly": 407,
-  "firms": 1454,
-  "sittingWithTie": 875,
-  "sittingSeniorTie": 457,
-  "researched": 529
+  "namedFirm": 1490,
+  "flagOnly": 408,
+  "firms": 1458,
+  "sittingWithTie": 878,
+  "sittingSeniorTie": 458,
+  "researched": 535
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -138896,11 +138896,13 @@
    "name": "Marc B. Parlange",
    "university": "University of Rhode Island",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic",
@@ -138925,11 +138927,13 @@
    "name": "Marc C. Conner",
    "university": "Skidmore College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -139127,12 +139131,14 @@
   "marc p. christensen|university of texas at dallas": {
    "name": "Marc P. Christensen",
    "university": "University of Texas at Dallas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -139360,15 +139366,32 @@
   "marcheta p. evans|st catherine university": {
    "name": "Marcheta P. Evans",
    "university": "St Catherine University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "USAID literacy initiative, Malawi"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "USAID literacy initiative, Malawi",
+     "role": "Educator and counsellor trainer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "marci fulton|university of colorado boulder": {
@@ -140749,29 +140772,73 @@
   "marie hardin|quinnipiac university": {
    "name": "Marie Hardin",
    "university": "Quinnipiac University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Newspaper journalism"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Newspaper journalism",
+     "role": "Journalist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "marie lynn miranda|university of illinois at chicago": {
    "name": "Marie Lynn Miranda",
    "university": "University of Illinois at Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Doris Duke Charitable Foundation",
+    "Environmental Defense Fund"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Doris Duke Charitable Foundation",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Environmental Defense Fund",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "marie mackintosh|indiana university indianapolis": {
