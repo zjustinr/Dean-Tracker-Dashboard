@@ -39,7 +39,7 @@
   "firms": 1474,
   "sittingWithTie": 889,
   "sittingSeniorTie": 463,
-  "researched": 563
+  "researched": 567
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -150674,11 +150674,13 @@
    "name": "Melissa P. Taverner",
    "university": "Lyon College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -150919,11 +150921,13 @@
    "name": "Melody Tankersley",
    "university": "Kent State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -151426,11 +151430,13 @@
    "name": "Michael A. Driscoll",
    "university": "Indiana University of Pennsylvania",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -151440,11 +151446,13 @@
    "name": "Michael A. Elliott",
    "university": "Amherst College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
