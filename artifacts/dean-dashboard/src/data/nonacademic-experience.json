@@ -39,7 +39,7 @@
   "firms": 1399,
   "sittingWithTie": 842,
   "sittingSeniorTie": 436,
-  "researched": 418
+  "researched": 428
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -103576,11 +103576,13 @@
    "name": "John Harris",
    "university": "Missouri University of Science and Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -104140,11 +104142,13 @@
    "name": "John L. Jackson, Jr.",
    "university": "University of Pennsylvania",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -104818,11 +104822,13 @@
    "name": "John Nicklow",
    "university": "Florida Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -105047,11 +105053,13 @@
    "name": "John Paul \"Jay\" Dowd III",
    "university": "Wofford College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -105061,12 +105069,14 @@
    "name": "John Pelesko",
    "university": "New Jersey Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -105323,11 +105333,13 @@
    "name": "John S. Wiebe",
    "university": "University of Texas at El Paso",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -106049,11 +106061,13 @@
    "name": "John W. Wells",
    "university": "Young Harris College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -106178,11 +106192,13 @@
    "name": "John Wesley Taylor V",
    "university": "Andrews University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Unclassified"
@@ -106399,11 +106415,13 @@
    "name": "Johnny M. Moore",
    "university": "Rust College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -106427,11 +106445,13 @@
    "name": "Johnny Stephens, PharmD",
    "university": "Oklahoma State University Center for Health Sciences",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
