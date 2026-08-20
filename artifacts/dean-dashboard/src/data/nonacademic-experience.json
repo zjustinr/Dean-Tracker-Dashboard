@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1882,
-  "no": 11669,
+  "yes": 1887,
+  "no": 11664,
   "unknown": 14701,
-  "namedFirm": 1476,
+  "namedFirm": 1481,
   "flagOnly": 406,
-  "firms": 1438,
-  "sittingWithTie": 864,
-  "sittingSeniorTie": 452,
-  "researched": 485
+  "firms": 1445,
+  "sittingWithTie": 869,
+  "sittingSeniorTie": 454,
+  "researched": 493
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -126914,40 +126914,80 @@
   "lainie rutkow|johns hopkins university": {
    "name": "Lainie Rutkow",
    "university": "Johns Hopkins University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Centers for Disease Control and Prevention"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Centers for Disease Control and Prevention",
+     "role": "Inaugural visiting scholar, Public Health Law Program",
+     "seniority": "professional",
+     "years": "2016-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "lake lambert iii|hanover college": {
    "name": "Lake Lambert III",
    "university": "Hanover College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Park Service"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Park Service",
+     "role": "Historian, Selma to Montgomery National Historic Trail",
+     "seniority": "professional",
+     "years": "1991-1992",
+     "endYear": 1992,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "lakshmi n. reddi|university of nevada las vegas": {
    "name": "Lakshmi N. Reddi",
    "university": "University of Nevada Las Vegas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -127669,15 +127709,46 @@
   "larry hinzman|university of alaska fairbanks": {
    "name": "Larry Hinzman",
    "university": "University of Alaska Fairbanks",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "White House Office of Science and Technology Policy",
+    "Interagency Arctic Research Policy Committee"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "White House Office of Science and Technology Policy",
+     "role": "Assistant Director for Polar Sciences",
+     "seniority": "senior",
+     "years": "2020-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Interagency Arctic Research Policy Committee",
+     "role": "Executive Director",
+     "seniority": "senior",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "larry j. goodman|rush university": {
@@ -127857,15 +127928,42 @@
   "larry stimpert|hampden-sydney college": {
    "name": "Larry Stimpert",
    "university": "Hampden-Sydney College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Southern Railway Company",
+    "Norfolk Southern Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Southern Railway Company",
+     "role": "Management",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Norfolk Southern Corporation",
+     "role": "Management",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "larry w. (chip) hunter|washington state university": {
@@ -128000,15 +128098,43 @@
   "latha ramchand|indiana university indianapolis": {
    "name": "Latha Ramchand",
    "university": "Indiana University Indianapolis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "CFP Board Center for Financial Planning",
+    "National Small Business Development Center Advisory Board"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "CFP Board Center for Financial Planning",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "National Small Business Development Center Advisory Board",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "latha ramchand|university of houston": {
@@ -128085,12 +128211,14 @@
    "name": "Laura A. Carlson",
    "university": "University of Delaware",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -128351,11 +128479,13 @@
    "name": "Laura J. Bloomberg",
    "university": "Cleveland State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
