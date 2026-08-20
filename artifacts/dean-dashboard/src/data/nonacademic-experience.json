@@ -37,8 +37,8 @@
   "namedFirm": 1501,
   "flagOnly": 408,
   "firms": 1474,
-  "sittingWithTie": 889,
-  "sittingSeniorTie": 463,
+  "sittingWithTie": 886,
+  "sittingSeniorTie": 461,
   "researched": 568
  },
  "people": {
@@ -16787,7 +16787,7 @@
    "university": "Ohio State University",
    "status": "yes",
    "confidence": "high",
-   "sitting": true,
+   "sitting": false,
    "indices": [
     "r1eschool"
    ],
@@ -28182,7 +28182,7 @@
    "university": "Vanderbilt University",
    "status": "no",
    "confidence": "high",
-   "sitting": true,
+   "sitting": false,
    "indices": [
     "r1provost"
    ],
@@ -36407,7 +36407,7 @@
    "university": "Kent State University",
    "status": "yes",
    "confidence": "high",
-   "sitting": true,
+   "sitting": false,
    "indices": [
     "r1eschool"
    ],
@@ -47433,7 +47433,7 @@
    "university": "University of Mississippi",
    "status": "no",
    "confidence": "medium",
-   "sitting": true,
+   "sitting": false,
    "indices": [
     "r1eschool"
    ],
@@ -105074,8 +105074,8 @@
    "confidence": "high",
    "sitting": true,
    "indices": [
-    "r1provost",
-    "r1university"
+    "r1university",
+    "r1provost"
    ],
    "evidence": "research",
    "researchedOn": "2026-08-20",
@@ -205112,7 +205112,7 @@
    "university": "Bennett College",
    "status": "yes",
    "confidence": "high",
-   "sitting": true,
+   "sitting": false,
    "indices": [
     "uslac"
    ],
