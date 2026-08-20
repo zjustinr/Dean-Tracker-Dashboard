@@ -39,7 +39,7 @@
   "firms": 1474,
   "sittingWithTie": 889,
   "sittingSeniorTie": 463,
-  "researched": 567
+  "researched": 568
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -151624,11 +151624,13 @@
    "name": "Michael Amiridis",
    "university": "University of South Carolina",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
