@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1846,
-  "no": 11705,
+  "yes": 1851,
+  "no": 11700,
   "unknown": 14701,
-  "namedFirm": 1437,
+  "namedFirm": 1442,
   "flagOnly": 409,
-  "firms": 1370,
-  "sittingWithTie": 825,
-  "sittingSeniorTie": 425,
-  "researched": 382
+  "firms": 1379,
+  "sittingWithTie": 830,
+  "sittingSeniorTie": 428,
+  "researched": 396
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -90924,11 +90924,13 @@
    "name": "Jeanette Mendez",
    "university": "Oklahoma State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -91110,11 +91112,13 @@
    "name": "Jeannette E. Riley",
    "university": "University of New Hampshire",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -92867,11 +92871,13 @@
    "name": "Jeffrey S. Thompson",
    "university": "University of Nevada Reno",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -94308,16 +94314,32 @@
   "jennifer king rice|university of maryland college park": {
    "name": "Jennifer King Rice",
    "university": "University of Maryland College Park",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Mathematica Policy Research, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Mathematica Policy Research, Inc.",
+     "role": "Researcher",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jennifer klein|washington state university": {
@@ -94395,11 +94417,13 @@
    "name": "Jennifer L. Mnookin",
    "university": "Columbia University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -94511,15 +94535,32 @@
   "jennifer m. collins|rhodes college": {
    "name": "Jennifer M. Collins",
    "university": "Rhodes College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Court of Appeals, Ninth Circuit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals, Ninth Circuit",
+     "role": "Law clerk to Judge Dorothy W. Nelson",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jennifer m. jackson|california institute of technology": {
@@ -95084,15 +95125,43 @@
   "jennifer sobanet|university of colorado colorado springs": {
    "name": "Jennifer Sobanet",
    "university": "University of Colorado Colorado Springs",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Management consulting and corporate finance",
+    "Colorado Office of State Planning and Budgeting"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Management consulting and corporate finance",
+     "role": "Consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Colorado Office of State Planning and Budgeting",
+     "role": "Economist and budget analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jennifer stephens|texas southern university": {
@@ -95461,12 +95530,14 @@
    "name": "Jenny S. Martinez",
    "university": "Stanford University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Unclassified",
@@ -95561,28 +95632,80 @@
   "jere w. morehead|university of georgia": {
    "name": "Jere W. Morehead",
    "university": "University of Georgia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Georgia Chamber of Commerce",
+    "Metro Atlanta Chamber of Commerce",
+    "Georgia Research Alliance",
+    "U.S. Attorney's Office"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Georgia Chamber of Commerce",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Metro Atlanta Chamber of Commerce",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Georgia Research Alliance",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Attorney's Office",
+     "role": "Assistant United States Attorney",
+     "seniority": "professional",
+     "years": "1980-1986",
+     "endYear": 1986,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "jeremiah shinn|boise state university": {
    "name": "Jeremiah Shinn",
    "university": "Boise State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -96583,11 +96706,13 @@
    "name": "Jesse Perez Mendez",
    "university": "Kansas State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -97404,11 +97529,13 @@
    "name": "Jianmin Qu",
    "university": "Stevens Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -97589,11 +97716,13 @@
    "name": "Jill Fleuriet",
    "university": "Salem College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -98161,15 +98290,66 @@
   "jim gash|pepperdine university": {
    "name": "Jim Gash",
    "university": "Pepperdine University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "High Court of Uganda",
+    "DeSimone & Tropio",
+    "U.S. Court of Appeals, Fifth Circuit",
+    "Kirkland & Ellis"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "High Court of Uganda",
+     "role": "Specialist advisor",
+     "seniority": "senior",
+     "years": "2012",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "DeSimone & Tropio",
+     "role": "Litigation associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals, Fifth Circuit",
+     "role": "Law clerk to Judge Edith H. Jones",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Kirkland & Ellis",
+     "role": "Civil and appellate litigator",
+     "seniority": "professional",
+     "years": "1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "jim gigantino|university of arkansas": {
