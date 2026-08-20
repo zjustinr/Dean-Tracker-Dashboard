@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1965,
-  "no": 11586,
+  "yes": 1986,
+  "no": 11565,
   "unknown": 14701,
-  "namedFirm": 1552,
-  "flagOnly": 413,
-  "firms": 1545,
-  "sittingWithTie": 937,
-  "sittingSeniorTie": 505,
-  "researched": 718
+  "namedFirm": 1571,
+  "flagOnly": 415,
+  "firms": 1577,
+  "sittingWithTie": 956,
+  "sittingSeniorTie": 521,
+  "researched": 764
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -204171,11 +204171,13 @@
    "name": "Strom C. Thacker",
    "university": "Pitzer College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -204332,11 +204334,13 @@
    "name": "Stuart R. Bell",
    "university": "University of Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -204531,15 +204535,62 @@
   "sue ott rowlands|randolph college": {
    "name": "Sue Ott Rowlands",
    "university": "Randolph College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Glacity Theatre Collective",
+    "Cleveland Women's Theatre Project",
+    "The Actor's Space",
+    "Round House Theatre"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Glacity Theatre Collective",
+     "role": "Founding artistic director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Cleveland Women's Theatre Project",
+     "role": "Founding artistic director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Actor's Space",
+     "role": "Managing director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Round House Theatre",
+     "role": "Associate artistic director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "sue vandewoude|colorado state university": {
@@ -204717,15 +204768,32 @@
   "sunil kumar|tufts university": {
    "name": "Sunil Kumar",
    "university": "Tufts University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Council on Competitiveness"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council on Competitiveness",
+     "role": "Council member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "sunil kumar|university of chicago": {
@@ -204889,15 +204957,32 @@
   "suresh garimella|university of arizona": {
    "name": "Suresh Garimella",
    "university": "University of Arizona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Board"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "National Science Board",
+     "role": "Member (presidential appointment)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "suresh subramaniam|george washington university": {
@@ -205006,11 +205091,13 @@
    "name": "Susan Ballabina",
    "university": "Texas A&M University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -205078,15 +205165,42 @@
   "susan c. aldridge|thomas jefferson university": {
    "name": "Susan C. Aldridge",
    "university": "Thomas Jefferson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Planned Parenthood Federation of America",
+    "March of Dimes"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Planned Parenthood Federation of America",
+     "role": "Project director, primary health care think tank",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "March of Dimes",
+     "role": "Researcher, health education strategies",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "susan c. anton|new york university": {
@@ -205220,11 +205334,13 @@
    "name": "Susan Edwards",
    "university": "Wright State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -205762,15 +205878,32 @@
   "susan poser|hofstra university": {
    "name": "Susan Poser",
    "university": "Hofstra University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Court of Appeals for the Third Circuit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Third Circuit",
+     "role": "Law clerk to Chief Judge Dolores K. Sloviter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "susan r. wente|wake forest university": {
@@ -206200,11 +206333,13 @@
    "name": "Susana Rivera-Mills",
    "university": "Aurora University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -206518,15 +206653,32 @@
   "suzanne m. rivera|macalester college": {
    "name": "Suzanne M. Rivera",
    "university": "Macalester College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "UL Research Institutes"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "UL Research Institutes",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "suzanne masterson|university of cincinnati": {
@@ -206694,15 +206846,52 @@
   "suzanne walsh|city university of seattle": {
    "name": "Suzanne Walsh",
    "university": "City University of Seattle",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Bill & Melinda Gates Foundation",
+    "Lumina Foundation for Education",
+    "The Heinz Endowments"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bill & Melinda Gates Foundation",
+     "role": "Deputy Director, Postsecondary Success",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lumina Foundation for Education",
+     "role": "Programme leadership",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Heinz Endowments",
+     "role": "Programme leadership",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "suzie kovacs|rowan university": {
@@ -207367,11 +207556,13 @@
    "name": "Tamara L. Brown",
    "university": "University of Texas at Arlington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -207764,15 +207955,34 @@
   "tania tetlow|fordham university": {
    "name": "Tania Tetlow",
    "university": "Fordham University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Attorney's Office, Eastern District of Louisiana"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Attorney's Office, Eastern District of Louisiana",
+     "role": "Assistant United States Attorney",
+     "seniority": "senior",
+     "years": "2000-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "tania tetlow|loyola university new orleans": {
@@ -207893,12 +208103,14 @@
   "tanuja singh|university of indianapolis": {
    "name": "Tanuja Singh",
    "university": "University of Indianapolis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -208245,15 +208457,62 @@
   "taylor eighmy|university of texas at san antonio": {
    "name": "Taylor Eighmy",
    "university": "University of Texas at San Antonio",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Texas Biomedical Research Institute",
+    "San Antonio Medical Foundation",
+    "United Way of San Antonio and Bexar County",
+    "Council on Competitiveness"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Texas Biomedical Research Institute",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "San Antonio Medical Foundation",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of San Antonio and Bexar County",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council on Competitiveness",
+     "role": "Council member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "taylor mathis|union university": {
@@ -208273,15 +208532,32 @@
   "taylor r. randall|university of utah": {
    "name": "Taylor R. Randall",
    "university": "University of Utah",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Craig H. Neilsen Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Craig H. Neilsen Foundation",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "taylor randall|university of utah": {
@@ -210082,11 +210358,13 @@
    "name": "Thomas Bailey",
    "university": "Teachers College, Columbia University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -210425,15 +210703,63 @@
   "thomas f. rosenbaum|california institute of technology": {
    "name": "Thomas F. Rosenbaum",
    "university": "California Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Technology"
+   ],
+   "firms": [
+    "Society for Science",
+    "Bulletin of the Atomic Scientists",
+    "Bell Laboratories",
+    "IBM Watson Research Center"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Society for Science",
+     "role": "Chair of the board of trustees",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bulletin of the Atomic Scientists",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Bell Laboratories",
+     "role": "Research physicist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM Watson Research Center",
+     "role": "Research physicist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "thomas faulkenberry|tarleton state university": {
@@ -211139,11 +211465,13 @@
    "name": "Thomas Poon",
    "university": "Loyola Marymount University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -212477,11 +212805,13 @@
    "name": "Timothy C. Caboni",
    "university": "Western Kentucky University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -212504,15 +212834,54 @@
   "timothy d. sands|virginia tech": {
    "name": "Timothy D. Sands",
    "university": "Virginia Tech",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations",
+    "Technology"
+   ],
+   "firms": [
+    "Virginia Innovation and Entrepreneurship Investment Authority",
+    "Center for Innovative Technology",
+    "Northern Virginia Technology Council"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Virginia Innovation and Entrepreneurship Investment Authority",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Center for Innovative Technology",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "Northern Virginia Technology Council",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "timothy danielson|north carolina state university": {
@@ -214117,15 +214486,32 @@
   "tom sheahan|northeastern university": {
    "name": "Tom Sheahan",
    "university": "Northeastern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy, Civil Engineer Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy, Civil Engineer Corps",
+     "role": "Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tom shields|mcneese state university": {
@@ -214263,11 +214649,13 @@
    "name": "Tomikia P. LeGrande",
    "university": "Prairie View A&M University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -214483,15 +214871,79 @@
   "tony allen|delaware state university": {
    "name": "Tony Allen",
    "university": "Delaware State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Media & Entertainment",
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Bank of America",
+    "Graham Holdings Company",
+    "Metropolitan Wilmington Urban League",
+    "MBNA America Bank",
+    "Office of U.S. Senator Joseph R. Biden Jr."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Bank of America",
+     "role": "Communication Executive, then Managing Director of Corporate Reputation",
+     "seniority": "executive",
+     "years": "2006-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "board",
+     "category": "Media & Entertainment",
+     "firm": "Graham Holdings Company",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Metropolitan Wilmington Urban League",
+     "role": "Founding president",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "MBNA America Bank",
+     "role": "General Manager",
+     "seniority": "senior",
+     "years": "2004-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of U.S. Senator Joseph R. Biden Jr.",
+     "role": "Speechwriter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tony atwater|indiana university of pennsylvania": {
@@ -215229,15 +215681,32 @@
   "tracy fitzsimmons|shenandoah university": {
    "name": "Tracy Fitzsimmons",
    "university": "Shenandoah University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Shenandoah Telecommunications Company (Shentel)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "Shenandoah Telecommunications Company (Shentel)",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "tracy futhey|duke university": {
@@ -215940,12 +216409,14 @@
    "name": "Trevor Brown",
    "university": "Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -216143,11 +216614,13 @@
    "name": "Tricia R. Serio",
    "university": "University of Washington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -216439,12 +216912,14 @@
   "troy d. paino|university of mary washington": {
    "name": "Troy D. Paino",
    "university": "University of Mary Washington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -217173,11 +217648,13 @@
    "name": "Valerie Kinloch",
    "university": "Johnson C Smith University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -217231,11 +217708,13 @@
    "name": "Valerie Sheares Ashby",
    "university": "University of Maryland Baltimore County",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -217244,15 +217723,63 @@
   "valerie smith|swarthmore college": {
    "name": "Valerie Smith",
    "university": "Swarthmore College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Public Service Enterprise Group (PSEG)",
+    "Alfred P. Sloan Foundation",
+    "National Museum of the American Indian",
+    "Bogliasco Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Energy & Industrials",
+     "firm": "Public Service Enterprise Group (PSEG)",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Alfred P. Sloan Foundation",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Museum of the American Indian",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bogliasco Foundation",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "valerie weil|university of the sciences": {
@@ -217405,11 +217932,13 @@
    "name": "Vanessa B. Beasley",
    "university": "Trinity University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -217605,12 +218134,14 @@
    "name": "Vassilis L. Syrmos",
    "university": "University of Hawaii at Manoa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -218019,11 +218550,13 @@
    "name": "Vicky M. Wilkins",
    "university": "American University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -218617,40 +219150,88 @@
   "vincent d. rougeau|college of the holy cross": {
    "name": "Vincent D. Rougeau",
    "university": "College of the Holy Cross",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Morrison & Foerster"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Morrison & Foerster",
+     "role": "Associate, Washington DC office",
+     "seniority": "professional",
+     "years": "1988-1991",
+     "endYear": 1991,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "vincent e. price|duke university": {
    "name": "Vincent E. Price",
    "university": "Duke University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Partnership for New York City",
+    "Bridge Golf Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Partnership for New York City",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bridge Golf Foundation",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "vincent g. boudreau|the city college of new york": {
    "name": "Vincent G. Boudreau",
    "university": "The City College of New York",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -220192,11 +220773,13 @@
    "name": "Wendy Cadge",
    "university": "Bryn Mawr College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -220220,15 +220803,32 @@
   "wendy e. raymond|haverford college": {
    "name": "Wendy E. Raymond",
    "university": "Haverford College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Committee on Equal Opportunities in Science and Engineering (National Science Foundation)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Committee on Equal Opportunities in Science and Engineering (National Science Foundation)",
+     "role": "Chair, Congressionally mandated advisory committee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "wendy hensel|university of hawaii system": {
@@ -221471,11 +222071,13 @@
    "name": "William C. Dudley",
    "university": "Claremont McKenna College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -221881,11 +222483,13 @@
    "name": "William F. Tate IV",
    "university": "Rutgers University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -222172,11 +222776,13 @@
    "name": "William H. Sanders",
    "university": "Rochester Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -222710,11 +223316,13 @@
    "name": "William M. Downs",
    "university": "Campbell University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -223793,11 +224401,13 @@
    "name": "Xavier A. Cole",
    "university": "Loyola University New Orleans",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -224051,11 +224661,13 @@
    "name": "Yaron Tomer",
    "university": "Albert Einstein College of Medicine",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic",
