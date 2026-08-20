@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1891,
-  "no": 11660,
+  "yes": 1893,
+  "no": 11658,
   "unknown": 14701,
-  "namedFirm": 1484,
+  "namedFirm": 1486,
   "flagOnly": 407,
-  "firms": 1448,
-  "sittingWithTie": 872,
-  "sittingSeniorTie": 456,
-  "researched": 499
+  "firms": 1452,
+  "sittingWithTie": 874,
+  "sittingSeniorTie": 457,
+  "researched": 504
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -130102,28 +130102,58 @@
   "lawrence p. ward|university of hartford": {
    "name": "Lawrence P. Ward",
    "university": "University of Hartford",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare & Pharma",
+    "Consulting"
+   ],
+   "firms": [
+    "Aetna",
+    "Professional Resource Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Aetna",
+     "role": "Marketing",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Professional Resource Services",
+     "role": "Training and development leadership",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "lawrence schovanec|texas tech university": {
    "name": "Lawrence Schovanec",
    "university": "Texas Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1arts",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -132753,11 +132783,13 @@
    "name": "Linda Essig",
    "university": "CUNY Baruch College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -132767,11 +132799,13 @@
    "name": "Linda G. Mills",
    "university": "New York University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -132839,15 +132873,43 @@
   "linda livingstone|baylor university": {
    "name": "Linda Livingstone",
    "university": "Baylor University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "CSW Industrials, Inc.",
+    "Baylor College of Medicine"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Energy & Industrials",
+     "firm": "CSW Industrials, Inc.",
+     "role": "Lead Independent Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Baylor College of Medicine",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "linda lupiani|columbia university": {
