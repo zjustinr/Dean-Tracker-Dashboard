@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1873,
-  "no": 11678,
+  "yes": 1877,
+  "no": 11674,
   "unknown": 14701,
-  "namedFirm": 1465,
-  "flagOnly": 408,
-  "firms": 1418,
-  "sittingWithTie": 853,
-  "sittingSeniorTie": 444,
-  "researched": 469
+  "namedFirm": 1470,
+  "flagOnly": 407,
+  "firms": 1426,
+  "sittingWithTie": 858,
+  "sittingSeniorTie": 447,
+  "researched": 477
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -119319,12 +119319,14 @@
   "kelly m. miller|texas a&m university-corpus christi": {
    "name": "Kelly M. Miller",
    "university": "Texas A&M University-Corpus Christi",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -119406,15 +119408,32 @@
   "kelly r. damphousse|texas state university": {
    "name": "Kelly R. Damphousse",
    "university": "Texas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Texas Department of Corrections"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Texas Department of Corrections",
+     "role": "Prison guard",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kelly ritter|georgia institute of technology": {
@@ -120396,11 +120415,13 @@
    "name": "Kenneth P. Ruscio",
    "university": "Washington and Lee University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -120458,15 +120479,43 @@
   "kenneth r. evans|oklahoma city university": {
    "name": "Kenneth R. Evans",
    "university": "Oklahoma City University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials",
+    "Consulting"
+   ],
+   "firms": [
+    "Transportation industry",
+    "Banking, convention and financial services consulting"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Transportation industry",
+     "role": "Marketing and sales roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Banking, convention and financial services consulting",
+     "role": "Sales management consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kenneth r. evans|university of oklahoma": {
@@ -120781,16 +120830,43 @@
   "kent devereaux|goucher college": {
    "name": "Kent Devereaux",
    "university": "Goucher College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 4,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Encyclopaedia Britannica",
+    "Kaplan Professional"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Encyclopaedia Britannica",
+     "role": "Senior Vice President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Kaplan Professional",
+     "role": "Senior Vice President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "kent h. hoblet|mississippi state university": {
@@ -120810,15 +120886,32 @@
   "kent j. ingle|southeastern university": {
    "name": "Kent J. Ingle",
    "university": "Southeastern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "NBC and CBS stations, Southern California"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "NBC and CBS stations, Southern California",
+     "role": "Sports anchor and sports director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "kent john chabotar|guilford college": {
@@ -121343,11 +121436,13 @@
    "name": "Kevin C. Kregel",
    "university": "University of Iowa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -121617,15 +121712,42 @@
   "kevin f. hallock|university of richmond": {
    "name": "Kevin F. Hallock",
    "university": "University of Richmond",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Venture Richmond",
+    "Homeward"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Venture Richmond",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Homeward",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "kevin f. o'brien, s.j.|santa clara university": {
