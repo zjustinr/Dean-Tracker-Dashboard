@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1986,
-  "no": 11565,
+  "yes": 1995,
+  "no": 11556,
   "unknown": 14701,
-  "namedFirm": 1571,
+  "namedFirm": 1580,
   "flagOnly": 415,
-  "firms": 1577,
-  "sittingWithTie": 956,
-  "sittingSeniorTie": 521,
-  "researched": 764
+  "firms": 1592,
+  "sittingWithTie": 965,
+  "sittingSeniorTie": 528,
+  "researched": 788
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -185285,11 +185285,13 @@
    "name": "Rochellie Martínez Vivas",
    "university": "University of Puerto Rico at Cayey",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186439,11 +186441,13 @@
    "name": "Ron D. Dempsey",
    "university": "Oakland City University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186872,15 +186876,55 @@
   "ronald l. shape|national american university-rapid city": {
    "name": "Ronald L. Shape",
    "university": "National American University-Rapid City",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Quall Road District, Black Hawk, South Dakota",
+    "Fountain Springs Community Church",
+    "National American University Holdings, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Quall Road District, Black Hawk, South Dakota",
+     "role": "Board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Fountain Springs Community Church",
+     "role": "Vice president of finance, board of directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "National American University Holdings, Inc.",
+     "role": "Chief executive officer and director",
+     "seniority": "executive",
+     "years": "2009",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "ronald m. howell jr.|virginia state university": {
@@ -187496,11 +187540,13 @@
    "name": "Rosemary Allen",
    "university": "Georgetown College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -187609,15 +187655,43 @@
   "ross allen|bethel university": {
    "name": "Ross Allen",
    "university": "Bethel University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Union Gospel Mission Twin Cities",
+    "Medtronic"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Union Gospel Mission Twin Cities",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Medtronic",
+     "role": "Led seven corporate transformations across Denmark, Switzerland and the United States",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "ross b. corotis|university of colorado boulder": {
@@ -188807,11 +188881,13 @@
    "name": "Ryan C. Hendrickson, Ph.D.",
    "university": "University of St. Francis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -194816,15 +194892,53 @@
   "sean connelly|bryn athyn college of the new church": {
    "name": "Sean Connelly",
    "university": "Bryn Athyn College of the New Church",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Noroc AI",
+    "Fwd Inc. (Fwd Vü)",
+    "Bio Living Food and Refinery"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Noroc AI",
+     "role": "Digital strategy and product",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Fwd Inc. (Fwd Vü)",
+     "role": "Creative direction and digital strategy",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Bio Living Food and Refinery",
+     "role": "E-commerce and marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "sean culley|wright state university": {
@@ -200381,11 +200495,13 @@
    "name": "Stanley Jerome Pritchett, Sr.",
    "university": "Allen University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -203146,15 +203262,34 @@
   "steven c. adamson|erskine college": {
    "name": "Steven C. Adamson",
    "university": "Erskine College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Free Church of Scotland"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Free Church of Scotland",
+     "role": "Supply minister, Scottish Highlands congregations",
+     "seniority": "professional",
+     "years": "2008-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "steven c. bahls|augustana college": {
@@ -205761,15 +205896,52 @@
   "susan m. donovan|bellarmine university": {
    "name": "Susan M. Donovan",
    "university": "Bellarmine University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Greater Louisville Inc.",
+    "Muhammad Ali Center",
+    "Impetus"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Louisville Inc.",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Muhammad Ali Center",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Impetus",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "susan m. phillips|george washington university": {
@@ -206495,11 +206667,13 @@
    "name": "Suzanne Austin",
    "university": "College of Charleston",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -207119,11 +207293,13 @@
    "name": "T. Chris Riley-Tillman",
    "university": "Washington State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -211241,11 +211417,13 @@
    "name": "Thomas M. Evans",
    "university": "University of the Incarnate Word",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -213002,15 +213180,34 @@
   "timothy j. collins|walsh university": {
    "name": "Timothy J. Collins",
    "university": "Walsh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 49,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Senior officer and command pilot; multiple senior commands",
+     "seniority": "executive",
+     "years": "1982-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 49
+    }
    ]
   },
   "timothy j. donovan|vermont state colleges system": {
@@ -213980,11 +214177,13 @@
    "name": "Todd Telemeco",
    "university": "Mary Baldwin University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -215181,15 +215380,55 @@
   "tonya smith-jackson|rutgers university-newark": {
    "name": "Tonya Smith-Jackson",
    "university": "Rutgers University-Newark",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Technology"
+   ],
+   "firms": [
+    "National Science Foundation",
+    "IBM",
+    "Ericsson Mobile Communications"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Program director, Cyber-Human Systems Program",
+     "seniority": "senior",
+     "years": "2018-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Engineer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Ericsson Mobile Communications",
+     "role": "Engineer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tonya strong|the evergreen state college": {
@@ -216885,11 +217124,13 @@
    "name": "Troy Blanchard",
    "university": "Louisiana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -218076,11 +218317,13 @@
    "name": "Vanya Quiñones",
    "university": "California State Polytechnic University, Pomona",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -218684,11 +218927,13 @@
    "name": "Victoria N. Folse",
    "university": "Ripon College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -219296,16 +219541,32 @@
   "vini nathan|auburn university": {
    "name": "Vini Nathan",
    "university": "Auburn University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 4,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Walker Group/CNI"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Walker Group/CNI",
+     "role": "Architect",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "violeta chapin|university of colorado boulder": {
@@ -220258,15 +220519,44 @@
   "walter iwanenko jr.|gannon university": {
    "name": "Walter Iwanenko Jr.",
    "university": "Gannon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "ChildPro of WNY / Monarch Little Learners Academy",
+    "Erie County Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "ChildPro of WNY / Monarch Little Learners Academy",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "2000",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Erie County Medical Center",
+     "role": "Staff occupational therapist",
+     "seniority": "professional",
+     "years": "1993",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "walter k. gordon|rutgers university-camden": {
@@ -220644,11 +220934,13 @@
    "name": "Wayne P. Webster",
    "university": "Albion College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -223567,11 +223859,13 @@
    "name": "William R. Crowe",
    "university": "Valdosta State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -225180,11 +225474,13 @@
    "name": "Yvonne Zimmerman",
    "university": "Clarke University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
