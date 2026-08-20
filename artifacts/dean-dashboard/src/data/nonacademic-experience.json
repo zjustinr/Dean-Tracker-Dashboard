@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1908,
-  "no": 11643,
+  "yes": 1909,
+  "no": 11642,
   "unknown": 14701,
-  "namedFirm": 1500,
+  "namedFirm": 1501,
   "flagOnly": 408,
-  "firms": 1473,
-  "sittingWithTie": 888,
+  "firms": 1474,
+  "sittingWithTie": 889,
   "sittingSeniorTie": 463,
-  "researched": 559
+  "researched": 563
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -147840,11 +147840,13 @@
    "name": "Matthew J. Draud",
    "university": "Briar Cliff University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -148243,11 +148245,13 @@
    "name": "Matthew P. Martens",
    "university": "University of Missouri",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -150195,15 +150199,34 @@
   "melinda treadwell|state university of new york at geneseo": {
    "name": "Melinda Treadwell",
    "university": "State University of New York at Geneseo",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Private-sector toxicology and public health consulting"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Private-sector toxicology and public health consulting",
+     "role": "Toxicologist and public health policy advisor",
+     "seniority": "professional",
+     "years": "2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "melisa baldwin|university of colorado denver": {
@@ -150352,11 +150375,13 @@
    "name": "Melissa Gilliam",
    "university": "Boston University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
