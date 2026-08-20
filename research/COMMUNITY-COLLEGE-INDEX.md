@@ -175,16 +175,29 @@ fifth of the sector.
 
 ### What weakens the case
 
-**The buyer may not be our buyer.** Community-college presidential search is
-served by a partly separate firm ecosystem — ACCT Searches (the trustees'
-association's own practice, 750+ searches), Gold Hill Associates
-(community-college-only, staffed by former CC presidents), RH Perry — rather
+**The sales motion is new, and the sector's own firms may want it least.**
+Community-college presidential search is served by a partly separate firm
+ecosystem — ACCT Searches (the trustees' association's own practice, 750+
+searches), Gold Hill Associates (community-college-only), RH Perry — rather
 than by Isaacson Miller, WittKieffer or Greenwood Asher, who anchor the R1
-market our indices were built for. That cuts both ways: it is a genuinely new
-buyer set to sell into, but nothing about our existing relationships carries
-over, and ACCT is an incumbent with a structural advantage we cannot match
-(it *is* the trustees who do the hiring). Worth a conversation with one
-community-college search practice before funding the full collection.
+market our indices were built for.
+
+These are prospects, not closed doors, and one of them is already in our supply
+chain: `datasets.ts` records RH Perry as a source for the admin-leaders index,
+our largest. What does not carry over is the *relationship*. Our pilot access
+sits with R1-anchored generalists, so selling a community-college index into a
+community-college-only firm is a new logo and a new champion, not a cross-sell.
+
+The sharper risk is willingness to pay. Gold Hill's consultants are former
+community-college presidents; ACCT is owned by the trustees who do the hiring.
+Both compete on a personal network that already contains much of what this
+index would sell them, and ACCT carries association budgets besides. **The
+strongest buyer is therefore probably not the community-college specialist but
+the R1 generalist taking a community-college mandate** — the firm with the
+relationship and without the network. That is a testable claim, and testing it
+costs one conversation: ask an existing pilot firm whether they bid
+community-college presidencies and what they lack when they do. Do that before
+funding full collection, not after.
 
 **Geographic concentration.** 68 of 200 are Californian, 34% of the index for
 about 12% of the population. That is real — California genuinely has the
@@ -208,6 +221,9 @@ completes a career story the existing corpus already half-tells.
 Sequence:
 
 1. **Settle campus-vs-district** (section 2). Nothing else should start first.
+1b. **Ask one existing pilot firm whether they bid community-college
+   presidencies**, and what they lack when they do. One conversation, and it
+   tests the buyer assumption this whole case rests on.
 2. **Verify the 200 incumbents** against college websites. Cheap, and it
    converts the IPEDS field from a lead into data. Do this before any history
    collection so waves start from a correct anchor.
