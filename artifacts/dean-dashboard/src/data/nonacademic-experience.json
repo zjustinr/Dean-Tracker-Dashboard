@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1899,
-  "no": 11652,
+  "yes": 1902,
+  "no": 11649,
   "unknown": 14701,
-  "namedFirm": 1491,
+  "namedFirm": 1494,
   "flagOnly": 408,
-  "firms": 1460,
-  "sittingWithTie": 879,
-  "sittingSeniorTie": 458,
-  "researched": 541
+  "firms": 1464,
+  "sittingWithTie": 882,
+  "sittingSeniorTie": 459,
+  "researched": 547
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -142592,29 +142592,87 @@
   "mark j. rudin|east texas a&m university": {
    "name": "Mark J. Rudin",
    "university": "East Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Idaho National Engineering Laboratory",
+    "U.S. Department of Energy, Office of Environmental Management"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Idaho National Engineering Laboratory",
+     "role": "Project engineer, radioactive waste cleanup",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Energy, Office of Environmental Management",
+     "role": "Technical advisor",
+     "seniority": "professional",
+     "years": "1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "mark j. rudin|texas a&m university-commerce": {
    "name": "Mark J. Rudin",
    "university": "Texas A&M University-Commerce",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Idaho National Engineering Laboratory",
+    "U.S. Department of Energy, Office of Environmental Management"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Idaho National Engineering Laboratory",
+     "role": "Project engineer, radioactive waste cleanup",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Energy, Office of Environmental Management",
+     "role": "Technical advisor",
+     "seniority": "professional",
+     "years": "1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "mark j. staszkiewicz|indiana university of pennsylvania": {
@@ -143126,11 +143184,13 @@
    "name": "Mark Putnam",
    "university": "Central College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -143200,16 +143260,42 @@
   "mark r. nemec|fairfield university": {
    "name": "Mark R. Nemec",
    "university": "Fairfield University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Eduventures",
+    "Forrester Research"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Eduventures",
+     "role": "President and Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Forrester Research",
+     "role": "Executive team member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "mark ranalli|montana state university": {
@@ -143771,11 +143857,13 @@
    "name": "Marlene Tromp",
    "university": "University of Vermont",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -144044,11 +144132,13 @@
    "name": "Marshall Stewart",
    "university": "North Dakota State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
