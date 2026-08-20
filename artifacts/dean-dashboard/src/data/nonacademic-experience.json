@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1862,
-  "no": 11689,
+  "yes": 1863,
+  "no": 11688,
   "unknown": 14701,
-  "namedFirm": 1454,
+  "namedFirm": 1455,
   "flagOnly": 408,
-  "firms": 1399,
-  "sittingWithTie": 842,
-  "sittingSeniorTie": 436,
-  "researched": 428
+  "firms": 1400,
+  "sittingWithTie": 843,
+  "sittingSeniorTie": 437,
+  "researched": 438
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -104622,11 +104622,13 @@
    "name": "John McCarthy",
    "university": "Ohio University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -105554,12 +105556,14 @@
    "name": "John T. McGreevy",
    "university": "University of Notre Dame",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -106294,11 +106298,13 @@
    "name": "John Zomchick",
    "university": "University of Tennessee Knoxville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -106308,11 +106314,13 @@
    "name": "John Zumbrunnen",
    "university": "University of Wisconsin Madison",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -106694,11 +106702,13 @@
    "name": "Jon Harbor",
    "university": "Purdue University Global",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -107023,11 +107033,13 @@
    "name": "Jonathan Becker",
    "university": "Bard College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -107108,11 +107120,13 @@
    "name": "Jonathan D. Green",
    "university": "Susquehanna University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -107192,11 +107206,13 @@
    "name": "Jonathan G.S. Koppell",
    "university": "Montclair State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -107290,27 +107306,48 @@
   "jonathan levin|stanford university": {
    "name": "Jonathan Levin",
    "university": "Stanford University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university",
     "r1bschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 65,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "President's Council of Advisors on Science and Technology"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "President's Council of Advisors on Science and Technology",
+     "role": "Member",
+     "seniority": "senior",
+     "years": "2021-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 65
+    }
    ]
   },
   "jonathan m. brand|cornell college": {
    "name": "Jonathan M. Brand",
    "university": "Cornell College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
