@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1887,
-  "no": 11664,
+  "yes": 1891,
+  "no": 11660,
   "unknown": 14701,
-  "namedFirm": 1481,
-  "flagOnly": 406,
-  "firms": 1445,
-  "sittingWithTie": 869,
-  "sittingSeniorTie": 454,
-  "researched": 493
+  "namedFirm": 1484,
+  "flagOnly": 407,
+  "firms": 1448,
+  "sittingWithTie": 872,
+  "sittingSeniorTie": 456,
+  "researched": 499
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -129015,15 +129015,32 @@
   "laura skandera trombley|southwestern university": {
    "name": "Laura Skandera Trombley",
    "university": "Southwestern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Huntington Library, Art Collections, and Botanical Gardens"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Huntington Library, Art Collections, and Botanical Gardens",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "laura skandera trombley|university of bridgeport": {
@@ -129548,12 +129565,14 @@
   "laurence b. alexander|university of michigan-flint": {
    "name": "Laurence B. Alexander",
    "university": "University of Michigan-Flint",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -129637,15 +129656,34 @@
   "laurie a. carter|lawrence university": {
    "name": "Laurie A. Carter",
    "university": "Lawrence University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "New Jersey Performing Arts Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "New Jersey Performing Arts Center",
+     "role": "Head of arts education",
+     "seniority": "senior",
+     "years": "2013-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "laurie a. kunkel-jordan|alverno college": {
@@ -129723,15 +129761,34 @@
   "laurie k. mccauley|university of michigan": {
    "name": "Laurie K. McCauley",
    "university": "University of Michigan",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Private periodontics practice, Marysville, Ohio"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Private periodontics practice, Marysville, Ohio",
+     "role": "Practising periodontist",
+     "seniority": "professional",
+     "years": "1988-1991",
+     "endYear": 1991,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "laurie l. patton|middlebury college": {
@@ -129752,11 +129809,13 @@
    "name": "Laurie M. Joyner",
    "university": "Saint Norbert College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -129809,11 +129868,13 @@
    "name": "LaVerne Harmon",
    "university": "Wilmington University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
