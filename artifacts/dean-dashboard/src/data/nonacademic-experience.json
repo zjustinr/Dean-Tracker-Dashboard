@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 28252,
-  "yes": 1856,
-  "no": 11695,
+  "yes": 1862,
+  "no": 11689,
   "unknown": 14701,
-  "namedFirm": 1448,
+  "namedFirm": 1454,
   "flagOnly": 408,
-  "firms": 1390,
-  "sittingWithTie": 836,
-  "sittingSeniorTie": 431,
-  "researched": 405
+  "firms": 1399,
+  "sittingWithTie": 842,
+  "sittingSeniorTie": 436,
+  "researched": 418
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -95387,11 +95387,13 @@
    "name": "Jenny Coyle",
    "university": "Pacific University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -95875,11 +95877,13 @@
    "name": "Jeremy Moreland, Ph.D.",
    "university": "Saybrook University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -98441,15 +98445,32 @@
   "jim hess|oklahoma state university": {
    "name": "Jim Hess",
    "university": "Oklahoma State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "OSU Veterinary Medicine Authority"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "OSU Veterinary Medicine Authority",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "jim hood|guilford college": {
@@ -99745,15 +99766,32 @@
   "joanne kossuth|lesley university": {
    "name": "Joanne Kossuth",
    "university": "Lesley University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "1MountainRoad"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "1MountainRoad",
+     "role": "Principal",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "joanne li|florida international university": {
@@ -100151,11 +100189,13 @@
    "name": "Jody Fournier",
    "university": "Baker University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -101060,15 +101100,56 @@
   "joel towers|the new school": {
    "name": "Joel Towers",
    "university": "The New School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Other industry",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Sislian Rothstein and Towers Architects",
+    "New York City Panel on Climate Change",
+    "William McDonough Architects"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Sislian Rothstein and Towers Architects",
+     "role": "Co-founder and principal",
+     "seniority": "executive",
+     "years": "1992-2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "New York City Panel on Climate Change",
+     "role": "Co-Chair, mayoral appointee",
+     "seniority": "senior",
+     "years": "2019",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "William McDonough Architects",
+     "role": "Project director",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "joel waldfogel|university of minnesota": {
@@ -101387,15 +101468,75 @@
   "john a. fry|temple university": {
    "name": "John A. Fry",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Government & Public Sector",
+    "Nonprofit & Foundations",
+    "Technology"
+   ],
+   "firms": [
+    "Community Health Systems, Inc.",
+    "Federal Reserve Bank of Philadelphia",
+    "The Kresge Foundation",
+    "Tower Health",
+    "Advanced Functional Fabrics of America"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Community Health Systems, Inc.",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Federal Reserve Bank of Philadelphia",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Kresge Foundation",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Tower Health",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "Advanced Functional Fabrics of America",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "john a. larson|university of arkansas at little rock": {
@@ -101872,11 +102013,13 @@
    "name": "John Buckwalter",
    "university": "University of Central Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -102159,11 +102302,13 @@
    "name": "John C. Volin",
    "university": "Gustavus Adolphus College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -102228,11 +102373,13 @@
    "name": "John Carmichael",
    "university": "The Evergreen State College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -103560,11 +103707,13 @@
    "name": "John J. Coleman",
    "university": "University of Illinois Urbana-Champaign",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -103701,15 +103850,34 @@
   "john k. pierre|southern university and a&m college": {
    "name": "John K. Pierre",
    "university": "Southern University and A&M College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Army"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Army",
+     "role": "Judge Advocate General's Corps officer",
+     "seniority": "professional",
+     "years": "1986-1990",
+     "endYear": 1990,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "john karl scholz|university of oregon": {
@@ -103876,15 +104044,46 @@
   "john l. bennett|fielding graduate university": {
    "name": "John L. Bennett",
    "university": "Fielding Graduate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-20",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Lawton Associates",
+    "American Red Cross"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Lawton Associates",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "1997",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Red Cross",
+     "role": "CEO, regional biomedical services divisions",
+     "seniority": "executive",
+     "years": "1997",
+     "endYear": 1997,
+     "source": "research",
+     "score": 49
+    }
    ]
   },
   "john l. carson|erskine college": {
