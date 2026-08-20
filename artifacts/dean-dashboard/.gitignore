@@ -1,2 +1,4 @@
-# Regenerable worklist, drawn from a seed -- the ledger is the durable record.
+# Regenerable worklists, drawn from the ledger + current data -- the ledger is
+# the durable record.
 research/nonacademic-sample.json
+research/worklist-*.json

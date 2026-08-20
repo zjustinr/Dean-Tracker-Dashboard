@@ -13,24 +13,14 @@
 // Usage: node scripts/sample-nonacademic-research.mjs [--per 30] [--seed 20260819]
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { FILE_ID } from "./lib/indices.mjs";
+import { STRATA, STRATUM_OF } from "./lib/strata.mjs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SRC = join(HERE, "..", "src", "data");
 
-/** Index-id -> stratum. Every registered index belongs to exactly one. */
-export const STRATA = {
-  administrative: ["usadminleaders", "usadvancement", "ussystem"],
-  professional: ["r1bschool", "r1law", "r1eschool", "uspharmacy"],
-  discipline: [
-    "r1arts", "useducation", "usnursing", "r1medical", "uspublichealth",
-    "usag", "usvet", "usgrad", "uscreativearts",
-  ],
-  leadership: ["r1university", "r1provost", "uslac", "usr2"],
-};
-const STRATUM_OF = {};
-for (const [s, ids] of Object.entries(STRATA)) for (const id of ids) STRATUM_OF[id] = s;
+const STRATUM_OF_LOCAL = STRATUM_OF;
 
 const arg = (flag, dflt) => {
   const i = process.argv.indexOf(flag);
@@ -96,7 +86,7 @@ for (const [key, p] of Object.entries(doc.people)) {
   if (!p.sitting) continue;
   if (p.ties && p.ties.length) continue;
   if (ALREADY.has(key)) continue;
-  const stratum = STRATUM_OF[(p.indices || [])[0]];
+  const stratum = STRATUM_OF_LOCAL[(p.indices || [])[0]];
   if (!stratum) continue;
   frame[stratum].push({ key, ...p, ctx: CTX.get(key) || null });
 }

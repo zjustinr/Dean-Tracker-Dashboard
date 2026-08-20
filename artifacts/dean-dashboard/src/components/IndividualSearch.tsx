@@ -668,7 +668,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const affinityOn = !!school;
 
   // Collapsed groups still say what they are doing, so a shut group is never
-  // somewhere a filter can hide.
+  // somewhere a filter can hide. Role and Person open on load -- they are the
+  // two a headhunter touches on almost every search, and leaving them shut made
+  // the panel open as four labels and nothing to act on. Institution and
+  // Location open only when they hold something.
   const GENDER_LABEL = { all: "All", women: "Women", men: "Men" } as const;
   const APPT_LABEL = { all: "All", perm: "Permanent", interim: hasBench ? "Assoc/Vice/Interim" : "Interim" } as const;
   const TENURE_LABEL = { sitting: "Sitting now", "5": "Last 5 yrs", "10": "Last 10 yrs", any: "Any time" } as const;
@@ -840,8 +843,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                 </FilterRow>
               </FilterGroup>
 
-              <FilterGroup title="Person" summary={personSummary}
-                defaultOpen={includeGender !== "all" || requirePhd || requireProf || requireIndustryTie || keyword.trim() !== ""}>
+              <FilterGroup title="Person" summary={personSummary} defaultOpen>
                 <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
                   <SegGroup ariaLabel="Include" value={includeGender}
                     onChange={(v) => { setIncludeGender(v); setExpandedId(null); }}
