@@ -1,0 +1,1954 @@
+{
+ "generated": "IPEDS fall 2024 via educationdata.urban.org",
+ "note": "One row per college. status ok = a portrait was downloaded AND the college's own site carries that leader's name next to it, which also confirms the IPEDS name. A miss is not evidence the name is wrong -- many sites use CSS background images or render leadership cards in JS, neither of which this pass can read.",
+ "counts": {
+  "fail": 120,
+  "unchanged": 7,
+  "ok": 73
+ },
+ "colleges": [
+  {
+   "rank": 1,
+   "university": "Ivy Tech Community College",
+   "state": "IN",
+   "dean": "Sue Ellspermann",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 2,
+   "university": "Lone Star College System",
+   "state": "TX",
+   "dean": "Mario Castillo",
+   "status": "unchanged",
+   "reason": "already-have"
+  },
+  {
+   "rank": 3,
+   "university": "Dallas College",
+   "state": "TX",
+   "dean": "Dr. Justin Lonon",
+   "status": "unchanged",
+   "reason": "already-have"
+  },
+  {
+   "rank": 4,
+   "university": "Miami Dade College",
+   "state": "FL",
+   "dean": "Madeline Pumariega",
+   "status": "unchanged",
+   "reason": "already-have"
+  },
+  {
+   "rank": 5,
+   "university": "Northern Virginia Community College",
+   "state": "VA",
+   "dean": "Anne M. Kress, Ph.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 6,
+   "university": "Houston Community College",
+   "state": "TX",
+   "dean": "Dr. Margaret Ford Fisher",
+   "status": "unchanged",
+   "reason": "already-have"
+  },
+  {
+   "rank": 7,
+   "university": "Valencia College",
+   "state": "FL",
+   "dean": "Kathleen Plinske, Ed.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 8,
+   "university": "Tarrant County College District",
+   "state": "TX",
+   "dean": "Elva C. LeBlanc",
+   "status": "unchanged",
+   "reason": "already-have"
+  },
+  {
+   "rank": 9,
+   "university": "Austin Community College District",
+   "state": "TX",
+   "dean": "Dr. Russell Lowery-Hart",
+   "status": "unchanged",
+   "reason": "already-have"
+  },
+  {
+   "rank": 10,
+   "university": "Collin County Community College District",
+   "state": "TX",
+   "dean": "H. Neil Matkin",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 11,
+   "university": "Connecticut State Community College",
+   "state": "CT",
+   "dean": "O. John Maduko",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 12,
+   "university": "East Los Angeles College",
+   "state": "CA",
+   "dean": "Dr. Monte Perez",
+   "status": "unchanged",
+   "reason": "already-have"
+  },
+  {
+   "rank": 13,
+   "university": "San Jacinto Community College",
+   "state": "TX",
+   "dean": "Dr. Brenda Hellyer",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.sanjac.edu/about/college-leadership/index.php",
+   "imageUrl": "https://www.sanjac.edu/_resources/images/Brenda-Hellyer-Headshot-1000x768pxv2.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 14,
+   "university": "Bakersfield College",
+   "state": "CA",
+   "dean": "Jerry Fliger",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 15,
+   "university": "Broward College",
+   "state": "FL",
+   "dean": "Erica Pereira Amorim",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 16,
+   "university": "American River College",
+   "state": "CA",
+   "dean": "Lisa Cardoza",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 17,
+   "university": "Mt San Antonio College",
+   "state": "CA",
+   "dean": "Dr Martha Garcia",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.mtsac.edu/president",
+   "imageUrl": "https://www.mtsac.edu/president/Edited_VS2_PrDrMGarcia-2.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 18,
+   "university": "College of Southern Nevada",
+   "state": "NV",
+   "dean": "Dr. William Kibler",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 19,
+   "university": "Columbus State Community College",
+   "state": "OH",
+   "dean": "David Harrison",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.cscc.edu/about/president",
+   "imageUrl": "https://www.cscc.edu/about/president/images/Harrison-Prezpage-3.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 20,
+   "university": "Fresno City College",
+   "state": "CA",
+   "dean": "Dr. Kim Armstrong",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 21,
+   "university": "Salt Lake Community College",
+   "state": "UT",
+   "dean": "Greg Peterson",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 22,
+   "university": "South Texas College",
+   "state": "TX",
+   "dean": "Dr. Ricardo J. Solis",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 23,
+   "university": "Santa Ana College",
+   "state": "CA",
+   "dean": "Annebelle Nery,  Ph.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 24,
+   "university": "College of DuPage",
+   "state": "IL",
+   "dean": "Dr. Christine M. Hammond",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 25,
+   "university": "Palm Beach State College",
+   "state": "FL",
+   "dean": "Ava L. Parker, J.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 26,
+   "university": "El Paso Community College",
+   "state": "TX",
+   "dean": "Dr. William Serrata",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 27,
+   "university": "Long Beach City College",
+   "state": "CA",
+   "dean": "Mike Munoz",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.lbcc.edu/college-leadership",
+   "imageUrl": "https://www.lbcc.edu/sites/main/files/imagecache/thumbnail/main-images/tile-mm-sp-2021.jpg?1732232457",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 28,
+   "university": "Wake Technical Community College",
+   "state": "NC",
+   "dean": "Dr. Scott Ralls",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.waketech.edu/about-wake-tech/college-leadership",
+   "imageUrl": "https://www.waketech.edu/sites/default/files/paragraphs/images/raw/ralls2_0.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 29,
+   "university": "Pasadena City College",
+   "state": "CA",
+   "dean": "Dr. Jose Gomez",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://pasadena.edu/about/leadership.php",
+   "imageUrl": "https://pasadena.edu/about/president/images/jose-gomez.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 30,
+   "university": "St Petersburg College",
+   "state": "FL",
+   "dean": "Dr. Tonjua Williams",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.spcollege.edu/president",
+   "imageUrl": "https://www.spcollege.edu/Images/community/about/Leadership/Directory/Tonjua_Williams.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 31,
+   "university": "Des Moines Area Community College",
+   "state": "IA",
+   "dean": "Robert J. Denson",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 32,
+   "university": "Florida State College at Jacksonville",
+   "state": "FL",
+   "dean": "Dr. John Avendano",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 33,
+   "university": "Santa Monica College",
+   "state": "CA",
+   "dean": "Kathryn Jeffery",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 34,
+   "university": "Chaffey College",
+   "state": "CA",
+   "dean": "Henry D. Shannon, Ph.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 35,
+   "university": "Front Range Community College",
+   "state": "CO",
+   "dean": "Dr. Colleen Simpson",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.frontrange.edu/about/presidents-office/index.html",
+   "imageUrl": "https://www.frontrange.edu/_resources/images/about-us/dr-simpson-photos/dr-s-hero-v12.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 36,
+   "university": "Cerritos College",
+   "state": "CA",
+   "dean": "Jose Fierro",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.cerritos.edu/president",
+   "imageUrl": "https://www.cerritos.edu/about/president/_includes/images/58223-Edit.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 37,
+   "university": "Riverside City College",
+   "state": "CA",
+   "dean": "Dr. Claire  Oliveros",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 38,
+   "university": "El Camino Community College District",
+   "state": "CA",
+   "dean": "Brenda Thames",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 39,
+   "university": "Hillsborough Community College",
+   "state": "FL",
+   "dean": "Ken Atwater",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.hcfl.edu/about-us/leadership/president",
+   "imageUrl": "https://www.hcfl.edu/sites/default/files/styles/ifde_wysiwyg__floated/public/images/2019-05/HCC_Ken_KAtwater_3211_72.jpg?h=de2a7e62&amp;itok=U8L0novH",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 40,
+   "university": "Southwestern College",
+   "state": "CA",
+   "dean": "Dr. Mark Sanchez",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 41,
+   "university": "San Joaquin Delta College",
+   "state": "CA",
+   "dean": "Lisa Aguilera Lawrenson",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.deltacollege.edu/about/campus-leadership",
+   "imageUrl": "https://www.deltacollege.edu/sites/default/files/styles/image_ping_pong/public/2025-12/11.2.23%20Forums-122.jpg?h=56d0ca2e&amp;itok=Kk5zx2u-",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 42,
+   "university": "Portland Community College",
+   "state": "OR",
+   "dean": "Dr. Adrien Bennings",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.pcc.edu/president",
+   "imageUrl": "https://www.pcc.edu/president/wp-content/uploads/sites/33/2026/05/campussyl-500x334.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 43,
+   "university": "Saddleback College",
+   "state": "CA",
+   "dean": "Elliot Stern",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 44,
+   "university": "Central Piedmont Community College",
+   "state": "NC",
+   "dean": "Kandi Deitemeyer",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 45,
+   "university": "CUNY Borough of Manhattan Community College",
+   "state": "NY",
+   "dean": "Anthony E. Munroe",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 46,
+   "university": "Northwest Vista College",
+   "state": "TX",
+   "dean": "Dr. Amy Bosley",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.alamo.edu/nvc/about-us/leadership/administration/",
+   "imageUrl": "https://www.alamo.edu/497c9d/siteassets/nvc/website-assets/hero/2022/nvc-hero-campus51a.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 47,
+   "university": "Suffolk County Community College",
+   "state": "NY",
+   "dean": "Dr. Edward T. Bonahue",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.sunysuffolk.edu/president",
+   "imageUrl": "https://www.sunysuffolk.edu/about-suffolk/office-of-the-president/images/edward-bonahue-1200.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 48,
+   "university": "Sacramento City College",
+   "state": "CA",
+   "dean": "Albert Garcia",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 49,
+   "university": "San Antonio College",
+   "state": "TX",
+   "dean": "Francisco Solis, J.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 50,
+   "university": "Vincennes University",
+   "state": "IN",
+   "dean": "Dr. Charles Johnson",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 51,
+   "university": "Palomar College",
+   "state": "CA",
+   "dean": "Star Rivera-Lacey",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 52,
+   "university": "Fullerton College",
+   "state": "CA",
+   "dean": "Cynthia Olivo",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 53,
+   "university": "Sinclair Community College",
+   "state": "OH",
+   "dean": "Dr. Steven Lee Johnson",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 54,
+   "university": "Central New Mexico Community College",
+   "state": "NM",
+   "dean": "Tracy Hartzler",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.cnm.edu/about/president",
+   "imageUrl": "https://www.cnm.edu/about-cnm/president/images/tracy-hartzler.jpg/@@images/image-400-9ce1fa3b3034321811796f2a4b51eac7.jpeg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 55,
+   "university": "City College of San Francisco",
+   "state": "CA",
+   "dean": "Mitch Bailey",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 56,
+   "university": "San Diego Mesa College",
+   "state": "CA",
+   "dean": "Dr. Ashanti Hands",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.sdmesa.edu/about-mesa/office-of-the-president",
+   "imageUrl": "https://www.sdmesa.edu/about-mesa/office-of-the-president/images/Ashanti%20Hands%20EdD%20-%20President%20of%20San%20Diego%20Mesa%20College-crp.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 57,
+   "university": "Sierra College",
+   "state": "CA",
+   "dean": "William Duncan",
+   "status": "fail",
+   "reason": "fail:placeholder-url",
+   "pageUrl": "https://www.sierracollege.edu/administration/",
+   "imageUrl": "https://www.sierracollege.edu/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"
+  },
+  {
+   "rank": 58,
+   "university": "Rio Salado College",
+   "state": "AZ",
+   "dean": "Dr. Kate Smith",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.riosalado.edu/about/leadership-and-administration",
+   "imageUrl": "https://www.riosalado.edu/sites/default/files/inline-images/PO_KateSmith_PH_1122-155x136.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 59,
+   "university": "Montgomery College",
+   "state": "MD",
+   "dean": "Dr. Jermaine F. Williams",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.montgomerycollege.edu/about-mc/office-of-the-president/index.html",
+   "imageUrl": "https://www.montgomerycollege.edu/_images/about-mc/president/hero26-jermaine-williams-768x500.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 60,
+   "university": "Johnson County Community College",
+   "state": "KS",
+   "dean": "Judy Korb",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 61,
+   "university": "Modesto Junior College",
+   "state": "CA",
+   "dean": "Brian K. Sanders",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 62,
+   "university": "CUNY Kingsborough Community College",
+   "state": "NY",
+   "dean": "Suri Duitch",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 63,
+   "university": "Blinn College District",
+   "state": "TX",
+   "dean": "Dr. Mary Hensley",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.blinn.edu/chancellor/index.html",
+   "imageUrl": "https://www.blinn.edu/chancellor/images/slideshow/december-2025/1.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 64,
+   "university": "College of the Canyons",
+   "state": "CA",
+   "dean": "David",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 65,
+   "university": "Santa Rosa Junior College",
+   "state": "CA",
+   "dean": "Angélica Garcia",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 66,
+   "university": "Cuyahoga Community College District",
+   "state": "OH",
+   "dean": "Michael A. Baston",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.tri-c.edu/administrative-departments/office-of-the-president.html",
+   "imageUrl": "https://www.tri-c.edu/administrative-departments/images/dr-baston-headshot2.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 67,
+   "university": "Mt San Jacinto Community College District",
+   "state": "CA",
+   "dean": "Dr. Roger Schultz",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 68,
+   "university": "Rio Hondo College",
+   "state": "CA",
+   "dean": "Marilyn Flores",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 69,
+   "university": "De Anza College",
+   "state": "CA",
+   "dean": "Omar Torres, Ed.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 70,
+   "university": "St Philip's College",
+   "state": "TX",
+   "dean": "Dr. Adena Williams Loston",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.alamo.edu/spc/about-spc/leadership/",
+   "imageUrl": "https://www.alamo.edu/49a789/siteassets/spc/about-spc/leadership/leadership-president-350x250.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 71,
+   "university": "Diablo Valley College",
+   "state": "CA",
+   "dean": "Susan Lamb",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 72,
+   "university": "Orange Coast College",
+   "state": "CA",
+   "dean": "Dr. Angelica Suarez",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://orangecoastcollege.edu/about/president/index.html",
+   "imageUrl": "https://orangecoastcollege.edu/about/president/images/president-suarez.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 73,
+   "university": "Mesa Community College",
+   "state": "AZ",
+   "dean": "Richard J. Daniel, Ph.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 74,
+   "university": "Los Angeles Pierce College",
+   "state": "CA",
+   "dean": "Aracely Aguiar",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.lapc.edu/offices/president",
+   "imageUrl": "https://www.lapc.edu/sites/lapc.edu/files/styles/inline_image_1100w_/public/2022-08/Ara_Aguiar.jpg?itok=HBmVBc5a",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 75,
+   "university": "Tidewater Community College",
+   "state": "VA",
+   "dean": "Marcia Conston",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.tcc.edu/about-tcc/tcc-president/",
+   "imageUrl": "https://www.tcc.edu/wp-content/uploads/2024/11/Marcia-Conston-774x900.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 76,
+   "university": "Metropolitan Community College Area",
+   "state": "NE",
+   "dean": "Randy Schmailzl",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 77,
+   "university": "Community College of Baltimore County",
+   "state": "MD",
+   "dean": "Sandra L. Kurtinitis",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.ccbcmd.edu/About/Leadership/index.html",
+   "imageUrl": "https://www.ccbcmd.edu/_media/images/image-with-quote/about-ccbc/kurtinitis_291x291.webp",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 78,
+   "university": "Macomb Community College",
+   "state": "MI",
+   "dean": "James Sawyer",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 79,
+   "university": "Pima Community College",
+   "state": "AZ",
+   "dean": "Jeffrey Nasse",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 80,
+   "university": "Los Angeles Valley College",
+   "state": "CA",
+   "dean": "Dr. Barry Gribbons",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 81,
+   "university": "Cypress College",
+   "state": "CA",
+   "dean": "Scott Thayer",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.cypresscollege.edu/office-of-the-president/",
+   "imageUrl": "https://www.cypresscollege.edu/wp-content/uploads/Page_Profile-Image_President_Scott_Thayer-2.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 82,
+   "university": "Cosumnes River College",
+   "state": "CA",
+   "dean": "Edward Bush",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 83,
+   "university": "Tulsa Community College",
+   "state": "OK",
+   "dean": "Leigh Goodson",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 84,
+   "university": "Saint Louis Community College",
+   "state": "MO",
+   "dean": "Jeff L. Pittman",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 85,
+   "university": "Indian River State College",
+   "state": "FL",
+   "dean": "Timothy E. Moore, Ph.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 86,
+   "university": "Seminole State College of Florida",
+   "state": "FL",
+   "dean": "Georgia Lorenz",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.seminolestate.edu/about/president",
+   "imageUrl": "https://www.seminolestate.edu/uploads/images/about/Dr-Georgia-Lorenz-2025.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 87,
+   "university": "Oakland Community College",
+   "state": "MI",
+   "dean": "Peter Provenzano",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.oaklandcc.edu/about/chancellors-office/index.html",
+   "imageUrl": "https://www.oaklandcc.edu/about/chancellors-office/images/27917-chancellor-image-8.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 88,
+   "university": "Chandler-Gilbert Community College",
+   "state": "AZ",
+   "dean": "CJ Wurster, Ed.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 89,
+   "university": "Arapahoe Community College",
+   "state": "CO",
+   "dean": "Dr Stephanie Fujii",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.arapahoe.edu/workforce-community-programs/littleton-leadership-academy",
+   "imageUrl": "https://www.arapahoe.edu/sites/default/files/styles/portrait_540x540/public/2026-06/Littleton%20Leadership%20Academy%20Graduation-251017-38.jpg?itok=cXBZkDt4",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 90,
+   "university": "Los Angeles City College",
+   "state": "CA",
+   "dean": "Dr. Amanuel Gebru",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.lacc.edu/offices/president",
+   "imageUrl": "https://www.lacc.edu/sites/lacc.edu/files/styles/inline_image_1100w_/public/2024-08/DY6A9034_0.jpg?itok=ENHedguS",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 91,
+   "university": "Moorpark College",
+   "state": "CA",
+   "dean": "Julius Sokenu",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.moorparkcollege.edu/departments/administrative/presidents-office",
+   "imageUrl": "https://www.moorparkcollege.edu/sites/default/files/media/header_image/2020-08/preheader.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 92,
+   "university": "College of the Sequoias",
+   "state": "CA",
+   "dean": "Brent Calvin",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 93,
+   "university": "CUNY LaGuardia Community College",
+   "state": "NY",
+   "dean": "Kenneth Adams",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 94,
+   "university": "Grossmont College",
+   "state": "CA",
+   "dean": "Denise Whisenhunt",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 95,
+   "university": "Joliet Junior College",
+   "state": "IL",
+   "dean": "Dr. Clyne Namuo",
+   "status": "fail",
+   "reason": "fail:HTTP 404",
+   "pageUrl": "https://jjc.edu/president",
+   "imageUrl": "https://jjc.edu/sites/default/files/President/president&apos;s%20webpage%20banner.png"
+  },
+  {
+   "rank": 96,
+   "university": "Florida SouthWestern State College",
+   "state": "FL",
+   "dean": "Dr. Jeffery S. Allbritten",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.fsw.edu/president",
+   "imageUrl": "https://static.fsw.edu/cms/Cover.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 97,
+   "university": "San Diego Miramar College",
+   "state": "CA",
+   "dean": "Wesley Lundburg,",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 98,
+   "university": "Cape Fear Community College",
+   "state": "NC",
+   "dean": "Mr. Jim Morton",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://cfcc.edu/president",
+   "imageUrl": "https://cfcc.edu/wp-content/uploads/2019/06/JimMorton.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 99,
+   "university": "San Bernardino Valley College",
+   "state": "CA",
+   "dean": "Dr. Gilbert Contreras",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 100,
+   "university": "Eastern Florida State College",
+   "state": "FL",
+   "dean": "Dr. James Richey",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.easternflorida.edu/about/leadership/",
+   "imageUrl": "https://www.easternflorida.edu/about/leadership/images/richey-student-union-groundbreaking-500-500.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 101,
+   "university": "William Rainey Harper College",
+   "state": "IL",
+   "dean": "Dr. Avis Proctor",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.harpercollege.edu/president",
+   "imageUrl": "https://www.harpercollege.edu/leadership/president/images/proctor2019-550x367.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 102,
+   "university": "Glendale Community College",
+   "state": "AZ",
+   "dean": "Dr. Tiffany Hernandez",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 103,
+   "university": "Milwaukee Area Technical College",
+   "state": "WI",
+   "dean": "Dr. Anthony Cruz",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.matc.edu/who-we-are/leadership-administration/presidents-office.html",
+   "imageUrl": "https://www.matc.edu/who-we-are/leadership-administration/images/dr-cruz-2024-02-sq-web.png",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 104,
+   "university": "Madison Area Technical College",
+   "state": "WI",
+   "dean": "Tim Casper",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 105,
+   "university": "Trident Technical College",
+   "state": "SC",
+   "dean": "Vicky Wood",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 106,
+   "university": "Antelope Valley Community College District",
+   "state": "CA",
+   "dean": "Dr. Jennifer Zellet",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.avc.edu/about-avc/office-superintendentpresident",
+   "imageUrl": "https://www.avc.edu//sites/default/files/inline-images/Jennifer.Zellet_web2.png",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 107,
+   "university": "Metropolitan Community College-Kansas City",
+   "state": "MO",
+   "dean": "Kimberly Beatty",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.mcckc.edu/leadership/",
+   "imageUrl": "https://www.mcckc.edu/images/mcc-employee-photos/Beatty_Kimberly.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 108,
+   "university": "Jefferson Community and Technical College",
+   "state": "KY",
+   "dean": "Dr. Ty J. Handy",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 109,
+   "university": "Delaware Technical Community College-Terry",
+   "state": "DE",
+   "dean": "Mark T. Brainard",
+   "status": "fail",
+   "reason": "fail:too-small(2899b)",
+   "pageUrl": "https://www.dtcc.edu/about/administration/",
+   "imageUrl": "https://www.dtcc.edu/media/dtcc-website/content-assets/images/mb-sig.png"
+  },
+  {
+   "rank": 110,
+   "university": "San Diego City College",
+   "state": "CA",
+   "dean": "Ricky Shabazz",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 111,
+   "university": "Irvine Valley College",
+   "state": "CA",
+   "dean": "John Hernandez",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.ivc.edu/president",
+   "imageUrl": "https://www.ivc.edu/sites/default/files/president/img/dr_hernandez.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 112,
+   "university": "Bluegrass Community and Technical College",
+   "state": "KY",
+   "dean": "Dr. Gregory Feeney",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 113,
+   "university": "Foothill College",
+   "state": "CA",
+   "dean": "Kristina Whalen",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://foothill.edu/president/index.html",
+   "imageUrl": "https://foothill.edu/president/images/herobanner_president_1600x900-topaz.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 114,
+   "university": "Community College of Philadelphia",
+   "state": "PA",
+   "dean": "Donald Generals",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 115,
+   "university": "College of the Desert",
+   "state": "CA",
+   "dean": "Laura Hope",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 116,
+   "university": "Chabot College",
+   "state": "CA",
+   "dean": "Jamal Cooks",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.chabotcollege.edu/about/leadership",
+   "imageUrl": "https://www.chabotcollege.edu/images-employee/259.jpeg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 117,
+   "university": "Daytona State College",
+   "state": "FL",
+   "dean": "Dr. Thomas LoBasso",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 118,
+   "university": "Kirkwood Community College",
+   "state": "IA",
+   "dean": "Dr. Kristie Fisher",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 119,
+   "university": "Santa Fe College",
+   "state": "FL",
+   "dean": "Paul Broadie",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.sfcollege.edu/executive-leadership/office-of-the-president.html",
+   "imageUrl": "https://www.sfcollege.edu/executive-leadership/assets/homepage/paul-broadie.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 120,
+   "university": "Delgado Community College",
+   "state": "LA",
+   "dean": "Larissa Littleton-Steib",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 121,
+   "university": "Harrisburg Area Community College",
+   "state": "PA",
+   "dean": "John J. Sygielski",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 122,
+   "university": "Pikes Peak State College",
+   "state": "CO",
+   "dean": "Dr. Lance Bolton",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.pikespeak.edu/about/office-president/index.php",
+   "imageUrl": "https://www.pikespeak.edu/_images-universal/vertical-images/faces_of_ppsc/bolton-vertical.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 123,
+   "university": "College of Lake County",
+   "state": "IL",
+   "dean": "Dr. Lori Suddick",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 124,
+   "university": "Los Angeles Trade Technical College",
+   "state": "CA",
+   "dean": "Alfred McQuarters",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.lattc.edu/offices/president",
+   "imageUrl": "https://www.lattc.edu/sites/lattc.edu/files/styles/inline_image_1100w_/public/2025-11/IMG_7374%20%281%29_0.JPG?itok=mRkPgBwY",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 125,
+   "university": "Bellevue College",
+   "state": "WA",
+   "dean": "David May",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 126,
+   "university": "Merced College",
+   "state": "CA",
+   "dean": "Chris Vitelli",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 127,
+   "university": "Grand Rapids Community College",
+   "state": "MI",
+   "dean": "Charles Lepper, PhD",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 128,
+   "university": "Tallahassee State College",
+   "state": "FL",
+   "dean": "Jim Murdaugh",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.tsc.fl.edu/about/college/president/",
+   "imageUrl": "https://www.tsc.fl.edu/media/divisions/president/TSCPresidentMurdaugh1.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 129,
+   "university": "Palo Alto College",
+   "state": "TX",
+   "dean": "Dr. Robert Garza",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.alamo.edu/pac/about-pac/leadership/",
+   "imageUrl": "https://www.alamo.edu/4aa3fd/siteassets/pac/about-pac/leadership/president/pac-president-tbn.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 130,
+   "university": "Santa Barbara City College",
+   "state": "CA",
+   "dean": "Erika Endrijonas, Ph.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 131,
+   "university": "Nassau Community College",
+   "state": "NY",
+   "dean": "Dr. Maria P. Conzatti",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 132,
+   "university": "Community College of Rhode Island",
+   "state": "RI",
+   "dean": "Dr. Rosemary Costigan",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.ccri.edu/president",
+   "imageUrl": "https://www.ccri.edu/president/images/RCostigan_bio.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 133,
+   "university": "Ventura College",
+   "state": "CA",
+   "dean": "Claudia Habib",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 134,
+   "university": "Texas State Technical College",
+   "state": "TX",
+   "dean": "Mike Reeser",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.tstc.edu/about/chancellor",
+   "imageUrl": "https://www.tstc.edu/wp-content/uploads/2023/07/Chancellor-Mike-Reeser-468x581-1.webp",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 135,
+   "university": "Glendale Community College",
+   "state": "CA",
+   "dean": "Ryan Cornner",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.glendale.edu/about-gcc/administration/superintendent-president/index.html",
+   "imageUrl": "https://www.glendale.edu/about-gcc/board-of-trustees/_images/members/cornner-ryan.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 136,
+   "university": "Middlesex College",
+   "state": "NJ",
+   "dean": "Dr. Mark McCormick",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://middlesexcollege.edu/about/college-leadership/",
+   "imageUrl": "https://middlesexcollege.edu/about/wp-content/uploads/sites/3/2024/10/m-mccormick.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 137,
+   "university": "Greenville Technical College",
+   "state": "SC",
+   "dean": "Keith Miller, Ph.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 138,
+   "university": "Moreno Valley College",
+   "state": "CA",
+   "dean": "Dr. Ferita Carter",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 139,
+   "university": "Santiago Canyon College",
+   "state": "CA",
+   "dean": "Jeannie G. Kim, PhD",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 140,
+   "university": "Wayne County Community College District",
+   "state": "MI",
+   "dean": "Dr. Curtis L. Ivery",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.wcccd.edu/office-of-the-chancellor",
+   "imageUrl": "https://www.wcccd.edu/Images/Chancellor/chancellor_ivery_900x900.png",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 141,
+   "university": "Tyler Junior College",
+   "state": "TX",
+   "dean": "Juan E. Mejia",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://tjc.edu/about/leadership/",
+   "imageUrl": "https://tjccdn.b-cdn.net/app/uploads/2023/10/mejia_headshot_2019_presidential-square-1024x1024.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 142,
+   "university": "Northeast Wisconsin Technical College",
+   "state": "WI",
+   "dean": "Kristen Raney",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.nwtc.edu/about-nwtc/leadership-and-administration",
+   "imageUrl": "https://www.nwtc.edu/getmedia/4b70493a-a0e9-4021-be3a-d40daa66a7d2/Dr-Kristen-Raney.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 143,
+   "university": "Fayetteville Technical Community College",
+   "state": "NC",
+   "dean": "Dr. Mark Sorrells",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 144,
+   "university": "Bergen Community College",
+   "state": "NJ",
+   "dean": "Dr. Eric M. Friedman",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 145,
+   "university": "Central Georgia Technical College",
+   "state": "GA",
+   "dean": "Ivan H. Allen",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 146,
+   "university": "Guilford Technical Community College",
+   "state": "NC",
+   "dean": "Dr. Anthony Clarke",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.gtcc.edu/about/administration/index.php",
+   "imageUrl": "https://www.gtcc.edu/_images/about-section/gtcc-dr-anthony-clarky.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 147,
+   "university": "Anne Arundel Community College",
+   "state": "MD",
+   "dean": "Dawn S. Lindsay",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 148,
+   "university": "MiraCosta College",
+   "state": "CA",
+   "dean": "Dr. Sunny Cooke",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 149,
+   "university": "Oklahoma City Community College",
+   "state": "OK",
+   "dean": "Dr. Mautra Jones",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.occc.edu/about-occc/leadership/president/index.html",
+   "imageUrl": "https://www.occc.edu/media-files/2026/photos/dr-jones-gallery/Dr.-Jones-professional-headshot-2022-small-1024x683.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 150,
+   "university": "Prince George's Community College",
+   "state": "MD",
+   "dean": "Falecia D. Williams",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 151,
+   "university": "Allan Hancock College",
+   "state": "CA",
+   "dean": "Dr. Kevin Walthers",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.hancockcollege.edu/president/index.php",
+   "imageUrl": "https://www.hancockcollege.edu/president/images/KevinWalthers.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 152,
+   "university": "Henry Ford College",
+   "state": "MI",
+   "dean": "Russell Kavalhuna",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 153,
+   "university": "Ozarks Technical Community College",
+   "state": "MO",
+   "dean": "Hal Higdon",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 154,
+   "university": "Norco College",
+   "state": "CA",
+   "dean": "Dr. Monica Green",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.norcocollege.edu/about/president/index.html",
+   "imageUrl": "https://www.norcocollege.edu/about/president/leadership/publishingimages/green_monica_2019.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 155,
+   "university": "Moraine Valley Community College",
+   "state": "IL",
+   "dean": "Dr. Pamela J. Haney",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 156,
+   "university": "Cuesta College",
+   "state": "CA",
+   "dean": "Dr. Jill Stearns",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.cuesta.edu/about/president/index.html",
+   "imageUrl": "https://www.cuesta.edu/about/images/president/DrStearns1.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 157,
+   "university": "Hartnell College",
+   "state": "CA",
+   "dean": "Michael Gutierrez",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.hartnell.edu/about/president/index.html",
+   "imageUrl": "https://www.hartnell.edu/about/president/gutierrez_michael.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 158,
+   "university": "Baton Rouge Community College",
+   "state": "LA",
+   "dean": "Dr. Willie Smith",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://mybrcc.edu/about-brcc/cabinet.php",
+   "imageUrl": "https://mybrcc.edu/about-brcc/ChanSmit.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 159,
+   "university": "Gwinnett Technical College",
+   "state": "GA",
+   "dean": "Dr. D. Glen Cannon",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://gwinnetttech.edu/about-us/presidents-bio/",
+   "imageUrl": "https://gwinnetttech.edu/wp-content/uploads/2025/12/DrCannon_600.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 160,
+   "university": "Chattahoochee Technical College",
+   "state": "GA",
+   "dean": "Heather Pence",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 161,
+   "university": "Washtenaw Community College",
+   "state": "MI",
+   "dean": "Rose B Bellanca",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.wccnet.edu/about/president",
+   "imageUrl": "https://www.wccnet.edu/about/president/_media/bellanca2021.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 162,
+   "university": "Folsom Lake College",
+   "state": "CA",
+   "dean": "Artemio (Art) Pimentel",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 163,
+   "university": "Laredo College",
+   "state": "TX",
+   "dean": "Dr. Minita Ramirez",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 164,
+   "university": "Normandale Community College",
+   "state": "MN",
+   "dean": "Joyce Ester",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 165,
+   "university": "College of Western Idaho",
+   "state": "ID",
+   "dean": "Gordon Jones",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://cwi.edu/about/administration",
+   "imageUrl": "https://cwi.edu/sites/default/files/styles/width_250/public/2026-02/jones-gordon-2026-5657-12x8-300dpi.jpg.webp?itok=O1mtoHMd",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 166,
+   "university": "Butte College",
+   "state": "CA",
+   "dean": "Virginia Guleff",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.butte.edu/president",
+   "imageUrl": "https://www.butte.edu/about/leadership/office-of-the-president/images/president-guleff.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 167,
+   "university": "Truckee Meadows Community College",
+   "state": "NV",
+   "dean": "Karin Hilgersom",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 168,
+   "university": "Southeast Community College Area",
+   "state": "NE",
+   "dean": "Paul Illich",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 169,
+   "university": "Golden West College",
+   "state": "CA",
+   "dean": "Meridith Randall",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.goldenwestcollege.edu/office-of-the-president",
+   "imageUrl": "https://www.goldenwestcollege.edu/Links/images/about/administration-contacts/meridith-randall-2023-smaller-med.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 170,
+   "university": "Los Angeles Mission College",
+   "state": "CA",
+   "dean": "Armida Ornelas",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.lamc.edu/offices/president",
+   "imageUrl": "https://www.lamc.edu/sites/lamc.edu/files/styles/inline_image_1100w_/public/2026-03/Armida-Ornelas-PhD-larger.png?itok=kmE8e658",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 171,
+   "university": "Fox Valley Technical College",
+   "state": "WI",
+   "dean": "Dr. Christopher Matheny",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 172,
+   "university": "Phoenix College",
+   "state": "AZ",
+   "dean": "Dr. Kimberly Britt",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 173,
+   "university": "Community College of Allegheny County",
+   "state": "PA",
+   "dean": "Quintin B. Bullock",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 174,
+   "university": "Citrus College",
+   "state": "CA",
+   "dean": "Dr. Greg Schulz",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 175,
+   "university": "Clovis Community College",
+   "state": "CA",
+   "dean": "Dr. Monica Chahal",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 176,
+   "university": "CUNY Queensborough Community College",
+   "state": "NY",
+   "dean": "Christine Mangino",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.qcc.cuny.edu/president/index.html",
+   "imageUrl": "https://www.qcc.cuny.edu/president/images/drmangino.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 177,
+   "university": "Polk State College",
+   "state": "FL",
+   "dean": "Angela M.  Garcia Falconetti",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 178,
+   "university": "Del Mar College",
+   "state": "TX",
+   "dean": "Mark Escamilla, Ph.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 179,
+   "university": "Elgin Community College",
+   "state": "IL",
+   "dean": "Peggy Heinrich",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 180,
+   "university": "College of Southern Idaho",
+   "state": "ID",
+   "dean": "L. Dean Fisher",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 181,
+   "university": "Stark State College",
+   "state": "OH",
+   "dean": "Para Jones",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.starkstate.edu/about/president",
+   "imageUrl": "https://www.starkstate.edu/wp-content/uploads/2026/02/dr-para-jones.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 182,
+   "university": "Estrella Mountain Community College",
+   "state": "AZ",
+   "dean": "Dr. Rey Rivera",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 183,
+   "university": "Gateway Technical College",
+   "state": "WI",
+   "dean": "Dr. Ritu Raju",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 184,
+   "university": "Odessa College",
+   "state": "TX",
+   "dean": "Gregory D. Williams",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 185,
+   "university": "College of San Mateo",
+   "state": "CA",
+   "dean": "Dr. Manuel Alejandro Pérez",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.collegeofsanmateo.edu/president/",
+   "imageUrl": "https://www.collegeofsanmateo.edu/president/images/ManuelAlejandroPerez.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 186,
+   "university": "Brookdale Community College",
+   "state": "NJ",
+   "dean": "Dr. David Stout",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.brookdalecc.edu/about/office-of-the-president/about-david-stout/",
+   "imageUrl": "https://www.brookdalecc.edu/wp-content/uploads/2023/04/david-web.webp",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 187,
+   "university": "Bunker Hill Community College",
+   "state": "MA",
+   "dean": "Pam Y. Eddinger",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 188,
+   "university": "Triton College",
+   "state": "IL",
+   "dean": "Mary-Rita Moore",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.triton.edu/about/administration/office-of-the-president.html",
+   "imageUrl": "https://www.triton.edu/images_documents/contentassets/office-of-the-president-images/presweb3.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 189,
+   "university": "Lansing Community College",
+   "state": "MI",
+   "dean": "Steven J. Robinson",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 190,
+   "university": "Cincinnati State Technical and Community College",
+   "state": "OH",
+   "dean": "Monica Posey, EdD",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 191,
+   "university": "Skyline College",
+   "state": "CA",
+   "dean": "Newin Orante",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 192,
+   "university": "Pensacola State College",
+   "state": "FL",
+   "dean": "Dr. C. Ed Meadows",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://pensacolastate.edu/about-psc/office-of-the-president/",
+   "imageUrl": "https://pensacolastate.edu/wp-content/uploads/2014/02/Dr_Meadows_2010.jpg",
+   "nameConfirmedOnSite": true
+  },
+  {
+   "rank": 193,
+   "university": "Los Angeles Harbor College",
+   "state": "CA",
+   "dean": "Luis Dorado",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 194,
+   "university": "Cabrillo College",
+   "state": "CA",
+   "dean": "Matthew Wetstein",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 195,
+   "university": "Pasco-Hernando State College",
+   "state": "FL",
+   "dean": "Jesse Pisors, Ph.D.",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 196,
+   "university": "McHenry County College",
+   "state": "IL",
+   "dean": "Clinton Gabbard",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 197,
+   "university": "Pellissippi State Community College",
+   "state": "TN",
+   "dean": "Dr. L. Anthony Wise",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 198,
+   "university": "Brightpoint Community College",
+   "state": "VA",
+   "dean": "Dr. William C. Fiege",
+   "status": "fail",
+   "reason": "fail:placeholder-url",
+   "pageUrl": "https://www.brightpoint.edu/about/president",
+   "imageUrl": "https://www.brightpoint.edu/images/placeholder.png"
+  },
+  {
+   "rank": 199,
+   "university": "Middlesex Community College",
+   "state": "MA",
+   "dean": "Philip Sisson",
+   "status": "fail",
+   "reason": "no-name-match",
+   "triedPages": 6
+  },
+  {
+   "rank": 200,
+   "university": "SUNY Westchester Community College",
+   "state": "NY",
+   "dean": "Dr. Belinda Miles",
+   "status": "ok",
+   "reason": "added",
+   "pageUrl": "https://www.sunywcc.edu/about/leadership/",
+   "imageUrl": "https://www.sunywcc.edu/wp-content/uploads/2024/12/Headshots_Dr.Miles_Formal-2504.jpg",
+   "nameConfirmedOnSite": true
+  }
+ ]
+}

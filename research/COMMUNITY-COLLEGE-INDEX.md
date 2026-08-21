@@ -74,6 +74,31 @@ missing from the map, and nobody has to defend the 200 line to a customer asking
 why theirs isn't in here — it is, with one row instead of eight. Depth then
 follows the market rather than the alphabet.
 
+### Portraits, and why the photo pass is really a verification pass
+
+`fetch-cc-photos.mjs` mirrors the sitting leader's portrait from the college's
+own leadership page, reusing `photo-lib.mjs` — the same extraction, placeholder
+rejection and name matching the other indices use. **80 of the 200** now have a
+portrait in `public/deans/`, across 22 states.
+
+The useful part is not the picture. `matchByName` only accepts an image whose
+alt text, filename or surrounding markup carries the leader's first *and* last
+name, so a hit is the college's own site asserting that this person holds this
+seat — which independently confirms **73** of the IPEDS names, at no extra cost.
+That is step 3 of the sequence below, already partly done.
+
+A miss is *not* evidence the name is wrong. Of the 120 misses, 116 were
+`no-name-match`, and the common causes are CSS background-images and
+JS-rendered leadership cards, neither of which a static HTML pass can read.
+Results are per-college in `universe/cc-photo-manifest.json` with the reason
+recorded, so the remainder is a worklist rather than a mystery.
+
+Portraits are downscaled to the repo's 320px JPEG convention by
+`thumbnail-cc-photos.mjs` — 24.7 MB of college hero images becomes 1.0 MB, or
+about 13 KB a head, matching the existing 244 mirrors. That script needs
+`sharp`, which is deliberately **not** a repo dependency; it reads one from an
+external install via `SHARP_PATH`.
+
 ### The trap this list avoids
 
 "Largest community colleges" reads like a lookup. It is not. **IPEDS no longer
@@ -269,7 +294,8 @@ Sequence:
    It already exists, it costs a script run, and it means breadth is never the
    thing holding the index back — only depth is, and depth is the part worth
    paying for.
-3. **Verify the 200 incumbents** against college websites. Cheap, and it
+3. **Verify the 200 incumbents** against college websites. The photo pass already
+   confirmed 73 of them (above); the remaining 127 are the actual work. Cheap, and it
    converts the IPEDS field from a lead into data. Do this before any history
    collection so waves start from a correct anchor. The other 877 stay
    explicitly unverified; `leaderNameUnverified` is named that way so no
