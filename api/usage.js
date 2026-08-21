@@ -31,7 +31,7 @@ const ALL_IDS = [
   "r1bschool", "r1eschool", "r1university", "r1medical", "r1law", "r1provost",
   "usag", "usnursing", "uspharmacy", "useducation", "r1arts", "usr2",
   "ussystem", "uspublichealth", "usvet", "usgrad", "uscreativearts",
-  "usadvancement", "uslac", "usadminleaders",
+  "usadvancement", "uslac", "usadminleaders", "uscommunitycollege",
 ];
 const TIERS = {
   day:     { label: "Day Pass",     scope: ["r1bschool", "r1university", "r1provost"], days: 1 },

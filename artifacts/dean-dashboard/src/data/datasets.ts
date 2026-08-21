@@ -271,6 +271,21 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     yearRange: "1990–2026",
   },
 
+  // Community-college presidents and district chancellors. Depth is bounded by
+  // SPELLS, not by a date: current + 3 predecessors, so each seat's horizon
+  // varies and `historyFrom`/`truncated` on the schools row are load-bearing.
+  // Only the 20 pilot seats carry history so far; the schools table holds all
+  // 1,101 seats, so School Explorer lists colleges the timeline cannot yet fill.
+  uscommunitycollege: {
+    id: "uscommunitycollege",
+    label: "Community College Presidents",
+    shortLabel: "Community College",
+    description: "Presidents of the largest US community colleges and the chancellors of their multi-college districts. History is traced current + 3 predecessors per seat rather than from a fixed year. PILOT: 20 of 224 seats have history; the remaining collection wave is not yet run.",
+    rankLabel: "Enrollment rank",
+    schoolType: "communitycollege",
+    yearRange: "1970-2026",
+  },
+
   uslac: {
     id: "uslac",
     label: "Liberal Arts College Presidents",

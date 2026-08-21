@@ -1,13 +1,15 @@
 # Community College Index — universe and market case
 
-Status: **step 1 complete, not wired into the app.** The universe file exists;
+Status: **steps 1-3 complete, not wired into the app.** The universe, schools and
+verification files exist;
 no dataset id is registered, no ETL has run, no leader history has been
 collected. This document is the case for doing that work and the record of how
 the universe was drawn.
 
 - History target: `universe/universe_communitycollege.json` (200 institutions)
 - Census: `universe/universe_communitycollege_all.json` (all 1,077, sitting leader only)
-- Builder: `build-cc-universe.mjs` (`node research/build-cc-universe.mjs`) — writes both
+- Schools table: `src/data/r1-communitycollege-schools.json` (1,101 seats, both levels)
+- Builders: `build-cc-universe.mjs` (universe files), `build-cc-schools.mjs` (schools table)
 
 ## 1. What the list is
 
@@ -74,24 +76,53 @@ missing from the map, and nobody has to defend the 200 line to a customer asking
 why theirs isn't in here — it is, with one row instead of eight. Depth then
 follows the market rather than the alphabet.
 
-### Portraits, and why the photo pass is really a verification pass
+### Verifying the incumbents — 118 of 200
 
-`fetch-cc-photos.mjs` mirrors the sitting leader's portrait from the college's
-own leadership page, reusing `photo-lib.mjs` — the same extraction, placeholder
-rejection and name matching the other indices use. **80 of the 200** now have a
-portrait in `public/deans/`, across 22 states.
+The leader names come from IPEDS `chief_admin_name`, which lags. Two independent
+passes check them against each college's own website, and they are
+**complementary, not redundant**: 118 of the 200 are confirmed by one or the
+other, and neither pass subsumes the other.
 
-The useful part is not the picture. `matchByName` only accepts an image whose
-alt text, filename or surrounding markup carries the leader's first *and* last
-name, so a hit is the college's own site asserting that this person holds this
-seat — which independently confirms **73** of the IPEDS names, at no extra cost.
-That is step 3 of the sequence below, already partly done.
+| Pass | Confirms | |
+|---|---:|---|
+| `fetch-cc-photos.mjs` | 73 | needs an `<img>` whose alt text or filename carries the name |
+| `verify-cc-leaders.mjs` | 112 | needs only the name in the page text |
+| **Either** | **118** | overlap is 67; six colleges are verified by the portrait run alone |
 
-A miss is *not* evidence the name is wrong. Of the 120 misses, 116 were
-`no-name-match`, and the common causes are CSS background-images and
-JS-rendered leadership cards, neither of which a static HTML pass can read.
-Results are per-college in `universe/cc-photo-manifest.json` with the reason
-recorded, so the remainder is a worklist rather than a mystery.
+The text pass reaches further because it does not need the picture. 116 of the
+photo pass's 120 misses were `no-name-match` — pages that state the president
+perfectly well in prose but render the portrait as a CSS background or a
+JS-hydrated card. The six the portraits catch and the text misses are not
+regressions: the two crawlers use different transports (node `fetch` vs `curl`)
+and land on slightly different pages.
+
+**The pass verifies names; it does not discover replacements.** Extraction of a
+*different* incumbent was attempted and does not work well enough to trust.
+Across 200 colleges every candidate that cleared a two-page corroboration bar
+was still headline or menu text — the last survivor was "President Keeps It
+Real". A `differs` verdict now requires the pairing stated both ways round
+("President Jane Smith" *and* "Jane Smith, President"), which yields **zero** on
+this corpus. That is the honest answer: the 82 confirmed by neither pass need a
+human or a research agent, not a tighter regex.
+
+Two failures worth keeping in mind, both already fixed:
+
+- **Flattening tags destroyed the structure that separates a sentence from a
+  menu.** `<h1>President</h1><nav><a>Recap</a>…` became "President Recap …", and
+  Title-Case nav items matched. Worse, corroboration *rewarded* it: counting raw
+  sightings favours boilerplate, because nav repeats on every page — one bogus
+  candidate scored 14. Matching is now scoped to block boundaries and counts
+  distinct pages.
+- **The join-key collision reappeared in the cross-reference.** Matching the
+  photo pass to the text pass on bare `university` credited Glendale Community
+  College (AZ)'s confirmation to Glendale Community College (CA) as well, since
+  both are in the top 200. Coverage read 119 instead of 118. The lookup is keyed
+  on name + state now. The institution-name contract is not only an ETL concern:
+  it bites any lookup written carelessly.
+
+Results are per-college in `universe/cc-leader-verification.json`, with the
+reason recorded for every unresolved row so the remainder is a worklist. Nothing
+is written back into the universe files.
 
 Portraits are downscaled to the repo's 320px JPEG convention by
 `thumbnail-cc-photos.mjs` — 24.7 MB of college hero images becomes 1.0 MB, or
@@ -134,30 +165,49 @@ time was not "is this open-access" but **"is this a seat a community-college
 president is recruited into"** — the same question that keeps branch campuses
 and federal service academies out of the other indices.
 
-## 2. The open scoping decision: campus or district?
+## 2. Campus or district? — SETTLED 21 Aug 2026: both
 
-**53 of the 200 are colleges inside a multi-college district**, spanning 22
-districts — LACCD (6 of the 200), Maricopa (6), Los Rios (4), Alamo (4), CUNY
-(4), San Diego (3), Riverside (3), and 15 others. Each has a campus president
-*and* a district chancellor, and both seats are searched nationally.
+**Decision: the index carries both seats**, with `seatType` on every record —
+`standalone` (the president is the top seat), `campus` (reports to a district
+chancellor), `district` (the chancellorship itself). Built by
+`build-cc-schools.mjs` into `r1-communitycollege-schools.json`.
 
-- **Campus level** (what the file currently holds): 200 seats. Matches how
-  IPEDS reports and how enrollment is measured. Ranks six LA colleges
-  separately while the district chancellor — the bigger job — is absent.
-- **District level**: 169 distinct seats, and the file loses the campus
-  presidencies, which are the standard proving ground for a chancellorship.
+| Option | Seats | What it loses |
+|---|---:|---|
+| Campus only | 1,077 | 24 district chancellorships — the largest-comp seats in the sector |
+| District only | 1,018 | 83 campus presidencies — the bench those chancellorships recruit from |
+| **Both (chosen)** | **1,101** | — |
 
-Note that the largest single entries — Lone Star, Dallas College, Houston CC,
-Tarrant County, Austin, Collin — *already* report at district level, so the
-list currently mixes the two conventions.
+Both costs 2% more rows than campus-only, which is a rounding error against a
+collection wave, and it is the only option that loses nothing. The move between
+campus president and district chancellor is precisely the career step this
+product exists to show; collapsing to either level makes that step invisible.
 
-My recommendation: **keep the campus rows and add the district seat as its own
-row.** The two are different jobs with different candidate pools, and the
-career move between them is precisely the signal this product exists to show.
-That means a universe closer to 222 seats than 200, and it needs a `district`
-/ `campus` field on the record rather than a choice between them. This is the
-one decision worth making before any collection starts, because it determines
-the unit of the whole index.
+Two further facts made the choice easy:
+
+- **A pure campus-level table was never on offer.** Dallas College consolidated
+  its seven colleges into one accredited institution; Houston CC, Lone Star and
+  Tarrant County also report to IPEDS as single units. "Campus level" would have
+  silently meant "whatever IPEDS happens to report", which is not a consistent
+  seat definition. Only an explicit `seatType` fixes that.
+- **The chancellorships are where the search fees are.** LACCD, Maricopa, Alamo,
+  San Diego. A firm evaluating the data looks for those names first; their
+  absence reads as a gap in the product, not a scoping choice.
+
+**Two flagged districts get no chancellor row**, recorded in `NO_DISTRICT_SEAT`
+rather than dropped silently:
+
+- *Delaware Technical Community College* — not a district at all. One president
+  leads four campuses that IPEDS reports separately; its campuses fold to
+  `standalone`.
+- *City University of New York* — CUNY's chancellor leads a full university
+  system of senior and community colleges, not a community-college district.
+  That seat belongs to `ussystem`; a row here would double-count one person.
+
+**Chancellor names are not in IPEDS.** Districts are not IPEDS reporting units,
+so all 24 ship with `leaderNameUnverified: ""`. Unlike the college presidents,
+these are not even leads — they are research, and the first collection wave has
+to source them from scratch.
 
 ## 3. Market appeal
 
@@ -286,24 +336,27 @@ completes a career story the existing corpus already half-tells.
 
 Sequence:
 
-1. **Settle campus-vs-district** (section 2). Nothing else should start first.
+1. ~~**Settle campus-vs-district**~~ — done, section 2: both seats, `seatType` on every record.
 1b. **Ask one existing pilot firm whether they bid community-college
    presidencies**, and what they lack when they do. One conversation, and it
    tests the buyer assumption this whole case rests on.
-2. **Ship the 1,077-college census as the schools table** (`universe_communitycollege_all.json`).
-   It already exists, it costs a script run, and it means breadth is never the
-   thing holding the index back — only depth is, and depth is the part worth
-   paying for.
-3. **Verify the 200 incumbents** against college websites. The photo pass already
-   confirmed 73 of them (above); the remaining 127 are the actual work. Cheap, and it
-   converts the IPEDS field from a lead into data. Do this before any history
-   collection so waves start from a correct anchor. The other 877 stay
-   explicitly unverified; `leaderNameUnverified` is named that way so no
-   consumer mistakes a lead for a fact.
-4. **Pilot one wave of 20 colleges** traced from 1996, mixing a Texas district,
-   a California multi-college district and a standalone Midwestern college, to
-   size the real per-institution cost against the R2 build's ~37k tokens
-   batched.
+2. ~~**Ship the census as the schools table**~~ — done:
+   `r1-communitycollege-schools.json`, 1,101 seats. Breadth is no longer what
+   holds the index back; only depth is, and depth is the part worth paying for.
+3. ~~**Verify the 200 incumbents**~~ — done to the limit of what automation
+   reaches: **118 of 200** confirmed across the photo and text passes. The
+   remaining 82 need a human or a research agent; their per-college reasons are
+   in `cc-leader-verification.json`. The other 877 in the census stay explicitly
+   unverified; `leaderNameUnverified` is named that way so no consumer mistakes
+   a lead for a fact.
+4. **Pilot one wave of 20 colleges** — brief written, not yet run:
+   `CC-PILOT-WAVE.md`, sample in `universe/cc-pilot-wave.json`
+   (`node research/pick-cc-pilot.mjs`). **Depth: current + 3 predecessors**
+   (see section 5). The sample is stratified by size band, seat type and
+   verification status rather than taken off the top, because the pilot exists
+   to price the other 180 and the top 20 is the easy end of all three axes.
+   Batch 4-5 institutions per agent, as the R2 build established (~37k tokens
+   batched against ~92k one-per-agent).
 5. **Register `uscommunitycollege`** via `research/register_index.mjs` — one
    line in `scripts/lib/indices.mjs`, then the shared generators pick it up.
 6. Run `check-school-names.mjs` after every wave. This universe is full of
@@ -311,6 +364,61 @@ Sequence:
    Arizona and California, "Metropolitan Community College" is an Omaha
    institution and a Kansas City one, and the `university` field is a join key, not
    a label.
+
+## 5. How far back to trace — current + 3 predecessors
+
+**Four spells per seat**, stopping earlier only where a seat genuinely has no
+further predecessor. Settled 21 Aug 2026.
+
+Measured across the 4,166 seats already in the corpus:
+
+| Depth | Median reach | Lands about | Reaches ≤1996 |
+|---|---:|---|---:|
+| current + 1 | 9 yrs | 2017 | 3% |
+| current + 2 | 14 yrs | 2012 | 10% |
+| **current + 3** | **20 yrs** | **2006** | **23%** |
+| current + 4 | 24 yrs | 2002 | 34% |
+
+### Why not a date cutoff
+
+Tracing back to a fixed year is the intuitive way to cut research cost, and it
+is a trap. A 2020 cutoff — reasonable if you believe average tenure is about
+four years — would see **24% of completed spells** and measure mean tenure at
+**5.81 years against a true 6.95**. That is a 16% understatement, and it runs in
+the direction that flatters the turnover story the index exists to evidence. The
+bias is the opposite of the intuitive one: right-censoring dominates, because a
+window anchored on "still running in 2020" fills up with leaders appointed
+2021-2025 whose tenure is short only because it has not finished.
+
+It would also have cut the market argument. Of the community-college-sourced
+appointments already in the corpus that carry a start year, **40% predate 2020**
+— two-fifths of the pipeline evidence, invisible.
+
+For the record: true mean tenure in the corpus is **6.95 years**, and AACC's
+2023 figure for community-college CEOs is **5.9**. Neither is four.
+
+Bounding by spells rather than years also spends evenly. A date rule costs one
+spell at a college with a twenty-year president and six at a churny one; a spell
+rule costs four everywhere, which is what makes a wave estimable.
+
+### What this obliges
+
+- **`historyFrom` and `truncated` on every institution.** Depth varies a lot
+  seat to seat under a spell cap — three long presidencies reach 1990, three
+  short ones reach 2015 — so the horizon has to be a per-row fact. Without it
+  someone fits a trend across colleges with different windows and gets a
+  confident wrong answer.
+- **A `moreHistoryExists` flag from the researcher.** `etl_leaders.mjs` derives
+  `truncated` as `historyFrom > founded`, and every row in the schools table has
+  `founded: null` — so that derivation returns false everywhere and the index
+  would silently claim complete history. Under a spell cap the truth is directly
+  observable and must be recorded rather than inferred. See `CC-PILOT-WAVE.md`.
+
+### Still open
+
+Whether the top 25 by enrollment are traced to 1996 regardless of spell count,
+so they align with the 1996-based indices for cross-index work. About 50 extra
+spells. Not decided.
 
 ## Sources
 
