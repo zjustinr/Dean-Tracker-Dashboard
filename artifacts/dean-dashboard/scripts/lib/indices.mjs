@@ -39,6 +39,7 @@ export const FILE_ID = {
   "r1-advancement-deans.json": "usadvancement",
   "r1-lac-deans.json": "uslac",
   "r1-adminleaders-deans.json": "usadminleaders",
+  "r1-communitycollege-deans.json": "uscommunitycollege",
 };
 
 /** Dataset id -> human label for UI and log lines. */
@@ -63,6 +64,7 @@ export const INDEX_LABEL = {
   usadvancement: "Advancement",
   uslac: "LAC President",
   usadminleaders: "Administrative",
+  uscommunitycollege: "Community College",
 };
 
 /**
