@@ -98,6 +98,9 @@ function extractHolders(text) {
       if (/^(vice|assistant|associate|deputy)$/.test(modifier)) continue;  // not the top seat
       const raw = (re === AFTER ? m[2] : m[1]) || "";
       if (!looksLikeName(raw)) continue;
+      // A pronoun or verb inside the span means the regex swallowed a sentence,
+      // not a name: "President Keeps It Real".
+      if (/\b(It|He|She|They|We|You|Is|Are|Was|Were|Keeps|Makes|Takes|Gets|Says)\b/.test(raw)) continue;
       const p = parseName(raw);
       if (!p || p.parts.length < 2) continue;
       if (p.parts.some((w) => STOP.has(w))) continue;
@@ -155,17 +158,24 @@ async function verify(college) {
   const best = Object.values(tally).sort((a, b) => b.pages.size - a.pages.size || b.n - a.n)[0];
   if (!best) return { ...base, verdict: "unresolved", reason: "no-holder-found", pagesRead: read };
 
-  // A single sighting from a single phrasing is not enough to say the IPEDS name
-  // is wrong. Corroboration = seen more than once, or stated both ways round
-  // ("President Jane Smith" AND "Jane Smith, President"). Anything weaker stays
-  // unresolved rather than becoming a lead someone might trust.
-  if (best.pages.size < 2 && best.patterns.size < 2) {
+  // `differs` requires the name STATED BOTH WAYS ROUND -- "President Jane Smith"
+  // somewhere and "Jane Smith, President" somewhere else. Page-count alone was
+  // tried and is not enough: across 200 colleges every candidate that cleared a
+  // two-page bar was still headline or menu text ("Keeps It Real"). A real
+  // incumbent's page almost always states the pairing both ways, in a heading
+  // and again in a bio line; boilerplate essentially never does.
+  //
+  // On the 200-college corpus this yields ZERO differs, which is the honest
+  // answer: this pass verifies names, it does not discover replacements. The 88
+  // it cannot confirm need a human or a research agent, not a tighter regex.
+  if (best.patterns.size < 2) {
     return { ...base, verdict: "unresolved", reason: "holder-uncorroborated", weakCandidate: best.name, evidence: best.phrase, pageUrl: best.url, pagesRead: read };
   }
 
   return {
     ...base,
     verdict: "differs",
+    confidence: "lead-only: the page states this pairing both ways round; still research, not a correction",
     siteName: best.name,
     siteNameIsInterim: best.interim,
     seenOnPages: best.pages.size,
