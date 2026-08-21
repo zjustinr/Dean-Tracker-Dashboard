@@ -349,10 +349,14 @@ Sequence:
    in `cc-leader-verification.json`. The other 877 in the census stay explicitly
    unverified; `leaderNameUnverified` is named that way so no consumer mistakes
    a lead for a fact.
-4. **Pilot one wave of 20 colleges** traced from 1996, mixing a Texas district,
-   a California multi-college district and a standalone Midwestern college, to
-   size the real per-institution cost against the R2 build's ~37k tokens
-   batched.
+4. **Pilot one wave of 20 colleges** — brief written, not yet run:
+   `CC-PILOT-WAVE.md`, sample in `universe/cc-pilot-wave.json`
+   (`node research/pick-cc-pilot.mjs`). **Depth: current + 3 predecessors**
+   (see section 5). The sample is stratified by size band, seat type and
+   verification status rather than taken off the top, because the pilot exists
+   to price the other 180 and the top 20 is the easy end of all three axes.
+   Batch 4-5 institutions per agent, as the R2 build established (~37k tokens
+   batched against ~92k one-per-agent).
 5. **Register `uscommunitycollege`** via `research/register_index.mjs` — one
    line in `scripts/lib/indices.mjs`, then the shared generators pick it up.
 6. Run `check-school-names.mjs` after every wave. This universe is full of
@@ -360,6 +364,61 @@ Sequence:
    Arizona and California, "Metropolitan Community College" is an Omaha
    institution and a Kansas City one, and the `university` field is a join key, not
    a label.
+
+## 5. How far back to trace — current + 3 predecessors
+
+**Four spells per seat**, stopping earlier only where a seat genuinely has no
+further predecessor. Settled 21 Aug 2026.
+
+Measured across the 4,166 seats already in the corpus:
+
+| Depth | Median reach | Lands about | Reaches ≤1996 |
+|---|---:|---|---:|
+| current + 1 | 9 yrs | 2017 | 3% |
+| current + 2 | 14 yrs | 2012 | 10% |
+| **current + 3** | **20 yrs** | **2006** | **23%** |
+| current + 4 | 24 yrs | 2002 | 34% |
+
+### Why not a date cutoff
+
+Tracing back to a fixed year is the intuitive way to cut research cost, and it
+is a trap. A 2020 cutoff — reasonable if you believe average tenure is about
+four years — would see **24% of completed spells** and measure mean tenure at
+**5.81 years against a true 6.95**. That is a 16% understatement, and it runs in
+the direction that flatters the turnover story the index exists to evidence. The
+bias is the opposite of the intuitive one: right-censoring dominates, because a
+window anchored on "still running in 2020" fills up with leaders appointed
+2021-2025 whose tenure is short only because it has not finished.
+
+It would also have cut the market argument. Of the community-college-sourced
+appointments already in the corpus that carry a start year, **40% predate 2020**
+— two-fifths of the pipeline evidence, invisible.
+
+For the record: true mean tenure in the corpus is **6.95 years**, and AACC's
+2023 figure for community-college CEOs is **5.9**. Neither is four.
+
+Bounding by spells rather than years also spends evenly. A date rule costs one
+spell at a college with a twenty-year president and six at a churny one; a spell
+rule costs four everywhere, which is what makes a wave estimable.
+
+### What this obliges
+
+- **`historyFrom` and `truncated` on every institution.** Depth varies a lot
+  seat to seat under a spell cap — three long presidencies reach 1990, three
+  short ones reach 2015 — so the horizon has to be a per-row fact. Without it
+  someone fits a trend across colleges with different windows and gets a
+  confident wrong answer.
+- **A `moreHistoryExists` flag from the researcher.** `etl_leaders.mjs` derives
+  `truncated` as `historyFrom > founded`, and every row in the schools table has
+  `founded: null` — so that derivation returns false everywhere and the index
+  would silently claim complete history. Under a spell cap the truth is directly
+  observable and must be recorded rather than inferred. See `CC-PILOT-WAVE.md`.
+
+### Still open
+
+Whether the top 25 by enrollment are traced to 1996 regardless of spell count,
+so they align with the 1996-based indices for cross-index work. About 50 extra
+spells. Not decided.
 
 ## Sources
 
