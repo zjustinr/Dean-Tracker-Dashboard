@@ -133,3 +133,90 @@ With 20 seats that is four or five agents, not twenty.
 2. A cost table by cell, with the 90th percentile.
 3. A recommendation: proceed to 180 at this depth, change the depth, or narrow
    the universe — with the projected token cost of each.
+
+---
+
+# RESULTS — run 21 Aug 2026
+
+20 seats, **85 spells**, **536,740 tokens**, 288 tool calls, 5 batched agents.
+Zero contract violations: every record carries a `sourceUrl`, every seat has
+exactly one sitting record and a boolean `moreHistoryExists`.
+
+Data: `universe/cc-pilot-results.json`.
+
+## Cost: 26,837 tokens per seat
+
+| Scope | Seats | Projected |
+|---|---:|---:|
+| Remaining 180 + 24 districts | 204 | **5.5M tokens** |
+| Full top-200 scope | 224 | 6.0M |
+| Top-500 scope | 524 | 14.1M |
+
+Batch totals are measured. Per-seat figures split batch tokens in proportion to
+`sourcesConsulted`, so treat them as estimates.
+
+## The stratification hypothesis was wrong
+
+The sample was built on the premise that district seats and unverified colleges
+would cost materially more. **They do not.**
+
+| Cell | n | Median tokens | p90 |
+|---|---:|---:|---:|
+| district | 3 | 26,260 | 30,291 |
+| standalone | 12 | 23,460 | 33,657 |
+| campus | 5 | 25,805 | 47,120 |
+| unverified | 12 | 25,805 | 33,657 |
+| verified | 8 | 26,010 | 47,120 |
+
+Every cell lands within ~3k tokens of every other. Districts, which have no
+IPEDS row and no incumbent name, cost the same as ordinary colleges — the
+district's own site and board minutes turn out to be *better* sources than a
+typical college's newsroom.
+
+**The real cost driver is whether the institution publishes its own leadership
+history**, and that cuts across every cell. The four most expensive seats — East
+LA (47k), Miramar (41k), Hillsborough (36k), Palomar (34k) — all share one
+sentence in their notes: no published list of past presidents. The cheapest —
+South Texas and HACC (17.5k each) — publish one.
+
+Consequence: **the wave can be priced with a single number.** Stratifying future
+samples by seat type or verification status is not worth the complexity.
+
+## Findings that change what the index says
+
+- **41% of spells are interim** (35 of 85) — but only **9% of the years**.
+  Interims are numerous and short. Any tenure statistic must be computed over
+  time, not over spells, or it will understate typical tenure badly. This is the
+  same length-bias trap that killed the 2020-cutoff proposal, in a new place.
+- **Five of twenty IPEDS names were stale or wrong in kind** — Ivy Tech
+  (Ellspermann → Pollio, Jul 2025), CT State (Maduko → Royal interim, Aug 2025),
+  HACC (Sygielski → Lufkin, Jun 2026), Palomar (Rivera-Lacey → Recalde interim,
+  Dec 2025), Phoenix College (Britt → Kruse interim, Jun 2026); ELAC's Perez was
+  listed as permanent while still interim. That is a 25% error rate on the field,
+  and it is the strongest argument yet for `leaderNameUnverified`.
+- **Official college pages omit their own history.** Santa Monica's
+  former-administrators page lists one Donner interim and not the second, which
+  board minutes prove and which is the real third predecessor. An index built
+  from official pages alone gets that chain wrong.
+- **The depth cap binds almost everywhere**: 18 of 20 seats have more history
+  than current + 3 reaches, median `spellsAvailable` 6, max 13.
+
+## Environment constraints that cost real tokens
+
+- **web.archive.org is blocked**, which is the standard tool for historical
+  leadership pages. It caused the one genuine depth miss (Miramar 3 of 4).
+- **Cloudflare 403s** on mesacc.edu, phoenixcollege.edu, tcc.edu and laccd.edu
+  forced reconstruction from student papers and district sites.
+- **No PDF tooling** in the environment: two chains were only closed by manually
+  zlib-decoding PDF content streams. Installing `pdftotext` would pay for itself.
+
+## Recommendation
+
+**Proceed to the remaining 180 at current + 3, in batches of four.** 5.5M tokens
+is a known, bounded number and the depth rule held: 17 of 20 seats reached four
+spells, six exceeded it where an interim split a chain.
+
+On extending to 500: it is now a straight trade — **14.1M tokens for 83.3% of
+sector enrollment against 6.0M for 54.4%**. Defensible, but decide it *after*
+the 180 land, when the per-seat figure has 200 observations behind it rather
+than 20.
