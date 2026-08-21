@@ -208,6 +208,34 @@ await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 results.sort((a, b) => (a.rank ?? 0) - (b.rank ?? 0));
 const counts = results.reduce((a, r) => ((a[r.verdict] = (a[r.verdict] || 0) + 1), a), {});
 
+/**
+ * Fold in the photo pass, because the two methods are COMPLEMENTARY rather than
+ * one superseding the other.
+ *
+ * This pass confirms 112 and the photo pass confirmed 73, but the overlap is
+ * only 67 -- six colleges the portrait run verified are not verified here. They
+ * are not regressions: the two crawlers use different transports (node fetch vs
+ * curl) and therefore land on slightly different pages, and a name can be
+ * legible in an alt attribute while the prose spells it differently. Reporting
+ * 112 alone would silently discard six real confirmations.
+ */
+// Keyed on NAME + STATE, never the bare name. "Glendale Community College" is
+// in the top 200 twice, Arizona and California, and matching on name alone
+// credited one college's photo confirmation to both -- the exact join-key
+// collision the schools-table build guards against, reproduced here the moment
+// a lookup got written carelessly. It inflated coverage by one before it was
+// caught; on a wider corpus it would inflate by seven.
+const seatKey = (o) => `${o.university}|${o.state}`;
+let photoConfirmed = new Set();
+try {
+  const pm = JSON.parse(readFileSync(join(HERE, "universe", "cc-photo-manifest.json"), "utf8"));
+  photoConfirmed = new Set(pm.colleges.filter((c) => c.nameConfirmedOnSite).map(seatKey));
+} catch { /* photo pass has not run -- fine, the text verdicts stand alone */ }
+
+for (const r of results) if (photoConfirmed.has(seatKey(r))) r.photoConfirmed = true;
+const eitherPass = results.filter((r) => r.verdict === "confirmed" || r.photoConfirmed).length;
+counts.confirmedByEitherPass = eitherPass;
+
 writeFileSync(
   join(HERE, "universe", "cc-leader-verification.json"),
   JSON.stringify({
@@ -219,10 +247,17 @@ writeFileSync(
       "leadership pages list cabinets and vice presidents too. unresolved = unreadable or " +
       "no recognisable holder. Nothing here is written back into the universe files.",
     counts,
+    confirmedByEitherPass: eitherPass,
+    photoPassNote:
+      "photoConfirmed marks a college the portrait run verified independently. " +
+      "confirmedByEitherPass is the real coverage figure; the two crawlers use " +
+      "different transports and land on slightly different pages, so neither " +
+      "subsumes the other.",
     colleges: results,
   }, null, 1) + "\n"
 );
 
 console.error(`\n${JSON.stringify(counts)}`);
+console.error(`confirmed by this pass: ${counts.confirmed || 0}; by either pass: ${eitherPass} of ${results.length}`);
 const reasons = results.filter((r) => r.verdict === "unresolved").reduce((a, r) => ((a[r.reason] = (a[r.reason] || 0) + 1), a), {});
 console.error(`unresolved reasons: ${JSON.stringify(reasons)}`);

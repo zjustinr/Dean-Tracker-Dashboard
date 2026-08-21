@@ -1,7 +1,7 @@
 # Community College Index — universe and market case
 
-Status: **steps 1-2 complete, not wired into the app.** The universe and schools
-files exist;
+Status: **steps 1-3 complete, not wired into the app.** The universe, schools and
+verification files exist;
 no dataset id is registered, no ETL has run, no leader history has been
 collected. This document is the case for doing that work and the record of how
 the universe was drawn.
@@ -76,24 +76,53 @@ missing from the map, and nobody has to defend the 200 line to a customer asking
 why theirs isn't in here — it is, with one row instead of eight. Depth then
 follows the market rather than the alphabet.
 
-### Portraits, and why the photo pass is really a verification pass
+### Verifying the incumbents — 118 of 200
 
-`fetch-cc-photos.mjs` mirrors the sitting leader's portrait from the college's
-own leadership page, reusing `photo-lib.mjs` — the same extraction, placeholder
-rejection and name matching the other indices use. **80 of the 200** now have a
-portrait in `public/deans/`, across 22 states.
+The leader names come from IPEDS `chief_admin_name`, which lags. Two independent
+passes check them against each college's own website, and they are
+**complementary, not redundant**: 118 of the 200 are confirmed by one or the
+other, and neither pass subsumes the other.
 
-The useful part is not the picture. `matchByName` only accepts an image whose
-alt text, filename or surrounding markup carries the leader's first *and* last
-name, so a hit is the college's own site asserting that this person holds this
-seat — which independently confirms **73** of the IPEDS names, at no extra cost.
-That is step 3 of the sequence below, already partly done.
+| Pass | Confirms | |
+|---|---:|---|
+| `fetch-cc-photos.mjs` | 73 | needs an `<img>` whose alt text or filename carries the name |
+| `verify-cc-leaders.mjs` | 112 | needs only the name in the page text |
+| **Either** | **118** | overlap is 67; six colleges are verified by the portrait run alone |
 
-A miss is *not* evidence the name is wrong. Of the 120 misses, 116 were
-`no-name-match`, and the common causes are CSS background-images and
-JS-rendered leadership cards, neither of which a static HTML pass can read.
-Results are per-college in `universe/cc-photo-manifest.json` with the reason
-recorded, so the remainder is a worklist rather than a mystery.
+The text pass reaches further because it does not need the picture. 116 of the
+photo pass's 120 misses were `no-name-match` — pages that state the president
+perfectly well in prose but render the portrait as a CSS background or a
+JS-hydrated card. The six the portraits catch and the text misses are not
+regressions: the two crawlers use different transports (node `fetch` vs `curl`)
+and land on slightly different pages.
+
+**The pass verifies names; it does not discover replacements.** Extraction of a
+*different* incumbent was attempted and does not work well enough to trust.
+Across 200 colleges every candidate that cleared a two-page corroboration bar
+was still headline or menu text — the last survivor was "President Keeps It
+Real". A `differs` verdict now requires the pairing stated both ways round
+("President Jane Smith" *and* "Jane Smith, President"), which yields **zero** on
+this corpus. That is the honest answer: the 82 confirmed by neither pass need a
+human or a research agent, not a tighter regex.
+
+Two failures worth keeping in mind, both already fixed:
+
+- **Flattening tags destroyed the structure that separates a sentence from a
+  menu.** `<h1>President</h1><nav><a>Recap</a>…` became "President Recap …", and
+  Title-Case nav items matched. Worse, corroboration *rewarded* it: counting raw
+  sightings favours boilerplate, because nav repeats on every page — one bogus
+  candidate scored 14. Matching is now scoped to block boundaries and counts
+  distinct pages.
+- **The join-key collision reappeared in the cross-reference.** Matching the
+  photo pass to the text pass on bare `university` credited Glendale Community
+  College (AZ)'s confirmation to Glendale Community College (CA) as well, since
+  both are in the top 200. Coverage read 119 instead of 118. The lookup is keyed
+  on name + state now. The institution-name contract is not only an ETL concern:
+  it bites any lookup written carelessly.
+
+Results are per-college in `universe/cc-leader-verification.json`, with the
+reason recorded for every unresolved row so the remainder is a worklist. Nothing
+is written back into the universe files.
 
 Portraits are downscaled to the repo's 320px JPEG convention by
 `thumbnail-cc-photos.mjs` — 24.7 MB of college hero images becomes 1.0 MB, or
@@ -314,12 +343,12 @@ Sequence:
 2. ~~**Ship the census as the schools table**~~ — done:
    `r1-communitycollege-schools.json`, 1,101 seats. Breadth is no longer what
    holds the index back; only depth is, and depth is the part worth paying for.
-3. **Verify the 200 incumbents** against college websites. The photo pass already
-   confirmed 73 of them (above); the remaining 127 are the actual work. Cheap, and it
-   converts the IPEDS field from a lead into data. Do this before any history
-   collection so waves start from a correct anchor. The other 877 stay
-   explicitly unverified; `leaderNameUnverified` is named that way so no
-   consumer mistakes a lead for a fact.
+3. ~~**Verify the 200 incumbents**~~ — done to the limit of what automation
+   reaches: **118 of 200** confirmed across the photo and text passes. The
+   remaining 82 need a human or a research agent; their per-college reasons are
+   in `cc-leader-verification.json`. The other 877 in the census stay explicitly
+   unverified; `leaderNameUnverified` is named that way so no consumer mistakes
+   a lead for a fact.
 4. **Pilot one wave of 20 colleges** traced from 1996, mixing a Texas district,
    a California multi-college district and a standalone Midwestern college, to
    size the real per-institution cost against the R2 build's ~37k tokens

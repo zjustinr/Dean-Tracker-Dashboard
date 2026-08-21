@@ -1,0 +1,1840 @@
+{
+ "generated": "IPEDS fall 2024 via educationdata.urban.org",
+ "method": "Each college's own leadership page, reached from its homepage. confirmed = the IPEDS name appears in the page text. differs = the page names someone else in a 'President <Name>' construction; siteName is a RESEARCH LEAD, not a correction -- leadership pages list cabinets and vice presidents too. unresolved = unreadable or no recognisable holder. Nothing here is written back into the universe files.",
+ "counts": {
+  "unresolved": 88,
+  "confirmed": 112,
+  "confirmedByEitherPass": 118
+ },
+ "colleges": [
+  {
+   "rank": 1,
+   "university": "Ivy Tech Community College",
+   "state": "IN",
+   "ipedsName": "Sue Ellspermann",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 2,
+   "university": "Lone Star College System",
+   "state": "TX",
+   "ipedsName": "Mario Castillo",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.lonestar.edu/administration-board.htm"
+  },
+  {
+   "rank": 3,
+   "university": "Dallas College",
+   "state": "TX",
+   "ipedsName": "Dr. Justin Lonon",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.dallascollege.edu/chancellor"
+  },
+  {
+   "rank": 4,
+   "university": "Miami Dade College",
+   "state": "FL",
+   "ipedsName": "Madeline Pumariega",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.mdc.edu/president/"
+  },
+  {
+   "rank": 5,
+   "university": "Northern Virginia Community College",
+   "state": "VA",
+   "ipedsName": "Anne M. Kress, Ph.D.",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.nvcc.edu/president"
+  },
+  {
+   "rank": 6,
+   "university": "Houston Community College",
+   "state": "TX",
+   "ipedsName": "Dr. Margaret Ford Fisher",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.hccs.edu/about-us/chancellor/"
+  },
+  {
+   "rank": 7,
+   "university": "Valencia College",
+   "state": "FL",
+   "ipedsName": "Kathleen Plinske, Ed.D.",
+   "verdict": "confirmed",
+   "pageUrl": "https://valenciacollege.edu/about/administration/president/index.php"
+  },
+  {
+   "rank": 8,
+   "university": "Tarrant County College District",
+   "state": "TX",
+   "ipedsName": "Elva C. LeBlanc",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.tccd.edu/chancellor"
+  },
+  {
+   "rank": 9,
+   "university": "Austin Community College District",
+   "state": "TX",
+   "ipedsName": "Dr. Russell Lowery-Hart",
+   "verdict": "confirmed",
+   "pageUrl": "https://offices.austincc.edu/chancellor/"
+  },
+  {
+   "rank": 10,
+   "university": "Collin County Community College District",
+   "state": "TX",
+   "ipedsName": "H. Neil Matkin",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.collin.edu/leadership/index.html"
+  },
+  {
+   "rank": 11,
+   "university": "Connecticut State Community College",
+   "state": "CT",
+   "ipedsName": "O. John Maduko",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 12,
+   "university": "East Los Angeles College",
+   "state": "CA",
+   "ipedsName": "Dr. Monte Perez",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.elac.edu/about/presidents-message"
+  },
+  {
+   "rank": 13,
+   "university": "San Jacinto Community College",
+   "state": "TX",
+   "ipedsName": "Dr. Brenda Hellyer",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.sanjac.edu/about/college-leadership/index.php",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 14,
+   "university": "Bakersfield College",
+   "state": "CA",
+   "ipedsName": "Jerry Fliger",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 15,
+   "university": "Broward College",
+   "state": "FL",
+   "ipedsName": "Erica Pereira Amorim",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Alston's Investiture",
+   "evidence": "President Alston's Investiture",
+   "pageUrl": "https://www.broward.edu/about/leadership/index.html",
+   "pagesRead": 6
+  },
+  {
+   "rank": 16,
+   "university": "American River College",
+   "state": "CA",
+   "ipedsName": "Lisa Cardoza",
+   "verdict": "confirmed",
+   "pageUrl": "https://arc.losrios.edu/president"
+  },
+  {
+   "rank": 17,
+   "university": "Mt San Antonio College",
+   "state": "CA",
+   "ipedsName": "Dr Martha Garcia",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.mtsac.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 18,
+   "university": "College of Southern Nevada",
+   "state": "NV",
+   "ipedsName": "Dr. William Kibler",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 19,
+   "university": "Columbus State Community College",
+   "state": "OH",
+   "ipedsName": "David Harrison",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.cscc.edu/about/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 20,
+   "university": "Fresno City College",
+   "state": "CA",
+   "ipedsName": "Dr. Kim Armstrong",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Interim Vice",
+   "evidence": "Interim Vice President",
+   "pageUrl": "https://www.fresnocitycollege.edu/faculty-and-staff/administrative-offices/office-of-the-president.html",
+   "pagesRead": 1
+  },
+  {
+   "rank": 21,
+   "university": "Salt Lake Community College",
+   "state": "UT",
+   "ipedsName": "Greg Peterson",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.slcc.edu/president"
+  },
+  {
+   "rank": 22,
+   "university": "South Texas College",
+   "state": "TX",
+   "ipedsName": "Dr. Ricardo J. Solis",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 23,
+   "university": "Santa Ana College",
+   "state": "CA",
+   "ipedsName": "Annebelle Nery,  Ph.D.",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.sac.edu/presidentoffice/index.php"
+  },
+  {
+   "rank": 24,
+   "university": "College of DuPage",
+   "state": "IL",
+   "ipedsName": "Dr. Christine M. Hammond",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Associate Vice",
+   "evidence": "Associate Vice President",
+   "pageUrl": "https://cod.edu/about/administration/index.html",
+   "pagesRead": 6
+  },
+  {
+   "rank": 25,
+   "university": "Palm Beach State College",
+   "state": "FL",
+   "ipedsName": "Ava L. Parker, J.D.",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.pbsc.edu/about/president.php"
+  },
+  {
+   "rank": 26,
+   "university": "El Paso Community College",
+   "state": "TX",
+   "ipedsName": "Dr. William Serrata",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 1
+  },
+  {
+   "rank": 27,
+   "university": "Long Beach City College",
+   "state": "CA",
+   "ipedsName": "Mike Munoz",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.lbcc.edu/college-leadership",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 28,
+   "university": "Wake Technical Community College",
+   "state": "NC",
+   "ipedsName": "Dr. Scott Ralls",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.waketech.edu/about-wake-tech/college-leadership",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 29,
+   "university": "Pasadena City College",
+   "state": "CA",
+   "ipedsName": "Dr. Jose Gomez",
+   "verdict": "confirmed",
+   "pageUrl": "https://pasadena.edu/about/leadership.php",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 30,
+   "university": "St Petersburg College",
+   "state": "FL",
+   "ipedsName": "Dr. Tonjua Williams",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.spcollege.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 31,
+   "university": "Des Moines Area Community College",
+   "state": "IA",
+   "ipedsName": "Robert J. Denson",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 32,
+   "university": "Florida State College at Jacksonville",
+   "state": "FL",
+   "ipedsName": "Dr. John Avendano",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 33,
+   "university": "Santa Monica College",
+   "state": "CA",
+   "ipedsName": "Kathryn Jeffery",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "California Community Colleges",
+   "evidence": "California Community Colleges Chancellor",
+   "pageUrl": "https://admin.smc.edu/administration/ombudsperson/general-complaint-process.php",
+   "pagesRead": 6
+  },
+  {
+   "rank": 34,
+   "university": "Chaffey College",
+   "state": "CA",
+   "ipedsName": "Henry D. Shannon, Ph.D.",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.chaffey.edu/leadership/superintendent-president.php"
+  },
+  {
+   "rank": 35,
+   "university": "Front Range Community College",
+   "state": "CO",
+   "ipedsName": "Dr. Colleen Simpson",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.frontrange.edu/about/presidents-office/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 36,
+   "university": "Cerritos College",
+   "state": "CA",
+   "ipedsName": "Jose Fierro",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.cerritos.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 37,
+   "university": "Riverside City College",
+   "state": "CA",
+   "ipedsName": "Dr. Claire  Oliveros",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 38,
+   "university": "El Camino Community College District",
+   "state": "CA",
+   "ipedsName": "Brenda Thames",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.elcamino.edu/leadership/"
+  },
+  {
+   "rank": 39,
+   "university": "Hillsborough Community College",
+   "state": "FL",
+   "ipedsName": "Ken Atwater",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.hcfl.edu/about-us/leadership/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 40,
+   "university": "Southwestern College",
+   "state": "CA",
+   "ipedsName": "Dr. Mark Sanchez",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 41,
+   "university": "San Joaquin Delta College",
+   "state": "CA",
+   "ipedsName": "Lisa Aguilera Lawrenson",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.deltacollege.edu/about/campus-leadership",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 42,
+   "university": "Portland Community College",
+   "state": "OR",
+   "ipedsName": "Dr. Adrien Bennings",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.pcc.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 43,
+   "university": "Saddleback College",
+   "state": "CA",
+   "ipedsName": "Elliot Stern",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 44,
+   "university": "Central Piedmont Community College",
+   "state": "NC",
+   "ipedsName": "Kandi Deitemeyer",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.cpcc.edu/president"
+  },
+  {
+   "rank": 45,
+   "university": "CUNY Borough of Manhattan Community College",
+   "state": "NY",
+   "ipedsName": "Anthony E. Munroe",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.bmcc.cuny.edu/about-bmcc/college-administration/"
+  },
+  {
+   "rank": 46,
+   "university": "Northwest Vista College",
+   "state": "TX",
+   "ipedsName": "Dr. Amy Bosley",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.alamo.edu/nvc/about-us/leadership/administration/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 47,
+   "university": "Suffolk County Community College",
+   "state": "NY",
+   "ipedsName": "Dr. Edward T. Bonahue",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.sunysuffolk.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 48,
+   "university": "Sacramento City College",
+   "state": "CA",
+   "ipedsName": "Albert Garcia",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 49,
+   "university": "San Antonio College",
+   "state": "TX",
+   "ipedsName": "Francisco Solis, J.D.",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.alamo.edu/sac/about-sac/leadership/"
+  },
+  {
+   "rank": 50,
+   "university": "Vincennes University",
+   "state": "IN",
+   "ipedsName": "Dr. Charles Johnson",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.vinu.edu/about-vu/meet-our-president.html"
+  },
+  {
+   "rank": 51,
+   "university": "Palomar College",
+   "state": "CA",
+   "ipedsName": "Star Rivera-Lacey",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 52,
+   "university": "Fullerton College",
+   "state": "CA",
+   "ipedsName": "Cynthia Olivo",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.fullcoll.edu/president"
+  },
+  {
+   "rank": 53,
+   "university": "Sinclair Community College",
+   "state": "OH",
+   "ipedsName": "Dr. Steven Lee Johnson",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.sinclair.edu/about/president"
+  },
+  {
+   "rank": 54,
+   "university": "Central New Mexico Community College",
+   "state": "NM",
+   "ipedsName": "Tracy Hartzler",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.cnm.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 55,
+   "university": "City College of San Francisco",
+   "state": "CA",
+   "ipedsName": "Mitch Bailey",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 56,
+   "university": "San Diego Mesa College",
+   "state": "CA",
+   "ipedsName": "Dr. Ashanti Hands",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.sdmesa.edu/about-mesa/office-of-the-president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 57,
+   "university": "Sierra College",
+   "state": "CA",
+   "ipedsName": "William Duncan",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Quarterly Update",
+   "evidence": "President Quarterly Update",
+   "pageUrl": "https://www.sierracollege.edu/about-sierra-college/sierra-college-foundation/ways-to-give/presidents-circle/",
+   "pagesRead": 6
+  },
+  {
+   "rank": 58,
+   "university": "Rio Salado College",
+   "state": "AZ",
+   "ipedsName": "Dr. Kate Smith",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6,
+   "photoConfirmed": true
+  },
+  {
+   "rank": 59,
+   "university": "Montgomery College",
+   "state": "MD",
+   "ipedsName": "Dr. Jermaine F. Williams",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.montgomerycollege.edu/about-mc/office-of-the-president/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 60,
+   "university": "Johnson County Community College",
+   "state": "KS",
+   "ipedsName": "Judy Korb",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 61,
+   "university": "Modesto Junior College",
+   "state": "CA",
+   "ipedsName": "Brian K. Sanders",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.mjc.edu/administration/index.html"
+  },
+  {
+   "rank": 62,
+   "university": "CUNY Kingsborough Community College",
+   "state": "NY",
+   "ipedsName": "Suri Duitch",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.kbcc.cuny.edu/presidentoffice/index.html"
+  },
+  {
+   "rank": 63,
+   "university": "Blinn College District",
+   "state": "TX",
+   "ipedsName": "Dr. Mary Hensley",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.blinn.edu/chancellor/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 64,
+   "university": "College of the Canyons",
+   "state": "CA",
+   "ipedsName": "David",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 65,
+   "university": "Santa Rosa Junior College",
+   "state": "CA",
+   "ipedsName": "Angélica Garcia",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 66,
+   "university": "Cuyahoga Community College District",
+   "state": "OH",
+   "ipedsName": "Michael A. Baston",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.tri-c.edu/administrative-departments/office-of-the-president.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 67,
+   "university": "Mt San Jacinto Community College District",
+   "state": "CA",
+   "ipedsName": "Dr. Roger Schultz",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 68,
+   "university": "Rio Hondo College",
+   "state": "CA",
+   "ipedsName": "Marilyn Flores",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 69,
+   "university": "De Anza College",
+   "state": "CA",
+   "ipedsName": "Omar Torres, Ed.D.",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 70,
+   "university": "St Philip's College",
+   "state": "TX",
+   "ipedsName": "Dr. Adena Williams Loston",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.alamo.edu/spc/about-spc/leadership/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 71,
+   "university": "Diablo Valley College",
+   "state": "CA",
+   "ipedsName": "Susan Lamb",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 72,
+   "university": "Orange Coast College",
+   "state": "CA",
+   "ipedsName": "Dr. Angelica Suarez",
+   "verdict": "confirmed",
+   "pageUrl": "https://orangecoastcollege.edu/about/president/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 73,
+   "university": "Mesa Community College",
+   "state": "AZ",
+   "ipedsName": "Richard J. Daniel, Ph.D.",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 74,
+   "university": "Los Angeles Pierce College",
+   "state": "CA",
+   "ipedsName": "Aracely Aguiar",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.lapc.edu/offices/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 75,
+   "university": "Tidewater Community College",
+   "state": "VA",
+   "ipedsName": "Marcia Conston",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6,
+   "photoConfirmed": true
+  },
+  {
+   "rank": 76,
+   "university": "Metropolitan Community College Area",
+   "state": "NE",
+   "ipedsName": "Randy Schmailzl",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 77,
+   "university": "Community College of Baltimore County",
+   "state": "MD",
+   "ipedsName": "Sandra L. Kurtinitis",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.ccbcmd.edu/About/Leadership/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 78,
+   "university": "Macomb Community College",
+   "state": "MI",
+   "ipedsName": "James Sawyer",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Interim Vice",
+   "evidence": "Interim Vice President",
+   "pageUrl": "https://www.macomb.edu/about-macomb/leadership-team.html",
+   "pagesRead": 6
+  },
+  {
+   "rank": 79,
+   "university": "Pima Community College",
+   "state": "AZ",
+   "ipedsName": "Jeffrey Nasse",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 80,
+   "university": "Los Angeles Valley College",
+   "state": "CA",
+   "ipedsName": "Dr. Barry Gribbons",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.lavc.edu/offices/president"
+  },
+  {
+   "rank": 81,
+   "university": "Cypress College",
+   "state": "CA",
+   "ipedsName": "Scott Thayer",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.cypresscollege.edu/office-of-the-president/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 82,
+   "university": "Cosumnes River College",
+   "state": "CA",
+   "ipedsName": "Edward Bush",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 83,
+   "university": "Tulsa Community College",
+   "state": "OK",
+   "ipedsName": "Leigh Goodson",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.tulsacc.edu/about-tcc/administration-leadership"
+  },
+  {
+   "rank": 84,
+   "university": "Saint Louis Community College",
+   "state": "MO",
+   "ipedsName": "Jeff L. Pittman",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 85,
+   "university": "Indian River State College",
+   "state": "FL",
+   "ipedsName": "Timothy E. Moore, Ph.D.",
+   "verdict": "confirmed",
+   "pageUrl": "https://irsc.edu/about/leadership/board-trustees/"
+  },
+  {
+   "rank": 86,
+   "university": "Seminole State College of Florida",
+   "state": "FL",
+   "ipedsName": "Georgia Lorenz",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.seminolestate.edu/about/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 87,
+   "university": "Oakland Community College",
+   "state": "MI",
+   "ipedsName": "Peter Provenzano",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.oaklandcc.edu/about/chancellors-office/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 88,
+   "university": "Chandler-Gilbert Community College",
+   "state": "AZ",
+   "ipedsName": "CJ Wurster, Ed.D.",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 89,
+   "university": "Arapahoe Community College",
+   "state": "CO",
+   "ipedsName": "Dr Stephanie Fujii",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Joe Garcia",
+   "evidence": "Chancellor Joe Garcia",
+   "pageUrl": "https://www.arapahoe.edu/about-acc/college-leadership",
+   "pagesRead": 6,
+   "photoConfirmed": true
+  },
+  {
+   "rank": 90,
+   "university": "Los Angeles City College",
+   "state": "CA",
+   "ipedsName": "Dr. Amanuel Gebru",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.lacc.edu/offices/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 91,
+   "university": "Moorpark College",
+   "state": "CA",
+   "ipedsName": "Julius Sokenu",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.moorparkcollege.edu/departments/administrative/presidents-office",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 92,
+   "university": "College of the Sequoias",
+   "state": "CA",
+   "ipedsName": "Brent Calvin",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 93,
+   "university": "CUNY LaGuardia Community College",
+   "state": "NY",
+   "ipedsName": "Kenneth Adams",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 94,
+   "university": "Grossmont College",
+   "state": "CA",
+   "ipedsName": "Denise Whisenhunt",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 95,
+   "university": "Joliet Junior College",
+   "state": "IL",
+   "ipedsName": "Dr. Clyne Namuo",
+   "verdict": "confirmed",
+   "pageUrl": "https://jjc.edu/president"
+  },
+  {
+   "rank": 96,
+   "university": "Florida SouthWestern State College",
+   "state": "FL",
+   "ipedsName": "Dr. Jeffery S. Allbritten",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.fsw.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 97,
+   "university": "San Diego Miramar College",
+   "state": "CA",
+   "ipedsName": "Wesley Lundburg,",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 98,
+   "university": "Cape Fear Community College",
+   "state": "NC",
+   "ipedsName": "Mr. Jim Morton",
+   "verdict": "confirmed",
+   "pageUrl": "https://cfcc.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 99,
+   "university": "San Bernardino Valley College",
+   "state": "CA",
+   "ipedsName": "Dr. Gilbert Contreras",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.valleycollege.edu/about-sbvc/office-of-president/index.php"
+  },
+  {
+   "rank": 100,
+   "university": "Eastern Florida State College",
+   "state": "FL",
+   "ipedsName": "Dr. James Richey",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.easternflorida.edu/about/leadership/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 101,
+   "university": "William Rainey Harper College",
+   "state": "IL",
+   "ipedsName": "Dr. Avis Proctor",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.harpercollege.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 102,
+   "university": "Glendale Community College",
+   "state": "AZ",
+   "ipedsName": "Dr. Tiffany Hernandez",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 103,
+   "university": "Milwaukee Area Technical College",
+   "state": "WI",
+   "ipedsName": "Dr. Anthony Cruz",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.matc.edu/who-we-are/leadership-administration/presidents-office.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 104,
+   "university": "Madison Area Technical College",
+   "state": "WI",
+   "ipedsName": "Tim Casper",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Damira Grady-Saffold",
+   "evidence": "Damira Grady-Saffold, vice president",
+   "pageUrl": "https://madisoncollege.edu/about/leadership",
+   "pagesRead": 6
+  },
+  {
+   "rank": 105,
+   "university": "Trident Technical College",
+   "state": "SC",
+   "ipedsName": "Vicky Wood",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.tridenttech.edu/news/cumpston.html"
+  },
+  {
+   "rank": 106,
+   "university": "Antelope Valley Community College District",
+   "state": "CA",
+   "ipedsName": "Dr. Jennifer Zellet",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.avc.edu/about-avc/office-superintendentpresident",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 107,
+   "university": "Metropolitan Community College-Kansas City",
+   "state": "MO",
+   "ipedsName": "Kimberly Beatty",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.mcckc.edu/leadership/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 108,
+   "university": "Jefferson Community and Technical College",
+   "state": "KY",
+   "ipedsName": "Dr. Ty J. Handy",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 109,
+   "university": "Delaware Technical Community College-Terry",
+   "state": "DE",
+   "ipedsName": "Mark T. Brainard",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.dtcc.edu/about/administration/"
+  },
+  {
+   "rank": 110,
+   "university": "San Diego City College",
+   "state": "CA",
+   "ipedsName": "Ricky Shabazz",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 111,
+   "university": "Irvine Valley College",
+   "state": "CA",
+   "ipedsName": "John Hernandez",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.ivc.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 112,
+   "university": "Bluegrass Community and Technical College",
+   "state": "KY",
+   "ipedsName": "Dr. Gregory Feeney",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 113,
+   "university": "Foothill College",
+   "state": "CA",
+   "ipedsName": "Kristina Whalen",
+   "verdict": "confirmed",
+   "pageUrl": "https://foothill.edu/president/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 114,
+   "university": "Community College of Philadelphia",
+   "state": "PA",
+   "ipedsName": "Donald Generals",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 115,
+   "university": "College of the Desert",
+   "state": "CA",
+   "ipedsName": "Laura Hope",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Monica Chahal Interim",
+   "evidence": "Monica Chahal Interim President",
+   "pageUrl": "https://www.collegeofthedesert.edu/president",
+   "pagesRead": 6
+  },
+  {
+   "rank": 116,
+   "university": "Chabot College",
+   "state": "CA",
+   "ipedsName": "Jamal Cooks",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.chabotcollege.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 117,
+   "university": "Daytona State College",
+   "state": "FL",
+   "ipedsName": "Dr. Thomas LoBasso",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 118,
+   "university": "Kirkwood Community College",
+   "state": "IA",
+   "ipedsName": "Dr. Kristie Fisher",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 119,
+   "university": "Santa Fe College",
+   "state": "FL",
+   "ipedsName": "Paul Broadie",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.sfcollege.edu/executive-leadership/office-of-the-president.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 120,
+   "university": "Delgado Community College",
+   "state": "LA",
+   "ipedsName": "Larissa Littleton-Steib",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Power-Based Violence",
+   "evidence": "Power-Based Violence Chancellor",
+   "pageUrl": "https://www.dcc.edu/administration/offices/police/clery-act.aspx",
+   "pagesRead": 6
+  },
+  {
+   "rank": 121,
+   "university": "Harrisburg Area Community College",
+   "state": "PA",
+   "ipedsName": "John J. Sygielski",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 122,
+   "university": "Pikes Peak State College",
+   "state": "CO",
+   "ipedsName": "Dr. Lance Bolton",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.pikespeak.edu/about/office-president/index.php",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 123,
+   "university": "College of Lake County",
+   "state": "IL",
+   "ipedsName": "Dr. Lori Suddick",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Kristen Jones",
+   "evidence": "interim president Kristen Jones",
+   "pageUrl": "https://www.clcillinois.edu/president",
+   "pagesRead": 2
+  },
+  {
+   "rank": 124,
+   "university": "Los Angeles Trade Technical College",
+   "state": "CA",
+   "ipedsName": "Alfred McQuarters",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.lattc.edu/offices/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 125,
+   "university": "Bellevue College",
+   "state": "WA",
+   "ipedsName": "David May",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 126,
+   "university": "Merced College",
+   "state": "CA",
+   "ipedsName": "Chris Vitelli",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.mccd.edu/president"
+  },
+  {
+   "rank": 127,
+   "university": "Grand Rapids Community College",
+   "state": "MI",
+   "ipedsName": "Charles Lepper, PhD",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 128,
+   "university": "Tallahassee State College",
+   "state": "FL",
+   "ipedsName": "Jim Murdaugh",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.tsc.fl.edu/about/college/president/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 129,
+   "university": "Palo Alto College",
+   "state": "TX",
+   "ipedsName": "Dr. Robert Garza",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.alamo.edu/pac/about-pac/leadership/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 130,
+   "university": "Santa Barbara City College",
+   "state": "CA",
+   "ipedsName": "Erika Endrijonas, Ph.D.",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 131,
+   "university": "Nassau Community College",
+   "state": "NY",
+   "ipedsName": "Dr. Maria P. Conzatti",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Associate Vice",
+   "evidence": "Associate Vice President",
+   "pageUrl": "https://www.ncc.edu/aboutncc/ourpeople/administration/affirmative_action/",
+   "pagesRead": 6
+  },
+  {
+   "rank": 132,
+   "university": "Community College of Rhode Island",
+   "state": "RI",
+   "ipedsName": "Dr. Rosemary Costigan",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.ccri.edu/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 133,
+   "university": "Ventura College",
+   "state": "CA",
+   "ipedsName": "Claudia Habib",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Interim Vice",
+   "evidence": "Interim Vice President",
+   "pageUrl": "https://www.venturacollege.edu/departments/administrative/vice-president-student-affairs",
+   "pagesRead": 6
+  },
+  {
+   "rank": 134,
+   "university": "Texas State Technical College",
+   "state": "TX",
+   "ipedsName": "Mike Reeser",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.tstc.edu/about/chancellor",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 135,
+   "university": "Glendale Community College",
+   "state": "CA",
+   "ipedsName": "Ryan Cornner",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.glendale.edu/about-gcc/administration/superintendent-president/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 136,
+   "university": "Middlesex College",
+   "state": "NJ",
+   "ipedsName": "Dr. Mark McCormick",
+   "verdict": "confirmed",
+   "pageUrl": "https://middlesexcollege.edu/about/college-leadership/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 137,
+   "university": "Greenville Technical College",
+   "state": "SC",
+   "ipedsName": "Keith Miller, Ph.D.",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.gvltec.edu/president"
+  },
+  {
+   "rank": 138,
+   "university": "Moreno Valley College",
+   "state": "CA",
+   "ipedsName": "Dr. Ferita Carter",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Rudy J. Besikof",
+   "evidence": "President Rudy J. Besikof",
+   "pageUrl": "https://www.mvc.edu/news/20260715-college-president-launches-advisory-board.php",
+   "pagesRead": 6
+  },
+  {
+   "rank": 139,
+   "university": "Santiago Canyon College",
+   "state": "CA",
+   "ipedsName": "Jeannie G. Kim, PhD",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.sccollege.edu/campus/administration/"
+  },
+  {
+   "rank": 140,
+   "university": "Wayne County Community College District",
+   "state": "MI",
+   "ipedsName": "Dr. Curtis L. Ivery",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.wcccd.edu/office-of-the-chancellor",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 141,
+   "university": "Tyler Junior College",
+   "state": "TX",
+   "ipedsName": "Juan E. Mejia",
+   "verdict": "confirmed",
+   "pageUrl": "https://tjc.edu/about/leadership/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 142,
+   "university": "Northeast Wisconsin Technical College",
+   "state": "WI",
+   "ipedsName": "Kristen Raney",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.nwtc.edu/about-nwtc/leadership-and-administration",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 143,
+   "university": "Fayetteville Technical Community College",
+   "state": "NC",
+   "ipedsName": "Dr. Mark Sorrells",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 144,
+   "university": "Bergen Community College",
+   "state": "NJ",
+   "ipedsName": "Dr. Eric M. Friedman",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 145,
+   "university": "Central Georgia Technical College",
+   "state": "GA",
+   "ipedsName": "Ivan H. Allen",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.centralgatech.edu/president"
+  },
+  {
+   "rank": 146,
+   "university": "Guilford Technical Community College",
+   "state": "NC",
+   "ipedsName": "Dr. Anthony Clarke",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.gtcc.edu/about/administration/index.php",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 147,
+   "university": "Anne Arundel Community College",
+   "state": "MD",
+   "ipedsName": "Dawn S. Lindsay",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.aacc.edu/about/office-of-the-president"
+  },
+  {
+   "rank": 148,
+   "university": "MiraCosta College",
+   "state": "CA",
+   "ipedsName": "Dr. Sunny Cooke",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 149,
+   "university": "Oklahoma City Community College",
+   "state": "OK",
+   "ipedsName": "Dr. Mautra Jones",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.occc.edu/about-occc/leadership/president/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 150,
+   "university": "Prince George's Community College",
+   "state": "MD",
+   "ipedsName": "Falecia D. Williams",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.pgcc.edu/about-pgcc/leadership-and-governance/"
+  },
+  {
+   "rank": 151,
+   "university": "Allan Hancock College",
+   "state": "CA",
+   "ipedsName": "Dr. Kevin Walthers",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.hancockcollege.edu/president/index.php",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 152,
+   "university": "Henry Ford College",
+   "state": "MI",
+   "ipedsName": "Russell Kavalhuna",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "David M. Knezek",
+   "evidence": "President David M. Knezek",
+   "pageUrl": "https://www.hfcc.edu/president",
+   "pagesRead": 6
+  },
+  {
+   "rank": 153,
+   "university": "Ozarks Technical Community College",
+   "state": "MO",
+   "ipedsName": "Hal Higdon",
+   "verdict": "confirmed",
+   "pageUrl": "https://ozarkstech.edu/chancellor"
+  },
+  {
+   "rank": 154,
+   "university": "Norco College",
+   "state": "CA",
+   "ipedsName": "Dr. Monica Green",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.norcocollege.edu/about/president/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 155,
+   "university": "Moraine Valley Community College",
+   "state": "IL",
+   "ipedsName": "Dr. Pamela J. Haney",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.morainevalley.edu/about/administration/"
+  },
+  {
+   "rank": 156,
+   "university": "Cuesta College",
+   "state": "CA",
+   "ipedsName": "Dr. Jill Stearns",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.cuesta.edu/about/president/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 157,
+   "university": "Hartnell College",
+   "state": "CA",
+   "ipedsName": "Michael Gutierrez",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.hartnell.edu/about/president/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 158,
+   "university": "Baton Rouge Community College",
+   "state": "LA",
+   "ipedsName": "Dr. Willie Smith",
+   "verdict": "confirmed",
+   "pageUrl": "https://mybrcc.edu/about-brcc/cabinet.php",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 159,
+   "university": "Gwinnett Technical College",
+   "state": "GA",
+   "ipedsName": "Dr. D. Glen Cannon",
+   "verdict": "confirmed",
+   "pageUrl": "https://gwinnetttech.edu/about-us/presidents-bio/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 160,
+   "university": "Chattahoochee Technical College",
+   "state": "GA",
+   "ipedsName": "Heather Pence",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 161,
+   "university": "Washtenaw Community College",
+   "state": "MI",
+   "ipedsName": "Rose B Bellanca",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.wccnet.edu/about/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 162,
+   "university": "Folsom Lake College",
+   "state": "CA",
+   "ipedsName": "Artemio (Art) Pimentel",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 163,
+   "university": "Laredo College",
+   "state": "TX",
+   "ipedsName": "Dr. Minita Ramirez",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.laredo.edu/about/administration/index.html"
+  },
+  {
+   "rank": 164,
+   "university": "Normandale Community College",
+   "state": "MN",
+   "ipedsName": "Joyce Ester",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 165,
+   "university": "College of Western Idaho",
+   "state": "ID",
+   "ipedsName": "Gordon Jones",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6,
+   "photoConfirmed": true
+  },
+  {
+   "rank": 166,
+   "university": "Butte College",
+   "state": "CA",
+   "ipedsName": "Virginia Guleff",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Executive Assistant",
+   "evidence": "Executive Assistant, President",
+   "pageUrl": "https://www.butte.edu/president",
+   "pagesRead": 6,
+   "photoConfirmed": true
+  },
+  {
+   "rank": 167,
+   "university": "Truckee Meadows Community College",
+   "state": "NV",
+   "ipedsName": "Karin Hilgersom",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Jeffrey Alexander",
+   "evidence": "President Jeffrey Alexander",
+   "pageUrl": "https://www.tmcc.edu/president",
+   "pagesRead": 6
+  },
+  {
+   "rank": 168,
+   "university": "Southeast Community College Area",
+   "state": "NE",
+   "ipedsName": "Paul Illich",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.southeast.edu/about/leadership-and-governance/index.php"
+  },
+  {
+   "rank": 169,
+   "university": "Golden West College",
+   "state": "CA",
+   "ipedsName": "Meridith Randall",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.goldenwestcollege.edu/office-of-the-president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 170,
+   "university": "Los Angeles Mission College",
+   "state": "CA",
+   "ipedsName": "Armida Ornelas",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.lamc.edu/offices/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 171,
+   "university": "Fox Valley Technical College",
+   "state": "WI",
+   "ipedsName": "Dr. Christopher Matheny",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 172,
+   "university": "Phoenix College",
+   "state": "AZ",
+   "ipedsName": "Dr. Kimberly Britt",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 173,
+   "university": "Community College of Allegheny County",
+   "state": "PA",
+   "ipedsName": "Quintin B. Bullock",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.ccac.edu/about/office-of-the-president/index.php"
+  },
+  {
+   "rank": 174,
+   "university": "Citrus College",
+   "state": "CA",
+   "ipedsName": "Dr. Greg Schulz",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 175,
+   "university": "Clovis Community College",
+   "state": "CA",
+   "ipedsName": "Dr. Monica Chahal",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Bala S. Raja",
+   "evidence": "Bala S. Raja, Vice President",
+   "pageUrl": "https://www.cloviscollege.edu/news/dr-bala-raja-new-vpi.html",
+   "pagesRead": 6
+  },
+  {
+   "rank": 176,
+   "university": "CUNY Queensborough Community College",
+   "state": "NY",
+   "ipedsName": "Christine Mangino",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.qcc.cuny.edu/president/index.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 177,
+   "university": "Polk State College",
+   "state": "FL",
+   "ipedsName": "Angela M.  Garcia Falconetti",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 178,
+   "university": "Del Mar College",
+   "state": "TX",
+   "ipedsName": "Mark Escamilla, Ph.D.",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 179,
+   "university": "Elgin Community College",
+   "state": "IL",
+   "ipedsName": "Peggy Heinrich",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 180,
+   "university": "College of Southern Idaho",
+   "state": "ID",
+   "ipedsName": "L. Dean Fisher",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 181,
+   "university": "Stark State College",
+   "state": "OH",
+   "ipedsName": "Para Jones",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.starkstate.edu/about/president",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 182,
+   "university": "Estrella Mountain Community College",
+   "state": "AZ",
+   "ipedsName": "Dr. Rey Rivera",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 183,
+   "university": "Gateway Technical College",
+   "state": "WI",
+   "ipedsName": "Dr. Ritu Raju",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 184,
+   "university": "Odessa College",
+   "state": "TX",
+   "ipedsName": "Gregory D. Williams",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.odessa.edu/about/president.html"
+  },
+  {
+   "rank": 185,
+   "university": "College of San Mateo",
+   "state": "CA",
+   "ipedsName": "Dr. Manuel Alejandro Pérez",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 3,
+   "photoConfirmed": true
+  },
+  {
+   "rank": 186,
+   "university": "Brookdale Community College",
+   "state": "NJ",
+   "ipedsName": "Dr. David Stout",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.brookdalecc.edu/about/office-of-the-president/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 187,
+   "university": "Bunker Hill Community College",
+   "state": "MA",
+   "ipedsName": "Pam Y. Eddinger",
+   "verdict": "unresolved",
+   "reason": "no-page-readable",
+   "triedPages": 6
+  },
+  {
+   "rank": 188,
+   "university": "Triton College",
+   "state": "IL",
+   "ipedsName": "Mary-Rita Moore",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.triton.edu/about/administration/office-of-the-president.html",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 189,
+   "university": "Lansing Community College",
+   "state": "MI",
+   "ipedsName": "Steven J. Robinson",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Steve Robinson",
+   "evidence": "Steve Robinson, President",
+   "pageUrl": "https://www.lcc.edu/about/presidents-office/index.html",
+   "pagesRead": 6
+  },
+  {
+   "rank": 190,
+   "university": "Cincinnati State Technical and Community College",
+   "state": "OH",
+   "ipedsName": "Monica Posey, EdD",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.cincinnatistate.edu/our-leadership"
+  },
+  {
+   "rank": 191,
+   "university": "Skyline College",
+   "state": "CA",
+   "ipedsName": "Newin Orante",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Academic Senate",
+   "evidence": "Academic Senate President",
+   "pageUrl": "https://skylinecollege.edu/aboutskyline/administration.php",
+   "pagesRead": 6
+  },
+  {
+   "rank": 192,
+   "university": "Pensacola State College",
+   "state": "FL",
+   "ipedsName": "Dr. C. Ed Meadows",
+   "verdict": "confirmed",
+   "pageUrl": "https://pensacolastate.edu/pensacola-state-college-presidents-circle-donors-gather-for-graze-grapes-grains/",
+   "photoConfirmed": true
+  },
+  {
+   "rank": 193,
+   "university": "Los Angeles Harbor College",
+   "state": "CA",
+   "ipedsName": "Luis Dorado",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.lahc.edu/offices/president"
+  },
+  {
+   "rank": 194,
+   "university": "Cabrillo College",
+   "state": "CA",
+   "ipedsName": "Matthew Wetstein",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Assistant Superintendent",
+   "evidence": "Assistant Superintendent, Vice President",
+   "pageUrl": "https://www.cabrillo.edu/leadership/",
+   "pagesRead": 6
+  },
+  {
+   "rank": 195,
+   "university": "Pasco-Hernando State College",
+   "state": "FL",
+   "ipedsName": "Jesse Pisors, Ph.D.",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 196,
+   "university": "McHenry County College",
+   "state": "IL",
+   "ipedsName": "Clinton Gabbard",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 197,
+   "university": "Pellissippi State Community College",
+   "state": "TN",
+   "ipedsName": "Dr. L. Anthony Wise",
+   "verdict": "unresolved",
+   "reason": "holder-uncorroborated",
+   "weakCandidate": "Rushton Johnson",
+   "evidence": "Rushton Johnson, vice president",
+   "pageUrl": "https://www.pstcc.edu/news/2026/071726rushton-johnson-aacc-commission/",
+   "pagesRead": 6
+  },
+  {
+   "rank": 198,
+   "university": "Brightpoint Community College",
+   "state": "VA",
+   "ipedsName": "Dr. William C. Fiege",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 199,
+   "university": "Middlesex Community College",
+   "state": "MA",
+   "ipedsName": "Philip Sisson",
+   "verdict": "unresolved",
+   "reason": "no-holder-found",
+   "pagesRead": 6
+  },
+  {
+   "rank": 200,
+   "university": "SUNY Westchester Community College",
+   "state": "NY",
+   "ipedsName": "Dr. Belinda Miles",
+   "verdict": "confirmed",
+   "pageUrl": "https://www.sunywcc.edu/suny-chancellor-king-announces-mental-health-first-aid-grants-to-support-student-mental-health-and-well-being/",
+   "photoConfirmed": true
+  }
+ ],
+ "confirmedByEitherPass": 118,
+ "photoPassNote": "photoConfirmed marks a college the portrait run verified independently. confirmedByEitherPass is the real coverage figure; the two crawlers use different transports and land on slightly different pages, so neither subsumes the other."
+}
