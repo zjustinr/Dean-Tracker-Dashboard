@@ -1,13 +1,15 @@
 # Community College Index — universe and market case
 
-Status: **step 1 complete, not wired into the app.** The universe file exists;
+Status: **steps 1-2 complete, not wired into the app.** The universe and schools
+files exist;
 no dataset id is registered, no ETL has run, no leader history has been
 collected. This document is the case for doing that work and the record of how
 the universe was drawn.
 
 - History target: `universe/universe_communitycollege.json` (200 institutions)
 - Census: `universe/universe_communitycollege_all.json` (all 1,077, sitting leader only)
-- Builder: `build-cc-universe.mjs` (`node research/build-cc-universe.mjs`) — writes both
+- Schools table: `src/data/r1-communitycollege-schools.json` (1,101 seats, both levels)
+- Builders: `build-cc-universe.mjs` (universe files), `build-cc-schools.mjs` (schools table)
 
 ## 1. What the list is
 
@@ -134,30 +136,49 @@ time was not "is this open-access" but **"is this a seat a community-college
 president is recruited into"** — the same question that keeps branch campuses
 and federal service academies out of the other indices.
 
-## 2. The open scoping decision: campus or district?
+## 2. Campus or district? — SETTLED 21 Aug 2026: both
 
-**53 of the 200 are colleges inside a multi-college district**, spanning 22
-districts — LACCD (6 of the 200), Maricopa (6), Los Rios (4), Alamo (4), CUNY
-(4), San Diego (3), Riverside (3), and 15 others. Each has a campus president
-*and* a district chancellor, and both seats are searched nationally.
+**Decision: the index carries both seats**, with `seatType` on every record —
+`standalone` (the president is the top seat), `campus` (reports to a district
+chancellor), `district` (the chancellorship itself). Built by
+`build-cc-schools.mjs` into `r1-communitycollege-schools.json`.
 
-- **Campus level** (what the file currently holds): 200 seats. Matches how
-  IPEDS reports and how enrollment is measured. Ranks six LA colleges
-  separately while the district chancellor — the bigger job — is absent.
-- **District level**: 169 distinct seats, and the file loses the campus
-  presidencies, which are the standard proving ground for a chancellorship.
+| Option | Seats | What it loses |
+|---|---:|---|
+| Campus only | 1,077 | 24 district chancellorships — the largest-comp seats in the sector |
+| District only | 1,018 | 83 campus presidencies — the bench those chancellorships recruit from |
+| **Both (chosen)** | **1,101** | — |
 
-Note that the largest single entries — Lone Star, Dallas College, Houston CC,
-Tarrant County, Austin, Collin — *already* report at district level, so the
-list currently mixes the two conventions.
+Both costs 2% more rows than campus-only, which is a rounding error against a
+collection wave, and it is the only option that loses nothing. The move between
+campus president and district chancellor is precisely the career step this
+product exists to show; collapsing to either level makes that step invisible.
 
-My recommendation: **keep the campus rows and add the district seat as its own
-row.** The two are different jobs with different candidate pools, and the
-career move between them is precisely the signal this product exists to show.
-That means a universe closer to 222 seats than 200, and it needs a `district`
-/ `campus` field on the record rather than a choice between them. This is the
-one decision worth making before any collection starts, because it determines
-the unit of the whole index.
+Two further facts made the choice easy:
+
+- **A pure campus-level table was never on offer.** Dallas College consolidated
+  its seven colleges into one accredited institution; Houston CC, Lone Star and
+  Tarrant County also report to IPEDS as single units. "Campus level" would have
+  silently meant "whatever IPEDS happens to report", which is not a consistent
+  seat definition. Only an explicit `seatType` fixes that.
+- **The chancellorships are where the search fees are.** LACCD, Maricopa, Alamo,
+  San Diego. A firm evaluating the data looks for those names first; their
+  absence reads as a gap in the product, not a scoping choice.
+
+**Two flagged districts get no chancellor row**, recorded in `NO_DISTRICT_SEAT`
+rather than dropped silently:
+
+- *Delaware Technical Community College* — not a district at all. One president
+  leads four campuses that IPEDS reports separately; its campuses fold to
+  `standalone`.
+- *City University of New York* — CUNY's chancellor leads a full university
+  system of senior and community colleges, not a community-college district.
+  That seat belongs to `ussystem`; a row here would double-count one person.
+
+**Chancellor names are not in IPEDS.** Districts are not IPEDS reporting units,
+so all 24 ship with `leaderNameUnverified: ""`. Unlike the college presidents,
+these are not even leads — they are research, and the first collection wave has
+to source them from scratch.
 
 ## 3. Market appeal
 
@@ -286,14 +307,13 @@ completes a career story the existing corpus already half-tells.
 
 Sequence:
 
-1. **Settle campus-vs-district** (section 2). Nothing else should start first.
+1. ~~**Settle campus-vs-district**~~ — done, section 2: both seats, `seatType` on every record.
 1b. **Ask one existing pilot firm whether they bid community-college
    presidencies**, and what they lack when they do. One conversation, and it
    tests the buyer assumption this whole case rests on.
-2. **Ship the 1,077-college census as the schools table** (`universe_communitycollege_all.json`).
-   It already exists, it costs a script run, and it means breadth is never the
-   thing holding the index back — only depth is, and depth is the part worth
-   paying for.
+2. ~~**Ship the census as the schools table**~~ — done:
+   `r1-communitycollege-schools.json`, 1,101 seats. Breadth is no longer what
+   holds the index back; only depth is, and depth is the part worth paying for.
 3. **Verify the 200 incumbents** against college websites. The photo pass already
    confirmed 73 of them (above); the remaining 127 are the actual work. Cheap, and it
    converts the IPEDS field from a lead into data. Do this before any history
