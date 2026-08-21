@@ -78,5 +78,25 @@
    "u:appointment:president:university:university-of-new-hampshire"
   ],
   "repeatOfPrior": false
+ },
+ {
+  "id": "1286524530",
+  "recorded": "2026-08-21",
+  "schoolType": "provost",
+  "role": "provost",
+  "type": "departure",
+  "interim": false,
+  "university": "Texas A&M University",
+  "school": "Office of the Provost",
+  "dean": null,
+  "date": "2026-08-21T01:23:00.000Z",
+  "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPenZFWDNPdWpDQ1RYX0xYS1ItUnB2SmN1NFZUSzgxLWY5QlkzLS14QjdaTTNNN0VBUlc5cmxRWTAtNTdiVWxidVZxekFSX3ktT3dER1d5TnJSaDVzOFNLdFFtY2JZWVFPT1kzTC0ybGIxcGEyNl9lS2dqcFMzUXpoazh0RzVRNnprN3J4Nm15clRaWmc3UmNuRVJRZmhwcGdTblR2VXNob1FpcVVleUJvakZteWg3ZEEzQzBPTTVR?oc=5",
+  "title": "Texas A&M University announces new Interim Provost following Alan Sams’ decision to step down - KBTX News 3",
+  "confidence": "medium",
+  "digested": false,
+  "storyKeys": [
+   "u:departure:provost:provost:texas-a-m-university"
+  ],
+  "repeatOfPrior": false
  }
 ]
