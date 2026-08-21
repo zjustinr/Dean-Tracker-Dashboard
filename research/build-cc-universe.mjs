@@ -202,6 +202,53 @@ writeFileSync(
   ) + "\n"
 );
 
+// The census: every college in the pool, sitting leader only, no history.
+//
+// WHY BOTH FILES
+// --------------
+// IPEDS names a chief administrator for 100% of the pool, so the ROSTER is free
+// at any size; what costs money is the HISTORY (prior appointments, tenure
+// spells, origin at appointment), which is a per-institution research wave.
+// Those two facts pull in opposite directions, so the index splits them: the
+// census is the schools table and the news-scout target list, so no college is
+// missing from the map and nobody has to defend the 200 line to a customer
+// asking why their college isn't in here -- it is, with one row instead of
+// eight. `historyPlanned` marks the ones a collection wave goes deep on.
+const censusTotal = ranked.reduce((s, o) => s + (o.enrollmentFall2024 ?? 0), 0);
+let cum = 0;
+const coverage = ranked.map((o) => {
+  cum += o.enrollmentFall2024 ?? 0;
+  return cum / censusTotal;
+});
+const curve = {};
+for (const n of [50, 100, 150, 200, 250, 300, 400, 500, 700, ranked.length]) {
+  curve[n] = +(100 * coverage[n - 1]).toFixed(1);
+}
+
+writeFileSync(
+  join(OUT, "universe_communitycollege_all.json"),
+  JSON.stringify(
+    {
+      generated: "IPEDS fall 2024 via educationdata.urban.org",
+      metric: "Total fall 2024 headcount enrollment (all students, degree-seeking and not)",
+      note:
+        "Complete census of the candidate pool. Sitting leader comes from the IPEDS " +
+        "directory and is UNVERIFIED -- the field lags and is wrong at some colleges. " +
+        "No appointment history here; see universe_communitycollege.json for the " +
+        "history-collection target set.",
+      rules: RULE_TEXT,
+      totalInstitutions: ranked.length,
+      totalEnrollment: censusTotal,
+      enrollmentCoverageByRank: curve,
+      institutions: ranked.map((o, i) => ({ ...o, rank: i + 1, historyPlanned: i < TOP_N })),
+    },
+    null,
+    1
+  ) + "\n"
+);
+
+console.error(`\ncensus ${ranked.length} colleges, ${censusTotal.toLocaleString()} students`);
+console.error(`coverage by rank: ${JSON.stringify(curve)}`);
 console.error(`\ncandidate pool ${ranked.length} -> top ${TOP_N}`);
 console.error(`cutoff: ${top[top.length - 1].enrollmentFall2024} students (${top[top.length - 1].name})`);
 console.error(`excluded by hand: ${excluded.length}`);

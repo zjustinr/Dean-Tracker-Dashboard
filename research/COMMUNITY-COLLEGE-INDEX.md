@@ -5,8 +5,9 @@ no dataset id is registered, no ETL has run, no leader history has been
 collected. This document is the case for doing that work and the record of how
 the universe was drawn.
 
-- Universe: `universe/universe_communitycollege.json` (200 institutions)
-- Builder: `build-cc-universe.mjs` (`node research/build-cc-universe.mjs`)
+- History target: `universe/universe_communitycollege.json` (200 institutions)
+- Census: `universe/universe_communitycollege_all.json` (all 1,077, sitting leader only)
+- Builder: `build-cc-universe.mjs` (`node research/build-cc-universe.mjs`) — writes both
 
 ## 1. What the list is
 
@@ -19,7 +20,7 @@ the list.
 |---|---|
 | Institutions | 200 |
 | Combined enrollment | 3,564,479 students |
-| Share of all US community-college enrollment | **54.1%** |
+| Share of all US community-college enrollment | **54.4%** |
 | Cutoff | 9,359 students (SUNY Westchester CC, rank 200) |
 | States represented | 37 (CA 68, TX 19, FL 17, IL 8, NY 7, AZ 7, MI 7) |
 | Sitting leader named by IPEDS | 200 of 200 |
@@ -28,10 +29,50 @@ the list.
 ### Why 200 is the right cut, not an arbitrary one
 
 The candidate pool is 1,077 community colleges. The largest 200 hold 54% of the
-sector's 6.6 million students; the median of the remaining 882 is **2,796
+sector's 6.56 million students; the median of the remaining 877 is **2,785
 students**. The line falls almost exactly where a presidency stops being a
 nationally-searched seat and becomes a local hire. Extending to 400 would
 roughly double the collection cost to add colleges averaging a fifth the size.
+
+The coverage curve is the argument in one table — what each increment of
+collection actually buys:
+
+| Colleges | Cumulative enrollment | Enrollment at that rank |
+|---:|---:|---:|
+| 50 | 24.2% | 19,795 |
+| 100 | 36.9% | 14,082 |
+| 150 | 46.4% | 11,481 |
+| **200** | **54.4%** | **9,359** |
+| 250 | 61.1% | 8,330 |
+| 300 | 66.8% | 6,950 |
+| 400 | 76.1% | 5,384 |
+| 500 | 83.3% | 4,171 |
+| 700 | 92.9% | 2,342 |
+| 1,077 | 100% | 28 |
+
+Returns fall off a cliff after the first few hundred. Of the 877 below the cut,
+644 are under 5,000 students, 323 under 2,000, 139 under 1,000 and 67 under 500 —
+mostly single-campus rural colleges whose president is hired from inside the
+state system without a national search. They cost the same per institution as
+Miami Dade and buy a seat nobody is retained to fill.
+
+### Depth and breadth are separate decisions, so the index makes them separately
+
+IPEDS names a sitting chief administrator for **all 1,077** colleges, not just
+the 200 — the roster is free at any size. What costs money is the *history*
+(prior appointments, tenure spells, origin at appointment), which is a
+per-institution research wave. Those two facts pull in opposite directions, so
+the build emits two files:
+
+| File | Scope | Cost |
+|---|---|---|
+| `universe_communitycollege_all.json` | All 1,077, sitting leader only, `historyPlanned` flag | One script run |
+| `universe_communitycollege.json` | Top 200, the history-collection target set | A collection wave |
+
+The census is the schools table and the news-scout target list. No college is
+missing from the map, and nobody has to defend the 200 line to a customer asking
+why theirs isn't in here — it is, with one row instead of eight. Depth then
+follows the market rather than the alphabet.
 
 ### The trap this list avoids
 
@@ -224,16 +265,22 @@ Sequence:
 1b. **Ask one existing pilot firm whether they bid community-college
    presidencies**, and what they lack when they do. One conversation, and it
    tests the buyer assumption this whole case rests on.
-2. **Verify the 200 incumbents** against college websites. Cheap, and it
+2. **Ship the 1,077-college census as the schools table** (`universe_communitycollege_all.json`).
+   It already exists, it costs a script run, and it means breadth is never the
+   thing holding the index back — only depth is, and depth is the part worth
+   paying for.
+3. **Verify the 200 incumbents** against college websites. Cheap, and it
    converts the IPEDS field from a lead into data. Do this before any history
-   collection so waves start from a correct anchor.
-3. **Pilot one wave of 20 colleges** traced from 1996, mixing a Texas district,
+   collection so waves start from a correct anchor. The other 877 stay
+   explicitly unverified; `leaderNameUnverified` is named that way so no
+   consumer mistakes a lead for a fact.
+4. **Pilot one wave of 20 colleges** traced from 1996, mixing a Texas district,
    a California multi-college district and a standalone Midwestern college, to
    size the real per-institution cost against the R2 build's ~37k tokens
    batched.
-4. **Register `uscommunitycollege`** via `research/register_index.mjs` — one
+5. **Register `uscommunitycollege`** via `research/register_index.mjs` — one
    line in `scripts/lib/indices.mjs`, then the shared generators pick it up.
-5. Run `check-school-names.mjs` after every wave. This universe is full of
+6. Run `check-school-names.mjs` after every wave. This universe is full of
    institution-name landmines: "Glendale Community College" exists in both
    Arizona and California, "Metropolitan Community College" is an Omaha
    institution and a Kansas City one, and the `university` field is a join key, not
