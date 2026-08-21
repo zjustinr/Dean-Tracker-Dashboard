@@ -32,7 +32,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { getPage, leadershipPages, pageText, parseName, normText } from "./lib/cc-pages.mjs";
+import { getPage, leadershipPages, pageText, textBlocks, parseName, normText } from "./lib/cc-pages.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i >= 0 ? process.argv[i + 1] : d; };
@@ -64,7 +64,9 @@ const STOP = new Set([
 // as a person. Checking the raw capture is what actually enforces name-shape.
 const looksLikeName = (raw) => {
   const words = raw.trim().split(/\s+/);
-  return words.length >= 2 && words.length <= 4 && words.every((w) => /^[A-Z][a-zA-Z'.\-]*$/.test(w));
+  // 2-3 words. Four-word Title Case runs are nearly always menu text
+  // ("Instructor Qualifications Work Study"), not people.
+  return words.length >= 2 && words.length <= 3 && words.every((w) => /^[A-Z][a-zA-Z'.\-]*$/.test(w));
 };
 
 /** Does this page's text contain the person we expect? */
@@ -84,10 +86,14 @@ function findsName(text, want) {
 /** Names the page presents as holding the top seat, best-effort. */
 function extractHolders(text) {
   const out = [];
+  // Per BLOCK, never across one. A title and a name in two different structural
+  // chunks are two different things on the page, however adjacent they look once
+  // the tags are gone.
+  for (const block of textBlocks(text)) {
   for (const re of [AFTER, BEFORE]) {
     re.lastIndex = 0;
     let m;
-    while ((m = re.exec(text))) {
+    while ((m = re.exec(block))) {
       const modifier = (m[1] || m[2] || "").toLowerCase();
       if (/^(vice|assistant|associate|deputy)$/.test(modifier)) continue;  // not the top seat
       const raw = (re === AFTER ? m[2] : m[1]) || "";
@@ -102,6 +108,7 @@ function extractHolders(text) {
         pattern: re === AFTER ? "after" : "before",
       });
     }
+  }
   }
   return out;
 }
@@ -135,20 +142,24 @@ async function verify(college) {
   // Prefer a holder seen on more than one page -- a name repeated across the
   // president page and the leadership index is far likelier to be the incumbent
   // than one picked up from a single stray sentence.
+  // Count DISTINCT PAGES, not raw sightings. A phrase repeated 14 times is a
+  // sidebar; the same name on the president page and the leadership index is
+  // corroboration.
   const tally = {};
   for (const h of holders) {
-    const t = (tally[h.name] ||= { ...h, n: 0, patterns: new Set() });
+    const t = (tally[h.name] ||= { ...h, n: 0, patterns: new Set(), pages: new Set() });
     t.n++;
     t.patterns.add(h.pattern);
+    t.pages.add(h.url);
   }
-  const best = Object.values(tally).sort((a, b) => b.n - a.n)[0];
+  const best = Object.values(tally).sort((a, b) => b.pages.size - a.pages.size || b.n - a.n)[0];
   if (!best) return { ...base, verdict: "unresolved", reason: "no-holder-found", pagesRead: read };
 
   // A single sighting from a single phrasing is not enough to say the IPEDS name
   // is wrong. Corroboration = seen more than once, or stated both ways round
   // ("President Jane Smith" AND "Jane Smith, President"). Anything weaker stays
   // unresolved rather than becoming a lead someone might trust.
-  if (best.n < 2 && best.patterns.size < 2) {
+  if (best.pages.size < 2 && best.patterns.size < 2) {
     return { ...base, verdict: "unresolved", reason: "holder-uncorroborated", weakCandidate: best.name, evidence: best.phrase, pageUrl: best.url, pagesRead: read };
   }
 
@@ -157,7 +168,7 @@ async function verify(college) {
     verdict: "differs",
     siteName: best.name,
     siteNameIsInterim: best.interim,
-    seenOnPages: best.n,
+    seenOnPages: best.pages.size,
     statedBothWays: best.patterns.size > 1,
     evidence: best.phrase,
     pageUrl: best.url,

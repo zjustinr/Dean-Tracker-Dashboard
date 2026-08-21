@@ -80,17 +80,35 @@ export function leadershipPages(home, max = 6) {
   return [...new Set(out)].slice(0, max);
 }
 
-/** Visible text of a page, with script/style/nav chrome stripped. */
+/**
+ * Visible text of a page, with a BLOCK MARKER (¦) where the markup had a
+ * structural break.
+ *
+ * Collapsing every tag to a space is what made nav boilerplate look like a
+ * president: "<h1>President</h1><nav><a>Recap</a><a>Community</a>..." flattens
+ * to "President Recap Community ...", and "President <Name>" duly matches
+ * Title-Case nav items. Because nav repeats on every page, requiring
+ * corroboration across pages made those matches look MORE credible, not less.
+ *
+ * Emitting a marker at block and anchor boundaries lets a caller refuse matches
+ * that span one, which is the difference between a sentence and a menu.
+ */
 export function pageText(html) {
   return html
     .replace(/<(script|style|noscript)\b[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<\s*br\s*\/?>/gi, " ¦ ")
+    .replace(/<\/(p|div|li|ul|ol|nav|section|article|aside|header|footer|td|tr|th|h[1-6]|a|button|figcaption|label|option)\s*>/gi, " ¦ ")
     .replace(/<[^>]+>/g, " ")
     .replace(/&nbsp;/gi, " ")
     .replace(/&amp;/gi, "&")
     .replace(/&#39;|&rsquo;|&apos;/gi, "'")
     .replace(/\s+/g, " ")
+    .replace(/(?:¦\s*)+/g, "¦ ")
     .trim();
 }
+
+/** Text split at block markers -- one entry per structural chunk. */
+export const textBlocks = (text) => text.split("¦").map((s) => s.trim()).filter((s) => s.length > 1);
 
 const HONORIFIC = /\b(dr|mr|mrs|ms|prof|professor|rev|sr|jr|ii|iii|iv|phd|ph\.?d|edd|ed\.?d|dba|jd|mba|mfa|msn|dnp|ma|ms|mpa|cpa|esq)\b\.?/gi;
 
