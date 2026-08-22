@@ -7,7 +7,7 @@
 //   node scripts/scrape-leadership-images.mjs <leads.json> <out.json> [--limit N]
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { SRC, PHOTOS_PATH, UA, photoKey, extractImgs, matchByName } from "./photo-lib.mjs";
+import { SRC, PHOTOS_PATH, UA, photoKey, extractImgs, matchByName, curlFetchText } from "./photo-lib.mjs";
 
 const [leadsFile, outFile, ...rest] = process.argv.slice(2);
 if (!leadsFile || !outFile) { console.error("usage: scrape-leadership-images.mjs <leads.json> <out.json> [--limit N]"); process.exit(1); }
@@ -56,9 +56,14 @@ for (const lead of leads) {
     try {
       const r = await fetch(pageUrl, { headers: { "User-Agent": UA, Accept: "text/html" }, redirect: "follow", signal: AbortSignal.timeout(15000) });
       report.fetched++;
-      if (!r.ok) { report.fetchFailed.push(`${pageUrl}: HTTP ${r.status}`); continue; }
-      html = await r.text();
-    } catch (e) { report.fetchFailed.push(`${pageUrl}: ${e.message}`); continue; }
+      if (!r.ok) {
+        try { html = curlFetchText(pageUrl); } catch { report.fetchFailed.push(`${pageUrl}: HTTP ${r.status}`); continue; }
+      } else {
+        html = await r.text();
+      }
+    } catch (e) {
+      try { html = curlFetchText(pageUrl); } catch { report.fetchFailed.push(`${pageUrl}: ${e.message}`); continue; }
+    }
     const imgs = extractImgs(html, pageUrl);
     for (const img of imgs) {
       const dean = matchDean(img, candidates.filter((c) => !claimed.has(c)));

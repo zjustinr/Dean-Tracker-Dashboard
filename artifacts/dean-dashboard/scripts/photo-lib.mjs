@@ -24,9 +24,20 @@ export const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 
 export function curlFetchBuffer(url) {
   return execFileSync(
     "curl",
-    ["-sS", "-f", "-L", "--max-time", "20", "-A", UA, "-H", "Accept: image/avif,image/webp,image/*,*/*", url],
+    ["-sS", "-f", "-g", "-L", "--max-time", "20", "-A", UA, "-H", "Accept: image/avif,image/webp,image/*,*/*", url],
     { maxBuffer: 20 * 1024 * 1024 }
   );
+}
+
+// Same fingerprint-block issue as curlFetchBuffer, but for HTML leadership/
+// directory pages: several CDNs 403 Node's fetch() while curl with an
+// identical UA succeeds. Used as a fallback when fetch() fails.
+export function curlFetchText(url) {
+  return execFileSync(
+    "curl",
+    ["-sS", "-f", "-L", "--max-time", "20", "-A", UA, "-H", "Accept: text/html,application/xhtml+xml", url],
+    { maxBuffer: 20 * 1024 * 1024 }
+  ).toString("utf8");
 }
 
 export const norm = (s) => (s || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z\s]/g, " ").replace(/\s+/g, " ").trim();
@@ -35,7 +46,7 @@ export const firstName = (full) => { const parts = norm(full).split(" ").filter(
 export const photoKey = (d, u) => `${d.trim().toLowerCase()}|${u.trim().toLowerCase()}`;
 export const slugify = (d, u) => `${d} ${u}`.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-export const PLACEHOLDER_RE = /placeholder|no[-_]?photo|no[-_]?image|default[-_]?avatar|silhouette|generic[-_]?(user|person|avatar)|blank[-_]?(profile|avatar)|missing[-_]?photo|avatar[-_]?default|person[-_]?default/i;
+export const PLACEHOLDER_RE = /place[-_]?holder|no[-_]?photo|no[-_]?image|default[-_]?avatar|silhouette|generic[-_]?(user|person|avatar)|blank[-_]?(profile|avatar)|missing[-_]?photo|avatar[-_]?default|person[-_]?default/i;
 
 // Pull the filename (minus extension and common size suffixes like -300x300)
 // as a fallback text source, since many sites leave alt="" but encode the
