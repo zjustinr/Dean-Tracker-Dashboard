@@ -280,7 +280,7 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     id: "uscommunitycollege",
     label: "Community College Presidents",
     shortLabel: "Community College",
-    description: "Presidents of the largest US community colleges and the chancellors of their multi-college districts. History is traced current + 3 predecessors per seat rather than from a fixed year. PILOT: 20 of 224 seats have history; the remaining collection wave is not yet run.",
+    description: "Presidents of the largest US community colleges and the chancellors of their multi-college districts. Sitting leaders cover 1,080 of 1,101 seats; the 21 without one are district chancellorships, which IPEDS does not report. Appointment history is a separate, deeper pass, traced current + 3 predecessors per seat rather than from a fixed year, and currently covers 20 seats. Sitting names outside those 20 come from IPEDS fall 2024: 110 are corroborated by the college\u0027s own website, the rest are not, and a pilot check found roughly a quarter of the field stale.",
     rankLabel: "Enrollment rank",
     schoolType: "communitycollege",
     yearRange: "1970-2026",

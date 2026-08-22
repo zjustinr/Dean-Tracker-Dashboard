@@ -30,10 +30,10 @@
   "Healthcare Providers"
  ],
  "counts": {
-  "people": 28327,
+  "people": 29385,
   "yes": 1997,
   "no": 11623,
-  "unknown": 14707,
+  "unknown": 15765,
   "namedFirm": 1582,
   "flagOnly": 415,
   "firms": 1593,
@@ -167088,6 +167088,7 @@
    "confidence": "high",
    "sitting": true,
    "indices": [
+    "uscommunitycollege",
     "uslac"
    ],
    "evidence": "research",

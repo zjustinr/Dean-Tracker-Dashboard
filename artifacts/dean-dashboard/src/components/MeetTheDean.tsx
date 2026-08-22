@@ -134,7 +134,12 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
           {dean.university}
         </p>
         <p className="text-xs text-muted-foreground">
-          {dean.isInterim ? `Interim ${nounLower}` : noun} since {dean.startYear}
+          {/* Most sitting records across the corpus carry no startYear (1,820 of
+              2,134 in R2, 790 of 993 in LAC), and "since {undefined}" rendered
+              as a dangling "since ". Drop the clause when the year is unknown
+              rather than inventing one. */}
+          {dean.isInterim ? `Interim ${nounLower}` : noun}
+          {dean.startYear ? ` since ${dean.startYear}` : ""}
           {dean.disciplineBroad && dean.disciplineBroad !== "Unknown" ? ` · ${dean.disciplineBroad}` : ""}
         </p>
         <button
