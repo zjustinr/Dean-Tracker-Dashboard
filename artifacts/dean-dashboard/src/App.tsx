@@ -29,7 +29,6 @@ import ModuleIcon from "@/components/ModuleIcons";
 import { animateScrollIntoView } from "@/lib/utils";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 import { TrialProvider, useTrial } from "@/data/TrialContext";
-import { DATASET_LIST } from "@/data/datasets";
 import corpusStats from "@/data/corpus-stats.json";
 
 // Build timestamp, injected by vite.config.ts. Reflects when the site was last
@@ -39,10 +38,19 @@ const BUILT_ON = __BUILT_ON__;
 
 // Corpus-wide totals for the header strip. Step 2 moved the dean records out of
 // the bundle, so these are precomputed by scripts/gen-public-data.ts (re-run on
-// every data refresh) rather than tallied from the datasets at load. Counts only
-// DATASET_LIST — excludes hidden Top-100 (a strict subset of R1 B-school) — and
-// dedupes on (dean, university, school, startYear).
-const CORPUS = corpusStats as { appts: number; sitting: number; schools: number; from: number };
+// every data refresh) rather than tallied from the datasets at load.
+//
+// Counts CORPUS_IDS (lib/dataset-assembly.mjs): every index the repository
+// holds, excluding hidden Top-100, which is a strict subset of R1 B-school.
+// It used to count VISIBLE, which is the news cron's coverage list, so the
+// header silently omitted Administrative and Community College. Dedupes on
+// (dean, university, school, startYear).
+//
+// `indices` comes from the same tally rather than DATASET_LIST.length, so all
+// four figures describe one corpus. It is therefore the number of indices HELD
+// (21), not the number in the switcher (20) -- University Systems is held but
+// deliberately unlisted.
+const CORPUS = corpusStats as { appts: number; sitting: number; roster: number; schools: number; indices: number; from: number };
 
 interface TabDef {
   value: string;
@@ -216,7 +224,7 @@ function AppInner() {
                 <span className="mx-1.5 text-border">|</span>
                 <span className="font-semibold text-foreground">{CORPUS.schools.toLocaleString()}</span> schools
                 <span className="mx-1.5 text-border">|</span>
-                <span className="font-semibold text-foreground">{DATASET_LIST.length}</span> indices
+                <span className="font-semibold text-foreground">{CORPUS.indices}</span> indices
                 <span className="mx-1.5 text-border">|</span>
                 {CORPUS.from}&ndash;2026
                 <span className="mx-1.5 text-border">|</span>
