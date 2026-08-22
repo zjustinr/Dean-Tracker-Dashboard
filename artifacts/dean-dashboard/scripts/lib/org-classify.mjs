@@ -74,6 +74,12 @@ const ACAD_ABBREV = stems([
   "smu\\b", "byu\\b", "rpi\\b", "njit\\b", "iupui\\b", "ou\\b", "osu\\b", "psu\\b",
   "cu boulder", "cu denver", "uc [a-z]", "ut [a-z]", "um[a-z]{2,}\\b", "unsw",
   "nyu\\b", "ucla", "ucsd", "ucsf", "ucsb", "uf-ifas", "stevens institute", "cornell\\b",
+  // Short and informal school names in the corpus
+  "rutgers\\b", "pitt\\b", "pitt business", "pitt medicine", "sacramento state",
+  "missouri s&t", "missouri s\\.?&?t", "tuskegee\\b", "vin university", "vin",
+  "mcgill", "williston northampton", "hotchkiss", "chautauqua", "berklee\\b",
+  "fermilab", "augustine institute", "cal arts", "california institute", "art institute",
+  "new hampshire institute", "lutheran high", "high school", "secondary school",
 ]);
 /**
  * Build the academic recognizer over a corpus.
@@ -141,6 +147,7 @@ const GOVT = stems([
   "united states (?:army|navy|air force|marine corps|coast guard)", "federal (?:government|agency|reserve|bureau)",
   "white house", "congress", "senate", "house of representatives", "pentagon",
   "nasa\\b", "nih\\b", "cdc\\b", "darpa\\b", "fda\\b", "epa\\b", "nsf\\b", "sec\\b", "gao\\b",
+  "usda\\b", "state department", "department of state", "state (?:of |department)",
   "centers for disease control", "national institutes of health", "world bank",
   "international monetary fund", "united nations", "city of", "state of",
   "commonwealth of", "county of", "ministry of", "census bureau",
@@ -153,6 +160,15 @@ const GOVT = stems([
   // the strength of nothing more than the residual marker rules.
   "supreme court", "court of appeals", "district court", "circuit court",
   "federal court", "u\\.?s\\.? courts", "judiciary", "public health service",
+  // State legislatures, county commissions, and local government bodies
+  "legislature\\b", "general assembly", "legislative budget", "board of commissioners",
+  "county commission", "county board", "county judge", "state supreme court",
+  "judicial court", "railroad commission", "defense (?:advanced|department)",
+  "armed forces", "military (?:district|division|command)", "special operations",
+  "infantry (?:division|brigade|battalion)", "brigade combat team",
+  // More government entities
+  "county (?:board|court|commission|administration|government|clerk)", "government of",
+  "[a-z]+ county\\b",
 ]);
 // A US-flavoured entity name ending in a corporate-sounding word is still
 // federal: the DFC, the TVA, the USPS. Checked alongside GOVT.
@@ -165,6 +181,20 @@ const NONPROFIT = stems([
   "ford foundation", "gates foundation", "acls\\b", "aacsb\\b", "naacp\\b",
   "girl scouts", "boy scouts", "goodwill", "habitat for humanity", "church",
   "diocese", "archdiocese", "synagogue", "ministries", "sisters of", "congregation",
+  // Research institutes and labs
+  "laborator", "research institute", "research center", "research lab",
+  "jackson laboratory", "scripps research", "national renewable energy",
+  "southwest research", "fermi lab", "lawrence (?:berkeley|livermore|national)",
+  "oak ridge", "sandia national", "argonne national", "brookhaven national",
+  // Environmental and advocacy nonprofits
+  "environmental (?:defense|fund)", "trust for public land", "resources for the future",
+  // Education nonprofits and research organizations
+  "southern regional education", "ruffalo noel levitz", "ecsi\\b",
+  // Arts and cultural organizations
+  "symphony orchestra", "opera company", "theater", "arts center", "arts council",
+  "mark taper", "american ibsen", "san diego opera", "toronto symphony",
+  // Other nonprofits from corpus
+  "center for the homeless", "civic education", "children international",
 ]);
 // A hospital or health system is its own thing: often nonprofit, frequently
 // university-affiliated, and in the nursing / medical / pharmacy indices it is
@@ -179,6 +209,14 @@ const HEALTH_PROVIDER = stems([
   "adventhealth", "commonspirit", "beaumont health", "loma linda university health",
   "uconn health", "johns hopkins medicine", "mass general brigham", "baystate health",
   "partners healthcare", "atrium health", "university hospitals",
+  // Large health systems appearing in the unclassified list
+  "jefferson health", "washU medicine", "wamu medicine", "ochsner health",
+  "st\\. luke's health", "froedtert health", "emory healthcare", "penn medicine",
+  "hca healthcare", "university health", "advocate (?:health|aurora)",
+  "allegheny health", "wellmark", "health and human services",
+  "va(?:mc)?\\b", "department of veterans", "veterans (?:health|affairs)",
+  "clinical (?:practice|center)", "physicians (?:group|network)",
+  "medical affairs", "health division", "healthcare provider",
 ]);
 // Named industries. First match wins, so specific lists precede generic ones.
 // Firms are named explicitly wherever the sector word alone would be ambiguous
@@ -219,6 +257,8 @@ const INDUSTRY = [
     "panasonic", "uber\\b", "lyft\\b", "airbnb", "netflix", "spotify", "linkedin",
     "twitter", "palantir", "stripe\\b", "paypal", "ebay", "yahoo", "aol\\b", "dynetics",
     "software", "semiconductor", "telecommunications", "information technology (?:services|consult)",
+    // Additional tech companies from corpus
+    "verizon", "ellucian", "techstars\\b", "leafly", "software (?:company|firm|startup)",
   ])],
   ["Healthcare & Pharma", stems([
     "pfizer", "merck\\b", "johnson ?(?:&|and) ?johnson", "j&j\\b", "novartis",
@@ -268,12 +308,19 @@ const INDUSTRY = [
     "advertising agency", "ogilvy", "wpp\\b", "omnicom",
   ])],
   ["Law (private practice)", stems([
-    "llp\\b", "law firm", "jones day", "latham ?(?:&|and) ?watkins", "skadden",
+    "llp\\b", "law firm", "pllc\\b", "p\\.c\\.\\b", "p\\.c\\.\\s", "attorney", "counsel\\b",
+    "jones day", "latham ?(?:&|and) ?watkins", "skadden",
     "sidley austin", "kirkland ?(?:&|and) ?ellis", "covington ?(?:&|and) ?burling",
     "wilmerhale", "wilmer cutler", "cravath", "sullivan ?(?:&|and) ?cromwell",
     "davis polk", "debevoise", "gibson dunn", "paul weiss", "arnold ?(?:&|and) ?porter",
     "morrison ?(?:&|and) ?foerster", "baker mckenzie", "hogan lovells", "dla piper",
     "greenberg traurig", "k&l gates", "burr ?(?:&|and) ?forman", "attorneys at law",
+    // Additional law firms from unclassified list with flexible matching for punctuation
+    "steptoe", "gray plant", "munger", "lathrop", "wyatt", "shea",
+    "archer", "mcgrath", "nelson", "baker", "barnes", "bass berry",
+    "bradley", "alston", "anglin", "allen norton", "katz",
+    "zinsman", "winston", "waller", "wallace", "donelson",
+    "waller lansden", "baker & mckenzie", "baker botts", "baker donelson",
   ])],
 ];
 
