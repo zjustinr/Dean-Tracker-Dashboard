@@ -30,10 +30,10 @@
   "Healthcare Providers"
  ],
  "counts": {
-  "people": 29470,
+  "people": 29463,
   "yes": 2112,
-  "no": 11683,
-  "unknown": 15675,
+  "no": 11680,
+  "unknown": 15671,
   "namedFirm": 1713,
   "flagOnly": 399,
   "firms": 1728,
@@ -58,9 +58,12 @@
   },
   "a. benjamin spencer|college of william & mary": {
    "name": "A. Benjamin Spencer",
-   "u
-wrote /home/user/Dean-Tracker-Dashboard/artifacts/dean-dashboard/src/data/nonacademic-experience.json (13795 people, asOf 2026)
-law"
+   "university": "College of William & Mary",
+   "status": "yes",
+   "confidence": "high",
+   "sitting": true,
+   "indices": [
+    "r1law"
    ],
    "score": 26,
    "seniority": "unknown",
@@ -16247,20 +16250,6 @@ law"
    ],
    "flags": [
     "hasConsultingBg"
-   ]
-  },
-  "ashanti hands|san diego mesa college": {
-   "name": "Ashanti Hands",
-   "university": "San Diego Mesa College",
-   "status": "no",
-   "confidence": "medium",
-   "sitting": true,
-   "indices": [
-    "uscommunitycollege"
-   ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
    ]
   },
   "ashby kinch|university of new hampshire": {
@@ -49186,20 +49175,6 @@ law"
    ],
    "evidence": "research",
    "researchedOn": "2026-08-19",
-   "stops": 1,
-   "sectors": [
-    "Academic"
-   ]
-  },
-  "david c. plummer|south texas college": {
-   "name": "David C. Plummer",
-   "university": "South Texas College",
-   "status": "no",
-   "confidence": "medium",
-   "sitting": false,
-   "indices": [
-    "uscommunitycollege"
-   ],
    "stops": 1,
    "sectors": [
     "Academic"
@@ -126722,20 +126697,6 @@ law"
    "sitting": false,
    "indices": [
     "uslac"
-   ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
-   ]
-  },
-  "kimberly britt|mesa community college": {
-   "name": "Kimberly Britt",
-   "university": "Mesa Community College",
-   "status": "no",
-   "confidence": "medium",
-   "sitting": false,
-   "indices": [
-    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
