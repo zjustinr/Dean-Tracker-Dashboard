@@ -61,19 +61,32 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
   const value = useMemo(() => {
     const meta = DATASETS_META[datasetId];
     const bundle: DatasetBundle = { meta, ...(data ?? EMPTY) };
-    const isUniv = meta.schoolType === "university";
+    // WHO THE INDEX IS ABOUT, in two questions.
+    //
+    // 1. Does the row carry the officeholder's REAL title in `discipline`?
+    //    Graduate-college heads are "Vice Provost and Dean", advancement heads
+    //    "Vice President for Advancement", admin leaders "Chief People Officer",
+    //    and every presidency index carries "President" / "Chancellor" /
+    //    "Superintendent". Those must render verbatim; only the dean indices,
+    //    where `discipline` holds a FIELD ("Marketing", "Civil Engineering"),
+    //    fall back to the generic noun.
+    // 2. What is the generic noun when there is no usable title?
+    //
+    // Both were ternary chains keyed on individual schoolTypes, so an index
+    // whose type nobody remembered to add silently answered "Dean" to question 1
+    // and printed "Dean" for a college president. That is how uslac, usr2 and
+    // ussystem shipped labelling 972 LAC presidents and 1,322 R2 presidents
+    // "Dean" -- the data was right and the label was wrong. Enumerate the sets
+    // instead, so adding a schoolType to `datasets.ts` and not to this file is a
+    // visible omission rather than a wrong answer.
+    const PRESIDENTIAL = ["university", "r2university", "system", "liberalarts", "communitycollege", "adminleaders"];
+    const isPresidential = PRESIDENTIAL.includes(meta.schoolType);
     const isProvost = meta.schoolType === "provost";
     const isGrad = meta.schoolType === "graduate";
     const isAdv = meta.schoolType === "advancement";
-    const isAdminLeaders = meta.schoolType === "adminleaders";
-    // Datasets that carry the officeholder's real title in `discipline`
-    // (graduate-college heads carry titles like "Vice Provost and Dean";
-    // advancement heads like "Vice President for Advancement" / foundation CEO;
-    // admin leaders like "Vice President and Chief People Officer" -- the
-    // function bucket rides in disciplineBroad instead, for filtering).
-    const titleVaries = isUniv || isProvost || isGrad || isAdv || isAdminLeaders;
-    const noun = isUniv ? "Leader" : isProvost ? "Provost" : isAdv ? "Advancement VP" : isAdminLeaders ? "Leader" : "Dean";
-    const nounPlural = isUniv ? "Leaders" : isProvost ? "Provosts" : isAdv ? "Advancement VPs" : isAdminLeaders ? "Leaders" : "Deans";
+    const titleVaries = isPresidential || isProvost || isGrad || isAdv;
+    const noun = isPresidential ? "Leader" : isProvost ? "Provost" : isAdv ? "Advancement VP" : "Dean";
+    const nounPlural = isPresidential ? "Leaders" : isProvost ? "Provosts" : isAdv ? "Advancement VPs" : "Deans";
     const titleOf = (d: { discipline?: string | null; roleType?: string | null } | null | undefined): string => {
       const isSub = d?.roleType === "subdean";
       if (titleVaries || isSub) {

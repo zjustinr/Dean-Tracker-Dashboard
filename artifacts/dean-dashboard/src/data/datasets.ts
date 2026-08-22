@@ -12,7 +12,7 @@ declare const __BUILD_ID__: string;
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts" | "usadvancement" | "uslac" | "usadminleaders";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts" | "usadvancement" | "uslac" | "usadminleaders" | "uscommunitycollege";
 
 export interface SchoolInfo {
   university: string;
@@ -44,7 +44,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts" | "advancement" | "liberalarts" | "adminleaders";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts" | "advancement" | "liberalarts" | "adminleaders" | "communitycollege";
   yearRange: string;
 }
 
@@ -341,6 +341,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.usadvancement,
   DATASETS_META.uslac,
   DATASETS_META.usadminleaders,
+  DATASETS_META.uscommunitycollege,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,
