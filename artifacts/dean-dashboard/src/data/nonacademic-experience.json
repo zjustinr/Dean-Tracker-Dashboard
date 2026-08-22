@@ -31,14 +31,14 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2112,
-  "no": 11683,
+  "yes": 2122,
+  "no": 11673,
   "unknown": 15675,
-  "namedFirm": 1713,
-  "flagOnly": 399,
-  "firms": 1728,
-  "sittingWithTie": 1037,
-  "sittingSeniorTie": 569,
+  "namedFirm": 1733,
+  "flagOnly": 389,
+  "firms": 1751,
+  "sittingWithTie": 1052,
+  "sittingSeniorTie": 583,
   "researched": 788
  },
  "people": {
@@ -16045,14 +16045,31 @@ law"
    "name": "Arthur Monger",
    "university": "Saint Leo University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 43,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Synergis Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Synergis Education",
+     "role": "Executive team member",
+     "seniority": "unknown",
+     "endYear": 2026,
+     "source": "priorInstitution",
+     "score": 43
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -21248,14 +21265,31 @@ law"
    "name": "Blair H. Sheppard",
    "university": "Duke University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": false,
    "indices": [
     "r1bschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Duke Corporate Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Duke Corporate Education",
+     "role": "CEO and President",
+     "seniority": "executive",
+     "endYear": 2007,
+     "source": "priorInstitution",
+     "score": 55
+    }
    ],
    "flags": [
     "hasConsultingBg"
@@ -22712,16 +22746,32 @@ law"
   "brad hermes|gallaudet university": {
    "name": "Brad Hermes",
    "university": "Gallaudet University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Communication Service for the Deaf (CSD)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Communication Service for the Deaf (CSD)",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "priorInstitution",
+     "score": 53
+    }
    ]
   },
   "brad kramer|kansas state university": {
@@ -23385,16 +23435,32 @@ law"
   "brandi rarus|gallaudet university": {
    "name": "Brandi Rarus",
    "university": "Gallaudet University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Communication Service for the Deaf (CSD)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Communication Service for the Deaf (CSD)",
+     "role": "Vice President of Public Relations, Engagement, and Policy",
+     "seniority": "executive",
+     "source": "priorInstitution",
+     "score": 53
+    }
    ]
   },
   "brandi renton|university of florida": {
@@ -30379,7 +30445,8 @@ law"
     "Media & Entertainment"
    ],
    "firms": [
-    "ABC News"
+    "ABC News",
+    "PBS"
    ],
    "ties": [
     {
@@ -30387,6 +30454,16 @@ law"
      "category": "Media & Entertainment",
      "sector": "Industry",
      "firm": "ABC News",
+     "role": "News/documentary producer",
+     "seniority": "unknown",
+     "source": "priorInstitution",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "sector": "Industry",
+     "firm": "PBS",
      "role": "News/documentary producer",
      "seniority": "unknown",
      "source": "priorInstitution",
@@ -33801,16 +33878,32 @@ law"
   "charles a. wright iii|rutgers university-camden": {
    "name": "Charles A. Wright III",
    "university": "Rutgers University-Camden",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 5,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Philabundance"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Philabundance",
+     "role": "Chief Development Officer",
+     "seniority": "executive",
+     "endYear": 2023,
+     "source": "priorInstitution",
+     "score": 70
+    }
    ]
   },
   "charles allen cary|auburn university": {
@@ -39654,10 +39747,12 @@ law"
    "score": 53,
    "seniority": "executive",
    "categories": [
-    "Nonprofit & Foundations"
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
    ],
    "firms": [
-    "Archdiocese of Los Angeles"
+    "Archdiocese of Los Angeles",
+    "PBS SoCal"
    ],
    "ties": [
     {
@@ -39670,6 +39765,17 @@ law"
      "years": "prior",
      "source": "leader-research.career",
      "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "sector": "Industry",
+     "firm": "PBS SoCal",
+     "role": "Development leadership",
+     "seniority": "unknown",
+     "endYear": 2026,
+     "source": "priorInstitution",
+     "score": 43
     }
    ]
   },
@@ -54802,16 +54908,32 @@ law"
   "debra hoyt|clark atlanta university": {
    "name": "Debra Hoyt",
    "university": "Clark Atlanta University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Cox Communications"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "sector": "Industry",
+     "firm": "Cox Communications",
+     "role": "Vice President of Human Resources, Business Services Division",
+     "seniority": "executive",
+     "source": "priorInstitution",
+     "score": 53
+    }
    ]
   },
   "debra j. barksdale|university of north carolina at greensboro": {
@@ -57318,17 +57440,32 @@ law"
   "dino ferrare|fielding graduate university": {
    "name": "Dino Ferrare",
    "university": "Fielding Graduate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The People Concern"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "The People Concern",
+     "role": "Director of Human Resources",
+     "seniority": "senior",
+     "source": "priorInstitution",
+     "score": 40
+    }
    ]
   },
   "dino villegas|texas tech university": {
@@ -69721,16 +69858,32 @@ law"
   "faye kuo|gallaudet university": {
    "name": "Faye Kuo",
    "university": "Gallaudet University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Communication Service for the Deaf (CSD)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Communication Service for the Deaf (CSD)",
+     "role": "Vice President of Legal and Compliance",
+     "seniority": "executive",
+     "source": "priorInstitution",
+     "score": 53
+    }
    ]
   },
   "fayron epps|georgia state university": {
@@ -79440,10 +79593,12 @@ law"
    "score": 36,
    "seniority": "unknown",
    "categories": [
-    "Other industry"
+    "Other industry",
+    "Consumer & Retail"
    ],
    "firms": [
-    "Hunt Oil Company"
+    "Hunt Oil Company",
+    "Hunt Consolidated"
    ],
    "ties": [
     {
@@ -79451,6 +79606,17 @@ law"
      "category": "Other industry",
      "sector": "Industry",
      "firm": "Hunt Oil Company",
+     "role": "Executive, Hunt Oil Company and Hunt Consolidated",
+     "seniority": "unknown",
+     "endYear": 2018,
+     "source": "priorInstitution",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "sector": "Industry",
+     "firm": "Hunt Consolidated",
      "role": "Executive, Hunt Oil Company and Hunt Consolidated",
      "seniority": "unknown",
      "endYear": 2018,
@@ -81038,14 +81204,31 @@ law"
    "name": "Helen Frame Peters",
    "university": "Boston College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": false,
    "indices": [
     "r1bschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 49,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Scudder Kemper Investments"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "sector": "Industry",
+     "firm": "Scudder Kemper Investments",
+     "role": "Managing Director, Global Bond Group",
+     "seniority": "executive",
+     "endYear": 2000,
+     "source": "priorInstitution",
+     "score": 49
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)",
@@ -83235,10 +83418,12 @@ law"
    "score": 36,
    "seniority": "unknown",
    "categories": [
-    "Healthcare Providers"
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
    ],
    "firms": [
-    "Brigham and Women's Hospital"
+    "Brigham and Women's Hospital",
+    "Dana-Farber"
    ],
    "ties": [
     {
@@ -83246,6 +83431,18 @@ law"
      "category": "Healthcare Providers",
      "sector": "Healthcare Provider",
      "firm": "Brigham and Women's Hospital",
+     "role": "Faculty, Department of Neurosurgery",
+     "seniority": "unknown",
+     "years": "2000s–2018",
+     "endYear": 2018,
+     "source": "leader-research.career",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Dana-Farber",
      "role": "Faculty, Department of Neurosurgery",
      "seniority": "unknown",
      "years": "2000s–2018",
@@ -90144,14 +90341,30 @@ law"
    "name": "Jamison Kravcak",
    "university": "Saint Leo University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Synergis Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Synergis Education",
+     "role": "Chief Operating Officer",
+     "seniority": "executive",
+     "source": "priorInstitution",
+     "score": 53
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -108069,10 +108282,12 @@ law"
    "score": 45,
    "seniority": "executive",
    "categories": [
-    "Other industry"
+    "Other industry",
+    "Financial Services"
    ],
    "firms": [
-    "Miami Corporation"
+    "Miami Corporation",
+    "Chicago Title"
    ],
    "ties": [
     {
@@ -108080,6 +108295,17 @@ law"
      "category": "Other industry",
      "sector": "Industry",
      "firm": "Miami Corporation",
+     "role": "President/CEO, Miami Corporation (external banking exec)",
+     "seniority": "executive",
+     "endYear": 1993,
+     "source": "priorInstitution",
+     "score": 45
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "sector": "Industry",
+     "firm": "Chicago Title",
      "role": "President/CEO, Miami Corporation (external banking exec)",
      "seniority": "executive",
      "endYear": 1993,
@@ -112173,10 +112399,12 @@ law"
    "score": 49,
    "seniority": "executive",
    "categories": [
-    "Media & Entertainment"
+    "Media & Entertainment",
+    "Consumer & Retail"
    ],
    "firms": [
-    "Blockbuster Entertainment"
+    "Blockbuster Entertainment",
+    "Toys R Us International"
    ],
    "ties": [
     {
@@ -112184,6 +112412,17 @@ law"
      "category": "Media & Entertainment",
      "sector": "Industry",
      "firm": "Blockbuster Entertainment",
+     "role": "President",
+     "seniority": "executive",
+     "endYear": 2005,
+     "source": "priorInstitution",
+     "score": 49
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "sector": "Industry",
+     "firm": "Toys R Us International",
      "role": "President",
      "seniority": "executive",
      "endYear": 2005,
@@ -112486,15 +112725,31 @@ law"
   "josh currier|emmanuel college": {
    "name": "Josh Currier",
    "university": "Emmanuel College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": false,
    "indices": [
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Dana-Farber Cancer Institute"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Dana-Farber Cancer Institute",
+     "role": "Fundraising/development leadership role",
+     "seniority": "unknown",
+     "source": "priorInstitution",
+     "score": 26
+    }
    ]
   },
   "josh gladden|temple university": {
@@ -126773,16 +127028,31 @@ law"
   "kimberly christopher|university of massachusetts dartmouth": {
    "name": "Kimberly Christopher",
    "university": "University of Massachusetts Dartmouth",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
-   "stops": 3,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Dana-Farber Cancer Institute"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Dana-Farber Cancer Institute",
+     "role": "Director of Nursing Research and Education",
+     "seniority": "senior",
+     "source": "leader-research.career",
+     "score": 40
+    }
    ]
   },
   "kimberly d. bailey|university of cincinnati": {
@@ -136206,15 +136476,31 @@ law"
    "name": "Linda Chiarelli",
    "university": "New York University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Forest City Ratner Companies"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "sector": "Industry",
+     "firm": "Forest City Ratner Companies",
+     "role": "Deputy Director of Construction",
+     "seniority": "senior",
+     "source": "priorInstitution",
+     "score": 40
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -141346,16 +141632,32 @@ law"
   "machelle martin|california state university, sacramento": {
    "name": "Machelle Martin",
    "university": "California State University, Sacramento",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Golden 1 Credit Union"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "sector": "Industry",
+     "firm": "Golden 1 Credit Union",
+     "role": "Vice President of Human Resources/Training and Development",
+     "seniority": "executive",
+     "source": "priorInstitution",
+     "score": 53
+    }
    ]
   },
   "madeleine wing adler|west chester university of pennsylvania": {
@@ -144615,9 +144917,21 @@ law"
     "Media & Entertainment"
    ],
    "firms": [
+    "Scientific American",
     "Springer Nature"
    ],
    "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "sector": "Industry",
+     "firm": "Scientific American",
+     "role": "Editor-in-Chief and Executive Vice President",
+     "seniority": "executive",
+     "endYear": 2019,
+     "source": "priorInstitution",
+     "score": 63
+    },
     {
      "kind": "employment",
      "category": "Media & Entertainment",
@@ -146688,15 +147002,28 @@ law"
    "indices": [
     "uslac"
    ],
-   "score": 26,
-   "seniority": "unknown",
+   "score": 70,
+   "seniority": "executive",
    "categories": [
+    "Nonprofit & Foundations",
     "Energy & Industrials"
    ],
    "firms": [
+    "Lighthouse Catholic Media",
     "Compuware, Wiremold, Westinghouse"
    ],
    "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "Lighthouse Catholic Media",
+     "role": "Founder",
+     "seniority": "executive",
+     "endYear": 2022,
+     "source": "priorInstitution",
+     "score": 70
+    },
     {
      "kind": "employment",
      "category": "Energy & Industrials",
@@ -149004,14 +149331,31 @@ law"
    "name": "Mary Bowman Hampton",
    "university": "Mercer University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Cox Communications"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "sector": "Industry",
+     "firm": "Cox Communications",
+     "role": "Director of Corporate Communications and Community Relations",
+     "seniority": "senior",
+     "endYear": 2026,
+     "source": "priorInstitution",
+     "score": 57
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -206947,16 +207291,31 @@ law"
   "stephen galloway|chapman university": {
    "name": "Stephen Galloway",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Hollywood Reporter"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "sector": "Industry",
+     "firm": "The Hollywood Reporter",
+     "role": "Executive Editor",
+     "seniority": "unknown",
+     "source": "priorInstitution",
+     "score": 26
+    }
    ]
   },
   "stephen gedney|university of colorado denver": {
@@ -220111,15 +220470,31 @@ law"
    "name": "Tom Sarowski",
    "university": "University of Kansas",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": false,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "score": 18,
+   "seniority": "unknown",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Managing Partner, Andersen Consulting KC office"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "sector": "Industry",
+     "firm": "Managing Partner, Andersen Consulting KC office",
+     "role": "Distinguished Lecturer and Executive-in-Residence",
+     "seniority": "unknown",
+     "endYear": 1995,
+     "source": "priorInstitution",
+     "score": 18
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)",
@@ -220439,15 +220814,31 @@ law"
    "name": "Toney Stroud",
    "university": "Marshall University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Encova Insurance"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "sector": "Industry",
+     "firm": "Encova Insurance",
+     "role": "Assistant Vice President",
+     "seniority": "executive",
+     "source": "priorInstitution",
+     "score": 53
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -225780,14 +226171,31 @@ law"
    "name": "W. Steven (Steve) Jones",
    "university": "University of North Carolina",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": false,
    "indices": [
     "r1bschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 49,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Suncorp-Metway"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "sector": "Industry",
+     "firm": "Suncorp-Metway",
+     "role": "CEO",
+     "seniority": "executive",
+     "endYear": 2003,
+     "source": "priorInstitution",
+     "score": 49
+    }
    ],
    "flags": [
     "hasConsultingBg",
@@ -231701,15 +232109,32 @@ law"
    "name": "Zena Weist",
    "university": "Ave Maria University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "CommunityAmerica Credit Union"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "sector": "Industry",
+     "firm": "CommunityAmerica Credit Union",
+     "role": "Director of Digital Marketing",
+     "seniority": "senior",
+     "endYear": 2025,
+     "source": "priorInstitution",
+     "score": 57
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"

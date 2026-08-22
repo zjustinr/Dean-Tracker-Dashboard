@@ -186,15 +186,19 @@ const NONPROFIT = stems([
   "jackson laboratory", "scripps research", "national renewable energy",
   "southwest research", "fermi lab", "lawrence (?:berkeley|livermore|national)",
   "oak ridge", "sandia national", "argonne national", "brookhaven national",
+  "dana[- ]farber",
   // Environmental and advocacy nonprofits
   "environmental (?:defense|fund)", "trust for public land", "resources for the future",
   // Education nonprofits and research organizations
   "southern regional education", "ruffalo noel levitz", "ecsi\\b",
+  "world learning", "synergis education", "duke corporate education",
   // Arts and cultural organizations
   "symphony orchestra", "opera company", "theater", "arts center", "arts council",
   "mark taper", "american ibsen", "san diego opera", "toronto symphony",
+  "lighthouse (?:catholic|media)", "people concern", "philabund",
   // Other nonprofits from corpus
   "center for the homeless", "civic education", "children international",
+  "communication service for the deaf", "deaf services", "disabled people",
 ]);
 // A hospital or health system is its own thing: often nonprofit, frequently
 // university-affiliated, and in the nursing / medical / pharmacy indices it is
@@ -231,6 +235,8 @@ const INDUSTRY = [
     "towers watson", "willis towers", "gartner", "forrester", "management consult",
     "strategy consult", "consultancy", "consulting (?:group|firm|services|llc|inc|partners)",
     "bentz whaley flessner", "ccs fundraising", "grenzebach glier", "marts ?(?:&|and) ?lundy",
+    // Additional consultants from corpus
+    "andersen consulting", "duke corporate", "world learning",
   ])],
   ["Financial Services", stems([
     "goldman sachs", "morgan stanley", "j\\.?p\\.? ?morgan", "jpmorgan", "chase manhattan",
@@ -246,6 +252,9 @@ const INDUSTRY = [
     "wealth management", "bank\\b", "banking", "capital (?:partners|management|group|markets)",
     "equity (?:partners|firm)", "securities", "brokerage", "insurance (?:company|group|co\\b)",
     "actuarial", "trust company", "westpac",
+    // Additional financial services from corpus
+    "scudder kemper", "encova", "credit union", "title (?:company|insurance)",
+    "chicago title", "community america",
   ])],
   ["Technology", stems([
     "google", "alphabet inc", "microsoft", "amazon(?:\\.com| web services)?\\b",
@@ -295,6 +304,8 @@ const INDUSTRY = [
     "darden restaurants", "sodexo", "aramark", "compass group", "marriott",
     "hilton (?:worldwide|hotels)", "hyatt", "delta air", "united airlines",
     "american airlines", "southwest airlines", "fedex", "ups\\b", "united parcel",
+    // Additional retailers from corpus
+    "toys r us", "suncorp", "hunt consolidated", "forest city",
   ])],
   ["Media & Entertainment", stems([
     "walt disney", "disney\\b", "warner (?:bros|media|communications)", "time warner",
@@ -306,6 +317,8 @@ const INDUSTRY = [
     "mcgraw[- ]hill", "pearson (?:plc|education)", "houghton mifflin", "wiley\\b",
     "elsevier", "springer nature", "publishing (?:company|house|group)",
     "advertising agency", "ogilvy", "wpp\\b", "omnicom",
+    // Additional media from corpus
+    "pbs\\b", "hollywood reporter", "scientific american", "cox communications",
   ])],
   ["Law (private practice)", stems([
     "llp\\b", "law firm", "pllc\\b", "p\\.c\\.\\b", "p\\.c\\.\\s", "attorney", "counsel\\b",
