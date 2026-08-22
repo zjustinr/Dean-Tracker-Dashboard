@@ -1,5 +1,5 @@
 /**
- * Community-college ETL: pilot research JSON -> r1-communitycollege-deans.json
+ * Community-college ETL: pilot + wave-2 research JSON -> r1-communitycollege-deans.json
  * on the standard 54-key leadership schema.
  *
  *   node research/etl-cc.mjs [--dry-run]
@@ -8,9 +8,9 @@
  * -----------------------
  * The generic ETL hardcodes absolute Windows paths for its input and output
  * directories, so it cannot run here. This one reads
- * `universe/cc-pilot-results.json` and writes into the app's data directory
- * directly. It carries forward the same rules that ETL established, plus the
- * two this index needs.
+ * `universe/cc-pilot-results.json` and `universe/cc-wave2-results.json`, and
+ * writes into the app's data directory directly. It carries forward the same
+ * rules that ETL established, plus the two this index needs.
  *
  * RULES CARRIED FORWARD
  * ---------------------
@@ -26,18 +26,21 @@
  *    comparing historyFrom against a founding year. Every row in the schools
  *    table has `founded: null`, so the generic derivation would return false
  *    everywhere and the index would claim complete history for every seat while
- *    holding at most four spells. 18 of the 20 pilot seats have more history
- *    than was traced; that has to be visible.
+ *    holding at most four spells. Most researched seats have more history than
+ *    was traced (the pilot: 18 of 20; wave 2 found the same pattern at scale);
+ *    that has to be visible.
  *  - The join key is name + state, never the bare name. Seven college names are
  *    shared across two states, and the schools table suffixes those with `(ST)`
  *    while the research data carries the plain IPEDS name.
  *
  * THE ROSTER PASS
  * ---------------
- * The pilot traced 20 seats. Shipping only those meant the index showed 20
- * sitting leaders against 1,101 seats, because the app reads sitting leaders
- * from the deans file and nothing reads the schools table's
- * `leaderNameUnverified`. That conflated two things with very different costs:
+ * The pilot traced 20 seats; wave 2 traced 183 more (the remainder of the
+ * 200-college research universe, minus 3 pilot seats picked outside it), 203
+ * combined. Shipping only those meant the index showed 20 (then 203) sitting
+ * leaders against 1,101 seats, because the app reads sitting leaders from the
+ * deans file and nothing reads the schools table's `leaderNameUnverified`.
+ * That conflated two things with very different costs:
  * the appointment HISTORY is a per-seat research wave, but the CURRENT
  * officeholder is already known for every college -- IPEDS names one for all
  * 1,077 of them, at no research cost. Gating the roster behind the history wave
@@ -57,12 +60,16 @@
  *    twenty IPEDS names stale or wrong in kind, a 25% error rate on the field.
  *    118 of the top 200 are independently confirmed; the rest are IPEDS's word
  *    alone and are labelled as such rather than presented as fact.
- *  - Pilot records always win. A seat the pilot traced never gets a roster
- *    record -- the pilot is what CAUGHT the stale IPEDS names.
+ *  - Researched records always win. A seat the pilot or wave 2 traced never
+ *    gets a roster record -- traced research is what CAUGHT the stale IPEDS
+ *    names (wave 2 found the same pattern: roughly a fifth of its 183 IPEDS
+ *    names were stale, mostly recent transitions IPEDS's fall-2024 snapshot
+ *    predates).
  *
  * The 24 district chancellorships get nothing here: districts are not IPEDS
- * reporting units, so there is no name to carry. Three were researched in the
- * pilot; the other 21 need research, and showing them empty is the honest state.
+ * reporting units, so there is no name to carry. A handful were researched in
+ * the pilot and wave 2; the rest need research, and showing them empty is the
+ * honest state.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -73,6 +80,12 @@ const DATA = join(HERE, "..", "artifacts", "dean-dashboard", "src", "data");
 const DRY = process.argv.includes("--dry-run");
 
 const pilot = JSON.parse(readFileSync(join(HERE, "universe", "cc-pilot-results.json"), "utf8"));
+// Wave 2: the 183 remaining seats of the 200-college research universe (the
+// pilot's 20 plus these is the full 200). Same schema and rules as the pilot;
+// kept as a separate file rather than merged into cc-pilot-results.json so
+// each wave's provenance stays inspectable on its own.
+const wave2 = JSON.parse(readFileSync(join(HERE, "universe", "cc-wave2-results.json"), "utf8"));
+const researchedSeats = [...pilot.seats, ...wave2.seats];
 const schools = JSON.parse(readFileSync(join(DATA, "r1-communitycollege-schools.json"), "utf8"));
 const verification = JSON.parse(readFileSync(join(HERE, "universe", "cc-leader-verification.json"), "utf8"));
 const census = JSON.parse(readFileSync(join(HERE, "universe", "universe_communitycollege_all.json"), "utf8"));
@@ -152,7 +165,7 @@ const out = [];
 const missingSchool = [];
 let id = 1;
 
-for (const seat of pilot.seats) {
+for (const seat of researchedSeats) {
   const key = `${seat.university}|${seat.state}`;
   const school = schoolOf.get(key);
   if (!school) missingSchool.push(key);
@@ -237,7 +250,7 @@ for (const seat of pilot.seats) {
 // --- roster pass -----------------------------------------------------------
 // One sitting record per seat that has an IPEDS name and no traced history.
 // See THE ROSTER PASS in the header for why these are not spells.
-const tracedSeats = new Set(pilot.seats.map((seat) => `${seat.university}|${seat.state}`));
+const tracedSeats = new Set(researchedSeats.map((seat) => `${seat.university}|${seat.state}`));
 let rosterAdded = 0;
 let rosterConfirmed = 0;
 
@@ -328,7 +341,7 @@ if (!DRY) {
 }
 
 const seated = schools.filter((s) => s.spellsTraced).length;
-console.error(`${DRY ? "[dry-run] " : ""}${out.length} records across ${pilot.seats.length} seats`);
+console.error(`${DRY ? "[dry-run] " : ""}${out.length} records across ${researchedSeats.length} seats`);
 console.error(`  interim: ${out.filter((r) => r.isInterim).length} | convertedToPermanent: ${out.filter((r) => r.convertedToPermanent).length}`);
 console.error(`  origin: ${JSON.stringify(out.reduce((a, r) => ((a[r.origin] = (a[r.origin] || 0) + 1), a), {}))}`);
 console.error(`  sitting (endYear null): ${out.filter((r) => r.endYear == null).length}`);
