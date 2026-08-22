@@ -30,14 +30,14 @@
   "Healthcare Providers"
  ],
  "counts": {
-  "people": 28252,
-  "yes": 1995,
-  "no": 11556,
-  "unknown": 14701,
-  "namedFirm": 1580,
+  "people": 28327,
+  "yes": 1997,
+  "no": 11623,
+  "unknown": 14707,
+  "namedFirm": 1582,
   "flagOnly": 415,
-  "firms": 1592,
-  "sittingWithTie": 965,
+  "firms": 1593,
+  "sittingWithTie": 966,
   "sittingSeniorTie": 528,
   "researched": 788
  },
@@ -1907,6 +1907,20 @@
     "Academic"
    ]
   },
+  "adrian gonzales|palomar college": {
+   "name": "Adrian Gonzales",
+   "university": "Palomar College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "adrian j. durant|university of missouri": {
    "name": "Adrian J. Durant",
    "university": "University of Missouri",
@@ -1974,6 +1988,20 @@
     "r1arts"
    ],
    "stops": 2,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "adriana d. barrera|los angeles community college district": {
+   "name": "Adriana D. Barrera",
+   "university": "Los Angeles Community College District",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
    "sectors": [
     "Academic"
    ]
@@ -3460,6 +3488,34 @@
     "r1provost"
    ],
    "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "alberto j. roman|east los angeles college": {
+   "name": "Alberto J. Roman",
+   "university": "East Los Angeles College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 2,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "alberto j. román|los angeles community college district": {
+   "name": "Alberto J. Román",
+   "university": "Los Angeles Community College District",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 2,
    "sectors": [
     "Academic"
    ]
@@ -6446,6 +6502,20 @@
     "Academic"
    ]
   },
+  "amanda k. lee|cape fear community college": {
+   "name": "Amanda K. Lee",
+   "university": "Cape Fear Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "amanda klemmer|university of maine": {
    "name": "Amanda Klemmer",
    "university": "University of Maine",
@@ -9322,6 +9392,20 @@
    "indices": [
     "r1eschool",
     "r1provost"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "andreas paloumpis|hillsborough community college": {
+   "name": "Andreas Paloumpis",
+   "university": "Hillsborough Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -12566,6 +12650,20 @@
     "Academic"
    ]
   },
+  "ann-marie gabel|long beach city college": {
+   "name": "Ann-Marie Gabel",
+   "university": "Long Beach City College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "anna ball|university of illinois urbana-champaign": {
    "name": "Anna Ball",
    "university": "University of Illinois Urbana-Champaign",
@@ -13957,6 +14055,20 @@
    "sitting": true,
    "indices": [
     "usadminleaders"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "anthony g. \"tony\" kinkel|pikes peak state college": {
+   "name": "Anthony G. \"Tony\" Kinkel",
+   "university": "Pikes Peak State College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -27301,6 +27413,20 @@
     "hasIndustryExp (existing)"
    ]
   },
+  "bruce h. leslie|alamo colleges district": {
+   "name": "Bruce H. Leslie",
+   "university": "Alamo Colleges District",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "bruce hunter|university of utah": {
    "name": "Bruce Hunter",
    "university": "University of Utah",
@@ -32500,6 +32626,20 @@
     "Academic"
    ]
   },
+  "cesar maldonado|houston community college": {
+   "name": "Cesar Maldonado",
+   "university": "Houston Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "chad autry|university of tennessee": {
    "name": "Chad Autry",
    "university": "University of Tennessee",
@@ -36666,6 +36806,20 @@
     "Academic"
    ]
   },
+  "christina royal|connecticut state community college": {
+   "name": "Christina Royal",
+   "university": "Connecticut State Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "christina wilson-frank|purdue university": {
    "name": "Christina Wilson-Frank",
    "university": "Purdue University",
@@ -38711,6 +38865,20 @@
     "Academic"
    ]
   },
+  "chui l. tsang|santa monica college": {
+   "name": "Chui L. Tsang",
+   "university": "Santa Monica College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "cimone campbell|oregon health & science university–portland state university": {
    "name": "Cimone Campbell",
    "university": "Oregon Health & Science University–Portland State University",
@@ -39851,6 +40019,20 @@
    "sitting": false,
    "indices": [
     "r1university"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "clyne namuo|phoenix college": {
+   "name": "Clyne Namuo",
+   "university": "Phoenix College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -42606,6 +42788,20 @@
     "hasConsultingBg",
     "hasIndustryExp (existing)",
     "careerBackground: Industry"
+   ]
+  },
+  "cynthia olivo|fullerton college": {
+   "name": "Cynthia Olivo",
+   "university": "Fullerton College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
    ]
   },
   "cynthia saunders-cheatham|cornell university": {
@@ -45479,6 +45675,20 @@
     "Academic"
    ]
   },
+  "daniel w. lufkin|harrisburg area community college": {
+   "name": "Daniel W. Lufkin",
+   "university": "Harrisburg Area Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "daniel w. pullin|texas christian university": {
    "name": "Daniel W. Pullin",
    "university": "Texas Christian University",
@@ -48210,6 +48420,20 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-19",
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "david c. plummer|south texas college": {
+   "name": "David C. Plummer",
+   "university": "South Texas College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
    "stops": 1,
    "sectors": [
     "Academic"
@@ -60524,6 +60748,20 @@
     "Academic"
    ]
   },
+  "edna v. baehre-kolovani|tidewater community college": {
+   "name": "Edna V. Baehre-Kolovani",
+   "university": "Tidewater Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "edoabasi mcgee|philadelphia college of osteopathic medicine": {
    "name": "Edoabasi McGee",
    "university": "Philadelphia College of Osteopathic Medicine",
@@ -61198,6 +61436,20 @@
      "source": "priorInstitution",
      "score": 26
     }
+   ]
+  },
+  "edwin ray|pikes peak state college": {
+   "name": "Edwin Ray",
+   "university": "Pikes Peak State College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
    ]
   },
   "efraín gonzález tejera|university of puerto rico at río piedras": {
@@ -68572,6 +68824,20 @@
     "Academic"
    ]
   },
+  "francisco c. rodriguez|los angeles community college district": {
+   "name": "Francisco C. Rodriguez",
+   "university": "Los Angeles Community College District",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "francisco cigarroa|university of texas at san antonio": {
    "name": "Francisco Cigarroa",
    "university": "University of Texas at San Antonio",
@@ -72473,6 +72739,20 @@
     "careerBackground: Finance/CFO; JD, LLM taxation, Army veteran"
    ]
   },
+  "gerald i. lamkin|ivy tech community college": {
+   "name": "Gerald I. Lamkin",
+   "university": "Ivy Tech Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "gerald intemann|indiana university of pennsylvania": {
    "name": "Gerald Intemann",
    "university": "Indiana University of Pennsylvania",
@@ -72899,6 +73179,20 @@
    "sitting": false,
    "indices": [
     "usr2"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "gilbert j. contreras|fullerton college": {
+   "name": "Gilbert J. Contreras",
+   "university": "Fullerton College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -74741,6 +75035,20 @@
     "Academic"
    ]
   },
+  "greg schulz|fullerton college": {
+   "name": "Greg Schulz",
+   "university": "Fullerton College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 2,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "greg watts|cleveland institute of art": {
    "name": "Greg Watts",
    "university": "Cleveland Institute of Art",
@@ -75520,6 +75828,20 @@
     "Academic"
    ]
   },
+  "gregory t. decinque|tidewater community college": {
+   "name": "Gregory T. DeCinque",
+   "university": "Tidewater Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "gregory w. gray|connecticut state colleges and universities": {
    "name": "Gregory W. Gray",
    "university": "Connecticut State Colleges and Universities",
@@ -76039,6 +76361,20 @@
     "useducation"
    ],
    "stops": 2,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "gwendolyn w. stephenson|hillsborough community college": {
+   "name": "Gwendolyn W. Stephenson",
+   "university": "Hillsborough Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
    "sectors": [
     "Academic"
    ]
@@ -77962,6 +78298,20 @@
    "sitting": true,
    "indices": [
     "usadminleaders"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "heather kruse|phoenix college": {
+   "name": "Heather Kruse",
+   "university": "Phoenix College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -82837,6 +83187,20 @@
    "sitting": false,
    "indices": [
     "usvet"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "jack kahn|palomar college": {
+   "name": "Jack Kahn",
+   "university": "Palomar College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -91932,6 +92296,20 @@
     "Unclassified"
    ]
   },
+  "jeff shimizu|santa monica college": {
+   "name": "Jeff Shimizu",
+   "university": "Santa Monica College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "jeff snow|augusta university": {
    "name": "Jeff Snow",
    "university": "Augusta University",
@@ -98581,6 +98959,20 @@
     "careerBackground: Finance and Treasury"
    ]
   },
+  "jim morton|cape fear community college": {
+   "name": "Jim Morton",
+   "university": "Cape Fear Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "jim o'connor|auburn university": {
    "name": "Jim O'Connor",
    "university": "Auburn University",
@@ -103675,6 +104067,20 @@
     "Academic"
    ]
   },
+  "john j. \"ski\" sygielski|harrisburg area community college": {
+   "name": "John J. \"Ski\" Sygielski",
+   "university": "Harrisburg Area Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "john j. cecero, s.j.|fordham university": {
    "name": "John J. Cecero, S.J.",
    "university": "Fordham University",
@@ -106517,6 +106923,20 @@
    "indices": [
     "usadminleaders",
     "usr2"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "joi lin blake|palomar college": {
+   "name": "Joi Lin Blake",
+   "university": "Palomar College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -116363,6 +116783,20 @@
     }
    ]
   },
+  "kathryn e. jeffery|santa monica college": {
+   "name": "Kathryn E. Jeffery",
+   "university": "Santa Monica College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "kathryn graddy|brandeis university": {
    "name": "Kathryn Graddy",
    "university": "Brandeis University",
@@ -119692,6 +120126,20 @@
     "Academic"
    ]
   },
+  "ken atwater|hillsborough community college": {
+   "name": "Ken Atwater",
+   "university": "Hillsborough Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "ken cornell|seattle pacific university": {
    "name": "Ken Cornell",
    "university": "Seattle Pacific University",
@@ -121078,6 +121526,20 @@
      "source": "priorInstitution",
      "score": 22
     }
+   ]
+  },
+  "kerry a. kelley|connecticut state community college": {
+   "name": "Kerry A. Kelley",
+   "university": "Connecticut State Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
    ]
   },
   "kerry abrams|duke university": {
@@ -123510,6 +123972,34 @@
    "sitting": false,
    "indices": [
     "uslac"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "kimberly britt|mesa community college": {
+   "name": "Kimberly Britt",
+   "university": "Mesa Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "kimberly britt|phoenix college": {
+   "name": "Kimberly Britt",
+   "university": "Phoenix College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -127191,6 +127681,20 @@
     "Academic"
    ]
   },
+  "lance f. bolton|pikes peak state college": {
+   "name": "Lance F. Bolton",
+   "university": "Pikes Peak State College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "lance gable|wayne state university": {
    "name": "Lance Gable",
    "university": "Wayne State University",
@@ -127553,6 +128057,20 @@
     "uspharmacy"
    ],
    "stops": 3,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "larry d. johnson jr.|phoenix college": {
+   "name": "Larry D. Johnson Jr.",
+   "university": "Phoenix College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
    "sectors": [
     "Academic"
    ]
@@ -135691,6 +136209,20 @@
     "Academic"
    ]
   },
+  "lori m. berquam|mesa community college": {
+   "name": "Lori M. Berquam",
+   "university": "Mesa Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "lori mann bruce|the university of tennessee-chattanooga": {
    "name": "Lori Mann Bruce",
    "university": "The University of Tennessee-Chattanooga",
@@ -136093,6 +136625,20 @@
    "sitting": false,
    "indices": [
     "usnursing"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "lou anne bynum|long beach city college": {
+   "name": "Lou Anne Bynum",
+   "university": "Long Beach City College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -139432,6 +139978,20 @@
     }
    ]
   },
+  "marcia conston|tidewater community college": {
+   "name": "Marcia Conston",
+   "university": "Tidewater Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "marcia sakai|university of hawaii at hilo": {
    "name": "Marcia Sakai",
    "university": "University of Hawaii at Hilo",
@@ -139999,6 +140559,20 @@
     "Academic"
    ]
   },
+  "margaret ford fisher|houston community college": {
+   "name": "Margaret Ford Fisher",
+   "university": "Houston Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "margaret harkins|holy family university": {
    "name": "Margaret Harkins",
    "university": "Holy Family University",
@@ -140374,6 +140948,20 @@
    "sitting": false,
    "indices": [
     "usr2"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "maria harper-marinick|maricopa county community college district": {
+   "name": "Maria Harper-Marinick",
+   "university": "Maricopa County Community College District",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -144005,6 +144593,20 @@
     "Academic"
    ]
   },
+  "marsha gable|san diego miramar college": {
+   "name": "Marsha Gable",
+   "university": "San Diego Miramar College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "marsha hartline|florida state university": {
    "name": "Marsha Hartline",
    "university": "Florida State University",
@@ -144444,6 +145046,37 @@
    ],
    "flags": [
     "hasIndustryExp (existing)"
+   ]
+  },
+  "martin \"marty\" pollio|ivy tech community college": {
+   "name": "Martin \"Marty\" Pollio",
+   "university": "Ivy Tech Community College",
+   "status": "yes",
+   "confidence": "high",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "score": 43,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Jefferson County Public Schools (Louisville, KY)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "sector": "Government",
+     "firm": "Jefferson County Public Schools (Louisville, KY)",
+     "role": "Superintendent",
+     "seniority": "unknown",
+     "endYear": 2025,
+     "source": "priorInstitution",
+     "score": 43
+    }
    ]
   },
   "martin a. schmidt|rensselaer polytechnic institute": {
@@ -144962,6 +145595,20 @@
    "sitting": false,
    "indices": [
     "r1university"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "marvin martinez|east los angeles college": {
+   "name": "Marvin Martinez",
+   "university": "East Los Angeles College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -157487,6 +158134,20 @@
     }
    ]
   },
+  "mike muñoz|long beach city college": {
+   "name": "Mike Muñoz",
+   "university": "Long Beach City College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "mike pede|university of houston": {
    "name": "Mike Pede",
    "university": "University of Houston",
@@ -159136,6 +159797,20 @@
      "source": "priorInstitution",
      "score": 28
     }
+   ]
+  },
+  "monte e. perez|east los angeles college": {
+   "name": "Monte E. Perez",
+   "university": "East Los Angeles College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 2,
+   "sectors": [
+    "Academic"
    ]
   },
   "monte smith|university of nevada las vegas": {
@@ -164201,6 +164876,20 @@
     "Academic"
    ]
   },
+  "o. john maduko|connecticut state community college": {
+   "name": "O. John Maduko",
+   "university": "Connecticut State Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "o. richard (rich) bundy iii|university of cincinnati": {
    "name": "O. Richard (Rich) Bundy III",
    "university": "University of Cincinnati",
@@ -164947,6 +165636,20 @@
    "indices": [
     "usadminleaders",
     "r1university"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "p. wesley lundburg|san diego miramar college": {
+   "name": "P. Wesley Lundburg",
+   "university": "San Diego Miramar College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -166092,6 +166795,20 @@
    "evidence": "research",
    "researchedOn": "2026-08-20",
    "stops": 3,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "patricia hsieh|san diego miramar college": {
+   "name": "Patricia Hsieh",
+   "university": "San Diego Miramar College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
    "sectors": [
     "Academic"
    ]
@@ -170004,6 +170721,20 @@
     "Academic"
    ]
   },
+  "peter a. spina|tidewater community college": {
+   "name": "Peter A. Spina",
+   "university": "Tidewater Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "peter a. vanable|syracuse university": {
    "name": "Peter A. Vanable",
    "university": "Syracuse University",
@@ -172813,6 +173544,20 @@
     "Unclassified"
    ]
   },
+  "r. michael \"mike\" flores|alamo colleges district": {
+   "name": "R. Michael \"Mike\" Flores",
+   "university": "Alamo Colleges District",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "r. michael burger|lehigh university": {
    "name": "R. Michael Burger",
    "university": "Lehigh University",
@@ -174162,6 +174907,20 @@
     "Academic"
    ]
   },
+  "rajen vurdien|fullerton college": {
+   "name": "Rajen Vurdien",
+   "university": "Fullerton College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "rajesh \"robby\" gulati|university of california riverside": {
    "name": "Rajesh \"Robby\" Gulati",
    "university": "University of California Riverside",
@@ -175139,6 +175898,20 @@
     "Unclassified"
    ]
   },
+  "raul rodriguez|east los angeles college": {
+   "name": "Raul Rodriguez",
+   "university": "East Los Angeles College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "ravi kuber|university of maryland baltimore county": {
    "name": "Ravi Kuber",
    "university": "University of Maryland Baltimore County",
@@ -175757,6 +176530,20 @@
      "source": "priorInstitution",
      "score": 42
     }
+   ]
+  },
+  "reagan f. romali|long beach city college": {
+   "name": "Reagan F. Romali",
+   "university": "Long Beach City College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
    ]
   },
   "reb braddock|florida state university": {
@@ -177061,6 +177848,20 @@
    "indices": [
     "usadminleaders",
     "r1university"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "renee byas|houston community college": {
+   "name": "Renee Byas",
+   "university": "Houston Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -178407,6 +179208,20 @@
     "Academic"
    ]
   },
+  "ricardo j. solis|south texas college": {
+   "name": "Ricardo J. Solis",
+   "university": "South Texas College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "riccardo bevilacqua|embry-riddle aeronautical university": {
    "name": "Riccardo Bevilacqua",
    "university": "Embry-Riddle Aeronautical University",
@@ -179318,6 +180133,20 @@
    "sitting": false,
    "indices": [
     "r1eschool"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "richard j. daniel|mesa community college": {
+   "name": "Richard J. Daniel",
+   "university": "Mesa Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -187041,6 +187870,20 @@
     "Academic"
    ]
   },
+  "ronald r. young|harrisburg area community college": {
+   "name": "Ronald R. Young",
+   "university": "Harrisburg Area Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "ronald s. rochon|california state university, fullerton": {
    "name": "Ronald S. Rochon",
    "university": "California State University, Fullerton",
@@ -188279,6 +189122,20 @@
    "sitting": false,
    "indices": [
     "usag"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "rufus glasper|maricopa county community college district": {
+   "name": "Rufus Glasper",
+   "university": "Maricopa County Community College District",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
@@ -200565,6 +201422,20 @@
     "Academic"
    ]
   },
+  "star rivera-lacey|palomar college": {
+   "name": "Star Rivera-Lacey",
+   "university": "Palomar College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "starr marcello|university of chicago": {
    "name": "Starr Marcello",
    "university": "University of Chicago",
@@ -203245,6 +204116,20 @@
     "Academic"
    ]
   },
+  "steven bloomberg|maricopa county community college district": {
+   "name": "Steven Bloomberg",
+   "university": "Maricopa County Community College District",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "steven bullard|mississippi state university": {
    "name": "Steven Bullard",
    "university": "Mississippi State University",
@@ -203918,6 +204803,20 @@
     "Academic"
    ]
   },
+  "steven r. gonzales|maricopa county community college district": {
+   "name": "Steven R. Gonzales",
+   "university": "Maricopa County Community College District",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 2,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "steven r. myszak|purdue university": {
    "name": "Steven R. Myszak",
    "university": "Purdue University",
@@ -204579,6 +205478,37 @@
    "stops": 1,
    "sectors": [
     "Academic"
+   ]
+  },
+  "sue ellspermann|ivy tech community college": {
+   "name": "Sue Ellspermann",
+   "university": "Ivy Tech Community College",
+   "status": "yes",
+   "confidence": "high",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "score": 36,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "State of Indiana"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "sector": "Government",
+     "firm": "State of Indiana",
+     "role": "Lieutenant Governor of Indiana",
+     "seniority": "unknown",
+     "endYear": 2016,
+     "source": "priorInstitution",
+     "score": 36
+    }
    ]
   },
   "sue halulko|bethany college": {
@@ -208029,6 +208959,20 @@
     "Academic"
    ]
   },
+  "tammy robinson|mesa community college": {
+   "name": "Tammy Robinson",
+   "university": "Mesa Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "tammy samuels|university of north carolina": {
    "name": "Tammy Samuels",
    "university": "University of North Carolina",
@@ -208936,6 +209880,20 @@
      "source": "priorInstitution",
      "score": 18
     }
+   ]
+  },
+  "ted spring|cape fear community college": {
+   "name": "Ted Spring",
+   "university": "Cape Fear Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
    ]
   },
   "tedd l. mitchell|texas tech university health sciences center": {
@@ -211143,6 +212101,20 @@
     "Academic"
    ]
   },
+  "thomas j. donner|santa monica college": {
+   "name": "Thomas J. Donner",
+   "university": "Santa Monica College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "thomas j. elzey|south carolina state university": {
    "name": "Thomas J. Elzey",
    "university": "South Carolina State University",
@@ -211253,6 +212225,20 @@
    "stops": 1,
    "sectors": [
     "Academic"
+   ]
+  },
+  "thomas j. snyder|ivy tech community college": {
+   "name": "Thomas J. Snyder",
+   "university": "Ivy Tech Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 2,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "thomas j. steenburgh|vanderbilt university": {
@@ -213703,6 +214689,20 @@
    "sitting": false,
    "indices": [
     "usr2"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "tina recalde|palomar college": {
+   "name": "Tina Recalde",
+   "university": "Palomar College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
