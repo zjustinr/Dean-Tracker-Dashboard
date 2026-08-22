@@ -11,6 +11,13 @@ import LiveJobMarket from "@/components/LiveJobMarket";
 // (see DEFAULT_TABS below) so restoring it later is a one-line uncomment.
 import DisciplineSearch from "@/components/DisciplineSearch";
 import ScoutAssistantPage from "@/components/ScoutAssistantPage";
+// Non-academic Experience has no module card: the signal belongs in candidate
+// research, not in a browsing surface of its own. It reaches users through the
+// always-present row on DeanProfile and the "Non-academic tie" filter in Slate
+// Builder and Scout Assistant. The component and its tab-content entry stay put
+// so restoring the standalone view is a one-line uncomment, exactly as with
+// Discipline Search above.
+import NonAcademicExperience from "@/components/NonAcademicExperience";
 import Insights from "@/components/Insights";
 import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/FreeTierMeter";
 import ConsentGate from "@/components/ConsentGate";
@@ -22,7 +29,6 @@ import ModuleIcon from "@/components/ModuleIcons";
 import { animateScrollIntoView } from "@/lib/utils";
 import { DatasetProvider, useDataset } from "@/data/DatasetContext";
 import { TrialProvider, useTrial } from "@/data/TrialContext";
-import { DATASET_LIST } from "@/data/datasets";
 import corpusStats from "@/data/corpus-stats.json";
 
 // Build timestamp, injected by vite.config.ts. Reflects when the site was last
@@ -32,15 +38,25 @@ const BUILT_ON = __BUILT_ON__;
 
 // Corpus-wide totals for the header strip. Step 2 moved the dean records out of
 // the bundle, so these are precomputed by scripts/gen-public-data.ts (re-run on
-// every data refresh) rather than tallied from the datasets at load. Counts only
-// DATASET_LIST — excludes hidden Top-100 (a strict subset of R1 B-school) — and
-// dedupes on (dean, university, school, startYear).
-const CORPUS = corpusStats as { appts: number; sitting: number; schools: number; from: number };
+// every data refresh) rather than tallied from the datasets at load.
+//
+// Counts CORPUS_IDS (lib/dataset-assembly.mjs): every index the repository
+// holds, excluding hidden Top-100, which is a strict subset of R1 B-school.
+// It used to count VISIBLE, which is the news cron's coverage list, so the
+// header silently omitted Administrative and Community College. Dedupes on
+// (dean, university, school, startYear).
+//
+// `indices` comes from the same tally rather than DATASET_LIST.length, so all
+// four figures describe one corpus. It is therefore the number of indices HELD
+// (21), not the number in the switcher (20) -- University Systems is held but
+// deliberately unlisted.
+const CORPUS = corpusStats as { appts: number; sitting: number; roster: number; schools: number; indices: number; from: number };
 
 interface TabDef {
   value: string;
   label: string;
   desc: string;
+  badge?: string;
 }
 
 // Descriptions deliberately say "leader" rather than "dean": the app spans deans,
@@ -50,14 +66,17 @@ interface TabDef {
 // Individual Search leads: it is the flagship view, so it takes the top-left
 // slot (the most prominent by reading order) and is the default open tab.
 const DEFAULT_TABS: TabDef[] = [
-  { value: "search", label: "Slate Builder", desc: "Filter sitting leaders by school, discipline, or tenure — then assemble a shortlist and open any profile." },
-  { value: "scout", label: "Scout Assistant", desc: "Adjustable-stringency candidate scouting for a specific opening — from our tightest combined model down to the full eligible pool." },
+  { value: "search", label: "Slate Builder", desc: "Filter sitting leaders by school, discipline, or tenure — then assemble a shortlist and open any profile.", badge: "Start here" },
+  { value: "scout", label: "Scout Assistant", desc: "Adjustable-stringency candidate scouting for a specific opening — from our tightest combined model down to the full eligible pool.", badge: "For a specific school" },
   { value: "explorer", label: "School Explorer", desc: "Browse leader histories by school with interactive tenure timelines and list/map views." },
   { value: "trends", label: "Aggregate Trends", desc: "Analyze leadership trends across eras, tiers, and demographics — including interim appointments." },
   // Temporarily hidden to make room for Scout Assistant above -- re-add this
   // entry to bring it back (DisciplineSearch/buildTabContent are untouched).
   // { value: "discipline", label: "Discipline Search", desc: "Map leader disciplines by school and watch their composition evolve over time." },
   { value: "jobmarket", label: "Leadership News & Market", desc: "Stay updated with the latest leadership news and market activity." },
+  // Retired from the grid -- see the import comment. Re-add this entry to bring
+  // the standalone ranked view back.
+  // { value: "nonacademic", label: "Non-academic Experience", desc: "Leaders who have worked outside the academy — company, government, nonprofit, foundation or health system — ranked by seniority, recency, and whether the tie is employment, a board seat, or advisory." },
   { value: "analysis", label: "Build Your Own Analysis", desc: "Create custom cross-tabulations with pivot tables and dynamic charts." },
 ];
 
@@ -76,6 +95,7 @@ function buildTabContent(
     search: <IndividualSearch prefill={deanPrefill} onOpenSchool={onOpenSchool} onOpenLeader={onOpenLeader} />,
     scout: <ScoutAssistantPage onOpenSchool={onOpenSchool} />,
     jobmarket: <LiveJobMarket />,
+    nonacademic: <NonAcademicExperience onOpenLeader={onOpenLeader} />,
     discipline: <DisciplineSearch />,
   };
 }
@@ -204,7 +224,7 @@ function AppInner() {
                 <span className="mx-1.5 text-border">|</span>
                 <span className="font-semibold text-foreground">{CORPUS.schools.toLocaleString()}</span> schools
                 <span className="mx-1.5 text-border">|</span>
-                <span className="font-semibold text-foreground">{DATASET_LIST.length}</span> indices
+                <span className="font-semibold text-foreground">{CORPUS.indices}</span> indices
                 <span className="mx-1.5 text-border">|</span>
                 {CORPUS.from}&ndash;2026
                 <span className="mx-1.5 text-border">|</span>
@@ -291,11 +311,11 @@ function AppInner() {
             </div>
 
             {/* items-stretch on desktop so the module grid and the Meet-a-Leader panel
-                end flush; grid-rows-3 lets the six cards share that height evenly
-                rather than hugging their text. */}
+                end flush; grid-rows-4 lets the seven cards share that height evenly
+                rather than hugging their text (the eighth cell stays empty). */}
             <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-stretch">
             <div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-3 gap-4 flex-1 w-full"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-4 gap-4 flex-1 w-full"
               role="tablist"
             >
               {tabs.map((tab) => {
@@ -322,11 +342,11 @@ function AppInner() {
                     <span className="flex items-center gap-2">
                       <ModuleIcon id={tab.value} className={isActive ? "text-white/90" : "text-[#011F5B]"} />
                       <span className="text-sm font-semibold">{relabel(tab.label)}</span>
-                      {isFeatured && (
+                      {tab.badge && (
                         <span className={[
                           "text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded",
                           isActive ? "bg-white/20 text-white" : "bg-[#011F5B] text-white",
-                        ].join(" ")}>Start here</span>
+                        ].join(" ")}>{tab.badge}</span>
                       )}
                     </span>
                     <span className={[

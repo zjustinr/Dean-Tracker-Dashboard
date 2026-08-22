@@ -1,0 +1,1583 @@
+{
+ "generated": "pilot wave, 21 Aug 2026",
+ "depthRule": "current + 3 predecessors (4 spells); several seats exceeded it where an interim split a chain",
+ "measured": {
+  "seats": 20,
+  "spells": 85,
+  "tokensTotal": 536740,
+  "tokensPerSeat": 26837,
+  "tokensPerSpell": 6315,
+  "toolCalls": 288
+ },
+ "note": "Batch-level token counts are MEASURED; the per-seat estTokens in each row is modelled by splitting batch tokens in proportion to sourcesConsulted. Treat per-seat figures as estimates and batch totals as fact.",
+ "seats": [
+  {
+   "university": "Los Angeles Community College District",
+   "state": "CA",
+   "school": "Office of the Chancellor",
+   "leaderTitle": "Chancellor",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Alberto J. Román",
+     "startYear": 2025,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Los Angeles Community College District",
+     "priorTitle": "Interim Chancellor",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.laccd.edu/news/dr-alberto-j-roman-appointed-chancellor-nations-largest-community-college-district",
+     "notes": "Permanent appointment confirmed by LACCD Board of Trustees vote on May 7, 2025, after the district's national search. Separate spell from his interim service, which is recorded below. laccd.edu returns HTTP 403 to automated fetches; details corroborated by Beverly Press (2025-05) and MyNewsLA (2025-05-08)."
+    },
+    {
+     "name": "Alberto J. Román",
+     "startYear": 2024,
+     "endYear": 2025,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "East Los Angeles College",
+     "priorTitle": "President",
+     "nextRole": "Chancellor",
+     "nextRoleInstitution": "Los Angeles Community College District",
+     "sourceUrl": "https://www.laccd.edu/news/dr-alberto-j-roman-recommended-interim-chancellor-los-angeles-community-college-district",
+     "notes": "Stepped into the interim role November 7, 2024 on a one-year appointment after Rodriguez's retirement; won the permanent job May 2025. Immediately prior post was President of East Los Angeles College (four years); earlier LACCD Vice Chancellor of Human Resources."
+    },
+    {
+     "name": "Francisco C. Rodriguez",
+     "startYear": 2014,
+     "endYear": 2024,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "MiraCosta Community College District",
+     "priorTitle": "Superintendent/President",
+     "nextRole": "Retired",
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.laccd.edu/news/notice-board-trustees-my-retirement-chancellor-effective-november-2-2024",
+     "notes": "Began June 1, 2014; retired effective November 2, 2024 after just over ten years, citing family health reasons. Came directly from MiraCosta CCD (2009-2014); before that president of Cosumnes River College."
+    },
+    {
+     "name": "Adriana D. Barrera",
+     "startYear": 2014,
+     "endYear": 2014,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Los Angeles Community College District",
+     "priorTitle": "Deputy Chancellor",
+     "nextRole": "Deputy Chancellor",
+     "nextRoleInstitution": "Los Angeles Community College District",
+     "sourceUrl": "https://www.lacc.edu/sites/lacc.edu/files/2022-11/LACC_Archive_Spring2014.pdf",
+     "notes": "Served as Interim Chancellor in the first half of 2014, bridging Daniel J. LaVista's departure and Rodriguez's June 1, 2014 start; returned to Deputy Chancellor. Weakest source in this seat: an LACC campus publication masthead rather than a district press release, because laccd.edu blocks automated fetches."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 4,
+    "sourcesConsulted": 9,
+    "wallClockMin": 1,
+    "sourceTypes": [
+     "college-site",
+     "district-site",
+     "local-press",
+     "wikipedia"
+    ],
+    "hardest": "laccd.edu returns 403 to every automated fetch, so every district announcement had to be reconstructed from search snippets plus Beverly Press / MyNewsLA mirrors; pinning Barrera's exact interim window needed a campus newsletter PDF."
+   },
+   "batch": 1
+  },
+  {
+   "university": "Connecticut State Community College",
+   "state": "CT",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": false,
+   "records": [
+    {
+     "name": "Christina Royal",
+     "startYear": 2025,
+     "endYear": null,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Harvard Graduate School of Education",
+     "priorTitle": "Judith Block McLaughlin President-in-Residence",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.ct.edu/newsroom/dr-christina-royal-appointed-as-interim-president-of-connecticut-state-community-college",
+     "notes": "Sitting leader. Began August 1, 2025 on a term through June 30, 2026, since extended through June 30, 2027 (https://www.ct.edu/newsroom/cscu-extends-dr-christina-royals-appointment-as-ct-state-community-college-interim-president). Origin taken from the appointment announcement, which names her 2024-25 Harvard GSE presidency-in-residence as the immediately preceding post; her earlier presidency was Holyoke Community College (through 2023). IPEDS name 'O. John Maduko' is STALE for this seat as of Aug 2026."
+    },
+    {
+     "name": "Kerry A. Kelley",
+     "startYear": 2025,
+     "endYear": 2025,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Connecticut State Community College",
+     "priorTitle": "Vice President of Finance and Administration / Chief Financial Officer",
+     "nextRole": "Vice President of Finance and Administration / Chief Financial Officer",
+     "nextRoleInstitution": "Connecticut State Community College",
+     "sourceUrl": "https://www.ct.edu/newsroom/dr-christina-royal-appointed-as-interim-president-of-connecticut-state-community-college",
+     "notes": "Very short caretaker spell: acting/interim president effective July 1, 2025 (the day Maduko left for CSCU) until Royal started August 1, 2025, then returned to her CFO post. Documented inside the Royal appointment release rather than in a release of its own; also reported by CT News Junkie (2025-07-21) and Hartford Business Journal."
+    },
+    {
+     "name": "O. John Maduko",
+     "startYear": 2022,
+     "endYear": 2025,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Minnesota State Community and Technical College",
+     "priorTitle": "Vice President of Academic and Student Affairs",
+     "nextRole": "Interim Chancellor",
+     "nextRoleInstitution": "Connecticut State Colleges and Universities",
+     "sourceUrl": "https://www.ct.edu/newsroom/board-of-regents-appoint-john-maduko-as-ct-state-president",
+     "notes": "Inaugural/founding president. Appointed by the Board of Regents April 27, 2022, effective June 3, 2022, leading the consolidation year before CT State formally launched July 1, 2023. Reappointed to a four-year term beginning June 3, 2025, then named CSCU Interim Chancellor effective July 1, 2025 with a stated intent to return to CT State; as of Aug 2026 he has not returned and Royal's interim term runs to June 2027."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 3,
+    "spellsAvailable": 3,
+    "sourcesConsulted": 8,
+    "wallClockMin": 1,
+    "sourceTypes": [
+     "system-site",
+     "college-site",
+     "local-press",
+     "wikipedia"
+    ],
+    "hardest": "Genuinely only three spells exist - CT State was created July 1, 2023 from a 12-college merger and Maduko was its first president, so the depth rule bottoms out at 3. The real work was catching that the IPEDS incumbent had left for the system chancellorship and that a one-month CFO caretaker spell (Kelley) sits between him and Royal, buried inside another release."
+   },
+   "batch": 1
+  },
+  {
+   "university": "Hillsborough Community College",
+   "state": "FL",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Ken Atwater",
+     "startYear": 2010,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "South Mountain Community College",
+     "priorTitle": "President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.hcfl.edu/about-us/leadership/president",
+     "notes": "IPEDS name VERIFIED still sitting as of Aug 2026 (also quoted as sitting president in Business Observer, Feb 2026). Seventh president; started July 1, 2010. Note the institution has rebranded to 'Hillsborough College' and hccfl.edu now 301-redirects to hcfl.edu. Prior post (President, South Mountain Community College, Phoenix AZ) from ccnewsnow.com / La Gaceta profiles, not from the college page."
+    },
+    {
+     "name": "Gwendolyn W. Stephenson",
+     "startYear": 1997,
+     "endYear": 2010,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "St. Louis Community College",
+     "priorTitle": "Chancellor",
+     "nextRole": "Retired",
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.tampabay.com/news/obituaries/gwendolyn-stephenson-hccs-longest-serving-president-dies-at-69/2126577/",
+     "notes": "Sixth president and longest-serving; retired June 2010, handing directly to Atwater with no interim in between. Came from the St. Louis Community College system chancellorship (from 1992; earlier president of Meramec). Died 2013; HCC's district administration center is named for her."
+    },
+    {
+     "name": "Andreas Paloumpis",
+     "startYear": 1983,
+     "endYear": 1997,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Onondaga Community College",
+     "priorTitle": "President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.tampabay.com/archive/2006/02/02/dr-paloumpis-former-hcc-president-dies/",
+     "notes": "Fifth president. Came directly from the presidency of Onondaga Community College (NY), 1977-1983. IMPORTANT GAP: his immediate predecessor - HCC's fourth president, who served roughly 1979/80-1983 after Frank Scaglione's dismissal - could NOT be identified from any web source reached in this pass, so the true third-predecessor slot for this seat remains untraced."
+    },
+    {
+     "name": "Frank Scaglione",
+     "startYear": 1977,
+     "endYear": 1979,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": null,
+     "priorTitle": null,
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.tampabay.com/archive/1992/09/30/principal-s-name-surfaces-in-bank-inquiry/",
+     "notes": "NOT the immediate third predecessor - an unidentified fourth president sits between him and Paloumpis. Included because he is the nearest further-back spell that could be sourced. Named acting president 1977, sworn in as the college's third president in 1978, dismissed 1979 after a critical state audit of administrative practices. Origin unknown - left null rather than guessed. Source is a 1992 Tampa Bay Times archive page whose body would not render for automated fetching; content taken from the search engine's snippet of that article, so treat the dates as single-sourced."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 4,
+    "sourcesConsulted": 14,
+    "wallClockMin": 2,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "obituary",
+     "wikipedia",
+     "foundation-site"
+    ],
+    "hardest": "HCC publishes no list of past presidents anywhere - the college page says only 'seventh president' and the 50th-anniversary oral-history page names none. Reconstructing the chain meant back-solving the ordinal numbering from obituaries, and the fourth president (c.1980-1983) is still a hole: eight distinct searches, plus Tampa Bay Times archive pages that will not render their body text to a fetcher, failed to surface a name."
+   },
+   "batch": 1
+  },
+  {
+   "university": "San Diego Miramar College",
+   "state": "CA",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "P. Wesley Lundburg",
+     "startYear": 2020,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Suffolk County Community College",
+     "priorTitle": "Executive Dean and CEO, Ammerman Campus",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.sdccd.edu/about/departments-and-offices/communications-and-public-relations/newscenter/articles/2020/lundburg-named-miramar-president.aspx",
+     "notes": "Sitting president, confirmed on sdmiramar.edu/services/president and in the May 2026 commencement program. Announced May 21, 2020, ratified by the SDCCD board June 11, 2020, effective July 1, 2020. Held the Suffolk County CC campus CEO post for five years immediately prior."
+    },
+    {
+     "name": "Marsha Gable",
+     "startYear": 2019,
+     "endYear": 2020,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Grossmont College",
+     "priorTitle": "Vice President of Student Services",
+     "nextRole": "Vice President of Student Services",
+     "nextRoleInstitution": "Grossmont College",
+     "sourceUrl": "https://sdmiramar.edu/newsroom/2019-11-20/dr-marsha-gable-named-interim-president",
+     "notes": "Interim president November 20, 2019 - June 30, 2020 (about eight months). Did not convert; returned to Grossmont College as VP Student Services and was later named interim president of Grossmont in Nov 2020."
+    },
+    {
+     "name": "Patricia Hsieh",
+     "startYear": 2005,
+     "endYear": 2019,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Sacramento City College",
+     "priorTitle": "Interim President and Vice President of Student Services",
+     "nextRole": "Superintendent/President",
+     "nextRoleInstitution": "Hartnell Community College District",
+     "sourceUrl": "https://sdmiramar.edu/newsroom/2019-07-31/miramar-college-president-dr-patricia-hsieh-accepts-superintendentpresident-post-hartnell",
+     "notes": "President August 2005 - September 13, 2019 (14 years), leaving for the Hartnell superintendent/presidency (from which she resigned within a year). Origin taken from the Hartnell selection announcement, which lists Sacramento City College as her post immediately before Miramar (VP Student Services and interim president there); earlier VP Student Services at San Bernardino Valley College 1998-2000."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 3,
+    "spellsAvailable": 4,
+    "sourcesConsulted": 16,
+    "wallClockMin": 3,
+    "sourceTypes": [
+     "college-site",
+     "district-site",
+     "local-press",
+     "wikipedia",
+     "college-catalog"
+    ],
+    "hardest": "NOT stopped early by choice: Hsieh's predecessor (the Miramar president serving up to mid-2005) could not be identified. Nine distinct search formulations plus attempts at SDCCD catalogs (2004-05 and 2007-08 PDFs both exceed the fetcher's 10MB limit), the Chancellor's Cabinet rosters (404 for pre-2010 years), the college's About/history page (no leadership history), Wikipedia (current president only), and the 50th-anniversary retrospective (names only Hsieh) all came up empty; web.archive.org is blocked for this fetcher, which removed the one route likely to work - an archived 2004 sdmiramar.edu president page."
+   },
+   "batch": 1
+  },
+  {
+   "university": "Maricopa County Community College District",
+   "state": "AZ",
+   "school": "Office of the Chancellor",
+   "leaderTitle": "Chancellor",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Steven Bloomberg",
+     "startYear": 2026,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Kern Community College District",
+     "priorTitle": "Chancellor",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.kjzz.org/education/2026-05-20/maricopa-community-colleges-board-set-to-vote-on-the-appointment-of-its-next-chancellor",
+     "notes": "Governing Board approved unanimously May 20, 2026; began tenure July 1, 2026 as MCCCD's sixth chancellor (confirmed by https://www.maricopa.edu/news/2026/dr-steven-bloomberg-begins-tenure-maricopa-community-colleges-sixth-chancellor). No IPEDS row for the district seat; identified from district news + local press."
+    },
+    {
+     "name": "Steven R. Gonzales",
+     "startYear": 2022,
+     "endYear": 2026,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Maricopa County Community College District",
+     "priorTitle": "Interim Chancellor",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.maricopa.edu/news/2022/mcccd-governing-board-names-dr-steven-r-gonzales-systems-permanent-chancellor",
+     "notes": "Named permanent chancellor effective September 27, 2022. Concluded service June 30, 2026 after six and a half years total (interim + permanent). Permanent spell recorded separately from his interim spell below."
+    },
+    {
+     "name": "Steven R. Gonzales",
+     "startYear": 2020,
+     "endYear": 2022,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "GateWay Community College",
+     "priorTitle": "President",
+     "nextRole": "Chancellor",
+     "nextRoleInstitution": "Maricopa County Community College District",
+     "sourceUrl": "https://www.maricopa.edu/news/2020/maricopa-community-colleges-governing-board-names-dr-steven-gonzales-interim-chancellor",
+     "notes": "Appointed interim chancellor January 25, 2020 on Harper-Marinick's departure; served nearly three years as interim before being made permanent."
+    },
+    {
+     "name": "Maria Harper-Marinick",
+     "startYear": 2016,
+     "endYear": 2020,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Maricopa County Community College District",
+     "priorTitle": "Interim Chancellor",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.mcccdf.org/news/dr-maria-harper-marinick-named-district-chancellor/",
+     "notes": "Named chancellor at a special Governing Board meeting May 4, 2016; MCCCD's fourth chancellor and first Latina chancellor in Arizona. Departed January 2020; next role not established from sources consulted, so left null."
+    },
+    {
+     "name": "Maria Harper-Marinick",
+     "startYear": 2016,
+     "endYear": 2016,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "Maricopa County Community College District",
+     "priorTitle": "Executive Vice Chancellor and Provost",
+     "nextRole": "Chancellor",
+     "nextRoleInstitution": "Maricopa County Community College District",
+     "sourceUrl": "https://www.mcccdf.org/news/dr-maria-harper-marinick-named-district-chancellor/",
+     "notes": "Named interim chancellor at the Governing Board's January 2016 meeting on Glasper's retirement; roughly four months as interim before the permanent appointment."
+    },
+    {
+     "name": "Rufus Glasper",
+     "startYear": 2003,
+     "endYear": 2016,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Maricopa County Community College District",
+     "priorTitle": "Vice Chancellor for Business Services / Chief Financial Officer",
+     "nextRole": "President and CEO",
+     "nextRoleInstitution": "League for Innovation in the Community College",
+     "sourceUrl": "https://www.insidehighered.com/quicktakes/2015/12/04/maricopa-chancellor-announces-retirement",
+     "notes": "Third chancellor; served 2003 to retirement effective February 29, 2016 after 29+ years at MCCCD in finance and vice chancellor roles. Announced retirement December 2015. Predecessors Paul Elsner and John Prince exist but were not traced."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 6,
+    "spellsAvailable": 6,
+    "sourcesConsulted": 9,
+    "wallClockMin": 7,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "trade-press",
+     "foundation-site",
+     "wikipedia"
+    ],
+    "hardest": "maricopa.edu blocks both WebFetch and curl (403/empty), so every district-site fact had to be corroborated through KJZZ, Inside Higher Ed and the MCCCD Foundation instead of read directly."
+   },
+   "batch": 2
+  },
+  {
+   "university": "East Los Angeles College",
+   "state": "CA",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Monte E. Perez",
+     "startYear": 2026,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "East Los Angeles College",
+     "priorTitle": "Interim President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.laccd.edu/news/los-angeles-community-college-district-names-dr-monte-e-perez-president-east-los-angeles",
+     "notes": "Approved by the LACCD Board of Trustees January 2026 as ELAC's 10th president. IPEDS name 'Dr. Monte Perez' is CORRECT as of Aug 2026, but was stale in character: at the time IPEDS listed him he held the seat only on an interim basis."
+    },
+    {
+     "name": "Monte E. Perez",
+     "startYear": 2024,
+     "endYear": 2026,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "Fullerton College",
+     "priorTitle": "Interim President",
+     "nextRole": "President",
+     "nextRoleInstitution": "East Los Angeles College",
+     "sourceUrl": "https://www.laccd.edu/news/dr-monte-e-perez-named-interim-east-los-angeles-college-president",
+     "notes": "Named interim president at the LACCD board meeting of November 6, 2024. Origin is imperfect: LACCD's own release says only that he served 'more recently, as a leader in the Fullerton College community' (he was Fullerton College's interim president from July 2022, per https://news.fullcoll.edu/dr-monte-e-perez-named-interim-president-of-fullerton-college/), while EdSource frames the ELAC appointment as coming out of retirement, so there may be a gap between Fullerton and ELAC. Recorded as Fullerton College rather than defaulted."
+    },
+    {
+     "name": "Alberto J. Roman",
+     "startYear": 2021,
+     "endYear": 2024,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "East Los Angeles College",
+     "priorTitle": "Interim President",
+     "nextRole": "Interim Chancellor (later Chancellor)",
+     "nextRoleInstitution": "Los Angeles Community College District",
+     "sourceUrl": "https://www.hispanicoutlook.com/articles/president-alberto-roman-leading-east-los-angeles-college-through-a-disruptive-pandemic",
+     "notes": "Elected permanent president by the LACCD board December 16, 2020, effective January 1, 2021. Left November 2024 to become LACCD interim chancellor; formally named LACCD chancellor in summer 2025."
+    },
+    {
+     "name": "Alberto J. Roman",
+     "startYear": 2020,
+     "endYear": 2020,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "Los Angeles Community College District",
+     "priorTitle": "Vice Chancellor of Human Resources",
+     "nextRole": "President",
+     "nextRoleInstitution": "East Los Angeles College",
+     "sourceUrl": "https://www.hispanicoutlook.com/articles/president-alberto-roman-leading-east-los-angeles-college-through-a-disruptive-pandemic",
+     "notes": "Interim president from July 2020 to December 2020. Prior role confirmed by https://www.build-laccd.org/people/alberto-j-roman/ (Vice Chancellor of Human Resources at LACCD before the college presidency)."
+    },
+    {
+     "name": "Raul Rodriguez",
+     "startYear": 2019,
+     "endYear": 2020,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Rancho Santiago Community College District",
+     "priorTitle": "Chancellor",
+     "nextRole": "Interim Superintendent/President",
+     "nextRoleInstitution": "Hartnell College",
+     "sourceUrl": "https://www.elac.edu/sites/elac.edu/files/2022-08/ELAC-General-Catalog-19-20.pdf",
+     "notes": "This spell is invisible to web search and to both Wikipedia articles; established from ELAC's own 2019-20 General Catalog, whose College Administration page lists 'Raul Rodriguez, Interim President'. He had been RSCCD chancellor from August 2010 to June 2019 (the seat Marvin Martinez took over) and moved on to Hartnell College as interim superintendent/president in 2020 (https://www.hartnell.edu/news/2020-press-releases/raul_rodriguez_to_join_hartnell_as_interim_superintendent-president.html)."
+    },
+    {
+     "name": "Marvin Martinez",
+     "startYear": 2013,
+     "endYear": 2019,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Los Angeles Harbor College",
+     "priorTitle": "President",
+     "nextRole": "Chancellor",
+     "nextRoleInstitution": "Rancho Santiago Community College District",
+     "sourceUrl": "https://en.wikipedia.org/wiki/Marvin_Martinez",
+     "notes": "President from July 2013, replacing interim president Farley Herzek; left June 30, 2019 and became RSCCD chancellor July 1, 2019. Farley Herzek's interim spell exists but was not traced."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 6,
+    "spellsAvailable": 7,
+    "sourcesConsulted": 14,
+    "wallClockMin": 12,
+    "sourceTypes": [
+     "college-site",
+     "district-site",
+     "local-press",
+     "trade-press",
+     "college-catalog-pdf",
+     "wikipedia"
+    ],
+    "hardest": "The July 2019 - June 2020 gap between Martinez and Roman: no press release, no news story and no Wikipedia entry names the holder, so it was resolved by downloading ELAC's 2019-20 catalog PDF and hand-decoding its content streams (no pdftotext/pypdf available) to read 'Raul Rodriguez, Interim President' off the administration page."
+   },
+   "batch": 2
+  },
+  {
+   "university": "Palomar College",
+   "state": "CA",
+   "school": "Office of the Superintendent/President",
+   "leaderTitle": "Superintendent/President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Tina Recalde",
+     "startYear": 2025,
+     "endYear": null,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Palomar College",
+     "priorTitle": "Assistant Superintendent/Vice President of Instruction",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.palomar.edu/news/palomar-college-governing-board-appoints-interim-superintendent-president-and-elects-officers/",
+     "notes": "Acting Superintendent/President from December 1, 2025; unanimously appointed Interim Superintendent/President December 16, 2025. Still sitting as of August 2026 - the college's contact page lists her as Interim Superintendent/President and the permanent search was still running in March 2026 (an earlier search was closed without a hire). IPEDS name 'Star Rivera-Lacey' is STALE."
+    },
+    {
+     "name": "Star Rivera-Lacey",
+     "startYear": 2021,
+     "endYear": 2025,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "San Diego College of Continuing Education",
+     "priorTitle": "Vice President of Student Services",
+     "nextRole": "Deputy Chancellor/Provost",
+     "nextRoleInstitution": "Riverside Community College District",
+     "sourceUrl": "https://www.palomar.edu/news/dr-star-rivera-lacey-appointed-superintendent-president-of-palomar-community-college-district/",
+     "notes": "Appointed June 25, 2021 following a national search; first Latina superintendent/president of the district. Last day at Palomar November 30, 2025 (https://thecoastnews.com/palomar-president-rivera-lacey-departing-for-riverside-post/). She had previously been Assistant Superintendent/VP of Student Services at Palomar, but the role she held immediately before this appointment was at SDCCE."
+    },
+    {
+     "name": "Jack Kahn",
+     "startYear": 2019,
+     "endYear": 2021,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Palomar College",
+     "priorTitle": "Assistant Superintendent/Vice President of Instruction",
+     "nextRole": "Assistant Superintendent/Vice President of Instruction",
+     "nextRoleInstitution": "Palomar College",
+     "sourceUrl": "https://www.palomar.edu/news/dr-star-rivera-lacey-appointed-superintendent-president-of-palomar-community-college-district/",
+     "notes": "Acting Superintendent/President from December 2019 (when Blake was placed on leave), then Interim Superintendent/President from July 2020 until Rivera-Lacey took over in 2021. Declined additional pay for the acting duties and returned to his VP of Instruction post."
+    },
+    {
+     "name": "Joi Lin Blake",
+     "startYear": 2016,
+     "endYear": 2020,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "College of Alameda",
+     "priorTitle": "President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.palomar.edu/news/596-2/",
+     "notes": "Appointed June 17, 2016 as the district's 10th Superintendent/President, starting July 11, 2016. Placed on leave December 2019 after an FCMAT fiscal report; resignation agreement approved February 2020, effective June 30, 2020 (https://www.kpbs.org/news/education/2020/02/13/palomar-college-president-resigns-will-get-600k-sa)."
+    },
+    {
+     "name": "Adrian Gonzales",
+     "startYear": 2015,
+     "endYear": 2016,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Palomar College",
+     "priorTitle": "Vice President, Student Services",
+     "nextRole": "Vice President, Student Services",
+     "nextRoleInstitution": "Palomar College",
+     "sourceUrl": "https://www.palomar.edu/news/596-2/",
+     "notes": "Appointed Interim Superintendent/President when Robert P. Deegan retired in June 2015; returned to his VP, Student Services role when Blake arrived in July 2016. Deegan's spell (to 2015) exists but was not traced."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 5,
+    "spellsAvailable": 6,
+    "sourcesConsulted": 10,
+    "wallClockMin": 6,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "wikipedia"
+    ],
+    "hardest": "Confirming that no permanent successor has been named since Rivera-Lacey left: Palomar closed one superintendent/president search without a hire and reopened it in March 2026, so establishing that Recalde is still the sitting (interim) leader in August 2026 required cross-checking the live contact page against board-search coverage."
+   },
+   "batch": 2
+  },
+  {
+   "university": "Cape Fear Community College",
+   "state": "NC",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Jim Morton",
+     "startYear": 2018,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Cape Fear Community College",
+     "priorTitle": "Interim President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://cfcc.edu/about/leadership/office-of-the-president/",
+     "notes": "Trustees voted him president in closed session in March 2018 without a search, after rewriting the job description; the N.C. State Board of Community Colleges approved in April 2018. Still sitting as of August 2026 per the college's own Office of the President page. Only NC community college president holding just a bachelor's degree; tenure has drawn sustained press scrutiny."
+    },
+    {
+     "name": "Jim Morton",
+     "startYear": 2018,
+     "endYear": 2018,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "Cape Fear Community College",
+     "priorTitle": "Executive Vice President",
+     "nextRole": "President",
+     "nextRoleInstitution": "Cape Fear Community College",
+     "sourceUrl": "https://www.wilmingtonbiz.com/education/2018/04/20/morton_approved_as_cfcc_president_by_state_board/17384",
+     "notes": "Interim president from January 1, 2018 (on Amanda Lee's departure) until the March/April 2018 permanent appointment. Joined CFCC in 2015 as VP of business and financial services after ~15 years as finance director at Wilmington International Airport; promoted to executive vice president in 2016."
+    },
+    {
+     "name": "Amanda K. Lee",
+     "startYear": 2015,
+     "endYear": 2017,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Cape Fear Community College",
+     "priorTitle": "Interim President",
+     "nextRole": "President",
+     "nextRoleInstitution": "Bladen Community College",
+     "sourceUrl": "https://www.wwaytv3.com/amanda-lee-named-cfcc-president/",
+     "notes": "Chosen unanimously from four finalists June 5, 2015. Resigned without explanation in October 2017, effective December 31, 2017 (https://www.wilmingtonbiz.com/more-news/2017/10/26/amanda-lee-resigns-as-cfcc-president-school-settles-lawsuit-with-ted-spring/16719). Later became president of Bladen Community College."
+    },
+    {
+     "name": "Amanda K. Lee",
+     "startYear": 2015,
+     "endYear": 2015,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "Cape Fear Community College",
+     "priorTitle": "Vice President for Instructional Services",
+     "nextRole": "President",
+     "nextRoleInstitution": "Cape Fear Community College",
+     "sourceUrl": "https://www.wwaytv3.com/amanda-lee-named-cfcc-president/",
+     "notes": "Interim president from January 2015, when Ted Spring resigned, until the permanent appointment in June 2015. Had been at CFCC since 2003, starting as a communications instructor."
+    },
+    {
+     "name": "Ted Spring",
+     "startYear": 2012,
+     "endYear": 2015,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "New River Community and Technical College",
+     "priorTitle": "President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.whqr.org/local/2012-11-21/interview-dr-ted-spring-president-of-cape-fear-community-college",
+     "notes": "Start year corrected against Wikipedia, which says July 2014: WHQR interviewed him as the new CFCC president on November 21, 2012, when he had been in town 'a little more than two weeks', fresh from a seven-year stint at New River Community and Technical College in West Virginia. Ousted by trustees in January 2015 over unauthorized expenses; later won a breach-of-contract settlement of more than $450,000. Predecessor Eric McKeithan (president to 2012) was not traced."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 5,
+    "spellsAvailable": 6,
+    "sourcesConsulted": 9,
+    "wallClockMin": 6,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "investigative-longform",
+     "wikipedia"
+    ],
+    "hardest": "Ted Spring's start year: Wikipedia says he was hired in July 2014, which is impossible against a January 2015 ouster; the true date only fell out of a November 2012 WHQR interview slug describing him as two weeks into the job."
+   },
+   "batch": 2
+  },
+  {
+   "university": "Alamo Colleges District",
+   "state": "TX",
+   "school": "Office of the Chancellor",
+   "leaderTitle": "Chancellor",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "R. Michael \"Mike\" Flores",
+     "startYear": 2018,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Palo Alto College (Alamo Colleges District)",
+     "priorTitle": "President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.alamo.edu/about-us/leadership/chancellor/",
+     "notes": "Assumed chancellorship Oct. 1, 2018 by unanimous board vote; ninth appointed chancellor and first Hispanic chancellor of the district. Confirmed still sitting on alamo.edu chancellor page fetched 2026-08-21. Prior role confirmed by district bio PDF https://www.alamo.edu/siteassets/district/about-us/leadership/chancellor/acd-drflores-bio_2022.pdf (president of Palo Alto College from 2012)."
+    },
+    {
+     "name": "Bruce H. Leslie",
+     "startYear": 2006,
+     "endYear": 2018,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Houston Community College System",
+     "priorTitle": "Chancellor",
+     "nextRole": "Retired; named Chancellor Emeritus, later higher-education consultant",
+     "nextRoleInstitution": "Association of Community College Trustees (ACCT) / Synerge Consulting",
+     "sourceUrl": "https://www.alamo.edu/about-us/leadership/chancellor/former-chancellors/",
+     "notes": "Assumed duties Nov. 1, 2006; served ~11-12 years, retiring in 2018 amid faculty no-confidence votes over curriculum centralization (San Antonio Report). Post-Alamo consulting role per https://acct.org/about/staff/bruce-leslie-phd."
+    },
+    {
+     "name": "J. Terence Kelly",
+     "startYear": 2003,
+     "endYear": 2006,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": null,
+     "priorTitle": null,
+     "nextRole": "Chancellor Emeritus (retired)",
+     "nextRoleInstitution": "Alamo Community College District",
+     "sourceUrl": "https://www.alamo.edu/about-us/leadership/chancellor/former-chancellors/",
+     "notes": "Origin NOT established: repeated searches for the 2003 appointment announcement returned no usable record (name collides with an actor and a computer scientist of the same name), so priorInstitution left null rather than guessed."
+    },
+    {
+     "name": "Robert W. Ramsay",
+     "startYear": 1993,
+     "endYear": 2002,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": null,
+     "priorTitle": null,
+     "nextRole": "Retired (later substitute high-school teacher, Fernandina Beach, FL)",
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.alamo.edu/about-us/leadership/chancellor/former-chancellors/",
+     "notes": "Official district page gives 1993-2002; KENS-5 obituary (https://www.kens5.com/article/news/education/former-alamo-colleges-district-chancellor-dies/273-f83fa484-6ff2-479e-a696-e7c9ce645ae0) says 1993 'until 2003'. Unresolved whether an acting chancellor filled a 2002-03 gap; the district's own former-chancellors list shows no interim, and no press record of one was found. Obituary (https://www.oxleyheard.com/team/dr.-robert-william-ramsay) does not name the job he held immediately before 1993, so priorInstitution is null."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 9,
+    "sourcesConsulted": 9,
+    "wallClockMin": 7,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "wikipedia",
+     "obituary",
+     "association-bio"
+    ],
+    "hardest": "The district's official former-chancellors list gives clean dates but zero origin data, and the pre-2006 appointment announcements are not indexed anywhere reachable, so Kelly's and Ramsay's priorInstitution stayed null and a possible 2002-03 interim could not be confirmed or ruled out."
+   },
+   "batch": 3
+  },
+  {
+   "university": "South Texas College",
+   "state": "TX",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": false,
+   "records": [
+    {
+     "name": "Ricardo J. Solis",
+     "startYear": 2021,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Laredo College",
+     "priorTitle": "President / CEO",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://news.southtexascollege.edu/announcement-of-south-texas-colleges-sole-presidential-finalist/",
+     "notes": "IPEDS name VERIFIED as still current: named sole finalist May 2021, took office July 2021, and still identified as STC president in June 2026 coverage (https://futurorgv.net/2026/06/04/futuro-rgv-honors-south-texas-college-president-dr-ricardo-j-solis-and-utrgv-student-anahi-ortega-at-2026-leadership-awards/). Earlier he was Executive Dean at GateWay Community College, Maricopa."
+    },
+    {
+     "name": "David C. Plummer",
+     "startYear": 2021,
+     "endYear": 2021,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "South Texas College",
+     "priorTitle": "Vice President for Information Services, Planning & Strategic Initiatives",
+     "nextRole": "Returned to vice-presidential role",
+     "nextRoleInstitution": "South Texas College",
+     "sourceUrl": "https://riograndeguardian.com/benavidez-stc-is-naming-david-c-plummer-as-interim-president/",
+     "notes": "Interim president effective Jan. 4, 2021 (the day after Reed's retirement) until Solis took office in July 2021; internal promotion, did not win the permanent job. Also covered at https://texasborderbusiness.com/stc-announces-vp-dr-david-plummer-named-interim-president-for-stc/."
+    },
+    {
+     "name": "Shirley A. Reed",
+     "startYear": 1993,
+     "endYear": 2021,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": null,
+     "priorTitle": null,
+     "nextRole": "Retired",
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://news.southtexascollege.edu/stc-president-dr-shirley-a-reed-announces-retirement/",
+     "notes": "Founding president; hired shortly after the college was created by Texas SB 251 on Sept. 1, 1993, retired effective Jan. 4, 2021 after ~26-27 years. Origin before 1993 not documented in any reachable source, so priorInstitution is null."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 3,
+    "spellsAvailable": 3,
+    "sourcesConsulted": 6,
+    "wallClockMin": 4,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "wikipedia"
+    ],
+    "hardest": "Stopped at 3 spells legitimately, not from difficulty: STC was created in 1993 and Reed was its founding president, so no fourth spell exists. Confirming Solis is still sitting in 2026 (rather than trusting stale IPEDS) needed a 2026-dated press item because the STC president page returns HTTP 403."
+   },
+   "batch": 3
+  },
+  {
+   "university": "Fullerton College",
+   "state": "CA",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Cynthia Olivo",
+     "startYear": 2023,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Pasadena City College",
+     "priorTitle": "Assistant Superintendent / Vice President, Student Services",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://news.fullcoll.edu/dr-cynthia-olivo-named-president-of-fullerton-college/",
+     "notes": "Took office January 2023; confirmed still president in March 2026 (named 67th Assembly District Woman of the Year, Fullerton Observer). Spent 15 years at Pasadena City College before the appointment."
+    },
+    {
+     "name": "Gilbert J. Contreras",
+     "startYear": 2021,
+     "endYear": 2023,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Fullerton College",
+     "priorTitle": "Vice President of Student Services",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://news.fullcoll.edu/dr-contreras-named-interim-president-of-fullerton-college/",
+     "notes": "NOCCCD board appointed him interim president effective Aug. 1, 2021, serving until Olivo arrived in Jan. 2023; internal promotion (5 years as FC VP of Student Services, earlier dean at Cerritos College). Did not become permanent president."
+    },
+    {
+     "name": "Greg Schulz",
+     "startYear": 2016,
+     "endYear": 2021,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Fullerton College",
+     "priorTitle": "Interim President",
+     "nextRole": "Superintendent / President",
+     "nextRoleInstitution": "Citrus College",
+     "sourceUrl": "https://news.fullcoll.edu/investiture-dr-greg-schulz-president-fullerton-college/",
+     "notes": "Permanent appointment April 2016, investiture Aug. 19, 2016; counted as a separate spell from his 2015-16 interim service per the interim rule. Departed 2021 for Citrus College (https://news.fullcoll.edu/dr-contreras-named-interim-president-of-fullerton-college/)."
+    },
+    {
+     "name": "Greg Schulz",
+     "startYear": 2015,
+     "endYear": 2016,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "North Orange County Community College District, School of Continuing Education",
+     "priorTitle": "Provost",
+     "nextRole": "President (permanent)",
+     "nextRoleInstitution": "Fullerton College",
+     "sourceUrl": "https://news.fullcoll.edu/dr-greg-schulz-named-interim-president-of-fullerton-college/",
+     "notes": "Board voted June 9, 2015; interim term began July 1, 2015. Came from three years as provost of the district's School of Continuing Education. Won the permanent job in April 2016, hence convertedToPermanent."
+    },
+    {
+     "name": "Rajen Vurdien",
+     "startYear": 2010,
+     "endYear": 2015,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Saddleback College",
+     "priorTitle": "Vice President of Instruction",
+     "nextRole": "Superintendent / President",
+     "nextRoleInstitution": "Pasadena City College",
+     "sourceUrl": "https://pasadenanow.com/main/dr-rajen-vurdien-selected-as-pccs-new-superintendent-%C2%ADpresident",
+     "notes": "Appointed FC president May 2010, served five years, left mid-2015 for Pasadena City College. Traced as a fifth spell because Schulz's interim and permanent terms count separately; a fourth predecessor (Kathleen Hodge) exists and was not traced."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 5,
+    "spellsAvailable": 6,
+    "sourcesConsulted": 8,
+    "wallClockMin": 6,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "student-press",
+     "district-catalog"
+    ],
+    "hardest": "Deciding the spell boundary for Greg Schulz, who was interim (Jul 2015) then permanent (Apr 2016): keeping them as two spells pushed the fourth-predecessor line back to Vurdien, so a fifth spell was traced to satisfy the depth rule in person-terms as well as spell-terms."
+   },
+   "batch": 3
+  },
+  {
+   "university": "Harrisburg Area Community College",
+   "state": "PA",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Daniel W. Lufkin",
+     "startYear": 2026,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Tarrant County College (South Campus), Fort Worth, TX",
+     "priorTitle": "President, South Campus",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.hacc.edu/newsroom/hacc-names-eighth-president.cfm",
+     "notes": "IPEDS name (Sygielski) is STALE. Lufkin is HACC's eighth president, assuming office June 3, 2026; HACC's own presidents page fetched 2026-08-21 lists him as 2026-present. Held the TCC South Campus presidency since April 2021."
+    },
+    {
+     "name": "John J. \"Ski\" Sygielski",
+     "startYear": 2011,
+     "endYear": 2026,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Mt. Hood Community College (Gresham, OR)",
+     "priorTitle": "President",
+     "nextRole": "Retired (served as transition advisor June 3 - July 3, 2026)",
+     "nextRoleInstitution": "Harrisburg Area Community College",
+     "sourceUrl": "https://hacc.edu/AboutHACC/CollegeFactSheet/HACC-Presidents.cfm",
+     "notes": "Started July 5, 2011 (https://www.hacc.edu/newsroom/2011/hacc-names-dr-john-j-ski-sygielski-as-new-president.cfm); longest-serving president in HACC history at nearly 15 years. Announced retirement Aug. 2024 for July 2025, then extended to mid-2026 when the search ran long."
+    },
+    {
+     "name": "Ronald R. Young",
+     "startYear": 2010,
+     "endYear": 2011,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Harrisburg Area Community College",
+     "priorTitle": "Provost and Vice President of Academic Affairs and Enrollment Management",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://hacc.edu/AboutHACC/CollegeFactSheet/HACC-Presidents.cfm",
+     "notes": "Interim president after Baehre's July 31, 2010 departure until Sygielski started July 2011; internal promotion, did not win the permanent job."
+    },
+    {
+     "name": "Edna V. Baehre",
+     "startYear": 1998,
+     "endYear": 2010,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": null,
+     "priorTitle": null,
+     "nextRole": "President",
+     "nextRoleInstitution": "Napa Valley College",
+     "sourceUrl": "https://hacc.edu/AboutHACC/CollegeFactSheet/HACC-Presidents.cfm",
+     "notes": "Official HACC list gives 1998-2010; contemporaneous HACC releases describe her as CEO 'since 1997' and as serving 13 years, so the start may be late 1997 (Paul B. Hurley Jr. was acting president Feb-Sept 1997). Resigned July 31, 2010 to become president of Napa Valley College. Origin before HACC not found in reachable sources, so priorInstitution is null."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 11,
+    "sourcesConsulted": 6,
+    "wallClockMin": 5,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "wikipedia"
+    ],
+    "hardest": "Catching that the IPEDS name was stale by only two months - Sygielski's retirement had slipped twice (2025, then 2026) and Wikipedia still showed the presidency as 'Vacant', so currency had to be settled from HACC's own newsroom and presidents page rather than any aggregator."
+   },
+   "batch": 3
+  },
+  {
+   "university": "Ivy Tech Community College",
+   "state": "IN",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Martin \"Marty\" Pollio",
+     "startYear": 2025,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Jefferson County Public Schools (Louisville, KY)",
+     "priorTitle": "Superintendent",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.ivytech.edu/about-ivy-tech/news/all-locations/2025/ivy-tech-community-college-names-martin-pollio-edd-its-10th-president/",
+     "notes": "Elected 10th president by the State Board of Trustees on 2025-04-30; took office 2025-07-01. IPEDS record for this seat named Sue Ellspermann, which is STALE by two spells' worth of time — Ellspermann left 2025-05-31. Ellspermann is recorded below as the former holder."
+    },
+    {
+     "name": "Sue Ellspermann",
+     "startYear": 2016,
+     "endYear": 2025,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "State of Indiana",
+     "priorTitle": "Lieutenant Governor of Indiana",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://en.wikipedia.org/wiki/Sue_Ellspermann",
+     "notes": "9th president; served 2016-07-01 to 2025-05-31. Resigned as Indiana's 50th Lt. Governor on 2016-03-02 to take the post. Retirement announced June 2024 (https://www.ivytech.edu/about-ivy-tech/news/all-locations/2024/ivy-tech-community-college-president-sue-ellspermann-announces-retirement/). No interim was named for the one-month gap (June 2025) between her exit and Pollio's start; searched and found none announced."
+    },
+    {
+     "name": "Thomas J. Snyder",
+     "startYear": 2007,
+     "endYear": 2016,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Remy International (formerly Delco Remy International)",
+     "priorTitle": "President and Chief Executive Officer",
+     "nextRole": "Retired",
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.wfyi.org/news/articles/ivy-tech-president-tom-snyder-to-retire-in-2016",
+     "notes": "8th president, 2007 to 2016-06-30. Announced retirement September 2015. Came from industry, not academia — was chairman/CEO of Delco Remy International / Remy International before appointment."
+    },
+    {
+     "name": "Gerald I. Lamkin",
+     "startYear": 1983,
+     "endYear": 2007,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Ivy Tech Community College",
+     "priorTitle": "Statewide Vice President of Operations",
+     "nextRole": "President Emeritus",
+     "nextRoleInstitution": "Ivy Tech Community College",
+     "sourceUrl": "https://www.ivytech.edu/about-ivy-tech/newsroom/news/all-locations/2023/ivy-tech-community-college-president-emeritus-gerald-i-lamkin-passes-away/",
+     "notes": "Internal promotion — rose from part-time instructor (1967) through business manager, director of education, dean, and statewide VP of operations. Served 1983-2007; died 2023. Some secondary sources give 1982 as the start year; the college's own obituary release says 1983."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 10,
+    "sourcesConsulted": 9,
+    "wallClockMin": 7,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "public-media",
+     "wikipedia"
+    ],
+    "hardest": "Confirming the IPEDS name was stale and then proving no interim filled the one-month June 2025 gap between Ellspermann's exit and Pollio's start — absence of an interim has to be argued from silence across several announcements."
+   },
+   "batch": 4
+  },
+  {
+   "university": "Long Beach City College",
+   "state": "CA",
+   "school": "Office of the President",
+   "leaderTitle": "Superintendent-President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Mike Muñoz",
+     "startYear": 2022,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Long Beach City College",
+     "priorTitle": "Interim Superintendent-President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.lbcc.edu/office-president",
+     "notes": "Permanent term began 2022-01-01 after his interim spell. Still sitting as of Aug 2026 — this confirms the IPEDS name 'Mike Munoz' is CORRECT for this seat. LBCC's own page dates his overall leadership from 2021-03-04 (the interim start); the Long Beach Post dates the interim appointment 2021-03-14. Recorded here as two spells per the interim rule."
+    },
+    {
+     "name": "Mike Muñoz",
+     "startYear": 2021,
+     "endYear": 2021,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "Long Beach City College",
+     "priorTitle": "Vice President of Student Services",
+     "nextRole": "Superintendent-President",
+     "nextRoleInstitution": "Long Beach City College",
+     "sourceUrl": "https://lbpost.com/news/education/lbcc-board-of-trustees-says-it-has-picked-mike-munoz-as-the-colleges-next-superintendent-president",
+     "notes": "Interim from March 2021 through 2021-12-31, then won the permanent job effective 2022-01-01. Internal promotion — had been LBCC's VP of Student Services since 2018."
+    },
+    {
+     "name": "Lou Anne Bynum",
+     "startYear": 2020,
+     "endYear": 2021,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Long Beach City College",
+     "priorTitle": "Executive Vice President, College Advancement and Economic Development",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.lbcc.edu/press-release/lbcc-announces-interim-superintendent-president",
+     "notes": "Appointed interim 2020-03-14 after Romali's firing; contract expired 2021-03-13 and was not extended amid a compensation dispute. She resigned a Long Beach harbor commission seat to take the role. Did not convert to permanent."
+    },
+    {
+     "name": "Reagan F. Romali",
+     "startYear": 2017,
+     "endYear": 2020,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Harry S Truman College (City Colleges of Chicago)",
+     "priorTitle": "President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://lbpost.com/news/lbcc-president-fired-regan-romali/",
+     "notes": "Named final candidate 2017-03-28, took office mid-May 2017; fired by the Board of Trustees in March 2020 after investigations and a public feud with trustees. Had been president of Truman College since 2011."
+    },
+    {
+     "name": "Ann-Marie Gabel",
+     "startYear": 2016,
+     "endYear": 2017,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Long Beach City College",
+     "priorTitle": "Vice President of Administrative Services",
+     "nextRole": "Vice Chancellor, Business Services",
+     "nextRoleInstitution": "South Orange County Community College District",
+     "sourceUrl": "http://www.everythinglongbeach.com/ann-marie-gabel-take-acting-superintendent-president-lbcc",
+     "notes": "Acting Superintendent-President from 2016-12-19 (Eloy Ortiz Oakley's departure to become California Community Colleges Chancellor) until Romali took office in May 2017. Traced as a 5th spell beyond the depth rule so the chain back to Oakley is unbroken. Source URL timed out on direct fetch; details taken from the indexed summary of that article plus corroborating LBCC/SOCCCD pages — treat dates as good, title as 'Acting' rather than 'Interim'."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 5,
+    "spellsAvailable": 6,
+    "sourcesConsulted": 12,
+    "wallClockMin": 9,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "student-press",
+     "wikipedia"
+    ],
+    "hardest": "The seat churned five times in six years, and the interim/permanent boundary for Muñoz is dated differently by LBCC (Mar 4 2021) and the Long Beach Post (Mar 14 2021); separating his interim spell from his permanent one without double-counting took the most cross-checking."
+   },
+   "batch": 4
+  },
+  {
+   "university": "Mesa Community College",
+   "state": "AZ",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Richard J. Daniel",
+     "startYear": 2024,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "South Mountain Community College",
+     "priorTitle": "President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://mesalegend.com/richard-daniel-talks-vision-leadership-as-president-of-mesa-community-college/",
+     "notes": "Effective 2024-07-01. Lateral move within the Maricopa County Community College District from South Mountain CC, where enrollment rose ~30% under him. Appointed by MCCCD Chancellor Steven Gonzales to stabilize leadership after MCC's turnover. mesacc.edu is behind a Cloudflare block that refused both WebFetch and curl, so the student paper is the primary citable source."
+    },
+    {
+     "name": "Kimberly Britt",
+     "startYear": 2024,
+     "endYear": 2024,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Phoenix College",
+     "priorTitle": "President",
+     "nextRole": "President",
+     "nextRoleInstitution": "Phoenix College",
+     "sourceUrl": "https://mesalegend.com/mesa-community-college-president-announces-sudden-leave-of-absence-phoenix-college-president-to-take-on-interim-role/",
+     "notes": "Roughly five months as interim (Feb-June 2024), held concurrently with her sitting presidency of Phoenix College, another MCCCD college. Stepped in immediately after Tammy Robinson's abrupt leave of absence in late January 2024. Returned to Phoenix College full-time; did not seek the permanent MCC job."
+    },
+    {
+     "name": "Tammy Robinson",
+     "startYear": 2022,
+     "endYear": 2024,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Cañada College",
+     "priorTitle": "Vice President of Instruction",
+     "nextRole": "President",
+     "nextRoleInstitution": "Metropolitan Community College-Penn Valley (Kansas City)",
+     "sourceUrl": "https://www.maricopa.edu/news/2022/dr-tammy-robinson-named-new-president-mesa-community-college",
+     "notes": "Named April 2022, effective 2022-07-01. Took a sudden leave of absence in late January 2024 amid an MCC budget crisis and district leadership shakeup, then formally resigned from the district by June 2024. Was a finalist at Roxbury Community College (MA) in April 2024 but was not selected; joined MCC-Penn Valley as president in July 2024."
+    },
+    {
+     "name": "Lori M. Berquam",
+     "startYear": 2020,
+     "endYear": 2022,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Mesa Community College",
+     "priorTitle": "Executive Vice President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.mesacc.edu/news/media-coverage/dr-lori-berquam-selected-mesa-community-college-interim-president",
+     "notes": "Interim effective 2020-02-01 after Richard Haney resigned in January 2020; served an unusually long ~2.5-year interim until Robinson arrived 2022-07-01. Had joined MCC as Executive VP in July 2019, coming from the University of Wisconsin-Madison where she was Vice Provost for Student Life. Did not convert to permanent."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 11,
+    "sourcesConsulted": 11,
+    "wallClockMin": 8,
+    "sourceTypes": [
+     "district-site",
+     "student-press",
+     "local-press",
+     "wikipedia"
+    ],
+    "hardest": "mesacc.edu returns 403 to WebFetch and blocks curl behind a Cloudflare challenge, so every official college page had to be reconstructed from the Mesa Legend student paper, maricopa.edu, and search-index summaries — and Robinson's exit is a leave-of-absence-then-resignation that no single source dates cleanly."
+   },
+   "batch": 4
+  },
+  {
+   "university": "Pikes Peak State College",
+   "state": "CO",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Lance F. Bolton",
+     "startYear": 2011,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Northeastern Junior College (Sterling, CO)",
+     "priorTitle": "President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.pikespeak.edu/about/50th-anniversary/timeline.php",
+     "notes": "President since 2011 and still sitting in 2026 — he led the institution through its 2022 rename from Pikes Peak Community College to Pikes Peak State College, so his single spell spans both names. Came directly from five years as president of Northeastern Junior College, also in the Colorado Community College System."
+    },
+    {
+     "name": "Edwin Ray",
+     "startYear": 2010,
+     "endYear": 2011,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Pikes Peak Community College",
+     "priorTitle": "Vice President for Instruction",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.pikespeak.edu/about/50th-anniversary/timeline.php",
+     "notes": "Elevated from VP for Instruction to interim president on Kinkel's surprise 2010 resignation; served until Bolton arrived in 2011. Did not convert to permanent."
+    },
+    {
+     "name": "Anthony G. \"Tony\" Kinkel",
+     "startYear": 2007,
+     "endYear": 2010,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "University of Arkansas Community College at Batesville",
+     "priorTitle": "Chancellor",
+     "nextRole": "President",
+     "nextRoleInstitution": "Motlow State Community College (TN)",
+     "sourceUrl": "https://www.northlandcollege.edu/files/Anthony_Kinkel_CV_Redacted.pdf",
+     "notes": "Start year conflict: the college's own 50th-anniversary timeline says 2006, his own CV says 2007 (hired late 2006, seated 2007) — CV used here. Resigned in 2010 after ~3.5 years, catching the campus by surprise (Colorado Springs Gazette). Former Minnesota legislator. His next presidency was Motlow State CC in 2015; his CV shows no institutional role for 2010-2015, so 'next role' is his next known post, not an immediate succession."
+    },
+    {
+     "name": "Bob Rizzuto",
+     "startYear": 2006,
+     "endYear": 2006,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": null,
+     "priorTitle": null,
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.pikespeak.edu/about/50th-anniversary/timeline.php",
+     "notes": "Brief 2006 interim bridging Joseph A. Garcia's departure (president 2001-2006, later Lieutenant Governor of Colorado) and Kinkel's arrival. priorInstitution/priorTitle deliberately left null — the timeline names him without a prior role and no corroborating source was found; NOT guessed as an internal VP even though that is the usual pattern."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 13,
+    "sourcesConsulted": 10,
+    "wallClockMin": 8,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "cv-primary-document",
+     "wikipedia"
+    ],
+    "hardest": "The 2022 rename splits the searchable record in two (ppcc.edu no longer resolves in DNS, so archived PPCC president pages are unreachable), and Kinkel's prior institution only surfaced by manually decompressing a redacted CV PDF from an unrelated Minnesota college after WebFetch could not read it."
+   },
+   "batch": 4
+  },
+  {
+   "university": "Houston Community College",
+   "state": "TX",
+   "school": "Office of the Chancellor",
+   "leaderTitle": "Chancellor",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Margaret Ford Fisher",
+     "startYear": 2024,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Houston Community College",
+     "priorTitle": "Interim Chancellor",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://communityimpact.com/houston/bay-area/education/2024/01/25/houston-community-college-board-approves-margaret-ford-fisher-as-new-system-chancellor/",
+     "notes": "Board voted 7-1 on Jan 24, 2024 to name her permanent (9th) chancellor, converting her interim appointment. First African American woman to hold the seat. IPEDS name is CORRECT for the current seatholder but was flagged as possibly interim - she is now permanent. Still sitting as of Aug 2026 (see https://www.hccs.edu/news/2026/may/chancellor-margaret-ford-fisher-receives-lifetime-achievement-award-from-the-houston-business-journal/). NOTE: the institution was renamed 'Houston City College' by board vote in 2025; seat name kept as given."
+    },
+    {
+     "name": "Margaret Ford Fisher",
+     "startYear": 2023,
+     "endYear": 2024,
+     "isInterim": true,
+     "convertedToPermanent": true,
+     "priorInstitution": "Houston Community College",
+     "priorTitle": "President, HCC Online College",
+     "nextRole": "Chancellor",
+     "nextRoleInstitution": "Houston Community College",
+     "sourceUrl": "https://www.houstonchronicle.com/news/houston-texas/education/article/margaret-ford-fisher-selected-hcc-system-18625544.php",
+     "notes": "Interim chancellor effective Sept 1, 2023 after Maldonado's contract expired; recorded as a separate spell per rules. Internal promotion: ~40 years at HCC, founding president of HCC Online College (2018) and previously president of HCC Northeast College."
+    },
+    {
+     "name": "Cesar Maldonado",
+     "startYear": 2014,
+     "endYear": 2023,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Texas State Technical College Harlingen",
+     "priorTitle": "President",
+     "nextRole": "Interim President",
+     "nextRoleInstitution": "Coastal Bend College",
+     "sourceUrl": "https://www.hccs.edu/about-hcc/news/articles/2014-and-older/hcc-announces-dr-cesar-maldonado-as-chancellor.html",
+     "notes": "Named chancellor by unanimous board vote; took office 2014. Board voted March 1, 2023 not to renew his contract, which ended Aug 31, 2023 (https://www.houstonchronicle.com/news/houston-texas/education/article/houston-community-college-ousts-chancellor-cesar-17813990.php). Later named interim president of Coastal Bend College in 2025 (https://www.coastalbend.edu/news/2025/04/dr-cesar-maldonado-appointed-interim-president-of-coastal-bend-college.html)."
+    },
+    {
+     "name": "Renee Byas",
+     "startYear": 2013,
+     "endYear": 2014,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Houston Community College",
+     "priorTitle": "General Counsel (and Deputy Chancellor)",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.chron.com/news/houston-texas/houston/article/HCC-general-counsel-to-serve-as-interim-chancellor-4204030.php",
+     "notes": "Titled acting/interim chancellor. Named in Jan/Feb 2013 when Chancellor Mary Spangler became terminally ill; served until Maldonado took office in 2014. HCC's top attorney since 2008. Fired in Aug 2014; later sued HCC and settled for $850,000 (https://www.houstonpublicmedia.org/articles/news/2015/08/13/120846/hcc-settles-with-ousted-chancellor-for-850000/). Exact end month not pinned by a single source."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 6,
+    "sourcesConsulted": 9,
+    "wallClockMin": 3,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "trade-press",
+     "wikipedia"
+    ],
+    "hardest": "Separating Ford Fisher's Sept-2023 interim spell from her Jan-2024 permanent appointment, and confirming the 2013-14 acting chancellor (Byas) rather than the better-covered 2023 interim."
+   },
+   "batch": 5
+  },
+  {
+   "university": "Santa Monica College",
+   "state": "CA",
+   "school": "Office of the Superintendent/President",
+   "leaderTitle": "Superintendent/President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Kathryn E. Jeffery",
+     "startYear": 2016,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Sacramento City College",
+     "priorTitle": "President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.smc.edu/news/2015/2015-11-18-kathryn-jeffery-named-new-smc-president.php",
+     "notes": "Appointed unanimously Nov 17, 2015; took office Feb 8, 2016. IPEDS name is CORRECT. Announced Sept 3, 2025 her intention to retire effective Dec 31, 2026, so she is still the sitting leader as of Aug 2026 and endYear is left null (https://www.smc.edu/news/presidents-messages/2025-09-03-announcing-intention-to-retire.php)."
+    },
+    {
+     "name": "Jeff Shimizu",
+     "startYear": 2015,
+     "endYear": 2016,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Santa Monica College",
+     "priorTitle": "Executive Vice President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://smdp.com/2015/03/05/smc-names-executive-vp-interim-president/",
+     "notes": "Board voted March 3, 2015 to appoint him interim superintendent/president effective July 1, 2015; served until Jeffery started Feb 2016. SMC insider since 1985 (counseling faculty, dean of counseling, athletic director, dean of instruction). Listed on SMC's former administrators page as 'Interim' (https://admin.smc.edu/administration/governance/past-administrators-trustees/jeff-shimizu.php)."
+    },
+    {
+     "name": "Chui L. Tsang",
+     "startYear": 2006,
+     "endYear": 2015,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "San Jose City College",
+     "priorTitle": "President",
+     "nextRole": "Retired",
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://admin.smc.edu/administration/governance/past-administrators-trustees/chui-tsang.php",
+     "notes": "Appointed by the board in December 2005, began February 2006; nine-year tenure ending with his retirement at the close of the 2014-15 academic year. Launched SMC's Global Citizenship Initiative."
+    },
+    {
+     "name": "Thomas J. Donner",
+     "startYear": 2005,
+     "endYear": 2006,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Santa Monica College",
+     "priorTitle": null,
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://admin.smc.edu/administration/governance/board-of-trustees/documents/Jan_9_2006_Minutes.pdf",
+     "notes": "SECOND interim spell. Board minutes of Jan 9, 2006 record 'Interim President Dr. Thomas J. Donner' giving the Superintendent's Report and signing board recommendations as Interim Superintendent/President, bridging Piedad Robertson's departure (Sept 2005, to lead the Education Commission of the States) and Tsang's Feb 2006 start. Donner had ALSO served an earlier interim spell, 1994-95, between Richard Moore and Robertson (http://www2.smc.edu/schedules/archives/profiles/2004/043/coverstories_043.htm). He was a career SMC administrator (Executive VP, Business & Administration); the exact title he held immediately before the 2005 interim appointment is not confirmed by a dated source, so priorTitle is null rather than guessed."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 7,
+    "sourcesConsulted": 12,
+    "wallClockMin": 4,
+    "sourceTypes": [
+     "college-site",
+     "board-minutes",
+     "local-press",
+     "wikipedia"
+    ],
+    "hardest": "SMC's official former-administrators page lists Donner AFTER Robertson, implying his only interim was pre-1995; board minutes proved he also served a second interim spell in 2005-06, which is the actual 3rd predecessor. Untangling that cost the most time."
+   },
+   "batch": 5
+  },
+  {
+   "university": "Tidewater Community College",
+   "state": "VA",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Marcia Conston",
+     "startYear": 2020,
+     "endYear": null,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Central Piedmont Community College",
+     "priorTitle": "Vice President for Enrollment and Student Success Services",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.tcc.edu/marcia-conston-announced-as-next-president-of-tidewater-community-college/",
+     "notes": "Announced Aug 2019 by VCCS Chancellor Glenn DuBois; became TCC's sixth president in January 2020. IPEDS name is CORRECT; still sitting as of 2026 (https://www.tcc.edu/tcc-president-dr-marcia-conston-kicks-off-the-new-semester-with-campus-wide-visits/)."
+    },
+    {
+     "name": "Gregory T. DeCinque",
+     "startYear": 2018,
+     "endYear": 2020,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Cayuga Community College",
+     "priorTitle": "Interim President",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.tcc.edu/chancellor-appoints-interim-president-for-tcc/",
+     "notes": "Announced May 22, 2018; started early July 2018 and served until Conston arrived in January 2020. 44-year career; president of Jamestown Community College for nearly 20 years (retired 2013), acting president of Tunxis Community-Technical College, interim president of Cayuga Community College. The TCC/WTKR announcement lists Cayuga as his most recent prior post but gives no dates, so priorInstitution carries moderate confidence (https://www.wtkr.com/2018/05/14/tidewater-community-college-president-announces-retirement-amid-declining-enrollment)."
+    },
+    {
+     "name": "Edna V. Baehre-Kolovani",
+     "startYear": 2012,
+     "endYear": 2018,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Harrisburg Area Community College",
+     "priorTitle": "President",
+     "nextRole": "Retired",
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.tcc.edu/edna-baehre-kolovani-named-president-of-tcc/",
+     "notes": "TCC's fifth president, took office July 2012; retired effective July 1, 2018 amid a 30% enrollment decline since 2012 and a $4-6M budget deficit. priorInstitution (HACC, where she was president as Edna Baehre) is from her appointment coverage; TCC's own announcement page returned 403 to automated fetch so the detail rests on the TCC/press announcement text surfaced in search."
+    },
+    {
+     "name": "Peter A. Spina",
+     "startYear": 2012,
+     "endYear": 2012,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Monroe Community College",
+     "priorTitle": "President Emeritus",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.tcc.edu/edna-baehre-kolovani-takes-over-as-president-of-tcc/",
+     "notes": "Interim president from March 1, 2012 until Baehre-Kolovani took office in July 2012, following Deborah M. DiCroce's retirement. Third and longest-serving president of Monroe Community College (1982-1999); also earlier interim president of Thomas Nelson Community College (VA) and SUNY IT. Died Dec 2025 (https://rbj.net/2025/12/10/peter-a-spina-mcc-president-obituary/)."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 6,
+    "sourcesConsulted": 10,
+    "wallClockMin": 3,
+    "sourceTypes": [
+     "college-site",
+     "local-press",
+     "state-system-site",
+     "wikipedia"
+    ],
+    "hardest": "tcc.edu returned HTTP 403 to every automated fetch, so both the college's president-history page and its own announcements had to be reconstructed from search snippets plus outside press (WTKR, VCCS, Chronicle)."
+   },
+   "batch": 5
+  },
+  {
+   "university": "Phoenix College",
+   "state": "AZ",
+   "school": "Office of the President",
+   "leaderTitle": "President",
+   "moreHistoryExists": true,
+   "records": [
+    {
+     "name": "Heather Kruse",
+     "startYear": 2026,
+     "endYear": null,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "Phoenix College",
+     "priorTitle": "Vice President of Student Affairs",
+     "nextRole": null,
+     "nextRoleInstitution": null,
+     "sourceUrl": "https://www.phoenixcollege.edu/news/2026/dr-heather-kruse-appointed-interim-president",
+     "notes": "Appointed interim president effective June 1, 2026, after Kimberly Britt moved full time to the district provost role. 28+ years in MCCCD; VP of Student Affairs at Phoenix College since 2018, earlier dean of students there and a decade at Paradise Valley Community College. Corroborated by Community College Daily (https://www.ccdaily.com/2026/06/headlines-1194/). phoenixcollege.edu is behind Cloudflare and blocked direct fetching; content confirmed via search index plus the ccdaily item."
+    },
+    {
+     "name": "Kimberly Britt",
+     "startYear": 2022,
+     "endYear": 2026,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "Phoenix College",
+     "priorTitle": "Vice President of Academic Affairs and Accreditation Liaison Officer",
+     "nextRole": "Executive Vice Chancellor and Provost",
+     "nextRoleInstitution": "Maricopa County Community College District",
+     "sourceUrl": "https://www.maricopa.edu/news/2022/dr-kimberly-britt-named-next-president-phoenix-college",
+     "notes": "President from June 1, 2022. Named MCCCD Executive Vice Chancellor and Provost in December 2025 (succeeding Lisa Rae Armour) and held both roles concurrently until the Phoenix College seat was backfilled by an interim on June 1, 2026 (https://www.maricopa.edu/news/2026/maricopa-community-colleges-names-dr-kimberly-britt-new-executive-vice-chancellor-provost). Internal promotion from PC's VP of Academic Affairs."
+    },
+    {
+     "name": "Clyne Namuo",
+     "startYear": 2021,
+     "endYear": 2022,
+     "isInterim": true,
+     "convertedToPermanent": false,
+     "priorInstitution": "South Mountain Community College",
+     "priorTitle": "Vice President of Learning and Chief Academic Officer",
+     "nextRole": "President",
+     "nextRoleInstitution": "Joliet Junior College",
+     "sourceUrl": "https://www.maricopa.edu/news/2022/dr-kimberly-britt-named-next-president-phoenix-college",
+     "notes": "Interim president from March 2021 until Britt took office June 1, 2022 (~1.5 years). Prior role and subsequent JJC presidency from his AACC board profile (https://www.aacc.nche.edu/about-us/governance/2026-board-slate-profiles/clyne-namuo/). During his interim tenure Phoenix College was approved to offer bachelor's degrees."
+    },
+    {
+     "name": "Larry D. Johnson Jr.",
+     "startYear": 2018,
+     "endYear": 2021,
+     "isInterim": false,
+     "convertedToPermanent": false,
+     "priorInstitution": "St. Louis Community College - Forest Park",
+     "priorTitle": "Provost and Chief Academic Officer",
+     "nextRole": "President",
+     "nextRoleInstitution": "Stella and Charles Guttman Community College (CUNY)",
+     "sourceUrl": "https://jbhe.com/2018/05/larry-johnson-appointed-president-of-phoenix-college-in-arizona/",
+     "notes": "Announced May 14, 2018; became Phoenix College's sixth president in July 2018 and its first African American president in the college's 99-year history. Left in early 2021 to become president of Guttman Community College (CUNY), which triggered Namuo's interim appointment in March 2021 (https://cccnews.info/2021/02/05/guttman-community-college-names-new-president/)."
+    }
+   ],
+   "instrumentation": {
+    "spellsTraced": 4,
+    "spellsAvailable": 6,
+    "sourcesConsulted": 11,
+    "wallClockMin": 4,
+    "sourceTypes": [
+     "college-site",
+     "district-site",
+     "trade-press",
+     "local-press"
+    ],
+    "hardest": "phoenixcollege.edu is Cloudflare-blocked (403 to WebFetch, challenge page to curl), so the live seatholder had to be established indirectly - and the answer was NOT the obvious one: Britt is still listed all over the site as president while an interim (Kruse) actually holds the seat since June 1, 2026."
+   },
+   "batch": 5
+  }
+ ]
+}

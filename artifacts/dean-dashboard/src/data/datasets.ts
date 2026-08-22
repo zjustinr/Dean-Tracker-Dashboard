@@ -12,7 +12,7 @@ declare const __BUILD_ID__: string;
 
 export type DatasetId =
   | "top100" | "r1bschool" | "r1eschool" | "r1university" | "r1medical" | "r1law" | "r1provost"
-  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts" | "usadvancement" | "uslac" | "usadminleaders";
+  | "usag" | "usnursing" | "uspharmacy" | "useducation" | "r1arts" | "uspublichealth" | "usvet" | "usr2" | "ussystem" | "usgrad" | "uscreativearts" | "usadvancement" | "uslac" | "usadminleaders" | "uscommunitycollege";
 
 export interface SchoolInfo {
   university: string;
@@ -44,7 +44,7 @@ export interface DatasetMeta {
   shortLabel: string;
   description: string;
   rankLabel: string;
-  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts" | "advancement" | "liberalarts" | "adminleaders";
+  schoolType: "business" | "engineering" | "university" | "medical" | "law" | "provost" | "agriculture" | "nursing" | "pharmacy" | "education" | "arts" | "publichealth" | "veterinary" | "r2university" | "system" | "graduate" | "creativearts" | "advancement" | "liberalarts" | "adminleaders" | "communitycollege";
   yearRange: string;
 }
 
@@ -271,6 +271,21 @@ export const DATASETS_META: Record<DatasetId, DatasetMeta> = {
     yearRange: "1990–2026",
   },
 
+  // Community-college presidents and district chancellors. Depth is bounded by
+  // SPELLS, not by a date: current + 3 predecessors, so each seat's horizon
+  // varies and `historyFrom`/`truncated` on the schools row are load-bearing.
+  // Only the 20 pilot seats carry history so far; the schools table holds all
+  // 1,101 seats, so School Explorer lists colleges the timeline cannot yet fill.
+  uscommunitycollege: {
+    id: "uscommunitycollege",
+    label: "Community College Presidents",
+    shortLabel: "Community College",
+    description: "Presidents of the largest US community colleges and the chancellors of their multi-college districts. Sitting leaders cover 1,080 of 1,101 seats; the 21 without one are district chancellorships, which IPEDS does not report. Appointment history is a separate, deeper pass, traced current + 3 predecessors per seat rather than from a fixed year, and currently covers 20 seats. Sitting names outside those 20 come from IPEDS fall 2024: 110 are corroborated by the college\u0027s own website, the rest are not, and a pilot check found roughly a quarter of the field stale.",
+    rankLabel: "Enrollment rank",
+    schoolType: "communitycollege",
+    yearRange: "1970-2026",
+  },
+
   uslac: {
     id: "uslac",
     label: "Liberal Arts College Presidents",
@@ -326,6 +341,7 @@ export const DATASET_LIST: DatasetMeta[] = [
   DATASETS_META.usadvancement,
   DATASETS_META.uslac,
   DATASETS_META.usadminleaders,
+  DATASETS_META.uscommunitycollege,
 ];
 
 // Runtime loader: fetch a dataset's heavy arrays from public/data/<id>.json,

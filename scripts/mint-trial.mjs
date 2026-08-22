@@ -15,6 +15,7 @@ import { dirname, join } from "node:path";
 import { createInterface } from "node:readline/promises";
 import { stdin, stdout } from "node:process";
 import { sign, verify, b64url } from "../lib/trial-token.mjs";
+import { INDEX_LABEL } from "../artifacts/dean-dashboard/scripts/lib/indices.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SECRET_FILE = join(ROOT, ".trial-secret");
@@ -22,27 +23,19 @@ const LOG_FILE = join(ROOT, "trials.log");
 const DEFAULT_DOMAIN = process.env.BI_DOMAIN || "https://batonindex.com";
 const DEFAULT_EXPIRY_DAYS = 21;
 
-// The 12 sellable indices (top100 is hidden and never scoped into a trial).
-const INDICES = [
-  ["r1bschool", "R1 B-school"],
-  ["r1eschool", "R1 Engineering"],
-  ["r1university", "R1 Presidents"],
-  ["r1medical", "R1 Medical"],
-  ["r1law", "R1 Law"],
-  ["r1provost", "R1 Provost"],
-  ["usag", "Ag & Forestry"],
-  ["usnursing", "Nursing"],
-  ["uspharmacy", "Pharmacy"],
-  ["useducation", "Education"],
-  ["r1arts", "Arts & Sciences"],
-  ["uspublichealth", "Public Health"],
-  ["uslac", "Liberal Arts Colleges"],
-  ["ussystem", "University Systems"],
-  ["usr2", "R2 Universities"],
-  ["usvet", "Veterinary"],
-  ["usgrad", "Graduate College"],
-  ["usadminleaders", "Administrative Leaders"],
-];
+// The sellable indices, taken from the shared registry rather than a local list.
+//
+// This WAS a hand-maintained literal, and it drifted exactly the way
+// lib/indices.mjs was created to stop: PR #132 added `usadvancement` and
+// `uscreativearts` to the registry, api/data.js and the UI, but not here -- so
+// "all indices" quietly meant 18 of 20, and a Project/Firm client who opened
+// Advancement in the switcher got a 403 for an index they had paid for.
+// Deriving it means an index added next year is sellable the day it is
+// registered, with nothing here to remember.
+//
+// top100 is deliberately absent from the registry (UNREGISTERED_BY_DESIGN), so
+// it stays out of every trial scope for free.
+const INDICES = Object.entries(INDEX_LABEL);
 const ALL_IDS = INDICES.map(([id]) => id);
 
 // Paid-tier presets — the enforceable scope guard. The $99 Day Pass is a limited
@@ -89,7 +82,18 @@ async function selftest() {
   const wrongSecret = await verify(token, "other-secret", now);
   const expired = await verify(token, secret, now + 7200);
 
+  // api/usage.js mints the same links from the browser but is CommonJS, so it
+  // cannot import the registry and carries a literal instead. Check it here --
+  // this is the drift that made "all indices" mean 18 of 20.
+  const usageSrc = readFileSync(join(ROOT, "api", "usage.js"), "utf8");
+  const m = usageSrc.match(/const ALL_IDS = \[([\s\S]*?)\];/);
+  const usageIds = m ? [...m[1].matchAll(/"([a-z0-9]+)"/g)].map((x) => x[1]) : [];
+  const registryIds = Object.keys(INDEX_LABEL);
+  const idsMatch = JSON.stringify(usageIds) === JSON.stringify(registryIds);
+
   const checks = [
+    ["api/usage.js ALL_IDS matches the index registry",
+      idsMatch, `usage=${usageIds.length} registry=${registryIds.length}`],
     ["valid token accepted", good.ok === true && good.payload.c === "selftest"],
     ["tampered signature rejected", tamperedSig.ok === false && tamperedSig.reason === "bad-signature"],
     ["tampered payload rejected", tamperedBody.ok === false],
@@ -97,8 +101,8 @@ async function selftest() {
     ["expired token rejected", expired.ok === false && expired.reason === "expired"],
   ];
   let pass = true;
-  for (const [name, ok] of checks) {
-    console.log(`${ok ? "✓" : "✗"} ${name}`);
+  for (const [name, ok, detail] of checks) {
+    console.log(`${ok ? "✓" : "✗"} ${name}${detail && !ok ? `  [${detail}]` : ""}`);
     if (!ok) pass = false;
   }
   console.log(pass ? "\nSELFTEST PASS" : "\nSELFTEST FAIL");

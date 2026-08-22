@@ -1,14 +1,17 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { yearsLabel, genderNorm } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
 import RegionMap from "@/components/RegionMap";
+import {
+  FilterRow, FilterGroup, SegGroup, PillGroup, PillToggles, ActiveFilterBar, type ActiveChip,
+} from "@/components/FilterControls";
 import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
-import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, type AffEntry, type AffMap } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, useNonAcademicExperience, type AffEntry, type AffMap } from "@/data/enrichment";
 import ScoutAssistant from "@/components/ScoutAssistant";
 import { useTrial } from "@/data/TrialContext";
 
@@ -154,6 +157,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // candidates got filtered out silently.
   const [requirePhd, setRequirePhd] = useState(false);
   const [requireProf, setRequireProf] = useState(false);
+  // "Has an industry tie" -- a NAMED-FIRM tie from nonacademic-experience.json, not
+  // the legacy hasIndustryExp boolean (unpopulated in most indices, so filtering
+  // on it would silently empty the list). Filters to people the derivation can
+  // actually point at an employer for.
+  const [requireIndustryTie, setRequireIndustryTie] = useState(false);
   // Widen-the-pool control for building a diverse slate, not an exclusionary
   // screen: defaults to "all" and is framed as "Include", the same posture as
   // an affinity filter that surfaces candidates rather than filters them out.
@@ -194,12 +202,13 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     if (yrFrom != null || yrTo != null) f.years = `${yrFrom ?? ""}-${yrTo ?? ""}`;
     if (requirePhd) f.requirePhd = true;
     if (requireProf) f.requireProf = true;
+    if (requireIndustryTie) f.requireIndustryTie = true;
     if (letter) f.letter = letter;
     if (showHazard) f.showHazard = true;
     if (affinity.size) f.affinity = Array.from(affinity);
     return f;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [disciplines, tiers, sortBy, includeGender, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, letter, showHazard, affinity]);
+  }, [disciplines, tiers, sortBy, includeGender, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, requireIndustryTie, letter, showHazard, affinity]);
   const filterLogTimer = useRef<number | null>(null);
   const filterLogSig = useRef<string>("{}");
   useEffect(() => {
@@ -279,6 +288,15 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     const car = researchMap[enrichKey(d.dean, d.university)]?.career;
     return !!car && car.some((s) => PROF_RE.test(s.role || ""));
   };
+
+  // Named-firm industry tie (nonacademic-experience.json). Deliberately requires
+  // confidence "high": a flag-only yes has no employer to show, so filtering on
+  // it would return people whose row cannot explain why they matched.
+  const industryPeople = useNonAcademicExperience()?.people ?? null;
+  const hasIndustryTie = useCallback((d: Dean): boolean => {
+    const rec = industryPeople?.[enrichKey(d.dean, d.university)];
+    return !!rec && rec.status === "yes" && rec.confidence === "high" && !!rec.ties?.length;
+  }, [industryPeople]);
 
   // Tenure inputs for the movability assessment shown in the results-map column.
   // Mirrors DeanProfile's computation (cohort tenure distribution + this leader's
@@ -472,6 +490,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       if (apptType === "interim" && !isSub && !d.isInterim) return false;
       if (requirePhd && !hasDoctorate(d)) return false;
       if (requireProf && !wasProfessor(d)) return false;
+      if (requireIndustryTie && !hasIndustryTie(d)) return false;
       if (includeGender !== "all") {
         const g = genderNorm(d.gender);
         if (includeGender === "women" && g !== "F") return false;
@@ -494,7 +513,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       seen.add(key);
       return true;
     });
-  }, [allDeans, query, keyword, researchMap, letter, disciplines, tiers, tierOf, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, includeGender, hasFilter]);
+  }, [allDeans, query, keyword, researchMap, letter, disciplines, tiers, tierOf, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, requireIndustryTie, hasIndustryTie, includeGender, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -647,6 +666,56 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // checked kinds. The selector shows for any single chosen school; the ~4 MB map
   // loads lazily the first time a kind is checked.
   const affinityOn = !!school;
+
+  // Collapsed groups still say what they are doing, so a shut group is never
+  // somewhere a filter can hide. Role and Person open on load -- they are the
+  // two a headhunter touches on almost every search, and leaving them shut made
+  // the panel open as four labels and nothing to act on. Institution and
+  // Location open only when they hold something.
+  const GENDER_LABEL = { all: "All", women: "Women", men: "Men" } as const;
+  const APPT_LABEL = { all: "All", perm: "Permanent", interim: hasBench ? "Assoc/Vice/Interim" : "Interim" } as const;
+  const TENURE_LABEL = { sitting: "Sitting now", "5": "Last 5 yrs", "10": "Last 10 yrs", any: "Any time" } as const;
+  const AFF_LABEL = Object.fromEntries(AFF_KINDS.map(([k, l]) => [k as string, l]));
+
+  const roleSummary = [disciplines.size ? [...disciplines].join(", ") : null,
+                       apptType !== "all" ? APPT_LABEL[apptType] : null,
+                       TENURE_LABEL[tenureWin]].filter(Boolean).join(" · ");
+  const personSummary = [includeGender !== "all" ? GENDER_LABEL[includeGender] : null,
+                         requirePhd ? "Ph.D." : null, requireProf ? "Professor" : null,
+                         requireIndustryTie ? "Non-academic tie" : null,
+                         keyword.trim() ? `“${keyword.trim()}”` : null].filter(Boolean).join(" · ") || "Anyone";
+  const institutionSummary = [tiers.size ? [...tiers].join(", ") : null, school || null,
+                              affinity.size ? `${affinity.size} affinity` : null].filter(Boolean).join(" · ") || "All schools";
+  const locationSummary = regions.size || states.size ? [...regions, ...states].join(", ") : "Anywhere";
+
+  // The active bar is the answer to "why am I seeing this many". Each chip
+  // removes exactly one thing, so undoing never means hunting for the control.
+  const activeChips: ActiveChip[] = [
+    ...[...disciplines].map((d) => ({ id: `disc:${d}`, label: d, onRemove: () => { toggleSet(setDisciplines, d); setExpandedId(null); } })),
+    ...(apptType !== "all" ? [{ id: "appt", label: APPT_LABEL[apptType], onRemove: () => setApptType("all") }] : []),
+    ...(tenureWin !== "sitting" ? [{ id: "tenure", label: TENURE_LABEL[tenureWin], onRemove: () => setTenureWin("sitting") }] : []),
+    ...(includeGender !== "all" ? [{ id: "gender", label: GENDER_LABEL[includeGender], onRemove: () => setIncludeGender("all") }] : []),
+    ...(requirePhd ? [{ id: "phd", label: "Ph.D.", onRemove: () => setRequirePhd(false) }] : []),
+    ...(requireProf ? [{ id: "prof", label: "Professor", onRemove: () => setRequireProf(false) }] : []),
+    ...(requireIndustryTie ? [{ id: "na", label: "Non-academic tie", accent: "teal" as const, onRemove: () => setRequireIndustryTie(false) }] : []),
+    ...(keyword.trim() ? [{ id: "kw", label: `“${keyword.trim()}”`, onRemove: () => { setKeyword(""); setExpandedId(null); } }] : []),
+    ...[...tiers].map((t) => ({ id: `tier:${t}`, label: t, onRemove: () => { toggleSet(setTiers, t); setExpandedId(null); } })),
+    ...(school ? [{ id: "school", label: school, onRemove: () => { setSchool(""); setExpandedId(null); } }] : []),
+    ...[...affinity].map((a) => ({ id: `aff:${a}`, label: AFF_LABEL[a] ?? a, accent: "maroon" as const, onRemove: () => { toggleSet(setAffinity, a); setExpandedId(null); } })),
+    ...[...regions].map((r) => ({ id: `region:${r}`, label: r, onRemove: () => { toggleSet(setRegions, r); setExpandedId(null); } })),
+    ...[...states].map((st) => ({ id: `state:${st}`, label: st, onRemove: () => { toggleSet(setStates, st); setExpandedId(null); } })),
+  ];
+
+  // The interim/bench explainer used to sit inside the Appointment flex row and
+  // wrap under it; it is the Appointment row's hint now.
+  const apptSubline = (() => {
+    if (apptType !== "interim") return undefined;
+    if (hasBench) {
+      const sub = results.filter((r) => (r as { roleType?: string }).roleType === "subdean").length;
+      return `${sub} associate/vice ${nounPluralLower} (feeder bench) + ${results.length - sub} interim. Both count under All; only Permanent is limited to sitting permanent ${nounPluralLower}.`;
+    }
+    return tenureWin === "sitting" ? "Schools in transition — open searches." : undefined;
+  })();
   const [affinityMap, setAffinityMap] = useState<AffMap | null>(getAffinityCache());
   useEffect(() => {
     if (affinity.size === 0 || affinityMap) return;
@@ -669,6 +738,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     setQuery(""); setLetter(""); setDisciplines(new Set()); setTiers(new Set()); setSchool(""); setKeyword(""); setAffinity(new Set());
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
     setRequirePhd(false); setRequireProf(false); setIncludeGender("all"); setYrFrom(null); setYrTo(null);
+    // Both were missing: "Reset filters" used to leave the non-academic tie
+    // switched on and the tenure window wherever it was, so the list did not
+    // return to the state the button promises.
+    setRequireIndustryTie(false); setTenureWin("sitting");
   };
 
   // Export the SHORTLIST only (the user's hand-picked few), not the dataset.
@@ -742,162 +815,114 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               )}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <select className={sel} value={tenureWin} onChange={(e) => { setTenureWin(e.target.value as "sitting" | "5" | "10" | "any"); setExpandedId(null); }} aria-label="Tenure window">
-                <option value="sitting">Sitting now</option>
-                <option value="5">Served in last 5 yrs</option>
-                <option value="10">Served in last 10 yrs</option>
-                <option value="any">Any time</option>
-              </select>
-              <select className={sel} value={school} onChange={(e) => { setSchool(e.target.value); setExpandedId(null); }} aria-label="School">
-                <option value="">All schools</option>
-                {schoolList.map((sc) => <option key={sc} value={sc}>{sc}</option>)}
-              </select>
-              <select className={sel} value={sortBy} onChange={(e) => setSortBy(e.target.value as "name" | "tenure" | "recent" | "sofar")} aria-label="Sort by">
-                <option value="name">Sort: name</option>
-                <option value="tenure">Sort: longest tenure</option>
-                <option value="sofar">Sort: tenure so far</option>
-                <option value="recent">Sort: most recently appointed</option>
-              </select>
-            </div>
+            <ActiveFilterBar
+              chips={activeChips}
+              onClearAll={clearAll}
+              resultCount={results.length}
+              noun={nounPluralLower}
+            />
 
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span className="text-xs font-medium text-muted-foreground">Include</span>
-              <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
-                {([["all", "All"], ["women", "Women"], ["men", "Men"]] as ["all" | "women" | "men", string][]).map(([v, label], i) => (
-                  <button key={v} onClick={() => { setIncludeGender(v); setExpandedId(null); }}
-                    className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", includeGender === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
-                ))}
-              </div>
-              <span className="text-[10px] text-muted-foreground">(widen the pool for a defensible diverse slate)</span>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-              <span className="text-xs font-medium text-muted-foreground">Credentials</span>
-              <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
-                <input type="checkbox" checked={requirePhd} onChange={(e) => { setRequirePhd(e.target.checked); setExpandedId(null); }} className="accent-[#011F5B] w-3.5 h-3.5" />
-                Ph.D.
-              </label>
-              <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
-                <input type="checkbox" checked={requireProf} onChange={(e) => { setRequireProf(e.target.checked); setExpandedId(null); }} className="accent-[#011F5B] w-3.5 h-3.5" />
-                Professor
-              </label>
-              <span className="text-[10px] text-muted-foreground">(held a doctorate / faculty rank)</span>
-            </div>
-
-            {disciplineOptions.length > 1 && (
-              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
-                <span className="text-xs font-medium text-muted-foreground pt-1">Function</span>
-                {/* Pill toggle like Region: All (no filter) is the default; clicking a
-                    pill adds/removes it from the multi-select set. */}
-                <div className="flex flex-wrap gap-1.5">
-                  <button onClick={() => { setDisciplines(new Set()); setExpandedId(null); }}
-                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
-                  {disciplineOptions.map((d) => (
-                    <button key={d} onClick={() => { toggleSet(setDisciplines, d); setExpandedId(null); }}
-                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", disciplines.has(d) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{d}</button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {tierOptions.length > 1 && (
-              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
-                <span className="text-xs font-medium text-muted-foreground pt-1">Institution tier</span>
-                <div className="flex flex-wrap gap-1.5">
-                  <button onClick={() => { setTiers(new Set()); setExpandedId(null); }}
-                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", tiers.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
-                  {tierOptions.map((t) => (
-                    <button key={t} onClick={() => { toggleSet(setTiers, t); setExpandedId(null); }}
-                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", tiers.has(t) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{t}</button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {affinityOn && (
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 rounded-lg bg-[#8C1D40]/8 border border-[#8C1D40]/25 px-2.5 py-1.5">
-                <span className="text-xs font-semibold text-[#8C1D40]">Affinity to this school</span>
-                {AFF_KINDS.map(([key, label]) => (
-                  <label key={key as string} className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
-                    <input type="checkbox" checked={affinity.has(key as string)} onChange={() => { toggleSet(setAffinity, key as string); setExpandedId(null); }} className="accent-[#8C1D40] w-3.5 h-3.5" />
-                    {label}
-                  </label>
-                ))}
-                <span className="text-[10px] text-muted-foreground">(everyone in the database connected to {school}, across all indices)</span>
-              </div>
-            )}
-
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span className="text-xs font-medium text-muted-foreground">Appointment</span>
-              <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
-                {([["all", "All"], ["perm", "Permanent"], ["interim", hasBench ? "Assoc/Vice/Interim" : "Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
-                  <button key={v} onClick={() => { setApptType(v); setExpandedId(null); }}
-                    className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", apptType === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
-                ))}
-              </div>
-              <span className="text-xs font-medium text-muted-foreground ml-1">Region</span>
-              {/* Segmented like the Appointment toggle, but multi-select: All (none
-                  chosen) is the default; clicking regions adds/removes them. */}
-              <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
-                <button onClick={() => { setRegions(new Set()); setExpandedId(null); }}
-                  className={["px-3 py-1.5 transition-colors", regions.size === 0 ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>All</button>
-                {Object.keys(REGIONS).map((r) => (
-                  <button key={r} onClick={() => { toggleSet(setRegions, r); setExpandedId(null); }}
-                    className={["px-3 py-1.5 border-l border-muted-foreground/30 transition-colors", regions.has(r) ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>
-                    {r}<span className={regions.has(r) ? "text-white/70 ml-1" : "text-muted-foreground ml-1"}>{regionCounts[r]}</span>
-                  </button>
-                ))}
-              </div>
-              {apptType === "interim" && tenureWin === "sitting" && !hasBench && (
-                <span className="w-full text-[11px] text-[#011F5B] font-medium">Schools in transition — open searches</span>
-              )}
-              {hasBench && apptType === "interim" && (() => {
-                const sub = results.filter((r) => (r as { roleType?: string }).roleType === "subdean").length;
-                const intr = results.length - sub;
-                return (
-                  <span className="w-full text-[11px] text-muted-foreground leading-snug">
-                    {sub} associate/vice dean{sub === 1 ? "" : "s"} (feeder bench) + {intr} interim dean{intr === 1 ? "" : "s"}. Both are counted under All; only the Permanent list is limited to sitting permanent deans.
-                  </span>
-                );
-              })()}
-            </div>
-
-            <div className="flex gap-3 items-start">
-              <div className="flex-1 min-w-0">
-                <span className="text-xs font-medium text-muted-foreground">States</span>
-                <div className="mt-1 flex flex-wrap gap-1 max-h-44 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
-                  {stateList.map((st) => (
-                    <button key={st} onClick={() => { toggleSet(setStates, st); setExpandedId(null); }} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
-                  ))}
-                </div>
-              </div>
-              {/* Live coverage map: fills the states the region/state filters select. */}
-              <div className="shrink-0 w-[38%] max-w-[220px] pt-4">
-                <RegionMap selected={effectiveStates} />
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-baseline justify-between">
-                <span className="text-xs font-medium text-muted-foreground">Keyword</span>
-                {keyword.trim() && (
-                  <button onClick={() => { setKeyword(""); setExpandedId(null); }} className="text-[11px] text-muted-foreground hover:text-foreground">clear</button>
+            <div className="flex flex-col gap-2">
+              <FilterGroup title="Role" summary={roleSummary} defaultOpen>
+                {disciplineOptions.length > 1 && (
+                  <FilterRow label="Position">
+                    <PillGroup ariaLabel="Position" options={disciplineOptions} selected={disciplines}
+                      onToggle={(v) => { toggleSet(setDisciplines, v); setExpandedId(null); }}
+                      onClear={() => { setDisciplines(new Set()); setExpandedId(null); }} />
+                  </FilterRow>
                 )}
-              </div>
-              <input
-                type="text" list="kw-options" value={keyword}
-                onChange={(e) => { setKeyword(e.target.value); setExpandedId(null); }}
-                placeholder="e.g. health equity, strategic planning…"
-                className="mt-1 w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
-              />
-              <datalist id="kw-options">
-                {keywordOptions.slice(0, 400).map((k) => <option key={k} value={k} />)}
-              </datalist>
-              <p className="mt-1 text-[11px] text-muted-foreground leading-snug">
-                Signature expertise themes from the brief, spanning scholarly field, professional background, and leadership focus. {keywordOptions.length} keyword{keywordOptions.length === 1 ? "" : "s"} in this index.
-              </p>
+                <FilterRow label="Appointment" hint={apptSubline}>
+                  <SegGroup ariaLabel="Appointment type" value={apptType}
+                    onChange={(v) => { setApptType(v); setExpandedId(null); }}
+                    options={[["all", "All"], ["perm", "Permanent"], ["interim", hasBench ? "Assoc/Vice/Interim" : "Interim"]]} />
+                </FilterRow>
+                <FilterRow label="Tenure window">
+                  <SegGroup ariaLabel="Tenure window" value={tenureWin}
+                    onChange={(v) => { setTenureWin(v); setExpandedId(null); }}
+                    options={[["sitting", "Sitting now"], ["5", "Last 5 yrs"], ["10", "Last 10 yrs"], ["any", "Any time"]]} />
+                </FilterRow>
+              </FilterGroup>
+
+              <FilterGroup title="Person" summary={personSummary} defaultOpen>
+                <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
+                  <SegGroup ariaLabel="Include" value={includeGender}
+                    onChange={(v) => { setIncludeGender(v); setExpandedId(null); }}
+                    options={[["all", "All"], ["women", "Women"], ["men", "Men"]]} />
+                </FilterRow>
+                <FilterRow label="Credentials" hint="Held a doctorate · faculty rank · a named organisation outside the academy.">
+                  <PillToggles items={[
+                    { key: "phd", label: "Ph.D.", on: requirePhd, onToggle: () => { setRequirePhd(!requirePhd); setExpandedId(null); } },
+                    { key: "prof", label: "Professor", on: requireProf, onToggle: () => { setRequireProf(!requireProf); setExpandedId(null); } },
+                    { key: "na", label: "Non-academic tie", on: requireIndustryTie, accent: "teal", onToggle: () => { setRequireIndustryTie(!requireIndustryTie); setExpandedId(null); } },
+                  ]} />
+                </FilterRow>
+                <FilterRow label="Keyword" hint={`Signature expertise themes from the brief — scholarly field, professional background, leadership focus. ${keywordOptions.length} keyword${keywordOptions.length === 1 ? "" : "s"} in this index.`}>
+                  <input
+                    type="text" list="kw-options" value={keyword}
+                    onChange={(e) => { setKeyword(e.target.value); setExpandedId(null); }}
+                    placeholder="e.g. health equity, strategic planning…"
+                    className="w-full rounded-lg border border-muted-foreground/30 bg-background px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#011F5B]/30"
+                  />
+                  <datalist id="kw-options">
+                    {keywordOptions.slice(0, 400).map((k) => <option key={k} value={k} />)}
+                  </datalist>
+                </FilterRow>
+              </FilterGroup>
+
+              <FilterGroup title="Institution" summary={institutionSummary}
+                defaultOpen={tiers.size > 0 || !!school || affinity.size > 0}>
+                {tierOptions.length > 1 && (
+                  <FilterRow label="Tier">
+                    <PillGroup ariaLabel="Institution tier" options={tierOptions} selected={tiers}
+                      onToggle={(v) => { toggleSet(setTiers, v); setExpandedId(null); }}
+                      onClear={() => { setTiers(new Set()); setExpandedId(null); }} />
+                  </FilterRow>
+                )}
+                <FilterRow label="School">
+                  <select className={`${sel} max-w-md`} value={school}
+                    onChange={(e) => { setSchool(e.target.value); setExpandedId(null); }} aria-label="School">
+                    <option value="">All schools</option>
+                    {schoolList.map((sc) => <option key={sc} value={sc}>{sc}</option>)}
+                  </select>
+                </FilterRow>
+                {affinityOn && (
+                  <FilterRow label="Affinity" hint={`Everyone in the database connected to ${school}, across all indices.`}>
+                    <PillToggles items={AFF_KINDS.map(([key, label]) => ({
+                      key: key as string, label, accent: "maroon" as const,
+                      on: affinity.has(key as string),
+                      onToggle: () => { toggleSet(setAffinity, key as string); setExpandedId(null); },
+                    }))} />
+                  </FilterRow>
+                )}
+              </FilterGroup>
+
+              <FilterGroup title="Location" summary={locationSummary} defaultOpen={regions.size > 0 || states.size > 0}>
+                <FilterRow label="Region">
+                  <PillGroup ariaLabel="Region" options={Object.keys(REGIONS)} selected={regions} counts={regionCounts}
+                    onToggle={(v) => { toggleSet(setRegions, v); setExpandedId(null); }}
+                    onClear={() => { setRegions(new Set()); setExpandedId(null); }} />
+                </FilterRow>
+                <FilterRow label="States" hint={effectiveStates.size ? undefined : "Pick a region above, or individual states here."}>
+                  <div className="flex gap-3 items-start w-full">
+                    <div className="flex-1 min-w-0 flex flex-wrap gap-1 max-h-44 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
+                      {stateList.map((st) => (
+                        <button key={st} type="button" aria-pressed={states.has(st)}
+                          onClick={() => { toggleSet(setStates, st); setExpandedId(null); }}
+                          className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
+                      ))}
+                    </div>
+                    <div className="shrink-0 w-[38%] max-w-[220px]">
+                      <RegionMap selected={effectiveStates} />
+                    </div>
+                  </div>
+                </FilterRow>
+              </FilterGroup>
             </div>
+
+            <FilterRow label="Sort by">
+              <SegGroup ariaLabel="Sort by" value={sortBy} onChange={setSortBy}
+                options={[["name", "Name"], ["tenure", "Longest tenure"], ["sofar", "Tenure so far"], ["recent", "Most recent"]]} />
+            </FilterRow>
 
             <div>
               <button onClick={clearAll} className="h-8 px-3 rounded text-xs font-semibold border border-muted-foreground/40 hover:bg-muted">Reset filters</button>

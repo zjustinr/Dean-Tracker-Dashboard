@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import type { Dean } from "@/data/types";
 import { useDataset } from "@/data/DatasetContext";
+import { useNonAcademicExperience, enrichKey, type NonAcademicRecord } from "@/data/enrichment";
 
 interface BSQSchool {
   university: string;
@@ -91,7 +92,31 @@ interface SchoolMetrics {
   instTotal: number | null;
 }
 
-function computeMetrics(key: string, deans: Dean[], bsq: BSQSchool | null): SchoolMetrics {
+/**
+ * Industry Exp % over KNOWN verdicts only. The legacy hasIndustryExp boolean is
+ * unpopulated in most indices, so pctOf(hasIndustryExp) reads 0% where the
+ * honest answer is "not researched". The tie sidecar carries a three-state
+ * verdict per person (yes / no / absent = unknown); the percentage here is
+ * yes ÷ (yes + no) among this school's leaders, and null — rendered as a dash —
+ * when nobody at the school has a verdict at all.
+ */
+function industryPctOf(deans: Dean[], ties: Record<string, NonAcademicRecord> | null): number | null {
+  if (!ties) return null;
+  const seen = new Set<string>();
+  let yes = 0, known = 0;
+  for (const d of deans) {
+    const k = enrichKey(d.dean, d.university);
+    if (seen.has(k)) continue;
+    seen.add(k);
+    const rec = ties[k];
+    if (!rec) continue;
+    known++;
+    if (rec.status === "yes") yes++;
+  }
+  return known > 0 ? (yes / known) * 100 : null;
+}
+
+function computeMetrics(key: string, deans: Dean[], bsq: BSQSchool | null, ties: Record<string, NonAcademicRecord> | null): SchoolMetrics {
   const parsed = parseSchoolKey(key);
   const total = deans.length;
   const withTenure = deans.filter(d => d.tenureLength != null);
@@ -122,7 +147,7 @@ function computeMetrics(key: string, deans: Dean[], bsq: BSQSchool | null): Scho
     interimPct: pctOf(d => d.isInterim),
     firstTimeDeanPct: pctOf(d => d.isFirstTimeDean),
     phdPct: pctOf(d => d.hasPhd),
-    industryExpPct: pctOf(d => d.hasIndustryExp),
+    industryExpPct: industryPctOf(deans, ties),
     priorDeanExpPct: pctOf(d => d.hasPriorDeanExp),
     totalHeadcount: fb(b, "totalHeadcount"),
     ugTotal: fb(b, "ugTotal"),
@@ -172,7 +197,7 @@ const METRIC_ROWS: MetricRow[] = [
   { key: "interimPct", label: "Interim Deans %", category: "Dean Leadership", format: m => pctStr(m.interimPct), getValue: m => m.interimPct, barType: "pct" },
   { key: "firstTimeDeanPct", label: "First-Time Deans %", category: "Dean Leadership", format: m => pctStr(m.firstTimeDeanPct), getValue: m => m.firstTimeDeanPct, barType: "pct" },
   { key: "phdPct", label: "PhD Holders %", category: "Dean Leadership", format: m => pctStr(m.phdPct), getValue: m => m.phdPct, barType: "pct" },
-  { key: "industryExpPct", label: "Industry Exp %", category: "Dean Leadership", format: m => pctStr(m.industryExpPct), getValue: m => m.industryExpPct, barType: "pct" },
+  { key: "industryExpPct", label: "Non-academic Exp % (of researched)", category: "Dean Leadership", format: m => pctStr(m.industryExpPct), getValue: m => m.industryExpPct, barType: "pct" },
   { key: "priorDeanExpPct", label: "Prior Dean Exp %", category: "Dean Leadership", format: m => pctStr(m.priorDeanExpPct), getValue: m => m.priorDeanExpPct, barType: "pct" },
   { key: "totalHeadcount", label: "Total Headcount", category: "Enrollment", format: m => fmt(m.totalHeadcount), getValue: m => m.totalHeadcount, barType: "number" },
   { key: "ugTotal", label: "UG Enrollment", category: "Enrollment", format: m => fmt(m.ugTotal), getValue: m => m.ugTotal, barType: "number" },
@@ -204,7 +229,7 @@ const RADAR_METRICS = [
   { key: "interimPct", label: "Interim %" },
   { key: "firstTimeDeanPct", label: "First-Time %" },
   { key: "phdPct", label: "PhD %" },
-  { key: "industryExpPct", label: "Industry Exp %" },
+  { key: "industryExpPct", label: "Non-academic Exp % (of researched)" },
 ];
 
 const BAR_CHART_OPTIONS = METRIC_ROWS.filter(r => r.key !== "control");
@@ -304,6 +329,10 @@ function SchoolSearchSelect({ available, onSelect }: {
 
 export default function CompareSchools() {
   const { noun, nounPlural } = useDataset();
+  // null until the sidecar loads -- industryPctOf renders a dash rather than a
+  // fake 0% in the meantime, which is also the honest display for schools whose
+  // leaders simply have no verdict.
+  const tiesPeople = useNonAcademicExperience()?.people ?? null;
   // Swap the built-in "Dean"/"Deans" labels for the dataset's noun (e.g. "Leader" for university presidents).
   const relabel = (s: string) => s.replace(/Deans/g, nounPlural).replace(/Dean/g, noun);
   const schoolList = useSchoolList();
@@ -337,9 +366,9 @@ export default function CompareSchools() {
       const parsed = parseSchoolKey(key);
       const deans = (deansBySchool.get(key) || []).sort((a, b) => (a.startYear || 0) - (b.startYear || 0));
       const bsq = findBSQ(parsed.university, parsed.school);
-      return computeMetrics(key, deans, bsq);
+      return computeMetrics(key, deans, bsq, tiesPeople);
     });
-  }, [selectedKeys, deansBySchool, findBSQ]);
+  }, [selectedKeys, deansBySchool, findBSQ, tiesPeople]);
 
   const handleAdd = (val: string) => {
     if (val && !selectedKeys.includes(val) && selectedKeys.length < 4) {

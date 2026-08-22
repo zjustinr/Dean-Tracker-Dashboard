@@ -11,6 +11,11 @@ interface DatasetCtx {
   // longer bundled). During loading `bundle` carries real meta but empty arrays,
   // so consumers render an empty state rather than crashing.
   loading: boolean;
+  // The fetch failed -- most often the trial gate answering 403 for a dataset
+  // outside the visitor's scope. Without this, `loading` (which is just !data)
+  // stays true forever on an error, so every consumer shows a spinner for a
+  // request that is never coming back.
+  failed: boolean;
   // Dataset-aware label for the person a row represents: "Dean" for
   // business/engineering/medical/law schools, "Leader" for university
   // president/chancellor data, "Provost" for chief-academic-officer data.
@@ -38,34 +43,50 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
   // Cache of already-fetched data, keyed by id, so switching back is instant.
   const [dataById, setDataById] = useState<Partial<Record<DatasetId, DatasetData>>>({});
 
+  const [failedIds, setFailedIds] = useState<Partial<Record<DatasetId, true>>>({});
+
   const data = dataById[datasetId];
-  const loading = !data;
+  const failed = !data && !!failedIds[datasetId];
+  const loading = !data && !failed;
 
   useEffect(() => {
-    if (dataById[datasetId]) return; // already loaded
+    if (dataById[datasetId] || failedIds[datasetId]) return; // already loaded, or already failed
     let alive = true;
     loadDatasetData(datasetId)
       .then((d) => { if (alive) setDataById((prev) => ({ ...prev, [datasetId]: d })); })
-      .catch((e) => { if (alive) console.error(e); });
+      .catch((e) => { if (alive) { console.error(e); setFailedIds((prev) => ({ ...prev, [datasetId]: true })); } });
     return () => { alive = false; };
-  }, [datasetId, dataById]);
+  }, [datasetId, dataById, failedIds]);
 
   const value = useMemo(() => {
     const meta = DATASETS_META[datasetId];
     const bundle: DatasetBundle = { meta, ...(data ?? EMPTY) };
-    const isUniv = meta.schoolType === "university";
+    // WHO THE INDEX IS ABOUT, in two questions.
+    //
+    // 1. Does the row carry the officeholder's REAL title in `discipline`?
+    //    Graduate-college heads are "Vice Provost and Dean", advancement heads
+    //    "Vice President for Advancement", admin leaders "Chief People Officer",
+    //    and every presidency index carries "President" / "Chancellor" /
+    //    "Superintendent". Those must render verbatim; only the dean indices,
+    //    where `discipline` holds a FIELD ("Marketing", "Civil Engineering"),
+    //    fall back to the generic noun.
+    // 2. What is the generic noun when there is no usable title?
+    //
+    // Both were ternary chains keyed on individual schoolTypes, so an index
+    // whose type nobody remembered to add silently answered "Dean" to question 1
+    // and printed "Dean" for a college president. That is how uslac, usr2 and
+    // ussystem shipped labelling 972 LAC presidents and 1,322 R2 presidents
+    // "Dean" -- the data was right and the label was wrong. Enumerate the sets
+    // instead, so adding a schoolType to `datasets.ts` and not to this file is a
+    // visible omission rather than a wrong answer.
+    const PRESIDENTIAL = ["university", "r2university", "system", "liberalarts", "communitycollege", "adminleaders"];
+    const isPresidential = PRESIDENTIAL.includes(meta.schoolType);
     const isProvost = meta.schoolType === "provost";
     const isGrad = meta.schoolType === "graduate";
     const isAdv = meta.schoolType === "advancement";
-    const isAdminLeaders = meta.schoolType === "adminleaders";
-    // Datasets that carry the officeholder's real title in `discipline`
-    // (graduate-college heads carry titles like "Vice Provost and Dean";
-    // advancement heads like "Vice President for Advancement" / foundation CEO;
-    // admin leaders like "Vice President and Chief People Officer" -- the
-    // function bucket rides in disciplineBroad instead, for filtering).
-    const titleVaries = isUniv || isProvost || isGrad || isAdv || isAdminLeaders;
-    const noun = isUniv ? "Leader" : isProvost ? "Provost" : isAdv ? "Advancement VP" : isAdminLeaders ? "Leader" : "Dean";
-    const nounPlural = isUniv ? "Leaders" : isProvost ? "Provosts" : isAdv ? "Advancement VPs" : isAdminLeaders ? "Leaders" : "Deans";
+    const titleVaries = isPresidential || isProvost || isGrad || isAdv;
+    const noun = isPresidential ? "Leader" : isProvost ? "Provost" : isAdv ? "Advancement VP" : "Dean";
+    const nounPlural = isPresidential ? "Leaders" : isProvost ? "Provosts" : isAdv ? "Advancement VPs" : "Deans";
     const titleOf = (d: { discipline?: string | null; roleType?: string | null } | null | undefined): string => {
       const isSub = d?.roleType === "subdean";
       if (titleVaries || isSub) {
@@ -85,13 +106,14 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
       meta,
       list: DATASET_LIST,
       loading,
+      failed,
       noun,
       nounPlural,
       nounLower: noun.toLowerCase(),
       nounPluralLower: nounPlural.toLowerCase(),
       titleOf,
     };
-  }, [datasetId, data, loading]);
+  }, [datasetId, data, loading, failed]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

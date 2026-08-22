@@ -13,7 +13,7 @@ import { usePhotoMap, enrichKey as photoKey } from "@/data/enrichment";
  * and the source/school announcement URL.
  */
 export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: Dean) => void }) {
-  const { noun, nounLower, datasetId } = useDataset();
+  const { noun, nounLower, datasetId, loading, failed } = useDataset();
   const allDeans = useAllDeans();
   const PHOTO_MAP = usePhotoMap();
   const current = useMemo(
@@ -47,7 +47,30 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
     setPhoto(curated?.photo || null);
   }, [dean, curated?.photo]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (!dean) return null;
+  // Never return null. This card vanishing was read as the feature breaking, and
+  // the reason it vanished had nothing to do with the card: the trial gate answers
+  // 403 for any index outside the visitor's scope (PUBLIC_SCOPE is r1bschool
+  // alone), so switching to, say, Administrative leaves `current` empty and the
+  // whole card silently disappeared mid-page. An empty state keeps the layout
+  // stable and says which of the two things happened.
+  if (!dean) {
+    return (
+      <Card className="lg:sticky lg:top-4 border-2" style={{ borderColor: "#011F5B" }}>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-base text-center">Meet a Leader</CardTitle>
+        </CardHeader>
+        <CardContent className="pb-5">
+          <p className="text-sm text-muted-foreground text-center leading-snug">
+            {loading
+              ? "Loading…"
+              : failed
+              ? "This index isn't available on your plan."
+              : `No sitting ${nounLower}s on record for this index.`}
+          </p>
+        </CardContent>
+      </Card>
+    );
+  }
 
   const initials = dean.dean.split(/\s+/).map((t) => t[0]).filter(Boolean).slice(0, 3).join("");
   const color = CHART_COLORS[Math.abs([...dean.university].reduce((h, c) => h * 31 + c.charCodeAt(0), 7)) % CHART_COLORS.length];
@@ -111,7 +134,12 @@ export default function MeetTheDean({ onOpenProfile }: { onOpenProfile: (dean: D
           {dean.university}
         </p>
         <p className="text-xs text-muted-foreground">
-          {dean.isInterim ? `Interim ${nounLower}` : noun} since {dean.startYear}
+          {/* Most sitting records across the corpus carry no startYear (1,820 of
+              2,134 in R2, 790 of 993 in LAC), and "since {undefined}" rendered
+              as a dangling "since ". Drop the clause when the year is unknown
+              rather than inventing one. */}
+          {dean.isInterim ? `Interim ${nounLower}` : noun}
+          {dean.startYear ? ` since ${dean.startYear}` : ""}
           {dean.disciplineBroad && dean.disciplineBroad !== "Unknown" ? ` · ${dean.disciplineBroad}` : ""}
         </p>
         <button

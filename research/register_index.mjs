@@ -9,7 +9,15 @@
  * Each edit now checks for its OWN replacement text.
  */
 import { readFileSync, writeFileSync } from "fs";
-const ROOT = "C:/Users/ren/BOSTON UNIVERSITY Dropbox/Justin Z. Ren/00 Spring 2026/Dean Research/App/Dean-Tracker-Dashboard/";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+// ROOT used to be an absolute Windows path, which meant this script -- the one
+// place that knows the full registration checklist -- could not run anywhere but
+// one laptop. uscommunitycollege was then registered by hand from a grep for
+// `uslac`, which found 4 of the 8 anchors and missed DATASET_LIST, so the index
+// shipped, deployed green, and was invisible in the switcher. Derive it instead.
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..") + "/";
 const rd = (p) => readFileSync(ROOT + p, "utf8");
 const wr = (p, s) => writeFileSync(ROOT + p, s);
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i >= 0 ? process.argv[i + 1] : d; };
@@ -40,7 +48,29 @@ const SPECS = {
     newsType: "system",
     unitPhrase: String.raw`university\s+system|state\s+system\s+of\s+higher\s+education|system\s+office`,
     sellLabel: "University Systems",
+    // Hidden from the switcher on purpose: 37 system offices is too small a
+    // corpus to carry its own slot. Still fully wired into every other pass.
+    switcher: false,
   },
+  uscommunitycollege: {
+    prefix: "r1-communitycollege",
+    label: "Community College Presidents",
+    shortLabel: "Community College",
+    description: "Presidents of the largest US community colleges and the chancellors of the multi-college districts above them, covering both the campus seat and the district seat that headhunters recruit for separately.",
+    rankLabel: "Enrollment rank",
+    schoolType: "communitycollege",
+    yearRange: "1970-2026",
+    newsType: "communitycollege",
+    unitPhrase: String.raw`community\s+college|junior\s+college|technical\s+college`,
+    sellLabel: "Community Colleges",
+    // PILOT: holds 20 of 224 seats, so it is deliberately left out of VISIBLE
+    // (corpus tally + news-scout coverage) until the collection wave lands.
+    visible: false,
+    // The news classifier has no community-college role words yet; adding the
+    // id to the news pipeline before that would make the daily cron throw.
+    news: false,
+  },
+
   uslac: {
     prefix: "r1-lac",
     label: "Liberal Arts College Presidents",
@@ -59,9 +89,24 @@ const S = SPECS[ID];
 if (!S) { console.error(`unknown id ${ID}; known: ${Object.keys(SPECS).join(", ")}`); process.exit(1); }
 
 const log = [];
-function edit(path, find, replace, label) {
+
+/**
+ * @param {string} path
+ * @param {string} find    anchor to insert before
+ * @param {string} replace anchor with the new entry prepended
+ * @param {string} label
+ * @param {string} [already] text proving the entry EXISTS AT ALL, anywhere in
+ *   the file. Defaults to `replace`, which only proves it exists *adjacent to
+ *   the anchor* -- so an entry added by hand somewhere else in the same object
+ *   does not count as present and gets inserted a second time. That is not
+ *   theoretical: re-running this script over a hand-registered index produced a
+ *   duplicate key in both api/data.js and lib/dataset-assembly.mjs. A duplicate
+ *   key is silently legal in JS (last wins), so nothing would have failed until
+ *   the two copies drifted apart. Pass a key-shaped marker for object edits.
+ */
+function edit(path, find, replace, label, already) {
   const s = rd(path);
-  if (s.includes(replace)) { log.push(`skip (already) ${label}`); return; }
+  if (s.includes(already ?? replace)) { log.push(`skip (already) ${label}`); return; }
   if (!s.includes(find)) { log.push(`MISS ${label}: anchor not found`); return; }
   wr(path, s.replace(find, replace));
   log.push(`ok   ${label}`);
@@ -105,10 +150,16 @@ const DS = "artifacts/dean-dashboard/src/data/datasets.ts";
   }
 }
 
-// 4. DATASET_LIST
+// 4. DATASET_LIST -- the switcher. This is the one that decides whether the index
+// is VISIBLE TO A USER AT ALL; every other anchor here is plumbing behind it.
+// Some ids are deliberately kept out (top100 is a subset of r1bschool; ussystem
+// is too small a corpus to earn a slot) -- opt out with `switcher: false` rather
+// than relying on the run to be inspected, since this step reporting "ok" against
+// a hidden index silently publishes it.
 {
   const s = rd(DS);
-  if (s.includes(`DATASETS_META.${ID},`)) log.push("skip (already) DATASET_LIST");
+  if (S.switcher === false) log.push("skip (switcher:false) DATASET_LIST");
+  else if (s.includes(`DATASETS_META.${ID},`)) log.push("skip (already) DATASET_LIST");
   else {
     const m = s.match(/(export const DATASET_LIST[\s\S]*?)\n\];/);
     if (!m) log.push("MISS DATASET_LIST");
@@ -120,17 +171,24 @@ const DS = "artifacts/dean-dashboard/src/data/datasets.ts";
 edit("api/data.js",
   `  uspublichealth: {`,
   `  ${ID}: { deans: () => require("../artifacts/dean-dashboard/src/data/${S.prefix}-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/${S.prefix}-schools.json"), split: false },\n  uspublichealth: {`,
-  "api/data.js SPEC");
+  "api/data.js SPEC",
+  `\n  ${ID}: { deans:`);
 
 // 6. lib/dataset-assembly.mjs SPEC + VISIBLE (dev server + corpus tally)
 edit("lib/dataset-assembly.mjs",
   `  uspublichealth: [`,
   `  ${ID}: ["${S.prefix}-deans.json", null, "${S.prefix}-schools.json", false],\n  uspublichealth: [`,
-  "dataset-assembly SPEC");
+  "dataset-assembly SPEC",
+  `\n  ${ID}: [`);
 {
   const p = "lib/dataset-assembly.mjs";
   const s = rd(p);
-  if (s.includes(`"${ID}"]`) || s.includes(`"${ID}",`)) log.push("skip (already) VISIBLE");
+  // VISIBLE is NOT the switcher list -- DATASET_LIST is. VISIBLE gates the
+  // corpus tally and news-scout's coverage assertion, so an index whose data is
+  // still partial belongs in the switcher and out of VISIBLE. Opt out with
+  // `visible: false` rather than by hand-editing afterwards.
+  if (S.visible === false) log.push("skip (visible:false) VISIBLE");
+  else if (s.includes(`"${ID}"]`) || s.includes(`"${ID}",`)) log.push("skip (already) VISIBLE");
   else {
     const m = s.match(/export const VISIBLE = \[[^\]]*\];/);
     if (!m) log.push("MISS VISIBLE");
@@ -138,27 +196,76 @@ edit("lib/dataset-assembly.mjs",
   }
 }
 
-// 7. news pipeline
-edit("artifacts/dean-dashboard/scripts/news-lib.mjs",
+// 7. news pipeline. Skipped when `news: false` -- news-lib's assertDatasetCoverage
+// throws if a VISIBLE id has no classifier entry, and adding a classifier entry
+// with no role words tuned for the sector silently misroutes appointments into
+// the new index. Both are worse than a documented gap.
+if (S.news === false) log.push("skip (news:false) news pipeline");
+else edit("artifacts/dean-dashboard/scripts/news-lib.mjs",
   `  publichealth: {`,
   `  ${S.newsType}: { id: "${ID}", deans: "${S.prefix}-deans.json" },\n  publichealth: {`,
-  "news-lib TYPE_TO_DATASET");
-edit("artifacts/dean-dashboard/scripts/news-scout.mjs",
+  "news-lib TYPE_TO_DATASET",
+  `\n  ${S.newsType}: { id: "${ID}"`);
+if (S.news !== false) edit("artifacts/dean-dashboard/scripts/news-scout.mjs",
   `  ["publichealth", "r1-publichealth-schools.json"],`,
   `  ["${S.newsType}", "${S.prefix}-schools.json"],\n  ["publichealth", "r1-publichealth-schools.json"],`,
-  "news-scout DATASETS");
-edit("artifacts/dean-dashboard/scripts/news-scout.mjs",
+  "news-scout DATASETS",
+  `["${S.newsType}", "${S.prefix}-schools.json"]`);
+if (S.news !== false) edit("artifacts/dean-dashboard/scripts/news-scout.mjs",
   `  ["publichealth", /school\\s+of\\s+public\\s+health`,
   `  ["${S.newsType}", /${S.unitPhrase}/i],\n  ["publichealth", /school\\s+of\\s+public\\s+health`,
-  "news-scout UNIT_PHRASES");
+  "news-scout UNIT_PHRASES",
+  `["${S.newsType}", /`);
 
-// 8. sellable indices
-edit("scripts/mint-trial.mjs",
-  `  ["uspublichealth", "Public Health"],`,
-  `  ["uspublichealth", "Public Health"],\n  ["${ID}", "${S.sellLabel}"],`,
-  "mint-trial INDICES");
+// 8. the shared index registry. mint-trial.mjs reads INDEX_LABEL for its
+// sellable-index list, so this covers the paid tiers too -- the old step 8 patched
+// a literal INDICES array in mint-trial.mjs that no longer exists, and would now
+// report MISS forever.
+edit("artifacts/dean-dashboard/scripts/lib/indices.mjs",
+  `};\n\n/** Dataset id -> human label`,
+  `  "${S.prefix}-deans.json": "${ID}",\n};\n\n/** Dataset id -> human label`,
+  "indices.mjs FILE_ID",
+  `"${S.prefix}-deans.json": "${ID}"`);
+{
+  const p = "artifacts/dean-dashboard/scripts/lib/indices.mjs";
+  const s = rd(p);
+  if (new RegExp(`\\n {2}${ID}: `).test(s)) log.push("skip (already) indices.mjs INDEX_LABEL");
+  else {
+    const m = s.match(/export const INDEX_LABEL = \{[\s\S]*?\n\};/);
+    if (!m) log.push("MISS indices.mjs INDEX_LABEL");
+    else { wr(p, s.replace(m[0], m[0].replace(/\n\};$/, `\n  ${ID}: "${S.shortLabel}",\n};`))); log.push("ok   indices.mjs INDEX_LABEL"); }
+  }
+}
+
+// 9. api/usage.js -- the owner's per-index usage dashboard.
+{
+  const p = "api/usage.js";
+  const s = rd(p);
+  if (s.includes(`"${ID}"`)) log.push("skip (already) usage.js");
+  else {
+    const m = s.match(/"usadminleaders",/);
+    if (!m) log.push("MISS usage.js index list");
+    else { wr(p, s.replace(m[0], `"usadminleaders", "${ID}",`)); log.push("ok   usage.js"); }
+  }
+}
 
 console.log(`registering ${ID} (${S.prefix})\n`);
 console.log(log.join("\n"));
+
+// The noun a dataset uses is a judgement call, not an anchor: a presidency index
+// wants "Leader" and its real title out of `discipline`, a dean index wants the
+// "Dean" fallback. DatasetContext.tsx defaults to "Dean" for any schoolType it
+// has not been taught, silently, so print the reminder rather than guess.
+{
+  const dc = rd("artifacts/dean-dashboard/src/data/DatasetContext.tsx");
+  if (!dc.includes(`"${S.schoolType}"`)) {
+    console.log(
+      `\n!  DatasetContext.tsx does not know schoolType "${S.schoolType}", so every\n` +
+      `   ${ID} officeholder will be labelled "Dean". If that is wrong, add it to\n` +
+      `   the noun/nounPlural/titleVaries expressions there.`,
+    );
+  }
+}
+
 const missed = log.filter((l) => l.startsWith("MISS"));
 if (missed.length) { console.log(`\n${missed.length} ANCHOR(S) MISSED, fix before shipping`); process.exit(1); }

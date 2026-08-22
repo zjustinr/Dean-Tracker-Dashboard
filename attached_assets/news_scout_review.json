@@ -1,69 +1,5 @@
 [
  {
-  "id": "4046686829",
-  "recorded": "2026-08-04",
-  "schoolType": "provost",
-  "role": "provost",
-  "type": "appointment",
-  "interim": false,
-  "university": "George Mason University",
-  "school": "Office of the Provost and Executive Vice President",
-  "dean": null,
-  "date": "2026-08-03T22:50:50.000Z",
-  "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMlhkZnhmVXd4ekp1b2ppWm9QN0wyODlvWEhVWjJYX0hLUUtJSU5WdEZTd0pEZUFLd3FLNWRZampSZlhGaVoyMG1SVEpuZTZrOC1FSWNOVUFKMjZxdWI4WU1LUklMbWVJZGVsb3EwWHVORWpWdFVnd3VyQzVoUE9hZTZ1RXJTZlNuRW1fTE5ZZl93LTJPZEFRVDA1djhKWEY2UFQ5azhHTEdHYmt0UV9aYjItODZZdTA?oc=5",
-  "title": "Board of Visitors elects new executive committee, reviews president's goals, welcomes new provost, and announces transformative gift - George Mason University",
-  "confidence": "medium",
-  "digested": false
- },
- {
-  "id": "877055287",
-  "recorded": "2026-08-04",
-  "schoolType": "university",
-  "role": "president",
-  "type": "departure",
-  "interim": false,
-  "university": "Brown University",
-  "school": "Office of the President",
-  "dean": null,
-  "date": "2026-08-03T15:48:00.000Z",
-  "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQNzMwQXVHUHVtMnZqNDlRNEVhV0w3VHAwblZtSnU0OGxCbWVnZ1V4VlNnazVWelVYSGJqRDl4N2IzbzQ1cVg5XzNTRHNxMzBSTU9OeVNhU19NLUFEOHBXUGdrWUFBUmJZNWxhNEdONG1fWVk2N3h4U1UyOENETm02a0hNV1l3X3ZMR2JwczJiLVFyZFdsM1EtUW9LOWxWZG4teUE?oc=5",
-  "title": "Brown University President Christina Paxson to step down at end of 2026-27 academic year - The Brown Daily Herald",
-  "confidence": "medium",
-  "digested": false
- },
- {
-  "id": "2594150832",
-  "recorded": "2026-08-04",
-  "schoolType": "university",
-  "role": "president",
-  "type": "departure",
-  "interim": false,
-  "university": "Brown University",
-  "school": "Office of the President",
-  "dean": null,
-  "date": "2026-08-03T19:04:22.000Z",
-  "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNWFZyd0I1M1BXZXNuOF9qYnN1YkVndHp3bmQ3MWZUaFVQRjdZdTNGU0YzajEzcnRUcHVGVVVoSjI2NVFwN1VUcnNVU0xmWWVqcnBFQzBMQnhLcjFVVGdoQWIydHdGUUQ3ejNCem5vZS05NEY3Wndmc256b2lwVWpEQlI4OEJqWnUyMllVTGVQUTNET0piTHZkM0R3NTdCM1ZvTWVJemYxdVU0NmUyOTV3TjZoYlBablVlMEhz?oc=5",
-  "title": "Brown University president announces she will step down at end of 2026-27 academic year - Baltimore Sun",
-  "confidence": "medium",
-  "digested": false
- },
- {
-  "id": "245309765",
-  "recorded": "2026-08-04",
-  "schoolType": "university",
-  "role": "president",
-  "type": "departure",
-  "interim": false,
-  "university": "Brown University",
-  "school": "Office of the President",
-  "dean": null,
-  "date": "2026-08-03T23:29:00.000Z",
-  "url": "https://www.highereddive.com/news/brown-university-president-to-step-down-in-2027/826894/",
-  "title": "Brown University president to step down in 2027",
-  "confidence": "medium",
-  "digested": false
- },
- {
   "id": "2634089880",
   "recorded": "2026-08-10",
   "schoolType": "university",
@@ -77,6 +13,90 @@
   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE0zbDk5d0t2RkhkVDJYdkNad1FGWHJXSWg3eWVkZ1lsZ1BENjVTblg0UnpNeGs2REJrZ25yUW9QMEQ0NlZ3T2x6bDJKaHJDZWZ5cDhjeFByOVlBWDR6c2REUk9TX29NNGEydVFRLUxOZVBrU0t1RzBvTy04TQ?oc=5",
   "title": "Brown University’s President Resigns. What Comes Next? - Daily Signal",
   "confidence": "medium",
-  "digested": false
+  "digested": false,
+  "storyKeys": [
+   "u:departure:president:university:brown-university"
+  ],
+  "repeatOfPrior": false
+ },
+ {
+  "id": "4143876282",
+  "recorded": "2026-08-18",
+  "schoolType": "university",
+  "role": "president",
+  "type": "appointment",
+  "interim": false,
+  "university": "University of Michigan",
+  "school": "Office of the President",
+  "dean": null,
+  "date": "2026-08-18T12:33:00.000Z",
+  "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOX2dkM21ZYkh1ZEVoOWZJSjBid0p1MFd1NnBkamdBVEFBUDBKNUJtQ2tzRC0ySUJpbVF0Nk1HNlZRa0h4ZEg3aVZYdnhGN3lHSWN2c1F5ZDlTTVZsNllTZUJXTTY3ZXVMS3RIOXBMdzk5SFlZekM0Z1pmbDlBeVljX0tPZWJ0ZG1w0gGcAUFVX3lxTE81TTFVei1WMk83cFlKZUtFQ0hPaDZRWVVuUnQtU1hLTWNBYVd1ajh0RzdaZ0J0NWNJM1hVMHVZYkJUTDFHU0Z3SDVDSHdyNjVNTm1RSW5ZS2p6cndIRnBDUXEySjAtQXlIVzAtYkNFQXdJNkp4bW5NVnVlemZWWGlydlg0bk4zYXplQ2czeGd0OWFZSWRzMkYwdUFkcg?oc=5",
+  "title": "Report: University of Michigan set to hire next president - WILX",
+  "confidence": "medium",
+  "digested": false,
+  "storyKeys": [
+   "u:appointment:president:university:university-of-michigan"
+  ],
+  "repeatOfPrior": false
+ },
+ {
+  "id": "2398402331",
+  "recorded": "2026-08-19",
+  "schoolType": "university",
+  "role": "president",
+  "type": "appointment",
+  "interim": false,
+  "university": "Virginia Tech",
+  "school": "Office of the President",
+  "dean": null,
+  "date": "2026-08-18T21:25:31.000Z",
+  "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE8xSkJLY1hwdmF1SzRIZE1DbjNOMGZMeXMyUFNLMUtpQzZaa3hGZTZCMXFiaUtSeU5XUS0zcHNpNFpLS1ZuS2hvM3U0elFIZnhjWF9GRnFRRHF0WDRlR2NpVHRJeEU3QkFUVE9sQ3Z5cDVnVWtxQW53dQ?oc=5",
+  "title": "Thousands of new Hokies arrive at Virginia Tech as university continues search for next president - WSLS",
+  "confidence": "medium",
+  "digested": false,
+  "storyKeys": [
+   "u:appointment:president:university:virginia-tech"
+  ],
+  "repeatOfPrior": false
+ },
+ {
+  "id": "3295805812",
+  "recorded": "2026-08-20",
+  "schoolType": "university",
+  "role": "president",
+  "type": "appointment",
+  "interim": false,
+  "university": "University of New Hampshire",
+  "school": "Office of the President",
+  "dean": null,
+  "date": "2026-08-17T07:00:00.000Z",
+  "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBtbEdyblB3LUJ5MThGWnRYcG9rVmlTVjJuRDNpZGU2c0N3bDhHUXV1RFBCRmdtT0tQenNhal9wQUJ6RkxDNHJLUnBvWHV0eDRzRzlfYWF6TF82elpDUkNNZTE5eFN3UzJ1MzR5UXlqVjJHZw?oc=5",
+  "title": "Former UNC provost Jim Dean named president of the University of New Hampshire - The Daily Tar Heel",
+  "confidence": "medium",
+  "digested": false,
+  "storyKeys": [
+   "u:appointment:president:university:university-of-new-hampshire"
+  ],
+  "repeatOfPrior": false
+ },
+ {
+  "id": "1286524530",
+  "recorded": "2026-08-21",
+  "schoolType": "provost",
+  "role": "provost",
+  "type": "departure",
+  "interim": false,
+  "university": "Texas A&M University",
+  "school": "Office of the Provost",
+  "dean": null,
+  "date": "2026-08-21T01:23:00.000Z",
+  "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPenZFWDNPdWpDQ1RYX0xYS1ItUnB2SmN1NFZUSzgxLWY5QlkzLS14QjdaTTNNN0VBUlc5cmxRWTAtNTdiVWxidVZxekFSX3ktT3dER1d5TnJSaDVzOFNLdFFtY2JZWVFPT1kzTC0ybGIxcGEyNl9lS2dqcFMzUXpoazh0RzVRNnprN3J4Nm15clRaWmc3UmNuRVJRZmhwcGdTblR2VXNob1FpcVVleUJvakZteWg3ZEEzQzBPTTVR?oc=5",
+  "title": "Texas A&M University announces new Interim Provost following Alan Sams’ decision to step down - KBTX News 3",
+  "confidence": "medium",
+  "digested": false,
+  "storyKeys": [
+   "u:departure:provost:provost:texas-a-m-university"
+  ],
+  "repeatOfPrior": false
  }
 ]

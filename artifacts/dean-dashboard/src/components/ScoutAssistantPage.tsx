@@ -3,7 +3,7 @@ import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { genderNorm } from "@/data/types";
-import { usePhotoMap, useResearchMap, enrichKey } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, useNonAcademicExperience } from "@/data/enrichment";
 import { useScoutCandidateEngine, affKey } from "@/data/useScoutCandidates";
 import { matchKeywords, type Keyword } from "@/data/keywordMatch";
 import { Methodology } from "@/components/ScoutAssistant";
@@ -12,6 +12,9 @@ import StringencyToggle, { STRINGENCY_LEVELS } from "@/components/StringencyTogg
 import JobDescriptionInput from "@/components/JobDescriptionInput";
 import ResultsMap from "@/components/ResultsMap";
 import RegionMap from "@/components/RegionMap";
+import {
+  FilterRow, FilterGroup, SegGroup, PillGroup, PillToggles, ActiveFilterBar, type ActiveChip,
+} from "@/components/FilterControls";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
 
@@ -54,6 +57,9 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   const [includeGender, setIncludeGender] = useState<"all" | "women" | "men">("all");
   const [requirePhd, setRequirePhd] = useState(false);
   const [requireProf, setRequireProf] = useState(false);
+  // Named-firm industry tie (nonacademic-experience.json), not the legacy
+  // hasIndustryExp boolean -- see hasIndustryTie below.
+  const [requireIndustryTie, setRequireIndustryTie] = useState(false);
   const [apptType, setApptType] = useState<"all" | "perm" | "interim">("all");
   const [regions, setRegions] = useState<Set<string>>(new Set());
   const [states, setStates] = useState<Set<string>>(new Set());
@@ -80,7 +86,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   // state, or JD match chosen for one index doesn't carry meaning in another.
   useEffect(() => {
     setUniversity(""); setStringency(1); setIncludeGender("all"); setRequirePhd(false); setRequireProf(false);
-    setApptType("all"); setRegions(new Set()); setStates(new Set()); setFunctions(new Set()); setTiers(new Set());
+    setApptType("all"); setRegions(new Set()); setStates(new Set()); setFunctions(new Set()); setTiers(new Set()); setRequireIndustryTie(false);
     setJdKeywords([]); setVisibleCount(PAGE_SIZE);
   }, [datasetId]);
   useEffect(() => { setVisibleCount(PAGE_SIZE); }, [university, stringency]);
@@ -173,9 +179,18 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
     return [...c.values()].sort((a, b) => b.n - a.n || a.display.localeCompare(b.display)).map((v) => v.display);
   }, [allDeans, researchMap]);
 
+  // Requires confidence "high" (a named firm): a flag-only yes has no employer,
+  // so a candidate row matching on it could not explain itself.
+  const industryPeople = useNonAcademicExperience()?.people ?? null;
+  const hasIndustryTie = useCallback((d: Dean): boolean => {
+    const rec = industryPeople?.[enrichKey(d.dean, d.university)];
+    return !!rec && rec.status === "yes" && rec.confidence === "high" && !!rec.ties?.length;
+  }, [industryPeople]);
+
   const rosterFilter = useCallback((d: Dean): boolean => {
     if (requirePhd && !hasDoctorate(d)) return false;
     if (requireProf && !wasProfessor(d)) return false;
+    if (requireIndustryTie && !hasIndustryTie(d)) return false;
     if (includeGender !== "all") {
       const g = genderNorm(d.gender);
       if (includeGender === "women" && g !== "F") return false;
@@ -194,7 +209,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
       if (!st || !effectiveStates.has(st)) return false;
     }
     return true;
-  }, [requirePhd, requireProf, includeGender, apptType, functions, tiers, tierOf, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
+  }, [requirePhd, requireProf, requireIndustryTie, hasIndustryTie, includeGender, apptType, functions, tiers, tierOf, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
 
   // Job-description keyword boost: a heuristic overlap score against a broad
   // text surface for each candidate -- discipline, career background, prior
@@ -256,6 +271,40 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
 
   const stateList = useMemo(() => [...new Set(stateOf.values())].sort(), [stateOf]);
 
+  // Collapsed groups must still say what they are doing, so each one gets a
+  // one-line summary. A group whose summary is its default reads as "nothing to
+  // see here" and stays shut; anything else opens itself.
+  const GENDER_LABEL = { all: "All", women: "Women", men: "Men" } as const;
+  const APPT_LABEL = { all: "All", perm: "Permanent", interim: "Assoc/Vice/Interim" } as const;
+  const roleSummary = [functions.size ? [...functions].join(", ") : null,
+                       apptType !== "all" ? APPT_LABEL[apptType] : null].filter(Boolean).join(" · ") || "Any function";
+  const personSummary = [includeGender !== "all" ? GENDER_LABEL[includeGender] : null,
+                         requirePhd ? "Ph.D." : null, requireProf ? "Professor" : null,
+                         requireIndustryTie ? "Non-academic tie" : null].filter(Boolean).join(" · ") || "Anyone";
+  const locationSummary = regions.size || states.size
+    ? [...regions, ...states].join(", ")
+    : "Anywhere";
+
+  // The active bar answers "why am I seeing this many" without making anyone
+  // reconstruct it from the controls. Every chip removes exactly one thing.
+  const activeChips: ActiveChip[] = [
+    ...[...functions].map((f) => ({ id: `fn:${f}`, label: f, onRemove: () => toggleSet(setFunctions, f) })),
+    ...(apptType !== "all" ? [{ id: "appt", label: APPT_LABEL[apptType], onRemove: () => setApptType("all") }] : []),
+    ...(includeGender !== "all" ? [{ id: "gender", label: GENDER_LABEL[includeGender], onRemove: () => setIncludeGender("all") }] : []),
+    ...(requirePhd ? [{ id: "phd", label: "Ph.D.", onRemove: () => setRequirePhd(false) }] : []),
+    ...(requireProf ? [{ id: "prof", label: "Professor", onRemove: () => setRequireProf(false) }] : []),
+    ...(requireIndustryTie ? [{ id: "na", label: "Non-academic tie", accent: "teal" as const, onRemove: () => setRequireIndustryTie(false) }] : []),
+    ...[...tiers].map((t) => ({ id: `tier:${t}`, label: t, onRemove: () => toggleSet(setTiers, t) })),
+    ...[...regions].map((r) => ({ id: `region:${r}`, label: r, onRemove: () => toggleSet(setRegions, r) })),
+    ...[...states].map((st) => ({ id: `state:${st}`, label: st, onRemove: () => toggleSet(setStates, st) })),
+  ];
+
+  const clearAllFilters = () => {
+    setFunctions(new Set()); setTiers(new Set()); setRegions(new Set()); setStates(new Set());
+    setApptType("all"); setIncludeGender("all");
+    setRequirePhd(false); setRequireProf(false); setRequireIndustryTie(false);
+  };
+
   return (
     <div className="space-y-4">
       <div className="bg-[#011F5B]/[0.05] dark:bg-[#011F5B]/15 border border-[#011F5B]/40 rounded-xl p-4 sm:p-6">
@@ -271,7 +320,11 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
 
         <div className="grid gap-3 sm:grid-cols-2">
           <div>
-            <span className="text-xs font-medium text-muted-foreground">School with the opening</span>
+            {/* Distinguishes Scout Assistant from Slate Builder's "School" dropdown,
+                which is just one filter among many for browsing a whole cohort.
+                Here the school IS the starting point -- everything below is scored
+                against that one target's historical hiring pattern. */}
+            <span className="text-xs font-medium text-muted-foreground">If you have a specific school in mind</span>
             <select className={`${sel} mt-1`} value={university} onChange={(e) => setUniversity(e.target.value)} aria-label="Target school">
               <option value="">Select a school…</option>
               {universities.map((u) => <option key={u} value={u}>{u}</option>)}
@@ -294,86 +347,69 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
             <StringencyToggle value={stringency} onChange={setStringency} />
             <JobDescriptionInput vocabulary={keywordVocabulary} onKeywords={setJdKeywords} onMatch={handleMatch} />
 
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span className="text-xs font-medium text-muted-foreground">Include</span>
-              <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
-                {([["all", "All"], ["women", "Women"], ["men", "Men"]] as ["all" | "women" | "men", string][]).map(([v, label], i) => (
-                  <button key={v} onClick={() => setIncludeGender(v)}
-                    className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", includeGender === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
-                ))}
-              </div>
-              <span className="text-xs font-medium text-muted-foreground ml-2">Tenure type</span>
-              <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
-                {([["all", "All"], ["perm", "Permanent"], ["interim", "Assoc/Vice/Interim"]] as ["all" | "perm" | "interim", string][]).map(([v, label], i) => (
-                  <button key={v} onClick={() => setApptType(v)}
-                    className={["px-3 py-1.5 transition-colors", i > 0 ? "border-l border-muted-foreground/30" : "", apptType === v ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{label}</button>
-                ))}
-              </div>
-            </div>
+            <ActiveFilterBar
+              chips={activeChips}
+              onClearAll={clearAllFilters}
+              resultCount={engine.totalRanked}
+              noun="eligible"
+            />
 
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-              <span className="text-xs font-medium text-muted-foreground">Credentials</span>
-              <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
-                <input type="checkbox" checked={requirePhd} onChange={(e) => setRequirePhd(e.target.checked)} className="accent-[#011F5B] w-3.5 h-3.5" />
-                Ph.D.
-              </label>
-              <label className="inline-flex items-center gap-1.5 text-xs font-medium cursor-pointer select-none">
-                <input type="checkbox" checked={requireProf} onChange={(e) => setRequireProf(e.target.checked)} className="accent-[#011F5B] w-3.5 h-3.5" />
-                Professor
-              </label>
-            </div>
+            <div className="flex flex-col gap-2">
+              <FilterGroup title="Role" summary={roleSummary} defaultOpen>
+                {functionOptions.length > 1 && (
+                  <FilterRow label="Function">
+                    <PillGroup ariaLabel="Function" options={functionOptions} selected={functions}
+                      onToggle={(v) => toggleSet(setFunctions, v)} onClear={() => setFunctions(new Set())} />
+                  </FilterRow>
+                )}
+                <FilterRow label="Appointment">
+                  <SegGroup ariaLabel="Appointment type" value={apptType} onChange={setApptType}
+                    options={[["all", "All"], ["perm", "Permanent"], ["interim", "Assoc/Vice/Interim"]]} />
+                </FilterRow>
+              </FilterGroup>
 
-            {functionOptions.length > 1 && (
-              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
-                <span className="text-xs font-medium text-muted-foreground pt-1">Function</span>
-                {/* Pill toggle like Region: All (no filter) is the default; clicking a
-                    pill adds/removes it from the multi-select set. */}
-                <div className="flex flex-wrap gap-1.5">
-                  <button onClick={() => setFunctions(new Set())}
-                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", functions.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
-                  {functionOptions.map((f) => (
-                    <button key={f} onClick={() => toggleSet(setFunctions, f)}
-                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", functions.has(f) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{f}</button>
-                  ))}
-                </div>
-              </div>
-            )}
+              <FilterGroup title="Person" summary={personSummary} defaultOpen>
+                <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
+                  <SegGroup ariaLabel="Include" value={includeGender} onChange={setIncludeGender}
+                    options={[["all", "All"], ["women", "Women"], ["men", "Men"]]} />
+                </FilterRow>
+                <FilterRow label="Credentials" hint="Held a doctorate · faculty rank · a named organisation outside the academy.">
+                  <PillToggles items={[
+                    { key: "phd", label: "Ph.D.", on: requirePhd, onToggle: () => setRequirePhd(!requirePhd) },
+                    { key: "prof", label: "Professor", on: requireProf, onToggle: () => setRequireProf(!requireProf) },
+                    { key: "na", label: "Non-academic tie", on: requireIndustryTie, accent: "teal", onToggle: () => setRequireIndustryTie(!requireIndustryTie) },
+                  ]} />
+                </FilterRow>
+              </FilterGroup>
 
-            {tierOptions.length > 1 && (
-              <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5">
-                <span className="text-xs font-medium text-muted-foreground pt-1">Institution tier</span>
-                <div className="flex flex-wrap gap-1.5">
-                  <button onClick={() => setTiers(new Set())}
-                    className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", tiers.size === 0 ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>All</button>
-                  {tierOptions.map((t) => (
-                    <button key={t} onClick={() => toggleSet(setTiers, t)}
-                      className={["px-2.5 py-1 rounded-md text-xs font-semibold transition-colors", tiers.has(t) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{t}</button>
-                  ))}
-                </div>
-              </div>
-            )}
+              {tierOptions.length > 1 && (
+                <FilterGroup title="Institution" summary={tiers.size ? [...tiers].join(", ") : "All tiers"} defaultOpen={tiers.size > 0}>
+                  <FilterRow label="Tier">
+                    <PillGroup ariaLabel="Institution tier" options={tierOptions} selected={tiers}
+                      onToggle={(v) => toggleSet(setTiers, v)} onClear={() => setTiers(new Set())} />
+                  </FilterRow>
+                </FilterGroup>
+              )}
 
-            <div className="flex gap-3 items-start">
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 mb-1.5">
-                  <span className="text-xs font-medium text-muted-foreground">Region</span>
-                  <div className="inline-flex rounded-lg border border-muted-foreground/30 overflow-hidden text-xs font-semibold">
-                    <button onClick={() => setRegions(new Set())} className={["px-3 py-1.5 transition-colors", regions.size === 0 ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>All</button>
-                    {Object.keys(REGIONS).map((r) => (
-                      <button key={r} onClick={() => toggleSet(setRegions, r)} className={["px-3 py-1.5 border-l border-muted-foreground/30 transition-colors", regions.has(r) ? "bg-[#011F5B] text-white" : "bg-background hover:bg-muted"].join(" ")}>{r}</button>
-                    ))}
+              <FilterGroup title="Location" summary={locationSummary} defaultOpen={regions.size > 0 || states.size > 0}>
+                <FilterRow label="Region">
+                  <PillGroup ariaLabel="Region" options={Object.keys(REGIONS)} selected={regions}
+                    onToggle={(v) => toggleSet(setRegions, v)} onClear={() => setRegions(new Set())} />
+                </FilterRow>
+                <FilterRow label="States" hint={states.size ? undefined : "Pick a region above, or individual states here."}>
+                  <div className="flex gap-3 items-start w-full">
+                    <div className="flex-1 min-w-0 flex flex-wrap gap-1 max-h-32 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
+                      {stateList.map((st) => (
+                        <button key={st} type="button" onClick={() => toggleSet(setStates, st)} aria-pressed={states.has(st)}
+                          className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
+                      ))}
+                    </div>
+                    <div className="shrink-0 w-[38%] max-w-[200px]">
+                      <RegionMap selected={effectiveStates} />
+                    </div>
                   </div>
-                </div>
-                <span className="text-xs font-medium text-muted-foreground">States</span>
-                <div className="mt-1 flex flex-wrap gap-1 max-h-32 overflow-y-auto rounded-lg border border-muted-foreground/30 p-2">
-                  {stateList.map((st) => (
-                    <button key={st} onClick={() => toggleSet(setStates, st)} className={["w-9 h-7 rounded text-[11px] font-semibold", states.has(st) ? "bg-[#011F5B] text-white" : "bg-muted/60 hover:bg-muted"].join(" ")}>{st}</button>
-                  ))}
-                </div>
-              </div>
-              <div className="shrink-0 w-[38%] max-w-[220px] pt-6">
-                <RegionMap selected={effectiveStates} />
-              </div>
+                </FilterRow>
+              </FilterGroup>
             </div>
           </div>
 

@@ -41,75 +41,60 @@
 // (ScoutAssistant.tsx already loads both affinity-by-school.json and the
 // current index's own deans for that) -- this script only answers "who
 // matches this school's revealed hiring pattern," not "who's new information."
-import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { assertRegistered, deanFiles as listDeanFiles, FILE_ID, INDEX_LABEL } from "./lib/indices.mjs";
+import { affinityCategory, buildAcademicIndex, makeClassifier } from "./lib/org-classify.mjs";
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
 const OUT = join(SRC, "employer-affinity.json");
 
-// Mirrors gen-affinity.mjs / gen-scout-insights.mjs's FILE_ID map (kept
-// independent/duplicated on purpose -- each generator script runs standalone).
-const FILE_ID = {
-  "r1-bschool-deans.json": "r1bschool", "r1-eschool-deans.json": "r1eschool",
-  "r1-university-deans.json": "r1university", "r1-medschool-deans.json": "r1medical",
-  "r1-lawschool-deans.json": "r1law", "r1-provost-deans.json": "r1provost",
-  "r1-agschool-deans.json": "usag", "r1-nursing-deans.json": "usnursing",
-  "r1-pharmacy-deans.json": "uspharmacy", "r1-education-deans.json": "useducation",
-  "r1-arts-deans.json": "r1arts", "r1-r2public-deans.json": "usr2",
-  "r1-system-deans.json": "ussystem", "r1-publichealth-deans.json": "uspublichealth",
-  "r1-vet-deans.json": "usvet", "r1-grad-deans.json": "usgrad",
-  "r1-camd-deans.json": "uscreativearts",
-  "r1-advancement-deans.json": "usadvancement", "r1-lac-deans.json": "uslac",
-  "r1-adminleaders-deans.json": "usadminleaders",
-};
-const INDEX_LABEL = {
-  r1bschool: "Business", r1eschool: "Engineering", r1university: "President",
-  r1medical: "Medical", r1law: "Law", r1provost: "Provost", usag: "Ag & Forestry",
-  usnursing: "Nursing", uspharmacy: "Pharmacy", useducation: "Education",
-  r1arts: "Arts & Sciences", usr2: "R2", ussystem: "System",
-  uspublichealth: "Public Health", usvet: "Veterinary", usgrad: "Graduate College",
-  uscreativearts: "Creative Arts", usadvancement: "Advancement", uslac: "LAC President",
-  usadminleaders: "Administrative",
-};
+// FILE_ID and INDEX_LABEL used to be copy-pasted here, in gen-affinity.mjs,
+// gen-scout-insights.mjs and scout-backtest.mjs, each with a note saying the
+// duplication was deliberate. It drifted: scout-backtest.mjs never learned about
+// r1-adminleaders-deans.json, the largest index, and silently mined a corpus
+// missing a fifth of its people. The registry now lives in lib/indices.mjs.
 
 const read = (f) => { try { return JSON.parse(readFileSync(join(SRC, f), "utf8")); } catch { return null; } };
 const nkey = (s) => String(s || "").trim().toLowerCase();
 const ekey = (name, uni) => `${nkey(name)}|${nkey(uni)}`;
 
 // ---- organization categorizer --------------------------------------------
-// Heuristic, keyword-based (same spirit as the ADMIN/CABINET/DOCT regexes
-// already used elsewhere in this app for exactly this kind of pragmatic
-// text classification). Order matters: academic institutions are checked
-// FIRST so "Massachusetts Institute of Technology" lands on Academic, not
-// Technology, despite containing "Technology."
-// Academic is checked first and cast wide -- business schools in particular are
-// referred to a hundred different informal ways in this data ("MIT Sloan",
-// "NYU Stern", "Wharton", "Georgia Tech"), and none of those should leak into
-// Technology or elsewhere just because they contain "Tech" or a company-like
-// word. Bare well-known abbreviations are listed explicitly since no general
-// pattern catches them.
-const CATEGORY_PATTERNS = [
-  ["Academic", /\b(university|college|institute of technology|polytechnic|school of|business school|graduate school|academy|insead|\bimd\b|georgia tech|virginia tech|caltech|cal tech|\bmit\b)\b/i],
-  ["Government & Public Sector", /\b(department of|u\.?s\.? (army|navy|air force|government)|federal|white house|congress|senate|pentagon|\bnasa\b|\bnih\b|\bcdc\b|\bdarpa\b|federal reserve|world bank|united nations|city of|state of|ministry|\bdept\.? of\b)\b/i],
-  ["Nonprofit & Foundation", /\b(foundation|nonprofit|non-profit|\bngo\b|charitable|philanthrop)\b/i],
-  ["Law", /\b(law firm|\bllp\b|attorneys)\b/i],
-  ["Healthcare & Biotech", /\b(hospital|health system|medical center|clinic|pharma|biotech|healthcare)\b/i],
-  // "capital" and "equity" deliberately excluded as bare words: "capital
-  // campaign" and "capital improvements" are standard advancement/nonprofit
-  // fundraising language, and "equity" alone collides constantly with
-  // "diversity, equity, and inclusion" -- both would misfire on this data
-  // regularly if left bare. Required as compound phrases instead.
-  ["Finance & Consulting", /\b(bank|venture capital|private equity|capital partners|capital management|equity partners|equity firm|hedge fund|investment|mckinsey|bain\b|boston consulting|\bbcg\b|goldman sachs|morgan stanley|j\.?p\.?\s?morgan|deloitte|pricewaterhousecoopers|\bpwc\b|ernst\s?&?\s?young|\bkpmg\b|accenture|blackstone|vanguard|fidelity|wells fargo|citigroup|credit suisse|\bubs\b|consulting)\b/i],
-  ["Media & Entertainment", /\b(disney|warner|broadcasting|entertainment|studios?\b|new york times|washington post)\b/i],
-  ["Technology", /\b(google|microsoft|amazon|apple\b|meta\b|facebook|technolog|software|\bibm\b|intel\b|oracle\b|cisco\b|adobe\b|salesforce|tesla\b|spacex|nvidia|qualcomm|uber\b|airbnb|netflix|twitter|linkedin|computer)\b/i],
-];
-function categorize(org) {
-  const s = String(org || "").trim();
-  if (!s) return null;
-  for (const [cat, re] of CATEGORY_PATTERNS) if (re.test(s)) return cat;
-  return "Other";
-}
+// Delegates to lib/org-classify.mjs, the taxonomy shared with
+// gen-nonacademic-experience.mjs, and maps its fine-grained sectors onto the coarse
+// category names this file has always published (Scout Assistant renders them as
+// "<category> background").
+//
+// The local copy this replaces had the trailing-\b stem bug: written
+// `/\b(google|...|technolog|software)\b/i`, the closing boundary applies to
+// every branch, so `technolog` never matched "Technology" or "Technologies" and
+// `philanthrop` never matched "Philanthropy". The Technology category could
+// therefore only ever fire on the named-company list -- which for engineering
+// schools is precisely the signal most worth having. It also had no academic
+// gazetteer, so informal school names ("Stanford GSB", "UCLA Anderson") fell to
+// the residual bucket.
+//
+// One category is new rather than renamed: Energy & Industrials and Consumer &
+// Retail employers used to land in "Other" and be discarded as too broad; they
+// now group as "Industry & Manufacturing" and are minable.
+assertRegistered(SRC);
+
+// Read every dean file up front: the academic gazetteer is built from the
+// corpus's own institution spellings, so it has to exist before the first
+// categorize() call rather than being assembled as we go.
+const DEAN_FILES = listDeanFiles(SRC).filter((f) => FILE_ID[f]);
+const FILE_ROWS = Object.fromEntries(DEAN_FILES.map((f) => [f, read(f) || []]));
+
+const classifyOrg = makeClassifier(
+  buildAcademicIndex({
+    records: DEAN_FILES.flatMap((f) => FILE_ROWS[f]),
+    // Only the academically-worded slice: career-geo.json is an ORGANIZATION
+    // geocoder and lists McKinsey, Goldman and Boeing next to the alma maters.
+    extraNames: Object.keys(read("career-geo.json") || {}),
+  }),
+);
+const categorize = (org) => affinityCategory(classifyOrg(org));
 
 const MIN_INDEX_N = 8; // categorized external hires an index needs to be worth mining at all
 const LOW_CONFIDENCE_N = 20; // discipline-group sample below this is still flagged as preliminary
@@ -123,7 +108,6 @@ const MAX_WEAK_LINKS = 20; // over-provide; client dedupes against affinity + ev
 // career steps in leader-research.json -- sparser (~23% of people) but often
 // has several stops per person, catching a buried past org a single
 // priorInstitution field would miss.
-const deanFiles = readdirSync(SRC).filter((f) => /^r1-.*-deans\.json$/.test(f)).sort();
 const PERSON = new Map(); // nkey(name) -> { disp: {...} | null, categories: Map<cat, evidence> }
 const getPerson = (name) => {
   const k = nkey(name);
@@ -139,11 +123,9 @@ const addCategory = (name, org, evidence) => {
 };
 
 const ALL_ROWS = []; // { r, id } across every index, for the school-profile pass
-for (const f of deanFiles) {
+for (const f of DEAN_FILES) {
   const id = FILE_ID[f];
-  if (!id) continue;
-  const rows = read(f) || [];
-  for (const r of rows) {
+  for (const r of FILE_ROWS[f]) {
     ALL_ROWS.push({ r, id });
     if (!r.dean) continue;
     if (r.priorInstitution) addCategory(r.dean, r.priorInstitution, `${r.priorTitle ? r.priorTitle + ", " : ""}${r.priorInstitution}`);

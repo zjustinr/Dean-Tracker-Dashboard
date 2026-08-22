@@ -1,0 +1,430 @@
+# Community College Index — universe and market case
+
+Status: **steps 1-3 complete, not wired into the app.** The universe, schools and
+verification files exist;
+no dataset id is registered, no ETL has run, no leader history has been
+collected. This document is the case for doing that work and the record of how
+the universe was drawn.
+
+- History target: `universe/universe_communitycollege.json` (200 institutions)
+- Census: `universe/universe_communitycollege_all.json` (all 1,077, sitting leader only)
+- Schools table: `src/data/r1-communitycollege-schools.json` (1,101 seats, both levels)
+- Builders: `build-cc-universe.mjs` (universe files), `build-cc-schools.mjs` (schools table)
+
+## 1. What the list is
+
+The 200 largest US community colleges by total fall 2024 headcount, from IPEDS
+via the Urban Institute Education Data API. No key, no scraping, fully
+reproducible — re-running the script after the next IPEDS release regenerates
+the list.
+
+| | |
+|---|---|
+| Institutions | 200 |
+| Combined enrollment | 3,564,479 students |
+| Share of all US community-college enrollment | **54.4%** |
+| Cutoff | 9,359 students (SUNY Westchester CC, rank 200) |
+| States represented | 37 (CA 68, TX 19, FL 17, IL 8, NY 7, AZ 7, MI 7) |
+| Sitting leader named by IPEDS | 200 of 200 |
+| Interim/acting at capture | 12 |
+
+### Why 200 is the right cut, not an arbitrary one
+
+The candidate pool is 1,077 community colleges. The largest 200 hold 54% of the
+sector's 6.56 million students; the median of the remaining 877 is **2,785
+students**. The line falls almost exactly where a presidency stops being a
+nationally-searched seat and becomes a local hire. Extending to 400 would
+roughly double the collection cost to add colleges averaging a fifth the size.
+
+The coverage curve is the argument in one table — what each increment of
+collection actually buys:
+
+| Colleges | Cumulative enrollment | Enrollment at that rank |
+|---:|---:|---:|
+| 50 | 24.2% | 19,795 |
+| 100 | 36.9% | 14,082 |
+| 150 | 46.4% | 11,481 |
+| **200** | **54.4%** | **9,359** |
+| 250 | 61.1% | 8,330 |
+| 300 | 66.8% | 6,950 |
+| 400 | 76.1% | 5,384 |
+| 500 | 83.3% | 4,171 |
+| 700 | 92.9% | 2,342 |
+| 1,077 | 100% | 28 |
+
+Returns fall off a cliff after the first few hundred. Of the 877 below the cut,
+644 are under 5,000 students, 323 under 2,000, 139 under 1,000 and 67 under 500 —
+mostly single-campus rural colleges whose president is hired from inside the
+state system without a national search. They cost the same per institution as
+Miami Dade and buy a seat nobody is retained to fill.
+
+### Depth and breadth are separate decisions, so the index makes them separately
+
+IPEDS names a sitting chief administrator for **all 1,077** colleges, not just
+the 200 — the roster is free at any size. What costs money is the *history*
+(prior appointments, tenure spells, origin at appointment), which is a
+per-institution research wave. Those two facts pull in opposite directions, so
+the build emits two files:
+
+| File | Scope | Cost |
+|---|---|---|
+| `universe_communitycollege_all.json` | All 1,077, sitting leader only, `historyPlanned` flag | One script run |
+| `universe_communitycollege.json` | Top 200, the history-collection target set | A collection wave |
+
+The census is the schools table and the news-scout target list. No college is
+missing from the map, and nobody has to defend the 200 line to a customer asking
+why theirs isn't in here — it is, with one row instead of eight. Depth then
+follows the market rather than the alphabet.
+
+### Verifying the incumbents — 118 of 200
+
+The leader names come from IPEDS `chief_admin_name`, which lags. Two independent
+passes check them against each college's own website, and they are
+**complementary, not redundant**: 118 of the 200 are confirmed by one or the
+other, and neither pass subsumes the other.
+
+| Pass | Confirms | |
+|---|---:|---|
+| `fetch-cc-photos.mjs` | 73 | needs an `<img>` whose alt text or filename carries the name |
+| `verify-cc-leaders.mjs` | 112 | needs only the name in the page text |
+| **Either** | **118** | overlap is 67; six colleges are verified by the portrait run alone |
+
+The text pass reaches further because it does not need the picture. 116 of the
+photo pass's 120 misses were `no-name-match` — pages that state the president
+perfectly well in prose but render the portrait as a CSS background or a
+JS-hydrated card. The six the portraits catch and the text misses are not
+regressions: the two crawlers use different transports (node `fetch` vs `curl`)
+and land on slightly different pages.
+
+**The pass verifies names; it does not discover replacements.** Extraction of a
+*different* incumbent was attempted and does not work well enough to trust.
+Across 200 colleges every candidate that cleared a two-page corroboration bar
+was still headline or menu text — the last survivor was "President Keeps It
+Real". A `differs` verdict now requires the pairing stated both ways round
+("President Jane Smith" *and* "Jane Smith, President"), which yields **zero** on
+this corpus. That is the honest answer: the 82 confirmed by neither pass need a
+human or a research agent, not a tighter regex.
+
+Two failures worth keeping in mind, both already fixed:
+
+- **Flattening tags destroyed the structure that separates a sentence from a
+  menu.** `<h1>President</h1><nav><a>Recap</a>…` became "President Recap …", and
+  Title-Case nav items matched. Worse, corroboration *rewarded* it: counting raw
+  sightings favours boilerplate, because nav repeats on every page — one bogus
+  candidate scored 14. Matching is now scoped to block boundaries and counts
+  distinct pages.
+- **The join-key collision reappeared in the cross-reference.** Matching the
+  photo pass to the text pass on bare `university` credited Glendale Community
+  College (AZ)'s confirmation to Glendale Community College (CA) as well, since
+  both are in the top 200. Coverage read 119 instead of 118. The lookup is keyed
+  on name + state now. The institution-name contract is not only an ETL concern:
+  it bites any lookup written carelessly.
+
+Results are per-college in `universe/cc-leader-verification.json`, with the
+reason recorded for every unresolved row so the remainder is a worklist. Nothing
+is written back into the universe files.
+
+Portraits are downscaled to the repo's 320px JPEG convention by
+`thumbnail-cc-photos.mjs` — 24.7 MB of college hero images becomes 1.0 MB, or
+about 13 KB a head, matching the existing 244 mirrors. That script needs
+`sharp`, which is deliberately **not** a repo dependency; it reads one from an
+external install via `SHARP_PATH`.
+
+### The trap this list avoids
+
+"Largest community colleges" reads like a lookup. It is not. **IPEDS no longer
+classifies the biggest community colleges as two-year institutions.** 154 public
+colleges that were sector 4 (public, two-year) in 2010 are sector 1 (public,
+four-year) in 2024, because they added a few applied bachelor's degrees. Among
+them: Lone Star, Dallas College, Houston CC, Valencia, Austin CC, Collin and San
+Jacinto — **seven of the fifteen largest community colleges in the country.**
+
+The obvious build, filtering IPEDS on "two-year", drops all seven silently and
+produces a list that looks complete. Florida's colleges converted before 2010,
+so even a 2010 comparison misses Miami Dade (58,941 — the fourth largest),
+Broward, Palm Beach State, St Petersburg and FSCJ. Those are caught on their
+degree profile instead: associate + bachelor's and **no** graduate degrees is a
+community college that went baccalaureate, whereas a genuine regional
+university offers master's.
+
+Four inclusion rules, and their share of the final 200:
+
+| Rule | Definition | In top 200 |
+|---|---|---|
+| A | Public two-year (IPEDS 2024 sector 4) | 132 |
+| B | Public two-year in 2010, now awards bachelor's | 51 |
+| C | Awards associate + bachelor's, no graduate degrees | 16 |
+| D | Public four-year by sector, community-college name | 1 |
+
+Five institutions the rules admit and judgement removes are listed with reasons
+in the file's `excluded` block — CUNY City Tech (a senior college), Georgia
+Gwinnett (never a two-year institution), UC Clermont and UC Blue Ash (two-year
+branch campuses led by deans reporting to a university), and GSU Perimeter
+(absorbed into Georgia State in 2016, no independent presidency). The test each
+time was not "is this open-access" but **"is this a seat a community-college
+president is recruited into"** — the same question that keeps branch campuses
+and federal service academies out of the other indices.
+
+## 2. Campus or district? — SETTLED 21 Aug 2026: both
+
+**Decision: the index carries both seats**, with `seatType` on every record —
+`standalone` (the president is the top seat), `campus` (reports to a district
+chancellor), `district` (the chancellorship itself). Built by
+`build-cc-schools.mjs` into `r1-communitycollege-schools.json`.
+
+| Option | Seats | What it loses |
+|---|---:|---|
+| Campus only | 1,077 | 24 district chancellorships — the largest-comp seats in the sector |
+| District only | 1,018 | 83 campus presidencies — the bench those chancellorships recruit from |
+| **Both (chosen)** | **1,101** | — |
+
+Both costs 2% more rows than campus-only, which is a rounding error against a
+collection wave, and it is the only option that loses nothing. The move between
+campus president and district chancellor is precisely the career step this
+product exists to show; collapsing to either level makes that step invisible.
+
+Two further facts made the choice easy:
+
+- **A pure campus-level table was never on offer.** Dallas College consolidated
+  its seven colleges into one accredited institution; Houston CC, Lone Star and
+  Tarrant County also report to IPEDS as single units. "Campus level" would have
+  silently meant "whatever IPEDS happens to report", which is not a consistent
+  seat definition. Only an explicit `seatType` fixes that.
+- **The chancellorships are where the search fees are.** LACCD, Maricopa, Alamo,
+  San Diego. A firm evaluating the data looks for those names first; their
+  absence reads as a gap in the product, not a scoping choice.
+
+**Two flagged districts get no chancellor row**, recorded in `NO_DISTRICT_SEAT`
+rather than dropped silently:
+
+- *Delaware Technical Community College* — not a district at all. One president
+  leads four campuses that IPEDS reports separately; its campuses fold to
+  `standalone`.
+- *City University of New York* — CUNY's chancellor leads a full university
+  system of senior and community colleges, not a community-college district.
+  That seat belongs to `ussystem`; a row here would double-count one person.
+
+**Chancellor names are not in IPEDS.** Districts are not IPEDS reporting units,
+so all 24 ship with `leaderNameUnverified: ""`. Unlike the college presidents,
+these are not even leads — they are research, and the first collection wave has
+to source them from scratch.
+
+## 3. Market appeal
+
+### The demand driver is unusually well documented
+
+AACC's 2023 leadership report found **36.5% of sitting community-college CEOs
+planned to retire within five years**, with another 11.8% inside nine years —
+and projected the wave to peak around 2026 and run through 2032. Average
+presidential tenure has fallen to **5.9 years**, down roughly 31% over sixteen
+years. Apply the retirement figure alone to this universe and it implies
+something like 70 of these 200 seats turning over by 2028, before counting
+ordinary churn. Twelve are sitting under interim leadership right now.
+
+For comparison, the R1 presidency — the index we already lead with — has
+160 institutions in our index, and turns over more slowly.
+
+### The sector is growing while the rest of higher ed is not
+
+Community colleges grew **3.0% in fall 2025**, about 173,000 students, the
+fastest-growing sector in US higher education, while private four-year
+enrollment declined. Dual enrollment reached 1.19 million students, nearly 20%
+of community-college enrollment. A board hiring into a growing sector runs a
+more competitive search than one hiring into contraction.
+
+### It is genuinely new bench, not a re-cut of what we have
+
+Of the 200 institutions, **33 appear anywhere in our existing 31,891-record
+corpus** — as an employer or a prior employer. The other 167 are invisible to
+us today. Contrast that with the R2 build, which stalled partly because the
+searches it was meant to serve turned out to sit inside institutions we already
+covered across nine indices.
+
+### The pipeline argument is the strongest one, and we can already prove it
+
+**95 leaders in the current corpus came directly from a community college** —
+their `priorInstitution` is one. Where they landed:
+
+| Index | Leaders hired straight out of a community college |
+|---|---|
+| Administrative leaders | 30 |
+| R2 public presidents | 25 |
+| LAC presidents | 10 |
+| University systems | 8 |
+| R1 presidents | 6 |
+| Nursing deans | 5 |
+| Advancement | 4 |
+| Business, provost, law, creative arts | 6 |
+
+And this is a **hard floor**. `priorInstitution` records only the *immediately*
+prior employer, the same limitation documented for `hasIndustryExp` — anyone
+with a decade in community colleges behind one intervening university role is
+invisible in that count. The real flow is larger.
+
+That table is the product argument. Today a client asking "who has run an
+open-access, workforce-facing institution at scale" gets 95 names we happened to
+catch on their way past. With this index they get the bench itself, plus the
+downstream half of the move already in the corpus — 39 of those 95 went on to a
+presidency, chancellorship or system office. **The community-college index is
+the missing upstream half of the president index we already sell.** Affinity and
+Slate Builder are cross-index by construction, so both halves light up the day
+the file lands.
+
+### Collection cost is materially lower than any index we have built
+
+IPEDS names the sitting chief administrator for **all 200**, with title. No
+other index started with a complete roster of current incumbents — the R2 build
+budgeted ~460k subagent tokens largely to discover them. Research starts at the
+predecessor, not at "who runs this college."
+
+Two cautions on that field: it lags a year or more, and it is wrong at some
+colleges (Broward's is recorded as a Chief Data Officer; CUNY City Tech's names
+a president who left in 2021). It is a **lead, not a fact** — the file names it
+`leaderNameUnverified` for that reason, and every row needs verification against
+the college before use. Even so, this is the cheapest index in the portfolio to
+populate.
+
+Titles are also not uniform, the same warning the systems universe carries:
+145 President, 23 Superintendent/President (the California convention), 17
+Chancellor, 12 interim or acting. Any ETL that keys on "President" will drop a
+fifth of the sector.
+
+### What weakens the case
+
+**The sales motion is new, and the sector's own firms may want it least.**
+Community-college presidential search is served by a partly separate firm
+ecosystem — ACCT Searches (the trustees' association's own practice, 750+
+searches), Gold Hill Associates (community-college-only), RH Perry — rather
+than by Isaacson Miller, WittKieffer or Greenwood Asher, who anchor the R1
+market our indices were built for.
+
+These are prospects, not closed doors, and one of them is already in our supply
+chain: `datasets.ts` records RH Perry as a source for the admin-leaders index,
+our largest. What does not carry over is the *relationship*. Our pilot access
+sits with R1-anchored generalists, so selling a community-college index into a
+community-college-only firm is a new logo and a new champion, not a cross-sell.
+
+The sharper risk is willingness to pay. Gold Hill's consultants are former
+community-college presidents; ACCT is owned by the trustees who do the hiring.
+Both compete on a personal network that already contains much of what this
+index would sell them, and ACCT carries association budgets besides. **The
+strongest buyer is therefore probably not the community-college specialist but
+the R1 generalist taking a community-college mandate** — the firm with the
+relationship and without the network. That is a testable claim, and testing it
+costs one conversation: ask an existing pilot firm whether they bid
+community-college presidencies and what they lack when they do. Do that before
+funding full collection, not after.
+
+**Geographic concentration.** 68 of 200 are Californian, 34% of the index for
+about 12% of the population. That is real — California genuinely has the
+largest community-college system in the country — but a client outside
+California sees a third of the index as irrelevant, and any aggregate trend
+chart is substantially a chart about California policy. Worth showing a
+state-normalised view alongside the raw one.
+
+**Data thinness relative to the R1 indices.** No US News rank, no BSQ, no HERD
+research spend. `rankLabel` for this index is enrollment, and the analytics
+tabs will lean on the appointment/tenure/origin fields rather than the research
+metrics. That is the same position the LAC and systems indices are in, so the
+UI already handles it.
+
+## 4. Recommendation
+
+Build it, and treat it as the highest-value index remaining — best-documented
+demand, fastest-growing sector, lowest collection cost, and the only one that
+completes a career story the existing corpus already half-tells.
+
+Sequence:
+
+1. ~~**Settle campus-vs-district**~~ — done, section 2: both seats, `seatType` on every record.
+1b. **Ask one existing pilot firm whether they bid community-college
+   presidencies**, and what they lack when they do. One conversation, and it
+   tests the buyer assumption this whole case rests on.
+2. ~~**Ship the census as the schools table**~~ — done:
+   `r1-communitycollege-schools.json`, 1,101 seats. Breadth is no longer what
+   holds the index back; only depth is, and depth is the part worth paying for.
+3. ~~**Verify the 200 incumbents**~~ — done to the limit of what automation
+   reaches: **118 of 200** confirmed across the photo and text passes. The
+   remaining 82 need a human or a research agent; their per-college reasons are
+   in `cc-leader-verification.json`. The other 877 in the census stay explicitly
+   unverified; `leaderNameUnverified` is named that way so no consumer mistakes
+   a lead for a fact.
+4. **Pilot one wave of 20 colleges** — brief written, not yet run:
+   `CC-PILOT-WAVE.md`, sample in `universe/cc-pilot-wave.json`
+   (`node research/pick-cc-pilot.mjs`). **Depth: current + 3 predecessors**
+   (see section 5). The sample is stratified by size band, seat type and
+   verification status rather than taken off the top, because the pilot exists
+   to price the other 180 and the top 20 is the easy end of all three axes.
+   Batch 4-5 institutions per agent, as the R2 build established (~37k tokens
+   batched against ~92k one-per-agent).
+5. **Register `uscommunitycollege`** via `research/register_index.mjs` — one
+   line in `scripts/lib/indices.mjs`, then the shared generators pick it up.
+6. Run `check-school-names.mjs` after every wave. This universe is full of
+   institution-name landmines: "Glendale Community College" exists in both
+   Arizona and California, "Metropolitan Community College" is an Omaha
+   institution and a Kansas City one, and the `university` field is a join key, not
+   a label.
+
+## 5. How far back to trace — current + 3 predecessors
+
+**Four spells per seat**, stopping earlier only where a seat genuinely has no
+further predecessor. Settled 21 Aug 2026.
+
+Measured across the 4,166 seats already in the corpus:
+
+| Depth | Median reach | Lands about | Reaches ≤1996 |
+|---|---:|---|---:|
+| current + 1 | 9 yrs | 2017 | 3% |
+| current + 2 | 14 yrs | 2012 | 10% |
+| **current + 3** | **20 yrs** | **2006** | **23%** |
+| current + 4 | 24 yrs | 2002 | 34% |
+
+### Why not a date cutoff
+
+Tracing back to a fixed year is the intuitive way to cut research cost, and it
+is a trap. A 2020 cutoff — reasonable if you believe average tenure is about
+four years — would see **24% of completed spells** and measure mean tenure at
+**5.81 years against a true 6.95**. That is a 16% understatement, and it runs in
+the direction that flatters the turnover story the index exists to evidence. The
+bias is the opposite of the intuitive one: right-censoring dominates, because a
+window anchored on "still running in 2020" fills up with leaders appointed
+2021-2025 whose tenure is short only because it has not finished.
+
+It would also have cut the market argument. Of the community-college-sourced
+appointments already in the corpus that carry a start year, **40% predate 2020**
+— two-fifths of the pipeline evidence, invisible.
+
+For the record: true mean tenure in the corpus is **6.95 years**, and AACC's
+2023 figure for community-college CEOs is **5.9**. Neither is four.
+
+Bounding by spells rather than years also spends evenly. A date rule costs one
+spell at a college with a twenty-year president and six at a churny one; a spell
+rule costs four everywhere, which is what makes a wave estimable.
+
+### What this obliges
+
+- **`historyFrom` and `truncated` on every institution.** Depth varies a lot
+  seat to seat under a spell cap — three long presidencies reach 1990, three
+  short ones reach 2015 — so the horizon has to be a per-row fact. Without it
+  someone fits a trend across colleges with different windows and gets a
+  confident wrong answer.
+- **A `moreHistoryExists` flag from the researcher.** `etl_leaders.mjs` derives
+  `truncated` as `historyFrom > founded`, and every row in the schools table has
+  `founded: null` — so that derivation returns false everywhere and the index
+  would silently claim complete history. Under a spell cap the truth is directly
+  observable and must be recorded rather than inferred. See `CC-PILOT-WAVE.md`.
+
+### Still open
+
+Whether the top 25 by enrollment are traced to 1996 regardless of spell count,
+so they align with the 1996-based indices for cross-index work. About 50 extra
+spells. Not decided.
+
+## Sources
+
+- [AACC, *The State of Community College Leadership: 2023*](https://www.aacc.nche.edu/wp-content/uploads/2023/09/LeadershipReport.pdf)
+- [National Student Clearinghouse, fall 2025 enrollment](https://www.studentclearinghouse.org/news/fall-undergraduate-enrollment-shows-overall-growth-despite-decline-at-private-colleges/)
+- [Chronicle of Higher Education, "Enrollment Ticked Up 1% Last Fall, With Most of the Growth at Community Colleges"](https://www.chronicle.com/article/enrollment-ticked-up-1-last-fall-with-most-of-the-growth-at-community-colleges)
+- [Higher Ed Dive, "Fall 2025 enrollment increased 1% — but the devil is in the details"](https://www.highereddive.com/news/fall-2025-enrollment-increased-1-but-the-devil-is-in-the-details/809675/)
+- [ACCT Searches](https://acctsearches.org/), [Gold Hill Associates](https://www.collegepresidentsearch.com/), [RH Perry & Associates](https://rhperry.com/)
+- IPEDS 2024, via the [Urban Institute Education Data API](https://educationdata.urban.org/documentation/)

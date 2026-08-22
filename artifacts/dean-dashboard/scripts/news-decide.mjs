@@ -18,6 +18,7 @@ import { readFileSync, writeFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import { applyEvent, enqueueEnrichment, updateJobMarket, loadBreaking, saveBreaking, logCSV, today } from "./news-lib.mjs";
+import { pushBreaking, storyKeysForEvent } from "./news-dedupe.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REVIEW_PATH = resolve(__dirname, "../../..", "attached_assets/news_scout_review.json");
@@ -65,12 +66,13 @@ try {
   if (status === "added") {
     enqueueEnrichment({ dataset, deansFile, recordId, university: e.university, school: e.school, dean: e.dean, url: e.url, title: e.title });
     if (e.schoolType === "business") updateJobMarket({ kind: "filled", university: e.university });
-    breaking.items.unshift({
+    dropBanner(); // the pending-confirmation line this decision answers
+    pushBreaking(breaking, {
       id: `${id}-applied`, type: "applied", date: today(),
       headline: `${e.dean} named ${e.interim ? "interim " : ""}${e.role} at ${e.university}${e.school ? ` (${e.school})` : ""}`,
       university: e.university, dean: e.dean, url: e.url,
-    });
-    dropBanner(); dropFromQueue(); saveBreaking(breaking);
+      storyKeys: storyKeysForEvent({ ...e, type: "appointment" }),
+    }); dropFromQueue(); saveBreaking(breaking);
     logCSV([[today(), "digest_applied", e.university, e.dean, `${e.schoolType}/appointment${e.interim ? "/interim" : ""}`, "owner", e.url]]);
     out("applied", `Added ${e.dean} as ${e.interim ? "interim " : ""}${e.role} at ${e.university} and queued enrichment.`);
   } else {

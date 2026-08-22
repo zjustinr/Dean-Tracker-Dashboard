@@ -58,6 +58,7 @@ const SPEC = {
   r1arts:      { deans: () => require("../artifacts/dean-dashboard/src/data/r1-arts-deans.json"), bsq: () => require("../artifacts/dean-dashboard/src/data/r1-arts-research.json"), schools: () => require("../artifacts/dean-dashboard/src/data/r1-arts-schools.json"), split: false },
   usr2: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-r2public-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-r2public-schools.json"), split: false },
   ussystem: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-system-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-system-schools.json"), split: false },
+  uscommunitycollege: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-communitycollege-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-communitycollege-schools.json"), split: false },
   uslac: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-lac-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-lac-schools.json"), split: false },
   uspublichealth: { deans: () => require("../artifacts/dean-dashboard/src/data/r1-publichealth-deans.json"), bsq: () => require("../artifacts/dean-dashboard/src/data/r1-publichealth-research.json"), schools: () => require("../artifacts/dean-dashboard/src/data/r1-publichealth-schools.json"), split: false },
   usvet:       { deans: () => require("../artifacts/dean-dashboard/src/data/r1-vet-deans.json"), bsq: null, schools: () => require("../artifacts/dean-dashboard/src/data/r1-vet-schools.json"), split: false },
@@ -73,6 +74,7 @@ const ENRICHMENT = {
   "affinity-by-school.json": () => require("../artifacts/dean-dashboard/src/data/affinity-by-school.json"),
   "scout-insights.json": () => require("../artifacts/dean-dashboard/src/data/scout-insights.json"),
   "employer-affinity.json": () => require("../artifacts/dean-dashboard/src/data/employer-affinity.json"),
+  "nonacademic-experience.json": () => require("../artifacts/dean-dashboard/src/data/nonacademic-experience.json"),
 };
 
 function splitOpsFromIS(deans) {
@@ -152,6 +154,18 @@ function filteredEmployerAffinity(scope) {
   for (const id in full) if (scope.has(id)) out[id] = full[id];
   return out;
 }
+// nonacademic-experience.json is a WRAPPED document ({asOf, scoring, industries,
+// counts, people}) rather than a bare person map -- the meta rides outside the
+// map so no consumer ever trips over a reserved key. Scope-gate only the
+// `people` map (same leader-key filter as research); the meta and corpus-wide
+// counts are aggregate numbers, not per-leader payload, so they pass through.
+function filteredNonAcademic(scope) {
+  const full = ENRICHMENT["nonacademic-experience.json"]();
+  const keys = leaderKeysForScope(scope);
+  const people = {};
+  for (const k in full.people) if (keys.has(k)) people[k] = full.people[k];
+  return Object.assign({}, full, { people });
+}
 
 // Per-client revocation switch, set/cleared by the owner from the usage
 // dashboard (api/usage.js ?block=/?unblock=). Stateless HMAC tokens can't be
@@ -210,6 +224,7 @@ module.exports = async function handler(req, res) {
   const isAffinity = f === "affinity-by-school.json";
   const isScoutInsights = f === "scout-insights.json";
   const isEmployerAffinity = f === "employer-affinity.json";
+  const isNonAcademic = f === "nonacademic-experience.json";
 
   const secret = process.env.TRIAL_SECRET;
   let reason = "disarmed", setCookie = null;
@@ -225,7 +240,12 @@ module.exports = async function handler(req, res) {
     const v = token ? verify(token, secret) : { ok: false, reason: "no_token" };
     const blocked = v.ok && (await isBlocked(v.payload.c));
     if (v.ok && !blocked) {
-      scope = new Set(v.payload.s || []);
+      // UNION, not replace. A token widens access on top of the free tier -- it
+      // must never narrow it, or a trial link ends up with LESS than an
+      // anonymous visitor: every scoped link 403'd on r1bschool while the UI
+      // (TrialContext.allowed(), which does union PUBLIC_SCOPE) showed it as
+      // open, so the switcher advertised an index the API refused.
+      scope = new Set([...PUBLIC_SCOPE, ...(v.payload.s || [])]);
       reason = "armed";
       client = v.payload.c || null;
       if (!cookieTok && queryK) {
@@ -254,6 +274,7 @@ module.exports = async function handler(req, res) {
     else if (isAffinity) body = JSON.stringify(scope && !scope.has("*") ? filteredAffinity(scope) : ENRICHMENT[f]());
     else if (isScoutInsights) body = JSON.stringify(scope && !scope.has("*") ? filteredScoutInsights(scope) : ENRICHMENT[f]());
     else if (isEmployerAffinity) body = JSON.stringify(scope && !scope.has("*") ? filteredEmployerAffinity(scope) : ENRICHMENT[f]());
+    else if (isNonAcademic) body = JSON.stringify(scope && !scope.has("*") ? filteredNonAcademic(scope) : ENRICHMENT[f]());
     else if (ENRICHMENT[f]) body = JSON.stringify(ENRICHMENT[f]());
     else if (SPEC[id]) body = JSON.stringify(assemble(id));
     else { res.status(404).json({ error: "not_found" }); return; }
@@ -262,7 +283,7 @@ module.exports = async function handler(req, res) {
     res.status(500).json({ error: "server_error" }); return;
   }
 
-  await logUsage(req, isResearch ? "research" : isAffinity ? "affinity" : isScoutInsights ? "scout-insights" : isEmployerAffinity ? "employer-affinity" : isPhotos ? "photos" : "data", client, f);
+  await logUsage(req, isResearch ? "research" : isAffinity ? "affinity" : isScoutInsights ? "scout-insights" : isEmployerAffinity ? "employer-affinity" : isNonAcademic ? "nonacademic-experience" : isPhotos ? "photos" : "data", client, f);
   if (setCookie) res.setHeader("set-cookie", setCookie);
   res.setHeader("content-type", "application/json; charset=utf-8");
   res.setHeader("cache-control", "private, max-age=300");

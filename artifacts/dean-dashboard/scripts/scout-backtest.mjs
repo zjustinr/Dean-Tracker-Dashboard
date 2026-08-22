@@ -80,29 +80,25 @@
 // gen-*.mjs script in this directory -- each runs standalone. If you change
 // how ScoutAssistant.tsx scores candidates, update the copy here too, or this
 // backtest silently stops testing what's actually shipped.
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { assertRegistered, FILE_ID } from "./lib/indices.mjs";
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
+
+assertRegistered(SRC);
 const read = (f) => JSON.parse(readFileSync(join(SRC, f), "utf8"));
 
 const N = parseInt(process.argv[2], 10) || 50;
 const SEED = parseInt(process.argv[3], 10) || 20260809;
 const MODE = process.argv[4] === "stratified" ? "stratified" : "random";
 
-const FILE_ID = {
-  "r1-bschool-deans.json": "r1bschool", "r1-eschool-deans.json": "r1eschool",
-  "r1-university-deans.json": "r1university", "r1-medschool-deans.json": "r1medical",
-  "r1-lawschool-deans.json": "r1law", "r1-provost-deans.json": "r1provost",
-  "r1-agschool-deans.json": "usag", "r1-nursing-deans.json": "usnursing",
-  "r1-pharmacy-deans.json": "uspharmacy", "r1-education-deans.json": "useducation",
-  "r1-arts-deans.json": "r1arts", "r1-r2public-deans.json": "usr2",
-  "r1-system-deans.json": "ussystem", "r1-publichealth-deans.json": "uspublichealth",
-  "r1-vet-deans.json": "usvet", "r1-grad-deans.json": "usgrad",
-  "r1-camd-deans.json": "uscreativearts",
-  "r1-advancement-deans.json": "usadvancement", "r1-lac-deans.json": "uslac",
-};
+// FILE_ID / INDEX_LABEL now come from lib/indices.mjs. They used to be copied
+// into each generator on the theory that standalone scripts should stay
+// independent; in practice the copies drifted -- scout-backtest.mjs never
+// learned about r1-adminleaders-deans.json, the largest index -- so a new index
+// silently reached some passes and not others.
 
 const scoutInsights = read("scout-insights.json");
 const employerAffinity = read("employer-affinity.json");
