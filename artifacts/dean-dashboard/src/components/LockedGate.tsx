@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTrial } from "@/data/TrialContext";
 import corpusStats from "@/data/corpus-stats.json";
 
-const CORPUS = corpusStats as { appts: number; sitting: number; schools: number; from: number };
+const CORPUS = corpusStats as { appts: number; sitting: number; roster: number; schools: number; indices: number; from: number };
 const CONTACT = "ren@bu.edu";
 
 function Shell({ children }: { children: React.ReactNode }) {
