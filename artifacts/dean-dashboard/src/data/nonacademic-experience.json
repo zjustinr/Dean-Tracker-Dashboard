@@ -58,9 +58,12 @@
   },
   "a. benjamin spencer|college of william & mary": {
    "name": "A. Benjamin Spencer",
-   "u
-wrote /home/user/Dean-Tracker-Dashboard/artifacts/dean-dashboard/src/data/nonacademic-experience.json (13795 people, asOf 2026)
-law"
+   "university": "College of William & Mary",
+   "status": "yes",
+   "confidence": "high",
+   "sitting": true,
+   "indices": [
+    "r1law"
    ],
    "score": 26,
    "seniority": "unknown",
