@@ -30,10 +30,10 @@
   "Healthcare Providers"
  ],
  "counts": {
-  "people": 29618,
+  "people": 29625,
   "yes": 2112,
-  "no": 11825,
-  "unknown": 15681,
+  "no": 11828,
+  "unknown": 15685,
   "namedFirm": 1713,
   "flagOnly": 399,
   "firms": 1728,
@@ -16363,6 +16363,20 @@
    ],
    "flags": [
     "hasConsultingBg"
+   ]
+  },
+  "ashanti hands|san diego mesa college": {
+   "name": "Ashanti Hands",
+   "university": "San Diego Mesa College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "uscommunitycollege"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
    ]
   },
   "ashby kinch|university of new hampshire": {
@@ -49668,6 +49682,20 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-19",
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "david c. plummer|south texas college": {
+   "name": "David C. Plummer",
+   "university": "South Texas College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
+   ],
    "stops": 1,
    "sectors": [
     "Academic"
@@ -127865,6 +127893,20 @@
    "sitting": false,
    "indices": [
     "uslac"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "kimberly britt|mesa community college": {
+   "name": "Kimberly Britt",
+   "university": "Mesa Community College",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": false,
+   "indices": [
+    "uscommunitycollege"
    ],
    "stops": 1,
    "sectors": [
