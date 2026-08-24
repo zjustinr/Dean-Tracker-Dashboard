@@ -1,0 +1,441 @@
+{
+  "seats": [
+    {
+      "university": "Lamar State College-Port Arthur",
+      "state": "TX",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "John C. Hayek",
+          "startYear": 2026,
+          "endYear": null,
+          "priorTitle": "Vice Chancellor for Academic and Health Affairs, Texas State University System",
+          "priorInstitution": "Texas State University System",
+          "isInterim": false,
+          "convertedToPermanent": true,
+          "sourceUrl": "https://www.lamarpa.edu/about/office-president.html",
+          "notes": "Served as interim president of LSCPA starting January 2026; unanimously confirmed as permanent president by the TSUS Board of Regents in May 2026. Previously Associate VC/Chief of Staff for Academic Affairs at the UT System. PhD, Indiana University Bloomington."
+        },
+        {
+          "name": "Betty J. Reynard",
+          "startYear": null,
+          "endYear": 2026,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.tsus.edu/news",
+          "notes": "Immediate predecessor to Hayek. Honored as President Emeritus of LSCPA by the TSUS Board of Regents in May 2026 in recognition of her service; her start year and prior background could not be confirmed via available college/system sources."
+        }
+      ]
+    },
+    {
+      "university": "Northwest Shoals Community College",
+      "state": "AL",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Jeff Goodwin",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Northwest-Shoals_Community_College",
+          "notes": "Current president per the college's Wikipedia infobox. The college's own website could not be retrieved (pages returned empty/blocked on repeated attempts), so his start date, prior role, and predecessor could not be independently confirmed in this research pass."
+        }
+      ]
+    },
+    {
+      "university": "Edison State Community College",
+      "state": "OH",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Chris Spradlin",
+          "startYear": 2023,
+          "endYear": null,
+          "priorTitle": "Executive Vice President and Provost, Edison State Community College",
+          "priorInstitution": "Edison State Community College (previously Lake Michigan College)",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.edisonohio.edu/about/leadership",
+          "notes": "Has served as President since January 1, 2023, promoted internally from EVP/Provost. Before Edison State he was VP of Academic Services and Dean of Arts & Sciences at Lake Michigan College. Under his tenure, Edison State launched its first bachelor's degree (BSN) and marked its 50th anniversary. His immediate predecessor as president could not be confirmed from the college's available web pages."
+        }
+      ]
+    },
+    {
+      "university": "Mohave Community College",
+      "state": "AZ",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Stacy Klippenstein",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Mohave_Community_College",
+          "notes": "Current president per the college's Wikipedia infobox (last updated June 2026). The college's official website (mohave.edu) was unreachable (repeated 503 errors) during this research pass, so her start date, prior role, and predecessor could not be confirmed."
+        }
+      ]
+    },
+    {
+      "university": "Lewis and Clark Community College",
+      "state": "IL",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Ken Trzaska",
+          "startYear": 2020,
+          "endYear": null,
+          "priorTitle": "President",
+          "priorInstitution": "Seward County Community College (Liberal, Kansas)",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.lc.edu/college-information/leadership/presidents-office/index.html",
+          "notes": "Took office as the sixth president of Lewis and Clark Community College on September 21, 2020, after five years as president of Seward County Community College in Kansas."
+        },
+        {
+          "name": "Dale T. Chapman",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Lewis_and_Clark_Community_College",
+          "notes": "Referenced on the college's Wikipedia page as a former L&C president; his exact tenure dates, and whether he was the immediate predecessor to Trzaska (L&C's official materials describe Trzaska as its \"sixth president\"), could not be confirmed from available sources."
+        }
+      ]
+    },
+    {
+      "university": "Shelton State Community College",
+      "state": "AL",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Jonathan Koh",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.sheltonstate.edu/",
+          "notes": "Confirmed as current president via a \"Jonathan Koh-President\" link on the college's official homepage and via Wikipedia. Deeper president-office subpages returned 404 errors, so his start date and predecessor could not be confirmed. Wikipedia notes that in 1994, when C.A. Fredd State Technical College merged into Shelton State, \"the president of Shelton State was named president of the consolidated institution,\" but does not name that individual."
+        }
+      ]
+    },
+    {
+      "university": "North Idaho College",
+      "state": "ID",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Nick Swayne",
+          "startYear": 2022,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/North_Idaho_College",
+          "notes": "Became president in 2022 amid board turmoil; placed on administrative leave \"without explanation\" in late 2022, then reinstated by court order in March 2023. Remains current president as of August 2026. The upheaval led Moody's to downgrade NIC's bond rating and its accreditor (NWCCU) to place it on \"show cause\" status in Feb 2023, later reduced to probation in Feb 2025 following board changes from the Nov 2024 elections."
+        },
+        {
+          "name": "Unnamed interim president (former wrestling coach)",
+          "startYear": 2021,
+          "endYear": 2022,
+          "priorTitle": "Wrestling coach, North Idaho College",
+          "priorInstitution": "North Idaho College",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/North_Idaho_College",
+          "notes": "Served as interim president following Rick MacLennan's 2021 termination and the administrative upheaval that followed; specific name not identified in the sources reviewed."
+        },
+        {
+          "name": "Rick MacLennan",
+          "startYear": null,
+          "endYear": 2021,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/North_Idaho_College",
+          "notes": "Fired \"without cause\" by the NIC board of trustees in 2021; the college later settled a wrongful-termination lawsuit with him for nearly $500,000."
+        }
+      ]
+    },
+    {
+      "university": "Massachusetts Bay Community College",
+      "state": "MA",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "David Podell",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.massbay.edu/",
+          "notes": "Current president confirmed via the college's Wikipedia page and official website navigation (which links to an \"Executive Team, Cabinet, and President's Council\" page). Specific start year, prior role, and predecessor could not be confirmed; dedicated president-bio subpages returned 404 errors during this research pass."
+        }
+      ]
+    },
+    {
+      "university": "Hennepin Technical College",
+      "state": "MN",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Joy Bodin",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Hennepin_Technical_College",
+          "notes": "Current president per Wikipedia. The college's official website returned blank/empty content on repeated fetch attempts, so start date, prior role, and predecessor could not be confirmed in this pass."
+        }
+      ]
+    },
+    {
+      "university": "Niagara County Community College",
+      "state": "NY",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Lloyd A. Holmes",
+          "startYear": 2024,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Niagara_County_Community_College",
+          "notes": "Current president of SUNY Niagara (Niagara County Community College), in office since 2024."
+        },
+        {
+          "name": "William J. Murabito",
+          "startYear": 2017,
+          "endYear": 2024,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Niagara_County_Community_College",
+          "notes": "Served as president 2017-2024, immediately preceding Lloyd Holmes."
+        },
+        {
+          "name": "James P. Klyczek",
+          "startYear": 2002,
+          "endYear": 2017,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Niagara_County_Community_College",
+          "notes": "Long-serving president, 2002-2017."
+        },
+        {
+          "name": "Antonette Cleveland",
+          "startYear": 1999,
+          "endYear": 2002,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Niagara_County_Community_College",
+          "notes": "President 1999-2002. Earlier presidents (per the same source) include Gerald L. Miller (1989-1999), Donald J. Donato (1979-1989), Jack C. Watson (1975-1979), and founding president Ernest Notar (1963-1975)."
+        }
+      ]
+    },
+    {
+      "university": "Paris Junior College",
+      "state": "TX",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Stephen Benson",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.parisjc.edu/",
+          "notes": "Current president (PhD, Keiser University; office in AD 148, per the college's leadership page). Start year, prior role, and predecessor could not be confirmed from the college's available web pages or news archive in this research pass."
+        }
+      ]
+    },
+    {
+      "university": "South Mountain Community College",
+      "state": "AZ",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Veronica Hipolito",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/South_Mountain_Community_College",
+          "notes": "Current campus president per Wikipedia. South Mountain is one of the Maricopa County Community College District's ten colleges; her start date and predecessor could not be confirmed as the college's own site (southmountaincc.edu) blocked automated fetch attempts (403) during this pass."
+        }
+      ]
+    },
+    {
+      "university": "Atlanta Technical College",
+      "state": "GA",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Victoria Seals",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.atlantatech.edu/about/presidents-message/",
+          "notes": "Confirmed as current president (Ed.D.) via the college's official \"President's Message\" page and Wikipedia. Her start date, prior role, and predecessor were not stated on the pages retrieved and could not be confirmed in this research pass."
+        }
+      ]
+    },
+    {
+      "university": "University of Arkansas-Pulaski Technical College",
+      "state": "AR",
+      "school": "Office of the President",
+      "leaderTitle": "Chancellor",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Summer DeProw",
+          "startYear": 2023,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Arkansas_%E2%80%93_Pulaski_Technical_College",
+          "notes": "Began serving as Chancellor of UA-Pulaski Technical College (the campus-level leader; the UA System president is Donald R. Bobbitt) on January 2, 2023. Her prior role and her predecessor as chancellor could not be confirmed via the college's available web pages, which returned 404 errors for leadership subpages during this research pass."
+        }
+      ]
+    },
+    {
+      "university": "Shoreline Community College",
+      "state": "WA",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Jack Kahn",
+          "startYear": 2022,
+          "endYear": null,
+          "priorTitle": "Interim Superintendent-President / Assistant Superintendent-VP for Instruction",
+          "priorInstitution": "Palomar College (San Marcos, CA)",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.shoreline.edu/about-shoreline/college-leadership.aspx",
+          "notes": "Assumed the presidency on July 1, 2022, bringing over 25 years of higher-education leadership experience, most recently at Palomar College in California (interim superintendent-president, assistant superintendent/VP for instruction, and dean roles). His immediate predecessor could not be confirmed from available sources."
+        }
+      ]
+    },
+    {
+      "university": "Santa Fe Community College",
+      "state": "NM",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Becky Rowley",
+          "startYear": 2019,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.sfcc.edu/",
+          "notes": "Dr. Becky Rowley has led Santa Fe Community College (New Mexico) since 2019; her prior role and her predecessor were not stated on the retrieved page and could not be confirmed in this research pass."
+        }
+      ]
+    },
+    {
+      "university": "Wiregrass Georgia Technical College",
+      "state": "GA",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "DeAnnia Clements",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.wiregrass.edu/about/president-message",
+          "notes": "Current president per the college's official website and Wikipedia. Her start date, prior role, and predecessor were not stated on the retrieved page and could not be confirmed in this research pass."
+        }
+      ]
+    },
+    {
+      "university": "Taft College",
+      "state": "CA",
+      "school": "Office of the President",
+      "leaderTitle": "Superintendent/President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Rafe Edward Trickey, Jr.",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Taft_College",
+          "notes": "Current Superintendent/President and CEO of Taft College per Wikipedia. The college's official superintendent-president webpage returned 404 errors on repeated attempts, and the Wikipedia article contains no historical leadership list, so his start date and predecessor could not be confirmed in this research pass."
+        }
+      ]
+    }
+  ]
+}

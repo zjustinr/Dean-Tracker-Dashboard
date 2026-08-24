@@ -1,0 +1,551 @@
+{
+  "seats": [
+    {
+      "university": "Mendocino College",
+      "state": "CA",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Timothy Karas",
+          "startYear": 2020,
+          "endYear": null,
+          "priorTitle": "Superintendent/President (interim or prior administrative role)",
+          "priorInstitution": "Mendocino College",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.mendocino.edu/about/leadership/presidents-office",
+          "notes": "Current Superintendent/President of Mendocino College, appointed in 2020, per Wikipedia and the college's own leadership page (title Superintendent/President)."
+        },
+        {
+          "name": "Peter DeVries",
+          "startYear": 1972,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Mendocino_College",
+          "notes": "Founding president of Mendocino College when the district was formed in 1972. A gap of several intervening superintendent/presidents between DeVries and Karas (2020) could not be confirmed from available sources within this research pass; site search and web search were unavailable during this session."
+        }
+      ]
+    },
+    {
+      "university": "Bismarck State College",
+      "state": "ND",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Brian Kalk",
+          "startYear": 2026,
+          "endYear": null,
+          "priorTitle": "Chief Research Officer, Energy and Environmental Research Center",
+          "priorInstitution": "University of North Dakota",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.bismarckstate.edu/about/leadership/Search/",
+          "notes": "Selected March 31, 2026 by the ND State Board of Higher Education as BSC's new president after a national search; assumed office July 1, 2026. Confirmed as sitting president in BSC's August 19, 2026 news coverage."
+        },
+        {
+          "name": "Dan Leingang",
+          "startYear": 2025,
+          "endYear": 2026,
+          "priorTitle": "Vice President for Operations/Chief Operating Officer",
+          "priorInstitution": "Bismarck State College",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.bismarckstate.edu/about/leadership/Search/",
+          "notes": "Served as interim president during the 2025-2026 national search; was also a finalist for the permanent role but Brian Kalk was selected instead."
+        },
+        {
+          "name": "Brent Sanford",
+          "startYear": 2025,
+          "endYear": 2025,
+          "priorTitle": "38th Lieutenant Governor of North Dakota",
+          "priorInstitution": "State of North Dakota",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.bismarckstate.edu/about/leadership/",
+          "notes": "Named interim president January 9, 2025 immediately following Douglas Jensen's retirement, before Dan Leingang took over as interim later in 2025."
+        },
+        {
+          "name": "Douglas Jensen",
+          "startYear": 2020,
+          "endYear": 2025,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.bismarckstate.edu/about/leadership/",
+          "notes": "President 2020 to his retirement on January 2, 2025. Predecessor Dr. Larry C. Skogen served 2006-2020."
+        }
+      ]
+    },
+    {
+      "university": "Blue Ridge Community and Technical College",
+      "state": "WV",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Unknown / not confirmed",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.blueridgectc.edu/",
+          "notes": "The college's website was persistently unreachable (403/503 errors) during this research session and Wikipedia has no dedicated leadership section, so the current president could not be confirmed. Web search was also unavailable (session budget exhausted). Needs follow-up research directly against blueridgectc.edu or the WV Community and Technical College System (wvctcs.edu)."
+        }
+      ]
+    },
+    {
+      "university": "Holyoke Community College",
+      "state": "MA",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "George Timmons",
+          "startYear": 2023,
+          "endYear": null,
+          "priorTitle": "Provost and Senior Vice President for Academic and Student Affairs",
+          "priorInstitution": "Columbia-Greene Community College",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.hcc.edu/about/president-and-cabinet",
+          "notes": "HCC's fifth president; began the role in 2023 and was formally inaugurated April 19, 2024."
+        },
+        {
+          "name": "Christina Royal",
+          "startYear": 2017,
+          "endYear": 2023,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.hcc.edu/about/president-and-cabinet",
+          "notes": "First woman to serve as HCC president; served 2017-2023 (Wikipedia lists her start as 2016)."
+        },
+        {
+          "name": "William F. Messner",
+          "startYear": 2004,
+          "endYear": 2016,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Holyoke_Community_College",
+          "notes": "President 2004-2016."
+        },
+        {
+          "name": "David M. Bartley",
+          "startYear": 1975,
+          "endYear": 2004,
+          "priorTitle": "Speaker of the Massachusetts House of Representatives",
+          "priorInstitution": "Massachusetts House of Representatives",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Holyoke_Community_College",
+          "notes": "HCC alumnus and former Massachusetts House Speaker; served as president 1975-2004."
+        }
+      ]
+    },
+    {
+      "university": "Laramie County Community College",
+      "state": "WY",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Joe Schaffer",
+          "startYear": 2012,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.lccc.wy.edu/about/president/history.aspx",
+          "notes": "Ninth president of LCCC since it opened in 1968; serving since 2012 per the college's own presidential history page."
+        },
+        {
+          "name": "Miles LaRowe",
+          "startYear": 2011,
+          "endYear": 2011,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.lccc.wy.edu/about/president/history.aspx",
+          "notes": "Interim president in 2011 between Darrel Hammon and Joe Schaffer."
+        },
+        {
+          "name": "Darrel L. Hammon",
+          "startYear": 2006,
+          "endYear": 2010,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.lccc.wy.edu/about/president/history.aspx",
+          "notes": "President 2006-2010."
+        },
+        {
+          "name": "Charles H. Bohlen",
+          "startYear": 1992,
+          "endYear": 2006,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.lccc.wy.edu/about/president/history.aspx",
+          "notes": "President 1992-2006."
+        }
+      ]
+    },
+    {
+      "university": "Coalinga College",
+      "state": "CA",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Carla Tweed",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://coalingacollege.edu/about/president",
+          "notes": "Current President of Coalinga College (West Hills College Coalinga), part of the West Hills Community College District. Exact start date, prior role, and predecessor could not be confirmed from available sources this session; web search was unavailable."
+        }
+      ]
+    },
+    {
+      "university": "Moraine Park Technical College",
+      "state": "WI",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Bonnie Baerwald",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": "Auditor",
+          "priorInstitution": "Grant Thornton",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.morainepark.edu/about-mptc/college-leadership/bonnie-baerwald/",
+          "notes": "Current president of Moraine Park Technical College; began career as a Grant Thornton auditor before transitioning to higher education in 1993. College achievements cited under her leadership date back to at least 2016 (employee engagement tracking begins 2016), suggesting a tenure of a decade or more, but an exact start year and named predecessor could not be confirmed this session."
+        }
+      ]
+    },
+    {
+      "university": "Hill College",
+      "state": "TX",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Thomas Mills",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.hillcollege.edu/",
+          "notes": "Dr. Thomas Mills is confirmed as Hill College's current president via the college's own homepage. Exact start date, prior role, and predecessor could not be confirmed from available sources this session; web search was unavailable and the college's dedicated president bio pages returned 404 errors."
+        }
+      ]
+    },
+    {
+      "university": "Tulsa Technology Center",
+      "state": "OK",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Steve Tiger",
+          "startYear": 2012,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.tulsatech.edu/about/superintendent",
+          "notes": "Named Tulsa Tech's Superintendent and CEO on June 25, 2012, per the district's own leadership page. Prior role and predecessor superintendent could not be confirmed this session."
+        }
+      ]
+    },
+    {
+      "university": "Coastal Pines Technical College",
+      "state": "GA",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Lonnie Roberts",
+          "startYear": 2021,
+          "endYear": null,
+          "priorTitle": "Acting President of Altamaha Technical College (ATC) and Coastal Pines Technical College (CPTC) Provost",
+          "priorInstitution": "Coastal Pines Technical College / Altamaha Technical College",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.coastalpines.edu/about/president-s-message",
+          "notes": "Named President of Coastal Pines Technical College effective February 1, 2021, per the college's own website, after having served as Acting President of Altamaha Technical College (one of the two colleges that merged in 2014 to form Coastal Pines) and as CPTC Provost."
+        }
+      ]
+    },
+    {
+      "university": "Woodland Community College",
+      "state": "CA",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Lizette Navarette",
+          "startYear": 2023,
+          "endYear": null,
+          "priorTitle": "Executive Vice Chancellor",
+          "priorInstitution": "California Community Colleges Chancellor's Office",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://wcc.yccd.edu/about/college-administration/",
+          "notes": "Appointed President of Woodland Community College (part of the Yuba Community College District) in December 2023, per the college's own leadership page. Previously Executive Vice Chancellor at the CA Community Colleges Chancellor's Office overseeing finance and facilities across the state's 73 districts."
+        },
+        {
+          "name": "Artemio Pimentel",
+          "startYear": null,
+          "endYear": 2023,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Woodland_Community_College",
+          "notes": "Listed as Woodland Community College's president on Wikipedia (likely reflecting the period before Navarette's December 2023 appointment); exact tenure years could not be independently confirmed this session."
+        }
+      ]
+    },
+    {
+      "university": "James A. Rhodes State College",
+      "state": "OH",
+      "school": "Office of the President",
+      "leaderTitle": "President",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Cynthia E. Spiers",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": "Senior leadership roles (18 years) at Rhodes State College",
+          "priorInstitution": "Rhodes State College",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.rhodesstate.edu/office-of-the-president/",
+          "notes": "Confirmed as the fourth president of Rhodes State College (formerly Lima Technical College) via the college's own website; had already spent 18 of her 29 years in higher education in senior leadership roles at the college before becoming president. Exact start year and the names of the first three presidents could not be confirmed this session."
+        }
+      ]
+    },
+    {
+      "university": "Los Rios Community College District",
+      "state": "CA",
+      "school": "Office of the Chancellor",
+      "leaderTitle": "Chancellor",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Torence Powell",
+          "startYear": 2026,
+          "endYear": null,
+          "priorTitle": "Superintendent/President",
+          "priorInstitution": "Napa Valley College",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://losrios.edu/about-los-rios/chancellor",
+          "notes": "Appointed Chancellor by the Los Rios Board of Trustees (announced January 14, 2026); the district's tenth chancellor, assuming office July 2026. Previously Superintendent/President of Napa Valley College (2022-2026); earlier held Associate Vice Chancellor of Instruction and interim VP roles within Los Rios, and Dean at Cosumnes River College."
+        },
+        {
+          "name": "Brian King",
+          "startYear": 2018,
+          "endYear": 2026,
+          "priorTitle": "President",
+          "priorInstitution": "Cabrillo College",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/Los_Rios_Community_College_District",
+          "notes": "Chancellor immediately preceding Torence Powell; previously served as president of Cabrillo Community College in Aptos, CA. Exact end date/reason for departure not independently confirmed this session."
+        }
+      ]
+    },
+    {
+      "university": "State Center Community College District",
+      "state": "CA",
+      "school": "Office of the Chancellor",
+      "leaderTitle": "Chancellor",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Carole Goldsmith",
+          "startYear": 2019,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/State_Center_Community_College_District",
+          "notes": "Current Chancellor of State Center Community College District (Fresno City College, Reedley College, Clovis Community College, Madera Community College). Start year is an approximation based on general background knowledge; the district's chancellor page was not reachable (403) this session for direct confirmation of exact date, prior role, or predecessor."
+        }
+      ]
+    },
+    {
+      "university": "San Diego Community College District",
+      "state": "CA",
+      "school": "Office of the Chancellor",
+      "leaderTitle": "Chancellor",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Gregory A. Smith",
+          "startYear": 2024,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.sdccd.edu/about/leadership/",
+          "notes": "Confirmed via the district's own website as SDCCD's seventh chancellor, starting February 2024."
+        },
+        {
+          "name": "Carlos O. Turner Cortez",
+          "startYear": 2022,
+          "endYear": 2023,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/San_Diego_Community_College_District",
+          "notes": "Chancellor 2022 until his death in office in 2023, based on general background knowledge; not independently re-confirmed this session due to search limitations."
+        },
+        {
+          "name": "Constance M. Carroll",
+          "startYear": 2004,
+          "endYear": 2021,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/San_Diego_Community_College_District",
+          "notes": "Long-serving chancellor 2004-2021, based on general background knowledge; not independently re-confirmed this session due to search limitations."
+        }
+      ]
+    },
+    {
+      "university": "Riverside Community College District",
+      "state": "CA",
+      "school": "Office of the Chancellor",
+      "leaderTitle": "Chancellor",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Wolde-Ab Isaac",
+          "startYear": 2013,
+          "endYear": null,
+          "priorTitle": "President",
+          "priorInstitution": "Feather River College",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.rccd.edu/admin/chancellor/index.html",
+          "notes": "Still listed as RCCD's sitting chancellor on the district's own chancellor page and was named Educator of the Year in a district article dated January 31, 2025. However, RCCD's homepage carried a 'RCCD Searches for the Next Chancellor' story dated July 21, 2026, indicating a search for his successor is underway as of this research date (Aug 2026); no successor had been announced as of this session. Start year and prior role are based on general background knowledge and were not independently re-confirmed this session."
+        }
+      ]
+    },
+    {
+      "university": "City Colleges of Chicago",
+      "state": "IL",
+      "school": "Office of the Chancellor",
+      "leaderTitle": "Chancellor",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Juan Salgado",
+          "startYear": 2017,
+          "endYear": null,
+          "priorTitle": "CEO",
+          "priorInstitution": "Instituto del Progreso Latino",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/City_Colleges_of_Chicago",
+          "notes": "Chancellor of City Colleges of Chicago since 2017, confirmed via Wikipedia and the district's chancellor page; previously led Instituto del Progreso Latino as CEO from 2001-2017. A 2015 MacArthur Fellow."
+        },
+        {
+          "name": "Cheryl Hyman",
+          "startYear": 2010,
+          "endYear": 2017,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/City_Colleges_of_Chicago",
+          "notes": "Chancellor prior to Salgado; oversaw initiatives including the College to Careers program (2011) and Chicago Star Scholarship (2014). Approximate end year based on Salgado's 2017 start."
+        },
+        {
+          "name": "Nelvia M. Brady",
+          "startYear": 1988,
+          "endYear": 1992,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://en.wikipedia.org/wiki/City_Colleges_of_Chicago",
+          "notes": "First African-American and first woman to serve as City Colleges of Chicago chancellor, 1988-1992."
+        }
+      ]
+    },
+    {
+      "university": "Rancho Santiago Community College District",
+      "state": "CA",
+      "school": "Office of the Chancellor",
+      "leaderTitle": "Chancellor",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Marvin Martinez",
+          "startYear": 2019,
+          "endYear": null,
+          "priorTitle": "President",
+          "priorInstitution": "East Los Angeles College",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.rsccd.edu/about/leadership/chancellor.aspx",
+          "notes": "Appointed Chancellor of Rancho Santiago CCD (Santa Ana College and Santiago Canyon College) in July 2019, per the district's own website. Previously President of East Los Angeles College, and earlier President of Los Angeles Harbor College, Provost of Santa Monica College, and Dean of Business and Industry at Cerritos College."
+        },
+        {
+          "name": "Raul Rodriguez",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.rsccd.edu/",
+          "notes": "Believed to be a predecessor chancellor of RSCCD based on general background knowledge, with an interim period preceding Martinez's 2019 appointment; not independently confirmed this session as the district's leadership history pages were not reachable."
+        }
+      ]
+    }
+  ]
+}
