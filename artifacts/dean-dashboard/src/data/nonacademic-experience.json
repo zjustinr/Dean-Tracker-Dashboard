@@ -32780,20 +32780,6 @@
     "Academic"
    ]
   },
-  "carroll|oregon state university": {
-   "name": "Carroll",
-   "university": "Oregon State University",
-   "status": "no",
-   "confidence": "medium",
-   "sitting": true,
-   "indices": [
-    "r1bschool"
-   ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
-   ]
-  },
   "carter blue clark|oklahoma city university": {
    "name": "Carter Blue Clark",
    "university": "Oklahoma City University",
@@ -42689,6 +42675,20 @@
    "sectors": [
     "Academic",
     "Unclassified"
+   ]
+  },
+  "corey phelps|pennsylvania state university": {
+   "name": "Corey Phelps",
+   "university": "Pennsylvania State University",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "r1bschool"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
    ]
   },
   "corey phelps|university of oklahoma": {
@@ -172583,6 +172583,22 @@
     "Academic"
    ]
   },
+  "oliver yao|university of delaware": {
+   "name": "Oliver Yao",
+   "university": "University of Delaware",
+   "status": "no",
+   "confidence": "high",
+   "sitting": true,
+   "indices": [
+    "r1bschool"
+   ],
+   "evidence": "research",
+   "researchedOn": "2026-08-19",
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "olivia law-delrosso|kansas state university": {
    "name": "Olivia Law-DelRosso",
    "university": "Kansas State University",
@@ -179671,20 +179687,6 @@
    ],
    "flags": [
     "hasIndustryExp (existing)"
-   ]
-  },
-  "phelps|pennsylvania state university": {
-   "name": "Phelps",
-   "university": "Pennsylvania State University",
-   "status": "no",
-   "confidence": "medium",
-   "sitting": true,
-   "indices": [
-    "r1bschool"
-   ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
    ]
   },
   "phenicia mccullough|california state university, fullerton": {
@@ -222809,6 +222811,20 @@
     "Academic"
    ]
   },
+  "tim carroll|oregon state university": {
+   "name": "Tim Carroll",
+   "university": "Oregon State University",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "r1bschool"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
   "tim cedrone|lafayette college": {
    "name": "Tim Cedrone",
    "university": "Lafayette College",
@@ -236105,22 +236121,6 @@
      "source": "priorInstitution",
      "score": 49
     }
-   ]
-  },
-  "yao|university of delaware": {
-   "name": "Yao",
-   "university": "University of Delaware",
-   "status": "no",
-   "confidence": "high",
-   "sitting": true,
-   "indices": [
-    "r1bschool"
-   ],
-   "evidence": "research",
-   "researchedOn": "2026-08-19",
-   "stops": 1,
-   "sectors": [
-    "Academic"
    ]
   },
   "yar ebadi|kansas state university": {
