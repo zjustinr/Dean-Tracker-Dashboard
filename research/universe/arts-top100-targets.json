@@ -1,0 +1,884 @@
+[
+  {
+    "university": "American University",
+    "school": "College of Arts and Sciences",
+    "city": "Washington",
+    "state": "DC"
+  },
+  {
+    "university": "Arizona State University",
+    "school": "The College of Liberal Arts and Sciences",
+    "city": "Tempe",
+    "state": "AZ"
+  },
+  {
+    "university": "Auburn University",
+    "school": "College of Liberal Arts",
+    "city": "Auburn",
+    "state": "AL"
+  },
+  {
+    "university": "Auburn University",
+    "school": "College of Sciences and Mathematics",
+    "city": "Auburn",
+    "state": "AL"
+  },
+  {
+    "university": "Baylor University",
+    "school": "College of Arts and Sciences",
+    "city": "Waco",
+    "state": "TX"
+  },
+  {
+    "university": "Binghamton University",
+    "school": "Harpur College of Arts and Sciences",
+    "city": "Binghamton",
+    "state": "NY"
+  },
+  {
+    "university": "Boise State University",
+    "school": "College of Arts and Sciences",
+    "city": "Boise",
+    "state": "ID"
+  },
+  {
+    "university": "Boston College",
+    "school": "Morrissey College of Arts and Sciences",
+    "city": "Chestnut Hill",
+    "state": "MA"
+  },
+  {
+    "university": "Boston University",
+    "school": "College of Arts & Sciences",
+    "city": "Boston",
+    "state": "MA"
+  },
+  {
+    "university": "Brigham Young University",
+    "school": "College of Computational, Mathematical, and Physical Sciences",
+    "city": "Provo",
+    "state": "UT"
+  },
+  {
+    "university": "Brigham Young University",
+    "school": "College of Family, Home, and Social Sciences",
+    "city": "Provo",
+    "state": "UT"
+  },
+  {
+    "university": "Brigham Young University",
+    "school": "College of Humanities",
+    "city": "Provo",
+    "state": "UT"
+  },
+  {
+    "university": "Brigham Young University",
+    "school": "College of Life Sciences",
+    "city": "Provo",
+    "state": "UT"
+  },
+  {
+    "university": "CUNY Baruch College",
+    "school": "Mildred and George Weissman School of Arts and Sciences",
+    "city": "New York",
+    "state": "NY"
+  },
+  {
+    "university": "California Institute of Technology",
+    "school": "Division of the Humanities and Social Sciences",
+    "city": "Pasadena",
+    "state": "CA"
+  },
+  {
+    "university": "Carnegie Mellon University",
+    "school": "Marianna Brown Dietrich College of Humanities and Social Sciences",
+    "city": "Pittsburgh",
+    "state": "PA"
+  },
+  {
+    "university": "Carnegie Mellon University",
+    "school": "Mellon College of Science",
+    "city": "Pittsburgh",
+    "state": "PA"
+  },
+  {
+    "university": "Case Western Reserve University",
+    "school": "College of Arts and Sciences",
+    "city": "Cleveland",
+    "state": "OH"
+  },
+  {
+    "university": "Chapman University",
+    "school": "Wilkinson College of Arts, Humanities, and Social Sciences",
+    "city": "Orange",
+    "state": "CA"
+  },
+  {
+    "university": "Clemson University",
+    "school": "College of Arts and Humanities",
+    "city": "Clemson",
+    "state": "SC"
+  },
+  {
+    "university": "Clemson University",
+    "school": "College of Behavioral, Social and Health Sciences",
+    "city": "Clemson",
+    "state": "SC"
+  },
+  {
+    "university": "Clemson University",
+    "school": "College of Science",
+    "city": "Clemson",
+    "state": "SC"
+  },
+  {
+    "university": "College of Charleston",
+    "school": "School of Humanities and Social Sciences",
+    "city": "Charleston",
+    "state": "SC"
+  },
+  {
+    "university": "College of Charleston",
+    "school": "School of Languages, Cultures, and World Affairs",
+    "city": "Charleston",
+    "state": "SC"
+  },
+  {
+    "university": "College of Charleston",
+    "school": "School of Natural and Environmental Sciences",
+    "city": "Charleston",
+    "state": "SC"
+  },
+  {
+    "university": "College of William & Mary",
+    "school": "College of Arts & Sciences (Faculty of Arts and Sciences)",
+    "city": "Williamsburg",
+    "state": "VA"
+  },
+  {
+    "university": "Colorado State University",
+    "school": "College of Liberal Arts",
+    "city": "Fort Collins",
+    "state": "CO"
+  },
+  {
+    "university": "Colorado State University",
+    "school": "College of Natural Sciences",
+    "city": "Fort Collins",
+    "state": "CO"
+  },
+  {
+    "university": "Columbia University",
+    "school": "Faculty of Arts and Sciences",
+    "city": "New York",
+    "state": "NY"
+  },
+  {
+    "university": "Cornell University",
+    "school": "College of Arts and Sciences",
+    "city": "Ithaca",
+    "state": "NY"
+  },
+  {
+    "university": "Dartmouth College",
+    "school": "Faculty of Arts and Sciences",
+    "city": "Hanover",
+    "state": "NH"
+  },
+  {
+    "university": "Duke University",
+    "school": "Trinity College of Arts and Sciences",
+    "city": "Durham",
+    "state": "NC"
+  },
+  {
+    "university": "Emory University",
+    "school": "Emory College of Arts and Sciences",
+    "city": "Atlanta",
+    "state": "GA"
+  },
+  {
+    "university": "Florida International University",
+    "school": "College of Arts, Sciences & Education",
+    "city": "Miami",
+    "state": "FL"
+  },
+  {
+    "university": "Florida State University",
+    "school": "College of Arts and Sciences",
+    "city": "Tallahassee",
+    "state": "FL"
+  },
+  {
+    "university": "George Mason University",
+    "school": "College of Humanities and Social Sciences",
+    "city": "Fairfax",
+    "state": "VA"
+  },
+  {
+    "university": "George Mason University",
+    "school": "College of Science",
+    "city": "Fairfax",
+    "state": "VA"
+  },
+  {
+    "university": "George Washington University",
+    "school": "Columbian College of Arts and Sciences",
+    "city": "Washington",
+    "state": "DC"
+  },
+  {
+    "university": "Georgetown University",
+    "school": "College of Arts & Sciences (formerly Georgetown College)",
+    "city": "Washington",
+    "state": "DC"
+  },
+  {
+    "university": "Georgia Institute of Technology",
+    "school": "College of Sciences",
+    "city": "Atlanta",
+    "state": "GA"
+  },
+  {
+    "university": "Georgia Institute of Technology",
+    "school": "Ivan Allen College of Liberal Arts",
+    "city": "Atlanta",
+    "state": "GA"
+  },
+  {
+    "university": "Harvard University",
+    "school": "Faculty of Arts and Sciences",
+    "city": "Boston",
+    "state": "MA"
+  },
+  {
+    "university": "Indiana University Bloomington",
+    "school": "College of Arts and Sciences",
+    "city": "Bloomington",
+    "state": "IN"
+  },
+  {
+    "university": "Indiana University Indianapolis",
+    "school": "IU School of Liberal Arts",
+    "city": "Indianapolis",
+    "state": "IN"
+  },
+  {
+    "university": "Indiana University Indianapolis",
+    "school": "School of Science",
+    "city": "Indianapolis",
+    "state": "IN"
+  },
+  {
+    "university": "Iowa State University",
+    "school": "College of Liberal Arts and Sciences",
+    "city": "Ames",
+    "state": "IA"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "school": "Zanvyl Krieger School of Arts and Sciences",
+    "city": "Baltimore",
+    "state": "MD"
+  },
+  {
+    "university": "Kansas State University",
+    "school": "College of Arts and Sciences",
+    "city": "Manhattan",
+    "state": "KS"
+  },
+  {
+    "university": "Kent State University",
+    "school": "College of Arts and Sciences",
+    "city": "Kent",
+    "state": "OH"
+  },
+  {
+    "university": "Lehigh University",
+    "school": "College of Arts and Sciences",
+    "city": "Bethlehem",
+    "state": "PA"
+  },
+  {
+    "university": "Louisiana State University",
+    "school": "College of Humanities & Social Sciences",
+    "city": "Baton Rouge",
+    "state": "LA"
+  },
+  {
+    "university": "Louisiana State University",
+    "school": "College of Science",
+    "city": "Baton Rouge",
+    "state": "LA"
+  },
+  {
+    "university": "Loyola University Maryland",
+    "school": "Loyola College of Arts and Sciences",
+    "city": "Baltimore",
+    "state": "MD"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "school": "School of Humanities, Arts, and Social Sciences",
+    "city": "Cambridge",
+    "state": "MA"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "school": "School of Science",
+    "city": "Cambridge",
+    "state": "MA"
+  },
+  {
+    "university": "Miami University",
+    "school": "College of Arts and Science",
+    "city": "Oxford",
+    "state": "OH"
+  },
+  {
+    "university": "Michigan State University",
+    "school": "College of Arts & Letters",
+    "city": "East Lansing",
+    "state": "MI"
+  },
+  {
+    "university": "Michigan State University",
+    "school": "College of Natural Science",
+    "city": "East Lansing",
+    "state": "MI"
+  },
+  {
+    "university": "Michigan State University",
+    "school": "College of Social Science",
+    "city": "East Lansing",
+    "state": "MI"
+  },
+  {
+    "university": "Mississippi State University",
+    "school": "College of Arts and Sciences",
+    "city": "Starkville",
+    "state": "MS"
+  },
+  {
+    "university": "Missouri University of Science and Technology",
+    "school": "College of Arts, Sciences, and Education",
+    "city": "Rolla",
+    "state": "MO"
+  },
+  {
+    "university": "Montana State University",
+    "school": "College of Letters and Science",
+    "city": "Bozeman",
+    "state": "MT"
+  },
+  {
+    "university": "New Jersey Institute of Technology",
+    "school": "Jordan Hu College of Science and Liberal Arts",
+    "city": "Newark",
+    "state": "NJ"
+  },
+  {
+    "university": "New York University",
+    "school": "Faculty of Arts and Science",
+    "city": "New York",
+    "state": "NY"
+  },
+  {
+    "university": "North Carolina A&T State University",
+    "school": "College of Arts, Humanities and Social Sciences",
+    "city": "Greensboro",
+    "state": "NC"
+  },
+  {
+    "university": "North Carolina A&T State University",
+    "school": "College of Science and Technology",
+    "city": "Greensboro",
+    "state": "NC"
+  },
+  {
+    "university": "North Carolina State University",
+    "school": "College of Humanities and Social Sciences",
+    "city": "Raleigh",
+    "state": "NC"
+  },
+  {
+    "university": "North Carolina State University",
+    "school": "College of Sciences",
+    "city": "Raleigh",
+    "state": "NC"
+  },
+  {
+    "university": "North Dakota State University",
+    "school": "College of Arts and Sciences",
+    "city": "Fargo",
+    "state": "ND"
+  },
+  {
+    "university": "Northeastern University",
+    "school": "College of Science",
+    "city": "Boston",
+    "state": "MA"
+  },
+  {
+    "university": "Northeastern University",
+    "school": "College of Social Sciences and Humanities",
+    "city": "Boston",
+    "state": "MA"
+  },
+  {
+    "university": "Northeastern University",
+    "school": "College of Arts, Media and Design",
+    "city": "Boston",
+    "state": "MA"
+  },
+  {
+    "university": "Northwestern University",
+    "school": "Judd A. and Marjorie Weinberg College of Arts and Sciences",
+    "city": "Evanston",
+    "state": "IL"
+  },
+  {
+    "university": "Ohio State University",
+    "school": "College of Arts and Sciences",
+    "city": "Columbus",
+    "state": "OH"
+  },
+  {
+    "university": "Ohio University",
+    "school": "College of Arts and Sciences",
+    "city": "Athens",
+    "state": "OH"
+  },
+  {
+    "university": "Oklahoma State University",
+    "school": "College of Arts and Sciences",
+    "city": "Stillwater",
+    "state": "OK"
+  },
+  {
+    "university": "Oregon State University",
+    "school": "College of Liberal Arts",
+    "city": "Corvallis",
+    "state": "OR"
+  },
+  {
+    "university": "Oregon State University",
+    "school": "College of Science",
+    "city": "Corvallis",
+    "state": "OR"
+  },
+  {
+    "university": "Pace University",
+    "school": "Dyson College of Arts and Sciences",
+    "city": "New York",
+    "state": "NY"
+  },
+  {
+    "university": "Pennsylvania State University",
+    "school": "College of the Liberal Arts",
+    "city": "University Park",
+    "state": "PA"
+  },
+  {
+    "university": "Pennsylvania State University",
+    "school": "Eberly College of Science",
+    "city": "University Park",
+    "state": "PA"
+  },
+  {
+    "university": "Pepperdine University",
+    "school": "Seaver College of Letters, Arts, and Sciences",
+    "city": "Malibu",
+    "state": "CA"
+  },
+  {
+    "university": "Purdue University",
+    "school": "College of Liberal Arts",
+    "city": "West Lafayette",
+    "state": "IN"
+  },
+  {
+    "university": "Purdue University",
+    "school": "College of Science",
+    "city": "West Lafayette",
+    "state": "IN"
+  },
+  {
+    "university": "Rensselaer Polytechnic Institute",
+    "school": "School of Humanities, Arts, and Social Sciences",
+    "city": "Troy",
+    "state": "NY"
+  },
+  {
+    "university": "Rensselaer Polytechnic Institute",
+    "school": "School of Science",
+    "city": "Troy",
+    "state": "NY"
+  },
+  {
+    "university": "Rice University",
+    "school": "School of Humanities (School of Humanities and Arts)",
+    "city": "Houston",
+    "state": "TX"
+  },
+  {
+    "university": "Rice University",
+    "school": "School of Social Sciences",
+    "city": "Houston",
+    "state": "TX"
+  },
+  {
+    "university": "Rice University",
+    "school": "Wiess School of Natural Sciences",
+    "city": "Houston",
+    "state": "TX"
+  },
+  {
+    "university": "Rutgers University",
+    "school": "School of Arts and Sciences",
+    "city": "New Brunswick",
+    "state": "NJ"
+  },
+  {
+    "university": "Santa Clara University",
+    "school": "College of Arts and Sciences",
+    "city": "Santa Clara",
+    "state": "CA"
+  },
+  {
+    "university": "Southern Methodist University",
+    "school": "Dedman College of Humanities and Sciences",
+    "city": "Dallas",
+    "state": "TX"
+  },
+  {
+    "university": "Stanford University",
+    "school": "School of Humanities and Sciences",
+    "city": "Stanford",
+    "state": "CA"
+  },
+  {
+    "university": "Stevens Institute of Technology",
+    "school": "School of Humanities, Arts and Social Sciences (formerly College of Arts and Letters)",
+    "city": "Hoboken",
+    "state": "NJ"
+  },
+  {
+    "university": "Stony Brook University",
+    "school": "College of Arts and Sciences",
+    "city": "Stony Brook",
+    "state": "NY"
+  },
+  {
+    "university": "Syracuse University",
+    "school": "College of Arts and Sciences",
+    "city": "Syracuse",
+    "state": "NY"
+  },
+  {
+    "university": "Temple University",
+    "school": "College of Liberal Arts",
+    "city": "Philadelphia",
+    "state": "PA"
+  },
+  {
+    "university": "Temple University",
+    "school": "College of Science and Technology",
+    "city": "Philadelphia",
+    "state": "PA"
+  },
+  {
+    "university": "Texas A&M University",
+    "school": "College of Arts and Sciences",
+    "city": "College Station",
+    "state": "TX"
+  },
+  {
+    "university": "Texas Christian University",
+    "school": "AddRan College of Liberal Arts",
+    "city": "Fort Worth",
+    "state": "TX"
+  },
+  {
+    "university": "Texas Christian University",
+    "school": "College of Science & Engineering",
+    "city": "Fort Worth",
+    "state": "TX"
+  },
+  {
+    "university": "Texas Tech University",
+    "school": "College of Arts & Sciences",
+    "city": "Lubbock",
+    "state": "TX"
+  },
+  {
+    "university": "Tufts University",
+    "school": "School of Arts and Sciences",
+    "city": "Medford",
+    "state": "MA"
+  },
+  {
+    "university": "Tulane University",
+    "school": "School of Liberal Arts",
+    "city": "New Orleans",
+    "state": "LA"
+  },
+  {
+    "university": "Tulane University",
+    "school": "School of Science and Engineering",
+    "city": "New Orleans",
+    "state": "LA"
+  },
+  {
+    "university": "University at Albany, SUNY",
+    "school": "College of Arts and Sciences",
+    "city": "Albany",
+    "state": "NY"
+  },
+  {
+    "university": "University at Buffalo",
+    "school": "College of Arts and Sciences",
+    "city": "Buffalo",
+    "state": "NY"
+  },
+  {
+    "university": "University of Alabama",
+    "school": "J. Frank Barefield Jr. College of Arts & Sciences",
+    "city": "Tuscaloosa",
+    "state": "AL"
+  },
+  {
+    "university": "University of Alabama at Birmingham",
+    "school": "College of Arts and Sciences",
+    "city": "Birmingham",
+    "state": "AL"
+  },
+  {
+    "university": "University of Alabama in Huntsville",
+    "school": "College of Arts, Humanities, & Social Sciences",
+    "city": "Huntsville",
+    "state": "AL"
+  },
+  {
+    "university": "University of Alabama in Huntsville",
+    "school": "College of Science",
+    "city": "Huntsville",
+    "state": "AL"
+  },
+  {
+    "university": "University of Arizona",
+    "school": "College of Humanities",
+    "city": "Tucson",
+    "state": "AZ"
+  },
+  {
+    "university": "University of Arizona",
+    "school": "College of Science",
+    "city": "Tucson",
+    "state": "AZ"
+  },
+  {
+    "university": "University of Arizona",
+    "school": "College of Social & Behavioral Sciences",
+    "city": "Tucson",
+    "state": "AZ"
+  },
+  {
+    "university": "University of Arkansas",
+    "school": "J. William Fulbright College of Arts and Sciences",
+    "city": "Fayetteville",
+    "state": "AR"
+  },
+  {
+    "university": "University of California Berkeley",
+    "school": "College of Letters & Science",
+    "city": "Berkeley",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Davis",
+    "school": "College of Letters and Science",
+    "city": "Davis",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Irvine",
+    "school": "Charlie Dunlop School of Biological Sciences",
+    "city": "Irvine",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Irvine",
+    "school": "School of Humanities",
+    "city": "Irvine",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Irvine",
+    "school": "School of Physical Sciences",
+    "city": "Irvine",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Irvine",
+    "school": "School of Social Sciences",
+    "city": "Irvine",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Los Angeles",
+    "school": "College of Letters and Science",
+    "city": "Los Angeles",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Riverside",
+    "school": "College of Humanities, Arts, and Social Sciences",
+    "city": "Riverside",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Riverside",
+    "school": "College of Natural & Agricultural Sciences",
+    "city": "Riverside",
+    "state": "CA"
+  },
+  {
+    "university": "University of California San Diego",
+    "school": "School of Arts and Humanities",
+    "city": "La Jolla",
+    "state": "CA"
+  },
+  {
+    "university": "University of California San Diego",
+    "school": "School of Biological Sciences",
+    "city": "La Jolla",
+    "state": "CA"
+  },
+  {
+    "university": "University of California San Diego",
+    "school": "School of Physical Sciences",
+    "city": "La Jolla",
+    "state": "CA"
+  },
+  {
+    "university": "University of California San Diego",
+    "school": "School of Social Sciences",
+    "city": "La Jolla",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Santa Barbara",
+    "school": "College of Letters and Science",
+    "city": "Santa Barbara",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Santa Cruz",
+    "school": "Division of Humanities",
+    "city": "Santa Cruz",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Santa Cruz",
+    "school": "Division of Physical & Biological Sciences",
+    "city": "Santa Cruz",
+    "state": "CA"
+  },
+  {
+    "university": "University of California Santa Cruz",
+    "school": "Division of Social Sciences",
+    "city": "Santa Cruz",
+    "state": "CA"
+  },
+  {
+    "university": "University of Central Florida",
+    "school": "College of Arts and Humanities",
+    "city": "Orlando",
+    "state": "FL"
+  },
+  {
+    "university": "University of Central Florida",
+    "school": "College of Sciences",
+    "city": "Orlando",
+    "state": "FL"
+  },
+  {
+    "university": "University of Chicago",
+    "school": "Division of the Arts & Humanities",
+    "city": "Chicago",
+    "state": "IL"
+  },
+  {
+    "university": "University of Chicago",
+    "school": "Division of the Physical Sciences",
+    "city": "Chicago",
+    "state": "IL"
+  },
+  {
+    "university": "University of Chicago",
+    "school": "Division of the Social Sciences",
+    "city": "Chicago",
+    "state": "IL"
+  },
+  {
+    "university": "University of Cincinnati",
+    "school": "College of Arts and Sciences",
+    "city": "Cincinnati",
+    "state": "OH"
+  },
+  {
+    "university": "University of Colorado Boulder",
+    "school": "College of Arts and Sciences",
+    "city": "Boulder",
+    "state": "CO"
+  },
+  {
+    "university": "University of Colorado Denver",
+    "school": "College of Liberal Arts and Sciences",
+    "city": "Denver",
+    "state": "CO"
+  },
+  {
+    "university": "University of Connecticut",
+    "school": "College of Liberal Arts and Sciences",
+    "city": "Storrs",
+    "state": "CT"
+  },
+  {
+    "university": "University of Delaware",
+    "school": "College of Arts and Sciences",
+    "city": "Newark",
+    "state": "DE"
+  },
+  {
+    "university": "University of Florida",
+    "school": "College of Liberal Arts and Sciences",
+    "city": "Gainesville",
+    "state": "FL"
+  },
+  {
+    "university": "University of Georgia",
+    "school": "Franklin College of Arts and Sciences",
+    "city": "Athens",
+    "state": "GA"
+  },
+  {
+    "university": "University of Hawaii at Manoa",
+    "school": "College of Arts, Languages & Letters",
+    "city": "Honolulu",
+    "state": "HI"
+  },
+  {
+    "university": "University of Hawaii at Manoa",
+    "school": "College of Natural Sciences",
+    "city": "Honolulu",
+    "state": "HI"
+  },
+  {
+    "university": "University of Hawaii at Manoa",
+    "school": "College of Social Sciences",
+    "city": "Honolulu",
+    "state": "HI"
+  }
+]

@@ -1,5 +1,5 @@
 /**
- * Build the community-college universe: the 200 largest US community colleges.
+ * Build the community-college universe: the 500 largest US community colleges.
  *
  *   node research/build-cc-universe.mjs            # fetch + build
  *   node research/build-cc-universe.mjs --cache    # reuse the raw pulls
@@ -39,7 +39,7 @@ const RAW = join(HERE, ".cc-raw");
 const OUT = join(HERE, "universe");
 const BASE = "https://educationdata.urban.org/api/v1/college-university/ipeds";
 const CACHE = process.argv.includes("--cache");
-const TOP_N = 200;
+const TOP_N = 500;
 
 // curl, not fetch: node's global fetch ignores HTTPS_PROXY, which some
 // collection environments require.

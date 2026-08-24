@@ -1,5 +1,5 @@
 /**
- * Community-college ETL: pilot + wave-2 research JSON -> r1-communitycollege-deans.json
+ * Community-college ETL: pilot + wave-2 + wave-3 research JSON -> r1-communitycollege-deans.json
  * on the standard 54-key leadership schema.
  *
  *   node research/etl-cc.mjs [--dry-run]
@@ -8,9 +8,10 @@
  * -----------------------
  * The generic ETL hardcodes absolute Windows paths for its input and output
  * directories, so it cannot run here. This one reads
- * `universe/cc-pilot-results.json` and `universe/cc-wave2-results.json`, and
- * writes into the app's data directory directly. It carries forward the same
- * rules that ETL established, plus the two this index needs.
+ * `universe/cc-pilot-results.json`, `universe/cc-wave2-results.json`, and (once
+ * present) `universe/cc-wave3-results.json`, and writes into the app's data
+ * directory directly. It carries forward the same rules that ETL established,
+ * plus the two this index needs.
  *
  * RULES CARRIED FORWARD
  * ---------------------
@@ -71,7 +72,7 @@
  * the pilot and wave 2; the rest need research, and showing them empty is the
  * honest state.
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -85,7 +86,12 @@ const pilot = JSON.parse(readFileSync(join(HERE, "universe", "cc-pilot-results.j
 // kept as a separate file rather than merged into cc-pilot-results.json so
 // each wave's provenance stays inspectable on its own.
 const wave2 = JSON.parse(readFileSync(join(HERE, "universe", "cc-wave2-results.json"), "utf8"));
-const researchedSeats = [...pilot.seats, ...wave2.seats];
+// Wave 3: the 321 newly-flagged seats after the universe expanded from the
+// top 200 to the top 500 colleges. Same schema and rules as pilot/wave2.
+// Optional at ETL-run time so this script still works before wave 3 exists.
+const wave3Path = join(HERE, "universe", "cc-wave3-results.json");
+const wave3 = existsSync(wave3Path) ? JSON.parse(readFileSync(wave3Path, "utf8")) : { seats: [] };
+const researchedSeats = [...pilot.seats, ...wave2.seats, ...wave3.seats];
 const schools = JSON.parse(readFileSync(join(DATA, "r1-communitycollege-schools.json"), "utf8"));
 const verification = JSON.parse(readFileSync(join(HERE, "universe", "cc-leader-verification.json"), "utf8"));
 const census = JSON.parse(readFileSync(join(HERE, "universe", "universe_communitycollege_all.json"), "utf8"));
