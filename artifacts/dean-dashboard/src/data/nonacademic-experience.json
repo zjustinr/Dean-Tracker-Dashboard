@@ -58,9 +58,12 @@
   },
   "a. benjamin spencer|college of william & mary": {
    "name": "A. Benjamin Spencer",
-   "u
-wrote /home/user/Dean-Tracker-Dashboard/artifacts/dean-dashboard/src/data/nonacademic-experience.json (13795 people, asOf 2026)
-law"
+   "university": "College of William & Mary",
+   "status": "yes",
+   "confidence": "high",
+   "sitting": true,
+   "indices": [
+    "r1law"
    ],
    "score": 26,
    "seniority": "unknown",
@@ -32104,20 +32107,6 @@ law"
    "sitting": false,
    "indices": [
     "uslac"
-   ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
-   ]
-  },
-  "carroll|oregon state university": {
-   "name": "Carroll",
-   "university": "Oregon State University",
-   "status": "no",
-   "confidence": "medium",
-   "sitting": true,
-   "indices": [
-    "r1bschool"
    ],
    "stops": 1,
    "sectors": [
@@ -217803,6 +217792,20 @@ law"
    "sitting": false,
    "indices": [
     "r1arts"
+   ],
+   "stops": 1,
+   "sectors": [
+    "Academic"
+   ]
+  },
+  "tim carroll|oregon state university": {
+   "name": "Tim Carroll",
+   "university": "Oregon State University",
+   "status": "no",
+   "confidence": "medium",
+   "sitting": true,
+   "indices": [
+    "r1bschool"
    ],
    "stops": 1,
    "sectors": [
