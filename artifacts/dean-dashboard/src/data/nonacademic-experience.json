@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2570,
-  "no": 11225,
+  "yes": 2579,
+  "no": 11216,
   "unknown": 15675,
-  "namedFirm": 2176,
-  "flagOnly": 394,
-  "firms": 2509,
-  "sittingWithTie": 1503,
-  "sittingSeniorTie": 884,
-  "researched": 1573
+  "namedFirm": 2182,
+  "flagOnly": 397,
+  "firms": 2517,
+  "sittingWithTie": 1509,
+  "sittingSeniorTie": 889,
+  "researched": 1588
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -89109,12 +89109,14 @@
   "greg willems|kansas state university": {
    "name": "Greg Willems",
    "university": "Kansas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -89124,11 +89126,13 @@
    "name": "Gregg Crerar",
    "university": "Southern Connecticut State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -89202,15 +89206,34 @@
   "gregg goldman|university of southern california": {
    "name": "Gregg Goldman",
    "university": "University of Southern California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Hillspire, LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Hillspire, LLC",
+     "role": "Chief Financial Officer and Senior Vice President of Finance",
+     "seniority": "executive",
+     "years": "2022-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "gregg m. janowski|university of alabama at birmingham": {
@@ -89637,15 +89660,42 @@
   "gregory murphy|university of california san diego": {
    "name": "Gregory Murphy",
    "university": "University of California San Diego",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "California Commission on Peace Officer Standards and Training (POST)",
+    "Los Angeles Police Department"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "California Commission on Peace Officer Standards and Training (POST)",
+     "role": "Regional Manager, Sacramento",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Los Angeles Police Department",
+     "role": "Police Officer, gang enforcement",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "gregory n. washington|ohio state university": {
@@ -89833,11 +89883,13 @@
    "name": "Gregory Simmons",
    "university": "Ohio University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -90039,12 +90091,14 @@
   "gretchen groggel ralston|smith college": {
    "name": "Gretchen Groggel Ralston",
    "university": "Smith College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -90054,11 +90108,13 @@
    "name": "Gretchen Long",
    "university": "Williams College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -90184,12 +90240,14 @@
   "gustavo a. ordóñez|hunter college": {
    "name": "Gustavo A. Ordóñez",
    "university": "Hunter College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -90213,11 +90271,13 @@
    "name": "Gustavo Burkett",
    "university": "Colby College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -90270,15 +90330,67 @@
   "guy drapeau|university of hartford": {
    "name": "Guy Drapeau",
    "university": "University of Hartford",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 67,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Financial Services",
+    "Technology",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Rocky Hill Town Council",
+    "Hartford Federal Credit Union",
+    "Profitec Telecom Services",
+    "Spectrascan Health Services"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Rocky Hill Town Council",
+     "role": "Council Member",
+     "seniority": "executive",
+     "years": "2003-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 67
+    },
+    {
+     "kind": "advisory",
+     "category": "Financial Services",
+     "firm": "Hartford Federal Credit Union",
+     "role": "Advisory Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Profitec Telecom Services",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Spectrascan Health Services",
+     "role": "Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "guy h. loneragan|texas tech university": {
@@ -90298,15 +90410,32 @@
   "guy schroeder|wichita state university": {
    "name": "Guy Schroeder",
    "university": "Wichita State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Wichita Police Department (City of Wichita)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Wichita Police Department (City of Wichita)",
+     "role": "Police Officer, Detective and SWAT Commander",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "gwen gorzelsky|university of idaho": {
@@ -90340,16 +90469,33 @@
   "gwen williams dandridge|virginia state university": {
    "name": "Gwen Williams Dandridge",
    "university": "Virginia State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "WRIC-TV (Richmond)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "WRIC-TV (Richmond)",
+     "role": "News Anchor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "gwendolyn boyd|alabama state university": {
@@ -90453,15 +90599,34 @@
   "h. daniel hungerford|bucknell university": {
    "name": "H. Daniel Hungerford",
    "university": "Bucknell University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "HealthSouth Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "HealthSouth Corporation",
+     "role": "Controller",
+     "seniority": "senior",
+     "years": "2009-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "h. fenwick huss|cuny baruch college": {
@@ -90777,12 +90942,14 @@
    "name": "Hailey Mullican",
    "university": "University of Texas at San Antonio",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -90881,12 +91048,14 @@
    "name": "Haleh Ghaemolsabahi",
    "university": "University of Connecticut",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
