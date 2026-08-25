@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2409,
-  "no": 11386,
+  "yes": 2419,
+  "no": 11376,
   "unknown": 15675,
-  "namedFirm": 2031,
-  "flagOnly": 378,
-  "firms": 2260,
-  "sittingWithTie": 1358,
-  "sittingSeniorTie": 793,
-  "researched": 1333
+  "namedFirm": 2039,
+  "flagOnly": 380,
+  "firms": 2272,
+  "sittingWithTie": 1366,
+  "sittingSeniorTie": 799,
+  "researched": 1348
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -65333,13 +65333,15 @@
   "dennis schnittker|florida state university": {
    "name": "Dennis Schnittker",
    "university": "Florida State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -65391,15 +65393,34 @@
   "derek butler|george mason university": {
    "name": "Derek Butler",
    "university": "George Mason University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Washington Gas Light Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Washington Gas Light Company",
+     "role": "Chief Auditor / Assistant Vice President, Internal Audit",
+     "seniority": "executive",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "derek f. van der merwe|bowling green state university": {
@@ -65654,11 +65675,13 @@
    "name": "Derrek Hanson",
    "university": "University of Utah",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -65709,16 +65732,46 @@
   "derrick gilmore|cheyney university of pennsylvania": {
    "name": "Derrick Gilmore",
    "university": "Cheyney University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Arts 'n Autism",
+    "Appalachian Regional Commission"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Arts 'n Autism",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Appalachian Regional Commission",
+     "role": "Fellow (2022)",
+     "seniority": "senior",
+     "years": "2022-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 65
+    }
    ]
   },
   "derrick r. wetzel|desales university": {
@@ -65935,11 +65988,13 @@
    "name": "Devon Taylor",
    "university": "Shenandoah University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -66004,15 +66059,32 @@
   "dexter a. bailey, jr.|california institute of technology": {
    "name": "Dexter A. Bailey, Jr.",
    "university": "California Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 7,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Ohio House of Representatives"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Ohio House of Representatives",
+     "role": "Press Secretary",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "dexter b. wakefield i|alcorn state university": {
@@ -66032,15 +66104,32 @@
   "dexter i. odom|dillard university": {
    "name": "Dexter I. Odom",
    "university": "Dillard University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Big Bethel AME Church Credit Union"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Big Bethel AME Church Credit Union",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "diamond d. williams|university of wisconsin-madison": {
@@ -66192,12 +66281,14 @@
    "name": "Diane Anderson",
    "university": "Western Michigan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -66282,11 +66373,13 @@
    "name": "Diane Nishigaya MacGillivray",
    "university": "Northeastern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -66295,16 +66388,77 @@
   "diane philipp|hillsdale college": {
    "name": "Diane Philipp",
    "university": "Hillsdale College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "USA Track and Field",
+    "Hillsdale Hospital",
+    "Hillsdale Community Foundation",
+    "World Sports Exchange",
+    "All-Aboard Travel Agency"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "USA Track and Field",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Hillsdale Hospital",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Hillsdale Community Foundation",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "World Sports Exchange",
+     "role": "Co-Owner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "All-Aboard Travel Agency",
+     "role": "Co-Owner",
+     "seniority": "executive",
+     "years": "1990-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 49
+    }
    ]
   },
   "diane santa maria|university of texas health science center at houston (uthealth houston)": {
@@ -66368,16 +66522,33 @@
   "dianna m. graves|claremont mckenna college": {
    "name": "Dianna M. Graves",
    "university": "Claremont McKenna College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "City of Hope"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "City of Hope",
+     "role": "Research Associate, molecular genetics department",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "dianne durham|university of kansas": {
@@ -66412,12 +66583,14 @@
    "name": "Didier Contis",
    "university": "University of Wisconsin Madison",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -66525,12 +66698,14 @@
   "dina farrell|portland community college": {
    "name": "Dina Farrell",
    "university": "Portland Community College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -66553,15 +66728,32 @@
   "dinah ritchie|southwestern university": {
    "name": "Dinah Ritchie",
    "university": "Southwestern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Valero Alamo Bowl"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Valero Alamo Bowl",
+     "role": "Sports marketing role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "dinesh bande|university of north dakota": {
@@ -66826,15 +67018,34 @@
   "don butler|college of william & mary": {
    "name": "Don Butler",
    "university": "College of William & Mary",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Portsmouth Police Department (Portsmouth, Virginia)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Portsmouth Police Department (Portsmouth, Virginia)",
+     "role": "Lieutenant (previously Officer, Sergeant)",
+     "seniority": "senior",
+     "years": "1992-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "don c. sawyer iii|fairfield university": {
