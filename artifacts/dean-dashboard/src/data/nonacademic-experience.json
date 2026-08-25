@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2457,
-  "no": 11338,
+  "yes": 2468,
+  "no": 11327,
   "unknown": 15675,
-  "namedFirm": 2072,
-  "flagOnly": 385,
-  "firms": 2325,
-  "sittingWithTie": 1399,
-  "sittingSeniorTie": 816,
-  "researched": 1408
+  "namedFirm": 2082,
+  "flagOnly": 386,
+  "firms": 2341,
+  "sittingWithTie": 1409,
+  "sittingSeniorTie": 821,
+  "researched": 1423
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -69076,11 +69076,13 @@
    "name": "Doug McCullough",
    "university": "University of Pittsburgh",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -69403,15 +69405,34 @@
   "douglas dykes|cleveland state university": {
    "name": "Douglas Dykes",
    "university": "Cleveland State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Cuyahoga County"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Cuyahoga County",
+     "role": "Chief Talent Officer / Director of Human Resources",
+     "seniority": "senior",
+     "years": "2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "douglas fordham|university of virginia": {
@@ -69668,16 +69689,63 @@
   "douglas r. pearson|mercer university": {
    "name": "Douglas R. Pearson",
    "university": "Mercer University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "American Cancer Society",
+    "American Heart Association",
+    "Boy Scouts of America",
+    "Girl Scouts of Historic Georgia"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Cancer Society",
+     "role": "Community board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Heart Association",
+     "role": "Community board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Boy Scouts of America",
+     "role": "Community board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Girl Scouts of Historic Georgia",
+     "role": "Community board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "douglas saphire|boston college": {
@@ -69796,11 +69864,13 @@
    "name": "Dr. Allia L. Carter",
    "university": "Virginia Union University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -70547,15 +70617,34 @@
   "dr. kurtis j. swope|united states naval academy": {
    "name": "Dr. Kurtis J. Swope",
    "university": "United States Naval Academy",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "UNext.com"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "UNext.com",
+     "role": "Consultant / subject matter expert and instructor",
+     "seniority": "professional",
+     "years": "2000-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "dr. lori m. suddick|college of lake county": {
@@ -71029,15 +71118,42 @@
   "drew alexander|boise state university": {
    "name": "Drew Alexander",
    "university": "Boise State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Capital City Development Corporation (CCDC), Boise",
+    "Community Planning Association of Southwest Idaho (COMPASS)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Capital City Development Corporation (CCDC), Boise",
+     "role": "Commissioner, Board of Commissioners",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Community Planning Association of Southwest Idaho (COMPASS)",
+     "role": "Board of Directors member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "drew buscareno|university of notre dame": {
@@ -71074,14 +71190,33 @@
    "name": "Drew Harpool",
    "university": "Middle Tennessee State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 0,
-   "sectors": [],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Tennessee Department of Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Tennessee Department of Education",
+     "role": "Multiple finance-related roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
+   ],
    "flags": [
     "careerBackground: Finance/audit; former TN Dept. of Education finance roles"
    ]
@@ -71117,16 +71252,43 @@
   "drew stelljes|franklin and marshall college": {
    "name": "Drew Stelljes",
    "university": "Franklin and Marshall College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Virginia Governor's Advisory Board for National and Community Service",
+    "U.S. Department of State (Young African Leaders Initiative)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Virginia Governor's Advisory Board for National and Community Service",
+     "role": "Board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of State (Young African Leaders Initiative)",
+     "role": "Consultant/facilitator",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "drew van horn|young harris college": {
@@ -71216,13 +71378,15 @@
   "dumaine williams|bard college": {
    "name": "Dumaine Williams",
    "university": "Bard College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -71435,15 +71599,47 @@
   "dwyn taylor|virginia tech": {
    "name": "Dwyn Taylor",
    "university": "Virginia Tech",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "United States Navy",
+    "Stellar Group, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Civil Engineer Corps officer; Captain; commanding officer, Naval Mobile Construction Battalion FORTY",
+     "seniority": "executive",
+     "years": "1984-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Stellar Group, Inc.",
+     "role": "Vice President, Commercial Group (Government Division)",
+     "seniority": "senior",
+     "years": "2011-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "dyann margolis|university of cincinnati": {
@@ -71547,15 +71743,66 @@
   "e. michael zubey, jr.|villanova university": {
    "name": "E. Michael Zubey, Jr.",
    "university": "Villanova University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)",
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Masano Bradley, LLP",
+    "American Red Cross, Berks County Chapter",
+    "Greater Reading Convention and Visitors Bureau",
+    "Berks County District Attorney's Office"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Masano Bradley, LLP",
+     "role": "Partner",
+     "seniority": "executive",
+     "years": "2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Red Cross, Berks County Chapter",
+     "role": "Board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Reading Convention and Visitors Bureau",
+     "role": "Board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Berks County District Attorney's Office",
+     "role": "Assistant District Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "e. nicole melton|university of massachusetts amherst": {
@@ -71946,12 +72193,14 @@
   "ed hudson|university of kansas": {
    "name": "Ed Hudson",
    "university": "University of Kansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -72249,15 +72498,56 @@
   "edmund \"ed\" synakowski|stevens institute of technology": {
    "name": "Edmund \"Ed\" Synakowski",
    "university": "Stevens Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "ITER",
+    "U.S. Department of Energy, Office of Science",
+    "Lawrence Livermore National Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "ITER",
+     "role": "Governing board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Energy, Office of Science",
+     "role": "Associate Director of Science for Fusion Energy Sciences",
+     "seniority": "executive",
+     "years": "2009-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Lawrence Livermore National Laboratory",
+     "role": "Fusion Energy Program leader and Physics Division deputy leader",
+     "seniority": "senior",
+     "years": "2006-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "edna v. baehre-kolovani|tidewater community college": {
@@ -72484,16 +72774,43 @@
   "edward aractingi|college of william & mary": {
    "name": "Edward Aractingi",
    "university": "College of William & Mary",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Holy Spirit Church, Huntington, West Virginia",
+    "St. Joseph Catholic School, Huntington, West Virginia"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Holy Spirit Church, Huntington, West Virginia",
+     "role": "Parish council member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "St. Joseph Catholic School, Huntington, West Virginia",
+     "role": "Advisory board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "edward b. burger|southwestern university": {
@@ -72752,12 +73069,14 @@
    "name": "Edward J. Bishof",
    "university": "Seton Hall University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
