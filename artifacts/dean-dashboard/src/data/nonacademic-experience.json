@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3375,
-  "no": 10420,
+  "yes": 3384,
+  "no": 10411,
   "unknown": 15675,
-  "namedFirm": 2789,
-  "flagOnly": 586,
-  "firms": 3413,
-  "sittingWithTie": 2116,
-  "sittingSeniorTie": 1283,
-  "researched": 2836
+  "namedFirm": 2797,
+  "flagOnly": 587,
+  "firms": 3420,
+  "sittingWithTie": 2124,
+  "sittingSeniorTie": 1287,
+  "researched": 2851
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -261142,16 +261142,35 @@
   "willie e. may|morgan state university": {
    "name": "Willie E. May",
    "university": "Morgan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Institute of Standards and Technology (NIST)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Institute of Standards and Technology (NIST)",
+     "role": "Director / Under Secretary of Commerce for Standards and Technology",
+     "seniority": "executive",
+     "years": "2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    }
    ]
   },
   "willie green|university of virginia": {
@@ -261232,12 +261251,14 @@
    "name": "Willie L. Banks Jr.",
    "university": "University of California Irvine",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -261360,15 +261381,42 @@
   "willis w. walter|virginia state university": {
    "name": "Willis W. Walter",
    "university": "Virginia State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Leon County Schools (Florida)",
+    "Vestavia Hills City Schools (Alabama)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Leon County Schools (Florida)",
+     "role": "Public school classroom teacher",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Vestavia Hills City Schools (Alabama)",
+     "role": "Public school classroom teacher",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "willow bay|university of southern california": {
@@ -261489,16 +261537,33 @@
   "wilson garone|santa clara university": {
    "name": "Wilson Garone",
    "university": "Santa Clara University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Microsoft"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Microsoft",
+     "role": "Corporate Vice President and CFO (largest division)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "wim wiewel|lewis & clark college": {
@@ -261589,17 +261654,33 @@
   "wonny lervisit|texas woman's university": {
    "name": "Wonny Lervisit",
    "university": "Texas Woman's University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Legal Aid of NorthWest Texas"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Legal Aid of NorthWest Texas",
+     "role": "Staff Attorney, Community Revitalization Project",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "woutrina smith|university of california, davis": {
@@ -261678,12 +261759,14 @@
    "name": "Xenia Markowitt",
    "university": "Whittier College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -262050,17 +262133,34 @@
   "yohna chambers-hastings|texas christian university": {
    "name": "Yohna Chambers-Hastings",
    "university": "Texas Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "MD Anderson Cancer Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "MD Anderson Cancer Center",
+     "role": "Human Resources (early career)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "yojanna cuenca-carlino|northern arizona university": {
@@ -262291,12 +262391,14 @@
    "name": "Yves-Rose Porcena",
    "university": "Agnes Scott College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -262306,12 +262408,14 @@
    "name": "Yvette Clark",
    "university": "Middle Tennessee State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -262334,13 +262438,15 @@
   "yvonne berry|haverford college": {
    "name": "Yvonne Berry",
    "university": "Haverford College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -262364,12 +262470,14 @@
    "name": "Yvonne Ramirez",
    "university": "Albert Einstein College of Medicine",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -262457,11 +262565,13 @@
    "name": "Zach Newswanger",
    "university": "Florida State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -262484,16 +262594,33 @@
   "zachariah hosseini|pace university": {
    "name": "Zachariah Hosseini",
    "university": "Pace University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Johnson & Johnson"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Johnson & Johnson",
+     "role": "Senior Manager, communications lead for J&J Innovation (life-sciences incubator)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "zachary d. clopton|northwestern university": {
@@ -262754,29 +262881,74 @@
   "zayira jordan conde|universidad de puerto rico": {
    "name": "Zayira Jordan Conde",
    "university": "Universidad de Puerto Rico",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Smithsonian Institution (Latino Center)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Smithsonian Institution (Latino Center)",
+     "role": "Congressional Hispanic Caucus Institute Public Policy Fellow (also served in U.S. Congress)",
+     "seniority": "professional",
+     "years": "2003",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "zebulun r. davenport|west chester university of pennsylvania": {
    "name": "Zebulun R. Davenport",
    "university": "West Chester University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Chester County Community Foundation",
+    "Chester County Chamber of Business & Industry"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chester County Community Foundation",
+     "role": "Board Chair / Vice Chair",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chester County Chamber of Business & Industry",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "zeke bernstein|bennington college": {
