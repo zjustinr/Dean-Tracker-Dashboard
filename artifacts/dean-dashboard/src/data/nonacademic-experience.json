@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3338,
-  "no": 10457,
+  "yes": 3349,
+  "no": 10446,
   "unknown": 15675,
-  "namedFirm": 2763,
-  "flagOnly": 575,
-  "firms": 3377,
-  "sittingWithTie": 2090,
-  "sittingSeniorTie": 1265,
-  "researched": 2776
+  "namedFirm": 2768,
+  "flagOnly": 581,
+  "firms": 3384,
+  "sittingWithTie": 2095,
+  "sittingSeniorTie": 1269,
+  "researched": 2791
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -253346,16 +253346,34 @@
   "tyson cooper|southern virginia university": {
    "name": "Tyson Cooper",
    "university": "Southern Virginia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Buena Vista"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Buena Vista",
+     "role": "Mayor and City Council Member",
+     "seniority": "executive",
+     "years": "2017",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "tyson pinion|ohio university": {
@@ -253476,12 +253494,14 @@
   "undria stalling|morehouse college": {
    "name": "Undria Stalling",
    "university": "Morehouse College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -253588,12 +253608,14 @@
   "utibe offiong|syracuse university": {
    "name": "Utibe Offiong",
    "university": "Syracuse University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -253730,13 +253752,15 @@
   "valencia gallon-stubbs|bethune-cookman university": {
    "name": "Valencia Gallon-Stubbs",
    "university": "Bethune-Cookman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -253774,11 +253798,13 @@
    "name": "Valerie Fields",
    "university": "University of Louisiana at Monroe",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -253802,12 +253828,14 @@
    "name": "Valerie Hardcastle",
    "university": "Northern Kentucky University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -253860,12 +253888,14 @@
   "valerie moreno|reed college": {
    "name": "Valerie Moreno",
    "university": "Reed College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -253888,17 +253918,45 @@
   "valerie reif|chapman university": {
    "name": "Valerie Reif",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail",
+    "Consulting"
+   ],
+   "firms": [
+    "Boot Barn",
+    "Talent Advisers"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Boot Barn",
+     "role": "Chief Human Resources Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Talent Advisers",
+     "role": "Founder and Managing Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "valerie sheares ashby|university of maryland baltimore county": {
@@ -254024,16 +254082,44 @@
   "van jones|mississippi college": {
    "name": "Van Jones",
    "university": "Mississippi College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Gannett",
+    "Butler Snow"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Gannett",
+     "role": "Network Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Butler Snow",
+     "role": "Support Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "vance roley|university of hawaii at manoa": {
@@ -254085,13 +254171,15 @@
   "vance siggers|jackson state university": {
    "name": "Vance Siggers",
    "university": "Jackson State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -254188,15 +254276,33 @@
   "vanessa collins|north carolina state university": {
    "name": "Vanessa Collins",
    "university": "North Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Durham"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Durham",
+     "role": "Audit Services Director",
+     "seniority": "senior",
+     "years": "2026",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "vanessa doriott anderson|university of north carolina": {
@@ -254350,12 +254456,14 @@
    "name": "Vaughn A. Calhoun",
    "university": "Rutgers University-Camden",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -254514,12 +254622,14 @@
    "name": "Venu Govindaraju",
    "university": "University at Buffalo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -254763,16 +254873,35 @@
   "vicki whisenhant|wichita state university": {
    "name": "Vicki Whisenhant",
    "university": "Wichita State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Spirit AeroSystems"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Spirit AeroSystems",
+     "role": "Global Talent Development / Global Learning Leader",
+     "seniority": "senior",
+     "years": "2022-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "vicky m. wilkins|american university": {
@@ -254956,12 +255085,14 @@
   "victoria o'malley|colorado school of mines": {
    "name": "Victoria O'Malley",
    "university": "Colorado School of Mines",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
