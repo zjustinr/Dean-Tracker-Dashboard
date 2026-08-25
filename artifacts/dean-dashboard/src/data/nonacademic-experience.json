@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2897,
-  "no": 10898,
+  "yes": 2906,
+  "no": 10889,
   "unknown": 15675,
-  "namedFirm": 2434,
-  "flagOnly": 463,
-  "firms": 2915,
-  "sittingWithTie": 1761,
-  "sittingSeniorTie": 1065,
-  "researched": 2068
+  "namedFirm": 2440,
+  "flagOnly": 466,
+  "firms": 2921,
+  "sittingWithTie": 1767,
+  "sittingSeniorTie": 1069,
+  "researched": 2083
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -160223,13 +160223,15 @@
   "lori seager|colorado college": {
    "name": "Lori Seager",
    "university": "Colorado College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -160632,15 +160634,43 @@
   "louis whitesides|south carolina state university": {
    "name": "Louis Whitesides",
    "university": "South Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare Providers",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Family Health Centers, Inc.",
+    "American Yard Products (now Husqvarna)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Family Health Centers, Inc.",
+     "role": "unspecified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "American Yard Products (now Husqvarna)",
+     "role": "unspecified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "louisa j. hope-weeks|university of nevada reno": {
@@ -160674,16 +160704,33 @@
   "lowell k. davis|university of texas at arlington": {
    "name": "Lowell K. Davis",
    "university": "University of Texas at Arlington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "I Have a Dream Foundation - Dallas"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "I Have a Dream Foundation - Dallas",
+     "role": "Secretary, Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "lu hardin|palm beach atlantic university": {
@@ -160746,11 +160793,13 @@
    "name": "Lucas Hahn",
    "university": "Logan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -160803,13 +160852,15 @@
   "lucas roebuck|university of texas at el paso": {
    "name": "Lucas Roebuck",
    "university": "University of Texas at El Paso",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -161018,28 +161069,49 @@
   "luis de zengotita|marquette university": {
    "name": "Luis de Zengotita",
    "university": "Marquette University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Dana-Farber Cancer Institute"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Dana-Farber Cancer Institute",
+     "role": "Senior Manager, Clinical Planning and Business Development",
+     "seniority": "senior",
+     "years": "2013-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "luis hernandez|university of texas at el paso": {
    "name": "Luis Hernandez",
    "university": "University of Texas at El Paso",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -161178,12 +161250,14 @@
    "name": "Luke Anderson",
    "university": "Emory University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -161678,16 +161752,33 @@
   "lynn valenter|reed college": {
    "name": "Lynn Valenter",
    "university": "Reed College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Interstate Bridge Replacement Program"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Interstate Bridge Replacement Program",
+     "role": "Co-chair, Community Advisory Group",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "lynne allen|boston university": {
@@ -161826,16 +161917,33 @@
   "m. aileen shinaman|medical college of wisconsin": {
    "name": "M. Aileen Shinaman",
    "university": "Medical College of Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York State Supreme Court, Appellate Division"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York State Supreme Court, Appellate Division",
+     "role": "Appellate Clerk",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "m. chad bolding|university of georgia": {
@@ -161971,11 +162079,13 @@
    "name": "M. Kathryn (Katie) Crenshaw",
    "university": "University of Alabama at Birmingham",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -162300,11 +162410,13 @@
    "name": "Madhavi Marasinghe",
    "university": "University of North Dakota",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -162341,13 +162453,15 @@
   "magesh rajan|prairie view a&m university": {
    "name": "Magesh Rajan",
    "university": "Prairie View A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -162456,15 +162570,42 @@
   "magnus johnsson|virginia commonwealth university": {
    "name": "Magnus Johnsson",
    "university": "Virginia Commonwealth University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Leadership Metro Richmond",
+    "Association of Fundraising Professionals, Central Virginia Chapter"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Leadership Metro Richmond",
+     "role": "Member, Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Association of Fundraising Professionals, Central Virginia Chapter",
+     "role": "Past President",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "mahbub rashid|university of kansas": {
@@ -162499,11 +162640,13 @@
    "name": "Maher Salah",
    "university": "Eastern Michigan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
