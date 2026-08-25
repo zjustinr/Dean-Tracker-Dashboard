@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3020,
-  "no": 10775,
+  "yes": 3030,
+  "no": 10765,
   "unknown": 15675,
-  "namedFirm": 2535,
-  "flagOnly": 485,
-  "firms": 3079,
-  "sittingWithTie": 1862,
-  "sittingSeniorTie": 1133,
-  "researched": 2263
+  "namedFirm": 2541,
+  "flagOnly": 489,
+  "firms": 3087,
+  "sittingWithTie": 1868,
+  "sittingSeniorTie": 1137,
+  "researched": 2278
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -184242,16 +184242,44 @@
   "michelle l. palacio|florida international university": {
    "name": "Michelle L. Palacio",
    "university": "Florida International University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Becker & Poliakoff, P.A.",
+    "Florida House of Representatives (Office of Rep. Marco Rubio)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Becker & Poliakoff, P.A.",
+     "role": "Governmental Relations Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Florida House of Representatives (Office of Rep. Marco Rubio)",
+     "role": "Chief Legislative Aide",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michelle l. patrick|robert morris university": {
@@ -184373,12 +184401,14 @@
    "name": "Michelle Piekutowski",
    "university": "New York University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -184764,12 +184794,14 @@
    "name": "Miguel Wasielewski",
    "university": "University of Texas at Austin",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -184808,13 +184840,15 @@
   "mike berthelsen|st olaf college": {
    "name": "Mike Berthelsen",
    "university": "St Olaf College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -184880,11 +184914,13 @@
    "name": "Mike Connell",
    "university": "Washington State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -185105,16 +185141,33 @@
   "mike kopas|suny at purchase college": {
    "name": "Mike Kopas",
    "university": "SUNY at Purchase College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Broadview Senior Living at Purchase College (Purchase Senior Learning Community Inc.)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Broadview Senior Living at Purchase College (Purchase Senior Learning Community Inc.)",
+     "role": "Board Member and Treasurer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "mike lake|edgewood college": {
@@ -185254,13 +185307,15 @@
   "mike shelton|university of alabama": {
    "name": "Mike Shelton",
    "university": "University of Alabama",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -185283,16 +185338,48 @@
   "mike thomas|amherst college": {
    "name": "Mike Thomas",
    "university": "Amherst College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Consulting"
+   ],
+   "firms": [
+    "General Electric (GE Silicones, Americas)",
+    "PricewaterhouseCoopers"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "General Electric (GE Silicones, Americas)",
+     "role": "Controller; Manager of Financial Systems and Accounting; Financial Analyst",
+     "seniority": "senior",
+     "years": "1999-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "PricewaterhouseCoopers",
+     "role": "Associate",
+     "seniority": "professional",
+     "years": "1995-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "mike valdes|eastern michigan university": {
@@ -185313,16 +185400,34 @@
   "mike wenz|linfield university": {
    "name": "Mike Wenz",
    "university": "Linfield University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "McMinnville Area Chamber of Commerce"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "McMinnville Area Chamber of Commerce",
+     "role": "Member, Board of Directors",
+     "seniority": "senior",
+     "years": "2025",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "mike williams|harding university": {
@@ -185417,15 +185522,42 @@
   "mildred garcía|the california state university": {
    "name": "Mildred García",
    "university": "The California State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "President's Advisory Commission on Educational Excellence for Hispanics (The White House)",
+    "U.S. Department of Education, Committee on Measures of Student Success"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "President's Advisory Commission on Educational Excellence for Hispanics (The White House)",
+     "role": "Commissioner (appointed by President Obama)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Education, Committee on Measures of Student Success",
+     "role": "Committee Member (designated by the U.S. Secretary of Education)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "milena saqui-salces|university of minnesota twin cities": {
@@ -185445,13 +185577,15 @@
   "miles j. postema|ferris state university": {
    "name": "Miles J. Postema",
    "university": "Ferris State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -185460,16 +185594,35 @@
   "miles lackey|university of north carolina wilmington": {
    "name": "Miles Lackey",
    "university": "University of North Carolina Wilmington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of U.S. Senator Elizabeth Dole (United States Senate)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of U.S. Senator Elizabeth Dole (United States Senate)",
+     "role": "Legislative Aide (advisor on budget and appropriations)",
+     "seniority": "professional",
+     "years": "2003-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "millikan stalker|iowa state university": {
@@ -185489,13 +185642,15 @@
   "miloš topić|grand valley state university": {
    "name": "Miloš Topić",
    "university": "Grand Valley State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -185619,11 +185774,13 @@
    "name": "Minakshi (Mina) Amundsen",
    "university": "Williams College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -185716,12 +185873,14 @@
    "name": "Mira Lalovic-Hand",
    "university": "Rowan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
