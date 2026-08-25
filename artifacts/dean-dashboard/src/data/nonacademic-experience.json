@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2536,
-  "no": 11259,
+  "yes": 2547,
+  "no": 11248,
   "unknown": 15675,
-  "namedFirm": 2142,
-  "flagOnly": 394,
-  "firms": 2454,
-  "sittingWithTie": 1469,
-  "sittingSeniorTie": 869,
-  "researched": 1528
+  "namedFirm": 2154,
+  "flagOnly": 393,
+  "firms": 2472,
+  "sittingWithTie": 1481,
+  "sittingSeniorTie": 875,
+  "researched": 1543
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -92975,16 +92975,34 @@
   "heidi rushing|austin college": {
    "name": "Heidi Rushing",
    "university": "Austin College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Ghost Town Arts Collective"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Ghost Town Arts Collective",
+     "role": "Co-founder and executive board member",
+     "seniority": "executive",
+     "years": "2006",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "heidi st. peter|saint michael's college": {
@@ -93018,30 +93036,101 @@
   "heidi vanderbilt-brown|wellesley college": {
    "name": "Heidi Vanderbilt-Brown",
    "university": "Wellesley College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "United Educators",
+    "Milton Academy",
+    "Boston Consulting Group",
+    "The Advisory Board Company"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "United Educators",
+     "role": "Member, Subscribers' Advisory Board",
+     "seniority": "executive",
+     "years": "2025",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Milton Academy",
+     "role": "Chief Financial and Operating Officer",
+     "seniority": "executive",
+     "years": "2015-2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Boston Consulting Group",
+     "role": "Principal / consultant, strategy and healthcare",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "The Advisory Board Company",
+     "role": "Senior Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "heidi w. grunkemeyer|creighton university": {
    "name": "Heidi W. Grunkemeyer",
    "university": "Creighton University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Ervin & Smith"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Ervin & Smith",
+     "role": "Managing Director of Client Engagement and Strategy",
+     "seniority": "executive",
+     "years": "2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 63
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -93050,15 +93139,34 @@
   "heidi woodbury|university of utah": {
    "name": "Heidi Woodbury",
    "university": "University of Utah",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Corporation for Public Broadcasting"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Corporation for Public Broadcasting",
+     "role": "Consultant",
+     "seniority": "professional",
+     "years": "1993-1994",
+     "endYear": 1994,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "heidi zoerb|university of wisconsin-madison": {
@@ -93120,16 +93228,33 @@
   "helen clarke|carleton college": {
    "name": "Helen Clarke",
    "university": "Carleton College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Herald Times Reporter"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Herald Times Reporter",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "helen f. giles-gee|keene state college": {
@@ -93230,12 +93355,14 @@
    "name": "Helen Grace Ryan",
    "university": "Bellarmine University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -93303,16 +93430,55 @@
   "helena rodrigues|university of arizona": {
    "name": "Helena Rodrigues",
    "university": "University of Arizona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers",
+    "Financial Services"
+   ],
+   "firms": [
+    "United Way of Tucson and Southern Arizona",
+    "Carondelet Health Network",
+    "TIAA"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of Tucson and Southern Arizona",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Carondelet Health Network",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Financial Services",
+     "firm": "TIAA",
+     "role": "Member, TIAA Advisory Council",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    }
    ]
   },
   "helene a. shugart|university of utah": {
@@ -93439,15 +93605,43 @@
   "henry \"hank\" perkowski|teachers college, columbia university": {
    "name": "Henry \"Hank\" Perkowski",
    "university": "Teachers College, Columbia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "Habitat for Humanity",
+    "Ernst & Young"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Habitat for Humanity",
+     "role": "Volunteer, home construction (Charleston, South Carolina)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Ernst & Young",
+     "role": "Auditor/consultant, banking and insurance clients",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "henry (harry) lane|northeastern university": {
@@ -93624,15 +93818,34 @@
   "henry oh|rowan university": {
    "name": "Henry Oh",
    "university": "Rowan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of the Governor, State of New Jersey"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Governor, State of New Jersey",
+     "role": "Employee Relations Coordinator",
+     "seniority": "professional",
+     "years": "2007-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "henry perkowski|teachers college, columbia university": {
@@ -93688,12 +93901,14 @@
    "name": "Henry Saltiel",
    "university": "Hunter College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -93754,16 +93969,106 @@
   "henry torres|texas woman's university": {
    "name": "Henry Torres",
    "university": "Texas Woman's University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Healthcare Providers",
+    "Consumer & Retail",
+    "Technology"
+   ],
+   "firms": [
+    "Southern Bancorp, Inc.",
+    "Baptist Health of Arkansas",
+    "E.C. Barton & Company",
+    "Walmart",
+    "Neiman Marcus",
+    "CSK Auto",
+    "Frederick's of Hollywood",
+    "Rural Sourcing, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Southern Bancorp, Inc.",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Baptist Health of Arkansas",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Consumer & Retail",
+     "firm": "E.C. Barton & Company",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Walmart",
+     "role": "Information technology executive",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Neiman Marcus",
+     "role": "Information technology executive",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "CSK Auto",
+     "role": "Information technology executive",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Frederick's of Hollywood",
+     "role": "Information technology executive",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Rural Sourcing, Inc.",
+     "role": "Co-creator and operations manager",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "henry w. green iii|louisiana state university": {
@@ -93783,16 +94088,42 @@
   "henry w. taylor|delaware state university": {
    "name": "Henry W. Taylor",
    "university": "Delaware State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "KIPP Foundation",
+    "Level Playing Field Institute"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "KIPP Foundation",
+     "role": "Advancement/development staff",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Level Playing Field Institute",
+     "role": "Advancement/development staff",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "herb f. brown iii|appalachian state university": {
@@ -94129,17 +94460,34 @@
   "hima vatti|chapman university": {
    "name": "Hima Vatti",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Justice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Justice",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "hiram aldarondo|temple university": {
@@ -94222,15 +94570,34 @@
   "hollie andrus|university of utah": {
    "name": "Hollie Andrus",
    "university": "University of Utah",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Utah Office of the State Auditor"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Utah Office of the State Auditor",
+     "role": "Deputy State Auditor",
+     "seniority": "senior",
+     "years": "2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "holly b. fontenot|university of hawaii at manoa": {
@@ -94307,12 +94674,14 @@
    "name": "Holly Joseph",
    "university": "The Evergreen State College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
