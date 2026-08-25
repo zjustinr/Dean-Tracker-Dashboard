@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2597,
-  "no": 11198,
+  "yes": 2617,
+  "no": 11178,
   "unknown": 15675,
-  "namedFirm": 2198,
-  "flagOnly": 399,
-  "firms": 2539,
-  "sittingWithTie": 1525,
-  "sittingSeniorTie": 902,
-  "researched": 1618
+  "namedFirm": 2214,
+  "flagOnly": 403,
+  "firms": 2561,
+  "sittingWithTie": 1541,
+  "sittingSeniorTie": 910,
+  "researched": 1648
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -110703,12 +110703,14 @@
    "name": "Jennifer Chavez",
    "university": "Tennessee Technological University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -110793,12 +110795,14 @@
   "jennifer cotter|central michigan university": {
    "name": "Jennifer Cotter",
    "university": "Central Michigan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -110865,13 +110869,15 @@
   "jennifer deangelo|indiana university of pennsylvania": {
    "name": "Jennifer DeAngelo",
    "university": "Indiana University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -111036,13 +111042,15 @@
   "jennifer forry|emmanuel college": {
    "name": "Jennifer Forry",
    "university": "Emmanuel College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -111065,13 +111073,15 @@
   "jennifer ginnetti|gwynedd mercy university": {
    "name": "Jennifer Ginnetti",
    "university": "Gwynedd Mercy University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -111123,11 +111133,13 @@
    "name": "Jennifer H. Stephens",
    "university": "Texas Southern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -111136,30 +111148,64 @@
   "jennifer hanselman|clark university": {
    "name": "Jennifer Hanselman",
    "university": "Clark University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Citibank"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Citibank",
+     "role": "Not specified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jennifer hollingshead|university of oklahoma": {
    "name": "Jennifer Hollingshead",
    "university": "University of Oklahoma",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Columbia Daily Tribune"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Columbia Daily Tribune",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jennifer hunter|university of kentucky": {
@@ -111180,12 +111226,14 @@
    "name": "Jennifer I. DeBurro",
    "university": "University of New England",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -111470,12 +111518,14 @@
    "name": "Jennifer Lodge",
    "university": "Duke University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -111484,16 +111534,33 @@
   "jennifer lundy|gannon university": {
    "name": "Jennifer Lundy",
    "university": "Gannon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "FISA Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "FISA Foundation",
+     "role": "Board of Directors member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jennifer m. collins|rhodes college": {
@@ -111586,16 +111653,33 @@
   "jennifer mariacher|lycoming college": {
    "name": "Jennifer Mariacher",
    "university": "Lycoming College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Medical Mutual Liability Insurance Society"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Medical Mutual Liability Insurance Society",
+     "role": "Not specified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jennifer mcbryan|stevens institute of technology": {
@@ -111657,16 +111741,35 @@
   "jennifer miksis-olds|university of new hampshire": {
    "name": "Jennifer Miksis-Olds",
    "university": "University of New Hampshire",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 88,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Consortium for Ocean Leadership"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Consortium for Ocean Leadership",
+     "role": "Board of Trustees member (vice-chair 2020-2021)",
+     "seniority": "executive",
+     "years": "2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 88
+    }
    ]
   },
   "jennifer morthland|emory university": {
@@ -111729,12 +111832,14 @@
    "name": "Jennifer Nelson",
    "university": "University of Nebraska Lincoln",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -111827,15 +111932,55 @@
   "jennifer potter|stockton university": {
    "name": "Jennifer Potter",
    "university": "Stockton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "Southampton Township Board of Education",
+    "Alstrom Syndrome International",
+    "KPMG LLP"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Southampton Township Board of Education",
+     "role": "Board member; Vice President 2017-2019",
+     "seniority": "executive",
+     "years": "2015",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Alstrom Syndrome International",
+     "role": "Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG LLP",
+     "role": "Senior Manager, Higher Education and Not-for-Profit Practice",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jennifer poulakidas|university of california los angeles": {
@@ -111883,31 +112028,76 @@
   "jennifer r. wilkes|pennsylvania state university": {
    "name": "Jennifer R. Wilkes",
    "university": "Pennsylvania State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Media & Entertainment",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Walt Disney World Co.",
+    "Shaner Hotel Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Walt Disney World Co.",
+     "role": "Not specified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Shaner Hotel Group",
+     "role": "Not specified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jennifer ramm|university of mary hardin-baylor": {
    "name": "Jennifer Ramm",
    "university": "University of Mary Hardin-Baylor",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Pattillo, Brown & Hill"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Pattillo, Brown & Hill",
+     "role": "Manager, Audit",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Former audit manager, finance and accounting"
@@ -112019,11 +112209,13 @@
    "name": "Jennifer Servedio",
    "university": "Susquehanna University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -112032,16 +112224,33 @@
   "jennifer sharpe potter|university of texas at san antonio": {
    "name": "Jennifer Sharpe Potter",
    "university": "University of Texas at San Antonio",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "McLean Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "McLean Hospital",
+     "role": "Behavioral health research and academic leadership role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jennifer sheridan|university of wisconsin madison": {
@@ -112409,12 +112618,14 @@
    "name": "Jenny Hall-Jones",
    "university": "Grand Valley State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -112527,16 +112738,33 @@
   "jenny tate|mississippi college": {
    "name": "Jenny Tate",
    "university": "Mississippi College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Mississippi Museum of Art"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mississippi Museum of Art",
+     "role": "Communications and marketing leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jenora d. waterman|north carolina a&t state university": {
@@ -112680,41 +112908,77 @@
   "jeremy alltop|winston-salem state university": {
    "name": "Jeremy Alltop",
    "university": "Winston-Salem State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "HealthFirst Bluegrass Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "HealthFirst Bluegrass Inc.",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "jeremy babcock|daemen university": {
    "name": "Jeremy Babcock",
    "university": "Daemen University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Albion Joint Fire District"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Albion Joint Fire District",
+     "role": "Third Lieutenant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jeremy battjes|university of arkansas": {
    "name": "Jeremy Battjes",
    "university": "University of Arkansas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -112797,16 +113061,46 @@
   "jeremy ernst|embry-riddle aeronautical university": {
    "name": "Jeremy Ernst",
    "university": "Embry-Riddle Aeronautical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "American Society for Engineering Education",
+    "North Carolina Department of Public Instruction"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Society for Engineering Education",
+     "role": "Member and past leadership roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "North Carolina Department of Public Instruction",
+     "role": "Graduate Intern, Division of Career and Technical Education",
+     "seniority": "professional",
+     "years": "2004-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "jeremy kirk|university of tennessee": {
@@ -112899,11 +113193,13 @@
    "name": "Jeremy Thompson",
    "university": "College of the Holy Cross",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -112912,16 +113208,45 @@
   "jeremy v. fine|illinois institute of technology": {
    "name": "Jeremy V. Fine",
    "university": "Illinois Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Chicago Transit Authority",
+    "City of Chicago"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Chicago Transit Authority",
+     "role": "Chief Financial Officer and Treasurer",
+     "seniority": "executive",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Chicago",
+     "role": "Deputy Chief Financial Officer; Deputy Comptroller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jeremy vickers|texas christian university": {
@@ -113056,28 +113381,68 @@
   "jermaine k. jackson|oakwood university": {
    "name": "Jermaine K. Jackson",
    "university": "Oakwood University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Adventist Risk Management",
+    "Gencon Insurance Company of Vermont",
+    "Allegheny West Conference of Seventh-day Adventists"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Adventist Risk Management",
+     "role": "Vice President and Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Gencon Insurance Company of Vermont",
+     "role": "Corporate Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Allegheny West Conference of Seventh-day Adventists",
+     "role": "Chief Financial Officer / Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "jerod l. hall|bowling green state university": {
    "name": "Jerod L. Hall",
    "university": "Bowling Green State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -113142,16 +113507,44 @@
   "jerome hatfield|kean university": {
    "name": "Jerome Hatfield",
    "university": "Kean University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New Jersey State Police",
+    "Federal Emergency Management Agency (U.S. Department of Homeland Security)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New Jersey State Police",
+     "role": "Lieutenant Colonel, Deputy Superintendent of Homeland Security",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Federal Emergency Management Agency (U.S. Department of Homeland Security)",
+     "role": "Regional Administrator, FEMA Region II",
+     "seniority": "executive",
+     "years": "2013",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "jerome p. lavelle|north carolina state university": {
