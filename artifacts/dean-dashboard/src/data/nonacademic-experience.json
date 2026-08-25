@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2938,
-  "no": 10857,
+  "yes": 2946,
+  "no": 10849,
   "unknown": 15675,
-  "namedFirm": 2463,
-  "flagOnly": 475,
-  "firms": 2955,
-  "sittingWithTie": 1790,
-  "sittingSeniorTie": 1085,
-  "researched": 2128
+  "namedFirm": 2469,
+  "flagOnly": 477,
+  "firms": 2966,
+  "sittingWithTie": 1796,
+  "sittingSeniorTie": 1091,
+  "researched": 2143
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -162801,11 +162801,13 @@
    "name": "Malhar Sharma",
    "university": "University of Bridgeport",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -162859,12 +162861,14 @@
    "name": "Malinda W. Swoope",
    "university": "Alabama State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -162901,12 +162905,14 @@
   "mallie s. hale|university of alabama in huntsville": {
    "name": "Mallie S. Hale",
    "university": "University of Alabama in Huntsville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -162915,16 +162921,33 @@
   "mallik sundharam|illinois institute of technology": {
    "name": "Mallik Sundharam",
    "university": "Illinois Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "ELS Educational Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "ELS Educational Services",
+     "role": "Strategic advisory / international marketing and recruitment role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "mallika bose|pennsylvania state university": {
@@ -163335,16 +163358,33 @@
   "manuel cuevas-trisán|boston university": {
    "name": "Manuel Cuevas-Trisán",
    "university": "Boston University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Motorola Solutions, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Motorola Solutions, Inc.",
+     "role": "Chief Human Resources Officer and Corporate Vice President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "manuel laguna|university of colorado boulder": {
@@ -163438,13 +163478,15 @@
   "marc albanese|desales university": {
    "name": "Marc Albanese",
    "university": "DeSales University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -163574,12 +163616,14 @@
    "name": "Marc Hoit",
    "university": "North Carolina State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -163647,15 +163691,72 @@
   "marc newman|hampton university": {
    "name": "Marc Newman",
    "university": "Hampton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Albion Economic Development Corporation",
+    "YMCA of the Triangle",
+    "Better Boys Foundation",
+    "Bethel New Life",
+    "Little Black Pearl Workshop"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Albion Economic Development Corporation",
+     "role": "Board Chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "YMCA of the Triangle",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Better Boys Foundation",
+     "role": "Fundraising and philanthropic investment role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bethel New Life",
+     "role": "Fundraising and philanthropic investment role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Little Black Pearl Workshop",
+     "role": "Fundraising and philanthropic investment role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "marc ostfield|the city college of new york": {
@@ -163706,11 +163807,13 @@
    "name": "Marc Pino",
    "university": "Idaho State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -163837,12 +163940,14 @@
    "name": "Marc Wallman",
    "university": "North Dakota State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -163851,15 +163956,43 @@
   "marcel mutsindashyaka|oberlin college": {
    "name": "Marcel Mutsindashyaka",
    "university": "Oberlin College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Ibuka USA",
+    "UMUSEKE Ltd (umuseke.rw)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Ibuka USA",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "UMUSEKE Ltd (umuseke.rw)",
+     "role": "Founder and Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "marcel rindisbacher|boston university": {
@@ -163881,30 +164014,64 @@
   "marcella runell|mount holyoke college": {
    "name": "Marcella Runell",
    "university": "Mount Holyoke College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "EmbraceRace"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "EmbraceRace",
+     "role": "Advisory board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "marcelle davis|randolph-macon college": {
    "name": "Marcelle Davis",
    "university": "Randolph-Macon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "VCU Health System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "VCU Health System",
+     "role": "Vice President of Human Resources and Chief Inclusive Excellence Officer (also cited as vice president and chief diversity officer)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "marcelle haddix|university of wisconsin-madison": {
@@ -164100,12 +164267,14 @@
    "name": "Marcie Simms",
    "university": "Marshall University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -164412,11 +164581,13 @@
    "name": "Maren E. Imhoff",
    "university": "The Rockefeller University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
