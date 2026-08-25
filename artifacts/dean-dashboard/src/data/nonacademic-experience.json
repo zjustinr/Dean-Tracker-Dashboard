@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2818,
-  "no": 10977,
+  "yes": 2826,
+  "no": 10969,
   "unknown": 15675,
-  "namedFirm": 2366,
+  "namedFirm": 2374,
   "flagOnly": 452,
-  "firms": 2813,
-  "sittingWithTie": 1693,
-  "sittingSeniorTie": 1017,
-  "researched": 1948
+  "firms": 2829,
+  "sittingWithTie": 1701,
+  "sittingSeniorTie": 1025,
+  "researched": 1963
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -139988,12 +139988,14 @@
    "name": "Keith Humphrey",
    "university": "University of Northern Colorado",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic",
@@ -140061,17 +140063,65 @@
   "keith millner|guilford college": {
    "name": "Keith Millner",
    "university": "Guilford College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "CertusBank",
+    "Invest Atlanta",
+    "Nationwide Financial Network",
+    "Social Capital, LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "CertusBank",
+     "role": "President, CertusBank Georgia",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Invest Atlanta",
+     "role": "Chief Operating Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Nationwide Financial Network",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Social Capital, LLC",
+     "role": "Co-owner and Chief Operating Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "keith molenaar|university of colorado boulder": {
@@ -140162,11 +140212,13 @@
    "name": "Keith Vorkink",
    "university": "Brigham Young University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -140375,15 +140427,75 @@
    "name": "Kelli D. Shomaker",
    "university": "Auburn University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector",
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "SmartBank",
+    "Retirement System of Alabama",
+    "Lee County Boys & Girls Club",
+    "Dudley Foundation",
+    "PricewaterhouseCoopers"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "SmartBank",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Retirement System of Alabama",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lee County Boys & Girls Club",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Dudley Foundation",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "PricewaterhouseCoopers",
+     "role": "Auditor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance and administration"
@@ -140465,11 +140577,13 @@
    "name": "Kelli Shuman",
    "university": "Carnegie Mellon University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -140492,12 +140606,14 @@
   "kellie campbell|university of vermont": {
    "name": "Kellie Campbell",
    "university": "University of Vermont",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -140640,16 +140756,45 @@
   "kelly capen douglas|santa clara university": {
    "name": "Kelly Capen Douglas",
    "university": "Santa Clara University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Voices for Children",
+    "Luce Forward Hamilton & Scripps LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Voices for Children",
+     "role": "President and Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2019-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Luce Forward Hamilton & Scripps LLP",
+     "role": "Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "kelly chandler-olcott|syracuse university": {
@@ -140742,16 +140887,35 @@
   "kelly dowling|embry-riddle aeronautical university": {
    "name": "Kelly Dowling",
    "university": "Embry-Riddle Aeronautical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Orlando Museum of Art"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Orlando Museum of Art",
+     "role": "Director of Membership and Annual Fund",
+     "seniority": "senior",
+     "years": "2003-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "kelly epplen|university of cincinnati": {
@@ -140772,12 +140936,14 @@
    "name": "Kelly Finn",
    "university": "Albion College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -140786,30 +140952,68 @@
   "kelly flege|cornell college": {
    "name": "Kelly Flege",
    "university": "Cornell College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Lincoln Savings Bank"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Lincoln Savings Bank",
+     "role": "1st Vice President",
+     "seniority": "senior",
+     "years": "2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "kelly flege|wartburg college": {
    "name": "Kelly Flege",
    "university": "Wartburg College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Lincoln Savings Bank"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Lincoln Savings Bank",
+     "role": "1st Vice President",
+     "seniority": "senior",
+     "years": "2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "kelly fox|rice university": {
@@ -140873,12 +141077,14 @@
    "name": "Kelly Hiller",
    "university": "Purdue University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -140915,16 +141121,43 @@
   "kelly leonard|maryville college": {
    "name": "Kelly Leonard",
    "university": "Maryville College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Sacred Heart Cathedral School",
+    "Boys and Girls Club of the Tennessee Valley"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Sacred Heart Cathedral School",
+     "role": "Business Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Boys and Girls Club of the Tennessee Valley",
+     "role": "Grants Administrator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kelly m. austin|embry-riddle aeronautical university": {
@@ -141005,12 +141238,14 @@
   "kelly nassour|the university of texas rio grande valley": {
    "name": "Kelly Nassour",
    "university": "The University of Texas Rio Grande Valley",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -141124,16 +141359,43 @@
    "name": "Kelly Sparks",
    "university": "University of California Berkeley",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Nordstrom",
+    "Peacock Family Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Nordstrom",
+     "role": "Vice President of Finance and Strategy",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Peacock Family Services",
+     "role": "Senior finance leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "careerBackground: Finance"
