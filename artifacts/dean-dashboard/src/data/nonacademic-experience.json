@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2679,
-  "no": 11116,
+  "yes": 2691,
+  "no": 11104,
   "unknown": 15675,
-  "namedFirm": 2259,
-  "flagOnly": 420,
-  "firms": 2638,
-  "sittingWithTie": 1586,
-  "sittingSeniorTie": 942,
-  "researched": 1738
+  "namedFirm": 2268,
+  "flagOnly": 423,
+  "firms": 2658,
+  "sittingWithTie": 1595,
+  "sittingSeniorTie": 949,
+  "researched": 1753
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -121242,13 +121242,15 @@
   "john corby|university of akron": {
    "name": "John Corby",
    "university": "University of Akron",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -121332,16 +121334,64 @@
   "john d. burke|boston college": {
    "name": "John D. Burke",
    "university": "Boston College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Massachusetts Educational Financing Authority (MEFA)",
+    "Mass General Brigham (formerly Partners HealthCare)",
+    "St. Elizabeth's Medical Center",
+    "Caritas Christi Health Care System"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Massachusetts Educational Financing Authority (MEFA)",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Mass General Brigham (formerly Partners HealthCare)",
+     "role": "Finance leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "St. Elizabeth's Medical Center",
+     "role": "Finance leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Caritas Christi Health Care System",
+     "role": "Finance leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "john d. ciorciari|indiana university bloomington": {
@@ -121502,45 +121552,108 @@
   "john daniel|university of alabama": {
    "name": "John Daniel",
    "university": "University of Alabama",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Johnston Barton Proctor & Powell LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Johnston Barton Proctor & Powell LLP",
+     "role": "Attorney, later Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "john danner|central michigan university": {
    "name": "John Danner",
    "university": "Central Michigan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of San Antonio"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of San Antonio",
+     "role": "Assistant City Attorney III",
+     "seniority": "professional",
+     "years": "1998-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "john davidson|university of texas at arlington": {
    "name": "John Davidson",
    "university": "University of Texas at Arlington",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Arkansas Department of Finance and Administration",
+    "Arkansas Department of Higher Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Arkansas Department of Finance and Administration",
+     "role": "Senior Budget Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Arkansas Department of Higher Education",
+     "role": "Institutional Finance Coordinator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance and Administration"
@@ -121577,13 +121690,15 @@
   "john della contrada|university at buffalo": {
    "name": "John Della Contrada",
    "university": "University at Buffalo",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -121643,13 +121758,15 @@
   "john dineen|hampshire college": {
    "name": "John Dineen",
    "university": "Hampshire College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -121993,15 +122110,42 @@
   "john erck|university of arkansas for medical sciences": {
    "name": "John Erck",
    "university": "University of Arkansas for Medical Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Economics Arkansas",
+    "Donald W. Reynolds Boys & Girls Club of Fayetteville"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Economics Arkansas",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Donald W. Reynolds Boys & Girls Club of Fayetteville",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "john erwin|umass chan medical school": {
@@ -122169,12 +122313,14 @@
    "name": "John F. Sullivan",
    "university": "Eckerd College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -122225,15 +122371,58 @@
   "john fougere|william woods university": {
    "name": "John Fougere",
    "university": "William Woods University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Missouri Attorney General's Office",
+    "Missouri Department of Economic Development",
+    "Missouri Department of Corrections"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Missouri Attorney General's Office",
+     "role": "Press Secretary to Attorney General Jay Nixon",
+     "seniority": "senior",
+     "years": "2005-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Missouri Department of Economic Development",
+     "role": "Director of Communications",
+     "seniority": "senior",
+     "years": "2009-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Missouri Department of Corrections",
+     "role": "Chief Public Information Officer",
+     "seniority": "senior",
+     "years": "1997-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "john g. peters|northern illinois university": {
@@ -122549,13 +122738,15 @@
   "john j. cordi|binghamton university": {
    "name": "John J. Cordi",
    "university": "Binghamton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -122635,15 +122826,65 @@
   "john j. zabinski|rowan university": {
    "name": "John J. Zabinski",
    "university": "Rowan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Consulting",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Wills Eye Hospital",
+    "Graham-Pelton",
+    "Sacred Heart Hospital",
+    "The Episcopal Academy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Wills Eye Hospital",
+     "role": "Chief Development Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Graham-Pelton",
+     "role": "Senior Vice President",
+     "seniority": "senior",
+     "years": "2022",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Sacred Heart Hospital",
+     "role": "Development role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Episcopal Academy",
+     "role": "Advancement role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "john jones, ph.d.|university of alabama at birmingham": {
@@ -122770,15 +123011,43 @@
   "john kennedy|university of massachusetts amherst": {
    "name": "John Kennedy",
    "university": "University of Massachusetts Amherst",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "American Civil Liberties Union",
+    "ABC News"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Civil Liberties Union",
+     "role": "Head of national communications department",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "ABC News",
+     "role": "Producer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "john king|east tennessee state university": {
@@ -123081,16 +123350,64 @@
   "john longbrake|university of california santa barbara": {
    "name": "John Longbrake",
    "university": "University of California Santa Barbara",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "U.S. Department of the Treasury",
+    "National Quality Forum",
+    "Presidential Advisory Committee on Gulf War Veterans' Illnesses",
+    "U.S. Congress Office of Technology Assessment"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of the Treasury",
+     "role": "Spokesperson",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Quality Forum",
+     "role": "Vice President for Communications and Congressional Affairs",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Presidential Advisory Committee on Gulf War Veterans' Illnesses",
+     "role": "Public Affairs Coordinator and Research Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Congress Office of Technology Assessment",
+     "role": "Research Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "john loonan|university of north carolina at greensboro": {
@@ -123103,6 +123420,8 @@
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
