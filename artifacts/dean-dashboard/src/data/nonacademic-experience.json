@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3009,
-  "no": 10786,
+  "yes": 3020,
+  "no": 10775,
   "unknown": 15675,
-  "namedFirm": 2526,
-  "flagOnly": 483,
-  "firms": 3065,
-  "sittingWithTie": 1853,
-  "sittingSeniorTie": 1128,
-  "researched": 2248
+  "namedFirm": 2535,
+  "flagOnly": 485,
+  "firms": 3079,
+  "sittingWithTie": 1862,
+  "sittingSeniorTie": 1133,
+  "researched": 2263
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -188068,16 +188068,35 @@
   "nancy lynch|university of wisconsin madison": {
    "name": "Nancy Lynch",
    "university": "University of Wisconsin Madison",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Lord, Bissell & Brook (now Locke Lord LLP)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Lord, Bissell & Brook (now Locke Lord LLP)",
+     "role": "Attorney, Business Litigation Practice Group",
+     "seniority": "professional",
+     "years": "1997",
+     "endYear": 1997,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "nancy m.k. merritt|university of pittsburgh": {
@@ -188156,28 +188175,47 @@
   "nancy pluzdrak|loyola marymount university": {
    "name": "Nancy Pluzdrak",
    "university": "Loyola Marymount University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Daymon Worldwide"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Daymon Worldwide",
+     "role": "Executive Vice President of International Operations and Global Human Resources",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "nancy rogers|indiana state university": {
    "name": "Nancy Rogers",
    "university": "Indiana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -188434,16 +188472,35 @@
   "nashiba boyd|south carolina state university": {
    "name": "Nashiba Boyd",
    "university": "South Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Gaffney Lewis LLC (renamed Lewis Blain Roberts & Boyd, LLC in 2023)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Gaffney Lewis LLC (renamed Lewis Blain Roberts & Boyd, LLC in 2023)",
+     "role": "Partner / Managing Partner",
+     "seniority": "executive",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "natalie braswell|connecticut state colleges and universities": {
@@ -188524,13 +188581,15 @@
   "natalie j. jackson|bowling green state university": {
    "name": "Natalie J. Jackson",
    "university": "Bowling Green State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -188595,13 +188654,15 @@
   "natara garvin|fisk university": {
    "name": "Natara Garvin",
    "university": "Fisk University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -188652,16 +188713,96 @@
   "natasha johnson|tennessee state university": {
    "name": "Natasha Johnson",
    "university": "Tennessee State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Nonprofit & Foundations",
+    "Consumer & Retail",
+    "Media & Entertainment",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Insightful Initiatives, LLC",
+    "DEN, LLC",
+    "The Tennessee Children's Home",
+    "The Beignet Bar, LLC",
+    "AM Entertainment, LLC",
+    "HCA Healthcare / Summit Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Insightful Initiatives, LLC",
+     "role": "Managing Partner/Consultant",
+     "seniority": "executive",
+     "years": "2013-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "DEN, LLC",
+     "role": "Owner/Senior Public Relations and Marketing Consultant",
+     "seniority": "executive",
+     "years": "2015-2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Tennessee Children's Home",
+     "role": "Board Member (Policy and Public Relations Committees)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "The Beignet Bar, LLC",
+     "role": "Owner/Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2018",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "AM Entertainment, LLC",
+     "role": "Director of Business Operations",
+     "seniority": "senior",
+     "years": "2005-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "HCA Healthcare / Summit Medical Center",
+     "role": "Human Resource Manager",
+     "seniority": "professional",
+     "years": "2014-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "natasha kazeem|george washington university": {
@@ -188903,12 +189044,14 @@
    "name": "Nathan Fuerst",
    "university": "University of Connecticut",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -188959,31 +189102,65 @@
   "nathan kirkpatrick|new saint andrews college": {
    "name": "Nathan Kirkpatrick",
    "university": "New Saint Andrews College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "University of Michigan Health System (Michigan Medicine)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University of Michigan Health System (Michigan Medicine)",
+     "role": "Program Manager, Clinical Operations, Quality & Safety",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "nathan knuffman|university of north carolina": {
    "name": "Nathan Knuffman",
    "university": "University of North Carolina",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "North Carolina Office of State Budget and Management"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "North Carolina Office of State Budget and Management",
+     "role": "Deputy Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "nathan long, ed.d.|saybrook university": {
@@ -189124,11 +189301,13 @@
    "name": "Nathan Shelburne",
    "university": "Samford University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -189151,16 +189330,35 @@
   "nathan thomas|bradley university": {
    "name": "Nathan Thomas",
    "university": "Bradley University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Phi Delta Theta General Headquarters"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Phi Delta Theta General Headquarters",
+     "role": "Director of Chapter Services",
+     "seniority": "professional",
+     "years": "2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "nathan urban|lehigh university": {
@@ -189198,13 +189396,15 @@
   "nathaniel mays|lesley university": {
    "name": "Nathaniel Mays",
    "university": "Lesley University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -189298,16 +189498,34 @@
   "neelam azad|hampton university": {
    "name": "Neelam Azad",
    "university": "Hampton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Commonwealth Health Research Board (Commonwealth of Virginia)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Commonwealth Health Research Board (Commonwealth of Virginia)",
+     "role": "Board Member (appointed by Gov. Glenn Youngkin)",
+     "seniority": "senior",
+     "years": "2024",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "neeli bendapudi|pennsylvania state university": {
@@ -189466,15 +189684,34 @@
    "name": "Neil J. Horgan",
    "university": "Villanova University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "University of Pennsylvania Health System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University of Pennsylvania Health System",
+     "role": "Finance roles, leaving as Assistant Director of Financial Operations",
+     "seniority": "professional",
+     "years": "1991-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 18
+    }
    ],
    "flags": [
     "careerBackground: Finance and treasury; former University controller"
