@@ -17,6 +17,7 @@ const getOpt = (name, def) => {
 const outPath = getOpt('--out', null);
 const limit = parseInt(getOpt('--limit', 'Infinity')) || Infinity;
 const offset = parseInt(getOpt('--offset', '0')) || 0;
+const registryPath = getOpt('--registry', null);
 
 if (!outPath) {
   console.error('--out <results.json> is required');
@@ -56,9 +57,16 @@ function resolveUrl(src, pageUrl) {
 
 const deans = JSON.parse(fs.readFileSync(deansPath, 'utf8'));
 
+let registered = new Set();
+if (registryPath) {
+  const reg = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+  registered = new Set(Object.keys(reg).map(k => k.toLowerCase()));
+}
+
 const records = deans
   .map((d, idx) => ({ d, idx }))
   .filter(({ d }) => d.sourceUrl && (!d.photoUrl || d.photoUrl === ''))
+  .filter(({ d }) => !registered.has(`${d.dean}|${d.university}`.toLowerCase()))
   .slice(offset, offset + limit);
 
 console.log(`Processing ${records.length} records (offset ${offset})...`);
