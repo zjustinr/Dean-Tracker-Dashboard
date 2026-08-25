@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2250,
-  "no": 11545,
+  "yes": 2271,
+  "no": 11524,
   "unknown": 15675,
-  "namedFirm": 1874,
-  "flagOnly": 376,
-  "firms": 1989,
-  "sittingWithTie": 1201,
-  "sittingSeniorTie": 680,
-  "researched": 1063
+  "namedFirm": 1894,
+  "flagOnly": 377,
+  "firms": 2023,
+  "sittingWithTie": 1221,
+  "sittingSeniorTie": 693,
+  "researched": 1093
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -27532,12 +27532,14 @@
    "name": "Brandon Thompson",
    "university": "Northern Kentucky University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -27644,30 +27646,85 @@
   "brandyn j. hicks|bryn mawr college": {
    "name": "Brandyn J. Hicks",
    "university": "Bryn Mawr College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Maryland Legal Aid",
+    "The Friends School of Baltimore",
+    "Philadelphia District Attorney's Office"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Maryland Legal Aid",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Friends School of Baltimore",
+     "role": "Member, Board of Trustees",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Philadelphia District Attorney's Office",
+     "role": "Assistant District Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brant m. cox|eastern virginia medical school": {
    "name": "Brant M. Cox",
    "university": "Eastern Virginia Medical School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Amerigroup Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Amerigroup Corporation",
+     "role": "not specified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "branville g. bard jr.|johns hopkins university": {
@@ -27730,15 +27787,34 @@
   "breana m. ware|spelman college": {
    "name": "Breana M. Ware",
    "university": "Spelman College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Wood Partners LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Wood Partners LLC",
+     "role": "Vice President - Counsel",
+     "seniority": "senior",
+     "years": "2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "brenda brenner|indiana university bloomington": {
@@ -27758,12 +27834,14 @@
   "brenda greenfield|suny college of environmental science and forestry": {
    "name": "Brenda Greenfield",
    "university": "SUNY College of Environmental Science and Forestry",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -27773,12 +27851,14 @@
    "name": "Brenda Ingram-Wallace",
    "university": "Albright College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -28036,16 +28116,33 @@
   "brenna leising|texas tech university health sciences center": {
    "name": "Brenna Leising",
    "university": "Texas Tech University Health Sciences Center",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "UMC Health System (University Medical Center, Lubbock)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UMC Health System (University Medical Center, Lubbock)",
+     "role": "Manager, Recruitment & Retention",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brennon t. morioka|university of hawaii at manoa": {
@@ -28182,16 +28279,43 @@
   "brent gustafson|university of san francisco": {
    "name": "Brent Gustafson",
    "university": "University of San Francisco",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Dakota County, Minnesota",
+    "Minnesota Senate"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Dakota County, Minnesota",
+     "role": "Budget Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Minnesota Senate",
+     "role": "Lead Fiscal Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brent hathaway|university of nevada las vegas": {
@@ -28274,12 +28398,14 @@
   "brent stringfellow|university of texas at austin": {
    "name": "Brent Stringfellow",
    "university": "University of Texas at Austin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -28289,14 +28415,46 @@
    "name": "Brent W. Thompson, Esq.",
    "university": "Simpson University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "U.S. Army Judge Advocate General's Corps",
+    "Hartman King PC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Army Judge Advocate General's Corps",
+     "role": "Judge Advocate; trial counsel and Special Assistant U.S. Attorney",
+     "seniority": "senior",
+     "years": "2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hartman King PC",
+     "role": "Attorney, environmental and regulatory law",
+     "seniority": "professional",
+     "years": "2022-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 39
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -28320,12 +28478,14 @@
    "name": "Bret Blackman",
    "university": "University of Nebraska at Omaha",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -28436,17 +28596,48 @@
   "brett eaton|wake forest university": {
    "name": "Brett Eaton",
    "university": "Wake Forest University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Defense (Washington Headquarters Services, the Pentagon)",
+    "Pentagon Renovation and Construction Program"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Defense (Washington Headquarters Services, the Pentagon)",
+     "role": "Division Chief / Deputy Director, Administration and Program Support",
+     "seniority": "senior",
+     "years": "2001-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Pentagon Renovation and Construction Program",
+     "role": "Information and Communications Team Leader",
+     "seniority": "professional",
+     "years": "2001-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "brett fajen|rensselaer polytechnic institute": {
@@ -28528,15 +28719,43 @@
   "brett last|texas state university": {
    "name": "Brett Last",
    "university": "Texas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Olympus Corporation of the Americas",
+    "O'Brien Belland & Bushinsky"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Olympus Corporation of the Americas",
+     "role": "Executive Director, Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "O'Brien Belland & Bushinsky",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brett ludwig|lehigh university": {
@@ -28573,16 +28792,54 @@
   "brett padgett|syracuse university": {
    "name": "Brett Padgett",
    "university": "Syracuse University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Citigroup",
+    "JPMorgan / Banc One Capital Markets",
+    "United States Navy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Citigroup",
+     "role": "Investment banker",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "JPMorgan / Banc One Capital Markets",
+     "role": "Investment banker",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Lieutenant, Special Operations",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brett powell|tarleton state university": {
@@ -28605,15 +28862,65 @@
   "brett walsh|state university of new york at geneseo": {
    "name": "Brett Walsh",
    "university": "State University of New York at Geneseo",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Rochester Regional Health",
+    "Monroe County, New York",
+    "Federal Emergency Management Agency (FEMA)",
+    "New York State Division of Homeland Security and Emergency Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Rochester Regional Health",
+     "role": "Director of Communications and Public Relations",
+     "seniority": "senior",
+     "years": "2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Monroe County, New York",
+     "role": "Communications Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Federal Emergency Management Agency (FEMA)",
+     "role": "Emergency Management Specialist and External Affairs Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York State Division of Homeland Security and Emergency Services",
+     "role": "Instructor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brett woods|salem college": {
@@ -32094,12 +32401,14 @@
   "bruce hunter|university of utah": {
    "name": "Bruce Hunter",
    "university": "University of Utah",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -32269,12 +32578,14 @@
    "name": "Bruce W. Barker",
    "university": "University of North Carolina Asheville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -32329,15 +32640,98 @@
    "name": "Bruno Fernandes",
    "university": "George Washington University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 73,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector",
+    "Consulting",
+    "Technology",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "CSC Employees Federal Credit Union",
+    "Government of the District of Columbia",
+    "ICF",
+    "CSC (now DXC Technology)",
+    "Intelsat",
+    "Sunrise Senior Living"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "CSC Employees Federal Credit Union",
+     "role": "Board of Directors",
+     "seniority": "executive",
+     "years": "2009-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 73
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Government of the District of Columbia",
+     "role": "Treasurer and Deputy Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "ICF",
+     "role": "Vice President and Treasurer",
+     "seniority": "senior",
+     "years": "2012-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "CSC (now DXC Technology)",
+     "role": "Corporate Director of Treasury",
+     "seniority": "senior",
+     "years": "2008-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Intelsat",
+     "role": "Director of Treasury and Risk Management",
+     "seniority": "senior",
+     "years": "2007-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Sunrise Senior Living",
+     "role": "Director of Treasury",
+     "seniority": "senior",
+     "years": "2002-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 42
+    }
    ],
    "flags": [
     "careerBackground: Finance"
@@ -32478,30 +32872,66 @@
   "bryan garey|virginia tech": {
    "name": "Bryan Garey",
    "university": "Virginia Tech",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "MCI WorldCom"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "MCI WorldCom",
+     "role": "Human resources roles",
+     "seniority": "professional",
+     "years": "1993-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "bryan herrmann|university of minnesota-morris": {
    "name": "Bryan Herrmann",
    "university": "University of Minnesota-Morris",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Fresh Energy"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Fresh Energy",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "bryan hill|university of arkansas": {
@@ -32536,11 +32966,13 @@
    "name": "Bryan L. Carrier",
    "university": "Union University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -32563,15 +32995,32 @@
   "bryan langlands|georgetown college": {
    "name": "Bryan Langlands",
    "university": "Georgetown College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Southwestern Advantage"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Southwestern Advantage",
+     "role": "Sales team leader and trainer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "bryan matthews|washington college": {
@@ -32621,16 +33070,56 @@
   "bryan perry|northern illinois university": {
    "name": "Bryan Perry",
    "university": "Northern Illinois University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Ready At Five",
+    "Wide Angle Youth Media",
+    "Maryland Office of the Attorney General"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Ready At Five",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Wide Angle Youth Media",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Maryland Office of the Attorney General",
+     "role": "Assistant Attorney General",
+     "seniority": "professional",
+     "years": "2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "bryan rowland|university of arizona": {
@@ -32650,30 +33139,76 @@
   "bryan swarthout|vassar college": {
    "name": "Bryan Swarthout",
    "university": "Vassar College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "IBM"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Financial analysis and strategic planning",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "bryan t. mckinney|ouachita baptist university": {
    "name": "Bryan T. McKinney",
    "university": "Ouachita Baptist University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Arkadelphia Promise",
+    "McMillan, Turner and McCorkle"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Arkadelphia Promise",
+     "role": "President, Board of Directors",
+     "seniority": "executive",
+     "years": "2010",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "McMillan, Turner and McCorkle",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -32696,16 +33231,35 @@
   "bryan w. boudouris|university of alabama": {
    "name": "Bryan W. Boudouris",
    "university": "University of Alabama",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Program Director, Division of Materials Research",
+     "seniority": "senior",
+     "years": "2020-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "bryan zugelder|illinois state university": {
@@ -32739,29 +33293,65 @@
   "bryant jackson|university of south dakota": {
    "name": "Bryant Jackson",
    "university": "University of South Dakota",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "International Association of Chiefs of Police"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "International Association of Chiefs of Police",
+     "role": "Member, Police Investigative Operations Committee and Policy Center Advisory Group",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "bryce pendleton|southern virginia university": {
    "name": "Bryce Pendleton",
    "university": "Southern Virginia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Kirchner & Associates Architects"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Kirchner & Associates Architects",
+     "role": "Architectural designer",
+     "seniority": "professional",
+     "years": "2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "bryn dolan|georgetown university": {
@@ -32782,12 +33372,14 @@
    "name": "Bryon Jackson",
    "university": "California State University, Long Beach",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -32796,13 +33388,15 @@
   "buck kelley|university of south alabama": {
    "name": "Buck Kelley",
    "university": "University of South Alabama",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
