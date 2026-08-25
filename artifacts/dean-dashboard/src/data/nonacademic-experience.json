@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3310,
-  "no": 10485,
+  "yes": 3316,
+  "no": 10479,
   "unknown": 15675,
-  "namedFirm": 2743,
-  "flagOnly": 567,
-  "firms": 3353,
-  "sittingWithTie": 2070,
-  "sittingSeniorTie": 1251,
-  "researched": 2728
+  "namedFirm": 2748,
+  "flagOnly": 568,
+  "firms": 3362,
+  "sittingWithTie": 2075,
+  "sittingSeniorTie": 1255,
+  "researched": 2743
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -249328,11 +249328,13 @@
    "name": "Tom Brannan",
    "university": "University of Alabama at Birmingham",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249415,12 +249417,14 @@
    "name": "Tom Dugas",
    "university": "Duquesne University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249444,11 +249448,13 @@
    "name": "Tom Greene",
    "university": "North Idaho College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249486,12 +249492,14 @@
    "name": "Tom Hoener",
    "university": "Antioch University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249656,12 +249664,14 @@
    "name": "Tom Morrison",
    "university": "Duke University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249764,16 +249774,66 @@
   "tom skinner|university of san diego": {
    "name": "Tom Skinner",
    "university": "University of San Diego",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 49,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "U.S. Environmental Protection Agency",
+    "Jones Day",
+    "Mayer Brown",
+    "Winston & Strawn"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Environmental Protection Agency",
+     "role": "Regional Administrator; Acting Assistant Administrator for Enforcement and Compliance",
+     "seniority": "executive",
+     "years": "1999-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 49
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Jones Day",
+     "role": "Attorney (regulatory/environmental)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Mayer Brown",
+     "role": "Attorney",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Winston & Strawn",
+     "role": "Attorney",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "tom smith|university of california, davis": {
@@ -249854,11 +249914,13 @@
    "name": "Tom Wamsley",
    "university": "Virginia Tech",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -249897,12 +249959,14 @@
   "tomiko jenkins|bryn mawr college": {
    "name": "Tomiko Jenkins",
    "university": "Bryn Mawr College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249999,16 +250063,44 @@
   "tomás díaz de la rubia|university of arizona": {
    "name": "Tomás Díaz de la Rubia",
    "university": "University of Arizona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Consulting"
+   ],
+   "firms": [
+    "Lawrence Livermore National Laboratory",
+    "Deloitte Consulting"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Lawrence Livermore National Laboratory",
+     "role": "Deputy Director for Science and Technology / Chief Research Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte Consulting",
+     "role": "Director, Strategy and Operations (Energy practice)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "tomás r. guilarte|florida international university": {
@@ -250323,15 +250415,52 @@
   "tony frank|colorado state university system": {
    "name": "Tony Frank",
    "university": "Colorado State University System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "National Western Stock Show Association",
+    "Boettcher Foundation",
+    "Denver Metro Chamber of Commerce"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Western Stock Show Association",
+     "role": "Board of Directors member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Boettcher Foundation",
+     "role": "Board of Directors member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Denver Metro Chamber of Commerce",
+     "role": "Board of Directors member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "tony g. waldrop|university of south alabama": {
@@ -250422,12 +250551,14 @@
    "name": "Tony Proudfoot",
    "university": "Western Michigan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -250550,27 +250681,46 @@
   "tonya strong|the evergreen state college": {
    "name": "Tonya Strong",
    "university": "The Evergreen State College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "African Leadership Academy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "African Leadership Academy",
+     "role": "Director of Admission for Global Programs",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "tonya walker|fisk university": {
    "name": "Tonya Walker",
    "university": "Fisk University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -250594,11 +250744,13 @@
    "name": "Tori Bennett",
    "university": "University of West Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -250663,15 +250815,59 @@
   "torres bell|rust college": {
    "name": "Torres Bell",
    "university": "Rust College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Technology",
+    "Other industry"
+   ],
+   "firms": [
+    "Jabil",
+    "iQor",
+    "Flex"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Jabil",
+     "role": "Production Team Lead",
+     "seniority": "professional",
+     "years": "2008-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 32
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "iQor",
+     "role": "Production Team Lead",
+     "seniority": "professional",
+     "years": "2015-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 32
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Flex",
+     "role": "Laptop Repair Technician",
+     "seniority": "professional",
+     "years": "2006-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "torsten n. wiesel|the rockefeller university": {
