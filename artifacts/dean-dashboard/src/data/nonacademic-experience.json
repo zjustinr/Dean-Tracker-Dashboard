@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3131,
-  "no": 10664,
+  "yes": 3142,
+  "no": 10653,
   "unknown": 15675,
-  "namedFirm": 2615,
-  "flagOnly": 516,
-  "firms": 3190,
-  "sittingWithTie": 1942,
-  "sittingSeniorTie": 1183,
-  "researched": 2428
+  "namedFirm": 2624,
+  "flagOnly": 518,
+  "firms": 3208,
+  "sittingWithTie": 1951,
+  "sittingSeniorTie": 1187,
+  "researched": 2443
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -214476,16 +214476,43 @@
   "robert peruzzotti|lesley university": {
    "name": "Robert Peruzzotti",
    "university": "Lesley University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Swarovski",
+    "Ocean State Job Lot"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Swarovski",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Ocean State Job Lot",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "robert ploutz-snyder|wayne state university": {
@@ -214505,13 +214532,15 @@
   "robert pompey|hampton university": {
    "name": "Robert Pompey",
    "university": "Hampton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -214618,13 +214647,15 @@
   "robert ritz|liberty university": {
    "name": "Robert Ritz",
    "university": "Liberty University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -214751,16 +214782,55 @@
   "robert s. robinson|saint michael's college": {
    "name": "Robert S. Robinson",
    "university": "Saint Michael's College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Consulting",
+    "Technology"
+   ],
+   "firms": [
+    "Banknorth Group",
+    "Dynamic Business Solutions",
+    "IBM"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Banknorth Group",
+     "role": "executive positions",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Dynamic Business Solutions",
+     "role": "IT consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "robert s. sullivan|university of california san diego": {
@@ -214886,13 +214956,15 @@
   "robert seniors|florida agricultural and mechanical university": {
    "name": "Robert Seniors",
    "university": "Florida Agricultural and Mechanical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -214974,16 +215046,46 @@
   "robert swerdlow|ucla": {
    "name": "Robert Swerdlow",
    "university": "UCLA",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "O'Melveny & Myers",
+    "Citizens Commission on Jail Violence (Los Angeles County)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "O'Melveny & Myers",
+     "role": "Associate, then Counsel, Litigation Department",
+     "seniority": "senior",
+     "years": "1999-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Citizens Commission on Jail Violence (Los Angeles County)",
+     "role": "Counsel",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "robert t. stroker|temple university": {
@@ -215256,14 +215358,44 @@
    "name": "Robert Watling",
    "university": "University of New Hampshire",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 0,
-   "sectors": [],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Alexandria City Public Schools",
+    "Howard Hughes Medical Institute"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Alexandria City Public Schools",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Howard Hughes Medical Institute",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
+   ],
    "flags": [
     "careerBackground: Finance and administration"
    ]
@@ -215405,17 +215537,34 @@
   "roberta albert|teachers college, columbia university": {
    "name": "Roberta Albert",
    "university": "Teachers College, Columbia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usadvancement",
     "usr2"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "AMS Planning & Research"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "AMS Planning & Research",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "roberta b. ness|university of texas health science center at houston": {
@@ -215449,12 +215598,14 @@
   "roberta lembke|st olaf college": {
    "name": "Roberta Lembke",
    "university": "St Olaf College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -215763,12 +215914,14 @@
    "name": "Robin Ploeger",
    "university": "University of Tulsa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -215938,45 +216091,173 @@
   "robyn davis-mahoney|teachers college, columbia university": {
    "name": "Robyn Davis-Mahoney",
    "university": "Teachers College, Columbia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Healthcare Providers",
+    "Healthcare & Pharma",
+    "Energy & Industrials",
+    "Technology"
+   ],
+   "firms": [
+    "Port Authority of New York & New Jersey",
+    "Northwell Health",
+    "Pfizer",
+    "Chevron",
+    "Xerox"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Port Authority of New York & New Jersey",
+     "role": "Talent and Organization Capability Division Lead; Program Director, Business Partner for Service & Change Management",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Northwell Health",
+     "role": "HR roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Pfizer",
+     "role": "HR roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Chevron",
+     "role": "HR roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Xerox",
+     "role": "HR roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "robyn fergus|university of colorado boulder": {
    "name": "Robyn Fergus",
    "university": "University of Colorado Boulder",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Denver Public Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Denver Public Schools",
+     "role": "Human Resources Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "robyn fournier|california intercontinental university": {
    "name": "Robyn Fournier",
    "university": "California Intercontinental University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations",
+    "Media & Entertainment",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "County of Orange",
+    "ECMC",
+    "MOB Media",
+    "RSnyder Law Firm"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "County of Orange",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "ECMC",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "MOB Media",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "RSnyder Law Firm",
+     "role": "Manager, Medical Department",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "robyn hannigan|ursinus college": {
@@ -215997,12 +216278,14 @@
    "name": "Robyn L. Driskell",
    "university": "Baylor University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -216137,15 +216420,32 @@
    "name": "Rod Lehnertz",
    "university": "University of Iowa",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Herbert Hoover Presidential Library Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Herbert Hoover Presidential Library Foundation",
+     "role": "Board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ],
    "flags": [
     "careerBackground: Finance and operations"
