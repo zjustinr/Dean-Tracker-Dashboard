@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2401,
-  "no": 11394,
+  "yes": 2409,
+  "no": 11386,
   "unknown": 15675,
-  "namedFirm": 2024,
-  "flagOnly": 377,
-  "firms": 2247,
-  "sittingWithTie": 1351,
-  "sittingSeniorTie": 786,
-  "researched": 1318
+  "namedFirm": 2031,
+  "flagOnly": 378,
+  "firms": 2260,
+  "sittingWithTie": 1358,
+  "sittingSeniorTie": 793,
+  "researched": 1333
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -63113,15 +63113,63 @@
   "deborah (debbie) dutton|university of new hampshire": {
    "name": "Deborah (Debbie) Dutton",
    "university": "University of New Hampshire",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Massachusetts Eye and Ear Infirmary",
+    "Boston Children's Hospital",
+    "Joslin Diabetes Center",
+    "National Multiple Sclerosis Society (Maine chapter)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Massachusetts Eye and Ear Infirmary",
+     "role": "Development, major gifts and management",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Boston Children's Hospital",
+     "role": "Development, major gifts and management",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Joslin Diabetes Center",
+     "role": "Development, major gifts and management",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Multiple Sclerosis Society (Maine chapter)",
+     "role": "Development staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "deborah a. cai|temple university": {
@@ -63229,11 +63277,13 @@
    "name": "Deborah Cohen",
    "university": "Northwestern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -63256,16 +63306,44 @@
   "deborah crawford|university of tennessee knoxville": {
    "name": "Deborah Crawford",
    "university": "University of Tennessee Knoxville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "National Science Foundation",
+    "International Computer Science Institute"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Executive leadership positions; agency liaison to NSTC, OSTP and NIH",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "International Computer Science Institute",
+     "role": "President and Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "deborah deas|university of california riverside": {
@@ -63747,12 +63825,14 @@
    "name": "Debra F. Hargrove",
    "university": "Dickinson College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -63762,11 +63842,13 @@
    "name": "Debra Fitzsimons",
    "university": "Allegheny College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -64003,46 +64085,127 @@
   "dede shows|william carey university": {
    "name": "DeDe Shows",
    "university": "William Carey University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Pine Belt Human Resources Association"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Pine Belt Human Resources Association",
+     "role": "Past President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "dee dee anderson|university of nebraska lincoln": {
    "name": "Dee Dee Anderson",
    "university": "University of Nebraska Lincoln",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "American Heart Association (Pine Belt)",
+    "Miss Hospitality"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Heart Association (Pine Belt)",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Miss Hospitality",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "dee dee mozeleski|the city college of new york": {
    "name": "Dee Dee Mozeleski",
    "university": "The City College of New York",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usadvancement",
     "usr2"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "FamilyKind",
+    "Seeds of Africa Foundation",
+    "Association of Fundraising Professionals, New York City chapter"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "FamilyKind",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Seeds of Africa Foundation",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Association of Fundraising Professionals, New York City chapter",
+     "role": "Co-Chair, Mentorship Committee; member, AFP Global Ethics Committee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "dee matthews|bryn mawr college": {
@@ -64063,12 +64226,14 @@
    "name": "Dee Siscoe",
    "university": "Missouri State University-Springfield",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -64435,16 +64600,34 @@
   "denis wirtz|johns hopkins university": {
    "name": "Denis Wirtz",
    "university": "Johns Hopkins University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "AbMeta Therapeutics"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "AbMeta Therapeutics",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "years": "2021",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "denise a. soares|university of west florida": {
@@ -64507,16 +64690,56 @@
   "denise brown-cornelius|bellarmine university": {
    "name": "Denise Brown-Cornelius",
    "university": "Bellarmine University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "Highlands Court, Inc.",
+    "Kentucky Society of Certified Public Accountants",
+    "Strothman & Company PSC"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Highlands Court, Inc.",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Kentucky Society of Certified Public Accountants",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Strothman & Company PSC",
+     "role": "Director of Tax Services",
+     "seniority": "senior",
+     "years": "2003-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "denise burge|university of cincinnati": {
@@ -64550,13 +64773,15 @@
   "denise cunningham|hofstra university": {
    "name": "Denise Cunningham",
    "university": "Hofstra University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -64608,11 +64833,13 @@
    "name": "Denise Flock-Williams",
    "university": "Louisiana State University Health Sciences Center, New Orleans",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -64759,12 +64986,14 @@
    "name": "Denise Tiberio",
    "university": "Sacred Heart University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -64802,12 +65031,14 @@
    "name": "Denise Wilhelm",
    "university": "Temple University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
