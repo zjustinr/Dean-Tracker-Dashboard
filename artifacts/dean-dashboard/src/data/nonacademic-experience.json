@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2927,
-  "no": 10868,
+  "yes": 2938,
+  "no": 10857,
   "unknown": 15675,
-  "namedFirm": 2455,
-  "flagOnly": 472,
-  "firms": 2940,
-  "sittingWithTie": 1782,
-  "sittingSeniorTie": 1082,
-  "researched": 2113
+  "namedFirm": 2463,
+  "flagOnly": 475,
+  "firms": 2955,
+  "sittingWithTie": 1790,
+  "sittingSeniorTie": 1085,
+  "researched": 2128
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -175403,12 +175403,14 @@
   "meike kaan|williams college": {
    "name": "Meike Kaan",
    "university": "Williams College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175431,13 +175433,15 @@
   "melaine kenyon|daemen university": {
    "name": "Melaine Kenyon",
    "university": "Daemen University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175530,16 +175534,44 @@
   "melanie douglas|university of california santa cruz": {
    "name": "Melanie Douglas",
    "university": "University of California Santa Cruz",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Sutter Health",
+    "Central California Alliance for Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Sutter Health",
+     "role": "Leadership roles in information technology",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Central California Alliance for Health",
+     "role": "Leadership roles in information technology",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "melanie irvin|virginia commonwealth university": {
@@ -175589,13 +175621,15 @@
   "melanie murry|university of memphis": {
    "name": "Melanie Murry",
    "university": "University of Memphis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175694,12 +175728,14 @@
    "name": "Melinda Carlson",
    "university": "University of Memphis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175722,16 +175758,43 @@
   "melinda hagemann|university of colorado colorado springs": {
    "name": "Melinda Hagemann",
    "university": "University of Colorado Colorado Springs",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Colorado Springs Chamber & EDC",
+    "The Gazette (Colorado Springs)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Colorado Springs Chamber & EDC",
+     "role": "Member, Board of Governors",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Gazette (Colorado Springs)",
+     "role": "Advertising Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "melinda j. wood|james madison university": {
@@ -175765,16 +175828,43 @@
   "melinda spaulding chevalier|rice university": {
    "name": "Melinda Spaulding Chevalier",
    "university": "Rice University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "KRIV Fox 26 Houston",
+    "WGNO ABC 26 New Orleans"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "KRIV Fox 26 Houston",
+     "role": "News Anchor and Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "WGNO ABC 26 New Orleans",
+     "role": "Anchor and Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "melinda treadwell|keene state college": {
@@ -175828,11 +175918,13 @@
    "name": "Melisa Baldwin",
    "university": "University of Colorado Denver",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -175855,16 +175947,48 @@
   "melissa anderson|albion college": {
    "name": "Melissa Anderson",
    "university": "Albion College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Ocupop",
+    "AIADA"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Media & Entertainment",
+     "firm": "Ocupop",
+     "role": "Media Strategist Consultant",
+     "seniority": "professional",
+     "years": "2009-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 32
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "AIADA",
+     "role": "Communications and Web Content Manager",
+     "seniority": "professional",
+     "years": "2004-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "melissa bledsoe|missouri state university": {
@@ -175898,30 +176022,75 @@
   "melissa clodfelter|elon university": {
    "name": "Melissa Clodfelter",
    "university": "Elon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "StaffBuilders Home Health and Hospice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "StaffBuilders Home Health and Hospice",
+     "role": "Hospice Chaplain, Bereavement Counselor and Volunteer Coordinator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "melissa connolly|university at albany, suny": {
    "name": "Melissa Connolly",
    "university": "University at Albany, SUNY",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Farrell Fritz, P.C.",
+    "Office of New York State Senator Kemp Hannon"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Farrell Fritz, P.C.",
+     "role": "Director of Marketing (the firm's first)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of New York State Senator Kemp Hannon",
+     "role": "Director of Communications",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "melissa craft|university of oklahoma health sciences center": {
@@ -176196,14 +176365,52 @@
    "name": "Melissa Morris",
    "university": "Marian University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Elevance Health (formerly Anthem)",
+    "Ascension St. Vincent Indiana",
+    "Sanford Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Elevance Health (formerly Anthem)",
+     "role": "Staff Vice President for Diversity, Equity and Inclusion",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Ascension St. Vincent Indiana",
+     "role": "Human Resources and Organizational Development Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Sanford Health",
+     "role": "Senior Executive Director of Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -176240,12 +176447,14 @@
   "melissa nash|lake forest college": {
    "name": "Melissa Nash",
    "university": "Lake Forest College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -176356,12 +176565,14 @@
    "name": "Melissa S. Shivers",
    "university": "Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -176370,16 +176581,34 @@
   "melissa shaffmaster|haverford college": {
    "name": "Melissa Shaffmaster",
    "university": "Haverford College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Gadabout Transportation Services"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Gadabout Transportation Services",
+     "role": "Board Member",
+     "seniority": "unknown",
+     "years": "2018",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "melissa sinclair|university of north carolina wilmington": {
