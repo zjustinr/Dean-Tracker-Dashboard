@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2371,
-  "no": 11424,
+  "yes": 2381,
+  "no": 11414,
   "unknown": 15675,
-  "namedFirm": 1995,
-  "flagOnly": 376,
-  "firms": 2199,
-  "sittingWithTie": 1322,
-  "sittingSeniorTie": 765,
-  "researched": 1273
+  "namedFirm": 2003,
+  "flagOnly": 378,
+  "firms": 2211,
+  "sittingWithTie": 1330,
+  "sittingSeniorTie": 770,
+  "researched": 1288
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -54164,15 +54164,45 @@
   "daniel sui|virginia tech": {
    "name": "Daniel Sui",
    "university": "Virginia Tech",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. National Science Foundation",
+    "U.S. Centers for Disease Control and Prevention"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. National Science Foundation",
+     "role": "Division Director, Social and Economic Sciences",
+     "seniority": "senior",
+     "years": "2016-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Centers for Disease Control and Prevention",
+     "role": "Visiting Senior Research Scientist",
+     "seniority": "senior",
+     "years": "2007",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "daniel sullivan|university of connecticut": {
@@ -54192,13 +54222,15 @@
   "daniel t. byrd|whittier college": {
    "name": "Daniel T. Byrd",
    "university": "Whittier College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -54235,16 +54267,33 @@
   "daniel valles|albion college": {
    "name": "Daniel Valles",
    "university": "Albion College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Sodexo North America"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Sodexo North America",
+     "role": "District Manager (previously General Manager)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "daniel w. lufkin|harrisburg area community college": {
@@ -54445,15 +54494,32 @@
   "danielle coscia|sarah lawrence college": {
    "name": "Danielle Coscia",
    "university": "Sarah Lawrence College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Brooklyn Botanic Garden"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Brooklyn Botanic Garden",
+     "role": "Director of Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "danielle egan|connecticut college": {
@@ -54532,15 +54598,33 @@
   "danielle lico|st. john's college": {
    "name": "Danielle Lico",
    "university": "St. John's College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Calverton School"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Calverton School",
+     "role": "President, Board of Trustees",
+     "seniority": "executive",
+     "years": "2019",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "danielle m. conway|pennsylvania state university": {
@@ -54578,16 +54662,55 @@
   "danielle m. marsh|concordia university wisconsin": {
    "name": "Danielle M. Marsh",
    "university": "Concordia University Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations",
+    "Financial Services"
+   ],
+   "firms": [
+    "Froedtert & The Medical College of Wisconsin",
+    "Harry & Rose Samson Family Jewish Community Center",
+    "CliftonLarsonAllen"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Froedtert & The Medical College of Wisconsin",
+     "role": "Senior Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Harry & Rose Samson Family Jewish Community Center",
+     "role": "Manager, Accounting",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "CliftonLarsonAllen",
+     "role": "Public accounting / audit staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "danielle n. ripich|university of new england": {
@@ -54812,12 +54935,14 @@
    "name": "Dannie Moore",
    "university": "Sam Houston State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -54928,11 +55053,13 @@
    "name": "Danny Tang",
    "university": "University of Alabama in Huntsville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -55147,12 +55274,14 @@
    "name": "Daren Hubbard",
    "university": "Princeton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -55622,12 +55751,14 @@
    "name": "Darryl D. Wright-Greene",
    "university": "North Carolina Agricultural and Technical State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -55650,27 +55781,48 @@
   "darryl holloman|spelman college": {
    "name": "Darryl Holloman",
    "university": "Spelman College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Intelligence Specialist, Petty Officer Third Class",
+     "seniority": "professional",
+     "years": "1986-1990",
+     "endYear": 1990,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "darryl scriven|florida agricultural and mechanical university": {
    "name": "Darryl Scriven",
    "university": "Florida Agricultural and Mechanical University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -55789,16 +55941,69 @@
   "daryl weinert|carnegie mellon university": {
    "name": "Daryl Weinert",
    "university": "Carnegie Mellon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Financial Services",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Greater Pittsburgh Chamber of Commerce",
+    "JP Morgan Chase & Co.",
+    "Aon Corporation",
+    "U.S. Peace Corps"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Pittsburgh Chamber of Commerce",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "JP Morgan Chase & Co.",
+     "role": "Vice President, Commercial Banking",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Aon Corporation",
+     "role": "Director of Procurement Strategy",
+     "seniority": "senior",
+     "years": "1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Peace Corps",
+     "role": "Volunteer, Appropriate Technology program (Agricultural Development Bank, Nepal)",
+     "seniority": "professional",
+     "years": "1987-1989",
+     "endYear": 1989,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "daryle williams|university of california riverside": {
@@ -55818,12 +56023,14 @@
   "dave berglund|macalester college": {
    "name": "Dave Berglund",
    "university": "Macalester College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -55860,15 +56067,65 @@
   "dave norris|louisiana tech university": {
    "name": "Dave Norris",
    "university": "Louisiana Tech University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Greater Ouachita Coalition for AIDS Resources and Education",
+    "Living Well Healthcare Foundation",
+    "Louisiana Business Incubator Association",
+    "U.S. Department of Health and Human Services"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Ouachita Coalition for AIDS Resources and Education",
+     "role": "President (board)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Living Well Healthcare Foundation",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Louisiana Business Incubator Association",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Health and Human Services",
+     "role": "Economist, Office of the Chief Economist",
+     "seniority": "professional",
+     "years": "1998-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "dave ramsaran|susquehanna university": {
