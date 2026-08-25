@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2430,
-  "no": 11365,
+  "yes": 2448,
+  "no": 11347,
   "unknown": 15675,
-  "namedFirm": 2047,
-  "flagOnly": 383,
-  "firms": 2288,
-  "sittingWithTie": 1374,
-  "sittingSeniorTie": 804,
-  "researched": 1363
+  "namedFirm": 2063,
+  "flagOnly": 385,
+  "firms": 2308,
+  "sittingWithTie": 1390,
+  "sittingSeniorTie": 812,
+  "researched": 1393
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -57998,15 +57998,34 @@
   "david f. heimburger|saint louis university": {
    "name": "David F. Heimburger",
    "university": "Saint Louis University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Anheuser-Busch"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Anheuser-Busch",
+     "role": "Executive Assistant to the Vice President and Controller",
+     "seniority": "professional",
+     "years": "2000-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "david f. maize|university of the incarnate word": {
@@ -58087,16 +58106,43 @@
   "david fugett|university of west florida": {
    "name": "David Fugett",
    "university": "University of West Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Florida Department of State",
+    "Office of the Florida Attorney General"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Florida Department of State",
+     "role": "Chief Litigation Attorney and General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Florida Attorney General",
+     "role": "Assistant Attorney General, Complex Civil Enforcement Bureau",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david fuller|university of florida": {
@@ -58233,12 +58279,14 @@
    "name": "David Gingerella",
    "university": "University of Massachusetts Dartmouth",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -58421,13 +58469,15 @@
   "david h. snider|florida international university": {
    "name": "David H. Snider",
    "university": "Florida International University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -58504,12 +58554,14 @@
    "name": "David Hatchett",
    "university": "University of Nevada Las Vegas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -58532,13 +58584,15 @@
   "david horton|pennsylvania state university": {
    "name": "David Horton",
    "university": "Pennsylvania State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -58547,12 +58601,14 @@
   "david hotchkiss|medical college of wisconsin": {
    "name": "David Hotchkiss",
    "university": "Medical College of Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -58704,11 +58760,13 @@
    "name": "David J. Fraboni III",
    "university": "Clark Atlanta University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -58936,11 +58994,13 @@
    "name": "David K. Whitmore",
    "university": "Binghamton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -59216,12 +59276,14 @@
    "name": "David L. Butler",
    "university": "Middle Tennessee State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -59301,13 +59363,15 @@
   "david l. hamilton|amherst college": {
    "name": "David L. Hamilton",
    "university": "Amherst College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -59358,26 +59422,45 @@
   "david l. kennedy|duke university": {
    "name": "David L. Kennedy",
    "university": "Duke University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "YMCA of Silicon Valley"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "YMCA of Silicon Valley",
+     "role": "Board Chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "david l. unruh|george washington university": {
    "name": "David L. Unruh",
    "university": "George Washington University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -59401,15 +59484,32 @@
    "name": "David LaChina",
    "university": "Morgan State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "PricewaterhouseCoopers"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "PricewaterhouseCoopers",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "careerBackground: Finance & administration executive"
@@ -59418,16 +59518,33 @@
   "david lambeth|north carolina agricultural and technical state university": {
    "name": "David Lambeth",
    "university": "North Carolina Agricultural and Technical State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Bugg & Wolf, P.A."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Bugg & Wolf, P.A.",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david lance|university of washington": {
@@ -76517,29 +76634,104 @@
   "eric leal|oberlin college": {
    "name": "Eric Leal",
    "university": "Oberlin College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "U.S. Department of Veterans Affairs",
+    "VA Puget Sound Health Care System",
+    "U.S. Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Veterans Affairs",
+     "role": "Interim Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "VA Puget Sound Health Care System",
+     "role": "Chief Operating Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Air Force",
+     "role": "Administrative positions (14 years)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "eric lessne|southern connecticut state university": {
    "name": "Eric Lessne",
    "university": "Southern Connecticut State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Konover Construction Corporation",
+    "ACMAT Corporation",
+    "Aecon Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Konover Construction Corporation",
+     "role": "Construction/project role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "ACMAT Corporation",
+     "role": "Construction/project role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Aecon Inc.",
+     "role": "Construction/project role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "eric m. gladney|north carolina a&t state university": {
@@ -76650,13 +76842,15 @@
   "eric n. monday|university of kentucky": {
    "name": "Eric N. Monday",
    "university": "University of Kentucky",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -76798,16 +76992,63 @@
   "eric runestad|carleton college": {
    "name": "Eric Runestad",
    "university": "Carleton College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Wisconsin School Music Association",
+    "Wisconsin Music Educators Association",
+    "Wisconsin Foundation for School Music",
+    "Minnesota Music Educators Association"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Wisconsin School Music Association",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Wisconsin Music Educators Association",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Wisconsin Foundation for School Music",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Minnesota Music Educators Association",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "eric sandgren|university of nevada las vegas": {
@@ -76831,14 +77072,31 @@
    "name": "Eric Schacht",
    "university": "Lawrence University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Wolfram Research"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Wolfram Research",
+     "role": "General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -76847,15 +77105,32 @@
   "eric schick|missouri state university-springfield": {
    "name": "Eric Schick",
    "university": "Missouri State University-Springfield",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Saint Francis Health System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Saint Francis Health System",
+     "role": "Executive Vice President and Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "eric spangenberg|university of california irvine": {
@@ -76904,11 +77179,13 @@
    "name": "Eric T. Baldwin",
    "university": "Creighton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -76962,16 +77239,46 @@
   "eric whitmore|central michigan university": {
    "name": "Eric Whitmore",
    "university": "Central Michigan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Technology"
+   ],
+   "firms": [
+    "England Logistics",
+    "Gartner"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "England Logistics",
+     "role": "Director of Information Technology",
+     "seniority": "senior",
+     "years": "2011-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Gartner",
+     "role": "Application Innovation & Business Solutions Summit Advisory Board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "erica arroyo|university of miami": {
@@ -77138,15 +77445,34 @@
   "erich baker|belmont university": {
    "name": "Erich Baker",
    "university": "Belmont University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Energy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Energy",
+     "role": "Researcher",
+     "seniority": "professional",
+     "years": "2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "erich j. baker|baylor university": {
@@ -77166,16 +77492,33 @@
   "ericka smith|university of nevada las vegas": {
    "name": "Ericka Smith",
    "university": "University of Nevada Las Vegas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Pyramid Global Hospitality"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Pyramid Global Hospitality",
+     "role": "Director, Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "erik brink|university of southern california": {
@@ -77414,16 +77757,56 @@
   "erika geetter|boston university": {
    "name": "Erika Geetter",
    "university": "Boston University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Legal Services of Middle Tennessee",
+    "U.S. Court of Appeals for the Eleventh Circuit",
+    "Metropolitan Legal Department, Nashville and Davidson County"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Legal Services of Middle Tennessee",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Eleventh Circuit",
+     "role": "Law clerk to Judge Phyllis A. Kravitch",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Metropolitan Legal Department, Nashville and Davidson County",
+     "role": "Attorney",
+     "seniority": "professional",
+     "years": "1996",
+     "endYear": 1996,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "erika h. james|emory university": {
@@ -77485,12 +77868,14 @@
   "erika krennerich chudy|arkansas state university": {
    "name": "Erika Krennerich Chudy",
    "university": "Arkansas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -77586,11 +77971,13 @@
    "name": "Erin Barnett",
    "university": "The College of Saint Scholastica",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -77742,15 +78129,32 @@
   "erin kastberg|gonzaga university": {
    "name": "Erin Kastberg",
    "university": "Gonzaga University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Strang Law LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Strang Law LLC",
+     "role": "Attorney, school law and labor relations",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "erin l. heilmeier|bowling green state university": {
@@ -78117,15 +78521,32 @@
   "ernest pringle|university of south carolina aiken": {
    "name": "Ernest Pringle",
    "university": "University of South Carolina Aiken",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Policy Management Systems Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Policy Management Systems Corporation",
+     "role": "Network operator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ernie minton, ph.d.|kansas state university": {
