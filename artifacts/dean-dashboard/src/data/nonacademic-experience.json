@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3293,
-  "no": 10502,
+  "yes": 3300,
+  "no": 10495,
   "unknown": 15675,
-  "namedFirm": 2734,
-  "flagOnly": 559,
-  "firms": 3344,
-  "sittingWithTie": 2061,
-  "sittingSeniorTie": 1246,
-  "researched": 2698
+  "namedFirm": 2738,
+  "flagOnly": 562,
+  "firms": 3350,
+  "sittingWithTie": 2065,
+  "sittingSeniorTie": 1248,
+  "researched": 2713
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -245346,16 +245346,33 @@
   "thomas c. segar|indiana university of pennsylvania": {
    "name": "Thomas C. Segar",
    "university": "Indiana University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "LeaderShape, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "LeaderShape, Inc.",
+     "role": "Staff position (title unspecified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "thomas c. sheahan|northeastern university": {
@@ -245403,12 +245420,14 @@
   "thomas dechiaro|dartmouth college": {
    "name": "Thomas DeChiaro",
    "university": "Dartmouth College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -245503,15 +245522,32 @@
    "name": "Thomas E. Nedell",
    "university": "Northeastern University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Coopers & Lybrand"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Coopers & Lybrand",
+     "role": "Senior Associate, Audit Practice",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance, audit services, and treasury operations"
@@ -245708,15 +245744,53 @@
   "thomas g. pistorino|regis college": {
    "name": "Thomas G. Pistorino",
    "university": "Regis College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Consulting"
+   ],
+   "firms": [
+    "Canam Steel Corporation",
+    "CBIZ & MHM, LLC",
+    "Gerard Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Canam Steel Corporation",
+     "role": "Regional Controller to Vice President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "CBIZ & MHM, LLC",
+     "role": "Director of Higher Education and Not-for-Profit Advisory",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Gerard Group",
+     "role": "Management Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "thomas h. deluca|oregon state university": {
@@ -245785,14 +245859,16 @@
   "thomas h. knudsen|pepperdine university": {
    "name": "Thomas H. Knudsen",
    "university": "Pepperdine University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -245886,11 +245962,13 @@
    "name": "Thomas J. Farrell",
    "university": "University of Rochester",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -246178,6 +246256,8 @@
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -246354,11 +246434,13 @@
    "name": "Thomas P. Rock",
    "university": "Teachers College, Columbia University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -246482,11 +246564,13 @@
    "name": "Thomas S. Risch",
    "university": "Rutgers University-Camden",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -246553,12 +246637,14 @@
    "name": "Thomas Spencer",
    "university": "University of Missouri",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -246626,11 +246712,13 @@
    "name": "Thomas Van Schoor",
    "university": "University of North Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -246757,12 +246845,14 @@
   "thomas welch|gardner-webb university": {
    "name": "Thomas Welch",
    "university": "Gardner-Webb University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -246883,13 +246973,15 @@
   "tiffany foxworth|university of south carolina": {
    "name": "Tiffany Foxworth",
    "university": "University of South Carolina",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -246927,12 +247019,14 @@
    "name": "Tiffany Heng-Moss",
    "university": "University of Nebraska Lincoln",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -246999,15 +247093,45 @@
   "tiffany r. wright|johns hopkins university": {
    "name": "Tiffany R. Wright",
    "university": "Johns Hopkins University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "The White House Counsel's Office (Executive Office of the President)",
+    "Orrick, Herrington & Sutcliffe LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "The White House Counsel's Office (Executive Office of the President)",
+     "role": "Associate Counsel to the President",
+     "seniority": "senior",
+     "years": "2022-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Orrick, Herrington & Sutcliffe LLP",
+     "role": "Appellate Lawyer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tiffany radcliff|texas a&m university": {
