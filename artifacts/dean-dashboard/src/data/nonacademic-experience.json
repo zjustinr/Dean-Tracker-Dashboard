@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3316,
-  "no": 10479,
+  "yes": 3325,
+  "no": 10470,
   "unknown": 15675,
-  "namedFirm": 2748,
-  "flagOnly": 568,
-  "firms": 3362,
-  "sittingWithTie": 2075,
-  "sittingSeniorTie": 1255,
-  "researched": 2743
+  "namedFirm": 2754,
+  "flagOnly": 571,
+  "firms": 3368,
+  "sittingWithTie": 2081,
+  "sittingSeniorTie": 1261,
+  "researched": 2758
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -248558,13 +248558,15 @@
   "timothy stafford|aquinas college": {
    "name": "Timothy Stafford",
    "university": "Aquinas College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -248573,30 +248575,66 @@
   "timothy stringer|indiana university of pennsylvania": {
    "name": "Timothy Stringer",
    "university": "Indiana University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Ferguson Township Police Department"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Ferguson Township Police Department",
+     "role": "Patrol Officer, Corporal and Sergeant",
+     "seniority": "senior",
+     "years": "1995-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "timothy susanin|university of pennsylvania": {
    "name": "Timothy Susanin",
    "university": "University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Horizon Blue Cross Blue Shield of New Jersey"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Horizon Blue Cross Blue Shield of New Jersey",
+     "role": "Senior Vice President and Chief Audit, Compliance, and Risk Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "timothy wei|rensselaer polytechnic institute": {
@@ -248675,11 +248713,13 @@
    "name": "Tina Hennessey",
    "university": "Bowling Green State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -248731,12 +248771,14 @@
    "name": "Tina W. Livingston",
    "university": "East Texas A&M University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -248871,13 +248913,15 @@
   "todd burson|kenyon college": {
    "name": "Todd Burson",
    "university": "Kenyon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -248886,13 +248930,15 @@
   "todd clark|arkansas state university": {
    "name": "Todd Clark",
    "university": "Arkansas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -248901,13 +248947,15 @@
   "todd d. foreman|university at albany, suny": {
    "name": "Todd D. Foreman",
    "university": "University at Albany, SUNY",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -248964,15 +249012,42 @@
    "name": "Todd Haggerty",
    "university": "University of Colorado Boulder",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Colorado Department of Higher Education",
+    "National Conference of State Legislatures"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Colorado Department of Higher Education",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Conference of State Legislatures",
+     "role": "Senior Policy Specialist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Business, Finance and Infrastructure"
@@ -248995,13 +249070,15 @@
   "todd lineburger|muhlenberg college": {
    "name": "Todd Lineburger",
    "university": "Muhlenberg College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249108,15 +249185,44 @@
   "todd saliman|university of colorado": {
    "name": "Todd Saliman",
    "university": "University of Colorado",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Colorado Office of State Planning and Budgeting",
+    "Colorado General Assembly"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Colorado Office of State Planning and Budgeting",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Colorado General Assembly",
+     "role": "State Representative (member, House District 11)",
+     "seniority": "senior",
+     "years": "1995-2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "todd shields|arkansas state university": {
@@ -249137,11 +249243,13 @@
    "name": "Todd Shields",
    "university": "Arkansas State University System",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249283,42 +249391,101 @@
   "tokumbo shobowale|fordham university": {
    "name": "Tokumbo Shobowale",
    "university": "Fordham University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Consulting"
+   ],
+   "firms": [
+    "City of New York (Office of the Mayor)",
+    "New York City Economic Development Corporation",
+    "McKinsey & Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of New York (Office of the Mayor)",
+     "role": "Chief Business Operations Officer",
+     "seniority": "executive",
+     "years": "2010-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Economic Development Corporation",
+     "role": "Chief Operating Officer / Executive Vice President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "McKinsey & Company",
+     "role": "Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tom armstrong|southern connecticut state university": {
    "name": "Tom Armstrong",
    "university": "Southern Connecticut State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "State of Connecticut"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "State of Connecticut",
+     "role": "Director of IT Strategy and Enterprise Architecture",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "tom bickart|national american university-rapid city": {
    "name": "Tom Bickart",
    "university": "National American University-Rapid City",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
