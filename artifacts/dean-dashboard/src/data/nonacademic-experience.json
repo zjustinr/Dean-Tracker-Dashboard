@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2884,
-  "no": 10911,
+  "yes": 2897,
+  "no": 10898,
   "unknown": 15675,
-  "namedFirm": 2424,
-  "flagOnly": 460,
-  "firms": 2900,
-  "sittingWithTie": 1751,
-  "sittingSeniorTie": 1058,
-  "researched": 2053
+  "namedFirm": 2434,
+  "flagOnly": 463,
+  "firms": 2915,
+  "sittingWithTie": 1761,
+  "sittingSeniorTie": 1065,
+  "researched": 2068
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -158386,16 +158386,66 @@
   "lisa loo|arizona state university": {
    "name": "Lisa Loo",
    "university": "Arizona State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 81,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "State Bar of Arizona",
+    "Center for the Future of Arizona",
+    "Arizona Asian American Bar Association",
+    "Harmony, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "State Bar of Arizona",
+     "role": "President",
+     "seniority": "executive",
+     "years": "2016-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 81
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Center for the Future of Arizona",
+     "role": "Member, Board of Directors",
+     "seniority": "senior",
+     "years": "2022",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Arizona Asian American Bar Association",
+     "role": "Founding Board Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Harmony, Inc.",
+     "role": "Founding Board Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "lisa m. bellini|university of pennsylvania": {
@@ -158457,30 +158507,65 @@
   "lisa m. larson|umass chan medical school": {
    "name": "Lisa M. Larson",
    "university": "UMass Chan Medical School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Boston Herald"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Boston Herald",
+     "role": "Reporter and Editor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "lisa m. sethre-hofstad|concordia college at moorhead": {
    "name": "Lisa M. Sethre-Hofstad",
    "university": "Concordia College at Moorhead",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Northwestern Minnesota Synod, Evangelical Lutheran Church in America (ELCA)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Northwestern Minnesota Synod, Evangelical Lutheran Church in America (ELCA)",
+     "role": "Minister for Generosity",
+     "seniority": "senior",
+     "years": "2026",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "lisa marchiondo|university of new mexico": {
@@ -158640,31 +158725,102 @@
   "lisa s. stump|icahn school of medicine at mount sinai": {
    "name": "Lisa S. Stump",
    "university": "Icahn School of Medicine at Mount Sinai",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Yale New Haven Health",
+    "American Society of Health-System Pharmacists",
+    "Mount Sinai Health System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Yale New Haven Health",
+     "role": "Senior Vice President and Chief Information and Digital Transformation Officer",
+     "seniority": "executive",
+     "years": "1996-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Society of Health-System Pharmacists",
+     "role": "Inaugural Chair, Section of Digital and Telehealth Providers",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Mount Sinai Health System",
+     "role": "Chief Digital Information Officer",
+     "seniority": "executive",
+     "years": "2024",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "lisa schiller|north carolina state university": {
    "name": "Lisa Schiller",
    "university": "North Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "UNC Health",
+    "UNC Health Rex"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UNC Health",
+     "role": "Chief Communications and Marketing Officer",
+     "seniority": "executive",
+     "years": "2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UNC Health Rex",
+     "role": "Vice President",
+     "seniority": "executive",
+     "years": "2006",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "lisa schultz bressman|vanderbilt university": {
@@ -158855,12 +159011,14 @@
    "name": "Lisa Zapata",
    "university": "North Carolina State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -158915,15 +159073,32 @@
   "liv gjestvang|denison university": {
    "name": "Liv Gjestvang",
    "university": "Denison University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Amazon Web Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Amazon Web Services",
+     "role": "Higher Education Strategy team",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "livia cangemi|hunter college": {
@@ -159013,13 +159188,15 @@
   "llen pomeroy|university of colorado boulder": {
    "name": "Llen Pomeroy",
    "university": "University of Colorado Boulder",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -159028,15 +159205,33 @@
   "lloyd a. ricketts|wilmington university": {
    "name": "Lloyd A. Ricketts",
    "university": "Wilmington University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Delaware State Chamber of Commerce"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Delaware State Chamber of Commerce",
+     "role": "Member, Board of Governors",
+     "seniority": "senior",
+     "years": "2025",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "lloyd b. minor|stanford university": {
@@ -159377,16 +159572,35 @@
   "lora strigens|marquette university": {
    "name": "Lora Strigens",
    "university": "Marquette University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 75,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Menomonee Valley Partners"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Menomonee Valley Partners",
+     "role": "Member, Board of Directors",
+     "seniority": "senior",
+     "years": "2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 75
+    }
    ]
   },
   "loren chandler|valparaiso university": {
@@ -159481,15 +159695,42 @@
   "lorena peñaloza|university of california riverside": {
    "name": "Lorena Peñaloza",
    "university": "University of California Riverside",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Santa Ana",
+    "U.S. Social Security Administration, Office of the General Counsel"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Santa Ana",
+     "role": "Assistant City Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Social Security Administration, Office of the General Counsel",
+     "role": "Presidential Management Fellow",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "loretta jackson-williams|university of mississippi": {
@@ -159509,16 +159750,33 @@
   "loretta p. martinez|loyola marymount university": {
    "name": "Loretta P. Martinez",
    "university": "Loyola Marymount University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Garcia Calderon Ruiz, LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Garcia Calderon Ruiz, LLP",
+     "role": "Partner, Colorado office",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "lori a. edwards|university of maryland, baltimore": {
@@ -159653,13 +159911,15 @@
   "lori herrick|abilene christian university": {
    "name": "Lori Herrick",
    "university": "Abilene Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -159824,13 +160084,15 @@
   "lori preiss|university of north carolina wilmington": {
    "name": "Lori Preiss",
    "university": "University of North Carolina Wilmington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -159868,12 +160130,14 @@
    "name": "Lori Reesor",
    "university": "University of Wisconsin Madison",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
