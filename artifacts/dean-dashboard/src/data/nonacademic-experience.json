@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3384,
-  "no": 10411,
+  "yes": 3395,
+  "no": 10400,
   "unknown": 15675,
-  "namedFirm": 2797,
-  "flagOnly": 587,
-  "firms": 3420,
-  "sittingWithTie": 2124,
-  "sittingSeniorTie": 1287,
-  "researched": 2851
+  "namedFirm": 2802,
+  "flagOnly": 593,
+  "firms": 3428,
+  "sittingWithTie": 2129,
+  "sittingSeniorTie": 1288,
+  "researched": 2866
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -252381,12 +252381,14 @@
   "travis m. smith|university of california riverside": {
    "name": "Travis M. Smith",
    "university": "University of California Riverside",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -252425,12 +252427,14 @@
   "travis nation|seattle university": {
    "name": "Travis Nation",
    "university": "Seattle University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -252470,12 +252474,14 @@
    "name": "Travis T. Apgar",
    "university": "Case Western Reserve University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -252484,12 +252490,14 @@
   "travis wilson|university of the cumberlands": {
    "name": "Travis Wilson",
    "university": "University of the Cumberlands",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -252513,11 +252521,13 @@
    "name": "Traycee Martin",
    "university": "Valdosta State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -252526,16 +252536,45 @@
   "trazanna moreno|prairie view a&m university": {
    "name": "Trazanna Moreno",
    "university": "Prairie View A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Houston Symphony",
+    "Houston Zoo"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Houston Symphony",
+     "role": "Chief Marketing Officer",
+     "seniority": "executive",
+     "years": "2016-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Houston Zoo",
+     "role": "Senior Vice President of Marketing, Communications, and Technology",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "tremier johnson|alliant international university-san diego": {
@@ -252572,16 +252611,44 @@
   "trent a. grocock|university of notre dame": {
    "name": "Trent A. Grocock",
    "university": "University of Notre Dame",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology",
+    "Financial Services"
+   ],
+   "firms": [
+    "MCI Communications",
+    "GE Capital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "MCI Communications",
+     "role": "Finance position",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "GE Capital",
+     "role": "Finance position",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "trent gould|miami university": {
@@ -252822,26 +252889,65 @@
   "trey drawdy|georgia southern university": {
    "name": "Trey Drawdy",
    "university": "Georgia Southern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Marine Corps",
+    "Glynn County Schools Police",
+    "Juvenile Court of Glynn County"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Servicemember (veteran)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Glynn County Schools Police",
+     "role": "School Resource Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Juvenile Court of Glynn County",
+     "role": "Appointed officer/inter-agency trainer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "trey jarboe|university of the cumberlands": {
    "name": "Trey Jarboe",
    "university": "University of the Cumberlands",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -252967,15 +253073,32 @@
   "tricia smith|radford university": {
    "name": "Tricia Smith",
    "university": "Radford University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Alpha Gamma Delta Fraternity"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Alpha Gamma Delta Fraternity",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "tricia treacy|dartmouth college": {
@@ -253039,16 +253162,33 @@
   "trip bauer|national american university-rapid city": {
    "name": "Trip Bauer",
    "university": "National American University-Rapid City",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Second Mouse Design"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Second Mouse Design",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "trip c. addison|georgia southern university": {
@@ -253140,12 +253280,14 @@
   "trishana bowden|george mason university": {
    "name": "Trishana Bowden",
    "university": "George Mason University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -253325,13 +253467,15 @@
   "troy perdue|tennessee technological university": {
    "name": "Troy Perdue",
    "university": "Tennessee Technological University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -253486,11 +253630,13 @@
    "name": "Tyrone A. Parham",
    "university": "University of Massachusetts Amherst",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -253513,13 +253659,15 @@
   "tysen kendig|carnegie mellon university": {
    "name": "Tysen Kendig",
    "university": "Carnegie Mellon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
