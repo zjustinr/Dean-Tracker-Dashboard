@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2319,
-  "no": 11476,
+  "yes": 2328,
+  "no": 11467,
   "unknown": 15675,
-  "namedFirm": 1940,
-  "flagOnly": 379,
-  "firms": 2106,
-  "sittingWithTie": 1267,
-  "sittingSeniorTie": 726,
-  "researched": 1183
+  "namedFirm": 1950,
+  "flagOnly": 378,
+  "firms": 2121,
+  "sittingWithTie": 1277,
+  "sittingSeniorTie": 731,
+  "researched": 1198
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -46238,14 +46238,42 @@
    "name": "Clarence Ray Curtis",
    "university": "Gardner-Webb University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 39,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Valdese Weavers",
+    "Joan Fabrics Corp."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Valdese Weavers",
+     "role": "Technical Systems Manager",
+     "seniority": "professional",
+     "years": "2007-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 39
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Joan Fabrics Corp.",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -46370,11 +46398,13 @@
    "name": "Claudette M. Stern",
    "university": "Hobart William Smith Colleges",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -46560,13 +46590,15 @@
   "claudio lindow|california state university, los angeles": {
    "name": "Claudio Lindow",
    "university": "California State University, Los Angeles",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -46704,15 +46736,32 @@
   "cleo d. rucker|belmont university": {
    "name": "Cleo D. Rucker",
    "university": "Belmont University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Milwaukee Public Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Milwaukee Public Schools",
+     "role": "Attorney, Labor Relations Division",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "clif smart|missouri state university-springfield": {
@@ -46780,16 +46829,33 @@
   "clifton \"cliff\" m. iler|university of arizona": {
    "name": "Clifton \"Cliff\" M. Iler",
    "university": "University of Arizona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "MCG Health, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "MCG Health, Inc.",
+     "role": "Associate General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "clifton anderson|cheyney university of pennsylvania": {
@@ -46826,16 +46892,33 @@
   "clint-michael reneau|northern illinois university": {
    "name": "Clint-Michael Reneau",
    "university": "Northern Illinois University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Haydon High School / Sixth Form College (London)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Haydon High School / Sixth Form College (London)",
+     "role": "Assistant Principal, Teacher and Director for Student Development",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "clinton a. cornell|united states naval academy": {
@@ -46945,15 +47028,32 @@
   "coba canales|seattle pacific university": {
    "name": "Coba Canales",
    "university": "Seattle Pacific University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Mission Ebenezer Family Church"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mission Ebenezer Family Church",
+     "role": "Associate Pastor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "cody decker|university of arkansas at little rock": {
@@ -46991,11 +47091,13 @@
    "name": "Cody J. Lloyd",
    "university": "Southeastern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -47066,16 +47168,64 @@
   "cole camplese|university of texas at austin": {
    "name": "Cole Camplese",
    "university": "University of Texas at Austin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 61,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Dell Technologies",
+    "Workday",
+    "Microsoft",
+    "Junior Achievement"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Dell Technologies",
+     "role": "Advisory board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Workday",
+     "role": "Advisory board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Microsoft",
+     "role": "Advisory board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Junior Achievement",
+     "role": "Advisory board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    }
    ]
   },
   "cole m. crittenden|princeton university": {
@@ -47123,13 +47273,15 @@
   "colette coleman|george washington university": {
    "name": "Colette Coleman",
    "university": "George Washington University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -47359,11 +47511,13 @@
    "name": "Colleen Brennan-Barry",
    "university": "Northeast College of Health Sciences",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -47400,15 +47554,32 @@
   "colleen fitzgerald|hofstra university": {
    "name": "Colleen Fitzgerald",
    "university": "Hofstra University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Program Director, Documenting Endangered Languages",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "colleen glenney boggs|dartmouth college": {
@@ -47517,16 +47688,33 @@
   "colleen o'neill|university of pennsylvania": {
    "name": "Colleen O'Neill",
    "university": "University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Rorer Asset Management"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Rorer Asset Management",
+     "role": "Equity Trader",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "colleen riopko|loyola university maryland": {
@@ -47546,17 +47734,75 @@
   "collette creppell|chapman university": {
    "name": "Collette Creppell",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Other industry",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Eskew+Dumez+Ripple",
+    "New Orleans City Planning Commission",
+    "Ben Thompson & Associates",
+    "Moshe Safdie and Associates",
+    "Rafael Moneo (architecture practice, Spain)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Eskew+Dumez+Ripple",
+     "role": "Principal and Director of Urban Strategies",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New Orleans City Planning Commission",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Ben Thompson & Associates",
+     "role": "Architect",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Moshe Safdie and Associates",
+     "role": "Architect",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Rafael Moneo (architecture practice, Spain)",
+     "role": "Architect",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "collette niland|university of oregon": {
@@ -47606,16 +47852,33 @@
   "colt little|university of florida": {
    "name": "Colt Little",
    "university": "University of Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Latham, Shuker, Eden & Beaudine, LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Latham, Shuker, Eden & Beaudine, LLP",
+     "role": "Associate, real estate and public finance",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "concetta (connie) zak|aurora university": {
