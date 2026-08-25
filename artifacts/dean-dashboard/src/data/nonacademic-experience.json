@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2846,
-  "no": 10949,
+  "yes": 2857,
+  "no": 10938,
   "unknown": 15675,
-  "namedFirm": 2389,
+  "namedFirm": 2400,
   "flagOnly": 457,
-  "firms": 2846,
-  "sittingWithTie": 1716,
-  "sittingSeniorTie": 1036,
-  "researched": 1993
+  "firms": 2864,
+  "sittingWithTie": 1727,
+  "sittingSeniorTie": 1044,
+  "researched": 2008
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -151241,12 +151241,14 @@
   "latonda williams|university of arkansas at little rock": {
    "name": "LaTonda Williams",
    "university": "University of Arkansas at Little Rock",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -151269,15 +151271,43 @@
   "laura a. barbour|the university of texas rio grande valley": {
    "name": "Laura A. Barbour",
    "university": "The University of Texas Rio Grande Valley",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Skadden, Arps, Slate, Meagher & Flom LLP",
+    "Office of the Attorney General of Texas"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Skadden, Arps, Slate, Meagher & Flom LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Attorney General of Texas",
+     "role": "Assistant Attorney General",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "laura a. belmonte|virginia tech": {
@@ -151372,16 +151402,33 @@
   "laura b. regassa|bowling green state university": {
    "name": "Laura B. Regassa",
    "university": "Bowling Green State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Program Director, Division of Graduate Education",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "laura baecher-lind|tufts university": {
@@ -151505,13 +151552,15 @@
   "laura e. hubbard|university at buffalo": {
    "name": "Laura E. Hubbard",
    "university": "University at Buffalo",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -151898,16 +151947,33 @@
   "laura oster-aaland|north dakota state university": {
    "name": "Laura Oster-Aaland",
    "university": "North Dakota State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Jeremiah Program"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Jeremiah Program",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "laura palmer noone|university of phoenix-arizona": {
@@ -152061,16 +152127,46 @@
   "laura schaefer|pitzer college": {
    "name": "Laura Schaefer",
    "university": "Pitzer College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "AXA US",
+    "Cooper Industries"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "AXA US",
+     "role": "Director of Accounting and Reporting",
+     "seniority": "senior",
+     "years": "2010-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Cooper Industries",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "laura schlosberg|stanford university": {
@@ -152324,15 +152420,32 @@
   "laurel lusk|walsh university": {
    "name": "Laurel Lusk",
    "university": "Walsh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "415 Group, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "415 Group, Inc.",
+     "role": "Manager Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "lauren bird|george mason university": {
@@ -152426,12 +152539,14 @@
    "name": "Lauren Keeling",
    "university": "Bellarmine University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -152482,16 +152597,34 @@
   "lauren miltenberger|university of nebraska at omaha": {
    "name": "Lauren Miltenberger",
    "university": "University of Nebraska at Omaha",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Bridges Trust"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Bridges Trust",
+     "role": "Vice President of Philanthropy Services",
+     "seniority": "senior",
+     "years": "2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "lauren murray simione|university of delaware": {
@@ -152511,16 +152644,44 @@
   "lauren nickerson|california state university, fresno": {
    "name": "Lauren Nickerson",
    "university": "California State University, Fresno",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Public Relations Society of America, Central California Chapter",
+    "Vons"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Public Relations Society of America, Central California Chapter",
+     "role": "Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Vons",
+     "role": "Courtesy Clerk",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "lauren obersteadt|vanderbilt university": {
@@ -152568,15 +152729,53 @@
   "lauren schoenthaler|university of the pacific": {
    "name": "Lauren Schoenthaler",
    "university": "University of the Pacific",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Pillsbury Winthrop",
+    "Santa Clara County District Attorney's Office",
+    "U.S. Court of Appeals for the Ninth Circuit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Pillsbury Winthrop",
+     "role": "Associate Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Santa Clara County District Attorney's Office",
+     "role": "Deputy District Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Ninth Circuit",
+     "role": "Law Clerk to Judge A. Wallace Tashima",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "lauren villanueva|syracuse university": {
@@ -152597,11 +152796,13 @@
    "name": "Lauren W. Cosentino",
    "university": "Pepperdine University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -152733,15 +152934,42 @@
   "lauretta hill|university of southern california": {
    "name": "Lauretta Hill",
    "university": "University of Southern California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Miami Beach Police Department",
+    "Arlington Police Department (Arlington, Texas)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Miami Beach Police Department",
+     "role": "Deputy Chief",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Arlington Police Department (Arlington, Texas)",
+     "role": "Assistant Chief",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "laurie a. badzek|pennsylvania state university": {
@@ -153047,15 +153275,74 @@
   "lawrence bomback|muhlenberg college": {
    "name": "Lawrence Bomback",
    "university": "Muhlenberg College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Voices of Gotham",
+    "DataArts",
+    "OPERA America",
+    "New York Youth Symphony"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Voices of Gotham",
+     "role": "Chief Executive Officer and Board Chair",
+     "seniority": "executive",
+     "years": "2022",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "DataArts",
+     "role": "Chief Operating Officer and Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2014-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "DataArts",
+     "role": "Advisory Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "OPERA America",
+     "role": "Director of Finance and Operations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "New York Youth Symphony",
+     "role": "Operations Manager and Staff Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "lawrence carey|temple university": {
@@ -153121,16 +153408,35 @@
   "lawrence furnstahl|university of california san diego": {
    "name": "Lawrence Furnstahl",
    "university": "University of California San Diego",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "University of Chicago Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University of Chicago Medical Center",
+     "role": "Chief Financial and Strategy Officer",
+     "seniority": "executive",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "lawrence g. singleton|pace university": {
