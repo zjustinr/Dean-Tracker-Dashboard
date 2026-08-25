@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2722,
-  "no": 11073,
+  "yes": 2731,
+  "no": 11064,
   "unknown": 15675,
-  "namedFirm": 2296,
+  "namedFirm": 2305,
   "flagOnly": 426,
-  "firms": 2703,
-  "sittingWithTie": 1623,
-  "sittingSeniorTie": 969,
-  "researched": 1798
+  "firms": 2714,
+  "sittingWithTie": 1632,
+  "sittingSeniorTie": 976,
+  "researched": 1813
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -127391,16 +127391,44 @@
   "jonathan small|tulane university": {
    "name": "Jonathan Small",
    "university": "Tulane University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "TOCO Group LLC",
+    "Jubilee Housing"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "TOCO Group LLC",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Jubilee Housing",
+     "role": "Vice President of Administration and Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jonathan starkey|delaware state university": {
@@ -127434,16 +127462,43 @@
   "jonathan tyree|randolph college": {
    "name": "Jonathan Tyree",
    "university": "Randolph College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Lynchburg Sheltered Industries (now Achieve Central Virginia)",
+    "Miller Home for Girls"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lynchburg Sheltered Industries (now Achieve Central Virginia)",
+     "role": "Board member and Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Miller Home for Girls",
+     "role": "Board member and Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jonathan veitch|occidental college": {
@@ -127520,11 +127575,13 @@
    "name": "JoNes VanHecke",
    "university": "Saint Johns University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -127603,12 +127660,14 @@
   "jordan talge|seattle university": {
    "name": "Jordan Talge",
    "university": "Seattle University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -128276,11 +128335,13 @@
    "name": "Joseph Buck",
    "university": "University of Oregon",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -128305,30 +128366,64 @@
   "joseph campbell|rowan university": {
    "name": "Joseph Campbell",
    "university": "Rowan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Higher Ed Development Advisors, LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Higher Ed Development Advisors, LLC",
+     "role": "Not stated",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "joseph capparelli|pace university": {
    "name": "Joseph Capparelli",
    "university": "Pace University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "BDO USA"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "BDO USA",
+     "role": "Office Managing Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -128369,16 +128464,33 @@
    "name": "Joseph Cassidy",
    "university": "Stevens Institute of Technology",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "ARAMARK"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "ARAMARK",
+     "role": "Director of Audit; Regional Finance Director; Director of Accounting and Operations Reporting",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "careerBackground: Finance / Treasurer"
@@ -128415,13 +128527,15 @@
   "joseph dasilva|massachusetts college of liberal arts": {
    "name": "Joseph DaSilva",
    "university": "Massachusetts College of Liberal Arts",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -128692,16 +128806,35 @@
   "joseph hope|colgate university": {
    "name": "Joseph Hope",
    "university": "Colgate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Fidelity Investments"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Fidelity Investments",
+     "role": "Vice President",
+     "seniority": "senior",
+     "years": "1996-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "joseph hunter|linfield university": {
@@ -128864,31 +128997,79 @@
   "joseph j. pancrazio|university of texas at dallas": {
    "name": "Joseph J. Pancrazio",
    "university": "University of Texas at Dallas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Institute of Neurological Disorders and Stroke, National Institutes of Health",
+    "U.S. Naval Research Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Institute of Neurological Disorders and Stroke, National Institutes of Health",
+     "role": "Program Director for Neural Engineering and Neural Prosthesis Program",
+     "seniority": "senior",
+     "years": "2004-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Naval Research Laboratory",
+     "role": "Principal Investigator and Head, Code 6920 (Laboratory of Biomolecular Dynamics)",
+     "seniority": "senior",
+     "years": "1998-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "joseph jeremiah|hunter college": {
    "name": "Joseph Jeremiah",
    "university": "Hunter College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Port Authority of New York and New Jersey"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Port Authority of New York and New Jersey",
+     "role": "Security role at Port Authority and World Trade Center sites during the WTC rebuilding",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "joseph kalinowski, mba '15|clark university": {
@@ -129009,12 +129190,14 @@
    "name": "Joseph P. Kender",
    "university": "Saint Joseph's University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -129356,16 +129539,53 @@
   "josh bornstein|georgetown university": {
    "name": "Josh Bornstein",
    "university": "Georgetown University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Federal Emergency Management Agency (FEMA)",
+    "U.S. Centers for Disease Control and Prevention",
+    "U.S. Department of Agriculture"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Federal Emergency Management Agency (FEMA)",
+     "role": "Chief Security Officer and Deputy Associate Administrator for Mission Support",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Centers for Disease Control and Prevention",
+     "role": "Director, Office of Safety, Security and Asset Management, and Chief Security Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Agriculture",
+     "role": "Homeland security programs leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "josh bright|university of california santa barbara": {
@@ -130277,11 +130497,13 @@
    "name": "José Dieudonné",
    "university": "Muhlenberg College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
