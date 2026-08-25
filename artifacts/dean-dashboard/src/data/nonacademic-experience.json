@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2392,
-  "no": 11403,
+  "yes": 2401,
+  "no": 11394,
   "unknown": 15675,
-  "namedFirm": 2015,
+  "namedFirm": 2024,
   "flagOnly": 377,
-  "firms": 2231,
-  "sittingWithTie": 1342,
-  "sittingSeniorTie": 779,
-  "researched": 1303
+  "firms": 2247,
+  "sittingWithTie": 1351,
+  "sittingSeniorTie": 786,
+  "researched": 1318
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -60995,14 +60995,16 @@
   "david seidl|miami university": {
    "name": "David Seidl",
    "university": "Miami University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -61214,15 +61216,43 @@
    "name": "David T. Cowley",
    "university": "Utah State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Electronic Data Systems",
+    "Pepperidge Farm"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Electronic Data Systems",
+     "role": "Financial analyst and financial systems manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Pepperidge Farm",
+     "role": "Financial analyst and consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance and administrative services"
@@ -61364,15 +61394,53 @@
   "david van wie|johns hopkins university": {
    "name": "David Van Wie",
    "university": "Johns Hopkins University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Defense Science Board (U.S. Department of Defense)",
+    "U.S. Air Force Scientific Advisory Board",
+    "National Academies of Sciences, Engineering, and Medicine"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Defense Science Board (U.S. Department of Defense)",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Air Force Scientific Advisory Board",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Academies of Sciences, Engineering, and Medicine",
+     "role": "Member, Aeronautics and Space Engineering Board",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "david vanness, ph.d.|pennsylvania state university": {
@@ -61420,16 +61488,76 @@
   "david vranicar|university of kansas": {
    "name": "David Vranicar",
    "university": "University of Kansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Technology",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Kansas Bioscience Authority",
+    "Birch Telecom",
+    "Sprint",
+    "Marion Laboratories",
+    "MPSI Systems"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Kansas Bioscience Authority",
+     "role": "President and Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2011",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Birch Telecom",
+     "role": "Founding leadership team",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Sprint",
+     "role": "Leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Marion Laboratories",
+     "role": "Leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "MPSI Systems",
+     "role": "Leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "david w. andrews|university of massachusetts global": {
@@ -61632,16 +61760,45 @@
   "david w. reis|university of miami": {
    "name": "David W. Reis",
    "university": "University of Miami",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Hackensack Meridian Health",
+    "Lahey Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Hackensack Meridian Health",
+     "role": "Chief Information Officer",
+     "seniority": "executive",
+     "years": "2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Lahey Health",
+     "role": "Chief Information Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "david w. wright|indiana wesleyan university-national & global": {
@@ -61661,28 +61818,68 @@
   "david w. wright|university of southern california": {
    "name": "David W. Wright",
    "university": "University of Southern California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment",
+    "Consulting"
+   ],
+   "firms": [
+    "WEA Manufacturing",
+    "Deloitte & Touche Consulting Group",
+    "Disneyland Resort"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "WEA Manufacturing",
+     "role": "Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte & Touche Consulting Group",
+     "role": "Senior Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Disneyland Resort",
+     "role": "Planning Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david walker|dickinson college": {
    "name": "David Walker",
    "university": "Dickinson College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -61761,16 +61958,54 @@
   "david whitcomb|university of mississippi": {
    "name": "David Whitcomb",
    "university": "University of Mississippi",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "BakerHostetler",
+    "U.S. Equal Employment Opportunity Commission",
+    "U.S. District Court"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "BakerHostetler",
+     "role": "Partner, Columbus office",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Equal Employment Opportunity Commission",
+     "role": "Trial Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. District Court",
+     "role": "Law Clerk to two federal judges",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david white|university of tennessee, knoxville": {
@@ -61920,16 +62155,33 @@
   "dawn alston|spelman college": {
    "name": "Dawn Alston",
    "university": "Spelman College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Defense"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Defense",
+     "role": "Compliance Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "dawn antonucci|appalachian state university": {
@@ -62006,12 +62258,14 @@
    "name": "Dawn G. Stoyanoff",
    "university": "University of New England",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -62034,16 +62288,44 @@
   "dawn m. ellinwood|saint michael's college": {
    "name": "Dawn M. Ellinwood",
    "university": "Saint Michael's College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Mercy Connections",
+    "Mercy Ecospirituality Center"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mercy Connections",
+     "role": "Board member, and board chair for three years",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mercy Ecospirituality Center",
+     "role": "Board member",
+     "seniority": "executive",
+     "years": "2021",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "dawn m. shinew|bowling green state university": {
@@ -62335,27 +62617,48 @@
   "dean tufts|case western reserve university": {
    "name": "Dean Tufts",
    "university": "Case Western Reserve University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy, Civil Engineer Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy, Civil Engineer Corps",
+     "role": "Officer; Commanding Officer, Naval Facilities Engineering Command Hawaii; Deputy Director of Shore Readiness at the Pentagon",
+     "seniority": "executive",
+     "years": "2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 63
+    }
    ]
   },
   "dean weber|university of north carolina": {
    "name": "Dean Weber",
    "university": "University of North Carolina",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -62423,11 +62726,13 @@
    "name": "DeAnna Carlson Zink",
    "university": "University of North Dakota",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -62523,12 +62828,14 @@
    "name": "Deanna Wagner",
    "university": "Baker University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
