@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2336,
-  "no": 11459,
+  "yes": 2355,
+  "no": 11440,
   "unknown": 15675,
-  "namedFirm": 1959,
-  "flagOnly": 377,
-  "firms": 2138,
-  "sittingWithTie": 1286,
-  "sittingSeniorTie": 736,
-  "researched": 1213
+  "namedFirm": 1976,
+  "flagOnly": 379,
+  "firms": 2169,
+  "sittingWithTie": 1303,
+  "sittingSeniorTie": 749,
+  "researched": 1243
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -50146,16 +50146,34 @@
   "cyndi hanson|briar cliff university": {
    "name": "Cyndi Hanson",
    "university": "Briar Cliff University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Sioux City Community School District Board of Directors"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Sioux City Community School District Board of Directors",
+     "role": "Elected At-Large Board Member",
+     "seniority": "executive",
+     "years": "2025",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "cynthia 'cindi' l. roth|west virginia university": {
@@ -50325,16 +50343,45 @@
   "cynthia joseph|whittier college": {
    "name": "Cynthia Joseph",
    "university": "Whittier College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Next Level Enterprises",
+    "Vocational Concepts"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Next Level Enterprises",
+     "role": "Executive Director of Human Resources and Employee Relations",
+     "seniority": "senior",
+     "years": "2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Vocational Concepts",
+     "role": "Director of Operations and Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "cynthia jumper|texas tech university health sciences center": {
@@ -50399,12 +50446,14 @@
    "name": "Cynthia L. Hernandez",
    "university": "Texas State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -50607,12 +50656,14 @@
    "name": "D'Andra Mull",
    "university": "University of Colorado Boulder",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -50850,11 +50901,13 @@
    "name": "Dale Meinecke",
    "university": "Azusa Pacific University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -51019,41 +51072,172 @@
   "dale wright|university of illinois urbana-champaign": {
    "name": "Dale Wright",
    "university": "University of Illinois Urbana-Champaign",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "United Way of Champaign County",
+    "American Legion Boys State of Missouri"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of Champaign County",
+     "role": "Board member and Resource Development Chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Legion Boys State of Missouri",
+     "role": "Executive Council member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "dallas a. grundy|rutgers university-camden": {
    "name": "Dallas A. Grundy",
    "university": "Rutgers University-Camden",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting",
+    "Technology",
+    "Financial Services",
+    "Energy & Industrials",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "New Jersey Public Policy Research Institute",
+    "Lawnside Education Foundation",
+    "Renaissance Economic Development Corporation",
+    "BCT Partners",
+    "Lucent Technologies",
+    "Citigroup",
+    "General Motors",
+    "Corning Inc.",
+    "Merck & Co."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "New Jersey Public Policy Research Institute",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lawnside Education Foundation",
+     "role": "Founding trustee",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Renaissance Economic Development Corporation",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "BCT Partners",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Lucent Technologies",
+     "role": "Finance and management roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Citigroup",
+     "role": "Finance and management roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "General Motors",
+     "role": "Finance and management roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Corning Inc.",
+     "role": "Finance and management roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Merck & Co.",
+     "role": "Finance and management roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "damian clarke|alabama state university": {
    "name": "Damian Clarke",
    "university": "Alabama State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -51163,15 +51347,32 @@
   "dan bollman|michigan state university": {
    "name": "Dan Bollman",
    "university": "Michigan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Naval Civil Engineer Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Naval Civil Engineer Corps",
+     "role": "Civil Engineer Corps officer managing construction of major projects",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "dan carey|edgewood college": {
@@ -51205,27 +51406,46 @@
   "dan cook|university of notre dame": {
    "name": "Dan Cook",
    "university": "University of Notre Dame",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy (Civil Engineer Corps)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy (Civil Engineer Corps)",
+     "role": "Civil Engineer Corps officer; final assignment commanding a naval construction battalion of 1,200 personnel",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "dan daigle|college of the atlantic": {
    "name": "Dan Daigle",
    "university": "College of the Atlantic",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -51234,16 +51454,33 @@
   "dan delaurentis|purdue university": {
    "name": "Dan DeLaurentis",
    "university": "Purdue University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Aerovy Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Aerovy Inc.",
+     "role": "Chief Scientist",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "dan donaldson|ave maria university": {
@@ -51321,13 +51558,15 @@
   "dan hendrickson|eastern kentucky university": {
    "name": "Dan Hendrickson",
    "university": "Eastern Kentucky University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -51337,12 +51576,14 @@
    "name": "Dan Hitchell",
    "university": "Clark University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -51408,15 +51649,43 @@
   "dan kim|quinnipiac university": {
    "name": "Dan Kim",
    "university": "Quinnipiac University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Detroit News and Detroit Free Press",
+    "American Bar Association (ABA Journal)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Detroit News and Detroit Free Press",
+     "role": "Vice President of Media Integration",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Bar Association (ABA Journal)",
+     "role": "Editor and Publisher, ABA Journal",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "dan l. worrell|university of arkansas": {
@@ -51437,15 +51706,53 @@
    "name": "Dan Layzell",
    "university": "University of Alabama",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "MGT of America Inc.",
+    "Florida Legislature",
+    "Arizona State Legislature"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "MGT of America Inc.",
+     "role": "Partner, higher education consulting practice",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Florida Legislature",
+     "role": "Fiscal Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Arizona State Legislature",
+     "role": "Fiscal Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance and operations"
@@ -51496,15 +51803,43 @@
   "dan montoya|california state university, long beach": {
    "name": "Dan Montoya",
    "university": "California State University, Long Beach",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "USS Iowa (Pacific Battleship Center)",
+    "United States Navy"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "USS Iowa (Pacific Battleship Center)",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Operations Specialist, Petty Officer Second Class (E-5)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "dan moon|bradley university": {
@@ -51704,16 +52039,33 @@
   "dana d. fohl|eastern kentucky university": {
    "name": "Dana D. Fohl",
    "university": "Eastern Kentucky University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Bowles Rice LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Bowles Rice LLP",
+     "role": "Associate Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "dana drew shaw|grand canyon university": {
@@ -51776,11 +52128,13 @@
    "name": "Dana Haggas",
    "university": "Emory University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -51818,14 +52172,73 @@
    "name": "Dana K. Bodine",
    "university": "Rensselaer Polytechnic Institute",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology",
+    "Financial Services",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Trustpilot",
+    "Pagaya",
+    "Mastercard",
+    "Time Inc.",
+    "Apple"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Trustpilot",
+     "role": "Vice President, Marketing (US)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Pagaya",
+     "role": "Vice President of Marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Mastercard",
+     "role": "Vice President of Marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Time Inc.",
+     "role": "Marketing and strategy roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Apple",
+     "role": "Marketing and strategy roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -51851,16 +52264,53 @@
   "dana lee|albert einstein college of medicine": {
    "name": "Dana Lee",
    "university": "Albert Einstein College of Medicine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Paul, Weiss, Rifkind, Wharton & Garrison",
+    "Anderson Kill & Olick",
+    "Kronish Lieb Weiner & Hellman"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Paul, Weiss, Rifkind, Wharton & Garrison",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Anderson Kill & Olick",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Kronish Lieb Weiner & Hellman",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "dana march palmer|columbia university": {
@@ -51964,15 +52414,34 @@
   "dana simmons|presbyterian college": {
    "name": "Dana Simmons",
    "university": "Presbyterian College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "FranklinCovey Co."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "FranklinCovey Co.",
+     "role": "E-commerce Marketing and Search Marketing Manager",
+     "seniority": "professional",
+     "years": "2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "dana topousis|university of california davis": {
@@ -52024,12 +52493,14 @@
    "name": "Dana Winters",
    "university": "Saint Vincent College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -52038,16 +52509,45 @@
   "danell hetrick|lyon college": {
    "name": "Danell Hetrick",
    "university": "Lyon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Batesville Area Chamber of Commerce",
+    "White River Regional Economic Development Coalition"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Batesville Area Chamber of Commerce",
+     "role": "Director of Grant Writing and Communications",
+     "seniority": "senior",
+     "years": "2012-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "White River Regional Economic Development Coalition",
+     "role": "Participant/representative",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "danette ifert johnson|kalamazoo college": {
@@ -52321,16 +52821,46 @@
   "daniel deslatte|the university of texas at tyler": {
    "name": "Daniel Deslatte",
    "university": "The University of Texas at Tyler",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United Way of Smith County",
+    "Texas House of Representatives"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of Smith County",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Texas House of Representatives",
+     "role": "Chief of Staff to a senior House member",
+     "seniority": "senior",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "daniel diermeier|vanderbilt university": {
@@ -52428,15 +52958,32 @@
   "daniel f. mahony|southern illinois university system": {
    "name": "Daniel F. Mahony",
    "university": "Southern Illinois University System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Illinois Economic Development Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Illinois Economic Development Corporation",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "daniel g. lugo|trinity college": {
@@ -52488,11 +53035,13 @@
    "name": "Daniel H. Frezza",
    "university": "College of Charleston",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -53097,12 +53646,14 @@
   "daniel r. lucas|university of west florida": {
    "name": "Daniel R. Lucas",
    "university": "University of West Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -53290,13 +53841,15 @@
   "daniel stephens|george mason university": {
    "name": "Daniel Stephens",
    "university": "George Mason University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -54125,11 +54678,13 @@
    "name": "Danésha Nichols",
    "university": "University of California Davis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
