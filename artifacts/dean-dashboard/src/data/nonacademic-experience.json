@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2510,
-  "no": 11285,
+  "yes": 2530,
+  "no": 11265,
   "unknown": 15675,
-  "namedFirm": 2117,
-  "flagOnly": 393,
-  "firms": 2400,
-  "sittingWithTie": 1444,
-  "sittingSeniorTie": 847,
-  "researched": 1483
+  "namedFirm": 2136,
+  "flagOnly": 394,
+  "firms": 2440,
+  "sittingWithTie": 1463,
+  "sittingSeniorTie": 864,
+  "researched": 1513
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -84623,16 +84623,33 @@
   "gautam pillay|marshall university": {
    "name": "Gautam Pillay",
    "university": "Marshall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Los Alamos National Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Los Alamos National Laboratory",
+     "role": "Researcher, program manager, government relations officer, chief of staff and senior administrator",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "gavin fritz|dallas baptist university": {
@@ -84778,12 +84795,14 @@
    "name": "Gene Fitch",
    "university": "University of Texas at Dallas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -84792,16 +84811,35 @@
   "gene labonte|university of connecticut": {
    "name": "Gene LaBonte",
    "university": "University of Connecticut",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Connecticut State Police"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Connecticut State Police",
+     "role": "Lieutenant Colonel, Administrative Services (second-highest ranking officer)",
+     "seniority": "executive",
+     "years": "1990-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "gene pfeifer|bethany lutheran college": {
@@ -84851,14 +84889,16 @@
   "genia herndon|chapman university": {
    "name": "Genia Herndon",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -84867,13 +84907,15 @@
   "gennaro leva|temple university": {
    "name": "Gennaro Leva",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -85042,16 +85084,33 @@
   "geoffrey s. swift|bates college": {
    "name": "Geoffrey S. Swift",
    "university": "Bates College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Central Maine Healthcare"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Central Maine Healthcare",
+     "role": "Board Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "george a. burnett|northcentral university": {
@@ -85522,16 +85581,44 @@
   "george middlemist|northern illinois university": {
    "name": "George Middlemist",
    "university": "Northern Illinois University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Other industry",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Omni Properties",
+    "Colorado State Auditor's Office"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Omni Properties",
+     "role": "Senior Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Colorado State Auditor's Office",
+     "role": "Senior Auditor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "george q. daley|harvard university": {
@@ -85611,16 +85698,53 @@
   "george stroud|dickinson college": {
    "name": "George Stroud",
    "university": "Dickinson College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Laurel House",
+    "Agape Community Outreach Ministries",
+    "Mt. Airy Baseball Association"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Laurel House",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Agape Community Outreach Ministries",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mt. Airy Baseball Association",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "george sumner bridges|the evergreen state college": {
@@ -85844,12 +85968,14 @@
   "gerald \"jerry\" ganz jr.|westminster college (missouri)": {
    "name": "Gerald \"Jerry\" Ganz Jr.",
    "university": "Westminster College (Missouri)",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -85933,15 +86059,96 @@
    "name": "Gerald Hubbard Smalls",
    "university": "South Carolina State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector",
+    "Energy & Industrials",
+    "Financial Services",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "U.S. Chamber of Commerce",
+    "South Carolina Department of Alcohol and Drug Abuse Services",
+    "Lockheed Martin",
+    "General Electric",
+    "Morgan Stanley",
+    "United States Army Military Intelligence Command",
+    "Nelson Mullins"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "U.S. Chamber of Commerce",
+     "role": "Executive consultant and senior adviser to the senior vice president of strategic alliances and outreach",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "South Carolina Department of Alcohol and Drug Abuse Services",
+     "role": "Chief of Staff and General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Lockheed Martin",
+     "role": "Corporate role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "General Electric",
+     "role": "Corporate role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Morgan Stanley",
+     "role": "Corporate role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Army Military Intelligence Command",
+     "role": "Officer; later Assistant to the Deputy Chief Finance Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Nelson Mullins",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance/CFO; JD, LLM taxation, Army veteran"
@@ -85979,11 +86186,13 @@
    "name": "Gerald L. Glasco",
    "university": "University of Michigan-Flint",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -86497,12 +86706,14 @@
    "name": "Gina Casalegno",
    "university": "Carnegie Mellon University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -86705,24 +86916,48 @@
     "usadminleaders",
     "usr2"
    ],
-   "score": 22,
-   "seniority": "professional",
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
    "categories": [
+    "Nonprofit & Foundations",
     "Law (private practice)"
    ],
    "firms": [
-    "Bass, Berry & Sims"
+    "YMCA Community Action Programs",
+    "Bass, Berry & Sims",
+    "Teach For America"
    ],
    "ties": [
     {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "YMCA Community Action Programs",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
      "kind": "employment",
      "category": "Law (private practice)",
-     "sector": "Industry",
      "firm": "Bass, Berry & Sims",
-     "role": "Associate Attorney",
+     "role": "Associate",
      "seniority": "professional",
-     "source": "priorInstitution",
+     "source": "research",
      "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Teach For America",
+     "role": "Corps Member (Phoenix)",
+     "seniority": "professional",
+     "years": "2002-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
     }
    ]
   },
@@ -86743,16 +86978,33 @@
   "giovanna guidoboni|university of maine": {
    "name": "Giovanna Guidoboni",
    "university": "University of Maine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Gspace LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Gspace LLC",
+     "role": "Founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "giovanni piedimonte|tulane university": {
@@ -86873,15 +87125,42 @@
   "gladys lopez|university of illinois at chicago": {
    "name": "Gladys Lopez",
    "university": "University of Illinois at Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Norton Healthcare",
+    "Cook County Health and Hospitals System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Norton Healthcare",
+     "role": "Senior Vice President and Chief Human Resources Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Cook County Health and Hospitals System",
+     "role": "Chief Human Resources Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "glen d. johnson|the oklahoma state system of higher education": {
@@ -93852,28 +94131,58 @@
   "holly russell|texas tech university health sciences center": {
    "name": "Holly Russell",
    "university": "Texas Tech University Health Sciences Center",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Madden Media",
+    "Visit Lubbock Convention & Visitors Bureau / Lubbock Economic Development Alliance"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Madden Media",
+     "role": "Director, Destination Strategy",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Visit Lubbock Convention & Visitors Bureau / Lubbock Economic Development Alliance",
+     "role": "Director of Marketing & Communications",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "holly tharp|monmouth college": {
    "name": "Holly Tharp",
    "university": "Monmouth College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -93973,15 +94282,55 @@
   "hope cobera|colgate university": {
    "name": "Hope Cobera",
    "university": "Colgate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Financial Services"
+   ],
+   "firms": [
+    "The Hotchkiss School",
+    "TIAA",
+    "UBS"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Hotchkiss School",
+     "role": "Chief Communications Officer",
+     "seniority": "executive",
+     "years": "2020-2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "TIAA",
+     "role": "Executive communications role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "UBS",
+     "role": "Executive communications role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "hope o'reilly|new york university": {
@@ -94110,16 +94459,33 @@
   "howard boyd|tulane university": {
    "name": "Howard Boyd",
    "university": "Tulane University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Sher Garner Cahill Richter Klein & Hilbert, L.L.C."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Sher Garner Cahill Richter Klein & Hilbert, L.L.C.",
+     "role": "Member (equity partner)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "howard brown jr.|jackson state university": {
@@ -94356,11 +94722,13 @@
    "name": "Howard Reddy",
    "university": "East Tennessee State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -94369,16 +94737,64 @@
   "howard schmidt|patrick henry college": {
    "name": "Howard Schmidt",
    "university": "Patrick Henry College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Lennox International Inc.",
+    "Heatcraft Refrigeration Products",
+    "Frito-Lay",
+    "Federal-Mogul"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Lennox International Inc.",
+     "role": "Vice President & General Manager, Advanced Distributor Products",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Heatcraft Refrigeration Products",
+     "role": "Executive role",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Frito-Lay",
+     "role": "Unspecified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Federal-Mogul",
+     "role": "Unspecified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "howard skinner|university of northern colorado": {
@@ -94771,15 +95187,65 @@
   "hyon j. moon, edd|soka university of america": {
    "name": "Hyon J. Moon, EdD",
    "university": "Soka University of America",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services",
+    "Consulting",
+    "Nonprofit & Foundations",
+    "Other industry"
+   ],
+   "firms": [
+    "American Express Travel Related Services",
+    "IGE",
+    "Tokyo Fuji Art Museum",
+    "Berlitz Languages"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "American Express Travel Related Services",
+     "role": "Project Specialist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "IGE",
+     "role": "Project Coordinator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Tokyo Fuji Art Museum",
+     "role": "Translator and Interpreter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Berlitz Languages",
+     "role": "Korean Language Instructor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "hyram kitchen|university of tennessee": {
@@ -94981,16 +95447,54 @@
   "ian morrison|tulane university": {
    "name": "Ian Morrison",
    "university": "Tulane University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "World Wildlife Fund",
+    "The Virgin Islands Daily News",
+    "The News-Star"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "World Wildlife Fund",
+     "role": "Senior Director of Media & External Affairs",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Virgin Islands Daily News",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The News-Star",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ian o. williamson|university of california irvine": {
@@ -95056,16 +95560,43 @@
   "ibolya yolas|pace university": {
    "name": "Ibolya Yolas",
    "university": "Pace University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Mancini Duffy",
+    "Hillier Architecture"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Mancini Duffy",
+     "role": "Associate / Senior Project Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Hillier Architecture",
+     "role": "Project Designer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ida jamshidi|baylor university": {
@@ -95117,16 +95648,35 @@
   "ilena key|lehigh university": {
    "name": "Ilena Key",
    "university": "Lehigh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Newark Academy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Newark Academy",
+     "role": "Director of Technology",
+     "seniority": "senior",
+     "years": "2000-2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "ilene busch-vishniac|johns hopkins university": {
@@ -95175,31 +95725,90 @@
   "ilhem messaoudi|university of kentucky": {
    "name": "Ilhem Messaoudi",
    "university": "University of Kentucky",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Centers for Disease Control and Prevention",
+    "Kentucky Maternal Morbidity and Mortality Task Force"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Centers for Disease Control and Prevention",
+     "role": "Board member, Board of Scientific Counselors, Division for Infectious Diseases",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Kentucky Maternal Morbidity and Mortality Task Force",
+     "role": "Leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "ilir hasko|university of georgia": {
    "name": "Ilir Hasko",
    "university": "University of Georgia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services",
+    "Technology"
+   ],
+   "firms": [
+    "Lehman Brothers",
+    "McDATA Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Lehman Brothers",
+     "role": "Assistant Vice President",
+     "seniority": "professional",
+     "years": "2005-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "McDATA Corporation",
+     "role": "Marketing Systems Analyst",
+     "seniority": "professional",
+     "years": "2004-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "imogen hurley|university of wisconsin madison": {
@@ -95295,12 +95904,14 @@
    "name": "Ingrid Williams",
    "university": "San Francisco State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -95394,14 +96005,55 @@
    "name": "Irene Karedis Borys",
    "university": "Augustana College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment",
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "The Childress Agency",
+    "Quad Cities Chamber of Commerce",
+    "UnityPoint Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Childress Agency",
+     "role": "Vice President of Client Experience and Integrator",
+     "seniority": "senior",
+     "years": "2022-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Quad Cities Chamber of Commerce",
+     "role": "Unspecified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UnityPoint Health",
+     "role": "Unspecified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -95425,12 +96077,14 @@
    "name": "Irene Neller",
    "university": "Westmont College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
