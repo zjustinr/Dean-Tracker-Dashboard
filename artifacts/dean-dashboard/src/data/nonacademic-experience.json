@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2636,
-  "no": 11159,
+  "yes": 2647,
+  "no": 11148,
   "unknown": 15675,
-  "namedFirm": 2226,
-  "flagOnly": 410,
-  "firms": 2580,
-  "sittingWithTie": 1553,
-  "sittingSeniorTie": 918,
-  "researched": 1678
+  "namedFirm": 2233,
+  "flagOnly": 414,
+  "firms": 2593,
+  "sittingWithTie": 1560,
+  "sittingSeniorTie": 924,
+  "researched": 1693
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -102825,28 +102825,68 @@
   "james rund|arizona state university": {
    "name": "James Rund",
    "university": "Arizona State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Greater Phoenix Urban League",
+    "Tempe Union High School District Employee Benefit Trust",
+    "Arizona State Treasurer 529 Advisory Board"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Phoenix Urban League",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Tempe Union High School District Employee Benefit Trust",
+     "role": "Trust Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Arizona State Treasurer 529 Advisory Board",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    }
    ]
   },
   "james s. bridgeforth|middle tennessee state university": {
    "name": "James S. Bridgeforth",
    "university": "Middle Tennessee State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -102932,11 +102972,13 @@
    "name": "James Shropshire",
    "university": "Grinnell College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -103104,12 +103146,14 @@
   "james uhrich|occidental college": {
    "name": "James Uhrich",
    "university": "Occidental College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -103421,12 +103465,14 @@
   "james walsh|university of the pacific": {
    "name": "James Walsh",
    "university": "University of the Pacific",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -103497,12 +103543,14 @@
   "jamey leahey|centre college": {
    "name": "Jamey Leahey",
    "university": "Centre College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -103511,15 +103559,52 @@
   "jami swain|walsh university": {
    "name": "Jami Swain",
    "university": "Walsh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The City Mission",
+    "Stark Community Foundation",
+    "The Salvation Army, Summit County Area Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The City Mission",
+     "role": "Leadership role (human resources)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Stark Community Foundation",
+     "role": "Leadership role (human resources)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Salvation Army, Summit County Area Services",
+     "role": "Leadership role (human resources)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jamia t. richmond|coastal carolina university": {
@@ -103711,27 +103796,66 @@
   "jamie d. bailey|the university of texas medical branch at galveston": {
    "name": "Jamie D. Bailey",
    "university": "The University of Texas Medical Branch at Galveston",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "FTI Consulting",
+    "KPMG",
+    "Deloitte Financial Advisory Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "FTI Consulting",
+     "role": "Leader, Dispute Advisory Practice",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG",
+     "role": "Dispute Advisory Practice",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte Financial Advisory Services",
+     "role": "Financial advisory role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jamie grapperhaus|southern illinois university-edwardsville": {
    "name": "Jamie Grapperhaus",
    "university": "Southern Illinois University-Edwardsville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -103914,16 +104038,33 @@
   "jamie sprague|university of west florida": {
    "name": "Jamie Sprague",
    "university": "University of West Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Florida Sheriffs Youth Ranches"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Florida Sheriffs Youth Ranches",
+     "role": "Director of Personnel Services",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jamie van eyck|baylor university": {
@@ -103957,15 +104098,32 @@
   "jamie yates|gettysburg college": {
    "name": "Jamie Yates",
    "university": "Gettysburg College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Rendell administration, Commonwealth of Pennsylvania"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Rendell administration, Commonwealth of Pennsylvania",
+     "role": "Deputy Press Secretary and Spokesperson",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jamie york|roseman university of health sciences": {
@@ -104013,16 +104171,55 @@
   "jamillah moore|san francisco state university": {
    "name": "Jamillah Moore",
    "university": "San Francisco State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Second Harvest of Silicon Valley",
+    "California Student Aid Commission",
+    "Redwood City Chamber of Commerce"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Second Harvest of Silicon Valley",
+     "role": "Board Member",
+     "seniority": "executive",
+     "years": "2021",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "California Student Aid Commission",
+     "role": "Appointed Commissioner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Redwood City Chamber of Commerce",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jamison kravcak|saint leo university": {
@@ -104164,16 +104361,33 @@
   "jan van der kley|western michigan university": {
    "name": "Jan Van Der Kley",
    "university": "Western Michigan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Kalamazoo County Consolidated Dispatch Authority"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Kalamazoo County Consolidated Dispatch Authority",
+     "role": "Chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jana mcquaid|virginia commonwealth university": {
@@ -104721,12 +104935,14 @@
    "name": "Janet Donaldson",
    "university": "Abilene Christian University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -104778,12 +104994,14 @@
    "name": "Janet L. May",
    "university": "University of Alabama at Birmingham",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
