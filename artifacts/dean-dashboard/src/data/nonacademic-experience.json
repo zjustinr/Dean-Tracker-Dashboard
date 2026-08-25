@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2222,
-  "no": 11573,
+  "yes": 2234,
+  "no": 11561,
   "unknown": 15675,
-  "namedFirm": 1841,
-  "flagOnly": 381,
-  "firms": 1925,
-  "sittingWithTie": 1168,
-  "sittingSeniorTie": 658,
-  "researched": 1003
+  "namedFirm": 1857,
+  "flagOnly": 377,
+  "firms": 1952,
+  "sittingWithTie": 1184,
+  "sittingSeniorTie": 668,
+  "researched": 1033
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -29390,11 +29390,13 @@
    "name": "Brian Nichols",
    "university": "University of Kentucky",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -29467,15 +29469,43 @@
   "brian o'rourke|clemson university": {
    "name": "Brian O'Rourke",
    "university": "Clemson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Consulting"
+   ],
+   "firms": [
+    "St. Francis Health System (Greenville, SC)",
+    "Corporate DevelopMint"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "St. Francis Health System (Greenville, SC)",
+     "role": "Vice President of Development and Executive Director of the St. Francis Foundation",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Corporate DevelopMint",
+     "role": "Senior Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brian o. hemphill|radford university": {
@@ -29584,12 +29614,14 @@
    "name": "Brian Peterson",
    "university": "Briar Cliff University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -29645,11 +29677,13 @@
    "name": "Brian R. Jaworski",
    "university": "Indiana Wesleyan University-National & Global",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -29839,11 +29873,13 @@
    "name": "Brian Seiler",
    "university": "University of Alaska Fairbanks",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -29853,11 +29889,13 @@
    "name": "Brian Sischo",
    "university": "North Carolina State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -29881,15 +29919,32 @@
    "name": "Brian Smith",
    "university": "University of Texas at Austin",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Wachovia Bank"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Wachovia Bank",
+     "role": "Management positions",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance"
@@ -29954,16 +30009,33 @@
   "brian t. rose|binghamton university": {
    "name": "Brian T. Rose",
    "university": "Binghamton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Stradley, Ronon, Stevens & Young"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Stradley, Ronon, Stevens & Young",
+     "role": "Attorney, Real Estate Department",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brian t. tsuji|university of colorado": {
@@ -30016,11 +30088,13 @@
    "name": "Brian Thornton",
    "university": "Stony Brook University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -30085,16 +30159,44 @@
   "brian voss|clemson university": {
    "name": "Brian Voss",
    "university": "Clemson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Mead Data Central",
+    "Westinghouse Electric"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Mead Data Central",
+     "role": "Information technology role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Westinghouse Electric",
+     "role": "Information technology role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "brian w. casey|colgate university": {
@@ -30252,11 +30354,13 @@
    "name": "Brian Winkelbauer",
    "university": "Colorado School of Mines",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -30767,15 +30871,54 @@
    "name": "Bronté Burleigh-Jones",
    "university": "American University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 61,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "United Educators",
+    "Texas State Auditor's Office",
+    "Delta Sigma Theta Sorority, Inc. (National Headquarters)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Financial Services",
+     "firm": "United Educators",
+     "role": "Secretary/Treasurer, Subscribers' Advisory Board",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Texas State Auditor's Office",
+     "role": "Senior Project Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Delta Sigma Theta Sorority, Inc. (National Headquarters)",
+     "role": "Assistant Controller",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance and treasury"
@@ -30902,16 +31045,32 @@
   "brooks a. hull|texas state university": {
    "name": "Brooks A. Hull",
    "university": "Texas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Norman Chamber of Commerce (Norman, Oklahoma)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Norman Chamber of Commerce (Norman, Oklahoma)",
+     "role": "Director of Community Development",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "brooks a. keel|augusta university": {
@@ -31058,15 +31217,45 @@
    "name": "Bruce Baden",
    "university": "Guilford College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail",
+    "Other industry"
+   ],
+   "firms": [
+    "LF Distribution Holding",
+    "Corporate finance and accounting roles (unnamed companies)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "LF Distribution Holding",
+     "role": "Vice President of Finance",
+     "seniority": "senior",
+     "years": "2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Corporate finance and accounting roles (unnamed companies)",
+     "role": "Financial accounting and business support roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -31090,13 +31279,15 @@
   "bruce bollinger|north dakota state university": {
    "name": "Bruce Bollinger",
    "university": "North Dakota State University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -36075,11 +36266,13 @@
    "name": "Catherine J. Williams",
    "university": "Hobart William Smith Colleges",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -36172,29 +36365,96 @@
   "catherine potter|roanoke college": {
    "name": "Catherine Potter",
    "university": "Roanoke College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Technology"
+   ],
+   "firms": [
+    "Capital Automotive Real Estate Services, Inc.",
+    "ORBCOMM Global"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Capital Automotive Real Estate Services, Inc.",
+     "role": "Senior Vice President, General Counsel and Corporate Secretary",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "ORBCOMM Global",
+     "role": "Corporate Secretary and Assistant General Counsel",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "catherine provencher|university system of new hampshire": {
    "name": "Catherine Provencher",
    "university": "University System of New Hampshire",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New Hampshire Business Finance Authority",
+    "State of New Hampshire",
+    "New Hampshire Office of Legislative Budget Assistant"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "New Hampshire Business Finance Authority",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "State of New Hampshire",
+     "role": "State Treasurer",
+     "seniority": "executive",
+     "years": "2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New Hampshire Office of Legislative Budget Assistant",
+     "role": "Director of Audits",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "catherine sanok|university of michigan": {
@@ -36215,12 +36475,14 @@
    "name": "Cathy Akens",
    "university": "University of North Carolina at Greensboro",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -36334,12 +36596,14 @@
    "name": "Cathy Pettid",
    "university": "University of Nebraska at Omaha",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -36363,12 +36627,14 @@
    "name": "Catie McCorry-Andalis",
    "university": "University of Texas at El Paso",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -36479,12 +36745,14 @@
    "name": "Celestino Limas",
    "university": "Kenyon College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -36620,16 +36888,53 @@
   "chad berry|berea college": {
    "name": "Chad Berry",
    "university": "Berea College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Mary Reynolds Babcock Foundation",
+    "Hindman Settlement School",
+    "Pine Mountain Settlement School"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mary Reynolds Babcock Foundation",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Hindman Settlement School",
+     "role": "Board Member (former)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Pine Mountain Settlement School",
+     "role": "Board Member (former)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "chad cheek|wake forest university": {
@@ -36691,16 +36996,35 @@
   "chad rynbrandt|wheaton college": {
    "name": "Chad Rynbrandt",
    "university": "Wheaton College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Royal Philips"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Royal Philips",
+     "role": "North America Head of Strategy and Business Development",
+     "seniority": "senior",
+     "years": "2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "chad warren|cleveland state university": {
@@ -36749,11 +37073,13 @@
    "name": "Chad Watson",
    "university": "Boise State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic",
@@ -36805,16 +37131,43 @@
   "chandra harris-mccray|university of illinois at chicago": {
    "name": "Chandra Harris-McCray",
    "university": "University of Illinois at Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "National Urban League",
+    "Goodwill Industries"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Urban League",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Goodwill Industries",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "chandra krintz|university of california santa barbara": {
@@ -36986,29 +37339,83 @@
   "chantel braegelmann|college of saint benedict": {
    "name": "Chantel Braegelmann",
    "university": "College of Saint Benedict",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "NativeX",
+    "W3i"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "NativeX",
+     "role": "Human Resources Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "W3i",
+     "role": "Executive Assistant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "chantel braegelmann|saint johns university": {
    "name": "Chantel Braegelmann",
    "university": "Saint Johns University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "NativeX",
+    "W3i"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "NativeX",
+     "role": "Human Resources Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "W3i",
+     "role": "Executive Assistant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "chantel smith|new york university": {
@@ -37173,16 +37580,44 @@
   "charles a. kennedy|carnegie mellon university": {
    "name": "Charles A. Kennedy",
    "university": "Carnegie Mellon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Financial Services"
+   ],
+   "firms": [
+    "The Heinz Endowments",
+    "Dain Rauscher Wessels"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Heinz Endowments",
+     "role": "Investment Committee Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Dain Rauscher Wessels",
+     "role": "Investment Banker",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "charles a. veltri|midwestern university": {
@@ -37332,15 +37767,32 @@
   "charles cansler|william woods university": {
    "name": "Charles Cansler",
    "university": "William Woods University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Oracle, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Oracle, Inc.",
+     "role": "Higher Education Expert",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "charles d. \"doug\" whitlock|eastern kentucky university": {
