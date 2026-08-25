@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3121,
-  "no": 10674,
+  "yes": 3131,
+  "no": 10664,
   "unknown": 15675,
-  "namedFirm": 2610,
-  "flagOnly": 511,
-  "firms": 3181,
-  "sittingWithTie": 1937,
-  "sittingSeniorTie": 1179,
-  "researched": 2413
+  "namedFirm": 2615,
+  "flagOnly": 516,
+  "firms": 3190,
+  "sittingWithTie": 1942,
+  "sittingSeniorTie": 1183,
+  "researched": 2428
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -197516,11 +197516,13 @@
    "name": "Paul J. McLoughlin II",
    "university": "Colgate University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -198358,12 +198360,14 @@
    "name": "Paul Stover",
    "university": "University of Arkansas for Medical Sciences",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -198372,15 +198376,44 @@
   "paul tennies|university of michigan-dearborn": {
    "name": "Paul Tennies",
    "university": "University of Michigan-Dearborn",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Northville Township Police Department",
+    "CLEMIS Authority (Oakland County law-enforcement information consortium)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Northville Township Police Department",
+     "role": "Chief of Police (joined as patrol officer 2002; chief 2019-2021)",
+     "seniority": "executive",
+     "years": "2002-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "CLEMIS Authority (Oakland County law-enforcement information consortium)",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "paul tetlock|columbia university": {
@@ -198401,11 +198434,13 @@
    "name": "Paul Turman",
    "university": "Nebraska State College System",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -198627,12 +198662,14 @@
   "paula macdonald|susquehanna university": {
    "name": "Paula MacDonald",
    "university": "Susquehanna University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -198702,13 +198739,15 @@
   "paula tkach|biola university": {
    "name": "Paula Tkach",
    "university": "Biola University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -198777,11 +198816,13 @@
    "name": "Pauline Burke",
    "university": "Stonehill College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -198930,16 +198971,63 @@
   "pedro ribeiro|university of notre dame": {
    "name": "Pedro Ribeiro",
    "university": "University of Notre Dame",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Homeland Security",
+    "U.S. Immigration and Customs Enforcement",
+    "Office of the Mayor of the District of Columbia",
+    "U.S. House of Representatives"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Homeland Security",
+     "role": "Deputy Assistant Secretary for Public Affairs and Senior Adviser",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Immigration and Customs Enforcement",
+     "role": "Assistant Director of Public Affairs",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Mayor of the District of Columbia",
+     "role": "Press Secretary and senior executive team member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. House of Representatives",
+     "role": "Senior Adviser (several positions)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "peg faimon|indiana university bloomington": {
@@ -199089,13 +199177,15 @@
   "peggy varberg|university of north dakota": {
    "name": "Peggy Varberg",
    "university": "University of North Dakota",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -199163,12 +199253,14 @@
    "name": "Pernell Jones",
    "university": "Austin College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -199191,15 +199283,42 @@
   "perrine mann|occidental college": {
    "name": "Perrine Mann",
    "university": "Occidental College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "CORE (Community Organized Relief Effort)",
+    "JVS SoCal"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "CORE (Community Organized Relief Effort)",
+     "role": "Vice President of Marketing and Communications",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "JVS SoCal",
+     "role": "Vice President of Marketing and Communications",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "perry n. halkitis|rutgers, the state university of new jersey": {
@@ -199261,15 +199380,43 @@
   "pete stobie|oglethorpe university": {
    "name": "Pete Stobie",
    "university": "Oglethorpe University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology",
+    "Financial Services"
+   ],
+   "firms": [
+    "Sprint Corporation",
+    "Janus Capital Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Sprint Corporation",
+     "role": "Finance role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Janus Capital Corporation",
+     "role": "Finance role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "peter \"pete\" bevacqua|university of notre dame": {
@@ -199331,13 +199478,15 @@
   "peter ashley|hanover college": {
    "name": "Peter Ashley",
    "university": "Hanover College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -199446,13 +199595,15 @@
   "peter christensen|saint mary's college": {
    "name": "Peter Christensen",
    "university": "Saint Mary's College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -199702,15 +199853,32 @@
   "peter hans|the university of north carolina system": {
    "name": "Peter Hans",
    "university": "The University of North Carolina System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Senate (offices of Sens. Lauch Faircloth, Richard Burr and Elizabeth Dole)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Senate (offices of Sens. Lauch Faircloth, Richard Burr and Elizabeth Dole)",
+     "role": "Senior Policy Advisor",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "peter harries|north carolina state university": {
