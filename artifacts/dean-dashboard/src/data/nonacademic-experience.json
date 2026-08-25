@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2586,
-  "no": 11209,
+  "yes": 2597,
+  "no": 11198,
   "unknown": 15675,
-  "namedFirm": 2188,
-  "flagOnly": 398,
-  "firms": 2522,
-  "sittingWithTie": 1515,
-  "sittingSeniorTie": 893,
-  "researched": 1603
+  "namedFirm": 2198,
+  "flagOnly": 399,
+  "firms": 2539,
+  "sittingWithTie": 1525,
+  "sittingSeniorTie": 902,
+  "researched": 1618
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -109246,15 +109246,32 @@
   "jeffrey listwak|susquehanna university": {
    "name": "Jeffrey Listwak",
    "university": "Susquehanna University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Deloitte & Touche LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte & Touche LLP",
+     "role": "Manager, Accounting and Auditing",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jeffrey m. bumpous|university of louisville": {
@@ -109274,15 +109291,34 @@
   "jeffrey mills|university of maine": {
    "name": "Jeffrey Mills",
    "university": "University of Maine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Maine State Senate and House of Representatives"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Maine State Senate and House of Representatives",
+     "role": "State Senator and Representative (five terms)",
+     "seniority": "senior",
+     "years": "1983-1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "jeffrey moore|university of central florida": {
@@ -109316,13 +109352,15 @@
   "jeffrey noblitt|the university of texas at tyler": {
    "name": "Jeffrey Noblitt",
    "university": "The University of Texas at Tyler",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -109359,15 +109397,33 @@
   "jeffrey p. gold|university of nebraska system": {
    "name": "Jeffrey P. Gold",
    "university": "University of Nebraska System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Nebraska Medicine"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Nebraska Medicine",
+     "role": "Chair of the Board",
+     "seniority": "executive",
+     "years": "2014",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jeffrey p. stein|mary baldwin university": {
@@ -109457,15 +109513,32 @@
   "jeffrey rhoads|university of notre dame": {
    "name": "Jeffrey Rhoads",
    "university": "University of Notre Dame",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Indiana Biosciences Research Institute"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Indiana Biosciences Research Institute",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jeffrey robinson|rutgers university-newark": {
@@ -109500,16 +109573,47 @@
   "jeffrey rubin|syracuse university": {
    "name": "Jeffrey Rubin",
    "university": "Syracuse University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment",
+    "Technology"
+   ],
+   "firms": [
+    "LEARFIELD",
+    "SIDEARM Sports"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "LEARFIELD",
+     "role": "Executive Vice President of Digital",
+     "seniority": "executive",
+     "years": "2022-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "SIDEARM Sports",
+     "role": "Founder and President",
+     "seniority": "executive",
+     "years": "2001",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "jeffrey s. klausner|university of minnesota": {
@@ -109633,15 +109737,32 @@
   "jeffrey todd|university of new mexico": {
    "name": "Jeffrey Todd",
    "university": "University of New Mexico",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "West Vancouver Community Centres Society"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "West Vancouver Community Centres Society",
+     "role": "Chair (immediate past chair)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jeffrey urbach|georgetown university": {
@@ -109689,16 +109810,55 @@
   "jeffrie mallory|saint vincent college": {
    "name": "Jeffrie Mallory",
    "university": "Saint Vincent College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Shyne Awards Foundation",
+    "United Way of Southwestern Pennsylvania",
+    "Cajasur Cordoba Basketball Club"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Shyne Awards Foundation",
+     "role": "Chair, Board of Directors",
+     "seniority": "executive",
+     "years": "2014",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of Southwestern Pennsylvania",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Cajasur Cordoba Basketball Club",
+     "role": "Professional basketball player",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jelena kovacevic|new york university": {
@@ -109751,15 +109911,42 @@
    "name": "Jen St. Peter",
    "university": "University of Colorado Denver",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Colorado Department of Health Care Policy & Financing",
+    "Colorado Department of Labor and Employment"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Colorado Department of Health Care Policy & Financing",
+     "role": "Leadership roles directing financial and policy analysis",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Colorado Department of Labor and Employment",
+     "role": "Lead Economist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance"
@@ -109938,12 +110125,14 @@
   "jenni jordan|roosevelt university": {
    "name": "Jenni Jordan",
    "university": "Roosevelt University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -110008,12 +110197,14 @@
   "jennifer (jenny) spohrer|bryn mawr college": {
    "name": "Jennifer (Jenny) Spohrer",
    "university": "Bryn Mawr College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -110064,16 +110255,46 @@
   "jennifer anderson|fairfield university": {
    "name": "Jennifer Anderson",
    "university": "Fairfield University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Technology",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Pitney Bowes",
+    "Greenwich Magazine"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Pitney Bowes",
+     "role": "Vice President, Digital and Event Marketing",
+     "seniority": "senior",
+     "years": "2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Greenwich Magazine",
+     "role": "Assistant Editor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jennifer bachner|university of maryland, college park": {
@@ -110138,12 +110359,14 @@
    "name": "Jennifer Bendele",
    "university": "Our Lady of the Lake University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -110279,14 +110502,64 @@
    "name": "Jennifer Brant-Gargan",
    "university": "Northeastern University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Bacardi-Martini",
+    "The Estee Lauder Companies",
+    "Viacom",
+    "Nike Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Bacardi-Martini",
+     "role": "Global Chief Information Officer",
+     "seniority": "executive",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "The Estee Lauder Companies",
+     "role": "Vice President and Technology Lead",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Viacom",
+     "role": "IT leadership role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Nike Inc.",
+     "role": "IT leadership role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -110326,12 +110599,14 @@
    "name": "Jennifer Buckley",
    "university": "Aurora University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
