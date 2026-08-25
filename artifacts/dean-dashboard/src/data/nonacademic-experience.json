@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2960,
-  "no": 10835,
+  "yes": 2972,
+  "no": 10823,
   "unknown": 15675,
-  "namedFirm": 2483,
-  "flagOnly": 477,
-  "firms": 2991,
-  "sittingWithTie": 1810,
-  "sittingSeniorTie": 1098,
-  "researched": 2173
+  "namedFirm": 2492,
+  "flagOnly": 480,
+  "firms": 3014,
+  "sittingWithTie": 1819,
+  "sittingSeniorTie": 1105,
+  "researched": 2188
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -174744,15 +174744,33 @@
   "matthew t. lambert|college of william & mary": {
    "name": "Matthew T. Lambert",
    "university": "College of William & Mary",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Extra Credit Ventures"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Extra Credit Ventures",
+     "role": "Co-Founder and Managing Director",
+     "seniority": "executive",
+     "years": "2022",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "matthew titolo|west virginia university": {
@@ -174863,12 +174881,14 @@
    "name": "Matthias Salathe",
    "university": "University of Kansas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -174980,16 +175000,43 @@
   "maura copeland|augusta university": {
    "name": "Maura Copeland",
    "university": "Augusta University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Bucks County Court of Common Pleas",
+    "State Court of Hall County, Georgia"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Bucks County Court of Common Pleas",
+     "role": "Law Clerk",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "State Court of Hall County, Georgia",
+     "role": "Law Clerk",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "maureen a. fay, o.p.|university of detroit mercy": {
@@ -175055,14 +175102,16 @@
   "maureen harrigan|chapman university": {
    "name": "Maureen Harrigan",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175155,16 +175204,46 @@
   "maurice ferrell|north carolina agricultural and technical state university": {
    "name": "Maurice Ferrell",
    "university": "North Carolina Agricultural and Technical State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Institute for Advanced Learning and Research",
+    "Danville Public Schools (Virginia)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Institute for Advanced Learning and Research",
+     "role": "Chief Information Officer",
+     "seniority": "executive",
+     "years": "2003-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Danville Public Schools (Virginia)",
+     "role": "Network Analyst, later Manager/Director of Information Systems Technology",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "maurie d. mcinnis|yale university": {
@@ -175232,12 +175311,14 @@
    "name": "Max Kenner",
    "university": "Bard College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175404,16 +175485,59 @@
   "meenakshi wadhwa|university of california san diego": {
    "name": "Meenakshi Wadhwa",
    "university": "University of California San Diego",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 65,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "NASA Advisory Council",
+    "NASA",
+    "Field Museum of Natural History"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "NASA Advisory Council",
+     "role": "Chair, Science Committee",
+     "seniority": "senior",
+     "years": "2018-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 65
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "NASA",
+     "role": "Principal Scientist, Mars Sample Return Program",
+     "seniority": "senior",
+     "years": "2021",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Field Museum of Natural History",
+     "role": "Curator, Department of Geology",
+     "seniority": "professional",
+     "years": "1995-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "meg ackerson|oklahoma state university": {
@@ -175477,15 +175601,32 @@
   "meg kaufmann|the new school": {
    "name": "Meg Kaufmann",
    "university": "The New School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Consumer Reports"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Consumer Reports",
+     "role": "Coast Gift Officer (East)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "meg o'grady|northcentral university": {
@@ -175535,12 +175676,14 @@
   "megan fitch|haverford college": {
    "name": "Megan Fitch",
    "university": "Haverford College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175563,30 +175706,127 @@
   "megan james|millsaps college": {
    "name": "Megan James",
    "university": "Millsaps College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Delta Delta Delta",
+    "Bethlehem Center"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Delta Delta Delta",
+     "role": "International Fraternity President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bethlehem Center",
+     "role": "Secretary to the Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "megan jordan|university of southern california": {
    "name": "Megan Jordan",
    "university": "University of Southern California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Consumer & Retail",
+    "Healthcare Providers",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Southern California Edison",
+    "Herbalife",
+    "Kaiser Permanente",
+    "Zeno Group",
+    "Cohn & Wolfe",
+    "MSL"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Southern California Edison",
+     "role": "Corporate communications leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Herbalife",
+     "role": "Corporate communications leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Kaiser Permanente",
+     "role": "Corporate communications leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Zeno Group",
+     "role": "Public relations executive",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Cohn & Wolfe",
+     "role": "Public relations executive",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "MSL",
+     "role": "Public relations executive",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "megan k. stevens|stevens institute of technology": {
@@ -175620,12 +175860,14 @@
   "megan koeth|case western reserve university": {
    "name": "Megan Koeth",
    "university": "Case Western Reserve University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175875,12 +176117,14 @@
    "name": "Meghan Harte Weyant",
    "university": "University of North Carolina Asheville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -175903,15 +176147,111 @@
   "meghan l. o'sullivan|harvard university": {
    "name": "Meghan L. O'Sullivan",
    "university": "Harvard University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 88,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Nonprofit & Foundations",
+    "Government & Public Sector",
+    "Consulting",
+    "Law (private practice)",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Raytheon Technologies (formerly United Technologies)",
+    "International Crisis Group",
+    "Council on Foreign Relations",
+    "The White House / National Security Council",
+    "Macro Advisory Partners",
+    "U.S. Secretary of State's Foreign Affairs Policy Board",
+    "Linklaters",
+    "Suntory Holdings"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Energy & Industrials",
+     "firm": "Raytheon Technologies (formerly United Technologies)",
+     "role": "Director",
+     "seniority": "executive",
+     "years": "2017-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 88
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "International Crisis Group",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council on Foreign Relations",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "The White House / National Security Council",
+     "role": "Special Assistant to the President and Deputy National Security Advisor for Iraq and Afghanistan",
+     "seniority": "executive",
+     "years": "2004-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "advisory",
+     "category": "Consulting",
+     "firm": "Macro Advisory Partners",
+     "role": "Senior Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Secretary of State's Foreign Affairs Policy Board",
+     "role": "Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Law (private practice)",
+     "firm": "Linklaters",
+     "role": "Advisory board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Consumer & Retail",
+     "firm": "Suntory Holdings",
+     "role": "Advisory board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "meghan sanders|louisiana state university": {
@@ -175988,16 +176328,34 @@
   "mei wei|rowan university": {
    "name": "Mei Wei",
    "university": "Rowan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "OrteoPoniX LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "OrteoPoniX LLC",
+     "role": "Co-Founder",
+     "seniority": "executive",
+     "years": "2014",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "meichele foster|university of missouri": {
