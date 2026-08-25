@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3365,
-  "no": 10430,
+  "yes": 3375,
+  "no": 10420,
   "unknown": 15675,
-  "namedFirm": 2783,
-  "flagOnly": 582,
-  "firms": 3406,
-  "sittingWithTie": 2110,
-  "sittingSeniorTie": 1279,
-  "researched": 2821
+  "namedFirm": 2789,
+  "flagOnly": 586,
+  "firms": 3413,
+  "sittingWithTie": 2116,
+  "sittingSeniorTie": 1283,
+  "researched": 2836
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -257981,12 +257981,14 @@
    "name": "Wes Brooks",
    "university": "Augustana College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -258068,12 +258070,14 @@
   "wesam helou|cleveland state university": {
    "name": "Wesam Helou",
    "university": "Cleveland State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -258154,12 +258158,14 @@
   "wesley sheets|pennsylvania state university": {
    "name": "Wesley Sheets",
    "university": "Pennsylvania State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -258168,27 +258174,57 @@
   "whitney emrich|millsaps college": {
    "name": "Whitney Emrich",
    "university": "Millsaps College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "Blue Cross & Blue Shield of Mississippi Foundation",
+    "Carr, Riggs & Ingram, LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Blue Cross & Blue Shield of Mississippi Foundation",
+     "role": "Director of Finance",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Carr, Riggs & Ingram, LLC",
+     "role": "Senior Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "whitney mcdowell-robinson|brenau university": {
    "name": "Whitney McDowell-Robinson",
    "university": "Brenau University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -258268,15 +258304,46 @@
    "name": "Wiley Norvell",
    "university": "New York University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Rubenstein",
+    "New York City Office of the Mayor"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Rubenstein",
+     "role": "Executive Vice President",
+     "seniority": "executive",
+     "years": "2020",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Office of the Mayor",
+     "role": "Director of Communications",
+     "seniority": "senior",
+     "years": "2018-2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 50
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -258317,12 +258384,14 @@
    "name": "Will Atkins",
    "university": "Ursinus College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -258493,12 +258562,14 @@
   "will sears|appalachian state university": {
    "name": "Will Sears",
    "university": "Appalachian State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -258536,12 +258607,14 @@
    "name": "William \"Bill\" J. Nunez",
    "university": "Texas Christian University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -258663,15 +258736,43 @@
   "william (will) ingram|belmont university": {
    "name": "William (Will) Ingram",
    "university": "Belmont University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology",
+    "Other industry"
+   ],
+   "firms": [
+    "Yahoo",
+    "Southwest Research Institute"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Yahoo",
+     "role": "IT/technology role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Southwest Research Institute",
+     "role": "IT/technology role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "william a. baeslack iii|ohio state university": {
@@ -258996,13 +259097,15 @@
   "william brady|new jersey institute of technology": {
    "name": "William Brady",
    "university": "New Jersey Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -259089,16 +259192,43 @@
   "william c. guerrero|sacred heart university": {
    "name": "William C. Guerrero",
    "university": "Sacred Heart University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Gartner",
+    "IBM"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Gartner",
+     "role": "Employee (pre-higher-ed)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Employee (pre-higher-ed)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "william c. hubbard|university of south carolina": {
@@ -260454,16 +260584,33 @@
   "william murphy|tufts university": {
    "name": "William Murphy",
    "university": "Tufts University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Boston"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Boston",
+     "role": "Deputy Director of Labor Relations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "william p. hobby jr.|university of houston system": {
@@ -260745,13 +260892,15 @@
   "william s. furlong|saint anselm college": {
    "name": "William S. Furlong",
    "university": "Saint Anselm College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -260760,15 +260909,32 @@
   "william sibert|university of minnesota medical school": {
    "name": "William Sibert",
    "university": "University of Minnesota Medical School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Priva Technologies (Priva Security Corporation)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Priva Technologies (Priva Security Corporation)",
+     "role": "Chief Operating & Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "william t. \"tom\" bogart|maryville college": {
