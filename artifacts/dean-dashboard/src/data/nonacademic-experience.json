@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3038,
-  "no": 10757,
+  "yes": 3048,
+  "no": 10747,
   "unknown": 15675,
-  "namedFirm": 2545,
-  "flagOnly": 493,
-  "firms": 3091,
-  "sittingWithTie": 1872,
-  "sittingSeniorTie": 1140,
-  "researched": 2293
+  "namedFirm": 2549,
+  "flagOnly": 499,
+  "firms": 3096,
+  "sittingWithTie": 1876,
+  "sittingSeniorTie": 1143,
+  "researched": 2308
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -182533,12 +182533,14 @@
   "michael reza|university of texas at dallas": {
    "name": "Michael Reza",
    "university": "University of Texas at Dallas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -182547,16 +182549,55 @@
   "michael rhattigan|adelphi university": {
    "name": "Michael Rhattigan",
    "university": "Adelphi University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Consulting",
+    "Financial Services"
+   ],
+   "firms": [
+    "Adventure 2 Learning",
+    "Andersen Consulting",
+    "JPMorgan"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Adventure 2 Learning",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Andersen Consulting",
+     "role": "Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "JPMorgan",
+     "role": "Debt securities role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael roark|rowan university": {
@@ -182606,16 +182647,33 @@
   "michael rodman|tufts university": {
    "name": "Michael Rodman",
    "university": "Tufts University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. House of Representatives"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. House of Representatives",
+     "role": "Speechwriter/Researcher for Rep. Steny Hoyer, Committee on House Administration",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael s. \"mike\" allen|barry university": {
@@ -182988,12 +183046,14 @@
   "michael stanley|montana state university": {
    "name": "Michael Stanley",
    "university": "Montana State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -183030,12 +183090,14 @@
   "michael szeto|occidental college": {
    "name": "Michael Szeto",
    "university": "Occidental College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -183074,12 +183136,14 @@
   "michael t. byers|western carolina university": {
    "name": "Michael T. Byers",
    "university": "Western Carolina University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -183145,12 +183209,14 @@
    "name": "Michael Taberski",
    "university": "State University of New York at Geneseo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -183159,12 +183225,14 @@
   "michael tam|california state polytechnic university, pomona": {
    "name": "Michael Tam",
    "university": "California State Polytechnic University, Pomona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -183203,16 +183271,34 @@
   "michael trump|national american university-rapid city": {
    "name": "Michael Trump",
    "university": "National American University-Rapid City",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Trump Law Office, P.C."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Trump Law Office, P.C.",
+     "role": "Attorney/Principal",
+     "seniority": "executive",
+     "years": "2004",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "michael v. drake|university of california": {
@@ -183490,13 +183576,15 @@
   "michaela willis|south dakota state university": {
    "name": "Michaela Willis",
    "university": "South Dakota State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -183564,12 +183652,14 @@
    "name": "Michele C. Burris",
    "university": "Fordham University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -183694,11 +183784,13 @@
    "name": "Michele Schiele",
    "university": "Boston University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -183929,6 +184021,8 @@
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -183969,12 +184063,14 @@
    "name": "Michelle Cook",
    "university": "University of Georgia",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -184027,15 +184123,32 @@
   "michelle crimi|clarkson university": {
    "name": "Michelle Crimi",
    "university": "Clarkson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "RemWell"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "RemWell",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "michelle cummings|texas woman's university": {
