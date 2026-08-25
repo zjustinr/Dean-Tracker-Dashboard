@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3067,
-  "no": 10728,
+  "yes": 3076,
+  "no": 10719,
   "unknown": 15675,
-  "namedFirm": 2564,
-  "flagOnly": 503,
-  "firms": 3117,
-  "sittingWithTie": 1891,
-  "sittingSeniorTie": 1152,
-  "researched": 2338
+  "namedFirm": 2572,
+  "flagOnly": 504,
+  "firms": 3129,
+  "sittingWithTie": 1899,
+  "sittingSeniorTie": 1158,
+  "researched": 2353
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -199918,15 +199918,60 @@
   "peter l. holden|indiana university of pennsylvania": {
    "name": "Peter L. Holden",
    "university": "Indiana University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Technology",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Williston Northampton School",
+    "TMA Systems Inc.",
+    "DynCorp"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Williston Northampton School",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2023-2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "TMA Systems Inc.",
+     "role": "Director of Customer Support Services",
+     "seniority": "senior",
+     "years": "1996-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "DynCorp",
+     "role": "Project Manager / Assistant Project Manager",
+     "seniority": "professional",
+     "years": "1996-1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "peter lorenzi|loyola university maryland": {
@@ -199964,16 +200009,35 @@
   "peter m. poulos|case western reserve university": {
    "name": "Peter M. Poulos",
    "university": "Case Western Reserve University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Taft, Stettinius & Hollister"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Taft, Stettinius & Hollister",
+     "role": "Partner",
+     "seniority": "senior",
+     "years": "2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "peter m. provenzano jr.|oakland community college": {
@@ -200167,12 +200231,14 @@
    "name": "Peter Sala",
    "university": "Syracuse University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -200181,16 +200247,34 @@
   "peter schiffer|princeton university": {
    "name": "Peter Schiffer",
    "university": "Princeton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "AT&T Bell Laboratories"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "AT&T Bell Laboratories",
+     "role": "Postdoctoral researcher",
+     "seniority": "professional",
+     "years": "1993",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "peter snyder|university of iowa": {
@@ -200367,14 +200451,63 @@
    "name": "Phanalphie Rhue",
    "university": "Bennett College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Consumer & Retail",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Rhue Still, Inc. / The Beale Agency",
+    "B&C Associates",
+    "Dudley Products",
+    "Goodwill Industries"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Rhue Still, Inc. / The Beale Agency",
+     "role": "Founding Partner / Chief Creative Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "B&C Associates",
+     "role": "Senior Vice President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Dudley Products",
+     "role": "VP of Public Relations & Brand Consultant",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Goodwill Industries",
+     "role": "Director of Sales and Public Relations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -200398,12 +200531,14 @@
    "name": "Phenicia McCullough",
    "university": "California State University, Fullerton",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -200427,11 +200562,13 @@
    "name": "Phil Castleberry",
    "university": "Rochester Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -200440,12 +200577,14 @@
   "phil evans|shenandoah university": {
    "name": "Phil Evans",
    "university": "Shenandoah University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -201002,32 +201141,66 @@
   "phillip logsdon|berea college": {
    "name": "Phillip Logsdon",
    "university": "Berea College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Logsdon Web Development"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Logsdon Web Development",
+     "role": "Owner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "phillip lyle|chapman university": {
    "name": "Phillip Lyle",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Resources Global Professionals"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Resources Global Professionals",
+     "role": "Senior IT leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "philomena v. mantella|grand valley state university": {
@@ -201064,12 +201237,14 @@
    "name": "Phong Yang",
    "university": "California State University, Fresno",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -201078,12 +201253,14 @@
   "phyliss m. spragin|rust college": {
    "name": "Phyliss M. Spragin",
    "university": "Rust College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -201237,11 +201414,13 @@
    "name": "Pim Thukral",
    "university": "Emory University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -201582,17 +201761,43 @@
   "prescott stewart|umass chan medical school": {
    "name": "Prescott Stewart",
    "university": "UMass Chan Medical School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Nantucket Conservation Foundation",
+    "Salisbury School"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Nantucket Conservation Foundation",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Salisbury School",
+     "role": "Senior advancement role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "princess l. j. currence|rush university": {
@@ -201640,16 +201845,35 @@
   "priya harjani|northwestern university": {
    "name": "Priya Harjani",
    "university": "Northwestern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Drinker Biddle & Reath (now Faegre Drinker)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Drinker Biddle & Reath (now Faegre Drinker)",
+     "role": "Litigation associate",
+     "seniority": "professional",
+     "years": "2000-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "priya mehta|university of california santa cruz": {
