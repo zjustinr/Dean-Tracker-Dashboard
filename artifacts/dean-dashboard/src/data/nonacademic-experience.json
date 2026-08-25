@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2803,
-  "no": 10992,
+  "yes": 2811,
+  "no": 10984,
   "unknown": 15675,
-  "namedFirm": 2355,
-  "flagOnly": 448,
-  "firms": 2791,
-  "sittingWithTie": 1682,
-  "sittingSeniorTie": 1010,
-  "researched": 1918
+  "namedFirm": 2361,
+  "flagOnly": 450,
+  "firms": 2802,
+  "sittingWithTie": 1688,
+  "sittingSeniorTie": 1013,
+  "researched": 1933
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -143081,15 +143081,54 @@
   "kevin boyd|university of chicago": {
    "name": "Kevin Boyd",
    "university": "University of Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Media & Entertainment",
+    "Financial Services",
+    "Other industry"
+   ],
+   "firms": [
+    "Tribune Company",
+    "CNA Financial",
+    "United Airlines"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Tribune Company",
+     "role": "Information technology roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "CNA Financial",
+     "role": "Information technology roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "United Airlines",
+     "role": "Information technology roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "kevin brown|montana state university": {
@@ -143485,11 +143524,13 @@
    "name": "Kevin Gately",
    "university": "Merrimack College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -143544,11 +143585,13 @@
    "name": "Kevin H. Gardner",
    "university": "Stony Brook University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -143659,26 +143702,56 @@
   "kevin j. brown|franklin college": {
    "name": "Kevin J. Brown",
    "university": "Franklin College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Energy & Industrials",
+    "Other industry"
+   ],
+   "firms": [
+    "New Flyer Industries",
+    "DHL Supply Chain"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "New Flyer Industries",
+     "role": "Finance, accounting and analytics roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "DHL Supply Chain",
+     "role": "Finance, accounting and analytics roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "kevin j. heaney|princeton university": {
    "name": "Kevin J. Heaney",
    "university": "Princeton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 6,
    "sectors": [
     "Academic",
@@ -143731,12 +143804,14 @@
    "name": "Kevin Koett",
    "university": "Rowan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -143823,12 +143898,14 @@
    "name": "Kevin M. Gilmartin",
    "university": "California Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -143888,16 +143965,44 @@
   "kevin m. hayden|binghamton university": {
    "name": "Kevin M. Hayden",
    "university": "Binghamton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Office of the New York State Attorney General",
+    "Hiscock & Barclay, LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the New York State Attorney General",
+     "role": "Assistant Attorney General, litigation bureau",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hiscock & Barclay, LLP",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kevin m. sackett|cornell university": {
@@ -144087,16 +144192,53 @@
   "kevin r. booker|morehouse college": {
    "name": "Kevin R. Booker",
    "university": "Morehouse College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Clayton County Public School System (Georgia)",
+    "East Orange Public Schools (New Jersey)",
+    "Newark Public Schools (New Jersey)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Clayton County Public School System (Georgia)",
+     "role": "Assistant principal and principal",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "East Orange Public Schools (New Jersey)",
+     "role": "Teacher",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Newark Public Schools (New Jersey)",
+     "role": "Teacher",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kevin r. emmons|rutgers university-camden": {
@@ -144216,12 +144358,14 @@
    "name": "Kevin Robinson",
    "university": "Auburn University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -144258,15 +144402,54 @@
   "kevin s. reed|university of oregon": {
    "name": "Kevin S. Reed",
    "university": "University of Oregon",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Strumwasser & Woocher LLP",
+    "Los Angeles Unified School District",
+    "NAACP Legal Defense and Educational Fund"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Strumwasser & Woocher LLP",
+     "role": "Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Los Angeles Unified School District",
+     "role": "General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "NAACP Legal Defense and Educational Fund",
+     "role": "Litigator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kevin saal|wichita state university": {
@@ -144358,12 +144541,14 @@
   "kevin w. noller|villanova university": {
    "name": "Kevin W. Noller",
    "university": "Villanova University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -144428,12 +144613,14 @@
   "khaleel gathers|colorado college": {
    "name": "Khaleel Gathers",
    "university": "Colorado College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -144443,12 +144630,14 @@
    "name": "Khalilah Doss",
    "university": "California State University, Fullerton",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -144471,16 +144660,55 @@
   "khira griscavage|university of california berkeley": {
    "name": "Khira Griscavage",
    "university": "University of California Berkeley",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Financial Services",
+    "Consulting"
+   ],
+   "firms": [
+    "The Athenian School",
+    "JPMorgan Chase",
+    "McKinsey & Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Athenian School",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "JPMorgan Chase",
+     "role": "Vice President, public sector finance",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "McKinsey & Company",
+     "role": "Management consultant; Director of Operations and Professional Development, West Coast offices",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "khosrow behbehani|university of texas at arlington": {
