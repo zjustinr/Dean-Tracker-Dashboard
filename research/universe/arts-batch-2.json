@@ -1,0 +1,623 @@
+{
+  "seats": [
+    {
+      "university": "Carnegie Mellon University",
+      "state": "PA",
+      "school": "School of Drama",
+      "leaderTitle": "Head of School",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Robert Ramirez",
+          "startYear": 2022,
+          "endYear": null,
+          "priorTitle": "Head of Performance Division",
+          "priorInstitution": "University of Texas at Austin",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.americantheatre.org/2022/04/25/robert-ramirez-named-head-of-carnegie-mellon-school-of-drama/",
+          "notes": "Began his tenure as head of the School of Drama on August 1, 2022. School of Drama sits within CMU's College of Fine Arts (dean Mary Ellen Poole oversees multiple schools including Drama)."
+        },
+        {
+          "name": "Interim Leadership Team (Megan Monaghan Rivas, Kyle Haden, Dick Block, Amy Nichols)",
+          "startYear": 2020,
+          "endYear": 2022,
+          "priorTitle": "Faculty, School of Drama",
+          "priorInstitution": "Carnegie Mellon University",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.americantheatre.org/2022/04/25/robert-ramirez-named-head-of-carnegie-mellon-school-of-drama/",
+          "notes": "Four-member interim leadership team ran the school after longtime head Peter Cooke's 2020 retirement, until Ramirez's 2022 appointment."
+        },
+        {
+          "name": "Peter Cooke",
+          "startYear": null,
+          "endYear": 2020,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.americantheatre.org/2022/04/25/robert-ramirez-named-head-of-carnegie-mellon-school-of-drama/",
+          "notes": "Longtime head of the School of Drama; retired in 2020. Exact start year not confirmed in sources reviewed."
+        }
+      ]
+    },
+    {
+      "university": "Case Western Reserve University",
+      "state": "OH",
+      "school": "College of Arts and Sciences",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "David Gerdes",
+          "startYear": 2025,
+          "endYear": null,
+          "priorTitle": "Chair, Department of Physics; Arthur F. Thurnau Professor of Physics",
+          "priorInstitution": "University of Michigan",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://artsci.case.edu/news/home-page-feature/david-gerdes-named-dean-of-college-of-arts-and-sciences/",
+          "notes": "Became dean effective March 1, 2025. A physicist and astronomer, faculty at Michigan since 1998."
+        },
+        {
+          "name": "Peter Whiting",
+          "startYear": 2024,
+          "endYear": 2025,
+          "priorTitle": "Associate Dean of the College",
+          "priorInstitution": "Case Western Reserve University",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://case.edu/provost/peter-whiting-named-interim-dean-cwrus-college-arts-and-sciences",
+          "notes": "Named interim dean effective July 1, following Joy K. Ward's move to provost."
+        },
+        {
+          "name": "Joy K. Ward",
+          "startYear": 2020,
+          "endYear": 2024,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://case.edu/news/5-questions-new-college-arts-and-sciences-dean-joy-k-ward",
+          "notes": "Left the deanship to become CWRU Provost and Executive Vice President effective January 1, 2024."
+        },
+        {
+          "name": "Cyrus Taylor",
+          "startYear": 2006,
+          "endYear": 2018,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://thedaily.case.edu/religion-scholar-timothy-beal-named-interim-dean-college-arts-sciences-longtime-leader-cyrus-taylor-resigns/",
+          "notes": "Longtime dean; resigned in 2018, succeeded by interim dean Timothy Beal (2018-2020) ahead of Joy Ward's 2020 appointment."
+        }
+      ]
+    },
+    {
+      "university": "Catholic University of America",
+      "state": "DC",
+      "school": "School of Arts and Sciences",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Thomas W. Smith",
+          "startYear": 2020,
+          "endYear": null,
+          "priorTitle": "Anne Quinn Welsh Endowed Chair; Director of the Honors Program",
+          "priorInstitution": "Villanova University",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://communications.catholic.edu/news/2020/06/arts-sciences-dean.html",
+          "notes": "A CUA alumnus, effective dean July 1, 2020."
+        },
+        {
+          "name": "David Walsh",
+          "startYear": 2019,
+          "endYear": 2020,
+          "priorTitle": "Professor of Politics",
+          "priorInstitution": "Catholic University of America",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://communications.catholic.edu/news/2019/05/dean-provost-announcement.html",
+          "notes": "Served as interim dean after Aaron Dominguez moved to the Provost's office."
+        },
+        {
+          "name": "Aaron Dominguez",
+          "startYear": 2016,
+          "endYear": 2019,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://communications.catholic.edu/news/2019/05/dean-provost-announcement.html",
+          "notes": "Left deanship to become Executive Vice President and Provost of CUA in 2019."
+        },
+        {
+          "name": "Lawrence R. Poos",
+          "startYear": 2002,
+          "endYear": 2014,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://history-anthro.catholic.edu/faculty-and-research/faculty-profiles/poos-lawrence/index.html",
+          "notes": "Long-serving dean; there is an unconfirmed gap between the end of Poos's term (2014) and Dominguez's start (2016)."
+        }
+      ]
+    },
+    {
+      "university": "Chapman University",
+      "state": "CA",
+      "school": "Wilkinson College of Arts, Humanities, and Social Sciences",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Jennifer D. Keene",
+          "startYear": 2019,
+          "endYear": null,
+          "priorTitle": "Chair, History Department",
+          "priorInstitution": "Chapman University",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://blogs.chapman.edu/wilkinson/2019/07/09/wilkinson-college-welcomes-new-dean/",
+          "notes": "Ph.D. from Carnegie Mellon; formally began as dean in mid-2019."
+        },
+        {
+          "name": "Patrick Fuery",
+          "startYear": 2011,
+          "endYear": 2019,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://orangereview.com/article/402/jennifer-keene",
+          "notes": "Served roughly eight years as Wilkinson College dean before Keene succeeded him."
+        }
+      ]
+    },
+    {
+      "university": "Clemson University",
+      "state": "SC",
+      "school": "College of Architecture, Arts and Humanities",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Nicholas Vazsonyi",
+          "startYear": 2020,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://news.clemson.edu/nicholas-vazsonyi-named-dean-of-the-college-of-architecture-arts-and-humanities-at-clemson/",
+          "notes": "Began July 1, 2020 as dean of the original College of Architecture, Arts and Humanities. That college was dissolved and split effective July 1, 2023 into the College of Arts and Humanities (which he now leads as founding dean) and a separate College of Architecture, Art and Construction."
+        },
+        {
+          "name": "Richard E. Goodstein",
+          "startYear": 2011,
+          "endYear": 2019,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://gsabusiness.com/news/architecture/78018/",
+          "notes": "Predecessor to Vazsonyi as dean of the (pre-split) College of Architecture, Arts and Humanities."
+        }
+      ]
+    },
+    {
+      "university": "Colgate University",
+      "state": "NY",
+      "school": "College of Arts and Sciences (Provost and Dean of the Faculty)",
+      "leaderTitle": "Provost and Dean of the Faculty",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Lesleigh Cushing",
+          "startYear": 2022,
+          "endYear": null,
+          "priorTitle": "Associate Dean of the Faculty",
+          "priorInstitution": "Colgate University",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.colgate.edu/news/stories/prof-lesleigh-cushing-named-colgate-university-provost-and-dean-faculty",
+          "notes": "Colgate is a single liberal arts college without a separate 'College of Arts & Sciences'; the Provost and Dean of the Faculty is the chief academic officer equivalent role. Cushing took over July 1, 2022, after serving as Associate Dean of the Faculty (2017-2021)."
+        },
+        {
+          "name": "Tracey E. Hucks",
+          "startYear": null,
+          "endYear": 2022,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://thecolgatemaroonnews.com/37126/news/lesleigh-cushing-elected-to-serve-as-new-provost-and-dean-of-the-faculty/",
+          "notes": "Predecessor to Cushing as Provost and Dean of the Faculty; exact start year not confirmed in sources reviewed."
+        }
+      ]
+    },
+    {
+      "university": "Colorado School of Mines",
+      "state": "CO",
+      "school": "Division of Humanities, Arts and Social Sciences (formerly College/Division of Liberal Arts and International Studies, LAIS)",
+      "leaderTitle": "Department Head",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Sandy Woodson",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": "Teaching Professor",
+          "priorInstitution": "Colorado School of Mines",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://hass.mines.edu/contact-us/",
+          "notes": "Listed as current Department Head of Humanities, Arts and Social Sciences (HASS). Mines does not have a dean-level 'arts school'; LAIS/HASS is an academic unit led by a department head. Exact start date not confirmed."
+        },
+        {
+          "name": "Hussain Amery",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://hass.mines.edu/contact-us/",
+          "notes": "Identified in some directory sources as department head/leader of the Liberal Arts and International Studies division at an earlier point; exact tenure and relationship to Woodson's appointment not independently confirmed."
+        }
+      ]
+    },
+    {
+      "university": "Colorado State University",
+      "state": "CO",
+      "school": "College of Liberal Arts",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Kjerstin Thorson",
+          "startYear": 2024,
+          "endYear": null,
+          "priorTitle": "Brandt Endowed Professor of Political Communication; Associate Dean for Strategic Initiatives, College of Communication Arts & Sciences",
+          "priorInstitution": "Michigan State University",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://collegian.com/articles/news/2024/09/category-news-college-of-liberal-arts-new-dean-holds-visionary-future/",
+          "notes": "Began as dean August 1, 2024."
+        },
+        {
+          "name": "Ben Withers",
+          "startYear": 2016,
+          "endYear": 2024,
+          "priorTitle": null,
+          "priorInstitution": "University of Kentucky",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://source.colostate.edu/kentuckys-withers-named-dean-csus-college-liberal-arts/",
+          "notes": "Started at CSU July 1, 2016; left in 2024 to become dean of Iowa State University's College of Liberal Arts and Sciences."
+        },
+        {
+          "name": "Ann Gill",
+          "startYear": 2005,
+          "endYear": 2016,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://source.colostate.edu/kentuckys-withers-named-dean-csus-college-liberal-arts/",
+          "notes": "Retired after 11 years as dean; start year approximated from that tenure length."
+        }
+      ]
+    },
+    {
+      "university": "Columbia University",
+      "state": "NY",
+      "school": "School of the Arts",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Sarah Cole",
+          "startYear": 2023,
+          "endYear": null,
+          "priorTitle": "Dean of Humanities; Parr Professor of English and Comparative Literature",
+          "priorInstitution": "Columbia University",
+          "isInterim": true,
+          "convertedToPermanent": true,
+          "sourceUrl": "https://arts.columbia.edu/news/sarah-cole-appointed-dean-school-arts",
+          "notes": "Appointed interim dean in fall 2023 (effective July 19, 2023); made permanent dean by President Minouche Shafik in June 2024."
+        },
+        {
+          "name": "Carol Becker",
+          "startYear": 2007,
+          "endYear": 2023,
+          "priorTitle": "Dean of Faculty and Senior VP for Academic Affairs",
+          "priorInstitution": "School of the Art Institute of Chicago",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://president.columbia.edu/news/announcement-regarding-carol-becker-dean-school-arts",
+          "notes": "16-year tenure as dean, ending June 30, 2023."
+        },
+        {
+          "name": "Dan Kleinman",
+          "startYear": 2005,
+          "endYear": 2007,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://bwog.com/2022/10/dean-of-columbias-school-of-the-arts-to-step-down-in-june-2023/",
+          "notes": "Served as acting dean between Ferguson and Becker."
+        },
+        {
+          "name": "Bruce W. Ferguson",
+          "startYear": 1999,
+          "endYear": 2005,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://bwog.com/2022/10/dean-of-columbias-school-of-the-arts-to-step-down-in-june-2023/",
+          "notes": "Dean of the School of the Arts, 1999-2005."
+        }
+      ]
+    },
+    {
+      "university": "University of Connecticut",
+      "state": "CT",
+      "school": "College of Liberal Arts and Sciences",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Ofer Harel",
+          "startYear": 2024,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": "University of Connecticut",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://today.uconn.edu/2024/07/ofer-harel-named-dean-of-uconns-college-of-liberal-arts-and-sciences/",
+          "notes": "Became dean in July 2024."
+        },
+        {
+          "name": "Juli Wade",
+          "startYear": 2019,
+          "endYear": 2024,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://provost.uconn.edu/2023/04/25/7759/",
+          "notes": "Served as CLAS dean from 2019 to 2024."
+        },
+        {
+          "name": "Davita Silfen Glasberg",
+          "startYear": 2017,
+          "endYear": 2019,
+          "priorTitle": "Associate Dean, CLAS",
+          "priorInstitution": "University of Connecticut",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://clas.uconn.edu/2016/12/19/associate-dean-glasberg-serve-as-interim-dean/",
+          "notes": "Began serving as interim dean effective February 1, 2017."
+        },
+        {
+          "name": "Jeremy Teitelbaum",
+          "startYear": null,
+          "endYear": 2016,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://clas.uconn.edu/2016/12/19/associate-dean-glasberg-serve-as-interim-dean/",
+          "notes": "Predecessor dean before Glasberg's interim term; exact start year not confirmed in sources reviewed."
+        }
+      ]
+    },
+    {
+      "university": "Cornell University",
+      "state": "NY",
+      "school": "College of Arts and Sciences",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Peter Loewen",
+          "startYear": 2024,
+          "endYear": null,
+          "priorTitle": "Director, Munk School of Global Affairs and Public Policy",
+          "priorInstitution": "University of Toronto",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://news.cornell.edu/stories/2024/05/peter-loewen-to-assume-arts-and-sciences-dean-position",
+          "notes": "Named the Harold Tanner Dean of the College of Arts and Sciences; five-year term began August 1, 2024."
+        },
+        {
+          "name": "Rachel Bean",
+          "startYear": 2023,
+          "endYear": 2024,
+          "priorTitle": "Senior Associate Dean for Undergraduate Education; Professor of Astronomy",
+          "priorInstitution": "Cornell University",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://as.cornell.edu/news/dean-announces-transitions-arts-sciences-leadership-team",
+          "notes": "Interim dean from July 2023 after Jayawardhana departed for Johns Hopkins, until Loewen's 2024 arrival."
+        },
+        {
+          "name": "Ray Jayawardhana",
+          "startYear": 2018,
+          "endYear": 2023,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://news.cornell.edu/stories/2018/06/ray-jayawardhana-named-dean-arts-and-sciences",
+          "notes": "22nd dean of the college; appointment effective September 1, 2018. Left to become Provost of Johns Hopkins University in 2023."
+        },
+        {
+          "name": "Gretchen Ritter",
+          "startYear": 2013,
+          "endYear": 2018,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://news.cornell.edu/stories/2018/06/ray-jayawardhana-named-dean-arts-and-sciences",
+          "notes": "Dean of the college from 2013 until Jayawardhana's 2018 succession."
+        }
+      ]
+    },
+    {
+      "university": "Dartmouth College",
+      "state": "NH",
+      "school": "School of Arts and Sciences (formerly Faculty of Arts and Sciences)",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Nina Pavcnik",
+          "startYear": 2025,
+          "endYear": null,
+          "priorTitle": "Niehaus Family Professor in International Studies",
+          "priorInstitution": "Dartmouth College",
+          "isInterim": true,
+          "convertedToPermanent": true,
+          "sourceUrl": "https://home.dartmouth.edu/news/2026/05/nina-pavcnik-named-inaugural-dean-arts-and-sciences",
+          "notes": "Served as interim dean beginning January 2025, guiding the founding of the new School of Arts and Sciences (established July 1, 2025). Named inaugural permanent dean effective July 1, 2026."
+        },
+        {
+          "name": "Elizabeth F. Smith",
+          "startYear": null,
+          "endYear": 2025,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://home.dartmouth.edu/news/2026/05/nina-pavcnik-named-inaugural-dean-arts-and-sciences",
+          "notes": "Former Dean of the Faculty of Arts and Sciences (pre-restructuring title/structure); co-led the multiyear project to create the new School of Arts and Sciences. Exact start year and predecessors not confirmed in sources reviewed."
+        }
+      ]
+    },
+    {
+      "university": "University of Delaware",
+      "state": "DE",
+      "school": "College of Arts & Sciences",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Caleb Everett",
+          "startYear": 2025,
+          "endYear": null,
+          "priorTitle": "Senior Associate Dean; Professor of Anthropology and Psychology",
+          "priorInstitution": "University of Miami",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.udel.edu/udaily/2024/december/new-dean-college-arts-sciences-caleb-everett/",
+          "notes": "Appointment effective March 1, 2025."
+        },
+        {
+          "name": "Debra Hess Norris",
+          "startYear": 2023,
+          "endYear": 2025,
+          "priorTitle": "Chair and Professor, Photograph Conservation; Director, Winterthur/UD Program in Art Conservation",
+          "priorInstitution": "University of Delaware",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.udel.edu/udaily/2023/may/interim-dean-college-arts-sciences-debra-hess-norris/",
+          "notes": "Interim dean from August 2023 until Everett's March 2025 arrival."
+        },
+        {
+          "name": "John Pelesko",
+          "startYear": null,
+          "endYear": 2023,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.udel.edu/udaily/2023/may/interim-dean-college-arts-sciences-debra-hess-norris/",
+          "notes": "Stepped down in 2023 to become Provost and Senior VP for Academic Affairs at New Jersey Institute of Technology; exact start year as UD CAS dean not confirmed in sources reviewed."
+        }
+      ]
+    },
+    {
+      "university": "DePaul University",
+      "state": "IL",
+      "school": "College of Liberal Arts and Social Sciences",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Guillermo Vasquez de Velasco",
+          "startYear": null,
+          "endYear": null,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://las.depaul.edu/about/welcome-from-the-dean",
+          "notes": "Currently listed as Dean of the College of Liberal Arts and Social Sciences (also associated with The Art School within LAS). Appointment year, prior title, and predecessor history could not be confirmed from publicly available sources reviewed in this session."
+        }
+      ]
+    },
+    {
+      "university": "Duke University",
+      "state": "NC",
+      "school": "Trinity College of Arts and Sciences",
+      "leaderTitle": "Dean",
+      "moreHistoryExists": true,
+      "records": [
+        {
+          "name": "Gary G. Bennett",
+          "startYear": 2023,
+          "endYear": null,
+          "priorTitle": "Professor of Psychology & Neuroscience, Global Health, Medicine and Nursing; Founding Director, Duke Digital Health Science Center",
+          "priorInstitution": "Duke University",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://today.duke.edu/2022/11/bennett-appointed-dean-trinity-college-arts-sciences",
+          "notes": "Began a five-year term as dean on February 1, 2023."
+        },
+        {
+          "name": "Mohamed Noor",
+          "startYear": 2022,
+          "endYear": 2023,
+          "priorTitle": "Professor of Biology",
+          "priorInstitution": "Duke University",
+          "isInterim": true,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://today.duke.edu/2022/11/bennett-appointed-dean-trinity-college-arts-sciences",
+          "notes": "Interim dean between Ashby's summer 2022 departure and Bennett's February 2023 start."
+        },
+        {
+          "name": "Valerie Sheares Ashby",
+          "startYear": 2015,
+          "endYear": 2022,
+          "priorTitle": "Chair, Department of Chemistry",
+          "priorInstitution": "Duke University",
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://today.duke.edu/2022/04/trinity-college-dean-valerie-ashby-named-president-university-maryland-baltimore-county",
+          "notes": "Dean from July 1, 2015 (reappointed for a second term in 2019) until August 2022, when she left to become president of UMBC."
+        },
+        {
+          "name": "Laurie Patton",
+          "startYear": null,
+          "endYear": 2015,
+          "priorTitle": null,
+          "priorInstitution": null,
+          "isInterim": false,
+          "convertedToPermanent": false,
+          "sourceUrl": "https://www.insidehighered.com/news/governance/2023/02/13/valerie-sheares-ashby-leadership-and-succeeding-legend",
+          "notes": "Ashby's immediate predecessor as Trinity dean; Patton left to become president of Middlebury College in 2015."
+        }
+      ]
+    }
+  ]
+}
