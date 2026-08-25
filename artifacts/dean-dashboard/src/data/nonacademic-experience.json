@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2946,
-  "no": 10849,
+  "yes": 2953,
+  "no": 10842,
   "unknown": 15675,
-  "namedFirm": 2469,
-  "flagOnly": 477,
-  "firms": 2966,
-  "sittingWithTie": 1796,
-  "sittingSeniorTie": 1091,
-  "researched": 2143
+  "namedFirm": 2477,
+  "flagOnly": 476,
+  "firms": 2983,
+  "sittingWithTie": 1804,
+  "sittingSeniorTie": 1098,
+  "researched": 2158
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -168958,15 +168958,74 @@
   "marquitte starkey|the university of the south": {
    "name": "Marquitte Starkey",
    "university": "The University of the South",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail",
+    "Technology",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Color Me Mine",
+    "Verio Inc.",
+    "AppliedTheory Corporation",
+    "Holme Roberts & Owen LLP",
+    "Morrison & Foerster LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Color Me Mine",
+     "role": "Owner/operator",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Verio Inc.",
+     "role": "In-house counsel/leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "AppliedTheory Corporation",
+     "role": "In-house leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Holme Roberts & Owen LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Morrison & Foerster LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "marrie neumer|university of south florida": {
@@ -168986,16 +169045,33 @@
   "marsha fischer|university of missouri": {
    "name": "Marsha Fischer",
    "university": "University of Missouri",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Walther, Antel, Stamper & Fischer, P.C."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Walther, Antel, Stamper & Fischer, P.C.",
+     "role": "Attorney (name partner)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "marsha fischer|university of missouri system": {
@@ -169235,11 +169311,13 @@
    "name": "Martha \"Marty\" Wygmans",
    "university": "Stockton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -169423,13 +169501,15 @@
   "martha spack|arkansas state university": {
    "name": "Martha Spack",
    "university": "Arkansas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -169467,15 +169547,32 @@
    "name": "Marti Fessenden",
    "university": "Agnes Scott College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 3,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "The Fessenden Firm / Higher Ed Advise"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "The Fessenden Firm / Higher Ed Advise",
+     "role": "Principal",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -169545,16 +169642,33 @@
   "martin blair|idaho state university": {
    "name": "Martin Blair",
    "university": "Idaho State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Regional Economic Development for Eastern Idaho (REDI)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Regional Economic Development for Eastern Idaho (REDI)",
+     "role": "Executive Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "martin de porres bartel, o.s.b.|saint vincent college": {
@@ -169749,11 +169863,13 @@
    "name": "Martin W. Shell",
    "university": "Stanford University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -169806,12 +169922,14 @@
    "name": "Martina Nieswandt",
    "university": "Chapman University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -169849,15 +169967,78 @@
   "marty meehan|university of massachusetts": {
    "name": "Marty Meehan",
    "university": "University of Massachusetts",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Natixis Global Asset Management",
+    "Lowell General Hospital",
+    "U.S. House of Representatives",
+    "Massachusetts Secretary of State's Office",
+    "Middlesex County District Attorney's Office"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Natixis Global Asset Management",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Lowell General Hospital",
+     "role": "Board of Governors member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. House of Representatives",
+     "role": "Member of Congress, Massachusetts 5th district",
+     "seniority": "executive",
+     "years": "1993-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Massachusetts Secretary of State's Office",
+     "role": "Deputy Secretary of State for securities and corporations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Middlesex County District Attorney's Office",
+     "role": "First Assistant District Attorney",
+     "seniority": "senior",
+     "years": "1991-1992",
+     "endYear": 1992,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "marty ray|tufts university": {
@@ -170136,11 +170317,13 @@
    "name": "Mary Anderson",
    "university": "University of West Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -170755,11 +170938,13 @@
    "name": "Mary Granger",
    "university": "Antioch University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -170768,15 +170953,42 @@
   "mary gresch|university of washington": {
    "name": "Mary Gresch",
    "university": "University of Washington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Cate School",
+    "National Multiple Sclerosis Society"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Cate School",
+     "role": "Director of public relations and publications",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Multiple Sclerosis Society",
+     "role": "Development coordinator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "mary guinan|university of nevada, las vegas": {
@@ -170842,15 +171054,44 @@
    "name": "Mary Hill",
    "university": "Central Michigan University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Central Michigan University Research Corporation (CMURC)",
+    "Michigan Public School Employees Retirement System Task Force"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Central Michigan University Research Corporation (CMURC)",
+     "role": "Board of Directors member",
+     "seniority": "senior",
+     "years": "2023",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Michigan Public School Employees Retirement System Task Force",
+     "role": "Task force member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ],
    "flags": [
     "careerBackground: Finance and administrative services leader"
@@ -171063,15 +171304,45 @@
   "mary lou d. ortiz|university of california irvine": {
    "name": "Mary Lou D. Ortiz",
    "university": "University of California Irvine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "International Rescue Committee",
+    "NewYork-Presbyterian/Columbia University Student Health Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "International Rescue Committee",
+     "role": "Senior Director of Budget and Financial Planning",
+     "seniority": "senior",
+     "years": "2006-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "NewYork-Presbyterian/Columbia University Student Health Services",
+     "role": "Director of Planning and Financial Administration",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "mary lou ortiz|university of california irvine": {
@@ -171093,11 +171364,13 @@
    "name": "Mary Lucal",
    "university": "Wake Forest University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
