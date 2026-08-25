@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2857,
-  "no": 10938,
+  "yes": 2869,
+  "no": 10926,
   "unknown": 15675,
-  "namedFirm": 2400,
-  "flagOnly": 457,
-  "firms": 2864,
-  "sittingWithTie": 1727,
-  "sittingSeniorTie": 1044,
-  "researched": 2008
+  "namedFirm": 2408,
+  "flagOnly": 461,
+  "firms": 2872,
+  "sittingWithTie": 1735,
+  "sittingSeniorTie": 1047,
+  "researched": 2023
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -148845,15 +148845,43 @@
   "kristine a. brown|bucknell university": {
    "name": "Kristine A. Brown",
    "university": "Bucknell University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "American Repertory Ballet / Princeton Ballet School",
+    "New Jersey Department of Children and Families"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Repertory Ballet / Princeton Ballet School",
+     "role": "Member, Board of Trustees",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New Jersey Department of Children and Families",
+     "role": "Director of Communications",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "kristine brown|bucknell university": {
@@ -149325,13 +149353,15 @@
   "kyle clark|florida state university": {
    "name": "Kyle Clark",
    "university": "Florida State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -149368,16 +149398,33 @@
   "kyle henley|colorado state university": {
    "name": "Kyle Henley",
    "university": "Colorado State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "CoBank"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "CoBank",
+     "role": "Corporate Communications Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kyle jensen|yale university": {
@@ -149530,27 +149577,48 @@
   "kyle webb|rhodes college": {
    "name": "Kyle Webb",
    "university": "Rhodes College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Ernst & Young LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Ernst & Young LLP",
+     "role": "Accountant (Memphis office)",
+     "seniority": "professional",
+     "years": "1997",
+     "endYear": 1997,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "kyle zerr|university of tulsa": {
    "name": "Kyle Zerr",
    "university": "University of Tulsa",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -149615,30 +149683,64 @@
   "kyra milbourne|capitol technology university": {
    "name": "Kyra Milbourne",
    "university": "Capitol Technology University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Military OneSource"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Military OneSource",
+     "role": "Staff role (unspecified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "kyujung whang|princeton university": {
    "name": "KyuJung Whang",
    "university": "Princeton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "CUH2A Architects and Engineers (now HDR Architecture and Engineering)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "CUH2A Architects and Engineers (now HDR Architecture and Engineering)",
+     "role": "Senior Project Architect",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "l. anthony wise|pellissippi state community college": {
@@ -149932,11 +150034,13 @@
    "name": "Laine Norton",
    "university": "Hofstra University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -150043,16 +150147,33 @@
   "laleh graylee|california state university, fullerton": {
    "name": "Laleh Graylee",
    "university": "California State University, Fullerton",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Anaheim Budget, Investment and Technology Commission"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "City of Anaheim Budget, Investment and Technology Commission",
+     "role": "Commissioner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "lamar urbanovsky|texas state university system": {
@@ -150162,11 +150283,13 @@
    "name": "Lance Burchett",
    "university": "Kennesaw State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -150260,12 +150383,14 @@
    "name": "Lance McMahon",
    "university": "Texas Tech University Health Sciences Center",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -150447,12 +150572,14 @@
   "larissa holtmyer jones|iowa state university": {
    "name": "Larissa Holtmyer Jones",
    "university": "Iowa State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -150533,13 +150660,15 @@
   "larry barker|tougaloo college": {
    "name": "Larry Barker",
    "university": "Tougaloo College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -150548,16 +150677,35 @@
   "larry brandolph|temple university": {
    "name": "Larry Brandolph",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Cigna"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Cigna",
+     "role": "Vice President and Head of Infrastructure Services",
+     "seniority": "senior",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "larry crosby|oklahoma state university": {
@@ -150870,16 +151018,35 @@
   "larry l. howell|brigham young university": {
    "name": "Larry L. Howell",
    "university": "Brigham Young University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Engineering Methods, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Engineering Methods, Inc.",
+     "role": "Finite element analysis consultant",
+     "seniority": "professional",
+     "years": "1994",
+     "endYear": 1994,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "larry leroy \"lee\" tyner jr.|texas christian university": {
