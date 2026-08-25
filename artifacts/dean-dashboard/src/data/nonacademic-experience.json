@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2492,
-  "no": 11303,
+  "yes": 2502,
+  "no": 11293,
   "unknown": 15675,
-  "namedFirm": 2102,
-  "flagOnly": 390,
-  "firms": 2375,
-  "sittingWithTie": 1429,
-  "sittingSeniorTie": 833,
-  "researched": 1453
+  "namedFirm": 2110,
+  "flagOnly": 392,
+  "firms": 2388,
+  "sittingWithTie": 1437,
+  "sittingSeniorTie": 840,
+  "researched": 1468
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -81790,16 +81790,33 @@
   "francisco x. pineda|the new school": {
    "name": "Francisco X. Pineda",
    "university": "The New School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York City Economic Development Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Economic Development Corporation",
+     "role": "Executive Vice President of Asset Management",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "francois bar|university of southern california": {
@@ -81880,13 +81897,15 @@
   "frank cirioni|berea college": {
    "name": "Frank Cirioni",
    "university": "Berea College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -81896,12 +81915,14 @@
    "name": "Frank Cuevas",
    "university": "University of Tennessee Knoxville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -82167,15 +82188,42 @@
   "frank strike|george mason university": {
    "name": "Frank Strike",
    "university": "George Mason University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Navy Region Mid-Atlantic",
+    "Naval Facilities Engineering Command"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Navy Region Mid-Atlantic",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Naval Facilities Engineering Command",
+     "role": "Business Director, Norfolk VA",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "frank t. brogan|pennsylvania's state system of higher education": {
@@ -82209,16 +82257,34 @@
   "frank tramble|duke university": {
    "name": "Frank Tramble",
    "university": "Duke University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Institute for Public Relations"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Institute for Public Relations",
+     "role": "Trustee",
+     "seniority": "executive",
+     "years": "2024",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "frank w. woodward|lincoln memorial university": {
@@ -82467,11 +82533,13 @@
    "name": "Fred C. McCall",
    "university": "Widener University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -82567,13 +82635,15 @@
   "fred parrish|idaho state university": {
    "name": "Fred Parrish",
    "university": "Idaho State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -82656,12 +82726,14 @@
    "name": "Freddie Titus",
    "university": "Lamar University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -82994,15 +83066,33 @@
   "fritz w. schroeder|johns hopkins university": {
    "name": "Fritz W. Schroeder",
    "university": "Johns Hopkins University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Chesapeake Bay Outward Bound School"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chesapeake Bay Outward Bound School",
+     "role": "Trustee",
+     "seniority": "executive",
+     "years": "2019",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "fuhui tong|texas a&m university": {
@@ -83274,12 +83364,14 @@
    "name": "Gabriel Welsch",
    "university": "Duquesne University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -83303,15 +83395,54 @@
   "gabriele fariello|university of rhode island": {
    "name": "Gabriele Fariello",
    "university": "University of Rhode Island",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Law (private practice)",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "SmartPoints Medical",
+    "Balestriere Lanza",
+    "Massachusetts General Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "SmartPoints Medical",
+     "role": "Chief Information Technology Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Balestriere Lanza",
+     "role": "Chief Technology Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Massachusetts General Hospital",
+     "role": "Director of Clinical Research Informatics",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "gabriele zengewald|seton hall university": {
@@ -83382,31 +83513,76 @@
   "gaelle h. gralnek|california state university, los angeles": {
    "name": "Gaelle H. Gralnek",
    "university": "California State University, Los Angeles",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Ernst & Young LLP",
+    "O'Melveny & Myers LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Ernst & Young LLP",
+     "role": "Attorney, Office of General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "O'Melveny & Myers LLP",
+     "role": "Associate, Litigation Department",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "gaetan t. giannini|alvernia university": {
    "name": "Gaetan T. Giannini",
    "university": "Alvernia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Council for Retail and Sales"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Council for Retail and Sales",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "gail b. rattinger|binghamton university (suny)": {
@@ -83506,6 +83682,8 @@
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 0,
    "sectors": [],
    "flags": [
@@ -83573,16 +83751,63 @@
   "gariot p. louima|earlham college": {
    "name": "Gariot P. Louima",
    "university": "Earlham College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Palm Beach Post",
+    "Los Angeles Times",
+    "Miami Herald",
+    "The Times-Picayune"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Palm Beach Post",
+     "role": "Journalist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Los Angeles Times",
+     "role": "Journalist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Miami Herald",
+     "role": "Journalist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Times-Picayune",
+     "role": "Journalist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "garrett klassy|california state university, fresno": {
