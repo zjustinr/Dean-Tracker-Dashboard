@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2691,
-  "no": 11104,
+  "yes": 2697,
+  "no": 11098,
   "unknown": 15675,
-  "namedFirm": 2268,
-  "flagOnly": 423,
-  "firms": 2658,
-  "sittingWithTie": 1595,
-  "sittingSeniorTie": 949,
-  "researched": 1753
+  "namedFirm": 2275,
+  "flagOnly": 422,
+  "firms": 2671,
+  "sittingWithTie": 1602,
+  "sittingSeniorTie": 954,
+  "researched": 1768
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -120024,11 +120024,13 @@
    "name": "Joggeshwar (Jogy) Das",
    "university": "D'Youville University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -120066,11 +120068,13 @@
    "name": "Johanna Blickenstaff",
    "university": "Colorado College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -120094,11 +120098,13 @@
    "name": "Johanna Mills Metzgar",
    "university": "Stanford University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -120150,12 +120156,14 @@
    "name": "John \"Brice\" Bible Jr.",
    "university": "University of South Carolina",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -120371,27 +120379,56 @@
   "john a. messina|university of akron": {
    "name": "John A. Messina",
    "university": "University of Akron",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Salvation Army, Summit County Area Services",
+    "Shaw JCC of Akron"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Salvation Army, Summit County Area Services",
+     "role": "Vice Chairman, Advisory Board",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Shaw JCC of Akron",
+     "role": "Trustee",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "john a. patterson|mercer university": {
    "name": "John A. Patterson",
    "university": "Mercer University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -120460,12 +120497,14 @@
    "name": "John Acardo",
    "university": "Northern Illinois University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -120531,15 +120570,42 @@
    "name": "John Arnold",
    "university": "University of Arizona",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "State of Arizona, Office of the Governor (Office of Strategic Planning and Budgeting)",
+    "Arizona School Facilities Board"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "State of Arizona, Office of the Governor (Office of Strategic Planning and Budgeting)",
+     "role": "State Budget Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Arizona School Facilities Board",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "careerBackground: Finance"
@@ -120622,15 +120688,80 @@
   "john b. king jr.|state university of new york": {
    "name": "John B. King Jr.",
    "university": "State University of New York",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "The Education Trust",
+    "U.S. Department of Education",
+    "New York State Education Department",
+    "Roxbury Preparatory Charter School",
+    "Uncommon Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Education Trust",
+     "role": "President and CEO",
+     "seniority": "executive",
+     "years": "2017-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Education",
+     "role": "U.S. Secretary of Education",
+     "seniority": "executive",
+     "years": "2016-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York State Education Department",
+     "role": "New York State Commissioner of Education",
+     "seniority": "executive",
+     "years": "2011-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Roxbury Preparatory Charter School",
+     "role": "Co-founder and co-director",
+     "seniority": "executive",
+     "years": "1999",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Uncommon Schools",
+     "role": "Managing Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "john b. tasker|michigan state university": {
@@ -120650,15 +120781,34 @@
   "john b. wilson|spelman college": {
    "name": "John B. Wilson",
    "university": "Spelman College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Polaroid Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Polaroid Corporation",
+     "role": "Information systems staff, promoted to management in 1995",
+     "seniority": "professional",
+     "years": "1990-1997",
+     "endYear": 1997,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "john barden|yale university": {
@@ -120736,30 +120886,102 @@
   "john berry|maryville college": {
    "name": "John Berry",
    "university": "Maryville College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Boys & Girls Clubs of the Tennessee Valley",
+    "Landmark Communications",
+    "ZeniMax Media"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Boys & Girls Clubs of the Tennessee Valley",
+     "role": "Director of Information Technology",
+     "seniority": "senior",
+     "years": "2008-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Landmark Communications",
+     "role": "Lead developer, online startup",
+     "seniority": "professional",
+     "years": "1998",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "ZeniMax Media",
+     "role": "IT Manager",
+     "seniority": "professional",
+     "years": "1999-2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "john blackshear|university of rochester": {
    "name": "John Blackshear",
    "university": "University of Rochester",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Center for Death Penalty Litigation",
+    "Centers for Disease Control and Prevention"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Center for Death Penalty Litigation",
+     "role": "Psychologist on a capital defense legal team",
+     "seniority": "professional",
+     "years": "2003",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Centers for Disease Control and Prevention",
+     "role": "Fellow (six-month fellowship)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "john blanton|south dakota state university": {
@@ -120855,12 +121077,14 @@
    "name": "John Burke",
    "university": "Dominican University New York",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -121041,12 +121265,14 @@
    "name": "John C. Higginbotham",
    "university": "University of Mississippi",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -121214,15 +121440,32 @@
   "john christopher|st lawrence university": {
    "name": "John Christopher",
    "university": "St Lawrence University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Hodgson Russ LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hodgson Russ LLP",
+     "role": "General Partner; leader of the College and University Practice and the Labor and Employment Law Practice",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "john cicero|northcentral university": {
