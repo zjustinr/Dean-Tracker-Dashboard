@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2697,
-  "no": 11098,
+  "yes": 2710,
+  "no": 11085,
   "unknown": 15675,
-  "namedFirm": 2275,
-  "flagOnly": 422,
-  "firms": 2671,
-  "sittingWithTie": 1602,
-  "sittingSeniorTie": 954,
-  "researched": 1768
+  "namedFirm": 2286,
+  "flagOnly": 424,
+  "firms": 2689,
+  "sittingWithTie": 1613,
+  "sittingSeniorTie": 961,
+  "researched": 1783
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -125308,16 +125308,47 @@
   "john w. mcguthry|california state polytechnic university, pomona": {
    "name": "John W. McGuthry",
    "university": "California State Polytechnic University, Pomona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "BellSouth",
+    "Telcordia Technologies"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "BellSouth",
+     "role": "Director, Product Management",
+     "seniority": "senior",
+     "years": "1995-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Telcordia Technologies",
+     "role": "Principal Consultant",
+     "seniority": "professional",
+     "years": "1998-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "john w. moore|indiana state university": {
@@ -125438,15 +125469,33 @@
   "john w. smith|tennessee technological university": {
    "name": "John W. Smith",
    "university": "Tennessee Technological University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "White County Board of Education"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "White County Board of Education",
+     "role": "Board Member",
+     "seniority": "executive",
+     "years": "2024",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "john w. smith|university of south alabama": {
@@ -125510,16 +125559,55 @@
   "john walls|university of texas at dallas": {
    "name": "John Walls",
    "university": "University of Texas at Dallas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare & Pharma",
+    "Energy & Industrials",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Tenet Healthcare",
+    "TXU Corp.",
+    "Lubbock Avalanche-Journal"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Tenet Healthcare",
+     "role": "Communications role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "TXU Corp.",
+     "role": "Communications role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Lubbock Avalanche-Journal",
+     "role": "Public affairs reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "john walters|louisiana state university": {
@@ -125780,15 +125868,32 @@
   "john-paul roczniak|university of arizona": {
    "name": "John-Paul Roczniak",
    "university": "University of Arizona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Carondelet Health Network"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Carondelet Health Network",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "johnnetta b. cole|bennett college": {
@@ -125822,16 +125927,56 @@
   "johnny cruz|university of arizona": {
    "name": "Johnny Cruz",
    "university": "University of Arizona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "World Vision",
+    "Make-A-Wish America",
+    "Kyrene School District"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "World Vision",
+     "role": "National Director of Public Relations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Make-A-Wish America",
+     "role": "Marketing and external communications roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Kyrene School District",
+     "role": "Communications Supervisor",
+     "seniority": "professional",
+     "years": "2004-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "johnny m. moore|rust college": {
@@ -125883,15 +126028,42 @@
   "johnson eapen|alvernia university": {
    "name": "Johnson Eapen",
    "university": "Alvernia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "American Baptist Foreign Mission Society",
+    "Ben Franklin Technology Partners"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Baptist Foreign Mission Society",
+     "role": "Chief Human Resources Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Ben Franklin Technology Partners",
+     "role": "Director of Human Resources and Operations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "johné parker|university of kentucky": {
@@ -125926,13 +126098,15 @@
   "joi cunningham|oakland university": {
    "name": "Joi Cunningham",
    "university": "Oakland University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -126000,13 +126174,15 @@
   "jon bruner|abilene christian university": {
    "name": "Jon Bruner",
    "university": "Abilene Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -126044,12 +126220,14 @@
    "name": "Jon Dooley",
    "university": "Elon University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -126058,16 +126236,33 @@
   "jon duraj|st lawrence university": {
    "name": "Jon Duraj",
    "university": "St Lawrence University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Bloom Africa"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bloom Africa",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "jon enslin|augustana college": {
@@ -126258,15 +126453,32 @@
   "jon paparsenos|seton hall university": {
    "name": "Jon Paparsenos",
    "university": "Seton Hall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Sergeant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jon r. wallace|azusa pacific university": {
@@ -126334,28 +126546,88 @@
   "jon yates|northwestern university": {
    "name": "Jon Yates",
    "university": "Northwestern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment",
+    "Consulting"
+   ],
+   "firms": [
+    "Chicago Tribune",
+    "PwC",
+    "The Tennessean",
+    "The Desert Sun",
+    "Iowa City Press-Citizen"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Chicago Tribune",
+     "role": "Reporter and consumer-advocacy columnist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "PwC",
+     "role": "Marketing Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Tennessean",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Desert Sun",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Iowa City Press-Citizen",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jonas owen vanderbilt jr.|jackson state university": {
    "name": "Jonas Owen Vanderbilt Jr.",
    "university": "Jackson State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -126973,15 +127245,34 @@
   "jonathan piersol|university of mary washington": {
    "name": "Jonathan Piersol",
    "university": "University of Mary Washington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Marine (combat veteran)",
+     "seniority": "unknown",
+     "years": "1986-1992",
+     "endYear": 1992,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "jonathan r. alger|james madison university": {
@@ -127059,15 +127350,42 @@
   "jonathan shenk|bridgewater college": {
    "name": "Jonathan Shenk",
    "university": "Bridgewater College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Central Shenandoah Criminal Justice Training Academy",
+    "Charlottesville-Albemarle Airport"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Central Shenandoah Criminal Justice Training Academy",
+     "role": "Secretary/Treasurer, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Charlottesville-Albemarle Airport",
+     "role": "Chief of Public Safety",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jonathan small|tulane university": {
