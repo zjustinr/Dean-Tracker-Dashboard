@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3001,
-  "no": 10794,
+  "yes": 3009,
+  "no": 10786,
   "unknown": 15675,
-  "namedFirm": 2517,
-  "flagOnly": 484,
-  "firms": 3052,
-  "sittingWithTie": 1844,
-  "sittingSeniorTie": 1123,
-  "researched": 2233
+  "namedFirm": 2526,
+  "flagOnly": 483,
+  "firms": 3065,
+  "sittingWithTie": 1853,
+  "sittingSeniorTie": 1128,
+  "researched": 2248
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -181078,11 +181078,13 @@
    "name": "Michael Johnson",
    "university": "Marian University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -181151,11 +181153,13 @@
    "name": "Michael Kilber",
    "university": "South Dakota State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -181178,16 +181182,35 @@
   "michael kirk|university of connecticut": {
    "name": "Michael Kirk",
    "university": "University of Connecticut",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of U.S. Rep. John B. Larson (U.S. House of Representatives)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of U.S. Rep. John B. Larson (U.S. House of Representatives)",
+     "role": "Press Secretary",
+     "seniority": "professional",
+     "years": "2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "michael knetter|university of wisconsin-madison": {
@@ -181305,15 +181328,54 @@
   "michael latsko|arizona state university": {
    "name": "Michael Latsko",
    "university": "Arizona State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Financial Services",
+    "Technology"
+   ],
+   "firms": [
+    "HR Virginia (SHRM state council)",
+    "S&P Global Market Intelligence",
+    "ExploreLearning"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "HR Virginia (SHRM state council)",
+     "role": "Past President",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "S&P Global Market Intelligence",
+     "role": "Leadership roles (unspecified)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "ExploreLearning",
+     "role": "Leadership role (unspecified)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "michael lemahieu|clemson university": {
@@ -181505,24 +181567,38 @@
     "usadminleaders",
     "r1university"
    ],
-   "score": 40,
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
    "seniority": "senior",
    "categories": [
-    "Law (private practice)"
+    "Law (private practice)",
+    "Government & Public Sector"
    ],
    "firms": [
-    "King & Spalding"
+    "King & Spalding",
+    "U.S. Court of Appeals for the Eleventh Circuit"
    ],
    "ties": [
     {
      "kind": "employment",
      "category": "Law (private practice)",
-     "sector": "Industry",
      "firm": "King & Spalding",
      "role": "Partner, Business Litigation Group",
      "seniority": "senior",
-     "source": "priorInstitution",
-     "score": 40
+     "years": "2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Eleventh Circuit",
+     "role": "Law Clerk to Judge Stanley F. Birch, Jr.",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
     }
    ]
   },
@@ -181725,28 +181801,57 @@
   "michael mueller|the university of texas rio grande valley": {
    "name": "Michael Mueller",
    "university": "The University of Texas Rio Grande Valley",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Texas Department of Criminal Justice",
+    "Texas Legislative Budget Board"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Texas Department of Criminal Justice",
+     "role": "Internal Auditor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Texas Legislative Budget Board",
+     "role": "Lead Analyst for Higher Education",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael n. christakis|university at albany, suny": {
    "name": "Michael N. Christakis",
    "university": "University at Albany, SUNY",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -181858,15 +181963,58 @@
   "michael p. harrington|thomas jefferson university": {
    "name": "Michael P. Harrington",
    "university": "Thomas Jefferson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Memorial Sloan Kettering Cancer Center",
+    "Cleveland Clinic",
+    "Parkview Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Memorial Sloan Kettering Cancer Center",
+     "role": "Executive Vice President and Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2019-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Cleveland Clinic",
+     "role": "Associate Chief Financial Officer",
+     "seniority": "senior",
+     "years": "2007-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Parkview Health",
+     "role": "Vice President of Finance",
+     "seniority": "senior",
+     "years": "2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "michael p. o'malley|fordham university": {
@@ -181917,15 +182065,53 @@
    "name": "Michael Papadakis",
    "university": "Ohio State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Consulting"
+   ],
+   "firms": [
+    "KeyBanc Capital Markets",
+    "Deloitte",
+    "Arthur Andersen"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "KeyBanc Capital Markets",
+     "role": "Director of Energy Investment Banking",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte",
+     "role": "Corporate Tax",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Arthur Andersen",
+     "role": "Strategic Business Valuation",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Business and finance"
@@ -181934,17 +182120,34 @@
   "michael parente|stevens institute of technology": {
    "name": "Michael Parente",
    "university": "Stevens Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Citigroup"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Citigroup",
+     "role": "Technical roles (IT)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael pasquier|louisiana state university": {
@@ -181978,27 +182181,48 @@
   "michael poradek|university of st. francis": {
    "name": "Michael Poradek",
    "university": "University of St. Francis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "St. Norbert Abbey"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "St. Norbert Abbey",
+     "role": "Director of Administration; oversight of the Norbertine Center for Spirituality and National Shrine of St. Joseph",
+     "seniority": "senior",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "michael poterala|wayne state university": {
    "name": "Michael Poterala",
    "university": "Wayne State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -182120,15 +182344,55 @@
   "michael r. haskins|elon university": {
    "name": "Michael R. Haskins",
    "university": "Elon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Standard & Poor's Corp.",
+    "Janet Manus Literary Agency",
+    "Genesis Publishing, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Standard & Poor's Corp.",
+     "role": "Editorial positions",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Janet Manus Literary Agency",
+     "role": "Editorial positions",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Genesis Publishing, Inc.",
+     "role": "Editorial positions",
+     "seniority": "professional",
+     "years": "1989-1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "michael r. hillis|california lutheran university": {
@@ -182163,11 +182427,13 @@
    "name": "Michael R. Richichi",
    "university": "Western New England University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -182190,15 +182456,34 @@
   "michael r. williams|university of north texas system": {
    "name": "Michael R. Williams",
    "university": "University of North Texas System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Hill Country Memorial Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Hill Country Memorial Hospital",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2008-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "michael rao|central michigan university": {
