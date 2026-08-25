@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3286,
-  "no": 10509,
+  "yes": 3293,
+  "no": 10502,
   "unknown": 15675,
-  "namedFirm": 2726,
-  "flagOnly": 560,
-  "firms": 3335,
-  "sittingWithTie": 2053,
-  "sittingSeniorTie": 1242,
-  "researched": 2683
+  "namedFirm": 2734,
+  "flagOnly": 559,
+  "firms": 3344,
+  "sittingWithTie": 2061,
+  "sittingSeniorTie": 1246,
+  "researched": 2698
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -225522,11 +225522,13 @@
    "name": "Sarah Nolan",
    "university": "Centre College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -225859,11 +225861,13 @@
    "name": "Sarah Steinkamp",
    "university": "DePauw University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -225900,16 +225904,33 @@
   "sarah walker|university of tulsa": {
    "name": "Sarah Walker",
    "university": "University of Tulsa",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "T.D. Williamson"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "T.D. Williamson",
+     "role": "IT Service Delivery Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "sarah wasserman|dartmouth college": {
@@ -226015,15 +226036,53 @@
   "sasha hudson|st. john's university-new york": {
    "name": "Sasha Hudson",
    "university": "St. John's University-New York",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Ernst & Young",
+    "SB & Company, LLC",
+    "Maryland State Highway Administration"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Ernst & Young",
+     "role": "Auditor / Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "SB & Company, LLC",
+     "role": "Audit and accounting positions",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Maryland State Highway Administration",
+     "role": "Audit and accounting positions",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "sashae mitchell|kalamazoo college": {
@@ -226236,12 +226295,14 @@
    "name": "Scott A. Taylor",
    "university": "Creighton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -226280,16 +226341,33 @@
   "scott apel|california state university, long beach": {
    "name": "Scott Apel",
    "university": "California State University, Long Beach",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Warner Music Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Warner Music Group",
+     "role": "Vice President of Human Resources",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "scott ashford|oregon state university": {
@@ -226340,12 +226418,14 @@
    "name": "Scott Barrett",
    "university": "Miami University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -226368,16 +226448,33 @@
   "scott bennett|university of north florida": {
    "name": "Scott Bennett",
    "university": "University of North Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Community First Credit Union"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Community First Credit Union",
+     "role": "Vice Chairman, Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "scott c. beardsley|university of virginia": {
@@ -226434,16 +226531,33 @@
   "scott cann|boston college": {
    "name": "Scott Cann",
    "university": "Boston College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Kashmir Studios"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Kashmir Studios",
+     "role": "General Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "scott childs|university of tennessee knoxville": {
@@ -226668,15 +226782,32 @@
   "scott h. rudie|concordia university wisconsin": {
    "name": "Scott H. Rudie",
    "university": "Concordia University Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "CNI Newspapers"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "CNI Newspapers",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "scott harrison|cleveland institute of music": {
@@ -226775,12 +226906,14 @@
    "name": "Scott Jones",
    "university": "Knox College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -226790,12 +226923,14 @@
    "name": "Scott Jordan",
    "university": "Trinity College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -226963,14 +227098,41 @@
    "name": "Scott McNamee",
    "university": "Millsaps College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "USA Mobility",
+    "SkyTel"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "USA Mobility",
+     "role": "Systems Administrator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "SkyTel",
+     "role": "unknown",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -226979,26 +227141,47 @@
   "scott merlo|western michigan university": {
    "name": "Scott Merlo",
    "university": "Western Michigan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Kalamazoo Department of Public Safety"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Kalamazoo Department of Public Safety",
+     "role": "Officer (rose to Sergeant/Lieutenant)",
+     "seniority": "senior",
+     "years": "2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "scott morse|lafayette college": {
    "name": "Scott Morse",
    "university": "Lafayette College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
