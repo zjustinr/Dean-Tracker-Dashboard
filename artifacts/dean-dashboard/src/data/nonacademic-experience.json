@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2917,
-  "no": 10878,
+  "yes": 2927,
+  "no": 10868,
   "unknown": 15675,
-  "namedFirm": 2448,
-  "flagOnly": 469,
-  "firms": 2934,
-  "sittingWithTie": 1775,
-  "sittingSeniorTie": 1076,
-  "researched": 2098
+  "namedFirm": 2455,
+  "flagOnly": 472,
+  "firms": 2940,
+  "sittingWithTie": 1782,
+  "sittingSeniorTie": 1082,
+  "researched": 2113
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -166741,11 +166741,13 @@
    "name": "Mark Danes",
    "university": "Missouri State University-Springfield",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -166754,26 +166756,47 @@
   "mark delorenzo|university of denver": {
    "name": "Mark DeLorenzo",
    "university": "University of Denver",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Georgia-Pacific LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Georgia-Pacific LLC",
+     "role": "Assistant Treasurer",
+     "seniority": "senior",
+     "years": "2003-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "mark delos reyes davis|university of california santa cruz": {
    "name": "Mark Delos Reyes Davis",
    "university": "University of California Santa Cruz",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -166782,16 +166805,33 @@
   "mark denney|pacific university": {
    "name": "Mark Denney",
    "university": "Pacific University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Financial Management Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "mark depew|syracuse university": {
@@ -167145,13 +167185,15 @@
   "mark hagenlocher|principia college": {
    "name": "Mark Hagenlocher",
    "university": "Principia College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -167202,16 +167244,34 @@
   "mark hine|liberty university": {
    "name": "Mark Hine",
    "university": "Liberty University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Liberty Christian Academy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Liberty Christian Academy",
+     "role": "Interim Superintendent",
+     "seniority": "executive",
+     "years": "2020",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "mark houston|texas christian university": {
@@ -167592,16 +167652,44 @@
   "mark land|union college": {
    "name": "Mark Land",
    "university": "Union College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Cummins Inc.",
+    "The Saratogian"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Cummins Inc.",
+     "role": "Communications leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Saratogian",
+     "role": "Reporter and editor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "mark liebling|ball state university": {
@@ -167635,15 +167723,32 @@
   "mark luellen|university of virginia": {
    "name": "Mark Luellen",
    "university": "University of Virginia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Affinity Connection"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Affinity Connection",
+     "role": "Various leadership roles",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "mark luer|southern illinois university edwardsville": {
@@ -167722,13 +167827,15 @@
   "mark miller|centenary college of louisiana": {
    "name": "Mark Miller",
    "university": "Centenary College of Louisiana",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -167752,12 +167859,14 @@
    "name": "Mark Muha",
    "university": "Biola University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -167781,11 +167890,13 @@
    "name": "Mark Owczarski",
    "university": "Virginia Tech",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -168013,16 +168124,33 @@
   "mark rushing|university of arkansas": {
    "name": "Mark Rushing",
    "university": "University of Arkansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Thoma Thoma"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Thoma Thoma",
+     "role": "Director of Public Relations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "mark rutland|southeastern university": {
@@ -168118,12 +168246,14 @@
   "mark schmelz|university of oregon": {
    "name": "Mark Schmelz",
    "university": "University of Oregon",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -168307,16 +168437,33 @@
   "mark van dyke|colorado school of mines": {
    "name": "Mark Van Dyke",
    "university": "Colorado School of Mines",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "KeraNetics"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "KeraNetics",
+     "role": "Founder and Chief Scientific Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "mark van etten|misericordia university": {
@@ -168624,12 +168771,14 @@
    "name": "MarQuita Barker",
    "university": "Davidson College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
