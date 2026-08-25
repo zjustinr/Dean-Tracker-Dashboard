@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2328,
-  "no": 11467,
+  "yes": 2336,
+  "no": 11459,
   "unknown": 15675,
-  "namedFirm": 1950,
-  "flagOnly": 378,
-  "firms": 2121,
-  "sittingWithTie": 1277,
-  "sittingSeniorTie": 731,
-  "researched": 1198
+  "namedFirm": 1959,
+  "flagOnly": 377,
+  "firms": 2138,
+  "sittingWithTie": 1286,
+  "sittingSeniorTie": 736,
+  "researched": 1213
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -44543,11 +44543,13 @@
    "name": "Christopher D. Jacobsen",
    "university": "University of Vermont",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -44764,15 +44766,32 @@
   "christopher h. kiwus|wake forest university": {
    "name": "Christopher H. Kiwus",
    "university": "Wake Forest University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Commanding Officer, Naval Facilities Engineering Command Southeast (30-year career; also Chief Engineer, U.S. Africa Command, and Commanding Officer, NAVFAC Far East)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "christopher i. byrnes|washington university in st. louis": {
@@ -44947,16 +44966,46 @@
   "christopher l. gardner|wofford college": {
    "name": "Christopher L. Gardner",
    "university": "Wofford College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Consulting",
+    "Technology"
+   ],
+   "firms": [
+    "KPMG LLP",
+    "AVX Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG LLP",
+     "role": "Audit Manager, Greenville, S.C.",
+     "seniority": "professional",
+     "years": "2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "AVX Corporation",
+     "role": "Manager of Financial and Statistical Reporting",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "christopher l. holoman|centenary college of louisiana": {
@@ -45104,11 +45153,13 @@
    "name": "Christopher Lemasters",
    "university": "Randolph College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -45132,11 +45183,13 @@
    "name": "Christopher M. Fiorentino",
    "university": "Pennsylvania's State System of Higher Education",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -45201,16 +45254,33 @@
   "christopher misra|university of massachusetts amherst": {
    "name": "Christopher Misra",
    "university": "University of Massachusetts Amherst",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Tech Foundry"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Tech Foundry",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "christopher mores|george washington university": {
@@ -45344,16 +45414,53 @@
   "christopher s. king|university of georgia": {
    "name": "Christopher S. King",
    "university": "University of Georgia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "National Association for Biomedical Research",
+    "American Association for Laboratory Animal Science",
+    "AAALAC International"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Association for Biomedical Research",
+     "role": "Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Association for Laboratory Animal Science",
+     "role": "Board of Trustees",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "AAALAC International",
+     "role": "Council on Accreditation member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "christopher s. lynch|university of california riverside": {
@@ -45374,12 +45481,14 @@
    "name": "Christopher Sedore",
    "university": "Boston University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -45473,12 +45582,14 @@
    "name": "Christopher T. Nomura",
    "university": "University of Idaho",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -45501,30 +45612,101 @@
   "christopher w. holmes|baylor university": {
    "name": "Christopher W. Holmes",
    "university": "Baylor University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Cowles and Thompson, P.C."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Cowles and Thompson, P.C.",
+     "role": "Trial Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "christopher weinkopf|thomas aquinas college": {
    "name": "Christopher Weinkopf",
    "university": "Thomas Aquinas College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Los Angeles Daily News",
+    "American Enterprise Institute",
+    "National Review",
+    "Center for the Study of Popular Culture"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Los Angeles Daily News",
+     "role": "Editorial Page Editor (previously editorial writer)",
+     "seniority": "senior",
+     "years": "2000-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Enterprise Institute",
+     "role": "Contributor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "National Review",
+     "role": "Editorial Assistant",
+     "seniority": "professional",
+     "years": "1995-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 18
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Center for the Study of Popular Culture",
+     "role": "Managing Editor",
+     "seniority": "professional",
+     "years": "1998-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "christopher yeomans|purdue university": {
@@ -45572,15 +45754,55 @@
   "christy hooper|lipscomb university": {
    "name": "Christy Hooper",
    "university": "Lipscomb University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Centerstone of America (formerly Dede Wallace Center)",
+    "Western Kentucky University Department of Communication Advisory Board",
+    "Tennessee Association of Mental Health Centers"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Centerstone of America (formerly Dede Wallace Center)",
+     "role": "Vice President of Human Resources",
+     "seniority": "senior",
+     "years": "2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Western Kentucky University Department of Communication Advisory Board",
+     "role": "Advisory Board member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Tennessee Association of Mental Health Centers",
+     "role": "Human resources role (early career)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "christy martinez|florida international university": {
@@ -45903,12 +46125,14 @@
    "name": "Cindy Martinez",
    "university": "Harvey Mudd College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -45945,16 +46169,43 @@
   "cinnamon blair|university of kansas": {
    "name": "Cinnamon Blair",
    "university": "University of Kansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New Mexico Economic Development Department",
+    "New Mexico Energy, Minerals and Natural Resources Department (State Parks Division)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New Mexico Economic Development Department",
+     "role": "Communications/marketing role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New Mexico Energy, Minerals and Natural Resources Department (State Parks Division)",
+     "role": "Communications/marketing role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "ciro v. sumaya|texas a&m university": {
@@ -46045,15 +46296,34 @@
    "name": "Claire Stinson",
    "university": "Tennessee Technological University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Baylor and Backus CPAs"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Baylor and Backus CPAs",
+     "role": "Accountant, Johnson City, Tennessee",
+     "seniority": "professional",
+     "years": "1991-1992",
+     "endYear": 1992,
+     "source": "research",
+     "score": 14
+    }
    ],
    "flags": [
     "careerBackground: Chief business/fiscal officer; finance and campus planning"
