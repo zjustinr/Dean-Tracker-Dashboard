@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2419,
-  "no": 11376,
+  "yes": 2430,
+  "no": 11365,
   "unknown": 15675,
-  "namedFirm": 2039,
-  "flagOnly": 380,
-  "firms": 2272,
-  "sittingWithTie": 1366,
-  "sittingSeniorTie": 799,
-  "researched": 1348
+  "namedFirm": 2047,
+  "flagOnly": 383,
+  "firms": 2288,
+  "sittingWithTie": 1374,
+  "sittingSeniorTie": 804,
+  "researched": 1363
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -67336,15 +67336,57 @@
   "donald e. palm iii|florida agricultural and mechanical university": {
    "name": "Donald E. Palm III",
    "university": "Florida Agricultural and Mechanical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 81,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Habitat for Humanity, Wakulla County",
+    "Bond Community Health Center",
+    "United Way of the Big Bend"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Habitat for Humanity, Wakulla County",
+     "role": "Board of Directors",
+     "seniority": "executive",
+     "years": "2013-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 81
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Bond Community Health Center",
+     "role": "Board of Directors",
+     "seniority": "executive",
+     "years": "2011-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 81
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of the Big Bend",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "donald e. palm, iii|florida agricultural and mechanical university": {
@@ -67435,11 +67477,13 @@
    "name": "Donald J. (DJ) Rodman",
    "university": "Baylor University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -67535,12 +67579,14 @@
   "donald j. whelan, jr.|texas christian university": {
    "name": "Donald J. Whelan, Jr.",
    "university": "Texas Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -67608,15 +67654,65 @@
   "donald m. hudson|stockton university": {
    "name": "Donald M. Hudson",
    "university": "Stockton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Other industry",
+    "Consulting",
+    "Energy & Industrials",
+    "Financial Services"
+   ],
+   "firms": [
+    "Ignarri-Lummis Architects",
+    "Wagner, Hohns, Inglis",
+    "RJ Cureton / Whitesell Construction Company",
+    "Mellon Bank NA"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Ignarri-Lummis Architects",
+     "role": "unspecified role (architecture firm)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Wagner, Hohns, Inglis",
+     "role": "unspecified role (construction consulting)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "RJ Cureton / Whitesell Construction Company",
+     "role": "unspecified role (construction)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Mellon Bank NA",
+     "role": "unspecified role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "donald m. loppnow|eastern michigan university": {
@@ -67936,16 +68032,44 @@
   "donald welch|new york university": {
    "name": "Donald Welch",
    "university": "New York University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "H.E.B. (H-E-B grocery chain)",
+    "United States Army"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "H.E.B. (H-E-B grocery chain)",
+     "role": "Chief Technology Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Army",
+     "role": "Army officer (infantry, later IT); finished as professor and CIO at West Point",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "donde plowman|university of nebraska lincoln": {
@@ -68043,12 +68167,14 @@
   "donna donovan|michigan state university": {
    "name": "Donna Donovan",
    "university": "Michigan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -68257,13 +68383,15 @@
   "donna r. heath|university of north carolina at greensboro": {
    "name": "Donna R. Heath",
    "university": "University of North Carolina at Greensboro",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -68314,15 +68442,42 @@
   "donna tadiello|trinity college": {
    "name": "Donna Tadiello",
    "university": "Trinity College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Connecticut State Police",
+    "Plainville Police Department"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Connecticut State Police",
+     "role": "Master Sergeant, K-9 handler",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Plainville Police Department",
+     "role": "Police Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "donna west-strum|university of mississippi": {
@@ -68343,11 +68498,13 @@
    "name": "Donnie Grimes",
    "university": "University of the Cumberlands",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -68440,16 +68597,75 @@
   "doron stern|yeshiva university": {
    "name": "Doron Stern",
    "university": "Yeshiva University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Consumer & Retail",
+    "Technology"
+   ],
+   "firms": [
+    "GoHealth Urgent Care",
+    "Chobani",
+    "Popcorn, Indiana",
+    "IDT Corporation",
+    "L'Oreal USA"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "GoHealth Urgent Care",
+     "role": "Chief Marketing Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Chobani",
+     "role": "Vice President of Marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Popcorn, Indiana",
+     "role": "Vice President of Marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IDT Corporation",
+     "role": "senior marketing role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "L'Oreal USA",
+     "role": "senior marketing role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "dorota a. grejner-brzezinska|university of wisconsin madison": {
@@ -68469,44 +68685,97 @@
   "dorothy a. hauver|college of the holy cross": {
    "name": "Dorothy A. Hauver",
    "university": "College of the Holy Cross",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "KPMG LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG LLP",
+     "role": "Senior Manager, Audit",
+     "seniority": "senior",
+     "years": "1991-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "dorothy anderson|university of oklahoma": {
    "name": "Dorothy Anderson",
    "university": "University of Oklahoma",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Las Cruces Public Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Las Cruces Public Schools",
+     "role": "various roles over 16+ years",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "dorothy anderson|university of oklahoma health sciences center": {
    "name": "Dorothy Anderson",
    "university": "University of Oklahoma Health Sciences Center",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Las Cruces Public Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Las Cruces Public Schools",
+     "role": "various roles over 16+ years",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "dorothy cowser yancy|johnson c smith university": {
@@ -68611,12 +68880,14 @@
    "name": "Doug Hallenbeck",
    "university": "Clemson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -68640,12 +68911,14 @@
    "name": "Doug Jones",
    "university": "Westmont College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
