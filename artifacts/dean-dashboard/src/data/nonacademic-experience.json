@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2752,
-  "no": 11043,
+  "yes": 2763,
+  "no": 11032,
   "unknown": 15675,
-  "namedFirm": 2311,
+  "namedFirm": 2322,
   "flagOnly": 441,
-  "firms": 2723,
-  "sittingWithTie": 1638,
-  "sittingSeniorTie": 980,
-  "researched": 1843
+  "firms": 2740,
+  "sittingWithTie": 1649,
+  "sittingSeniorTie": 987,
+  "researched": 1858
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -131063,15 +131063,52 @@
   "jude higdon-topaz|bennington college": {
    "name": "Jude Higdon-Topaz",
    "university": "Bennington College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "QSIDE Institute (Institute for the Quantitative Study of Inclusion, Diversity, and Equity)",
+    "Planned Parenthood Federation of America",
+    "American Red Cross"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "QSIDE Institute (Institute for the Quantitative Study of Inclusion, Diversity, and Equity)",
+     "role": "Co-founder / runs the organization",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Planned Parenthood Federation of America",
+     "role": "Developed online learning environments",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Red Cross",
+     "role": "Developed online learning environments",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "judette louis|eastern virginia medical school": {
@@ -131443,15 +131480,32 @@
   "judith trimboli|hamilton college": {
    "name": "Judith Trimboli",
    "university": "Hamilton College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York State Police"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York State Police",
+     "role": "Senior Investigator",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "judson r. shaver|marymount manhattan college": {
@@ -131611,13 +131665,15 @@
   "judy sackfield|east texas a&m university": {
    "name": "Judy Sackfield",
    "university": "East Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -131738,15 +131794,42 @@
   "julia ferrante|middlebury college": {
    "name": "Julia Ferrante",
    "university": "Middlebury College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Tampa Tribune",
+    "The Ledger (Lakeland, Florida)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Tampa Tribune",
+     "role": "Government reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Ledger (Lakeland, Florida)",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "julia hwang|university of california berkeley": {
@@ -131780,16 +131863,35 @@
   "julia m. mccallin|california institute of technology": {
    "name": "Julia M. McCallin",
    "university": "California Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Fairplex (Los Angeles County Fair)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Fairplex (Los Angeles County Fair)",
+     "role": "Manager of Human Resources",
+     "seniority": "professional",
+     "years": "1983-1995",
+     "endYear": 1995,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "julia m. ritter|university of southern california": {
@@ -132429,15 +132531,32 @@
    "name": "Julie Kriech",
    "university": "University of South Dakota",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Enlisted service member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance and administration executive leadership"
@@ -132553,16 +132672,47 @@
   "julie marie baldwin|american university": {
    "name": "Julie Marie Baldwin",
    "university": "American University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Kings County (Brooklyn) District Attorney's Office",
+    "New York State Supreme Court, Appellate Division"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Kings County (Brooklyn) District Attorney's Office",
+     "role": "Paralegal and Freedom of Information Law administrator, Appeals Bureau",
+     "seniority": "professional",
+     "years": "2007-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York State Supreme Court, Appellate Division",
+     "role": "Court analyst",
+     "seniority": "professional",
+     "years": "2008-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "julie mccullough|university of southern indiana": {
@@ -132641,16 +132791,34 @@
   "julie orio|university of san francisco": {
    "name": "Julie Orio",
    "university": "University of San Francisco",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Women's Community Clinic (San Francisco)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Women's Community Clinic (San Francisco)",
+     "role": "Board member and board chair",
+     "seniority": "executive",
+     "years": "2006",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "julie postma|washington state university": {
@@ -132828,11 +132996,13 @@
    "name": "Julie Thornton",
    "university": "Luther College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -133041,16 +133211,58 @@
   "julius fridriksson|university of south carolina": {
    "name": "Julius Fridriksson",
    "university": "University of South Carolina",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "ALLT.AI",
+    "Kino Hospital (Tucson, Arizona)",
+    "Avante Rehabilitation Center (Leesburg, Florida)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "ALLT.AI",
+     "role": "Founder and CEO",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Kino Hospital (Tucson, Arizona)",
+     "role": "Speech-language pathologist",
+     "seniority": "professional",
+     "years": "1999-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Avante Rehabilitation Center (Leesburg, Florida)",
+     "role": "Speech-language pathologist",
+     "seniority": "professional",
+     "years": "1997-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "julius sokenu|moorpark college": {
@@ -133098,15 +133310,54 @@
   "june rumiko klein|fielding graduate university": {
    "name": "June Rumiko Klein",
    "university": "Fielding Graduate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Benetech",
+    "Santa Clara County Behavioral Health Board",
+    "YMCA of Palo Alto"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Benetech",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "years": "2021",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Santa Clara County Behavioral Health Board",
+     "role": "Chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "YMCA of Palo Alto",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "junette west|grand canyon university": {
@@ -133259,28 +133510,57 @@
   "justin m. bell|fordham university": {
    "name": "Justin M. Bell",
    "university": "Fordham University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Lion Agency",
+    "Shiraz Creative"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Lion Agency",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Shiraz Creative",
+     "role": "Senior Vice President for Digital and Brand Experiences",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "justin mckenzie|university of new orleans": {
    "name": "Justin McKenzie",
    "university": "University of New Orleans",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -133317,15 +133597,33 @@
   "justin r. garcia|indiana university bloomington": {
    "name": "Justin R. Garcia",
    "university": "Indiana University Bloomington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Match.com (Match Group)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Match.com (Match Group)",
+     "role": "Scientific advisor",
+     "seniority": "senior",
+     "years": "2010",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "justin ragains|louisiana state university": {
@@ -133492,11 +133790,13 @@
    "name": "Kahler B. Schuemann",
    "university": "Western Michigan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
