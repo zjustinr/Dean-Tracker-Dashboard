@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3059,
-  "no": 10736,
+  "yes": 3067,
+  "no": 10728,
   "unknown": 15675,
-  "namedFirm": 2558,
-  "flagOnly": 501,
-  "firms": 3108,
-  "sittingWithTie": 1885,
-  "sittingSeniorTie": 1149,
-  "researched": 2323
+  "namedFirm": 2564,
+  "flagOnly": 503,
+  "firms": 3117,
+  "sittingWithTie": 1891,
+  "sittingSeniorTie": 1152,
+  "researched": 2338
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -186076,12 +186076,14 @@
    "name": "Miroslav Humer",
    "university": "Case Western Reserve University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186119,12 +186121,14 @@
    "name": "Misty Villers",
    "university": "University of Akron",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186555,12 +186559,14 @@
    "name": "Mohammed Cherkaoui",
    "university": "Long Island University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186667,13 +186673,15 @@
   "molly markley|colorado school of mines": {
    "name": "Molly Markley",
    "university": "Colorado School of Mines",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186785,13 +186793,15 @@
   "monica burnette|seton hall university": {
    "name": "Monica Burnette",
    "university": "Seton Hall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186870,15 +186880,33 @@
   "monica l. baskin|virginia commonwealth university": {
    "name": "Monica L. Baskin",
    "university": "Virginia Commonwealth University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 34,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Less Cancer (Next Generation Choices Foundation)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Less Cancer (Next Generation Choices Foundation)",
+     "role": "Advisory Board Member",
+     "seniority": "unknown",
+     "years": "2024",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "monica l. skomo|duquesne university": {
@@ -186957,12 +186985,14 @@
    "name": "Monica Mendez-Grant",
    "university": "Texas Woman's University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186972,11 +187002,13 @@
    "name": "Monica Moll",
    "university": "Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -187027,12 +187059,14 @@
   "monika pynaker|saint norbert college": {
    "name": "Monika Pynaker",
    "university": "Saint Norbert College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -187100,12 +187134,14 @@
    "name": "Monique S. Allard",
    "university": "University of Southern California",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -187128,16 +187164,48 @@
   "monroe gorden jr.|ucla": {
    "name": "Monroe Gorden Jr.",
    "university": "UCLA",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "RxSolutions, Inc. (Prescription Solutions / UnitedHealthcare)",
+    "Tenet HealthSystems"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "RxSolutions, Inc. (Prescription Solutions / UnitedHealthcare)",
+     "role": "Manager of Legal Affairs",
+     "seniority": "senior",
+     "years": "2002-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Tenet HealthSystems",
+     "role": "Associate Counsel, In-House Litigation Department",
+     "seniority": "professional",
+     "years": "2000-2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "monsignor james p. shea|university of mary": {
@@ -187359,15 +187427,43 @@
    "name": "Morgan R. Olsen",
    "university": "Arizona State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United Educators Insurance",
+    "North Dakota Office of Management and Budget"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "United Educators Insurance",
+     "role": "Member, Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "North Dakota Office of Management and Budget",
+     "role": "Acting Executive Budget Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance and treasury"
@@ -187680,15 +187776,56 @@
   "mun y. choi|university of missouri system": {
    "name": "Mun Y. Choi",
    "university": "University of Missouri System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Connecticut Innovations",
+    "Connecticut Clean Energy Finance and Investment Authority",
+    "Connecticut Science Center"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Connecticut Innovations",
+     "role": "Board Member (appointed by the Governor of Connecticut)",
+     "seniority": "senior",
+     "years": "2011",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Connecticut Clean Energy Finance and Investment Authority",
+     "role": "Board Member (appointed by the CT Senate President Pro Tempore)",
+     "seniority": "senior",
+     "years": "2011",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Connecticut Science Center",
+     "role": "Board Member",
+     "seniority": "senior",
+     "years": "2014",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "mung chiang|purdue university": {
@@ -187741,15 +187878,32 @@
   "mustafa mashal|east texas a&m university": {
    "name": "Mustafa Mashal",
    "university": "East Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Idaho National Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Idaho National Laboratory",
+     "role": "Joint Appointee",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "myke yest|tulane university": {
@@ -188175,17 +188329,34 @@
   "nancy glenn|boise state university": {
    "name": "Nancy Glenn",
    "university": "Boise State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Energy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Energy",
+     "role": "Joint Appointment (research scientist)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "nancy gonzales|arizona state university": {
