@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2132,
-  "no": 11663,
+  "yes": 2178,
+  "no": 11617,
   "unknown": 15675,
-  "namedFirm": 1745,
-  "flagOnly": 387,
-  "firms": 1781,
-  "sittingWithTie": 1072,
-  "sittingSeniorTie": 596,
-  "researched": 838
+  "namedFirm": 1796,
+  "flagOnly": 382,
+  "firms": 1858,
+  "sittingWithTie": 1123,
+  "sittingSeniorTie": 625,
+  "researched": 928
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -6166,16 +6166,33 @@
   "alison mincey|university of miami": {
    "name": "Alison Mincey",
    "university": "University of Miami",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Nationwide Mutual Insurance Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Nationwide Mutual Insurance Company",
+     "role": "Managing Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "alison morrison-shetlar|university of lynchburg": {
@@ -6354,16 +6371,33 @@
   "allen groves|syracuse university": {
    "name": "Allen Groves",
    "university": "Syracuse University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Seyfarth Shaw LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Seyfarth Shaw LLP",
+     "role": "Equity Partner and Litigation Practice Group Chair (Atlanta)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "allen l. robinson|colorado state university": {
@@ -6443,12 +6477,14 @@
    "name": "Allen Parrish",
    "university": "University of South Alabama",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -6485,13 +6521,15 @@
   "allen stanley|university of arkansas at little rock": {
    "name": "Allen Stanley",
    "university": "University of Arkansas at Little Rock",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -6705,16 +6743,35 @@
   "allison newhart|north carolina state university": {
    "name": "Allison Newhart",
    "university": "North Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Saul Ewing LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Saul Ewing LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "years": "2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "allison ohanian|university of hawaii at manoa": {
@@ -6763,11 +6820,13 @@
    "name": "Allison Taddei",
    "university": "Widener University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -6806,16 +6865,43 @@
   "ally gontang-highfield|st. john's college": {
    "name": "Ally Gontang-Highfield",
    "university": "St. John's College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Eastern Shore Land Conservancy",
+    "Chesapeake Bay Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Eastern Shore Land Conservancy",
+     "role": "Director of Finance and Administration",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chesapeake Bay Foundation",
+     "role": "Finance staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "allyson hallman-thrasher|ohio university": {
@@ -6835,13 +6921,15 @@
   "allyson m. mullin|saint joseph's university": {
    "name": "Allyson M. Mullin",
    "university": "Saint Joseph's University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -6893,11 +6981,13 @@
    "name": "Almeda Jacks",
    "university": "New College of Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -6906,43 +6996,90 @@
   "almesha l. campbell|jackson state university": {
    "name": "Almesha L. Campbell",
    "university": "Jackson State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "BeanPath"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "BeanPath",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "alonda thomas|florida agricultural and mechanical university": {
    "name": "Alonda Thomas",
    "university": "Florida Agricultural and Mechanical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "TV One",
+    "Liquid Soul"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "TV One",
+     "role": "Senior Public Relations Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Liquid Soul",
+     "role": "Publicity Consultant",
+     "seniority": "professional",
+     "years": "2015",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "alondrea pritchett|alabama state university": {
    "name": "Alondrea Pritchett",
    "university": "Alabama State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -6965,16 +7102,43 @@
   "althea broomfield-michel|montclair state university": {
    "name": "Althea Broomfield-Michel",
    "university": "Montclair State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York City Transit Authority",
+    "New York City Department of Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Transit Authority",
+     "role": "Staff Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Department of Education",
+     "role": "Staff Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "alton d. davis|oakland city university": {
@@ -7064,13 +7228,15 @@
   "alysha o'neil|missouri university of science and technology": {
    "name": "Alysha O'Neil",
    "university": "Missouri University of Science and Technology",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 0,
    "sectors": [],
    "flags": [
@@ -7080,16 +7246,47 @@
   "alyson g. wilson|college of william & mary": {
    "name": "Alyson G. Wilson",
    "university": "College of William & Mary",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Los Alamos National Laboratory",
+    "Institute for Defense Analyses"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Los Alamos National Laboratory",
+     "role": "Technical Staff Member, Statistical Sciences Group",
+     "seniority": "professional",
+     "years": "1999-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Institute for Defense Analyses",
+     "role": "Research Staff Member, Science and Technology Policy Institute and System Evaluation Division",
+     "seniority": "professional",
+     "years": "2011-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "alyson outenreath|texas tech university": {
@@ -7241,16 +7438,33 @@
   "amanda bailey|case western reserve university": {
    "name": "Amanda Bailey",
    "university": "Case Western Reserve University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "WittKieffer"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "WittKieffer",
+     "role": "Interim Executive (Interim Executive Practice)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "amanda bryant-friedrich|wayne state university": {
@@ -7284,16 +7498,35 @@
   "amanda cochran-mccall|university of texas at austin": {
    "name": "Amanda Cochran-McCall",
    "university": "University of Texas at Austin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of the Attorney General of Texas"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Attorney General of Texas",
+     "role": "Deputy Attorney General / division leadership, civil litigation",
+     "seniority": "senior",
+     "years": "2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "amanda datnow|university of california san diego": {
@@ -7313,27 +7546,46 @@
   "amanda distel|northwestern university": {
    "name": "Amanda Distel",
    "university": "Northwestern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "State of Illinois"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "State of Illinois",
+     "role": "Budget Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "amanda duval norwood|southern illinois university-edwardsville": {
    "name": "Amanda Duval Norwood",
    "university": "Southern Illinois University-Edwardsville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -7371,14 +7623,45 @@
    "name": "Amanda George",
    "university": "University of Arkansas for Medical Sciences",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 0,
-   "sectors": [],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Catholic Health Initiatives",
+    "St. Vincent Health System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Catholic Health Initiatives",
+     "role": "Controller for Ambulatory Services, East/Southeast Division",
+     "seniority": "senior",
+     "years": "2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "St. Vincent Health System",
+     "role": "Assistant Controller",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
+   ],
    "flags": [
     "careerBackground: Finance and administration executive, CPA"
    ]
@@ -7400,16 +7683,53 @@
   "amanda grimes|centre college": {
    "name": "Amanda Grimes",
    "university": "Centre College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Bank of America",
+    "First Data Investor Services Group",
+    "Fifth Third Bank"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Bank of America",
+     "role": "Vice President",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "First Data Investor Services Group",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Fifth Third Bank",
+     "role": "Assistant Vice President",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "amanda guyer|university of california, davis": {
@@ -7457,16 +7777,33 @@
   "amanda hull|university of colorado colorado springs": {
    "name": "Amanda Hull",
    "university": "University of Colorado Colorado Springs",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of the Arkansas Attorney General"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Arkansas Attorney General",
+     "role": "Assistant Attorney General",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "amanda idema|michigan state university": {
@@ -7570,16 +7907,43 @@
   "amanda maleszweski|university at albany, suny": {
    "name": "Amanda Maleszweski",
    "university": "University at Albany, SUNY",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Whiteman Osterman & Hanna LLP",
+    "Calareso Law Firm"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Whiteman Osterman & Hanna LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Calareso Law Firm",
+     "role": "Counsel",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "amanda matheson|ferris state university": {
@@ -7718,15 +8082,34 @@
    "name": "Amanda Withers",
    "university": "Sam Houston State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Texas Department of Criminal Justice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Texas Department of Criminal Justice",
+     "role": "Accounting staff",
+     "seniority": "professional",
+     "years": "2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 24
+    }
    ],
    "flags": [
     "careerBackground: Finance and operations leadership, CFO"
@@ -7919,16 +8302,33 @@
   "amos himmelstein|occidental college": {
    "name": "Amos Himmelstein",
    "university": "Occidental College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Los Angeles County Economic Development Corporation (LAEDC)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Los Angeles County Economic Development Corporation (LAEDC)",
+     "role": "Executive Committee member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "amr s. elnashai|pennsylvania state university": {
@@ -7963,11 +8363,13 @@
    "name": "Amy Adamson",
    "university": "Florida Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8019,11 +8421,13 @@
    "name": "Amy Ayres",
    "university": "Oklahoma City University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8074,13 +8478,15 @@
   "amy boyle|purdue university": {
    "name": "Amy Boyle",
    "university": "Purdue University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8483,12 +8889,14 @@
    "name": "Amy Hecht",
    "university": "Florida State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8576,11 +8984,13 @@
    "name": "Amy Ivey",
    "university": "Texas Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8678,15 +9088,32 @@
   "amy kozak|university of california santa cruz": {
    "name": "Amy Kozak",
    "university": "University of California Santa Cruz",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Gulf Winds Federal Credit Union"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Gulf Winds Federal Credit Union",
+     "role": "Internal Auditor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "amy kristof-brown|university of iowa": {
@@ -8793,12 +9220,14 @@
    "name": "Amy Lahart",
    "university": "Misericordia University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8836,12 +9265,14 @@
    "name": "Amy M. West",
    "university": "Bowling Green State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8936,16 +9367,33 @@
   "amy ochoa|university of arkansas": {
    "name": "Amy Ochoa",
    "university": "University of Arkansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Walmart"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Walmart",
+     "role": "Human resources leadership roles, including Senior Human Resources Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "amy ostrom|arizona state university": {
@@ -9069,11 +9517,13 @@
    "name": "Amy Ryan",
    "university": "Colgate University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -9184,17 +9634,47 @@
   "amy shoemaker|miami university": {
    "name": "Amy Shoemaker",
    "university": "Miami University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Middleton Reutlinger",
+    "Steptoe & Johnson"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Middleton Reutlinger",
+     "role": "Litigation Attorney",
+     "seniority": "professional",
+     "years": "2002-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Steptoe & Johnson",
+     "role": "Attorney, Employment Law Practice Group",
+     "seniority": "professional",
+     "years": "2000",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "amy smith|endicott college": {
@@ -9286,15 +9766,32 @@
   "amy yancey|santa clara university": {
    "name": "Amy Yancey",
    "university": "Santa Clara University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Mars Publishing"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Mars Publishing",
+     "role": "Vice President for Production",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "amy zeng|chapman university": {
@@ -9496,16 +9993,35 @@
   "anand jagota|lehigh university": {
    "name": "Anand Jagota",
    "university": "Lehigh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "DuPont"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "DuPont",
+     "role": "Senior Research Scientist",
+     "seniority": "professional",
+     "years": "1988-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "anand k. gramopadhye|clemson university": {
@@ -9586,15 +10102,34 @@
    "name": "Anas Ben Addi",
    "university": "Delaware State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Delaware State Housing Authority"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Delaware State Housing Authority",
+     "role": "Director (Governor's Cabinet Secretary); previously Director of Housing Finance",
+     "seniority": "executive",
+     "years": "2009-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 70
+    }
    ],
    "flags": [
     "careerBackground: Finance and administration leadership"
@@ -9702,16 +10237,35 @@
   "andre marshall|george mason university": {
    "name": "Andre Marshall",
    "university": "George Mason University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Program Director, Industry-University Cooperative Research Centers and Innovation Corps (I-Corps)",
+     "seniority": "senior",
+     "years": "2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "andre z. clayborne|george mason university": {
@@ -9834,12 +10388,14 @@
    "name": "Andrea Dine",
    "university": "Brandeis University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -9848,28 +10404,62 @@
   "andrea dooley|lewis & clark college": {
    "name": "Andrea Dooley",
    "university": "Lewis & Clark College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Technology",
+    "Consulting"
+   ],
+   "firms": [
+    "Tripwire",
+    "KPMG"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Tripwire",
+     "role": "Corporate Controller",
+     "seniority": "senior",
+     "years": "2010-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG",
+     "role": "Senior Audit Manager",
+     "seniority": "senior",
+     "years": "2003-2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "andrea dowhower|pennsylvania state university": {
    "name": "Andrea Dowhower",
    "university": "Pennsylvania State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -9980,16 +10570,44 @@
   "andrea gunn eaton|university of california irvine": {
    "name": "Andrea Gunn Eaton",
    "university": "University of California Irvine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Seyfarth Shaw LLP",
+    "Texas Civil Rights Project"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Seyfarth Shaw LLP",
+     "role": "Senior Associate, Labor and Employment Litigation",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Texas Civil Rights Project",
+     "role": "National Association for Public Interest Law Fellow",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "andrea guzmán|university of central florida": {
@@ -10009,16 +10627,33 @@
   "andrea jones|university of north florida": {
    "name": "Andrea Jones",
    "university": "University of North Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Atlanta Journal-Constitution"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Atlanta Journal-Constitution",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "andrea l. dennis|university of georgia": {
@@ -10197,12 +10832,14 @@
   "andrea s. ballinger|rensselaer polytechnic institute": {
    "name": "Andrea S. Ballinger",
    "university": "Rensselaer Polytechnic Institute",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -10328,12 +10965,14 @@
    "name": "Andrea Ward",
    "university": "Adelphi University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -10342,16 +10981,43 @@
   "andrea weaver|university of north carolina wilmington": {
    "name": "Andrea Weaver",
    "university": "University of North Carolina Wilmington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Wilmington StarNews",
+    "Greensboro News & Record"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Wilmington StarNews",
+     "role": "Journalist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Greensboro News & Record",
+     "role": "Journalist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "andrea welch|holy cross college": {
@@ -10372,12 +11038,14 @@
    "name": "Andrea Young",
    "university": "DePauw University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -10443,17 +11111,55 @@
   "andres g. gil|florida international university": {
    "name": "Andres G. Gil",
    "university": "Florida International University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usgrad"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Latino Council on Alcohol and Tobacco Prevention",
+    "Western Consortium for Public Health",
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Latino Council on Alcohol and Tobacco Prevention",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Western Consortium for Public Health",
+     "role": "Research Scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Sergeant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "andrew (andy) saultz|lewis & clark college": {
@@ -10641,16 +11347,45 @@
   "andrew clinger|university of nevada reno": {
    "name": "Andrew Clinger",
    "university": "University of Nevada Reno",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Reno",
+    "Office of the Governor of Nevada (Gov. Brian Sandoval)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Reno",
+     "role": "City Manager",
+     "seniority": "executive",
+     "years": "2011-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Governor of Nevada (Gov. Brian Sandoval)",
+     "role": "Senior Advisor / state budget director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "andrew crawford, ph.d.|cleveland state university": {
@@ -10687,11 +11422,13 @@
    "name": "Andrew Davidson",
    "university": "Boston College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -10731,15 +11468,34 @@
   "andrew eschtruth|boston college": {
    "name": "Andrew Eschtruth",
    "university": "Boston College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Government Accountability Office"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Government Accountability Office",
+     "role": "Senior Research Analyst",
+     "seniority": "professional",
+     "years": "1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "andrew finstuen|boise state university": {
@@ -10817,16 +11573,35 @@
   "andrew hendricks|franklin college": {
    "name": "Andrew Hendricks",
    "university": "Franklin College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Hoosier Lottery"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Hoosier Lottery",
+     "role": "Director of Sales and Marketing",
+     "seniority": "senior",
+     "years": "2000-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "andrew hessick|university of north carolina": {
@@ -11005,16 +11780,33 @@
   "andrew jones|franklin college": {
    "name": "Andrew Jones",
    "university": "Franklin College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Franklin Chamber of Commerce"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Franklin Chamber of Commerce",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "andrew k. benton|pepperdine university": {
@@ -11036,12 +11828,14 @@
    "name": "Andrew Kane",
    "university": "Sarah Lawrence College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -11051,11 +11845,13 @@
    "name": "Andrew Kelley",
    "university": "Southeastern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -11093,12 +11889,14 @@
    "name": "Andrew Mangels",
    "university": "University of Massachusetts Amherst",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -11243,15 +12041,67 @@
    "name": "Andrew Oppmann",
    "university": "Middle Tennessee State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 3,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United Way of Rutherford and Cannon Counties",
+    "Civil Air Patrol",
+    "Gannett Tennessee (The Tennessean, The Daily News Journal, The Leaf-Chronicle)",
+    "U.S. Army Reserve"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of Rutherford and Cannon Counties",
+     "role": "Chairman (past)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Civil Air Patrol",
+     "role": "Board of Governors member; Lieutenant Colonel",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Gannett Tennessee (The Tennessean, The Daily News Journal, The Leaf-Chronicle)",
+     "role": "Vice President; President and Publisher",
+     "seniority": "executive",
+     "years": "2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Army Reserve",
+     "role": "Tennessee Army Reserve Ambassador",
+     "seniority": "senior",
+     "years": "2019",
+     "source": "research",
+     "score": 48
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -11260,16 +12110,46 @@
   "andrew p. christ|new jersey institute of technology": {
    "name": "Andrew P. Christ",
    "university": "New Jersey Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Other industry",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Commerce and Industry Association of New Jersey (CIANJ)",
+    "National Academy of Construction"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Other industry",
+     "firm": "Commerce and Industry Association of New Jersey (CIANJ)",
+     "role": "Board of Directors member",
+     "seniority": "executive",
+     "years": "2026",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Energy & Industrials",
+     "firm": "National Academy of Construction",
+     "role": "Elected member",
+     "seniority": "senior",
+     "years": "2023",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "andrew p. daire|north carolina a&t state university": {
@@ -11338,15 +12218,43 @@
   "andrew powell|university of the cumberlands": {
    "name": "Andrew Powell",
    "university": "University of the Cumberlands",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "McCreary County Fiscal Court (Kentucky)",
+    "The McCreary County Voice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "McCreary County Fiscal Court (Kentucky)",
+     "role": "Deputy Judge-Executive and Projects Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The McCreary County Voice",
+     "role": "Associate Editor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "andrew r. blair|university of pittsburgh": {
@@ -11381,12 +12289,14 @@
    "name": "Andrew Read",
    "university": "Pennsylvania State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -11696,15 +12606,63 @@
   "andrew trauger|new saint andrews college": {
    "name": "Andrew Trauger",
    "university": "New Saint Andrews College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Stemco",
+    "Sweet Shop USA",
+    "Georgia-Pacific",
+    "Nestle Waters"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Stemco",
+     "role": "Factory Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Sweet Shop USA",
+     "role": "Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Georgia-Pacific",
+     "role": "Finance/cost management roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Nestle Waters",
+     "role": "Finance/cost management roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "andrew turner|university of wisconsin madison": {
@@ -11911,11 +12869,13 @@
    "name": "André Fortune",
    "university": "University of West Georgia",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -11954,16 +12914,44 @@
   "andrés fernández|pitzer college": {
    "name": "Andrés Fernández",
    "university": "Pitzer College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "FORGE (Kala Refugee Camp, Zambia)",
+    "Permanent Mission of Venezuela to the United Nations"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "FORGE (Kala Refugee Camp, Zambia)",
+     "role": "Staff member, NGO in Kala Refugee Camp",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Permanent Mission of Venezuela to the United Nations",
+     "role": "Staff member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "andy chan|wake forest university": {
@@ -12208,15 +13196,46 @@
   "andy ybarra|university of st. thomas (minnesota)": {
    "name": "Andy Ybarra",
    "university": "University of St. Thomas (Minnesota)",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Consulting",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Weber Shandwick",
+    "The Associated Press"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Weber Shandwick",
+     "role": "Senior Vice President, Minneapolis office",
+     "seniority": "senior",
+     "years": "2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Associated Press",
+     "role": "Journalist, Minneapolis bureau",
+     "seniority": "professional",
+     "years": "2001",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "anette saxe|university of nevada, reno": {
@@ -12236,15 +13255,42 @@
   "ange-marie hancock|ohio state university": {
    "name": "Ange-Marie Hancock",
    "university": "Ohio State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "NBC4",
+    "National Basketball Association (NBA)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Media & Entertainment",
+     "firm": "NBC4",
+     "role": "Political analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "National Basketball Association (NBA)",
+     "role": "Researcher (survey research and business model for the future WNBA)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "angel a. dizon iii|northwestern university": {
@@ -12369,16 +13415,77 @@
   "angela downin|university of delaware": {
    "name": "Angela Downin",
    "university": "University of Delaware",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma",
+    "Healthcare Providers",
+    "Technology",
+    "Law (private practice)",
+    "Financial Services"
+   ],
+   "firms": [
+    "Optum",
+    "Center for Diagnostic Imaging",
+    "Strands Labs",
+    "Gray Plant Mooty",
+    "VW Credit / Audi Collection (Volkswagen Group)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Optum",
+     "role": "In-house counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Center for Diagnostic Imaging",
+     "role": "In-house counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Strands Labs",
+     "role": "Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Gray Plant Mooty",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "VW Credit / Audi Collection (Volkswagen Group)",
+     "role": "Finance role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "angela dudley|wichita state university": {
@@ -12499,12 +13606,14 @@
    "name": "Angela King Taylor",
    "university": "University of Missouri",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -12514,12 +13623,14 @@
    "name": "Angela Lauer Chong",
    "university": "University of Oregon",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -12612,16 +13723,33 @@
   "angela polec|temple university": {
    "name": "Angela Polec",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Philadelphia Flyers"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Philadelphia Flyers",
+     "role": "Digital Marketing Coordinator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "angela rone|bellarmine university": {
@@ -12815,16 +13943,66 @@
    "name": "Angelica Ferreira",
    "university": "Pace University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Other industry",
+    "Technology",
+    "Consulting",
+    "Financial Services"
+   ],
+   "firms": [
+    "Roosevelt Incorporated",
+    "Telecommunity",
+    "Deloitte",
+    "AIG"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Roosevelt Incorporated",
+     "role": "Assistant Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Telecommunity",
+     "role": "Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte",
+     "role": "Auditing Associate (London)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "AIG",
+     "role": "Staff Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance / budget and planning"
@@ -12945,27 +14123,46 @@
   "angie dobbins|washington state university": {
    "name": "Angie Dobbins",
    "university": "Washington State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Basic American Foods"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Basic American Foods",
+     "role": "Director, Financial Planning & Analysis (earlier Manager FP&A and Accounting Senior Manager, Operations)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "angie tissi-gassoway|amherst college": {
    "name": "Angie Tissi-Gassoway",
    "university": "Amherst College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -13003,12 +14200,14 @@
    "name": "Aniesha Mitchell",
    "university": "California State University, Sacramento",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -16572,11 +17771,13 @@
    "name": "Art King",
    "university": "CUNY Baruch College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -16586,11 +17787,13 @@
    "name": "Art M. Lee",
    "university": "Stony Brook University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -16600,12 +17803,14 @@
    "name": "Art Malloy",
    "university": "University of North Dakota",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -17090,11 +18295,13 @@
    "name": "Arwen Staros Duffy",
    "university": "University of Massachusetts Amherst",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -17433,14 +18640,33 @@
    "name": "Ashly Tilden-Browning",
    "university": "Linfield University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 39,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "The Springs Living"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "The Springs Living",
+     "role": "Human Resources Business Partner",
+     "seniority": "professional",
+     "years": "2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 39
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -17596,12 +18822,14 @@
    "name": "Atam P. Dhawan",
    "university": "New Jersey Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -17656,30 +18884,85 @@
   "audra kahr|lafayette college": {
    "name": "Audra Kahr",
    "university": "Lafayette College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Deloitte & Touche LLP",
+    "Tyco International"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte & Touche LLP",
+     "role": "Senior Auditor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Tyco International",
+     "role": "Senior Financial Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "audrey alexander|florida agricultural and mechanical university": {
    "name": "Audrey Alexander",
    "university": "Florida Agricultural and Mechanical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Army Reserve",
+    "Florida National Guard"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Army Reserve",
+     "role": "Major (retired); company commander, executive officer, investigative officer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Florida National Guard",
+     "role": "Officer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "audrey beard|north carolina central university": {
@@ -17845,14 +19128,65 @@
    "name": "Audrey Perry Martin",
    "university": "Brigham Young University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)",
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Lex Politica",
+    "Project Elect",
+    "Caplin & Drysdale",
+    "Federal Election Commission"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Lex Politica",
+     "role": "Partner",
+     "seniority": "executive",
+     "years": "2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Project Elect",
+     "role": "Founder and CEO",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Caplin & Drysdale",
+     "role": "Attorney, campaign finance and election law",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Federal Election Commission",
+     "role": "Law clerk to Commissioner Michael E. Toner",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -18067,12 +19401,14 @@
    "name": "Avis Hinkson",
    "university": "Pomona College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -18363,16 +19699,54 @@
   "b. keith rogers|university of nevada las vegas": {
    "name": "B. Keith Rogers",
    "university": "University of Nevada Las Vegas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Community Outreach Medical Center",
+    "Las Vegas-Clark County Library District",
+    "United States Army"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Community Outreach Medical Center",
+     "role": "Board Chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Las Vegas-Clark County Library District",
+     "role": "Vice Chair, Board of Trustees",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Army",
+     "role": "Soldier (veteran)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "b. lyn behrens|loma linda university": {
@@ -18393,12 +19767,14 @@
    "name": "B. Ramu Ramachandran",
    "university": "Louisiana Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -18525,16 +19901,35 @@
   "bao johri|california state university, fresno": {
    "name": "Bao Johri",
    "university": "California State University, Fresno",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Sacramento Municipal Utility District (SMUD)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Sacramento Municipal Utility District (SMUD)",
+     "role": "Business Process Support / Information Technology Supervisor",
+     "seniority": "professional",
+     "years": "2016-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "barb roberts|university of nevada las vegas": {
@@ -18819,12 +20214,14 @@
    "name": "Barbara LoMonaco",
    "university": "Centre College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -18993,16 +20390,33 @@
   "barbara stein|tufts university": {
    "name": "Barbara Stein",
    "university": "Tufts University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "GLC Development Resources"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "GLC Development Resources",
+     "role": "Real estate development and capital project consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "barbara stephenson|university of north carolina": {
