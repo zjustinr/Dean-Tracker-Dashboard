@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2468,
-  "no": 11327,
+  "yes": 2479,
+  "no": 11316,
   "unknown": 15675,
-  "namedFirm": 2082,
-  "flagOnly": 386,
-  "firms": 2341,
-  "sittingWithTie": 1409,
-  "sittingSeniorTie": 821,
-  "researched": 1423
+  "namedFirm": 2091,
+  "flagOnly": 388,
+  "firms": 2358,
+  "sittingWithTie": 1418,
+  "sittingSeniorTie": 829,
+  "researched": 1438
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -73214,12 +73214,14 @@
   "edwin (eddie) stuart|university of north carolina wilmington": {
    "name": "Edwin (Eddie) Stuart",
    "university": "University of North Carolina Wilmington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -73328,16 +73330,33 @@
   "eija ayravainen|hunter college": {
    "name": "Eija Ayravainen",
    "university": "Hunter College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Bella Abzug Leadership Institute"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bella Abzug Leadership Institute",
+     "role": "Board of Directors member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "eiko maruko siniawer|williams college": {
@@ -73474,30 +73493,90 @@
   "eileen m. pezzi|state university of new york upstate medical university": {
    "name": "Eileen M. Pezzi",
    "university": "State University of New York Upstate Medical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 45,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Ballston Lake Community Human Services (CAP Agency)",
+    "Mechanicville Area Community Services Center, Inc.",
+    "Capital District YMCA"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Ballston Lake Community Human Services (CAP Agency)",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "years": "1988-1990",
+     "endYear": 1990,
+     "source": "research",
+     "score": 45
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mechanicville Area Community Services Center, Inc.",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "years": "1986-1988",
+     "endYear": 1988,
+     "source": "research",
+     "score": 45
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Capital District YMCA",
+     "role": "Vice President for Financial Development (promoted from Director of Development)",
+     "seniority": "senior",
+     "years": "1990-1995",
+     "endYear": 1995,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "eileen petula|st. mary's college of maryland": {
    "name": "Eileen Petula",
    "university": "St. Mary's College of Maryland",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Pennsylvania Chamber of Business and Industry"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Pennsylvania Chamber of Business and Industry",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "eileen s. moore|georgetown university": {
@@ -73547,16 +73626,64 @@
   "elaine crosson|american university": {
    "name": "Elaine Crosson",
    "university": "American University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Interest on Lawyer Account (IOLA) Fund of the State of New York",
+    "Whiteman Osterman & Hanna LLP",
+    "New York State Court of Appeals",
+    "Suffolk County Family Court"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Interest on Lawyer Account (IOLA) Fund of the State of New York",
+     "role": "General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Whiteman Osterman & Hanna LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York State Court of Appeals",
+     "role": "Principal Law Clerk to Associate Judge Joseph W. Bellacosa",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Suffolk County Family Court",
+     "role": "Family Court Hearing Examiner",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "elaine meyer-lee|goucher college": {
@@ -73763,16 +73890,43 @@
   "elena i. nicklasson|fielding graduate university": {
    "name": "Elena I. Nicklasson",
    "university": "Fielding Graduate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Global Fund for Women",
+    "Nuclear Age Peace Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Global Fund for Women",
+     "role": "Fundraising/development role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Nuclear Age Peace Foundation",
+     "role": "Fundraising/development role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "elena m. silva|georgetown university": {
@@ -74130,11 +74284,13 @@
    "name": "Elizabeth (Beth) Clark",
    "university": "University of California Irvine",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -74185,13 +74341,15 @@
   "elizabeth a. milavec|university of rochester": {
    "name": "Elizabeth A. Milavec",
    "university": "University of Rochester",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -74203,13 +74361,15 @@
   "elizabeth a. polzin|concordia university wisconsin": {
    "name": "Elizabeth A. Polzin",
    "university": "Concordia University Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -74393,16 +74553,45 @@
   "elizabeth clements|depaul university": {
    "name": "Elizabeth Clements",
    "university": "DePaul University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Geneva (Illinois) Strategic Plan Advisory Committee",
+    "Fermi National Accelerator Laboratory (Fermilab)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "City of Geneva (Illinois) Strategic Plan Advisory Committee",
+     "role": "Chair (member 2014-19, chair 2017-19)",
+     "seniority": "executive",
+     "years": "2014-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Fermi National Accelerator Laboratory (Fermilab)",
+     "role": "Communications lead for global particle physics projects and for government relations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "elizabeth coleman|bennington college": {
@@ -74659,15 +74848,43 @@
   "elizabeth homan|juniata college": {
    "name": "Elizabeth Homan",
    "university": "Juniata College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Huntingdon Landmarks",
+    "Howard County Housing Commission"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Huntingdon Landmarks",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Howard County Housing Commission",
+     "role": "Leadership role (title not specified)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "elizabeth hudson|illinois institute of technology": {
@@ -74823,15 +75040,32 @@
   "elizabeth mauch|vermont state colleges system": {
    "name": "Elizabeth Mauch",
    "university": "Vermont State Colleges System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Birger Sandzen Memorial Art Gallery"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Birger Sandzen Memorial Art Gallery",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "elizabeth mchenry|new york university": {
@@ -74866,11 +75100,13 @@
    "name": "Elizabeth Oswald-Sease",
    "university": "Presbyterian College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Unclassified"
@@ -74937,15 +75173,43 @@
   "elizabeth s. small|college of the holy cross": {
    "name": "Elizabeth S. Small",
    "university": "College of the Holy Cross",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Edwards, Angell, Palmer & Dodge LLP",
+    "Testa, Hurwitz & Thibeault, LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Edwards, Angell, Palmer & Dodge LLP",
+     "role": "Partner (joined 1996, partner from 2001)",
+     "seniority": "executive",
+     "years": "1996",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Testa, Hurwitz & Thibeault, LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "elizabeth sady|university of illinois at chicago": {
@@ -75228,12 +75492,14 @@
   "ellen de graffenreid|grinnell college": {
    "name": "Ellen de Graffenreid",
    "university": "Grinnell College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
