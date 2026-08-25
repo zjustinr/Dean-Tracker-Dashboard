@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3180,
-  "no": 10615,
+  "yes": 3209,
+  "no": 10586,
   "unknown": 15675,
-  "namedFirm": 2649,
-  "flagOnly": 531,
-  "firms": 3238,
-  "sittingWithTie": 1976,
-  "sittingSeniorTie": 1200,
-  "researched": 2503
+  "namedFirm": 2673,
+  "flagOnly": 536,
+  "firms": 3265,
+  "sittingWithTie": 2000,
+  "sittingSeniorTie": 1212,
+  "researched": 2563
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -222489,12 +222489,14 @@
    "name": "Sam Ferguson",
    "university": "The University of Texas at Tyler",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -222576,13 +222578,15 @@
   "sam watson|south carolina state university": {
    "name": "Sam Watson",
    "university": "South Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -222591,27 +222595,46 @@
   "samantha allen|the university of texas rio grande valley": {
    "name": "Samantha Allen",
    "university": "The University of Texas Rio Grande Valley",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Baylor Health Care System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Baylor Health Care System",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "samantha earp|tufts university": {
    "name": "Samantha Earp",
    "university": "Tufts University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -222678,16 +222701,44 @@
   "samara a. sit|bryn mawr college": {
    "name": "Samara A. Sit",
    "university": "Bryn Mawr College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Freedom Forum",
+    "Newseum"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Freedom Forum",
+     "role": "Communications",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Newseum",
+     "role": "Communications",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "samara l. firebaugh|united states naval academy": {
@@ -222807,16 +222858,43 @@
   "samuel mead|university of massachusetts dartmouth": {
    "name": "Samuel Mead",
    "university": "University of Massachusetts Dartmouth",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Disney Publishing Worldwide / Walt Disney Internet Group",
+    "Meredith Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Disney Publishing Worldwide / Walt Disney Internet Group",
+     "role": "Digital marketing",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Meredith Corporation",
+     "role": "Digital marketing",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "samuel mukasa|university of minnesota twin cities": {
@@ -222994,12 +223072,14 @@
   "sandee cheynet|rice university": {
    "name": "Sandee Cheynet",
    "university": "Rice University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -223092,15 +223172,32 @@
   "sandra corbitt|patrick henry college": {
    "name": "Sandra Corbitt",
    "university": "Patrick Henry College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Campus Crusade for Christ (Cru)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Campus Crusade for Christ (Cru)",
+     "role": "Various positions",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "sandra cox-mccarty|university of mississippi": {
@@ -223192,16 +223289,33 @@
   "sandra kim|university of california riverside": {
    "name": "Sandra Kim",
    "university": "University of California Riverside",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "UBS"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "UBS",
+     "role": "Managing Director and Group Head, Higher Education and Non-Profits",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "sandra kingery|lycoming college": {
@@ -223325,11 +223439,13 @@
    "name": "Sandra Olson-Loy",
    "university": "University of Minnesota-Morris",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -223338,12 +223454,14 @@
   "sandra russell|university of louisville": {
    "name": "Sandra Russell",
    "university": "University of Louisville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -223353,11 +223471,13 @@
    "name": "Sandra S. Johnson",
    "university": "Rochester Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -223437,13 +223557,15 @@
   "sandy a. curko|new jersey institute of technology": {
    "name": "Sandy A. Curko",
    "university": "New Jersey Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -223483,11 +223605,13 @@
    "name": "Sandy Jansen",
    "university": "University of Texas at Austin",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -223496,13 +223620,15 @@
   "sandy p. connolly|campbell university": {
    "name": "Sandy P. Connolly",
    "university": "Campbell University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -223514,16 +223640,35 @@
   "sandy pantlik|texas state university": {
    "name": "Sandy Pantlik",
    "university": "Texas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Oklahoma Tourism and Recreation Department"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Oklahoma Tourism and Recreation Department",
+     "role": "Travel Promotion Division Director",
+     "seniority": "senior",
+     "years": "2005-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "sandy russell|university of louisville": {
@@ -223544,11 +223689,13 @@
    "name": "Sandy Sheahan",
    "university": "Colorado State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -223947,15 +224094,34 @@
   "sara asher|yeshiva university": {
    "name": "Sara Asher",
    "university": "Yeshiva University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Yeshiva of Central Queens"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Yeshiva of Central Queens",
+     "role": "Director of School Psychology",
+     "seniority": "professional",
+     "years": "2018-2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "sara b. moeller|university of pittsburgh": {
@@ -223990,11 +224156,13 @@
    "name": "Sara Dorer",
    "university": "Hope College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -224101,16 +224269,33 @@
   "sara klein|stevens institute of technology": {
    "name": "Sara Klein",
    "university": "Stevens Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Goldman, Sachs & Co."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Goldman, Sachs & Co.",
+     "role": "Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "sara l. gill|university of texas health science center at san antonio (ut health san antonio)": {
@@ -224200,16 +224385,33 @@
   "sara myers|university of nebraska at omaha": {
    "name": "Sara Myers",
    "university": "University of Nebraska at Omaha",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "BioNebraska"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "BioNebraska",
+     "role": "Board of Directors member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "sara n. bleich|harvard university": {
@@ -224308,6 +224510,8 @@
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -224482,15 +224686,55 @@
    "name": "Sarah Barczyk",
    "university": "Embry-Riddle Aeronautical University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Four Score Strategies",
+    "Westinghouse Electric Company",
+    "Columbia Pipeline Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Four Score Strategies",
+     "role": "Founder/Principal",
+     "seniority": "executive",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Westinghouse Electric Company",
+     "role": "Communications and public relations lead",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Columbia Pipeline Group",
+     "role": "Communications and public relations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -224587,12 +224831,14 @@
    "name": "Sarah Comstock",
    "university": "University of Puget Sound",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -224616,12 +224862,14 @@
    "name": "Sarah Cunningham",
    "university": "Tulane University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -224672,16 +224920,35 @@
   "sarah delage|university of new england": {
    "name": "Sarah Delage",
    "university": "University of New England",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "NEWS CENTER Maine"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "NEWS CENTER Maine",
+     "role": "On-air Reporter",
+     "seniority": "professional",
+     "years": "2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "sarah e. davies|university of virginia": {
@@ -224758,12 +225025,14 @@
    "name": "Sarah Hansen",
    "university": "University of Iowa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -224847,12 +225116,14 @@
    "name": "Sarah Kelly",
    "university": "University of Akron",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -224980,27 +225251,48 @@
   "sarah morgan|western new england university": {
    "name": "Sarah Morgan",
    "university": "Western New England University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Health New England"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Health New England",
+     "role": "Vice President of Human Resources",
+     "seniority": "executive",
+     "years": "2019-2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "sarah moschenross|lafayette college": {
    "name": "Sarah Moschenross",
    "university": "Lafayette College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -227513,12 +227805,14 @@
    "name": "Sean Reynolds",
    "university": "Northwestern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -227570,11 +227864,13 @@
    "name": "Selena Blair",
    "university": "Presbyterian College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -227612,12 +227908,14 @@
    "name": "Sentwali Bakari",
    "university": "Adelphi University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -227725,26 +228023,45 @@
   "sergio gonzalez|brown university": {
    "name": "Sergio Gonzalez",
    "university": "Brown University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Miami-Dade County"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Miami-Dade County",
+     "role": "Chief of Staff to the Executive Mayor",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "sergio oliva|seton hall university": {
    "name": "Sergio Oliva",
    "university": "Seton Hall University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -227795,16 +228112,33 @@
   "seth hinshaw|indiana state university": {
    "name": "Seth Hinshaw",
    "university": "Indiana State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of the Indiana Secretary of Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Indiana Secretary of Education",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "seth mnookin|massachusetts institute of technology": {
@@ -228194,13 +228528,15 @@
   "shannon gary|university of san francisco": {
    "name": "Shannon Gary",
    "university": "University of San Francisco",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -228296,11 +228632,13 @@
    "name": "Shannon Mantaro",
    "university": "Texas Woman's University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -228353,13 +228691,15 @@
   "shannon pipes|utah state university": {
    "name": "Shannon Pipes",
    "university": "Utah State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -228410,15 +228750,42 @@
   "shannon wanless|university of pittsburgh": {
    "name": "Shannon Wanless",
    "university": "University of Pittsburgh",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "YMCA",
+    "Head Start"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "YMCA",
+     "role": "Summer Camp Director",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Head Start",
+     "role": "Teacher",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "shannon winnubst|the ohio state university": {
@@ -228494,16 +228861,44 @@
   "shari f. crittendon|fordham university": {
    "name": "Shari F. Crittendon",
    "university": "Fordham University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Constitutional Law Center for Muslims in America",
+    "The Crittendon Firm"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Constitutional Law Center for Muslims in America",
+     "role": "Senior Corporate Counsel and Director of Outreach and Compliance",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "The Crittendon Firm",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "shari hubert|duke university": {
@@ -228657,13 +229052,15 @@
   "sharon ayala|abilene christian university": {
    "name": "Sharon Ayala",
    "university": "Abilene Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -228673,13 +229070,15 @@
    "name": "Sharon Beard",
    "university": "Pepperdine University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -228689,12 +229088,14 @@
    "name": "Sharon Boyle",
    "university": "Temple University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -228752,6 +229153,8 @@
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -232805,16 +233208,33 @@
   "stan waddell|carnegie mellon university": {
    "name": "Stan Waddell",
    "university": "Carnegie Mellon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Aviation Electronics Technician",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "stanford a. roman jr.|the city college of new york": {
@@ -233474,12 +233894,14 @@
   "stephanie dodds|ball state university": {
    "name": "Stephanie Dodds",
    "university": "Ball State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -233558,12 +233980,14 @@
   "stephanie formenti|covenant college": {
    "name": "Stephanie Formenti",
    "university": "Covenant College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -233600,16 +234024,33 @@
   "stephanie graham|northwestern university": {
    "name": "Stephanie Graham",
    "university": "Northwestern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Sonnenschein Nath & Rosenthal"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Sonnenschein Nath & Rosenthal",
+     "role": "Labor and Employment Litigation Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "stephanie h. chang|university of maryland college park": {
@@ -233629,28 +234070,61 @@
   "stephanie hamlett|virginia commonwealth university": {
    "name": "Stephanie Hamlett",
    "university": "Virginia Commonwealth University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Virginia Resources Authority",
+    "Office of the Attorney General of Virginia"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Virginia Resources Authority",
+     "role": "Executive Director and General Counsel",
+     "seniority": "executive",
+     "years": "2010-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Attorney General of Virginia",
+     "role": "Opinions Chief / Deputy Counselor",
+     "seniority": "senior",
+     "years": "2002-2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "stephanie helms pickett|antioch university": {
    "name": "Stephanie Helms Pickett",
    "university": "Antioch University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -233730,15 +234204,43 @@
    "name": "Stephanie Mullins",
    "university": "University of Alabama at Birmingham",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers",
+    "Consulting"
+   ],
+   "firms": [
+    "Baptist Health System",
+    "Coopers & Lybrand"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Baptist Health System",
+     "role": "Finance/Accounting role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Coopers & Lybrand",
+     "role": "Early-career accounting role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance"
@@ -233877,12 +234379,14 @@
   "stephanie smith|idaho state university": {
    "name": "Stephanie Smith",
    "university": "Idaho State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -234120,11 +234624,13 @@
    "name": "Stephen Bayer",
    "university": "Rice University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -234133,16 +234639,43 @@
   "stephen bayne|texas tech university": {
    "name": "Stephen Bayne",
    "university": "Texas Tech University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Army Research Laboratory",
+    "Naval Research Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Army Research Laboratory",
+     "role": "Engineer",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Naval Research Laboratory",
+     "role": "Electronics Engineer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "stephen brown-fried|the new school": {
@@ -234247,17 +234780,35 @@
   "stephen dewhurst|university of rochester": {
    "name": "Stephen Dewhurst",
    "university": "University of Rochester",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1medical",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "NextCorps"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "NextCorps",
+     "role": "Board of Directors",
+     "seniority": "senior",
+     "years": "2024",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "stephen e. thorsett|willamette university": {
@@ -234365,16 +234916,45 @@
   "stephen giannotti|cuny baruch college": {
    "name": "Stephen Giannotti",
    "university": "CUNY Baruch College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York City Office of the Comptroller",
+    "New York City Department of Health and Mental Hygiene"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Office of the Comptroller",
+     "role": "Deputy Chief Information Officer",
+     "seniority": "senior",
+     "years": "2015-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Department of Health and Mental Hygiene",
+     "role": "Assistant Commissioner / Chief Software Architect",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "stephen hansen|southern illinois university-edwardsville": {
@@ -234485,12 +235065,14 @@
    "name": "Stephen J. Lightcap",
    "university": "La Salle University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -234570,15 +235152,34 @@
    "name": "Stephen Kenney",
    "university": "New Jersey Institute of Technology",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Northern Light Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Northern Light Health",
+     "role": "Senior Vice President of Finance",
+     "seniority": "executive",
+     "years": "2022-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 70
+    }
    ],
    "flags": [
     "careerBackground: Finance / CFO"
@@ -234706,13 +235307,15 @@
   "stephen mackey|oakland university": {
    "name": "Stephen Mackey",
    "university": "Oakland University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
