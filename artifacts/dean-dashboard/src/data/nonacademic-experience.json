@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2983,
-  "no": 10812,
+  "yes": 2994,
+  "no": 10801,
   "unknown": 15675,
-  "namedFirm": 2501,
-  "flagOnly": 482,
-  "firms": 3023,
-  "sittingWithTie": 1828,
-  "sittingSeniorTie": 1112,
-  "researched": 2203
+  "namedFirm": 2509,
+  "flagOnly": 485,
+  "firms": 3040,
+  "sittingWithTie": 1836,
+  "sittingSeniorTie": 1119,
+  "researched": 2218
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -177687,16 +177687,33 @@
   "melissa wheatcroft|rowan university": {
    "name": "Melissa Wheatcroft",
    "university": "Rowan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Bancroft (Bancroft NeuroHealth)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Bancroft (Bancroft NeuroHealth)",
+     "role": "General Counsel and Vice President of Program Operations",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "melodie jackson|harvard university": {
@@ -177746,13 +177763,15 @@
   "meloney linder mecklenburg|university of north dakota": {
    "name": "Meloney Linder Mecklenburg",
    "university": "University of North Dakota",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -177845,13 +177864,15 @@
   "meredith ainbinder|brandeis university": {
    "name": "Meredith Ainbinder",
    "university": "Brandeis University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -177888,16 +177909,53 @@
   "meredith gatzke|montclair state university": {
    "name": "Meredith Gatzke",
    "university": "Montclair State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Randolph Township Schools (NJ)",
+    "Paramus Board of Education (NJ)",
+    "School District of the Chathams (NJ)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Randolph Township Schools (NJ)",
+     "role": "Director of Employee Relations and Organizational Development",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Paramus Board of Education (NJ)",
+     "role": "Human Resources Director/Affirmative Action Officer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "School District of the Chathams (NJ)",
+     "role": "Human Resources Generalist/Benefits Coordinator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "meredith meyer grelli|carnegie mellon university": {
@@ -177918,12 +177976,14 @@
    "name": "Meredith Raimondo",
    "university": "Oglethorpe University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -177946,12 +178006,14 @@
   "meredith stewart|johns hopkins university": {
    "name": "Meredith Stewart",
    "university": "Johns Hopkins University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -177960,13 +178022,15 @@
   "meredith weiss|virginia commonwealth university": {
    "name": "Meredith Weiss",
    "university": "Virginia Commonwealth University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -177992,18 +178056,56 @@
   "merianne roth|texas christian university": {
    "name": "Merianne Roth",
    "university": "Texas Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Consumer & Retail",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "JPS Health Network",
+    "RadioShack",
+    "Visit Fort Worth"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "JPS Health Network",
+     "role": "Marketing/communications leadership role (title unspecified)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "RadioShack",
+     "role": "Marketing/communications leadership role (title unspecified)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Visit Fort Worth",
+     "role": "Marketing/communications leadership role (title unspecified)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "meridith randall|golden west college": {
@@ -178480,29 +178582,96 @@
   "michael amiridis|university of south carolina system": {
    "name": "Michael Amiridis",
    "university": "University of South Carolina System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Chicago Council on Global Affairs",
+    "Chicagoland Chamber of Commerce",
+    "W.R. Grace and Co."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chicago Council on Global Affairs",
+     "role": "Board of Directors member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chicagoland Chamber of Commerce",
+     "role": "Board of Directors member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "W.R. Grace and Co.",
+     "role": "Research Engineer",
+     "seniority": "professional",
+     "years": "1991-1994",
+     "endYear": 1994,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "michael andreasen|university of north carolina": {
    "name": "Michael Andreasen",
    "university": "University of North Carolina",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Portland Business Alliance",
+    "American Film Institute"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Portland Business Alliance",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Film Institute",
+     "role": "Major gifts and campaign leadership (fundraising)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "michael armini|northeastern university": {
@@ -178636,16 +178805,35 @@
   "michael becker|montana state university": {
    "name": "Michael Becker",
    "university": "Montana State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Bozeman Daily Chronicle"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Bozeman Daily Chronicle",
+     "role": "Editor and Digital Strategist",
+     "seniority": "professional",
+     "years": "2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "michael benedik|texas a&m university": {
@@ -178665,13 +178853,15 @@
   "michael berthel|long island university": {
    "name": "Michael Berthel",
    "university": "Long Island University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -178714,16 +178904,44 @@
   "michael birrer|university of arkansas for medical sciences": {
    "name": "Michael Birrer",
    "university": "University of Arkansas for Medical Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "National Cancer Institute",
+    "Massachusetts General Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Cancer Institute",
+     "role": "Medical oncologist/investigator (20 years)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Massachusetts General Hospital",
+     "role": "Director, Gynecologic Cancer Program / Gynecologic Medical Oncology",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "michael blazier|university of arkansas at monticello": {
@@ -178856,12 +179074,14 @@
    "name": "Michael C. Eicher",
    "university": "Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -179085,16 +179305,53 @@
   "michael d. schreiber|yeshiva university": {
    "name": "Michael D. Schreiber",
    "university": "Yeshiva University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "FNY Capital",
+    "SAC Capital",
+    "JP Morgan"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "FNY Capital",
+     "role": "Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "SAC Capital",
+     "role": "Portfolio Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "JP Morgan",
+     "role": "Vice President",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "michael d. seamon|university of notre dame": {
