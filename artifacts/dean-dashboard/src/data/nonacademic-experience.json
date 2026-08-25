@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3273,
-  "no": 10522,
+  "yes": 3286,
+  "no": 10509,
   "unknown": 15675,
-  "namedFirm": 2717,
-  "flagOnly": 556,
-  "firms": 3323,
-  "sittingWithTie": 2044,
-  "sittingSeniorTie": 1235,
-  "researched": 2668
+  "namedFirm": 2726,
+  "flagOnly": 560,
+  "firms": 3335,
+  "sittingWithTie": 2053,
+  "sittingSeniorTie": 1242,
+  "researched": 2683
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -231358,14 +231358,16 @@
   "sherry squires|boise state university": {
    "name": "Sherry Squires",
    "university": "Boise State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -231650,12 +231652,14 @@
   "shirley-ann thomas|oakwood university": {
    "name": "Shirley-Ann Thomas",
    "university": "Oakwood University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -231721,11 +231725,13 @@
    "name": "Shontel Grumhaus",
    "university": "Southern Methodist University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -231734,31 +231740,92 @@
   "shoua ferris|st catherine university": {
    "name": "Shoua Ferris",
    "university": "St Catherine University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "First Children's Finance",
+    "Back to Nature Foods"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "First Children's Finance",
+     "role": "Human Resources Director",
+     "seniority": "senior",
+     "years": "2024-2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Back to Nature Foods",
+     "role": "Head of Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "shreekanth mandayam|texas state university": {
    "name": "Shreekanth Mandayam",
    "university": "Texas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "University City Science Center",
+    "Research & Development Council of New Jersey"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "University City Science Center",
+     "role": "Member, Scientific Advisory Council",
+     "seniority": "professional",
+     "years": "2012-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Research & Development Council of New Jersey",
+     "role": "Member",
+     "seniority": "professional",
+     "years": "2012-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "shrihari sridhar|texas a&m university": {
@@ -231866,30 +231933,78 @@
   "sid j. trant|the university of alabama system": {
    "name": "Sid J. Trant",
    "university": "The University of Alabama System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Bradley Arant Boult Cummings LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Bradley Arant Boult Cummings LLP",
+     "role": "Partner",
+     "seniority": "senior",
+     "years": "2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "sid salter|mississippi state university": {
    "name": "Sid Salter",
    "university": "Mississippi State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Scott County Times",
+    "WHOC-AM"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Scott County Times",
+     "role": "Publisher and Editor",
+     "seniority": "executive",
+     "years": "1983",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "WHOC-AM",
+     "role": "Radio journalist",
+     "seniority": "professional",
+     "years": "1973",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "sid singer|hebrew theological college": {
@@ -231999,12 +232114,14 @@
   "simon allen|virginia tech": {
    "name": "Simon Allen",
    "university": "Virginia Tech",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -232245,15 +232362,43 @@
   "sloan cargill|jackson state university": {
    "name": "Sloan Cargill",
    "university": "Jackson State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consumer & Retail",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Revolve Fashion",
+    "Family Violence Project"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Revolve Fashion",
+     "role": "Unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Family Violence Project",
+     "role": "Unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "smilka melgoza|barry university": {
@@ -232273,15 +232418,32 @@
   "smita ruzicka|middlebury college": {
    "name": "Smita Ruzicka",
    "university": "Middlebury College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Porter Medical Center (University of Vermont Health Network)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Porter Medical Center (University of Vermont Health Network)",
+     "role": "Member, Board of Trustees",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "smita thakker-varia|rutgers university": {
@@ -232388,12 +232550,14 @@
   "sonali b. wilson|cleveland state university": {
    "name": "Sonali B. Wilson",
    "university": "Cleveland State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -233202,12 +233366,14 @@
    "name": "Stacey Martin",
    "university": "Hardin-Simmons University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -233216,16 +233382,33 @@
   "stacey patterson|florida state university": {
    "name": "Stacey Patterson",
    "university": "Florida State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "490 BioTech"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "490 BioTech",
+     "role": "Co-founder",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "stacey robertson|widener university": {
@@ -233530,17 +233713,45 @@
   "stacy pearson|boise state university": {
    "name": "Stacy Pearson",
    "university": "Boise State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Other industry"
+   ],
+   "firms": [
+    "The Cabin",
+    "SM Pearson Enterprises, LLC"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Cabin",
+     "role": "Board Treasurer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "SM Pearson Enterprises, LLC",
+     "role": "Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "stacy pfluger|bakersfield college": {
@@ -233560,16 +233771,44 @@
   "stacy r. roberts|university of southern california": {
    "name": "Stacy R. Roberts",
    "university": "University of Southern California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Consulting"
+   ],
+   "firms": [
+    "Southern California Edison",
+    "Ernst & Young"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Southern California Edison",
+     "role": "Vice President and Chief Ethics and Compliance Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Ernst & Young",
+     "role": "Principal, Forensics and Integrity Services",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "stacy reeder|university of oklahoma": {
