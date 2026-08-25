@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3142,
-  "no": 10653,
+  "yes": 3152,
+  "no": 10643,
   "unknown": 15675,
-  "namedFirm": 2624,
-  "flagOnly": 518,
-  "firms": 3208,
-  "sittingWithTie": 1951,
-  "sittingSeniorTie": 1187,
-  "researched": 2443
+  "namedFirm": 2630,
+  "flagOnly": 522,
+  "firms": 3218,
+  "sittingWithTie": 1957,
+  "sittingSeniorTie": 1191,
+  "researched": 2458
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -203695,12 +203695,14 @@
   "rachelle b. bussell|loma linda university": {
    "name": "Rachelle B. Bussell",
    "university": "Loma Linda University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -203710,12 +203712,14 @@
    "name": "Rachelle Hernandez",
    "university": "Johns Hopkins University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -203855,12 +203859,14 @@
    "name": "Rafael Espinosa III",
    "university": "Santa Clara University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -203884,16 +203890,46 @@
   "rafael martín|university of texas at dallas": {
    "name": "Rafael Martín",
    "university": "University of Texas at Dallas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Consulting"
+   ],
+   "firms": [
+    "Durham County Emergency Medical Services",
+    "McKinsey & Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Durham County Emergency Medical Services",
+     "role": "Paramedic",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "McKinsey & Company",
+     "role": "Management Consultant",
+     "seniority": "professional",
+     "years": "2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "raghu sundaram|new york university": {
@@ -204177,12 +204213,14 @@
   "raj murthy|oklahoma state university": {
    "name": "Raj Murthy",
    "university": "Oklahoma State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -204479,13 +204517,15 @@
   "rama dhuwaraha|university of texas at dallas": {
    "name": "Rama Dhuwaraha",
    "university": "University of Texas at Dallas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -204582,12 +204622,14 @@
    "name": "Ramon De Los Santos",
    "university": "The City College of New York",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -204828,16 +204870,46 @@
   "randi nichols|clark university": {
    "name": "Randi Nichols",
    "university": "Clark University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Technology"
+   ],
+   "firms": [
+    "Bayhealth Medical Center",
+    "HPE SimpliVity"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Bayhealth Medical Center",
+     "role": "Talent acquisition / HR leader",
+     "seniority": "senior",
+     "years": "2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "HPE SimpliVity",
+     "role": "Global Vice President of Human Resources",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "randi priluck|pace university": {
@@ -204991,27 +205063,48 @@
   "randy howard|embry-riddle aeronautical university": {
    "name": "Randy Howard",
    "university": "Embry-Riddle Aeronautical University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Officer; CFO of the U.S. Air Force Academy; Senior Financial Economist, Deputy Assistant Secretary of the Air Force",
+     "seniority": "senior",
+     "years": "2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "randy merced|seattle university": {
    "name": "Randy Merced",
    "university": "Seattle University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -205107,12 +205200,14 @@
    "name": "Randyll Bowen",
    "university": "Gannon University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -205121,26 +205216,56 @@
   "raphaella prange|maryville university of saint louis": {
    "name": "Raphaella Prange",
    "university": "Maryville University of Saint Louis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Children's Museum of Illinois",
+    "Illinois Energy Assistance Commission"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Children's Museum of Illinois",
+     "role": "Chair of the Board",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Illinois Energy Assistance Commission",
+     "role": "Board Member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "raquel esteves-joyce|haverford college": {
    "name": "Raquel Esteves-Joyce",
    "university": "Haverford College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -205325,16 +205450,56 @@
   "ray duffy|villanova university": {
    "name": "Ray Duffy",
    "university": "Villanova University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers",
+    "Consulting"
+   ],
+   "firms": [
+    "Christiana Care Health System",
+    "Hewitt Associates",
+    "Towers Perrin"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Christiana Care Health System",
+     "role": "Benefits Manager",
+     "seniority": "professional",
+     "years": "2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Hewitt Associates",
+     "role": "Benefit Administration Services Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Towers Perrin",
+     "role": "Benefit Administration Services Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ray earl-jackson|northern illinois university": {
@@ -205414,15 +205579,43 @@
   "ray kliewer|gonzaga university": {
    "name": "Ray Kliewer",
    "university": "Gonzaga University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Heartland Food Products Group",
+    "Ingersoll Rand"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Heartland Food Products Group",
+     "role": "Director, Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Ingersoll Rand",
+     "role": "Human resources roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "ray l. belton|southern university and a&m college": {
