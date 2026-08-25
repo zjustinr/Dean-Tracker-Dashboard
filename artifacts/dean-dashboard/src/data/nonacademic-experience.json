@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3173,
-  "no": 10622,
+  "yes": 3180,
+  "no": 10615,
   "unknown": 15675,
-  "namedFirm": 2644,
-  "flagOnly": 529,
-  "firms": 3233,
-  "sittingWithTie": 1971,
-  "sittingSeniorTie": 1197,
-  "researched": 2488
+  "namedFirm": 2649,
+  "flagOnly": 531,
+  "firms": 3238,
+  "sittingWithTie": 1976,
+  "sittingSeniorTie": 1200,
+  "researched": 2503
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -226510,11 +226510,13 @@
    "name": "Scott Olson",
    "university": "Minnesota State",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -226618,11 +226620,13 @@
    "name": "Scott Rabenold",
    "university": "University of Southern California",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -226676,11 +226680,13 @@
    "name": "Scott Roberts",
    "university": "Colorado State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -226759,27 +226765,46 @@
   "scott silversten|university of nebraska lincoln": {
    "name": "Scott Silversten",
    "university": "University of Nebraska Lincoln",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "ESPN SportsTicker"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "ESPN SportsTicker",
+     "role": "Sports journalist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "scott snyder|university of north dakota": {
    "name": "Scott Snyder",
    "university": "University of North Dakota",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -226788,12 +226813,14 @@
   "scott spriggs|shenandoah university": {
    "name": "Scott Spriggs",
    "university": "Shenandoah University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -226819,12 +226846,14 @@
    "name": "Scott T. Willard",
    "university": "Mississippi State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usag"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -226893,11 +226922,13 @@
    "name": "Scott Varady",
    "university": "University of Arkansas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -226977,12 +227008,14 @@
    "name": "Scott Wojciechowski",
    "university": "Haverford College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -227051,46 +227084,121 @@
   "sean burrage|the oklahoma state system of higher education": {
    "name": "Sean Burrage",
    "university": "The Oklahoma State System of Higher Education",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Oklahoma State Senate",
+    "Taylor Burrage Law Firm"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Oklahoma State Senate",
+     "role": "State Senator (District 2); Minority Floor Leader 2011-2014",
+     "seniority": "senior",
+     "years": "2006-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Taylor Burrage Law Firm",
+     "role": "Managing partner",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "sean campbell|illinois institute of technology": {
    "name": "Sean Campbell",
    "university": "Illinois Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "University of Chicago Medicine"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University of Chicago Medicine",
+     "role": "Managing Director, Individual Giving",
+     "seniority": "senior",
+     "years": "2011-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "sean caron|harvard university": {
    "name": "Sean Caron",
    "university": "Harvard University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Community Builders",
+    "Citizens' Housing and Planning Association"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Community Builders",
+     "role": "Chief of Property Operations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Citizens' Housing and Planning Association",
+     "role": "Director of Public Policy",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "sean connelly|bryn athyn college of the new church": {
@@ -227312,12 +227420,14 @@
    "name": "Sean Moeller",
    "university": "Cornell University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -227354,27 +227464,46 @@
   "sean philpott|emmanuel college": {
    "name": "Sean Philpott",
    "university": "Emmanuel College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Briggs & Stratton"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Briggs & Stratton",
+     "role": "Unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "sean reeder|iowa state university": {
    "name": "Sean Reeder",
    "university": "Iowa State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
