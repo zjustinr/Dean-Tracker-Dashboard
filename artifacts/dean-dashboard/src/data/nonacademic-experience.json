@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2869,
-  "no": 10926,
+  "yes": 2877,
+  "no": 10918,
   "unknown": 15675,
-  "namedFirm": 2408,
-  "flagOnly": 461,
-  "firms": 2872,
-  "sittingWithTie": 1735,
-  "sittingSeniorTie": 1047,
-  "researched": 2023
+  "namedFirm": 2415,
+  "flagOnly": 462,
+  "firms": 2884,
+  "sittingWithTie": 1742,
+  "sittingSeniorTie": 1053,
+  "researched": 2038
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -153640,16 +153640,69 @@
   "lawrence lokman|santa clara university": {
    "name": "Lawrence Lokman",
    "university": "Santa Clara University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Window In Communications",
+    "The Rogers Group",
+    "The Century Council",
+    "Los Angeles Department of Water & Power"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Window In Communications",
+     "role": "Founder and Managing Director",
+     "seniority": "executive",
+     "years": "2011-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "The Rogers Group",
+     "role": "Vice President",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Century Council",
+     "role": "Vice President of Programs",
+     "seniority": "senior",
+     "years": "1991-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Los Angeles Department of Water & Power",
+     "role": "Senior Communications Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "lawrence m. benveniste|emory university": {
@@ -154039,12 +154092,14 @@
    "name": "Leanna Fenneberg",
    "university": "Duquesne University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -154225,13 +154280,15 @@
   "lee leiber|umass chan medical school": {
    "name": "Lee Leiber",
    "university": "UMass Chan Medical School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -154424,15 +154481,32 @@
   "leigh greenfelder|kent state university": {
    "name": "Leigh Greenfelder",
    "university": "Kent State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Akron Zoo"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Akron Zoo",
+     "role": "Member, Board of Trustees; chair of Marketing Advisory Committee",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "leigh ingalls saufley|university of maine": {
@@ -154936,15 +155010,43 @@
   "leonard cullo, jr.|chatham university": {
    "name": "Leonard Cullo, Jr.",
    "university": "Chatham University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail",
+    "Financial Services"
+   ],
+   "firms": [
+    "H.J. Heinz Company",
+    "Equibank"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "H.J. Heinz Company",
+     "role": "Senior Vice President and Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Equibank",
+     "role": "Corporate Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "leonard e. plachta|central michigan university": {
@@ -155208,13 +155310,15 @@
   "les potts|mississippi state university": {
    "name": "Les Potts",
    "university": "Mississippi State University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -155342,12 +155446,14 @@
    "name": "Lesley Villarose",
    "university": "Gardner-Webb University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -155681,16 +155787,33 @@
   "leslie taylor|university of arkansas for medical sciences": {
    "name": "Leslie Taylor",
    "university": "University of Arkansas for Medical Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Alltel Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Alltel Corporation",
+     "role": "Vice President of Corporate Communications",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "leslie wong|connecticut college": {
@@ -155739,12 +155862,14 @@
    "name": "Letitia Williams",
    "university": "Morgan State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -155753,15 +155878,44 @@
   "lev gonick|arizona state university": {
    "name": "Lev Gonick",
    "university": "Arizona State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "DigitalC",
+    "OneCommunity"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "DigitalC",
+     "role": "Co-founder and Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2013-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "OneCommunity",
+     "role": "Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "lev kaplan|tulane university": {
@@ -155809,12 +155963,14 @@
   "levon mcallister|monmouth college": {
    "name": "LeVon McAllister",
    "university": "Monmouth College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -155939,15 +156095,32 @@
   "libby eckhardt|denison university": {
    "name": "Libby Eckhardt",
    "university": "Denison University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Lorz Communications"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Lorz Communications",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "libby metcalf|university of montana": {
@@ -156119,13 +156292,15 @@
   "lillian wanjagi|southern connecticut state university": {
    "name": "Lillian Wanjagi",
    "university": "Southern Connecticut State University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -156151,12 +156326,14 @@
   "lin hillis|the college of wooster": {
    "name": "Lin Hillis",
    "university": "The College of Wooster",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -156179,16 +156356,33 @@
   "lin zhou|texas tech university": {
    "name": "Lin Zhou",
    "university": "Texas Tech University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "IBM Watson Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM Watson Education",
+     "role": "Program Director and Innovation Leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "lin zhou|the new school": {
