@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3325,
-  "no": 10470,
+  "yes": 3327,
+  "no": 10468,
   "unknown": 15675,
-  "namedFirm": 2754,
+  "namedFirm": 2756,
   "flagOnly": 571,
-  "firms": 3368,
-  "sittingWithTie": 2081,
-  "sittingSeniorTie": 1261,
-  "researched": 2758
+  "firms": 3369,
+  "sittingWithTie": 2083,
+  "sittingSeniorTie": 1263,
+  "researched": 2761
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -261914,16 +261914,33 @@
   "zenobia lane|santa clara university": {
    "name": "Zenobia Lane",
    "university": "Santa Clara University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Iman Human Capital Consulting"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Iman Human Capital Consulting",
+     "role": "Owner & Principal Consultant",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "zeynep k. hansen|boise state university": {
@@ -261973,16 +261990,33 @@
   "zhanjiang (john) liu|tennessee technological university": {
    "name": "Zhanjiang (John) Liu",
    "university": "Tennessee Technological University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Commerce"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Commerce",
+     "role": "Member, Advisory Board of Oceans and Human Health",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "zhao chen|university of arizona": {
@@ -262003,12 +262037,14 @@
    "name": "Zina Evans",
    "university": "University of Colorado Denver",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
