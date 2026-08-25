@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2291,
-  "no": 11504,
+  "yes": 2307,
+  "no": 11488,
   "unknown": 15675,
-  "namedFirm": 1913,
-  "flagOnly": 378,
-  "firms": 2057,
-  "sittingWithTie": 1240,
-  "sittingSeniorTie": 706,
-  "researched": 1123
+  "namedFirm": 1928,
+  "flagOnly": 379,
+  "firms": 2079,
+  "sittingWithTie": 1255,
+  "sittingSeniorTie": 719,
+  "researched": 1153
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -41276,28 +41276,47 @@
   "chip andrews|brenau university": {
    "name": "Chip Andrews",
    "university": "Brenau University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Special Ops Security"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Special Ops Security",
+     "role": "Founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "chip hinton|lycoming college": {
    "name": "Chip Hinton",
    "university": "Lycoming College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -41365,16 +41384,35 @@
   "chris ackerman|george mason university": {
    "name": "Chris Ackerman",
    "university": "George Mason University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "HCA Healthcare"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "HCA Healthcare",
+     "role": "Vice President of Human Resources",
+     "seniority": "senior",
+     "years": "2015-2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "chris bailey|university of washington": {
@@ -41394,27 +41432,80 @@
   "chris beyrer|duke university": {
    "name": "Chris Beyrer",
    "university": "Duke University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 81,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "International AIDS Society",
+    "National Academy of Medicine",
+    "U.S. President's Emergency Plan for AIDS Relief (PEPFAR)",
+    "World Health Organization"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "International AIDS Society",
+     "role": "President",
+     "seniority": "executive",
+     "years": "2014-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 81
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Academy of Medicine",
+     "role": "Member, Board for Global Health and Committee for Human Rights",
+     "seniority": "executive",
+     "years": "2014",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. President's Emergency Plan for AIDS Relief (PEPFAR)",
+     "role": "Advisor",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "World Health Organization",
+     "role": "Advisor",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "chris boothman|arkansas state university": {
    "name": "Chris Boothman",
    "university": "Arkansas State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -41423,16 +41514,33 @@
   "chris calvert|northern kentucky university": {
    "name": "Chris Calvert",
    "university": "Northern Kentucky University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Servicemember (Air Force and Air National Guard)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "chris cappa|university of california davis": {
@@ -41453,11 +41561,13 @@
    "name": "Chris Carlson",
    "university": "Gordon College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -41495,11 +41605,13 @@
    "name": "Chris Clarke",
    "university": "Lawrence University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -41638,30 +41750,84 @@
   "chris ewing|university of colorado boulder": {
    "name": "Chris Ewing",
    "university": "University of Colorado Boulder",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Replidyne, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Replidyne, Inc.",
+     "role": "Associate Director of Facilities",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "chris foley pilsner|oakland university": {
    "name": "Chris Foley Pilsner",
    "university": "Oakland University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "JWT",
+    "Deutsch",
+    "Havas"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "JWT",
+     "role": "Advertising (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Deutsch",
+     "role": "Advertising (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Havas",
+     "role": "Advertising (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "chris francisco|oklahoma state university": {
@@ -41681,16 +41847,46 @@
   "chris gade|university of minnesota twin cities": {
    "name": "Chris Gade",
    "university": "University of Minnesota Twin Cities",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "2026 Special Olympics USA Games",
+    "Mayo Clinic"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "2026 Special Olympics USA Games",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Mayo Clinic",
+     "role": "Chief Public Affairs Officer",
+     "seniority": "executive",
+     "years": "1989-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "chris garrity|american international college": {
@@ -41711,12 +41907,14 @@
    "name": "Chris Gill",
    "university": "Drake University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -41754,12 +41952,14 @@
    "name": "Chris Halladay",
    "university": "Lehigh University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -41859,11 +42059,13 @@
    "name": "Chris Hughes",
    "university": "Valdosta State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -41888,11 +42090,13 @@
    "name": "Chris Jenkins",
    "university": "Kent State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42716,16 +42920,35 @@
   "christie fitz-patrick|new college of florida": {
    "name": "Christie Fitz-Patrick",
    "university": "New College of Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Florida Department of State"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Florida Department of State",
+     "role": "Deputy Secretary for Cultural Affairs, Historical Resources and Library and Information Services (earlier Legislative Affairs Director)",
+     "seniority": "executive",
+     "years": "2012-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 63
+    }
    ]
   },
   "christie sava|colorado school of mines": {
@@ -42893,12 +43116,14 @@
    "name": "Christina Gonzales",
    "university": "California State Polytechnic University, Pomona",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42908,12 +43133,14 @@
    "name": "Christina Graham",
    "university": "East Tennessee State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42967,15 +43194,34 @@
   "christina phillips|university at albany, suny": {
    "name": "Christina Phillips",
    "university": "University at Albany, SUNY",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York State Office of Cultural Education (New York State Museum, Library and Archives)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York State Office of Cultural Education (New York State Museum, Library and Archives)",
+     "role": "Director of Operations",
+     "seniority": "senior",
+     "years": "2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "christina plemmons|south dakota state university": {
@@ -43187,16 +43433,44 @@
   "christine doyle|university of massachusetts dartmouth": {
    "name": "Christine Doyle",
    "university": "University of Massachusetts Dartmouth",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "PFM (Public Financial Management / PFM Financial Advisors LLC)",
+    "City of Boston, Office of Budget Management"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "PFM (Public Financial Management / PFM Financial Advisors LLC)",
+     "role": "Managing Director and Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Boston, Office of Budget Management",
+     "role": "Manager, Budget",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "christine e. kasper|university of pittsburgh": {
@@ -43233,11 +43507,13 @@
    "name": "Christine Guevara",
    "university": "St. John's College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -43401,16 +43677,58 @@
   "christine lovely|ucla": {
    "name": "Christine Lovely",
    "university": "UCLA",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Endowment for Financial Education (NEFE)",
+    "California Public Employment Relations Board",
+    "Sacramento County Office of Education"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Endowment for Financial Education (NEFE)",
+     "role": "Trustee, Board of Trustees",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "California Public Employment Relations Board",
+     "role": "Counsel (gubernatorial appointment)",
+     "seniority": "senior",
+     "years": "2006-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Sacramento County Office of Education",
+     "role": "Associate General Counsel",
+     "seniority": "senior",
+     "years": "2008-2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "christine m. hammond|college of dupage": {
@@ -43486,16 +43804,33 @@
   "christine reed davis|university of north carolina wilmington": {
    "name": "Christine Reed Davis",
    "university": "University of North Carolina Wilmington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "HUE Leadership Alliance"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "HUE Leadership Alliance",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "christine siegel|fairfield university": {
@@ -43515,12 +43850,14 @@
   "christine t. monteiro|northern illinois university": {
    "name": "Christine T. Monteiro",
    "university": "Northern Illinois University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -43631,15 +43968,42 @@
    "name": "Christopher A. Ruhl",
    "university": "Purdue University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Indiana Office of Management and Budget",
+    "Indiana State Budget Agency"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Indiana Office of Management and Budget",
+     "role": "Director (earlier Policy Director and General Counsel)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Indiana State Budget Agency",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ],
    "flags": [
     "careerBackground: Finance and Treasury"
@@ -43681,11 +44045,13 @@
    "name": "Christopher B. Braun",
    "university": "Hunter College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -43739,15 +44105,32 @@
   "christopher bailey|susquehanna university": {
    "name": "Christopher Bailey",
    "university": "Susquehanna University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "TrustFlow Digital Solutions, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "TrustFlow Digital Solutions, Inc.",
+     "role": "Director of Quality Assurance and Compliance",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "christopher barth|bryn mawr college": {
@@ -43781,13 +44164,15 @@
   "christopher bryan|city university of seattle": {
    "name": "Christopher Bryan",
    "university": "City University of Seattle",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -43810,16 +44195,44 @@
   "christopher c. catching|north carolina agricultural and technical state university": {
    "name": "Christopher C. Catching",
    "university": "North Carolina Agricultural and Technical State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "AtlantiCare Regional Health Services",
+    "African American Heritage Museum of Southern New Jersey"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "AtlantiCare Regional Health Services",
+     "role": "Trustee",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "African American Heritage Museum of Southern New Jersey",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "christopher c. fowler|california state university, long beach": {
@@ -43909,11 +44322,13 @@
    "name": "Christopher Cannon",
    "university": "University of South Alabama",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
