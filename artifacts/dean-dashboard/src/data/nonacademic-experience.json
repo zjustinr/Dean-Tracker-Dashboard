@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3076,
-  "no": 10719,
+  "yes": 3087,
+  "no": 10708,
   "unknown": 15675,
-  "namedFirm": 2572,
-  "flagOnly": 504,
-  "firms": 3129,
-  "sittingWithTie": 1899,
-  "sittingSeniorTie": 1158,
-  "researched": 2353
+  "namedFirm": 2584,
+  "flagOnly": 503,
+  "firms": 3141,
+  "sittingWithTie": 1911,
+  "sittingSeniorTie": 1166,
+  "researched": 2368
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -201936,12 +201936,14 @@
    "name": "Quamina Carter",
    "university": "Claremont Graduate University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -201950,15 +201952,32 @@
   "quchee collins|university of rochester": {
    "name": "Quchee Collins",
    "university": "University of Rochester",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York City Department of Citywide Administrative Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Department of Citywide Administrative Services",
+     "role": "Police Chief",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "quentin d. wheeler|suny college of environmental science and forestry": {
@@ -202235,16 +202254,33 @@
   "r. ethan braden|texas a&m university": {
    "name": "R. Ethan Braden",
    "university": "Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Eli Lilly and Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Eli Lilly and Company",
+     "role": "Marketing leadership positions",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "r. glenn hubbard|columbia university": {
@@ -202467,15 +202503,32 @@
    "name": "R. Scott Frew",
    "university": "Dartmouth College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Fidelity Investments"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Fidelity Investments",
+     "role": "Financial Leadership Program participant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance"
@@ -202645,15 +202698,44 @@
   "rachael a. honig|university of rochester": {
    "name": "Rachael A. Honig",
    "university": "University of Rochester",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Attorney's Office for the District of New Jersey",
+    "U.S. Court of Appeals for the Ninth Circuit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Attorney's Office for the District of New Jersey",
+     "role": "Assistant U.S. Attorney; First Assistant U.S. Attorney; Acting United States Attorney",
+     "seniority": "executive",
+     "years": "2003-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Ninth Circuit",
+     "role": "Judicial Law Clerk",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "rachael capua|tarleton state university": {
@@ -202746,43 +202828,99 @@
   "rachel a. pell|pennsylvania state university": {
    "name": "Rachel A. Pell",
    "university": "Pennsylvania State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Ketchum",
+    "Weber Shandwick"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Ketchum",
+     "role": "Senior Vice President and Group Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Weber Shandwick",
+     "role": "Communications roles (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "rachel a. schwartzman|fairfield university": {
    "name": "Rachel A. Schwartzman",
    "university": "Fairfield University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Cohen and Wolf, P.C.",
+    "Manhattan District Attorney's Office"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Cohen and Wolf, P.C.",
+     "role": "Associate, Litigation Group",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Manhattan District Attorney's Office",
+     "role": "Paralegal, Appeals Bureau",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "rachel baum|rowan university": {
    "name": "Rachel Baum",
    "university": "Rowan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -202947,30 +203085,66 @@
   "rachel hosler|walsh university": {
    "name": "Rachel Hosler",
    "university": "Walsh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "North Canton Regional Chamber of Commerce"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "North Canton Regional Chamber of Commerce",
+     "role": "Board Member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "rachel l. satterfield|duke university": {
    "name": "Rachel L. Satterfield",
    "university": "Duke University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "KPMG LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG LLP",
+     "role": "Audit Manager",
+     "seniority": "professional",
+     "years": "2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "rachel larson|university of nebraska lincoln": {
@@ -203004,16 +203178,44 @@
   "rachel m. clarke|concordia college at moorhead": {
    "name": "Rachel M. Clarke",
    "university": "Concordia College at Moorhead",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Financial Services"
+   ],
+   "firms": [
+    "YWCA Cass Clay",
+    "Union State Bank"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "YWCA Cass Clay",
+     "role": "Associate Executive Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Union State Bank",
+     "role": "Vice President of Retail Sales and Marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "rachel mulry|southern methodist university": {
@@ -203026,6 +203228,8 @@
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -203037,29 +203241,84 @@
   "rachel muñoz|dartmouth college": {
    "name": "Rachel Muñoz",
    "university": "Dartmouth College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Jackson Lewis, P.C.",
+    "Morgan, Brown & Joy, LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Jackson Lewis, P.C.",
+     "role": "Partner",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Morgan, Brown & Joy, LLP",
+     "role": "Partner",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "rachel patzer|indiana university indianapolis": {
    "name": "Rachel Patzer",
    "university": "Indiana University Indianapolis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Organ Procurement and Transplantation Network",
+    "Southeastern Kidney Transplant Coalition"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Organ Procurement and Transplantation Network",
+     "role": "Chair, Data Advisory Committee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Southeastern Kidney Transplant Coalition",
+     "role": "Cofounder and Lifetime Director",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "rachel reinhardt|university of arizona": {
@@ -203135,16 +203394,35 @@
   "rachel segalman|university of california santa barbara": {
    "name": "Rachel Segalman",
    "university": "University of California Santa Barbara",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Lawrence Berkeley National Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Lawrence Berkeley National Laboratory",
+     "role": "Staff Scientist; Interim Director, Materials Sciences Division",
+     "seniority": "senior",
+     "years": "2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "rachel settlage|wayne state university": {
