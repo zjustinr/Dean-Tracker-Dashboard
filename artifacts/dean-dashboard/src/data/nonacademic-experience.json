@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2547,
-  "no": 11248,
+  "yes": 2560,
+  "no": 11235,
   "unknown": 15675,
-  "namedFirm": 2154,
-  "flagOnly": 393,
-  "firms": 2472,
-  "sittingWithTie": 1481,
-  "sittingSeniorTie": 875,
-  "researched": 1543
+  "namedFirm": 2166,
+  "flagOnly": 394,
+  "firms": 2494,
+  "sittingWithTie": 1493,
+  "sittingSeniorTie": 880,
+  "researched": 1558
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -98732,16 +98732,33 @@
   "jacob long|university of mary washington": {
    "name": "Jacob Long",
    "university": "University of Mary Washington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Town of Broadway, Virginia"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Town of Broadway, Virginia",
+     "role": "Intern",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jacob moore|arizona state university": {
@@ -98823,17 +98840,46 @@
   "jacqueline a. travisano|wake forest university": {
    "name": "Jacqueline A. Travisano",
    "university": "Wake Forest University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail",
+    "Consulting"
+   ],
+   "firms": [
+    "AutoNation, Inc.",
+    "Coopers & Lybrand"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Consumer & Retail",
+     "firm": "AutoNation, Inc.",
+     "role": "Director; Chair, Corporate Governance and Nominating Committee",
+     "seniority": "executive",
+     "years": "2018",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Coopers & Lybrand",
+     "role": "Public accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jacqueline bach|louisiana state university": {
@@ -98854,12 +98900,14 @@
    "name": "Jacqueline Clark",
    "university": "CUNY Medgar Evers College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -98882,13 +98930,15 @@
   "jacqueline font-guzmán|st catherine university": {
    "name": "Jacqueline Font-Guzmán",
    "university": "St Catherine University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -99165,16 +99215,53 @@
   "jaime hammer|auburn university": {
    "name": "Jaime Hammer",
    "university": "Auburn University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Weil, Gotshal & Manges LLP",
+    "Fish & Richardson P.C.",
+    "Cooley Godward Kronish LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Weil, Gotshal & Manges LLP",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Fish & Richardson P.C.",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Cooley Godward Kronish LLP",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jaime lester|university of california, santa barbara": {
@@ -99194,29 +99281,63 @@
   "jaime nodarse barrera|texas a&m university-corpus christi": {
    "name": "Jaime Nodarse Barrera",
    "university": "Texas A&M University-Corpus Christi",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Amistad Community Health Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Amistad Community Health Center",
+     "role": "Director of Resource Development and Quality Improvement",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jaime porter|texas woman's university": {
    "name": "Jaime Porter",
    "university": "Texas Woman's University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "NPR (National Public Radio)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "NPR (National Public Radio)",
+     "role": "Vice President",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jaime r. taylor|lamar university": {
@@ -99308,15 +99429,46 @@
   "jake lemon|university of kentucky": {
    "name": "Jake Lemon",
    "university": "University of Kentucky",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Strategic Financial Partners",
+    "Doug Lemon and Associates"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Strategic Financial Partners",
+     "role": "Financial Advisor",
+     "seniority": "professional",
+     "years": "2004-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 18
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Doug Lemon and Associates",
+     "role": "Wealth Management Associate",
+     "seniority": "professional",
+     "years": "1998-2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "jake pinholster|university of illinois urbana-champaign": {
@@ -99350,30 +99502,107 @@
   "jake toomey|mount holyoke college": {
    "name": "Jake Toomey",
    "university": "Mount Holyoke College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Other industry"
+   ],
+   "firms": [
+    "Greenfield Public Schools",
+    "First Transit / Franklin Regional Transit Authority",
+    "Army National Guard",
+    "Pioneer Valley Transit Authority"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Greenfield Public Schools",
+     "role": "Teacher, then Personnel Administrator and Principal",
+     "seniority": "senior",
+     "years": "2010-2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "First Transit / Franklin Regional Transit Authority",
+     "role": "General Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Army National Guard",
+     "role": "Soldier (10 years, deployed to Iraq in 2005)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Pioneer Valley Transit Authority",
+     "role": "Operations Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jamarco clark|wichita state university": {
    "name": "Jamarco Clark",
    "university": "Wichita State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "SERVE Illinois Commission",
+    "Volunteer Iowa (Iowa Commission on Volunteer Service)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "SERVE Illinois Commission",
+     "role": "Commissioner (gubernatorial appointee)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Volunteer Iowa (Iowa Commission on Volunteer Service)",
+     "role": "Commissioner (gubernatorial appointee)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jamelle c. sharpe|university of illinois urbana-champaign": {
@@ -99749,15 +99978,46 @@
   "james b. milliken|university of california": {
    "name": "James B. Milliken",
    "university": "University of California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "The Legal Aid Society",
+    "Cadwalader, Wickersham & Taft"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Legal Aid Society",
+     "role": "Attorney, civil division",
+     "seniority": "professional",
+     "years": "1983",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Cadwalader, Wickersham & Taft",
+     "role": "Attorney (securities and commodities litigation)",
+     "seniority": "professional",
+     "years": "1988",
+     "endYear": 1988,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "james b. milliken|university of nebraska system": {
@@ -99834,16 +100094,43 @@
   "james c. floyd|middle tennessee state university": {
    "name": "James C. Floyd",
    "university": "Middle Tennessee State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of the Governor of Tennessee",
+    "Tennessee Attorney General's Office"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Governor of Tennessee",
+     "role": "Attorney/staff",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Tennessee Attorney General's Office",
+     "role": "Assistant Attorney General for the State of Tennessee",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "james c. garland|miami university": {
@@ -100448,11 +100735,13 @@
    "name": "James F. Harris",
    "university": "University of Maryland",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -100660,15 +100949,43 @@
   "james gurganus|george fox university": {
    "name": "James Gurganus",
    "university": "George Fox University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Intel Corporation",
+    "Biotronik"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Intel Corporation",
+     "role": "Technology leadership roles, including Intel Research",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Biotronik",
+     "role": "Technology leadership role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "james h. ammons|florida agricultural and mechanical university": {
@@ -101006,15 +101323,32 @@
   "james j. husson|harvard university": {
    "name": "James J. Husson",
    "university": "Harvard University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Northfield Mount Hermon School"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Northfield Mount Hermon School",
+     "role": "Annual giving officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "james j. stukel|university of illinois system": {
