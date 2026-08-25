@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2790,
-  "no": 11005,
+  "yes": 2803,
+  "no": 10992,
   "unknown": 15675,
-  "namedFirm": 2347,
-  "flagOnly": 443,
-  "firms": 2783,
-  "sittingWithTie": 1674,
-  "sittingSeniorTie": 1006,
-  "researched": 1903
+  "namedFirm": 2355,
+  "flagOnly": 448,
+  "firms": 2791,
+  "sittingWithTie": 1682,
+  "sittingSeniorTie": 1010,
+  "researched": 1918
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -146601,15 +146601,44 @@
   "krista raney|louisiana state university": {
    "name": "Krista Raney",
    "university": "Louisiana State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 73,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Susan G. Komen Race for the Cure, Baton Rouge Affiliate",
+    "Greater Baton Rouge Economic Partnership"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Susan G. Komen Race for the Cure, Baton Rouge Affiliate",
+     "role": "Board member",
+     "seniority": "executive",
+     "years": "2012-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 73
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Baton Rouge Economic Partnership",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "krista rule wigginton|university of michigan": {
@@ -146629,13 +146658,15 @@
   "krista walton|north carolina state university": {
    "name": "Krista Walton",
    "university": "North Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146658,16 +146689,33 @@
   "kristen a. lainsbury|bates college": {
    "name": "Kristen A. Lainsbury",
    "university": "Bates College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Bangor Daily News"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Bangor Daily News",
+     "role": "Reporter, columnist and copy editor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kristen abbott-anderson|university of wisconsin-eau claire": {
@@ -146687,16 +146735,42 @@
   "kristen andersen-daley|claremont graduate university": {
    "name": "Kristen Andersen-Daley",
    "university": "Claremont Graduate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Teach For America",
+    "Susan G. Komen for the Cure"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Teach For America",
+     "role": "Development and external relations",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Susan G. Komen for the Cure",
+     "role": "Development and external relations",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "kristen b. rozansky|yale university": {
@@ -146760,16 +146834,35 @@
   "kristen campbell mcguire|loyola university maryland": {
    "name": "Kristen Campbell McGuire",
    "university": "Loyola University Maryland",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 39,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "France-Merrick Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "France-Merrick Foundation",
+     "role": "Program Officer",
+     "seniority": "professional",
+     "years": "2018-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 39
+    }
    ]
   },
   "kristen collett-schmitt|university of notre dame": {
@@ -146790,12 +146883,14 @@
    "name": "Kristen Constant",
    "university": "Iowa State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146804,12 +146899,14 @@
   "kristen eshleman|trinity college": {
    "name": "Kristen Eshleman",
    "university": "Trinity College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146847,11 +146944,13 @@
    "name": "Kristen Mruk",
    "university": "Daemen University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146874,13 +146973,15 @@
   "kristen roberts|university of south alabama": {
    "name": "Kristen Roberts",
    "university": "University of South Alabama",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146889,16 +146990,33 @@
   "kristen s. bonatz|appalachian state university": {
    "name": "Kristen S. Bonatz",
    "university": "Appalachian State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "North Carolina Court of Appeals"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "North Carolina Court of Appeals",
+     "role": "Law clerk to Chief Judge John C. Martin",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kristen shepherd|pennsylvania academy of the fine arts": {
@@ -147000,15 +147118,32 @@
   "kristen tudor|california state university, sacramento": {
    "name": "Kristen Tudor",
    "university": "California State University, Sacramento",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "United Way California Capital Region"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way California Capital Region",
+     "role": "Board of directors member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "kristen will|arizona state university": {
@@ -147086,13 +147221,15 @@
   "kristi darr|iowa state university": {
    "name": "Kristi Darr",
    "university": "Iowa State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -147115,12 +147252,14 @@
   "kristi horine|northern kentucky university": {
    "name": "Kristi Horine",
    "university": "Northern Kentucky University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -147328,16 +147467,33 @@
   "kristin heasley|la salle university": {
    "name": "Kristin Heasley",
    "university": "La Salle University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "PAISBOA Health Benefit Trust"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "PAISBOA Health Benefit Trust",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "kristin johnsen-neshati|george mason university": {
@@ -147683,15 +147839,33 @@
   "kristina goodacre|maryville college": {
    "name": "Kristina Goodacre",
    "university": "Maryville College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Oak Ridge Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Oak Ridge Schools",
+     "role": "Executive Director of Human Resources",
+     "seniority": "senior",
+     "years": "2026",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "kristina hendrix|university of alabama in huntsville": {
