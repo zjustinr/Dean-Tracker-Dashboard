@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2579,
-  "no": 11216,
+  "yes": 2586,
+  "no": 11209,
   "unknown": 15675,
-  "namedFirm": 2182,
-  "flagOnly": 397,
-  "firms": 2517,
-  "sittingWithTie": 1509,
-  "sittingSeniorTie": 889,
-  "researched": 1588
+  "namedFirm": 2188,
+  "flagOnly": 398,
+  "firms": 2522,
+  "sittingWithTie": 1515,
+  "sittingSeniorTie": 893,
+  "researched": 1603
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -107932,26 +107932,47 @@
   "jeff dayton-johnson|middlebury college": {
    "name": "Jeff Dayton-Johnson",
    "university": "Middlebury College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Organisation for Economic Co-operation and Development (OECD)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Organisation for Economic Co-operation and Development (OECD)",
+     "role": "Senior Economist and first Head of the Americas Desk, OECD Development Centre",
+     "seniority": "senior",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "jeff delaney|university of memphis": {
    "name": "Jeff Delaney",
    "university": "University of Memphis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -108057,16 +108078,35 @@
   "jeff girod|university of california riverside": {
    "name": "Jeff Girod",
    "university": "University of California Riverside",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Press-Enterprise"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Press-Enterprise",
+     "role": "Reporter and columnist",
+     "seniority": "professional",
+     "years": "2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "jeff glass|duke university": {
@@ -108148,13 +108188,15 @@
   "jeff hamrick|whitman college": {
    "name": "Jeff Hamrick",
    "university": "Whitman College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -108248,15 +108290,45 @@
    "name": "Jeff Matthews",
    "university": "D'Youville University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Lancaster Depew Ponytails Softball",
+    "Buffalo Bills"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lancaster Depew Ponytails Softball",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Buffalo Bills",
+     "role": "Vice President of Media and Content",
+     "seniority": "senior",
+     "years": "2006-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 57
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -108321,12 +108393,14 @@
   "jeff palmer|williams college": {
    "name": "Jeff Palmer",
    "university": "Williams College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -108336,11 +108410,13 @@
    "name": "Jeff Poltorak",
    "university": "California State University, Los Angeles",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -108409,11 +108485,13 @@
    "name": "Jeff Shaw",
    "university": "Prairie View A&M University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic",
@@ -108438,11 +108516,13 @@
    "name": "Jeff Snow",
    "university": "Augusta University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -108465,28 +108545,49 @@
   "jeff stoecker|syracuse university": {
    "name": "Jeff Stoecker",
    "university": "Syracuse University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "FleishmanHillard"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "FleishmanHillard",
+     "role": "Vice President",
+     "seniority": "senior",
+     "years": "2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "jeff taylor|clarkson university": {
    "name": "Jeff Taylor",
    "university": "Clarkson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -108555,15 +108656,34 @@
    "name": "Jeff Wilson",
    "university": "San Francisco State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Deloitte"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte",
+     "role": "Audit and advisory services and consulting",
+     "seniority": "professional",
+     "years": "2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 24
+    }
    ],
    "flags": [
     "careerBackground: Finance and administration leadership, CFO"
@@ -108630,12 +108750,14 @@
    "name": "Jeffrey A. Barnett",
    "university": "Pace University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -108987,13 +109109,15 @@
   "jeffrey ives|clarkson university": {
    "name": "Jeffrey Ives",
    "university": "Clarkson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -109047,15 +109171,34 @@
   "jeffrey l. benjamin|tulane university": {
    "name": "Jeffrey L. Benjamin",
    "university": "Tulane University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Lieutenant Commander, Civil Engineer Corps",
+     "seniority": "senior",
+     "years": "2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "jeffrey l. duerk|case western reserve university": {
