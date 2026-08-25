@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3030,
-  "no": 10765,
+  "yes": 3038,
+  "no": 10757,
   "unknown": 15675,
-  "namedFirm": 2541,
-  "flagOnly": 489,
-  "firms": 3087,
-  "sittingWithTie": 1868,
-  "sittingSeniorTie": 1137,
-  "researched": 2278
+  "namedFirm": 2545,
+  "flagOnly": 493,
+  "firms": 3091,
+  "sittingWithTie": 1872,
+  "sittingSeniorTie": 1140,
+  "researched": 2293
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -190110,11 +190110,13 @@
    "name": "Newman Hoffman",
    "university": "Touro University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -190396,15 +190398,32 @@
   "nichole rustad|wright state university": {
    "name": "Nichole Rustad",
    "university": "Wright State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Nichole Rustad Design"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Nichole Rustad Design",
+     "role": "Owner, art director and graphic designer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "nick benassi|washington university in st. louis": {
@@ -190467,11 +190486,13 @@
    "name": "Nick Gingue",
    "university": "George Washington University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -190544,11 +190565,13 @@
    "name": "Nick Langridge",
    "university": "James Madison University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -190641,15 +190664,42 @@
   "nick trougakos|oklahoma city university": {
    "name": "Nick Trougakos",
    "university": "Oklahoma City University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Associated Press",
+    "The Oklahoman"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Associated Press",
+     "role": "Reporter and editor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Oklahoman",
+     "role": "Reporter and editor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "nicki wise|clemson university": {
@@ -190697,13 +190747,15 @@
   "nicky campbell|the university of the south": {
    "name": "Nicky Campbell",
    "university": "The University of the South",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -190712,12 +190764,14 @@
   "nico karagosian|marshall university": {
    "name": "Nico Karagosian",
    "university": "Marshall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -190797,12 +190851,14 @@
    "name": "Nicole Addington",
    "university": "Cleveland State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -190854,11 +190910,13 @@
    "name": "Nicole Elliott-Washington",
    "university": "William Woods University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -190947,27 +191005,48 @@
   "nicole gelston|university of connecticut": {
    "name": "Nicole Gelston",
    "university": "University of Connecticut",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Lynch, Traub, Keefe & Errante, P.C."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Lynch, Traub, Keefe & Errante, P.C.",
+     "role": "Partner",
+     "seniority": "senior",
+     "years": "2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "nicole j. johnson|rhodes college": {
    "name": "Nicole J. Johnson",
    "university": "Rhodes College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -191048,16 +191127,33 @@
   "nicole lawrence|university of maine": {
    "name": "Nicole Lawrence",
    "university": "University of Maine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Partners for Peace"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Partners for Peace",
+     "role": "Governing Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "nicole long|agnes scott college": {
@@ -191147,12 +191243,14 @@
    "name": "Nicole Mayo",
    "university": "University of Cincinnati",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -191161,13 +191259,15 @@
   "nicole miller|knox college": {
    "name": "Nicole Miller",
    "university": "Knox College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -191234,13 +191334,15 @@
   "nicole tirella|boston university": {
    "name": "Nicole Tirella",
    "university": "Boston University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
