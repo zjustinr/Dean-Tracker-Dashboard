@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2667,
-  "no": 11128,
+  "yes": 2679,
+  "no": 11116,
   "unknown": 15675,
-  "namedFirm": 2251,
-  "flagOnly": 416,
-  "firms": 2629,
-  "sittingWithTie": 1578,
-  "sittingSeniorTie": 937,
-  "researched": 1723
+  "namedFirm": 2259,
+  "flagOnly": 420,
+  "firms": 2638,
+  "sittingWithTie": 1586,
+  "sittingSeniorTie": 942,
+  "researched": 1738
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -114288,12 +114288,14 @@
    "name": "Jerri Howland",
    "university": "St. Mary's College of Maryland",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -114316,30 +114318,74 @@
   "jerron lowe|seattle university": {
    "name": "Jerron Lowe",
    "university": "Seattle University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Kaiser Permanente"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Kaiser Permanente",
+     "role": "Human resources role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jerry d. blakemore|university of north carolina at greensboro": {
    "name": "Jerry D. Blakemore",
    "university": "University of North Carolina at Greensboro",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Providence Educational and Community Services, Inc.",
+    "Alpha Phi Alpha Fraternity, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Providence Educational and Community Services, Inc.",
+     "role": "Vice Chair, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Alpha Phi Alpha Fraternity, Inc.",
+     "role": "Regional Counsel, Southern Region; Chapter Vice President",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "jerry d. morris|texas a&m university-commerce": {
@@ -114677,15 +114723,32 @@
   "jes kraus|southern connecticut state university": {
    "name": "Jes Kraus",
    "university": "Southern Connecticut State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Coast Guard"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Coast Guard",
+     "role": "Coast Guard service member (veteran); U.S. Coast Guard Academy graduate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jess goode|illinois institute of technology": {
@@ -114805,15 +114868,32 @@
   "jesse pisors|university of texas at el paso": {
    "name": "Jesse Pisors",
    "university": "University of Texas at El Paso",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Instituto Las Américas de Parral"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Instituto Las Américas de Parral",
+     "role": "Principal",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "jesse stabile morrell|university of new hampshire": {
@@ -114833,16 +114913,35 @@
   "jesse webster|hofstra university": {
    "name": "Jesse Webster",
    "university": "Hofstra University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Natoma Consulting"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Natoma Consulting",
+     "role": "Co-founder and Director of Client Services and Operations",
+     "seniority": "executive",
+     "years": "2015-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 63
+    }
    ]
   },
   "jessecae marsh|lehigh university": {
@@ -114981,15 +115080,43 @@
   "jessica berger|chapman university": {
    "name": "Jessica Berger",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "U.S. House of Representatives",
+    "Polytechnic School (Pasadena)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. House of Representatives",
+     "role": "Congressional staff member (constituent advocacy)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Polytechnic School (Pasadena)",
+     "role": "Fundraising staff during $93 million campaign",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jessica berg|university of california davis": {
@@ -115025,16 +115152,44 @@
   "jessica brumley|university of miami": {
    "name": "Jessica Brumley",
    "university": "University of Miami",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "March of Dimes",
+    "AutoNation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "March of Dimes",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "AutoNation",
+     "role": "Facilities and Industry Relations Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jessica clark|creighton university": {
@@ -115315,14 +115470,16 @@
   "jessica rivinius|miami university": {
    "name": "Jessica Rivinius",
    "university": "Miami University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -115360,11 +115517,13 @@
    "name": "Jessica Shearer",
    "university": "University of the Cumberlands",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -115445,13 +115604,15 @@
   "jessica willett|washington and lee university": {
    "name": "Jessica Willett",
    "university": "Washington and Lee University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -115565,11 +115726,13 @@
    "name": "Jewel Michelle Washington",
    "university": "University of Texas at Arlington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -115725,13 +115888,15 @@
   "jill andrews|arizona state university": {
    "name": "Jill Andrews",
    "university": "Arizona State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -115797,13 +115962,15 @@
   "jill d. cleary|saint joseph's university": {
    "name": "Jill D. Cleary",
    "university": "Saint Joseph's University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -115858,16 +116025,54 @@
   "jill friedman|clark university": {
    "name": "Jill Friedman",
    "university": "Clark University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Fleishman-Hillard",
+    "Office of the Governor of Missouri (Gov. Mel Carnahan)",
+    "United States Senate (Office of Sen. Patrick J. Leahy; Senate Judiciary Committee)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Fleishman-Hillard",
+     "role": "Senior Vice President and Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Governor of Missouri (Gov. Mel Carnahan)",
+     "role": "Deputy Chief of Staff and Policy Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Senate (Office of Sen. Patrick J. Leahy; Senate Judiciary Committee)",
+     "role": "Professional staff member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jill friedman|harvard university": {
