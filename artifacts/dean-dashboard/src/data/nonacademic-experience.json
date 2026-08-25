@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2994,
-  "no": 10801,
+  "yes": 3001,
+  "no": 10794,
   "unknown": 15675,
-  "namedFirm": 2509,
-  "flagOnly": 485,
-  "firms": 3040,
-  "sittingWithTie": 1836,
-  "sittingSeniorTie": 1119,
-  "researched": 2218
+  "namedFirm": 2517,
+  "flagOnly": 484,
+  "firms": 3052,
+  "sittingWithTie": 1844,
+  "sittingSeniorTie": 1123,
+  "researched": 2233
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -190569,11 +190569,13 @@
    "name": "Nicole Trufant",
    "university": "Colby College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -190743,16 +190745,46 @@
   "nikki pantera|boise state university": {
    "name": "Nikki Pantera",
    "university": "Boise State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Hawley Troxell Ennis & Hawley",
+    "Idaho Supreme Court"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hawley Troxell Ennis & Hawley",
+     "role": "Attorney (public finance, municipal, corporate transactions)",
+     "seniority": "professional",
+     "years": "2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 32
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Idaho Supreme Court",
+     "role": "Law Clerk to Justice Jim Jones",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "nikki taylor-vargo|wayne state university": {
@@ -190815,13 +190847,15 @@
    "name": "Nila Bhaumik",
    "university": "Pace University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -191032,11 +191066,13 @@
    "name": "Niranjan Davray",
    "university": "Colgate University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -191045,15 +191081,53 @@
   "nishanth rodrigues|university of oklahoma": {
    "name": "Nishanth Rodrigues",
    "university": "University of Oklahoma",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Bronson Healthcare",
+    "Borgess Health",
+    "Perrigo Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Bronson Healthcare",
+     "role": "Director of IT Technology/Interoperability",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Borgess Health",
+     "role": "Director of Operations and Infrastructure / Site Service Delivery Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Perrigo Inc.",
+     "role": "Global Systems Engineering Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "nita ahuja|university of wisconsin madison": {
@@ -191073,15 +191147,32 @@
   "nita awatramani|kansas state university": {
    "name": "Nita Awatramani",
    "university": "Kansas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Verizon"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Verizon",
+     "role": "Senior Manager, Information Risk Management and Audit Management, Corporate Information Security",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "nitin nohria|harvard university": {
@@ -191278,15 +191369,43 @@
    "name": "Noel Sloan",
    "university": "Texas Tech University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Consulting"
+   ],
+   "firms": [
+    "Michael Best & Friedrich",
+    "Arthur Andersen"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Michael Best & Friedrich",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Arthur Andersen",
+     "role": "Public Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance and administration"
@@ -191802,11 +191921,13 @@
    "name": "O. Richard (Rich) Bundy III",
    "university": "University of Cincinnati",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -191815,16 +191936,33 @@
   "odella fuqua|university of north dakota": {
    "name": "Odella Fuqua",
    "university": "University of North Dakota",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "KPMG Peat Marwick"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG Peat Marwick",
+     "role": "Auditor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "odette lienau|boston college": {
@@ -191944,16 +192082,43 @@
   "olga dais|cuny baruch college": {
    "name": "Olga Dais",
    "university": "CUNY Baruch College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Mount Vernon, NY",
+    "New York State Workers' Compensation Board"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Mount Vernon, NY",
+     "role": "Corporation Counsel / Chief Legal Counsel",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York State Workers' Compensation Board",
+     "role": "General Counsel / Chief Legal Counsel",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "olga igolnikov|university of north florida": {
@@ -192099,15 +192264,42 @@
   "omar a. syed|rice university": {
    "name": "Omar A. Syed",
    "university": "Rice University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "State of Minnesota, Office of the Attorney General",
+    "U.S. Department of Justice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "State of Minnesota, Office of the Attorney General",
+     "role": "Assistant Attorney General",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Justice",
+     "role": "Assistant U.S. Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "omar bell|johnson c smith university": {
@@ -192215,16 +192407,75 @@
   "opinder bawa|university of san francisco": {
    "name": "Opinder Bawa",
    "university": "University of San Francisco",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Healthcare Providers",
+    "Financial Services"
+   ],
+   "firms": [
+    "Santa Cruz Operation (SCO)",
+    "Boston City Hospital",
+    "IBM",
+    "Citibank",
+    "3Com Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Santa Cruz Operation (SCO)",
+     "role": "Senior Vice President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Boston City Hospital",
+     "role": "Interim Chief Technology Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Early-career technology roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Citibank",
+     "role": "Early-career technology roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "3Com Corporation",
+     "role": "Early-career technology roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "ora hirsch pescovitz|oakland university": {
@@ -192264,13 +192515,15 @@
   "orkun toros|university of texas at dallas": {
    "name": "Orkun Toros",
    "university": "University of Texas at Dallas",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -192283,11 +192536,13 @@
    "name": "Orlando F. McMeans",
    "university": "Southern University System",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -192324,13 +192579,15 @@
   "orrie gartner|university of colorado boulder": {
    "name": "Orrie Gartner",
    "university": "University of Colorado Boulder",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
