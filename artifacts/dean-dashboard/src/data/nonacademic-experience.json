@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3209,
-  "no": 10586,
+  "yes": 3221,
+  "no": 10574,
   "unknown": 15675,
-  "namedFirm": 2673,
-  "flagOnly": 536,
-  "firms": 3265,
-  "sittingWithTie": 2000,
-  "sittingSeniorTie": 1212,
-  "researched": 2563
+  "namedFirm": 2681,
+  "flagOnly": 540,
+  "firms": 3278,
+  "sittingWithTie": 2008,
+  "sittingSeniorTie": 1218,
+  "researched": 2578
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -249171,13 +249171,15 @@
   "towana h. moore|james madison university": {
    "name": "Towana H. Moore",
    "university": "James Madison University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249201,11 +249203,13 @@
    "name": "Toyia K. Younger",
    "university": "Iowa State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249256,28 +249260,69 @@
   "tracey s. pachman|saint joseph's university": {
    "name": "Tracey S. Pachman",
    "university": "Saint Joseph's University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment",
+    "Consumer & Retail",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Comcast",
+    "Aramark",
+    "Pepper Hamilton LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Comcast",
+     "role": "Senior Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Aramark",
+     "role": "Assistant General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Pepper Hamilton LLP",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tracey sheetz|washington & jefferson college": {
    "name": "Tracey Sheetz",
    "university": "Washington & Jefferson College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249401,11 +249446,13 @@
    "name": "Tracy Barlok",
    "university": "Syracuse University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -249428,15 +249475,32 @@
   "tracy claybaugh|point park university": {
    "name": "Tracy Claybaugh",
    "university": "Point Park University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Brand Scaffold"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Brand Scaffold",
+     "role": "Project Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tracy collum, edd|idaho state university": {
@@ -249501,31 +249565,76 @@
   "tracy futhey|duke university": {
    "name": "Tracy Futhey",
    "university": "Duke University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "North Carolina Information Technology Strategy Board"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "North Carolina Information Technology Strategy Board",
+     "role": "Board Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "tracy greene|south dakota state university": {
    "name": "Tracy Greene",
    "university": "South Dakota State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Brookings Health System",
+    "Law Office of William L. Herrington, P.A."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Brookings Health System",
+     "role": "Board of Trustees Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Law Office of William L. Herrington, P.A.",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tracy hartzler|central new mexico community college": {
@@ -249716,27 +249825,46 @@
   "tracy stuart|stockton university": {
    "name": "Tracy Stuart",
    "university": "Stockton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Borough of Avon-by-the-Sea Police"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Borough of Avon-by-the-Sea Police",
+     "role": "Class I/II Police Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tracy tyree|southern connecticut state university": {
    "name": "Tracy Tyree",
    "university": "Southern Connecticut State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249745,16 +249873,55 @@
   "tracy weber|university of notre dame": {
    "name": "Tracy Weber",
    "university": "University of Notre Dame",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "Everwise Credit Union",
+    "Cultivate Food Rescue",
+    "Accenture"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Everwise Credit Union",
+     "role": "Supervisory Committee Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Cultivate Food Rescue",
+     "role": "Board Vice Chair / Chair",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Accenture",
+     "role": "Technology Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tracy wilson|walden university": {
@@ -249774,12 +249941,14 @@
   "trae yeckley|allegheny college": {
    "name": "Trae Yeckley",
    "university": "Allegheny College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -249802,15 +249971,32 @@
   "tran my le|california state university, fullerton": {
    "name": "Tran My Le",
    "university": "California State University, Fullerton",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Los Angeles City Council"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Los Angeles City Council",
+     "role": "Communications Director (council member office)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "travis g. carter|randolph college": {
@@ -249830,13 +250016,15 @@
   "travis imel|gallaudet university": {
    "name": "Travis Imel",
    "university": "Gallaudet University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -249845,16 +250033,33 @@
   "travis losey|loma linda university": {
    "name": "Travis Losey",
    "university": "Loma Linda University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "SAC Health System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "SAC Health System",
+     "role": "Assistant Chief Medical Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "travis m. smith|university of california riverside": {
