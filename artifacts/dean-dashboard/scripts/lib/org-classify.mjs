@@ -352,6 +352,12 @@ const INDUSTRY = [
     "allen norton ?(?:&|and) ?blue", "zimmerman kiser", "winston ?(?:&|and) ?strawn",
     "waller lansden", "wallace jordan", "sutherland asbill", "thompson ?(?:&|and) ?knight",
     "vorys,? ?sater", "akerman senterfitt", "ziemer,? ?stayman", "kahn,? ?dees",
+    // Attested in the administrative wave. Named in full for the same reason as
+    // the block above: the corpus writes many of these without an LLP suffix,
+    // so the generic entity markers do not reach them.
+    "vinson ?(?:&|and) ?elkins", "king ?(?:&|and) ?spalding", "seyfarth shaw",
+    "saul ewing", "whiteman osterman", "middleton reutlinger", "caplin ?(?:&|and) ?drysdale",
+    "hoagland,? fitzgerald", "calareso law", "lex politica", "gray plant",
   ])],
 ];
 

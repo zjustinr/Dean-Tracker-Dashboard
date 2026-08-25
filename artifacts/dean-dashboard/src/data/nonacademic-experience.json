@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2209,
-  "no": 11586,
+  "yes": 2222,
+  "no": 11573,
   "unknown": 15675,
-  "namedFirm": 1827,
-  "flagOnly": 382,
-  "firms": 1909,
-  "sittingWithTie": 1154,
-  "sittingSeniorTie": 650,
-  "researched": 973
+  "namedFirm": 1841,
+  "flagOnly": 381,
+  "firms": 1925,
+  "sittingWithTie": 1168,
+  "sittingSeniorTie": 658,
+  "researched": 1003
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -21107,11 +21107,13 @@
    "name": "Barron Koralesky",
    "university": "Williams College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -21320,16 +21322,34 @@
   "barry poynter|berea college": {
    "name": "Barry Poynter",
    "university": "Berea College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Berea, Kentucky (Berea City Council)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "City of Berea, Kentucky (Berea City Council)",
+     "role": "City Council Member",
+     "seniority": "executive",
+     "years": "2026",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "barry r. bloom|harvard university": {
@@ -21527,12 +21547,14 @@
    "name": "Becca B. Morris",
    "university": "Hobart William Smith Colleges",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -21541,16 +21563,34 @@
   "becci menghini|georgetown university": {
    "name": "Becci Menghini",
    "university": "Georgetown University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Oscar Mayer (Kraft Foods)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Oscar Mayer (Kraft Foods)",
+     "role": "Wienermobile driver (\"Hotdogger\")",
+     "seniority": "professional",
+     "years": "1996",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "beck a. taylor|samford university": {
@@ -21601,16 +21641,33 @@
   "becky hill|university of rhode island": {
    "name": "Becky Hill",
    "university": "University of Rhode Island",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "IBM"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Global Personnel Specialist and Outreach Coordinator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "becky l. sartini|university of rhode island": {
@@ -21672,16 +21729,34 @@
   "belinda burke|sweet briar college": {
    "name": "Belinda Burke",
    "university": "Sweet Briar College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Dover Federal Credit Union"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Dover Federal Credit Union",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2012",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "belinda higgs hyppolite|university of oklahoma": {
@@ -21746,12 +21821,14 @@
    "name": "Ben Canlas",
    "university": "University of Missouri",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -21788,16 +21865,33 @@
   "ben lousteau|louisiana state university health sciences center, new orleans": {
    "name": "Ben Lousteau",
    "university": "Louisiana State University Health Sciences Center, New Orleans",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Campus Federal Credit Union"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Campus Federal Credit Union",
+     "role": "Treasurer, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "ben m. elrod|ouachita baptist university": {
@@ -21818,11 +21912,13 @@
    "name": "Ben McLuen",
    "university": "University of Idaho",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -21918,12 +22014,14 @@
    "name": "Ben Stubbs",
    "university": "Maryville College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -22114,11 +22212,13 @@
    "name": "Benjamin Foss",
    "university": "New College of Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -22634,15 +22734,43 @@
    "name": "Bert Francis",
    "university": "University of Central Florida",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Legacy Pointe at UCF",
+    "Limbitless Solutions Inc."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Legacy Pointe at UCF",
+     "role": "President and Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Limbitless Solutions Inc.",
+     "role": "Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "careerBackground: Finance/CFO/Treasurer"
@@ -22779,12 +22907,14 @@
   "beth brody|rutgers university-newark": {
    "name": "Beth Brody",
    "university": "Rutgers University-Newark",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -22793,16 +22923,35 @@
   "beth campbell|randolph-macon college": {
    "name": "Beth Campbell",
    "university": "Randolph-Macon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "WorldStrides"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "WorldStrides",
+     "role": "Vice President of Content and Communications",
+     "seniority": "senior",
+     "years": "2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "beth concepción|linfield university": {
@@ -22836,15 +22985,43 @@
   "beth delair|university of washington": {
    "name": "Beth DeLair",
    "university": "University of Washington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "HIPAA Collaborative of Wisconsin (HIPAA COW)",
+    "DeLair Consulting, LLC"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "HIPAA Collaborative of Wisconsin (HIPAA COW)",
+     "role": "Honorary Director, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "DeLair Consulting, LLC",
+     "role": "President / Consultant",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "beth essig|icahn school of medicine at mount sinai": {
@@ -25679,27 +25856,46 @@
   "brad christ|university of hawaii at manoa": {
    "name": "Brad Christ",
    "university": "University of Hawaii at Manoa",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Minnesota Army National Guard"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Minnesota Army National Guard",
+     "role": "Service member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "brad compton|georgetown college": {
    "name": "Brad Compton",
    "university": "Georgetown College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -25740,15 +25936,32 @@
    "name": "Brad Cooper",
    "university": "Appalachian State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Alabama Housing Finance Authority"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Alabama Housing Finance Authority",
+     "role": "Accounting and finance staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Higher-ed accounting/finance, CPA"
@@ -26052,11 +26265,13 @@
    "name": "Brad Rohrer",
    "university": "University of Iowa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -26066,15 +26281,54 @@
    "name": "Brad Slutsky",
    "university": "Emory University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)",
+    "Financial Services",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "King & Spalding",
+    "FleetCor Technologies (now Corpay)",
+    "Red Ventures"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "King & Spalding",
+     "role": "Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "FleetCor Technologies (now Corpay)",
+     "role": "Senior Vice President and General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Red Ventures",
+     "role": "Executive Vice President and General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -26113,12 +26367,14 @@
   "brad walker|oklahoma state university center for health sciences": {
    "name": "Brad Walker",
    "university": "Oklahoma State University Center for Health Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -26263,12 +26519,14 @@
    "name": "Bradley Knotts",
    "university": "Oakland City University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -26389,11 +26647,13 @@
    "name": "Brady Crook",
    "university": "California State University, Fresno",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -26403,12 +26663,14 @@
    "name": "Braelin Pantel",
    "university": "Colorado School of Mines",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -26431,15 +26693,32 @@
   "brandi bush roberts|louisiana state university": {
    "name": "Brandi Bush Roberts",
    "university": "Louisiana State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "KPMG"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG",
+     "role": "Public accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brandi jacobs-jones|marshall university": {
@@ -26551,11 +26830,13 @@
    "name": "Brandi Tatum-Fedrick",
    "university": "Florida Agricultural and Mechanical University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -26623,12 +26904,14 @@
    "name": "Brandon Bernier",
    "university": "Colorado State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -26638,11 +26921,13 @@
    "name": "Brandon Common",
    "university": "Louisiana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -26696,16 +26981,46 @@
   "brandon e. roach|university of notre dame": {
    "name": "Brandon E. Roach",
    "university": "University of Notre Dame",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Vinson & Elkins",
+    "U.S. Court of Appeals for the Sixth Circuit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Vinson & Elkins",
+     "role": "Associate, appellate group",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Sixth Circuit",
+     "role": "Law clerk to Judge Julia Smith Gibbons",
+     "seniority": "professional",
+     "years": "2003-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "brandon jouganatos|alliant international university-san diego": {
@@ -26857,12 +27172,14 @@
    "name": "Brandon Skaggs",
    "university": "University of Mary Hardin-Baylor",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -161334,16 +161651,32 @@
   "michael m. raeber|university of georgia": {
    "name": "Michael M. Raeber",
    "university": "University of Georgia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "King & Spalding"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "sector": "Industry",
+     "firm": "King & Spalding",
+     "role": "Partner, Business Litigation Group",
+     "seniority": "senior",
+     "source": "priorInstitution",
+     "score": 40
+    }
    ]
   },
   "michael magazine|university of cincinnati": {
@@ -173539,7 +173872,8 @@
     "Law (private practice)"
    ],
    "firms": [
-    "Steptoe & Johnson"
+    "Steptoe & Johnson",
+    "Caplin & Drysdale"
    ],
    "ties": [
     {
@@ -173547,6 +173881,16 @@
      "category": "Law (private practice)",
      "sector": "Industry",
      "firm": "Steptoe & Johnson",
+     "role": "Attorney (Tax Practice)",
+     "seniority": "professional",
+     "source": "leader-research.career",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "sector": "Industry",
+     "firm": "Caplin & Drysdale",
      "role": "Attorney (Tax Practice)",
      "seniority": "professional",
      "source": "leader-research.career",
