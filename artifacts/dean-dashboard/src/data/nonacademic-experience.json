@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3300,
-  "no": 10495,
+  "yes": 3310,
+  "no": 10485,
   "unknown": 15675,
-  "namedFirm": 2738,
-  "flagOnly": 562,
-  "firms": 3350,
-  "sittingWithTie": 2065,
-  "sittingSeniorTie": 1248,
-  "researched": 2713
+  "namedFirm": 2743,
+  "flagOnly": 567,
+  "firms": 3353,
+  "sittingWithTie": 2070,
+  "sittingSeniorTie": 1251,
+  "researched": 2728
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -247277,15 +247277,32 @@
   "tim cedrone|lafayette college": {
    "name": "Tim Cedrone",
    "university": "Lafayette College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Apruzzese, McDermott, Mastro & Murphy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Apruzzese, McDermott, Mastro & Murphy",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tim dallas, ph.d.|texas tech university": {
@@ -247306,11 +247323,13 @@
    "name": "Tim Dolan",
    "university": "University of Hawaii at Manoa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -247351,16 +247370,35 @@
   "tim griffin|grand canyon university": {
    "name": "Tim Griffin",
    "university": "Grand Canyon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Motor Racing Outreach"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Motor Racing Outreach",
+     "role": "Vice President and Lead Chaplain",
+     "seniority": "executive",
+     "years": "1998-2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "tim harmon|new saint andrews college": {
@@ -247380,13 +247418,15 @@
   "tim holbrook|lake forest college": {
    "name": "Tim Holbrook",
    "university": "Lake Forest College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -247643,11 +247683,13 @@
    "name": "Tim McMahon",
    "university": "Marquette University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -247685,13 +247727,15 @@
   "tim shaw|university of texas at dallas": {
    "name": "Tim Shaw",
    "university": "University of Texas at Dallas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -247701,11 +247745,13 @@
    "name": "Tim Smith",
    "university": "Arizona State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -247759,12 +247805,14 @@
   "tim stump|portland state university": {
    "name": "Tim Stump",
    "university": "Portland State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -247848,16 +247896,33 @@
   "timothy balkin|daemen university": {
    "name": "Timothy Balkin",
    "university": "Daemen University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Moog Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Moog Inc.",
+     "role": "Group Vice President and Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "timothy beard|florida agricultural and mechanical university": {
@@ -247893,12 +247958,14 @@
   "timothy c. ferguson|northern kentucky university": {
    "name": "Timothy C. Ferguson",
    "university": "Northern Kentucky University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -247961,12 +248028,14 @@
    "name": "Timothy Danielson",
    "university": "North Carolina State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -248150,29 +248219,65 @@
   "timothy l. hussey|harvey mudd college": {
    "name": "Timothy L. Hussey",
    "university": "Harvey Mudd College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Children's Healthcare of Atlanta"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Children's Healthcare of Atlanta",
+     "role": "Communications and marketing",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "timothy l. killeen|university of illinois system": {
    "name": "Timothy L. Killeen",
    "university": "University of Illinois System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Assistant Director for Geosciences",
+     "seniority": "executive",
+     "years": "2008-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "timothy law snyder|loyola marymount university": {
@@ -248207,11 +248312,13 @@
    "name": "Timothy M. Chester",
    "university": "Auburn University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -248307,13 +248414,15 @@
   "timothy o'connor|the rockefeller university": {
    "name": "Timothy O'Connor",
    "university": "The Rockefeller University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
