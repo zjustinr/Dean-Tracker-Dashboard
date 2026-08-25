@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2242,
-  "no": 11553,
+  "yes": 2250,
+  "no": 11545,
   "unknown": 15675,
-  "namedFirm": 1866,
+  "namedFirm": 1874,
   "flagOnly": 376,
-  "firms": 1963,
-  "sittingWithTie": 1193,
-  "sittingSeniorTie": 673,
-  "researched": 1048
+  "firms": 1989,
+  "sittingWithTie": 1201,
+  "sittingSeniorTie": 680,
+  "researched": 1063
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -24401,12 +24401,14 @@
    "name": "Bill Townsend",
    "university": "Mississippi College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -24659,15 +24661,43 @@
   "blaire atkinson|oklahoma state university": {
    "name": "Blaire Atkinson",
    "university": "Oklahoma State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "InterBank",
+    "Visit Stillwater"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "InterBank",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Visit Stillwater",
+     "role": "Chair, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "blake absher|wake forest university": {
@@ -24702,12 +24732,14 @@
    "name": "Blake Haggerty",
    "university": "New Jersey Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -24717,11 +24749,13 @@
    "name": "Blake Held",
    "university": "Carleton College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -24855,30 +24889,167 @@
   "bleuzette marshall|university of cincinnati": {
    "name": "Bleuzette Marshall",
    "university": "University of Cincinnati",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Cincinnati Recreation Foundation",
+    "Project ArtReach",
+    "Public Media Connect",
+    "The Links, Incorporated (Cincinnati Chapter)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Cincinnati Recreation Foundation",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Project ArtReach",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Media & Entertainment",
+     "firm": "Public Media Connect",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Links, Incorporated (Cincinnati Chapter)",
+     "role": "Treasurer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "bo bernhard|university of nevada las vegas": {
    "name": "Bo Bernhard",
    "university": "University of Nevada Las Vegas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment",
+    "Technology",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Wynn Resorts",
+    "MGM Resorts International",
+    "Caesars Entertainment",
+    "Las Vegas Sands",
+    "International Game Technology (IGT)",
+    "Hard Rock International",
+    "Las Vegas Raiders",
+    "Nevada Council on Problem Gambling"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Media & Entertainment",
+     "firm": "Wynn Resorts",
+     "role": "Business consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Media & Entertainment",
+     "firm": "MGM Resorts International",
+     "role": "Business consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Media & Entertainment",
+     "firm": "Caesars Entertainment",
+     "role": "Business consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Media & Entertainment",
+     "firm": "Las Vegas Sands",
+     "role": "Business consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "International Game Technology (IGT)",
+     "role": "Business consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Media & Entertainment",
+     "firm": "Hard Rock International",
+     "role": "Business consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Media & Entertainment",
+     "firm": "Las Vegas Raiders",
+     "role": "Business consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Nevada Council on Problem Gambling",
+     "role": "Affiliate",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "bo fernhall|university of massachusetts boston": {
@@ -24986,16 +25157,56 @@
   "bob mccormick|depaul university": {
    "name": "Bob McCormick",
    "university": "DePaul University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Other industry",
+    "Energy & Industrials",
+    "Consulting"
+   ],
+   "firms": [
+    "British Rail",
+    "Inland Steel",
+    "Academe Solutions, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "British Rail",
+     "role": "Software engineer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Inland Steel",
+     "role": "Technical consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Academe Solutions, Inc.",
+     "role": "Consultant",
+     "seniority": "professional",
+     "years": "1999",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "bob miller|bryn mawr college": {
@@ -25031,15 +25242,43 @@
   "bob rinderle|saint norbert college": {
    "name": "Bob Rinderle",
    "university": "Saint Norbert College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "AMETEK",
+    "Cramer-Krasselt"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "AMETEK",
+     "role": "Corporate Director, Marketing Communications",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Cramer-Krasselt",
+     "role": "Vice President, Director of Interactive Marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "bob s. carter|university of utah": {
@@ -25136,12 +25375,14 @@
    "name": "Bobbie Dell'Aquilo",
    "university": "Adelphi University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -25150,16 +25391,47 @@
   "bobbie kallner|university of new england": {
    "name": "Bobbie Kallner",
    "university": "University of New England",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "IDEXX Laboratories",
+    "Bristol-Myers Squibb"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "IDEXX Laboratories",
+     "role": "Vice President of Human Resources, Global Commercial Execution",
+     "seniority": "senior",
+     "years": "2018-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Bristol-Myers Squibb",
+     "role": "Region Business Director, Oncology",
+     "seniority": "senior",
+     "years": "2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "bobby b. bellflower|university of tennessee health science center": {
@@ -25375,12 +25647,14 @@
    "name": "Bobby R. Woodard",
    "university": "Auburn University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -25432,11 +25706,13 @@
    "name": "Boi Carpenter",
    "university": "Massachusetts Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -25490,12 +25766,14 @@
    "name": "Bonita Washington-Lacey",
    "university": "Earlham College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -25650,16 +25928,44 @@
   "bordes henry-saturné|andrews university": {
    "name": "Bordes Henry-Saturné",
    "university": "Andrews University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Greater Boston Academy",
+    "Seventh-day Adventist Church (New York conference)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Boston Academy",
+     "role": "Principal",
+     "seniority": "executive",
+     "years": "2011",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Seventh-day Adventist Church (New York conference)",
+     "role": "Ordained minister and church pastor; conference superintendent of schools",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "boris baltes|wayne state university": {
@@ -25738,16 +26044,53 @@
   "boyd c. farnam|oakland university": {
    "name": "Boyd C. Farnam",
    "university": "Oakland University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Crittenton Hospital Medical Center Foundation",
+    "Paint Creek Center for the Arts",
+    "Rochester Bar Association"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Crittenton Hospital Medical Center Foundation",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Paint Creek Center for the Arts",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Rochester Bar Association",
+     "role": "Director and President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "boyd goodson|southern illinois university carbondale": {
