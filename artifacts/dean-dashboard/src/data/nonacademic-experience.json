@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2658,
-  "no": 11137,
+  "yes": 2667,
+  "no": 11128,
   "unknown": 15675,
-  "namedFirm": 2243,
-  "flagOnly": 415,
-  "firms": 2615,
-  "sittingWithTie": 1570,
-  "sittingSeniorTie": 931,
-  "researched": 1708
+  "namedFirm": 2251,
+  "flagOnly": 416,
+  "firms": 2629,
+  "sittingWithTie": 1578,
+  "sittingSeniorTie": 937,
+  "researched": 1723
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -115959,13 +115959,15 @@
   "jill m. forrester|dickinson college": {
    "name": "Jill M. Forrester",
    "university": "Dickinson College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -115989,12 +115991,14 @@
    "name": "Jill McCabe",
    "university": "Marymount University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -116035,11 +116039,13 @@
    "name": "Jill S. Walton",
    "university": "University of Georgia",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -116174,13 +116180,15 @@
   "jim adkins|marymount university": {
    "name": "Jim Adkins",
    "university": "Marymount University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -116189,31 +116197,90 @@
   "jim bakken|university of alabama at birmingham": {
    "name": "Jim Bakken",
    "university": "University of Alabama at Birmingham",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Peritus Public Relations",
+    "McNeely Pigott & Fox Public Relations"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Peritus Public Relations",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "2010-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "McNeely Pigott & Fox Public Relations",
+     "role": "Public relations practitioner",
+     "seniority": "professional",
+     "years": "2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "jim berscheidt|university of south alabama": {
    "name": "Jim Berscheidt",
    "university": "University of South Alabama",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Denver Museum of Nature & Science",
+    "KENS 5 (San Antonio television station)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Denver Museum of Nature & Science",
+     "role": "Public relations role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "KENS 5 (San Antonio television station)",
+     "role": "Weather anchor / broadcast journalist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jim bock|ave maria university": {
@@ -116250,11 +116317,13 @@
    "name": "Jim Broschart",
    "university": "University of Louisville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -116263,30 +116332,77 @@
   "jim carroll|auburn university": {
    "name": "Jim Carroll",
    "university": "Auburn University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Design Collective"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Design Collective",
+     "role": "Principal and Partner",
+     "seniority": "executive",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "jim choate|coe college": {
    "name": "Jim Choate",
    "university": "Coe College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Other industry",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Solutions Management Group",
+    "Alliant Energy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Solutions Management Group",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Alliant Energy",
+     "role": "Finance role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jim davis|university of texas at austin": {
@@ -116480,26 +116596,78 @@
   "jim grimes|university of missouri": {
    "name": "Jim Grimes",
    "university": "University of Missouri",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Consumer & Retail",
+    "Media & Entertainment",
+    "Technology"
+   ],
+   "firms": [
+    "RubinBrown LLP",
+    "Anheuser-Busch Incorporated",
+    "SeaWorld Parks and Entertainment (now United Parks and Resorts)",
+    "Rapid7, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "RubinBrown LLP",
+     "role": "Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Anheuser-Busch Incorporated",
+     "role": "Internal audit / risk management leadership role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "SeaWorld Parks and Entertainment (now United Parks and Resorts)",
+     "role": "Internal audit / risk management leadership role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Rapid7, Inc.",
+     "role": "Internal audit / risk management leadership role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jim hall|georgia institute of technology": {
    "name": "Jim Hall",
    "university": "Georgia Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -116598,15 +116766,43 @@
    "name": "Jim Irwin",
    "university": "University of New England",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consulting",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "KPMG",
+    "LA Fitness International"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG",
+     "role": "Accounting/audit role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "LA Fitness International",
+     "role": "Finance role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "careerBackground: finance and administration leadership"
@@ -116674,15 +116870,34 @@
    "name": "Jim Matteo",
    "university": "Princeton University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "PPL Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "PPL Corporation",
+     "role": "Internal auditor, then manager of corporate finance, cash management and risk management",
+     "seniority": "senior",
+     "years": "2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 36
+    }
    ],
    "flags": [
     "careerBackground: Finance and Treasury"
@@ -116767,13 +116982,15 @@
   "jim roberts|misericordia university": {
    "name": "Jim Roberts",
    "university": "Misericordia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -117195,16 +117412,35 @@
   "jj jenkins|wright state university": {
    "name": "JJ Jenkins",
    "university": "Wright State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "CareSource"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "CareSource",
+     "role": "Vice President, Internal Audit and Enterprise Risk Management / Corporate Audit Executive",
+     "seniority": "senior",
+     "years": "2013-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "jo allen|meredith college": {
