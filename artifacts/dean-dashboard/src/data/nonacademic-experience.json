@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2448,
-  "no": 11347,
+  "yes": 2457,
+  "no": 11338,
   "unknown": 15675,
-  "namedFirm": 2063,
+  "namedFirm": 2072,
   "flagOnly": 385,
-  "firms": 2308,
-  "sittingWithTie": 1390,
-  "sittingSeniorTie": 812,
-  "researched": 1393
+  "firms": 2325,
+  "sittingWithTie": 1399,
+  "sittingSeniorTie": 816,
+  "researched": 1408
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -74923,30 +74923,108 @@
   "ellen herbst|university of delaware": {
    "name": "Ellen Herbst",
    "university": "University of Delaware",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Energy & Industrials",
+    "Technology"
+   ],
+   "firms": [
+    "U.S. Department of Commerce",
+    "DuPont",
+    "Spectra Systems Corporation",
+    "Giesecke & Devrient America, Inc.",
+    "Virtual Compliance, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Commerce",
+     "role": "Chief Financial Officer and Assistant Secretary for Administration",
+     "seniority": "executive",
+     "years": "2013-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "DuPont",
+     "role": "Executive",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Spectra Systems Corporation",
+     "role": "Executive",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Giesecke & Devrient America, Inc.",
+     "role": "Executive",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Virtual Compliance, Inc.",
+     "role": "Executive",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "ellen johnson|drew university": {
    "name": "Ellen Johnson",
    "university": "Drew University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Carnegie Dartlet"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Carnegie Dartlet",
+     "role": "Unspecified role at the higher education marketing firm",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "ellen kane|saint michael's college": {
@@ -75055,31 +75133,126 @@
   "ellen moran|george washington university": {
    "name": "Ellen Moran",
    "university": "George Washington University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The White House (Executive Office of the President)",
+    "EMILY's List",
+    "U.S. Department of Commerce",
+    "AFL-CIO",
+    "Democratic National Committee",
+    "Democratic Congressional Campaign Committee"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "The White House (Executive Office of the President)",
+     "role": "White House Communications Director",
+     "seniority": "executive",
+     "years": "2009-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "EMILY's List",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Commerce",
+     "role": "Chief of Staff to Secretary Gary Locke",
+     "seniority": "senior",
+     "years": "2009-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "AFL-CIO",
+     "role": "Political Department staff; led Walmart corporate accountability work",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Democratic National Committee",
+     "role": "Director of Independent Expenditures",
+     "seniority": "senior",
+     "years": "2004-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Democratic Congressional Campaign Committee",
+     "role": "Director of issue advocacy campaign",
+     "seniority": "senior",
+     "years": "2000-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "ellen reynolds|university of rhode island": {
    "name": "Ellen Reynolds",
    "university": "University of Rhode Island",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "South County Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "South County Hospital",
+     "role": "Manager and team leader",
+     "seniority": "professional",
+     "years": "2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "ellen s. hurwitz|albright college": {
@@ -75114,11 +75287,13 @@
    "name": "Ellen Yu",
    "university": "Union College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -75183,15 +75358,32 @@
   "elmer yglesias|st. john's college": {
    "name": "Elmer Yglesias",
    "university": "St. John's College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Institute for Defense Analyses (Science and Technology Policy Institute)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Institute for Defense Analyses (Science and Technology Policy Institute)",
+     "role": "Research staff / Research Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "elmira mangum|florida agricultural and mechanical university": {
@@ -75225,15 +75417,32 @@
   "eloise abernathy alexis|tennessee state university": {
    "name": "Eloise Abernathy Alexis",
    "university": "Tennessee State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "LEAD Public Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "LEAD Public Schools",
+     "role": "Vice President of Development",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "elsa m. garmire|dartmouth college": {
@@ -75253,12 +75462,14 @@
   "elsa marín|university of puerto rico at río piedras": {
    "name": "Elsa Marín",
    "university": "University of Puerto Rico at Río Piedras",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -75523,12 +75734,14 @@
    "name": "Emily Carella",
    "university": "Young Harris College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -75984,15 +76197,32 @@
   "endia m. decordova|morgan state university": {
    "name": "Endia M. DeCordova",
    "university": "Morgan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Salvation Army of Greater Hartford"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Salvation Army of Greater Hartford",
+     "role": "Development role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "enid cardinal|rochester institute of technology": {
@@ -76097,28 +76327,88 @@
   "eric algoe|texas state university": {
    "name": "Eric Algoe",
    "university": "Texas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Austin Chamber of Commerce",
+    "United Way",
+    "Ohio School for the Deaf and Ohio State School for the Blind",
+    "Ohio Office of Technology Governance",
+    "United States Army and U.S. Army Reserve"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Austin Chamber of Commerce",
+     "role": "Board/committee member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way",
+     "role": "Board/committee member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Ohio School for the Deaf and Ohio State School for the Blind",
+     "role": "First-ever Chief Operating Officer and Chief Fiscal Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Ohio Office of Technology Governance",
+     "role": "Inaugural Chief Fiscal Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Army and U.S. Army Reserve",
+     "role": "Military intelligence and civil affairs officer (14 years)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "eric arneson|kennesaw state university": {
    "name": "Eric Arneson",
    "university": "Kennesaw State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -76203,13 +76493,15 @@
   "eric bymaster|vanderbilt university": {
    "name": "Eric Bymaster",
    "university": "Vanderbilt University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -76253,11 +76545,13 @@
    "name": "Eric D. Bentley",
    "university": "Texas Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -78673,16 +78967,33 @@
   "eréndira rubin|university of california santa cruz": {
    "name": "Eréndira Rubin",
    "university": "University of California Santa Cruz",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "O'Melveny & Myers LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "O'Melveny & Myers LLP",
+     "role": "Attorney (New York, San Francisco and Silicon Valley offices)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "esin gulari|clemson university": {
