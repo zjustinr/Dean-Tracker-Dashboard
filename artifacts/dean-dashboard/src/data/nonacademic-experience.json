@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2710,
-  "no": 11085,
+  "yes": 2722,
+  "no": 11073,
   "unknown": 15675,
-  "namedFirm": 2286,
-  "flagOnly": 424,
-  "firms": 2689,
-  "sittingWithTie": 1613,
-  "sittingSeniorTie": 961,
-  "researched": 1783
+  "namedFirm": 2296,
+  "flagOnly": 426,
+  "firms": 2703,
+  "sittingWithTie": 1623,
+  "sittingSeniorTie": 969,
+  "researched": 1798
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -129372,12 +129372,14 @@
    "name": "Josh Bright",
    "university": "University of California Santa Barbara",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -129430,16 +129432,45 @@
   "josh gladden|temple university": {
    "name": "Josh Gladden",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 88,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Acoustical Society of America",
+    "University City Science Center"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Acoustical Society of America",
+     "role": "Vice President",
+     "seniority": "executive",
+     "years": "2020-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 88
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "University City Science Center",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "josh hawkins|university of louisville": {
@@ -129487,12 +129518,14 @@
   "josh jensen|amherst college": {
    "name": "Josh Jensen",
    "university": "Amherst College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -129501,12 +129534,14 @@
   "josh jensen|oberlin college": {
    "name": "Josh Jensen",
    "university": "Oberlin College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -129529,16 +129564,45 @@
   "josh keniston|dartmouth college": {
    "name": "Josh Keniston",
    "university": "Dartmouth College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Huron Consulting Group",
+    "Eduventures"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Huron Consulting Group",
+     "role": "Manager, Higher Education Strategy and Operations Practice",
+     "seniority": "professional",
+     "years": "2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 32
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Eduventures",
+     "role": "Consultant and Product Director",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "josh kohut|rutgers, the state university of new jersey": {
@@ -129559,11 +129623,13 @@
    "name": "Josh Mackey",
    "university": "Indiana University Bloomington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -129649,16 +129715,33 @@
   "joshua blazer|alliant international university-san diego": {
    "name": "Joshua Blazer",
    "university": "Alliant International University-San Diego",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Octagon Simulations Ltd"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Octagon Simulations Ltd",
+     "role": "Leadership role (unspecified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "joshua c. teitelbaum|georgetown university": {
@@ -129693,15 +129776,54 @@
   "joshua d. lysne|concordia college at moorhead": {
    "name": "Joshua D. Lysne",
    "university": "Concordia College at Moorhead",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Flint Group (The Flint Group of Agencies)",
+    "AdFarm",
+    "MRM Worldwide"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Flint Group (The Flint Group of Agencies)",
+     "role": "Vice President / Director of Digital Strategy and Innovation",
+     "seniority": "senior",
+     "years": "2008-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "AdFarm",
+     "role": "Director of Digital Strategy",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "MRM Worldwide",
+     "role": "Associate Director of Project Management",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "joshua d. merchant|oakland university": {
@@ -129808,16 +129930,44 @@
   "joshua guiser|washington & jefferson college": {
    "name": "Joshua Guiser",
    "university": "Washington & Jefferson College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "The Mentoring Partnership of Southwestern Pennsylvania",
+    "Grossman, Yanak & Ford LLP"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Mentoring Partnership of Southwestern Pennsylvania",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Grossman, Yanak & Ford LLP",
+     "role": "Auditor, Assurance and Advisory Services",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "joshua hall (also 'josh hall')|west virginia university": {
@@ -129851,15 +130001,43 @@
   "joshua labaer|arizona state university": {
    "name": "Joshua LaBaer",
    "university": "Arizona State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Tango Biosciences",
+    "National Cancer Institute (NIH)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare & Pharma",
+     "firm": "Tango Biosciences",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "National Cancer Institute (NIH)",
+     "role": "Member, Board of Scientific Advisors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "joshua m. friedman|university of miami": {
@@ -129923,15 +130101,45 @@
   "joshua r. newton|emory university": {
    "name": "Joshua R. Newton",
    "university": "Emory University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Association of Fundraising Professionals (AFP)",
+    "Presbyterian Hospital (Charlotte, NC)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Association of Fundraising Professionals (AFP)",
+     "role": "Member, International Board",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Presbyterian Hospital (Charlotte, NC)",
+     "role": "Director of Major Gifts",
+     "seniority": "senior",
+     "years": "1998-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "joshua r. power|saint joseph's university": {
@@ -129996,12 +130204,14 @@
    "name": "Joshua Stern",
    "university": "Gwynedd Mercy University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -130326,15 +130536,32 @@
   "juan \"jay\" rosselló|university of maryland college park": {
    "name": "Juan \"Jay\" Rosselló",
    "university": "University of Maryland College Park",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Hogan Marren Babbo & Rose, Ltd."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hogan Marren Babbo & Rose, Ltd.",
+     "role": "Partner, Education Law Practice",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "juan c. cendan|florida international university": {
@@ -130453,15 +130680,32 @@
   "juan j. zabala|lamar university": {
    "name": "Juan J. Zabala",
    "university": "Lamar University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "United Way of Beaumont and North Jefferson County"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of Beaumont and North Jefferson County",
+     "role": "Honorary Lifetime Member, Board of Trustees",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "juan manuel sanchez|university of texas at san antonio": {
@@ -130551,16 +130795,33 @@
   "juanita w. hicks|university of georgia": {
    "name": "Juanita W. Hicks",
    "university": "University of Georgia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Jekyll Island Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Jekyll Island Foundation",
+     "role": "Director, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "judd ruggill|university of arizona": {
