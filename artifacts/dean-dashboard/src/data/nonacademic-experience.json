@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2360,
-  "no": 11435,
+  "yes": 2371,
+  "no": 11424,
   "unknown": 15675,
-  "namedFirm": 1984,
+  "namedFirm": 1995,
   "flagOnly": 376,
-  "firms": 2183,
-  "sittingWithTie": 1311,
-  "sittingSeniorTie": 756,
-  "researched": 1258
+  "firms": 2199,
+  "sittingWithTie": 1322,
+  "sittingSeniorTie": 765,
+  "researched": 1273
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -39567,15 +39567,34 @@
   "charles d. vienne jr.|sam houston state university": {
    "name": "Charles D. Vienne Jr.",
    "university": "Sam Houston State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Shreveport Parks and Recreation Department (SPAR), City of Shreveport"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Shreveport Parks and Recreation Department (SPAR), City of Shreveport",
+     "role": "Division Manager, Special Facilities",
+     "seniority": "professional",
+     "years": "2000-2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "charles delisi|boston university": {
@@ -40033,15 +40052,32 @@
    "name": "Charles Maimone",
    "university": "North Carolina State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "MCNC"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "MCNC",
+     "role": "Director and Chair of the Finance Committee",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ],
    "flags": [
     "careerBackground: Finance and Administration"
@@ -40344,12 +40380,14 @@
    "name": "Charlie Andrews",
    "university": "Florida International University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -40372,16 +40410,65 @@
   "charlie mcfarland|antioch university": {
    "name": "Charlie McFarland",
    "university": "Antioch University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Healthcare & Pharma",
+    "Technology"
+   ],
+   "firms": [
+    "HEAPY",
+    "Abbott Laboratories",
+    "AT&T",
+    "NCR"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "HEAPY",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Abbott Laboratories",
+     "role": "Finance, operations and product management roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "AT&T",
+     "role": "Finance, operations and product management roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "NCR",
+     "role": "Finance, operations and product management roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "charlie nelms|university of michigan-flint": {
@@ -40401,16 +40488,35 @@
   "charlie nhan|texas southern university": {
    "name": "Charlie Nhan",
    "university": "Texas Southern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Bui & Nhan, P.L.L.C."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Bui & Nhan, P.L.L.C.",
+     "role": "Partner",
+     "seniority": "executive",
+     "years": "2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "charlie paddock|purdue university": {
@@ -40461,15 +40567,53 @@
   "charlie simpson|saint mary's college": {
    "name": "Charlie Simpson",
    "university": "Saint Mary's College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Burson-Marsteller",
+    "The Society of Thoracic Surgeons",
+    "American Osteopathic Association"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Burson-Marsteller",
+     "role": "Managing Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Society of Thoracic Surgeons",
+     "role": "Senior Vice President, Marketing and Communications",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Osteopathic Association",
+     "role": "Marketing and communications role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "charlie w. coleman iii|texas southern university": {
@@ -40545,27 +40689,56 @@
   "charlotte johnson|university of san diego": {
    "name": "Charlotte Johnson",
    "university": "University of San Diego",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Downtown Women's Center of Los Angeles",
+    "Boston Preparatory Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Downtown Women's Center of Los Angeles",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Boston Preparatory Foundation",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "charlotte parks|university of mississippi": {
    "name": "Charlotte Parks",
    "university": "University of Mississippi",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -40632,16 +40805,45 @@
   "charmaine madison|george mason university": {
    "name": "Charmaine Madison",
    "university": "George Mason University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Central Intelligence Agency",
+    "United States Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Central Intelligence Agency",
+     "role": "Senior Digital Officer and Deputy Chief, IT Enterprise Group",
+     "seniority": "senior",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Cyber operations officer (retired)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "chase bringardner|auburn university": {
@@ -40971,30 +41173,95 @@
   "cheryl elliott|emory university": {
    "name": "Cheryl Elliott",
    "university": "Emory University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 34,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "DeKalb County Domestic Violence Task Force"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "DeKalb County Domestic Violence Task Force",
+     "role": "Founding member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "cheryl gochis|baylor university": {
    "name": "Cheryl Gochis",
    "university": "Baylor University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Extraco Banks",
+    "United Way of McLennan County",
+    "USAA",
+    "TIAA"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Extraco Banks",
+     "role": "Executive Vice President of Human Resources",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of McLennan County",
+     "role": "President's Council member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "USAA",
+     "role": "Human resources leadership roles",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "advisory",
+     "category": "Financial Services",
+     "firm": "TIAA",
+     "role": "Member, Higher Education Advisory Council",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "cheryl healton|new york university": {
@@ -41062,12 +41329,14 @@
    "name": "Cheryl Lane",
    "university": "University of Arkansas for Medical Sciences",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -41092,13 +41361,15 @@
   "cheryl tiahrt|university of south dakota": {
    "name": "Cheryl Tiahrt",
    "university": "University of South Dakota",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -41191,30 +41462,65 @@
   "chicora martin|agnes scott college": {
    "name": "Chicora Martin",
    "university": "Agnes Scott College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Atlanta Pride Committee"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Atlanta Pride Committee",
+     "role": "Board Treasurer",
+     "seniority": "executive",
+     "years": "2025",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "chifundo biliwita|ball state university": {
    "name": "Chifundo Biliwita",
    "university": "Ball State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "One Acre Fund"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "One Acre Fund",
+     "role": "Global internal audit lead",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "chih ming tan|university of north dakota": {
