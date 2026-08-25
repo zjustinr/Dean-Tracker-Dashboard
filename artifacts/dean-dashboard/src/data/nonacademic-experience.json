@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2877,
-  "no": 10918,
+  "yes": 2884,
+  "no": 10911,
   "unknown": 15675,
-  "namedFirm": 2415,
-  "flagOnly": 462,
-  "firms": 2884,
-  "sittingWithTie": 1742,
-  "sittingSeniorTie": 1053,
-  "researched": 2038
+  "namedFirm": 2424,
+  "flagOnly": 460,
+  "firms": 2900,
+  "sittingWithTie": 1751,
+  "sittingSeniorTie": 1058,
+  "researched": 2053
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -171613,15 +171613,53 @@
   "matt sarr|new saint andrews college": {
    "name": "Matt Sarr",
    "university": "New Saint Andrews College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consumer & Retail",
+    "Technology"
+   ],
+   "firms": [
+    "Avis Rent A Car System",
+    "eBizAutos",
+    "PhotoFolio.com"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Avis Rent A Car System",
+     "role": "Customer service role (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "eBizAutos",
+     "role": "Role not stated",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "PhotoFolio.com",
+     "role": "Role not stated",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "matt seeley|salish kootenai college": {
@@ -171670,16 +171708,46 @@
   "matt tidd|marshall university": {
    "name": "Matt Tidd",
    "university": "Marshall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 36,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare & Pharma",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Mylan Pharmaceuticals",
+    "Marriott International"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Mylan Pharmaceuticals",
+     "role": "Finance role (title not stated)",
+     "seniority": "unknown",
+     "years": "2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Marriott International",
+     "role": "Finance role (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "matthew (matt) rizzo|dartmouth college": {
@@ -171843,11 +171911,13 @@
    "name": "Matthew Bly",
    "university": "University of California Santa Barbara",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -171961,16 +172031,33 @@
   "matthew d. lahey|lehigh university": {
    "name": "Matthew D. Lahey",
    "university": "Lehigh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Family Justice Center of St. Joseph County"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Family Justice Center of St. Joseph County",
+     "role": "Member, Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "matthew daum|michigan state university": {
@@ -172069,15 +172156,63 @@
   "matthew eynon|american university": {
    "name": "Matthew Eynon",
    "university": "American University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Other industry"
+   ],
+   "firms": [
+    "Greenwich Academy",
+    "United States Golf Association",
+    "Lancaster City Alliance",
+    "The Pyrenees Group, LLC"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greenwich Academy",
+     "role": "Trustee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United States Golf Association",
+     "role": "Member, US Women's Open Tournament Executive Committee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lancaster City Alliance",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "The Pyrenees Group, LLC",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "matthew f. delmont|dartmouth college": {
@@ -172098,15 +172233,43 @@
    "name": "Matthew Fajack",
    "university": "University of Illinois at Chicago",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Consulting"
+   ],
+   "firms": [
+    "Beta Capital Group",
+    "Arthur Andersen and Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Beta Capital Group",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Arthur Andersen and Company",
+     "role": "Audit Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Budget, finance and accounting"
@@ -172143,16 +172306,33 @@
   "matthew golden|new jersey institute of technology": {
    "name": "Matthew Golden",
    "university": "New Jersey Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New Jersey Department of the Treasury"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New Jersey Department of the Treasury",
+     "role": "Deputy Director of Communications and spokesperson for the State Treasurer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "matthew goldstein|adelphi university": {
@@ -172249,28 +172429,80 @@
   "matthew hall|texas state university": {
    "name": "Matthew Hall",
    "university": "Texas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology",
+    "Financial Services",
+    "Energy & Industrials",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Microsoft",
+    "Bank of America",
+    "Koch Industries International",
+    "Tennessee Bureau of Investigation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Microsoft",
+     "role": "IT role (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Bank of America",
+     "role": "IT role (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Koch Industries International",
+     "role": "IT role (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Tennessee Bureau of Investigation",
+     "role": "IT role (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "matthew hulver|university of oklahoma": {
    "name": "Matthew Hulver",
    "university": "University of Oklahoma",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -172280,11 +172512,13 @@
    "name": "Matthew Hulver",
    "university": "University of Oklahoma Health Sciences Center",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -172309,13 +172543,15 @@
   "matthew j. frist|duquesne university": {
    "name": "Matthew J. Frist",
    "university": "Duquesne University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -172448,15 +172684,32 @@
   "matthew j. ter molen|rensselaer polytechnic institute": {
    "name": "Matthew J. Ter Molen",
    "university": "Rensselaer Polytechnic Institute",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Peace Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Peace Corps",
+     "role": "Volunteer, Honduras",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "matthew j. wilson|university of akron": {
@@ -172548,16 +172801,35 @@
   "matthew lester|medical college of wisconsin": {
    "name": "Matthew Lester",
    "university": "Medical College of Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Huron Consulting Group, LLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Huron Consulting Group, LLC",
+     "role": "Managing Director, Higher Education/Life Science Practice",
+     "seniority": "executive",
+     "years": "2006-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "matthew lige|eastern michigan university": {
@@ -172637,12 +172909,14 @@
    "name": "Matthew McDonald",
    "university": "University of Rhode Island",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -173037,12 +173311,14 @@
    "name": "Matthew Sullivan",
    "university": "Edgewood College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
