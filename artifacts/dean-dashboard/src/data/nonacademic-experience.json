@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2307,
-  "no": 11488,
+  "yes": 2312,
+  "no": 11483,
   "unknown": 15675,
-  "namedFirm": 1928,
+  "namedFirm": 1933,
   "flagOnly": 379,
-  "firms": 2079,
-  "sittingWithTie": 1255,
-  "sittingSeniorTie": 719,
-  "researched": 1153
+  "firms": 2089,
+  "sittingWithTie": 1260,
+  "sittingSeniorTie": 722,
+  "researched": 1168
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -42206,13 +42206,15 @@
   "chris kuwitzky|oklahoma state university": {
    "name": "Chris Kuwitzky",
    "university": "Oklahoma State University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42288,11 +42290,13 @@
    "name": "Chris Malins",
    "university": "Seattle University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42301,13 +42305,15 @@
   "chris manriquez|california state university, fullerton": {
    "name": "Chris Manriquez",
    "university": "California State University, Fullerton",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42378,15 +42384,43 @@
   "chris pendleton|southern virginia university": {
    "name": "Chris Pendleton",
    "university": "Southern Virginia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "The White House, Office of Presidential Speechwriting",
+    "Webster, Chamberlain & Bean"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "The White House, Office of Presidential Speechwriting",
+     "role": "Presidential speechwriting staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Webster, Chamberlain & Bean",
+     "role": "Staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "chris pezman|arkansas state university": {
@@ -42480,12 +42514,14 @@
    "name": "Chris Purcell",
    "university": "Chatham University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -42495,12 +42531,14 @@
    "name": "Chris Regis",
    "university": "Rochester Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42538,11 +42576,13 @@
    "name": "Chris S. Shotwell",
    "university": "University of the Cumberlands",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42579,15 +42619,42 @@
   "chris smith|university of missouri": {
    "name": "Chris Smith",
    "university": "University of Missouri",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Missouri Military Academy",
+    "Missouri 4-H Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Missouri Military Academy",
+     "role": "Vice President for Enrollment Management and Marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Missouri 4-H Foundation",
+     "role": "Advancement staff",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "chris swan|tufts university": {
@@ -42607,26 +42674,75 @@
   "chris tarmann|university of wisconsin-oshkosh": {
    "name": "Chris Tarmann",
    "university": "University of Wisconsin-Oshkosh",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Winnebago County Overdose Fatality Review Team",
+    "Winneconne Police Department",
+    "Montello Police Department",
+    "Marquette County Sheriff's Office"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Winnebago County Overdose Fatality Review Team",
+     "role": "Member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Winneconne Police Department",
+     "role": "Police officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Montello Police Department",
+     "role": "Police officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Marquette County Sheriff's Office",
+     "role": "Deputy",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "chris toutain|reed college": {
    "name": "Chris Toutain",
    "university": "Reed College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42656,6 +42772,8 @@
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -42701,29 +42819,58 @@
   "chris wessells|san jose state university": {
    "name": "Chris Wessells",
    "university": "San Jose State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Unisys",
+    "Dell Technologies"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Unisys",
+     "role": "Higher Education Strategist, Unisys Higher Education Practice",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Dell Technologies",
+     "role": "Senior Higher Education Strategist",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "chris wuthrich|boise state university": {
    "name": "Chris Wuthrich",
    "university": "Boise State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42864,11 +43011,13 @@
    "name": "Christian O'Neal",
    "university": "University of Arkansas at Little Rock",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -42891,16 +43040,44 @@
   "christian theumer|purdue university": {
    "name": "Christian Theumer",
    "university": "Purdue University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "International Game Technology (IGT)",
+    "United States Navy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "International Game Technology (IGT)",
+     "role": "Director of Technology Operations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Aviation Maintenance Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "christiana ochoa|indiana university bloomington": {
