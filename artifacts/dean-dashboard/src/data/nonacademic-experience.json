@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3244,
-  "no": 10551,
+  "yes": 3273,
+  "no": 10522,
   "unknown": 15675,
-  "namedFirm": 2696,
-  "flagOnly": 548,
-  "firms": 3295,
-  "sittingWithTie": 2023,
-  "sittingSeniorTie": 1225,
-  "researched": 2623
+  "namedFirm": 2717,
+  "flagOnly": 556,
+  "firms": 3323,
+  "sittingWithTie": 2044,
+  "sittingSeniorTie": 1235,
+  "researched": 2668
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -219394,16 +219394,35 @@
   "rosanna ferro|bates college": {
    "name": "Rosanna Ferro",
    "university": "Bates College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "College Track"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "College Track",
+     "role": "Chief of Education",
+     "seniority": "executive",
+     "years": "2022-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "rosario ceballo|university of michigan": {
@@ -219466,15 +219485,42 @@
    "name": "Rose Elena McAuliffe",
    "university": "California State University, Sacramento",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "CalPERS (California Public Employees' Retirement System)",
+    "California Housing Finance Agency"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "CalPERS (California Public Employees' Retirement System)",
+     "role": "Chief of Financial Planning, Policy & Budgeting",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "California Housing Finance Agency",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "careerBackground: Finance and business affairs executive"
@@ -219484,12 +219530,14 @@
    "name": "Rose Gamble",
    "university": "University of Tulsa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -219842,12 +219890,14 @@
    "name": "Ross W. Radish",
    "university": "Saint Joseph's University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -220043,12 +220093,14 @@
   "roy gifford|cleveland state university": {
    "name": "Roy Gifford",
    "university": "Cleveland State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -220389,12 +220441,14 @@
    "name": "Rupa Iyer",
    "university": "Tarleton State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -220431,13 +220485,15 @@
   "russ hannah|arkansas state university": {
    "name": "Russ Hannah",
    "university": "Arkansas State University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -220746,12 +220802,14 @@
   "ruth j. jackson|colby college": {
    "name": "Ruth J. Jackson",
    "university": "Colby College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -220924,12 +220982,14 @@
    "name": "Ryan Bradley",
    "university": "University of Alabama",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -221156,15 +221216,32 @@
   "ryan hutchinson|southeastern baptist theological seminary": {
    "name": "Ryan Hutchinson",
    "university": "Southeastern Baptist Theological Seminary",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Pillar Network"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Pillar Network",
+     "role": "Board Member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "ryan kelly|indiana university bloomington": {
@@ -221290,16 +221367,55 @@
   "ryan nagdeman|rush university": {
    "name": "Ryan Nagdeman",
    "university": "Rush University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Consumer & Retail",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Loyola Medicine (Loyola University Health System)",
+    "Whirlpool",
+    "Wisconsin Center District"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Loyola Medicine (Loyola University Health System)",
+     "role": "Associate VP, Marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Whirlpool",
+     "role": "Marketing",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Wisconsin Center District",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "ryan padgett|northern kentucky university": {
@@ -221350,16 +221466,33 @@
   "ryan richardson|abilene christian university": {
    "name": "Ryan Richardson",
    "university": "Abilene Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Center for Healthy Churches"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Center for Healthy Churches",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "ryan s. lincoln|university of idaho": {
@@ -221958,16 +222091,45 @@
   "sabrina minor|george washington university": {
    "name": "Sabrina Minor",
    "university": "George Washington University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "District of Columbia Public Schools",
+    "District of Columbia Government"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "District of Columbia Public Schools",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "District of Columbia Government",
+     "role": "Senior Human Resources Generalist, Workforce Planning",
+     "seniority": "professional",
+     "years": "2004-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "sabrina taldone|university of miami": {
@@ -222305,16 +222467,43 @@
   "sally morton|arizona state university": {
    "name": "Sally Morton",
    "university": "Arizona State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "RAND Corporation",
+    "RTI International"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "RAND Corporation",
+     "role": "Head, RAND Statistics Group",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "RTI International",
+     "role": "Vice President for Statistics and Epidemiology",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "sally stone richmond|washington and lee university": {
@@ -222446,15 +222635,32 @@
   "salvatore filardi|quinnipiac university": {
    "name": "Salvatore Filardi",
    "university": "Quinnipiac University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "ARAMARK"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "ARAMARK",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "salvatore p. sutera|washington university in st. louis": {
@@ -229994,13 +230200,15 @@
    "name": "Shea Kidd Brown",
    "university": "Wake Forest University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230082,16 +230290,43 @@
   "sheena murphy|binghamton university": {
    "name": "Sheena Murphy",
    "university": "Binghamton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "IBM",
+    "AT&T Bell Labs"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Industry researcher (early career)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "AT&T Bell Labs",
+     "role": "Industry researcher (early career)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "sheila ainlay|arizona state university": {
@@ -230146,11 +230381,13 @@
    "name": "Sheila Baldwin",
    "university": "University of Iowa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -230215,16 +230452,46 @@
   "sheila georger|brandeis university": {
    "name": "Sheila Georger",
    "university": "Brandeis University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials",
+    "Technology"
+   ],
+   "firms": [
+    "Cutler Associates, Inc.",
+    "Ingram Micro"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Cutler Associates, Inc.",
+     "role": "Marketing Manager",
+     "seniority": "professional",
+     "years": "2005-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Ingram Micro",
+     "role": "Corporate Events Planner",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "sheila k. gestring|university of south dakota": {
@@ -230487,28 +230754,47 @@
   "shelley smith|belhaven university": {
    "name": "Shelley Smith",
    "university": "Belhaven University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Ergon Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Ergon Inc.",
+     "role": "Research and Insights Technical Development Projects Manager and Product Regulations Supervisor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "shelley story|southwestern university": {
    "name": "Shelley Story",
    "university": "Southwestern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230576,12 +230862,14 @@
    "name": "Shelly Perdomo-Ahmed",
    "university": "University of Massachusetts Amherst",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230646,16 +230934,53 @@
   "sheraine gilliam|stevens institute of technology": {
    "name": "Sheraine Gilliam",
    "university": "Stevens Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Time Warner Cable",
+    "Radio One Inc.",
+    "Inner-City Broadcasting Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Time Warner Cable",
+     "role": "HR and business operations leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Radio One Inc.",
+     "role": "HR and business operations leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Inner-City Broadcasting Group",
+     "role": "HR and business operations leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "sheree utash|wichita state university": {
@@ -230706,31 +231031,85 @@
   "sheri lambert|randolph college": {
    "name": "Sheri Lambert",
    "university": "Randolph College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Make-A-Wish Greater Virginia",
+    "The Leukemia & Lymphoma Society"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Make-A-Wish Greater Virginia",
+     "role": "President and CEO",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Leukemia & Lymphoma Society",
+     "role": "Executive Director, Virginia chapter",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "sheri neshiem|university of massachusetts amherst": {
    "name": "Sheri Neshiem",
    "university": "University of Massachusetts Amherst",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy Reserve",
+    "United States Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy Reserve",
+     "role": "Lieutenant Commander",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Veteran",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "sheri noren everts|appalachian state university": {
@@ -230807,12 +231186,14 @@
    "name": "Sherine Obare",
    "university": "University of North Carolina at Greensboro",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230835,27 +231216,57 @@
   "sherri reese|salisbury university": {
    "name": "Sherri Reese",
    "university": "Salisbury University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Designed IV Greatness",
+    "State of Michigan (Departments of Corrections, Civil Rights, and Licensing and Regulatory Affairs)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Designed IV Greatness",
+     "role": "Founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "State of Michigan (Departments of Corrections, Civil Rights, and Licensing and Regulatory Affairs)",
+     "role": "HR leadership roles",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "sherri sidler|depaul university": {
    "name": "Sherri Sidler",
    "university": "DePaul University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230864,15 +231275,53 @@
   "sherrie ann madia|rutgers university-camden": {
    "name": "Sherrie Ann Madia",
    "university": "Rutgers University-Camden",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment",
+    "Other industry"
+   ],
+   "firms": [
+    "Business Wire",
+    "The Miami Herald",
+    "Cendant Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Business Wire",
+     "role": "Communications/media role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Miami Herald",
+     "role": "Media role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Cendant Corporation",
+     "role": "Communications role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "sherrill smith|university of wyoming": {
@@ -230893,12 +231342,14 @@
    "name": "Sherry Main",
    "university": "University of California Irvine",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -239768,13 +240219,15 @@
   "susan weider|bastyr university": {
    "name": "Susan Weider",
    "university": "Bastyr University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -239885,16 +240338,33 @@
   "susanna stickley|cuny baruch college": {
    "name": "Susanna Stickley",
    "university": "CUNY Baruch College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Japan Society"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Japan Society",
+     "role": "unknown",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "susanne j. phillips|university of california, irvine": {
@@ -240076,13 +240546,15 @@
   "suzanne bausch|university of akron": {
    "name": "Suzanne Bausch",
    "university": "University of Akron",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -240267,15 +240739,32 @@
   "suzanne murphy|albert einstein college of medicine": {
    "name": "Suzanne Murphy",
    "university": "Albert Einstein College of Medicine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Havens Relief Fund Society"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Havens Relief Fund Society",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "suzanne nuss|university of nebraska medical center": {
@@ -240296,12 +240785,14 @@
    "name": "Suzanne O'Driscoll",
    "university": "Lycoming College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -240325,12 +240816,14 @@
    "name": "Suzanne Sullivan",
    "university": "Belhaven University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -240600,15 +241093,32 @@
   "sylvia wilson thomas|university of south florida": {
    "name": "Sylvia Wilson Thomas",
    "university": "University of South Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Lucent Technologies-Bell Labs"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Lucent Technologies-Bell Labs",
+     "role": "Member of Technical Staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "t-ray fletcher|oakland city university": {
@@ -240834,12 +241344,14 @@
   "t. simeon ananou|stony brook university": {
    "name": "T. Simeon Ananou",
    "university": "Stony Brook University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -240862,16 +241374,33 @@
   "tabitha r. oman|pennsylvania state university": {
    "name": "Tabitha R. Oman",
    "university": "Pennsylvania State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Axalta Coating Systems"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Axalta Coating Systems",
+     "role": "Vice President, Deputy General Counsel and Chief Compliance Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "tabor mullen|mississippi state university": {
@@ -240979,12 +241508,14 @@
   "tamara a. herdener|seattle university": {
    "name": "Tamara A. Herdener",
    "university": "Seattle University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -241021,27 +241552,46 @@
   "tamara j. britt|teachers college, columbia university": {
    "name": "Tamara J. Britt",
    "university": "Teachers College, Columbia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Cleary Gottlieb Steen & Hamilton LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Cleary Gottlieb Steen & Hamilton LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "tamara jeffries|south carolina state university": {
    "name": "Tamara Jeffries",
    "university": "South Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -241081,12 +241631,14 @@
    "name": "Tamara Josserand",
    "university": "North Carolina Agricultural and Technical State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -241195,12 +241747,14 @@
   "tamika williams|belmont university": {
    "name": "Tamika Williams",
    "university": "Belmont University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -241209,12 +241763,14 @@
   "tammi jackson|meredith college": {
    "name": "Tammi Jackson",
    "university": "Meredith College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
