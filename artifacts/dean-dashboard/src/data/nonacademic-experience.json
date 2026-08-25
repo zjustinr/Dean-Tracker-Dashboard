@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2234,
-  "no": 11561,
+  "yes": 2242,
+  "no": 11553,
   "unknown": 15675,
-  "namedFirm": 1857,
-  "flagOnly": 377,
-  "firms": 1952,
-  "sittingWithTie": 1184,
-  "sittingSeniorTie": 668,
-  "researched": 1033
+  "namedFirm": 1866,
+  "flagOnly": 376,
+  "firms": 1963,
+  "sittingWithTie": 1193,
+  "sittingSeniorTie": 673,
+  "researched": 1048
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -28349,16 +28349,35 @@
   "brian berry|university of arkansas at little rock": {
    "name": "Brian Berry",
    "university": "University of Arkansas at Little Rock",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usgrad"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Institute of Standards and Technology (NIST)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Institute of Standards and Technology (NIST)",
+     "role": "National Research Council Postdoctoral Fellow",
+     "seniority": "professional",
+     "years": "2005-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "brian blair|bryn athyn college of the new church": {
@@ -28380,11 +28399,13 @@
    "name": "Brian Bolt",
    "university": "Boise State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -28423,12 +28444,14 @@
   "brian broyles|university of tennessee knoxville": {
    "name": "Brian Broyles",
    "university": "University of Tennessee Knoxville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -28438,15 +28461,42 @@
    "name": "Brian Burnett",
    "university": "Case Western Reserve University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Colorado Department of Corrections",
+    "Colorado General Assembly Joint Budget Committee"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Colorado Department of Corrections",
+     "role": "Deputy Director of Administration and Finance / Chief Financial Officer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Colorado General Assembly Joint Budget Committee",
+     "role": "Budget Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance and administration"
@@ -28553,15 +28603,34 @@
   "brian cozby|university of alabama in huntsville": {
    "name": "Brian Cozby",
    "university": "University of Alabama in Huntsville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Army"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Army",
+     "role": "Officer (Logistics Captain / Platoon Leader)",
+     "seniority": "professional",
+     "years": "1999-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "brian cummings|wayne state university": {
@@ -28581,17 +28650,43 @@
   "brian dawson|simpson university": {
    "name": "Brian Dawson",
    "university": "Simpson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Trail Life USA",
+    "Alpha Gamma Omega"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Trail Life USA",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Alpha Gamma Omega",
+     "role": "Full-time ministry staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brian diss|university of notre dame": {
@@ -28643,16 +28738,33 @@
   "brian e. gittens|university of arkansas for medical sciences": {
    "name": "Brian E. Gittens",
    "university": "University of Arkansas for Medical Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Marine (veteran)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brian e. konkol|valparaiso university": {
@@ -28702,13 +28814,15 @@
   "brian foisy|university of idaho": {
    "name": "Brian Foisy",
    "university": "University of Idaho",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 0,
    "sectors": [],
    "flags": [
@@ -28819,11 +28933,13 @@
    "name": "Brian Hastings",
    "university": "University of Nebraska Lincoln",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -28918,30 +29034,86 @@
   "brian huntley|st lawrence university": {
    "name": "Brian Huntley",
    "university": "St Lawrence University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting",
+    "Technology"
+   ],
+   "firms": [
+    "CampusWorks, Inc.",
+    "SunGard Higher Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "CampusWorks, Inc.",
+     "role": "Deputy Chief Information Officer (consultant placed at St. Lawrence University)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "SunGard Higher Education",
+     "role": "Senior Systems Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "brian hutzley|goucher college": {
    "name": "Brian Hutzley",
    "university": "Goucher College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consumer & Retail",
+    "Technology"
+   ],
+   "firms": [
+    "MEAD / AT-A-GLANCE",
+    "NCR Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "MEAD / AT-A-GLANCE",
+     "role": "Financial planning and analysis",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "NCR Corporation",
+     "role": "Financial planning and analysis",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "brian j. bruess|college of saint benedict": {
@@ -28994,12 +29166,14 @@
    "name": "Brian J. Foss",
    "university": "Lawrence University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -29129,15 +29303,33 @@
   "brian l. haynes|university of california riverside": {
    "name": "Brian L. Haynes",
    "university": "University of California Riverside",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "California Student Aid Commission"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "California Student Aid Commission",
+     "role": "Commissioner (gubernatorial appointee)",
+     "seniority": "executive",
+     "years": "2024",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "brian l. nelms|fisk university": {
@@ -29216,11 +29408,13 @@
    "name": "Brian M. Oakes",
    "university": "Loyola University Maryland",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -29257,16 +29451,48 @@
   "brian mast|lipscomb university": {
    "name": "Brian Mast",
    "university": "Lipscomb University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Mount Dora Christian Academy",
+    "Metropolitan Nashville Public Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mount Dora Christian Academy",
+     "role": "President and Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2019-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Metropolitan Nashville Public Schools",
+     "role": "Teacher, vice-principal, athletic director, coordinator of high school instruction, executive principal",
+     "seniority": "senior",
+     "years": "2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "brian matzke|aquinas college": {
