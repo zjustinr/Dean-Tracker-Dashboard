@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2731,
-  "no": 11064,
+  "yes": 2752,
+  "no": 11043,
   "unknown": 15675,
-  "namedFirm": 2305,
-  "flagOnly": 426,
-  "firms": 2714,
-  "sittingWithTie": 1632,
-  "sittingSeniorTie": 976,
-  "researched": 1813
+  "namedFirm": 2311,
+  "flagOnly": 441,
+  "firms": 2723,
+  "sittingWithTie": 1638,
+  "sittingSeniorTie": 980,
+  "researched": 1843
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -133580,13 +133580,15 @@
   "kamal khayat|missouri university of science and technology": {
    "name": "Kamal Khayat",
    "university": "Missouri University of Science and Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -133666,16 +133668,33 @@
   "kamrhan farwell|boston university": {
    "name": "Kamrhan Farwell",
    "university": "Boston University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Dallas Morning News"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Dallas Morning News",
+     "role": "Journalist, education coverage",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kandi deitemeyer|central piedmont community college": {
@@ -134092,11 +134111,13 @@
    "name": "Karen C. Goff",
    "university": "Oberlin College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134133,13 +134154,15 @@
   "karen donoghue|fairfield university": {
    "name": "Karen Donoghue",
    "university": "Fairfield University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134148,13 +134171,15 @@
   "karen dowling|indiana wesleyan university-national & global": {
    "name": "Karen Dowling",
    "university": "Indiana Wesleyan University-National & Global",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134373,12 +134398,14 @@
   "karen j. leary|springfield college": {
    "name": "Karen J. Leary",
    "university": "Springfield College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134387,12 +134414,14 @@
   "karen j. stone|university of north florida": {
    "name": "Karen J. Stone",
    "university": "University of North Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134402,11 +134431,13 @@
    "name": "Karen Julian",
    "university": "University of St. Thomas (Minnesota)",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134487,13 +134518,15 @@
   "karen leach|hamilton college": {
    "name": "Karen Leach",
    "university": "Hamilton College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134502,13 +134535,15 @@
   "karen lykins|tennessee technological university": {
    "name": "Karen Lykins",
    "university": "Tennessee Technological University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134587,15 +134622,56 @@
   "karen mcdonnell|kennesaw state university": {
    "name": "Karen McDonnell",
    "university": "Kennesaw State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "PruittHealth",
+    "Piedmont Healthcare",
+    "Children's Healthcare of Atlanta"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "PruittHealth",
+     "role": "Senior Vice President of Human Resources",
+     "seniority": "senior",
+     "years": "2015-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Piedmont Healthcare",
+     "role": "Executive Director of Human Resources",
+     "seniority": "senior",
+     "years": "2011-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Children's Healthcare of Atlanta",
+     "role": "Human resources role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "karen mcginnis|florida state university": {
@@ -134629,12 +134705,14 @@
   "karen miller|morehouse college": {
    "name": "Karen Miller",
    "university": "Morehouse College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134727,16 +134805,43 @@
   "karen sisson|claremont graduate university": {
    "name": "Karen Sisson",
    "university": "Claremont Graduate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Los Angeles",
+    "Los Angeles World Airports"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Los Angeles",
+     "role": "City Administrative Officer; Deputy Mayor for Finance and Performance Management",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Los Angeles World Airports",
+     "role": "Deputy Executive Director and Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "karen slater|texas a&m university": {
@@ -134770,13 +134875,15 @@
   "karen smith|kean university": {
    "name": "Karen Smith",
    "university": "Kean University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -134842,12 +134949,14 @@
    "name": "Karen Tumlinson",
    "university": "Hendrix College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -136380,16 +136489,48 @@
   "kathleen gallucci|university of rochester": {
    "name": "Kathleen Gallucci",
    "university": "University of Rochester",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Highland Hospital",
+    "Wegmans Food Markets"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Highland Hospital",
+     "role": "Chief Human Resource Officer and Director of Lean Process Initiatives",
+     "seniority": "executive",
+     "years": "2004-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Wegmans Food Markets",
+     "role": "Director of Corporate Human Resources",
+     "seniority": "senior",
+     "years": "1998-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "kathleen gray|cuny baruch college": {
@@ -136425,11 +136566,13 @@
    "name": "Kathleen Heckman",
    "university": "University at Buffalo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -136696,12 +136839,14 @@
   "kathryn (kate) griffo|university of pennsylvania": {
    "name": "Kathryn (Kate) Griffo",
    "university": "University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -136770,13 +136915,15 @@
   "kathryn cavins-tull|texas christian university": {
    "name": "Kathryn Cavins-Tull",
    "university": "Texas Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -136903,12 +137050,14 @@
    "name": "Kathryn Kay Coquemont",
    "university": "Macalester College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -137225,12 +137374,14 @@
   "kathy fahl|ohio university": {
    "name": "Kathy Fahl",
    "university": "Ohio University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -137295,13 +137446,15 @@
   "kathy kaoudis|san jose state university": {
    "name": "Kathy Kaoudis",
    "university": "San Jose State University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -137327,16 +137480,35 @@
   "kathy l. schulz|stevens institute of technology": {
    "name": "Kathy L. Schulz",
    "university": "Stevens Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Debevoise & Plimpton"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Debevoise & Plimpton",
+     "role": "Attorney, corporate finance",
+     "seniority": "professional",
+     "years": "1987-1994",
+     "endYear": 1994,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "kathy lafontana|gannon university": {
@@ -137370,13 +137542,15 @@
   "kathy mullins|ferris state university": {
    "name": "Kathy Mullins",
    "university": "Ferris State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -137474,12 +137648,14 @@
   "kati pratt|purdue university global": {
    "name": "Kati Pratt",
    "university": "Purdue University Global",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -137583,15 +137759,32 @@
   "katie aikens|tennessee technological university": {
    "name": "Katie Aikens",
    "university": "Tennessee Technological University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "CityScape"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "CityScape",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "katie amundsen|university of utah": {
@@ -137639,13 +137832,15 @@
   "katie brock|university of texas at austin": {
    "name": "Katie Brock",
    "university": "University of Texas at Austin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -137727,11 +137922,13 @@
    "name": "Katie Fraumann",
    "university": "DePaul University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -137755,12 +137952,14 @@
    "name": "Katie Hall",
    "university": "Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -137970,12 +138169,14 @@
   "katie rose|saint mary's college": {
    "name": "Katie Rose",
    "university": "Saint Mary's College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
