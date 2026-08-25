@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2906,
-  "no": 10889,
+  "yes": 2917,
+  "no": 10878,
   "unknown": 15675,
-  "namedFirm": 2440,
-  "flagOnly": 466,
-  "firms": 2921,
-  "sittingWithTie": 1767,
-  "sittingSeniorTie": 1069,
-  "researched": 2083
+  "namedFirm": 2448,
+  "flagOnly": 469,
+  "firms": 2934,
+  "sittingWithTie": 1775,
+  "sittingSeniorTie": 1076,
+  "researched": 2098
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -170976,12 +170976,14 @@
    "name": "Mary Pat McMahon",
    "university": "Duke University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -171101,11 +171103,13 @@
    "name": "Mary Remenschneider",
    "university": "Hope College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -171305,15 +171309,32 @@
    "name": "Mary Wickland",
    "university": "Lamar University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Texas Higher Education Coordinating Board"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Texas Higher Education Coordinating Board",
+     "role": "Member, Community and Technical Colleges Formula Advisory Committee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ],
    "flags": [
     "careerBackground: CPA; finance and campus operations leadership"
@@ -171367,16 +171388,44 @@
   "mary-jane mclaughlin|lesley university": {
    "name": "Mary-Jane McLaughlin",
    "university": "Lesley University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "The Day (New London, CT newspaper)",
+    "Yale New Haven Health - Lawrence + Memorial Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Day (New London, CT newspaper)",
+     "role": "Chief of Staff",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Yale New Haven Health - Lawrence + Memorial Hospital",
+     "role": "Director of Operations, Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "mary-rita moore|triton college": {
@@ -171438,16 +171487,65 @@
   "maryam saleh|illinois institute of technology": {
    "name": "Maryam Saleh",
    "university": "Illinois Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Technology",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Chicago Women in Bio",
+    "Machinify",
+    "MATTER",
+    "Cyberkinetics Neurotechnology Systems"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chicago Women in Bio",
+     "role": "Co-founder, 3.8 Initiative",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Machinify",
+     "role": "Vice President and General Manager, Sales and Partnerships",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "MATTER",
+     "role": "Vice President of Programs; later advisor",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Cyberkinetics Neurotechnology Systems",
+     "role": "Founding team member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "maryann baenninger|college of saint benedict": {
@@ -171481,13 +171579,15 @@
   "marybeth boger|new jersey institute of technology": {
    "name": "Marybeth Boger",
    "university": "New Jersey Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -171538,28 +171638,49 @@
   "massimo ruzzene|university of colorado boulder": {
    "name": "Massimo Ruzzene",
    "university": "University of Colorado Boulder",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Program Director, Dynamics, Control and System Diagnostics, Civil, Mechanical and Manufacturing Innovation Division",
+     "seniority": "senior",
+     "years": "2014-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "mathew varughese|new york university": {
    "name": "Mathew Varughese",
    "university": "New York University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -171625,12 +171746,14 @@
    "name": "Matt Dewey",
    "university": "Texas Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -171653,27 +171776,57 @@
   "matt getty|dickinson college": {
    "name": "Matt Getty",
    "university": "Dickinson College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Research Institute of America",
+    "Alliance to Save Energy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Research Institute of America",
+     "role": "Editorial staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Alliance to Save Energy",
+     "role": "Writer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "matt giles|brigham young university": {
    "name": "Matt Giles",
    "university": "Brigham Young University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -171682,30 +171835,64 @@
   "matt gregory|texas tech university": {
    "name": "Matt Gregory",
    "university": "Texas Tech University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Phi Sigma Kappa"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Phi Sigma Kappa",
+     "role": "Director, national governing board",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "matt hawkins|california state university, fresno": {
    "name": "Matt Hawkins",
    "university": "California State University, Fresno",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Indiana Commission for Higher Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Indiana Commission for Higher Education",
+     "role": "Chief Operating Officer and Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "matt holt|clemson university": {
@@ -171753,15 +171940,43 @@
   "matt mcnair|nevada system of higher education": {
    "name": "Matt McNair",
    "university": "Nevada System of Higher Education",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Cardinal Advisors",
+    "TrustLab"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Cardinal Advisors",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "TrustLab",
+     "role": "Founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "matt melvin|pennsylvania state university": {
@@ -171977,13 +172192,15 @@
   "matt price|gettysburg college": {
    "name": "Matt Price",
    "university": "Gettysburg College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
