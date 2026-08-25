@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3327,
-  "no": 10468,
+  "yes": 3338,
+  "no": 10457,
   "unknown": 15675,
-  "namedFirm": 2756,
-  "flagOnly": 571,
-  "firms": 3369,
-  "sittingWithTie": 2083,
-  "sittingSeniorTie": 1263,
-  "researched": 2761
+  "namedFirm": 2763,
+  "flagOnly": 575,
+  "firms": 3377,
+  "sittingWithTie": 2090,
+  "sittingSeniorTie": 1265,
+  "researched": 2776
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -236256,13 +236256,15 @@
   "stephen p. ward|kent state university": {
    "name": "Stephen P. Ward",
    "university": "Kent State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -236619,15 +236621,42 @@
   "steve allen|university of the cumberlands": {
    "name": "Steve Allen",
    "university": "University of the Cumberlands",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Bell-Whitley Community Action Agency",
+    "Southeast Kentucky Economic Development Corporation (SKED)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Bell-Whitley Community Action Agency",
+     "role": "Board Member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Southeast Kentucky Economic Development Corporation (SKED)",
+     "role": "Board Member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "steve almquist|mount saint joseph university": {
@@ -236750,11 +236779,13 @@
    "name": "Steve Grice",
    "university": "Mississippi State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -236909,16 +236940,33 @@
   "steve munson|american university": {
    "name": "Steve Munson",
    "university": "American University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Accenture"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Accenture",
+     "role": "Consultant/Executive",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "steve nelson|louisiana state university health sciences center, new orleans": {
@@ -236938,16 +236986,35 @@
   "steve orlando|university of florida": {
    "name": "Steve Orlando",
    "university": "University of Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Tampa Tribune"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Tampa Tribune",
+     "role": "Reporter",
+     "seniority": "professional",
+     "years": "1987-1996",
+     "endYear": 1996,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "steve relyea|the california state university": {
@@ -237009,16 +237076,44 @@
   "steve sandberg|brigham young university": {
    "name": "Steve Sandberg",
    "university": "Brigham Young University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Morrison & Foerster LLP",
+    "U.S. Court of Appeals for the Ninth Circuit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Morrison & Foerster LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Ninth Circuit",
+     "role": "Law Clerk to Judge Andrew J. Kleinfeld",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "steve saunders|washington state university": {
@@ -237038,31 +237133,65 @@
   "steve schwartz|fort lewis college": {
    "name": "Steve Schwartz",
    "university": "Fort Lewis College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Durango PlayFest"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Durango PlayFest",
+     "role": "Board Member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "steve serck|gardner-webb university": {
    "name": "Steve Serck",
    "university": "Gardner-Webb University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Ahlers & Cooney"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Ahlers & Cooney",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "steve stadum, j.d.|oregon health & science university": {
@@ -237083,11 +237212,13 @@
    "name": "Steve Swinford",
    "university": "Montana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -237097,12 +237228,14 @@
    "name": "Steve Taylor",
    "university": "Auburn University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -237111,13 +237244,15 @@
   "steve theodore|university of mary hardin-baylor": {
    "name": "Steve Theodore",
    "university": "University of Mary Hardin-Baylor",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -237426,12 +237561,14 @@
    "name": "Steven F. Karel",
    "university": "Brandeis University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -237482,12 +237619,14 @@
   "steven george|california state university, fullerton": {
    "name": "Steven George",
    "university": "California State University, Fullerton",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -237510,13 +237649,15 @@
   "steven gstalder|fairfield university": {
    "name": "Steven Gstalder",
    "university": "Fairfield University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -237539,16 +237680,66 @@
   "steven holley|university of mississippi": {
    "name": "Steven Holley",
    "university": "University of Mississippi",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Other industry",
+    "Consumer & Retail",
+    "Consulting"
+   ],
+   "firms": [
+    "Del-Nat Tire Corp",
+    "Federal Express",
+    "Coca-Cola Enterprises",
+    "Price Waterhouse LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Del-Nat Tire Corp",
+     "role": "Chief Financial Officer and Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Federal Express",
+     "role": "Various positions",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Coca-Cola Enterprises",
+     "role": "Various positions",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Price Waterhouse LLP",
+     "role": "Various positions",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "steven hood|university of alabama": {
