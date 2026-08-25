@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2560,
-  "no": 11235,
+  "yes": 2570,
+  "no": 11225,
   "unknown": 15675,
-  "namedFirm": 2166,
+  "namedFirm": 2176,
   "flagOnly": 394,
-  "firms": 2494,
-  "sittingWithTie": 1493,
-  "sittingSeniorTie": 880,
-  "researched": 1558
+  "firms": 2509,
+  "sittingWithTie": 1503,
+  "sittingSeniorTie": 884,
+  "researched": 1573
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -87767,12 +87767,14 @@
    "name": "Glenn M. Davis",
    "university": "Bowling Green State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -87885,11 +87887,13 @@
    "name": "Gloria Roldan Jenkins",
    "university": "Saint Mary's College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -87912,16 +87916,33 @@
   "gloria walker|carson-newman university": {
    "name": "Gloria Walker",
    "university": "Carson-Newman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Memphis City Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Memphis City Schools",
+     "role": "Physical Education Teacher and Coach",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "glynda becker-fenter|washington state university": {
@@ -88177,15 +88198,32 @@
   "gowri pillai|kennesaw state university": {
    "name": "Gowri Pillai",
    "university": "Kennesaw State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Turner Construction Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Turner Construction Company",
+     "role": "Construction management professional (research and laboratory projects)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "grace calhoun|brown university": {
@@ -88206,12 +88244,14 @@
    "name": "Grace Gamage",
    "university": "Florida Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -88278,16 +88318,35 @@
   "gracy buentello|the university of texas at tyler": {
    "name": "Gracy Buentello",
    "university": "The University of Texas at Tyler",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Texas Department of Transportation (TxDOT)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Texas Department of Transportation (TxDOT)",
+     "role": "Human Resources Specialist IV",
+     "seniority": "professional",
+     "years": "2015-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "gracy sarkissian|columbia university": {
@@ -88378,11 +88437,13 @@
    "name": "Grant Burlew",
    "university": "Georgia Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -88405,31 +88466,126 @@
   "grant garber|northern kentucky university": {
    "name": "Grant Garber",
    "university": "Northern Kentucky University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Jones Day",
+    "Ellis & Winters LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Jones Day",
+     "role": "Litigation Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Ellis & Winters LLP",
+     "role": "Litigator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "grant j. heston|virginia commonwealth university": {
    "name": "Grant J. Heston",
    "university": "Virginia Commonwealth University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 88,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector",
+    "Energy & Industrials",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Lake Highland Preparatory School",
+    "Capital Region Airport Commission",
+    "CapaciTech Energy",
+    "Orlando Utilities Commission",
+    "Orlando Sentinel"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lake Highland Preparatory School",
+     "role": "Trustee",
+     "seniority": "executive",
+     "years": "2019-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 88
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Capital Region Airport Commission",
+     "role": "Member, Board of Commissioners",
+     "seniority": "executive",
+     "years": "2022",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Energy & Industrials",
+     "firm": "CapaciTech Energy",
+     "role": "Board Director",
+     "seniority": "executive",
+     "years": "2020",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Orlando Utilities Commission",
+     "role": "Communications Manager",
+     "seniority": "professional",
+     "years": "2004-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Orlando Sentinel",
+     "role": "Senior Producer and Reporter",
+     "seniority": "professional",
+     "years": "2000-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "greer donley|university of pittsburgh": {
@@ -88479,31 +88635,67 @@
   "greg bellotti|kean university": {
    "name": "Greg Bellotti",
    "university": "Kean University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Elementis plc"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Elementis plc",
+     "role": "Vice President and Chief Information Officer",
+     "seniority": "executive",
+     "years": "2014-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "greg brandenburg|university of mary hardin-baylor": {
    "name": "Greg Brandenburg",
    "university": "University of Mary Hardin-Baylor",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Grace Community Church and School"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Grace Community Church and School",
+     "role": "Director of Technology",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "greg c. postel|university of cincinnati": {
@@ -88566,17 +88758,33 @@
    "name": "Greg G. Ramirez",
    "university": "Pepperdine University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Conejo Valley Unified School District"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Conejo Valley Unified School District",
+     "role": "Vice Chair, Bond Oversight Committee",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ],
    "flags": [
     "careerBackground: Finance"
@@ -88660,15 +88868,54 @@
   "greg malone|antioch university": {
    "name": "Greg Malone",
    "university": "Antioch University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials",
+    "Financial Services",
+    "Technology"
+   ],
+   "firms": [
+    "General Electric Company",
+    "National City Bank",
+    "CompuCom"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "General Electric Company",
+     "role": "Technology Operations and Project Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "National City Bank",
+     "role": "Technology Operations and Project Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "CompuCom",
+     "role": "Senior Technology Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "greg mosier|oklahoma state university": {
@@ -88730,16 +88977,33 @@
   "greg oler|university of maryland college park": {
    "name": "Greg Oler",
    "university": "University of Maryland College Park",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "KPMG"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG",
+     "role": "Public accounting (11 years)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "greg outwater|northwestern university": {
@@ -88759,12 +89023,14 @@
   "greg parsons|university of alabama at birmingham": {
    "name": "Greg Parsons",
    "university": "University of Alabama at Birmingham",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
