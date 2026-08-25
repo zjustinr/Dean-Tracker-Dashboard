@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2763,
-  "no": 11032,
+  "yes": 2785,
+  "no": 11010,
   "unknown": 15675,
-  "namedFirm": 2322,
-  "flagOnly": 441,
-  "firms": 2740,
-  "sittingWithTie": 1649,
-  "sittingSeniorTie": 987,
-  "researched": 1858
+  "namedFirm": 2342,
+  "flagOnly": 443,
+  "firms": 2774,
+  "sittingWithTie": 1669,
+  "sittingSeniorTie": 1002,
+  "researched": 1888
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -123704,16 +123704,57 @@
   "john m. horack|ohio state university": {
    "name": "John M. Horack",
    "university": "Ohio State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Energy & Industrials",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "International Astronautical Federation",
+    "Teledyne Brown Engineering",
+    "NASA"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "International Astronautical Federation",
+     "role": "Vice President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Teledyne Brown Engineering",
+     "role": "Vice President for Space Systems",
+     "seniority": "senior",
+     "years": "2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "NASA",
+     "role": "Civil servant; Senior Executive Service, head of the Science and Mission Systems Office at Marshall Space Flight Center",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "john m. lee jr.|south carolina state university": {
@@ -123909,28 +123950,84 @@
   "john m. zerwas|the university of texas system": {
    "name": "John M. Zerwas",
    "university": "The University of Texas System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "American Society of Anesthesiologists",
+    "Memorial Hermann Hospital System",
+    "US Anesthesia Partners",
+    "Texas House of Representatives"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Society of Anesthesiologists",
+     "role": "Past President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Memorial Hermann Hospital System",
+     "role": "Chief Medical Officer, later Chief Physician Integration Officer",
+     "seniority": "executive",
+     "years": "2003-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "US Anesthesia Partners",
+     "role": "Co-founder of the Houston-area anesthesia group practice that joined the firm in 2012",
+     "seniority": "executive",
+     "years": "1996",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Texas House of Representatives",
+     "role": "State Representative; Chairman, House Appropriations Committee",
+     "seniority": "senior",
+     "years": "2007-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "john macmillan|university of california santa cruz": {
    "name": "John MacMillan",
    "university": "University of California Santa Cruz",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -123954,12 +124051,14 @@
    "name": "John Mark Day",
    "university": "DePauw University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -124069,12 +124168,14 @@
    "name": "John McKiernan",
    "university": "Holy Cross College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -124171,11 +124272,13 @@
    "name": "John Morris",
    "university": "University of Minnesota",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -124560,15 +124663,43 @@
   "john r. jones iii|university of alabama at birmingham": {
    "name": "John R. Jones III",
    "university": "University of Alabama at Birmingham",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Madame Walker Urban Life Center",
+    "Army National Guard"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Madame Walker Urban Life Center",
+     "role": "Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Army National Guard",
+     "role": "Service member (18 years)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "john r. loyack|alvernia university": {
@@ -124678,16 +124809,45 @@
   "john robertson|briar cliff university": {
    "name": "John Robertson",
    "university": "Briar Cliff University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Lutheran High Northeast",
+    "City of Norfolk, Nebraska"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lutheran High Northeast",
+     "role": "Director of Finance and Operations",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Norfolk, Nebraska",
+     "role": "Finance Officer",
+     "seniority": "senior",
+     "years": "2026",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "john rose|hunter college": {
@@ -124721,16 +124881,64 @@
   "john s. kiralla|loyola marymount university": {
    "name": "John S. Kiralla",
    "university": "Loyola Marymount University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Technology"
+   ],
+   "firms": [
+    "Los Angeles Area Chamber of Commerce",
+    "Apple",
+    "SunGard Higher Education",
+    "Collegis Eduprise"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Los Angeles Area Chamber of Commerce",
+     "role": "Board of Governors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Apple",
+     "role": "Not specified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "SunGard Higher Education",
+     "role": "Not specified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Collegis Eduprise",
+     "role": "Not specified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "john s. toll|washington college": {
@@ -125048,14 +125256,53 @@
    "name": "John T. Rose",
    "university": "Hunter College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "ABC",
+    "ESPN",
+    "National Basketball Association"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "ABC",
+     "role": "Vice President for Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "ESPN",
+     "role": "Vice President for Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "National Basketball Association",
+     "role": "Senior Vice President for Player Relations and Administration",
+     "seniority": "senior",
+     "years": "1994-1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 36
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -125109,30 +125356,95 @@
   "john thompson|arizona state university": {
    "name": "John Thompson",
    "university": "Arizona State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Marine Corps Reserve"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps Reserve",
+     "role": "Service member (approximately ten years)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "john trierweiler|rochester institute of technology": {
    "name": "John Trierweiler",
    "university": "Rochester Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Cablevision Systems",
+    "Time Warner Cable",
+    "Bumble Bee Seafoods",
+    "H.J. Heinz"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Cablevision Systems",
+     "role": "Senior marketing role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Time Warner Cable",
+     "role": "Senior marketing role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Bumble Bee Seafoods",
+     "role": "Senior marketing role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "H.J. Heinz",
+     "role": "Senior marketing role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "john u. thomson|mississippi state university": {
@@ -125209,12 +125521,14 @@
    "name": "John Veilleux",
    "university": "Rowan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -125223,15 +125537,45 @@
   "john venuti|virginia commonwealth university": {
    "name": "John Venuti",
    "university": "Virginia Commonwealth University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Stop The Pain 804",
+    "Richmond Police Department"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Stop The Pain 804",
+     "role": "Founder and Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Richmond Police Department",
+     "role": "Major, commander of Support Services; earlier led the Metropolitan Area Drug Enforcement Task Force",
+     "seniority": "senior",
+     "years": "1984-2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "john w. bardo|wichita state university": {
@@ -125251,13 +125595,15 @@
   "john w. crawford|texas a&m university": {
    "name": "John W. Crawford",
    "university": "Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -135265,15 +135611,45 @@
   "karen warren coleman|university of chicago": {
    "name": "Karen Warren Coleman",
    "university": "University of Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Hockaday School",
+    "William Penn Charter School"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Hockaday School",
+     "role": "Eugene McDermott Head of School",
+     "seniority": "executive",
+     "years": "2017-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "William Penn Charter School",
+     "role": "Head of School",
+     "seniority": "executive",
+     "years": "2023",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "kari nadeau|university of california, los angeles": {
@@ -135335,16 +135711,33 @@
   "karin scarpinato|kennesaw state university": {
    "name": "Karin Scarpinato",
    "university": "Kennesaw State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Miami Scientific Italian Community"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Miami Scientific Italian Community",
+     "role": "International Advisory Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "karin wilkins|university of miami": {
@@ -135528,31 +135921,68 @@
   "karl spiecker|st lawrence university": {
    "name": "Karl Spiecker",
    "university": "St Lawrence University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "The Registry"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "The Registry",
+     "role": "Higher Education Consultant",
+     "seniority": "professional",
+     "years": "2020",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "karl v. steiner|university of maryland baltimore county": {
    "name": "Karl V. Steiner",
    "university": "University of Maryland Baltimore County",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 49,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Fraunhofer USA Resource Center Delaware"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Fraunhofer USA Resource Center Delaware",
+     "role": "Founding Executive Director",
+     "seniority": "executive",
+     "years": "1996-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 49
+    }
    ]
   },
   "karla harbin fox|university of connecticut": {
@@ -135572,30 +136002,64 @@
   "karla s. mccormick|auburn university": {
    "name": "Karla S. McCormick",
    "university": "Auburn University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Movie Gallery/Hollywood Entertainment"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Movie Gallery/Hollywood Entertainment",
+     "role": "Vice President of Human Resources - Benefits",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "karla youngblood|mount holyoke college": {
    "name": "Karla Youngblood",
    "university": "Mount Holyoke College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Springfield, Massachusetts"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Springfield, Massachusetts",
+     "role": "Project Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "karla zarate-ramirez|university of hawaii at manoa": {
@@ -135631,28 +136095,60 @@
   "karmen ten napel|central college": {
    "name": "Karmen Ten Napel",
    "university": "Central College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Iowa Women Lead Change",
+    "Blue Earth Area High School"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Iowa Women Lead Change",
+     "role": "Siouxland steering committee member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Blue Earth Area High School",
+     "role": "Language Arts Teacher",
+     "seniority": "professional",
+     "years": "1999-2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "karnell mcconnell-black|reed college": {
    "name": "Karnell McConnell-Black",
    "university": "Reed College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -135735,11 +136231,13 @@
    "name": "Kate Azizi",
    "university": "Oregon Health & Science University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -135860,16 +136358,33 @@
   "kate miller|university of texas at arlington": {
    "name": "Kate Miller",
    "university": "University of Texas at Arlington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Amoco Production Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Amoco Production Company",
+     "role": "Geologist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kate salop|amherst college": {
@@ -136017,16 +136532,33 @@
   "katherine a. fitzgerald|umass chan medical school": {
    "name": "Katherine A. Fitzgerald",
    "university": "UMass Chan Medical School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Cancer Research Institute"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Cancer Research Institute",
+     "role": "Scientific Advisory Council member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "katherine a. rowe|college of william & mary": {
@@ -136415,13 +136947,15 @@
    "name": "Katherine Lavinder",
    "university": "Lehigh University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -136460,16 +136994,45 @@
   "katherine n. stygles|bowling green state university": {
    "name": "Katherine N. Stygles",
    "university": "Bowling Green State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "AmeriCorps Serving Northwest Ohio",
+    "Bridge Hospice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "AmeriCorps Serving Northwest Ohio",
+     "role": "AmeriCorps member",
+     "seniority": "professional",
+     "years": "2003",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Bridge Hospice",
+     "role": "Volunteer Coordinator",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "katherine richardson|pace university": {
@@ -136587,15 +137150,77 @@
   "kathi tunheim|gustavus adolphus college": {
    "name": "Kathi Tunheim",
    "university": "Gustavus Adolphus College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting",
+    "Financial Services",
+    "Energy & Industrials",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Corus International",
+    "Tunheim Leadership Group, Inc.",
+    "American Express Financial Advisors",
+    "Northwest Airlines",
+    "Carlson Travel Network"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Corus International",
+     "role": "Vice Chair of the Board",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Tunheim Leadership Group, Inc.",
+     "role": "Founder and Principal",
+     "seniority": "executive",
+     "years": "1998",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "American Express Financial Advisors",
+     "role": "Director of Leadership Development",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Northwest Airlines",
+     "role": "Training and development manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Carlson Travel Network",
+     "role": "Training and development manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kathie melde|university of arizona": {
@@ -136760,13 +137385,15 @@
   "kathleen farrell|suny at purchase college": {
    "name": "Kathleen Farrell",
    "university": "SUNY at Purchase College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
