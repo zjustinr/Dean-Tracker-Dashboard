@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2826,
-  "no": 10969,
+  "yes": 2835,
+  "no": 10960,
   "unknown": 15675,
-  "namedFirm": 2374,
-  "flagOnly": 452,
-  "firms": 2829,
-  "sittingWithTie": 1701,
-  "sittingSeniorTie": 1025,
-  "researched": 1963
+  "namedFirm": 2381,
+  "flagOnly": 454,
+  "firms": 2838,
+  "sittingWithTie": 1708,
+  "sittingSeniorTie": 1030,
+  "researched": 1978
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -139127,11 +139127,13 @@
    "name": "Katie Thomas",
    "university": "Boise State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -139182,13 +139184,15 @@
   "katrina brent|lamar university": {
    "name": "Katrina Brent",
    "university": "Lamar University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -139225,16 +139229,43 @@
   "katy brennan|university of akron": {
    "name": "Katy Brennan",
    "university": "University of Akron",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Pep Promotions",
+    "Procter & Gamble"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Pep Promotions",
+     "role": "Vice President, Strategy",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Procter & Gamble",
+     "role": "Brand marketing role (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "katy carr|pepperdine university": {
@@ -139254,15 +139285,32 @@
   "katy herbert kotlarczyk|university of colorado boulder": {
    "name": "Katy Herbert Kotlarczyk",
    "university": "University of Colorado Boulder",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Orr Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Orr Group",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "katy killian|illinois state university": {
@@ -139283,15 +139331,34 @@
    "name": "Katy Roig",
    "university": "University of San Diego",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Sharp HealthCare"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Sharp HealthCare",
+     "role": "Controller",
+     "seniority": "senior",
+     "years": "2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 42
+    }
    ],
    "flags": [
     "careerBackground: Finance and chief financial officer"
@@ -139300,16 +139367,33 @@
   "katya popova|american university": {
    "name": "Katya Popova",
    "university": "American University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "NOV (National Oilwell Varco)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "NOV (National Oilwell Varco)",
+     "role": "Marketing and branding role (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "kaushik dutta|university of south florida": {
@@ -139404,12 +139488,14 @@
    "name": "Kawanna Leggett",
    "university": "Loyola Marymount University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -139432,16 +139518,33 @@
   "kay heidbreder|virginia tech": {
    "name": "Kay Heidbreder",
    "university": "Virginia Tech",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of the Attorney General of Virginia"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Attorney General of Virginia",
+     "role": "Assistant Attorney General",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "kay m. palan|university of alabama": {
@@ -139539,13 +139642,15 @@
   "kayla walker|young harris college": {
    "name": "Kayla Walker",
    "university": "Young Harris College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -139596,30 +139701,98 @@
   "kazi joshua|whitman college": {
    "name": "Kazi Joshua",
    "university": "Whitman College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Inatai Foundation",
+    "Fabian's Fund",
+    "Sherwood Trust",
+    "Washington State Clemency and Pardons Board"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Inatai Foundation",
+     "role": "Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Fabian's Fund",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Sherwood Trust",
+     "role": "Vice President of the Board",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Washington State Clemency and Pardons Board",
+     "role": "Board Member",
+     "seniority": "executive",
+     "years": "2022",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "keaton wong|st. john's university-new york": {
    "name": "Keaton Wong",
    "university": "St. John's University-New York",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York City Department of Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Department of Education",
+     "role": "Attorney, Office of Equal Opportunity and Diversity Management, and district Title IX Coordinator",
+     "seniority": "professional",
+     "years": "2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "kecia williams smith|north carolina a&t state university": {
@@ -139703,11 +139876,13 @@
    "name": "Keiko Price Carter",
    "university": "Emory University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -139745,11 +139920,13 @@
    "name": "Keith A. Paylo",
    "university": "Point Park University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -139871,12 +140048,14 @@
    "name": "Keith E. Hall",
    "university": "Azusa Pacific University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -139913,13 +140092,15 @@
   "keith hahn|western michigan university": {
    "name": "Keith Hahn",
    "university": "Western Michigan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
