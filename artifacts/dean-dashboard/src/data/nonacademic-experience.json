@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2271,
-  "no": 11524,
+  "yes": 2284,
+  "no": 11511,
   "unknown": 15675,
-  "namedFirm": 1894,
-  "flagOnly": 377,
-  "firms": 2023,
-  "sittingWithTie": 1221,
-  "sittingSeniorTie": 693,
-  "researched": 1093
+  "namedFirm": 1905,
+  "flagOnly": 379,
+  "firms": 2038,
+  "sittingWithTie": 1232,
+  "sittingSeniorTie": 702,
+  "researched": 1108
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -35865,16 +35865,43 @@
   "carol keese|university of oregon": {
    "name": "Carol Keese",
    "university": "University of Oregon",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Children's National Health System",
+    "Johns Hopkins Medicine"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Children's National Health System",
+     "role": "Vice President of Marketing",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Johns Hopkins Medicine",
+     "role": "Marketing/communications leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "carol kennedy|bucknell university": {
@@ -35924,16 +35951,46 @@
   "carol kirchner|university of nebraska at omaha": {
    "name": "Carol Kirchner",
    "university": "University of Nebraska at Omaha",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "American Heart Association (Omaha)",
+    "Nebraska Auditor of Public Accounts"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Heart Association (Omaha)",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Nebraska Auditor of Public Accounts",
+     "role": "Auditor",
+     "seniority": "professional",
+     "years": "1995",
+     "endYear": 1995,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "carol kissal|university of delaware": {
@@ -36017,15 +36074,43 @@
   "carol packard|lehigh university": {
    "name": "Carol Packard",
    "university": "Lehigh University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Snavely Associates, Ltd.",
+    "AccuWeather Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Snavely Associates, Ltd.",
+     "role": "Director of Business Development",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "AccuWeather Inc.",
+     "role": "International sales and market strategy roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "carol padden|university of california san diego": {
@@ -36161,16 +36246,35 @@
   "carolanda bremond woodgett|the university of texas medical branch at galveston": {
    "name": "Carolanda Bremond Woodgett",
    "university": "The University of Texas Medical Branch at Galveston",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Fulbright & Jaworski L.L.P."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Fulbright & Jaworski L.L.P.",
+     "role": "Attorney, Labor and Employment Section",
+     "seniority": "professional",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "carolanne wipfli|oregon health & science university": {
@@ -36204,13 +36308,15 @@
   "caroline agardy|university of south carolina": {
    "name": "Caroline Agardy",
    "university": "University of South Carolina",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -36234,11 +36340,13 @@
    "name": "Caroline M. Solomon",
    "university": "Rochester Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -36377,16 +36485,35 @@
   "carolyn egan|florida state university": {
    "name": "Carolyn Egan",
    "university": "Florida State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Johnson, Anselmo, Murdoch, Burke, Piper & McDuff, P.A."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Johnson, Anselmo, Murdoch, Burke, Piper & McDuff, P.A.",
+     "role": "Partner",
+     "seniority": "executive",
+     "years": "2001-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "carolyn fairbanks|university of minnesota": {
@@ -36481,12 +36608,14 @@
    "name": "Carolyn Livingston",
    "university": "Carleton College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -36655,15 +36784,46 @@
   "carrie brotherson|southern virginia university": {
    "name": "Carrie Brotherson",
    "university": "Southern Virginia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Church of Jesus Christ of Latter-day Saints",
+    "The Meridian School"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Church of Jesus Christ of Latter-day Saints",
+     "role": "Mission Leader, Chile Santiago East Mission",
+     "seniority": "senior",
+     "years": "2018-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Meridian School",
+     "role": "Instructor",
+     "seniority": "professional",
+     "years": "1990-1991",
+     "endYear": 1991,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "carrie docherty|indiana university bloomington": {
@@ -36683,16 +36843,33 @@
   "carrie ervin|earlham college": {
    "name": "Carrie Ervin",
    "university": "Earlham College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Ball Associates"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Ball Associates",
+     "role": "Certified Public Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "carrie hammer|north dakota state university": {
@@ -36958,16 +37135,56 @@
   "casandra ulbrich|university of michigan-dearborn": {
    "name": "Casandra Ulbrich",
    "university": "University of Michigan-Dearborn",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 88,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Michigan State Board of Education",
+    "Network for Public Education",
+    "U.S. House of Representatives (Office of Rep. David Bonior)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Michigan State Board of Education",
+     "role": "Elected Member, later President",
+     "seniority": "executive",
+     "years": "2007-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 88
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Network for Public Education",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "years": "2022",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. House of Representatives (Office of Rep. David Bonior)",
+     "role": "Press Secretary",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "casey c. beaumier, s.j.|boston college": {
@@ -37001,12 +37218,14 @@
   "casey gordon|college of saint benedict": {
    "name": "Casey Gordon",
    "university": "College of Saint Benedict",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -37015,30 +37234,76 @@
   "casey h. wyman|bowling green state university": {
    "name": "Casey H. Wyman",
    "university": "Bowling Green State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Air Force"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force",
+     "role": "Career officer; comptroller squadron commander, air advisor in Afghanistan, appropriations manager, and chief financial officer of the U.S. Air Force Academy",
+     "seniority": "senior",
+     "years": "2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "casey j. davis|prairie view a&m university": {
    "name": "Casey J. Davis",
    "university": "Prairie View A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Cypress-Fairbanks Independent School District",
+    "Harris County Constable's Office"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Cypress-Fairbanks Independent School District",
+     "role": "Director of Emergency Management",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Harris County Constable's Office",
+     "role": "Deputy Constable",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "casey sayre|roseman university of health sciences": {
@@ -37128,15 +37393,44 @@
   "cassie pericak|florida institute of technology": {
    "name": "Cassie Pericak",
    "university": "Florida Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "Freedom Network USA",
+    "CCS Fundraising"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Freedom Network USA",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "CCS Fundraising",
+     "role": "Executive Director / Assistant Vice President",
+     "seniority": "executive",
+     "years": "2009",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "castell vaughn bryant|florida agricultural and mechanical university": {
