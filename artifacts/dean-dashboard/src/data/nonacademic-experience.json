@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2953,
-  "no": 10842,
+  "yes": 2960,
+  "no": 10835,
   "unknown": 15675,
-  "namedFirm": 2477,
-  "flagOnly": 476,
-  "firms": 2983,
-  "sittingWithTie": 1804,
+  "namedFirm": 2483,
+  "flagOnly": 477,
+  "firms": 2991,
+  "sittingWithTie": 1810,
   "sittingSeniorTie": 1098,
-  "researched": 2158
+  "researched": 2173
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -164708,16 +164708,33 @@
   "margaret erickson|university of texas at el paso": {
    "name": "Margaret Erickson",
    "university": "University of Texas at El Paso",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "McDonald's"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "McDonald's",
+     "role": "General Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "margaret fala|emory university": {
@@ -164821,16 +164838,32 @@
   "margaret m. sullivan|university of south alabama": {
    "name": "Margaret M. Sullivan",
    "university": "University of South Alabama",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "FLR Health Resources"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "FLR Health Resources",
+     "role": "Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "margaret marsh|rutgers university-camden": {
@@ -164907,12 +164940,14 @@
    "name": "Margaret Sova McCabe",
    "university": "University of Arkansas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -165006,12 +165041,14 @@
    "name": "Mari Fuentes-Martin",
    "university": "San Jose State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -165035,11 +165072,13 @@
    "name": "Maria Blandizzi",
    "university": "University of the Pacific",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -165105,11 +165144,13 @@
    "name": "Maria Gutierrez Martin",
    "university": "University of Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -165346,16 +165387,73 @@
   "maria-judith rodriguez herrera|antioch university": {
    "name": "Maria-Judith Rodriguez Herrera",
    "university": "Antioch University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials",
+    "Consulting",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Eaton Corporation / Cutler-Hammer de Puerto Rico",
+    "Aon / Hewitt Associates",
+    "Merck, Sharp & Dohme",
+    "Bristol-Myers Squibb"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Eaton Corporation / Cutler-Hammer de Puerto Rico",
+     "role": "Senior Human Resources Representative and Manufacturing Supervisor",
+     "seniority": "professional",
+     "years": "1996-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Aon / Hewitt Associates",
+     "role": "Senior Outplacement and Training Consultant",
+     "seniority": "professional",
+     "years": "2001-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Merck, Sharp & Dohme",
+     "role": "Employee Relations Business Partner",
+     "seniority": "professional",
+     "years": "2002-2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 18
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Bristol-Myers Squibb",
+     "role": "Strategic Staffing Specialist",
+     "seniority": "professional",
+     "years": "2005-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "mariah maki|washington state university": {
@@ -165672,11 +165770,13 @@
    "name": "Marie Schultz",
    "university": "University of Texas at Arlington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -165727,17 +165827,45 @@
   "marie williams|chapman university": {
    "name": "Marie Williams",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "PECO Energy",
+    "The Pep Boys"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "PECO Energy",
+     "role": "Communications and marketing role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "The Pep Boys",
+     "role": "Communications and marketing role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "marieke van puymbroeck|university of tennessee knoxville": {
@@ -165844,16 +165972,33 @@
   "marilou smith|villanova university": {
    "name": "Marilou Smith",
    "university": "Villanova University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "PWI Engineering"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "PWI Engineering",
+     "role": "Project Manager and Designer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "marilyn chapin massey|pitzer college": {
@@ -166293,12 +166438,14 @@
    "name": "Marjorie Sanfilippo",
    "university": "Eckerd College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -166394,13 +166541,15 @@
   "mark a. petersen|wake forest university": {
    "name": "Mark A. Petersen",
    "university": "Wake Forest University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -166526,11 +166675,13 @@
    "name": "Mark Antonucci",
    "university": "University of Rhode Island",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -166677,15 +166828,32 @@
   "mark c. hampton|rensselaer polytechnic institute": {
    "name": "Mark C. Hampton",
    "university": "Rensselaer Polytechnic Institute",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Amazon Web Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Amazon Web Services",
+     "role": "Higher education role (title not stated)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "mark c. jefferson|university of virginia": {
@@ -166734,11 +166902,13 @@
    "name": "Mark Conselyea",
    "university": "Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
