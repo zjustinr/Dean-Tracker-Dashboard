@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2811,
-  "no": 10984,
+  "yes": 2818,
+  "no": 10977,
   "unknown": 15675,
-  "namedFirm": 2361,
-  "flagOnly": 450,
-  "firms": 2802,
-  "sittingWithTie": 1688,
-  "sittingSeniorTie": 1013,
-  "researched": 1933
+  "namedFirm": 2366,
+  "flagOnly": 452,
+  "firms": 2813,
+  "sittingWithTie": 1693,
+  "sittingSeniorTie": 1017,
+  "researched": 1948
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -155205,11 +155205,13 @@
    "name": "Linda Baughman",
    "university": "University of St. Thomas (Minnesota)",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -155219,12 +155221,14 @@
    "name": "Linda Bonnin",
    "university": "Rhodes College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -155837,11 +155841,13 @@
    "name": "Lindi Quackenbush",
    "university": "SUNY College of Environmental Science and Forestry",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -155908,16 +155914,43 @@
   "lindsay distefano|university of connecticut": {
    "name": "Lindsay DiStefano",
    "university": "University of Connecticut",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 61,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "National Physical Literacy Association",
+    "National Athletic Trainers' Association"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Physical Literacy Association",
+     "role": "Advisory Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Athletic Trainers' Association",
+     "role": "Pronouncements Committee member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "lindsay m. komlanc|ohio state university": {
@@ -155980,12 +156013,14 @@
    "name": "Lindsey Leonard",
    "university": "Wartburg College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -156198,12 +156233,14 @@
    "name": "Lisa Belokur",
    "university": "Georgetown University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -156213,12 +156250,14 @@
    "name": "Lisa Berreau",
    "university": "Utah State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -156227,14 +156266,16 @@
   "lisa bradley|louisiana tech university": {
    "name": "Lisa Bradley",
    "university": "Louisiana Tech University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usadvancement",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -156302,11 +156343,13 @@
    "name": "Lisa Capone",
    "university": "University of Missouri-St. Louis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -156416,16 +156459,53 @@
   "lisa custardo|transylvania university": {
    "name": "Lisa Custardo",
    "university": "Transylvania University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Alliance for a Healthier Generation",
+    "Greenheart International",
+    "Marklund"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Alliance for a Healthier Generation",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greenheart International",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Marklund",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "lisa d. ordóñez|university of california san diego": {
@@ -156445,15 +156525,43 @@
   "lisa downey|national louis university": {
    "name": "Lisa Downey",
    "university": "National Louis University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 61,
+   "seniority": "executive",
+   "categories": [
+    "Other industry",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Bright Horizons Family Solutions",
+    "Illinois Action for Children"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Other industry",
+     "firm": "Bright Horizons Family Solutions",
+     "role": "Early Education Advisory Council member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Illinois Action for Children",
+     "role": "Director of Provider Services",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "lisa duke|kennesaw state university": {
@@ -156503,12 +156611,14 @@
   "lisa frace|michigan state university": {
    "name": "Lisa Frace",
    "university": "Michigan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -156652,12 +156762,14 @@
    "name": "Lisa H. Rutherford",
    "university": "Amherst College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -156795,16 +156907,44 @@
   "lisa k. van riper|university of maryland baltimore county": {
    "name": "Lisa K. Van Riper",
    "university": "University of Maryland Baltimore County",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consumer & Retail",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "CarMax, Inc.",
+    "Alexandria Renew Enterprises"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "CarMax, Inc.",
+     "role": "Communications role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Alexandria Renew Enterprises",
+     "role": "Communications role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "lisa kane low|university of michigan": {
@@ -156854,15 +156994,44 @@
   "lisa kemp|university of arizona global campus": {
    "name": "Lisa Kemp",
    "university": "University of Arizona Global Campus",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "HealthCare Access Maryland",
+    "HCR ManorCare"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "HealthCare Access Maryland",
+     "role": "Board Member",
+     "seniority": "executive",
+     "years": "2021",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "HCR ManorCare",
+     "role": "Healthcare operations role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "lisa l. fadler|wayne state university": {
