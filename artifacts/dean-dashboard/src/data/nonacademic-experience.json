@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2122,
-  "no": 11673,
+  "yes": 2148,
+  "no": 11647,
   "unknown": 15675,
-  "namedFirm": 1733,
-  "flagOnly": 389,
-  "firms": 1751,
-  "sittingWithTie": 1052,
-  "sittingSeniorTie": 583,
-  "researched": 788
+  "namedFirm": 1762,
+  "flagOnly": 386,
+  "firms": 1800,
+  "sittingWithTie": 1081,
+  "sittingSeniorTie": 602,
+  "researched": 835
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -370,11 +370,13 @@
    "name": "Aariel Charbonnet",
    "university": "Loyola University New Orleans",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -445,44 +447,185 @@
   "aaron c. bryant|east texas a&m university": {
    "name": "Aaron C. Bryant",
    "university": "East Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Other industry",
+    "Government & Public Sector",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "BCS, Inc.",
+    "Ohio Department of Aging",
+    "Adena Health System",
+    "Ohio Tobacco Prevention Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "BCS, Inc.",
+     "role": "Vice President of Marketing",
+     "seniority": "senior",
+     "years": "2008-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Ohio Department of Aging",
+     "role": "Chief of Communications",
+     "seniority": "senior",
+     "years": "2005-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Adena Health System",
+     "role": "Strategic Communications and Marketing Manager (contract)",
+     "seniority": "professional",
+     "years": "2007-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Ohio Tobacco Prevention Foundation",
+     "role": "Marketing Campaign Manager and Legislative Liaison",
+     "seniority": "professional",
+     "years": "2003-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "aaron c. bryant|texas a&m university-commerce": {
    "name": "Aaron C. Bryant",
    "university": "Texas A&M University-Commerce",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Other industry",
+    "Government & Public Sector",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "BCS, Inc.",
+    "Ohio Department of Aging",
+    "Adena Health System",
+    "Ohio Tobacco Prevention Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "BCS, Inc.",
+     "role": "Vice President of Marketing",
+     "seniority": "senior",
+     "years": "2008-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Ohio Department of Aging",
+     "role": "Chief of Communications",
+     "seniority": "senior",
+     "years": "2005-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Adena Health System",
+     "role": "Strategic Communications and Marketing Manager (contract)",
+     "seniority": "professional",
+     "years": "2007-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Ohio Tobacco Prevention Foundation",
+     "role": "Marketing Campaign Manager and Legislative Liaison",
+     "seniority": "professional",
+     "years": "2003-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "aaron c. trump|quinnipiac university": {
    "name": "Aaron C. Trump",
    "university": "Quinnipiac University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Ziemer, Stayman, Weitzel & Shoulders, L.L.P.",
+    "Kahn, Dees, Donovan & Kahn, L.L.P."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Ziemer, Stayman, Weitzel & Shoulders, L.L.P.",
+     "role": "Associate Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Kahn, Dees, Donovan & Kahn, L.L.P.",
+     "role": "Associate Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "aaron carmichael|university of northern colorado": {
@@ -548,12 +691,14 @@
    "name": "Aaron J. Hart",
    "university": "Virginia Commonwealth University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -663,15 +808,32 @@
   "aaron martin|susquehanna university": {
    "name": "Aaron Martin",
    "university": "Susquehanna University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Kaplan"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Kaplan",
+     "role": "Marketing Director, U.S. Pacific Northwest and Canada centers",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "aaron muth|st. john's university": {
@@ -705,13 +867,15 @@
   "aaron scherpereel|texas tech university health sciences center": {
    "name": "Aaron Scherpereel",
    "university": "Texas Tech University Health Sciences Center",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -721,12 +885,14 @@
    "name": "Aaron Streimish",
    "university": "Kennesaw State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -998,15 +1164,34 @@
   "abigail g. wattley|williams college": {
    "name": "Abigail G. Wattley",
    "university": "Williams College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Cambridge Associates"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Cambridge Associates",
+     "role": "Senior Consulting Associate",
+     "seniority": "professional",
+     "years": "2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "abigail linnington|tufts university": {
@@ -1157,15 +1342,44 @@
   "adam buchwald|lewis & clark college": {
    "name": "Adam Buchwald",
    "university": "Lewis & Clark College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Other industry"
+   ],
+   "firms": [
+    "Greater Boston Trout Unlimited",
+    "Roscommon Associates"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Boston Trout Unlimited",
+     "role": "IT Consultant",
+     "seniority": "professional",
+     "years": "2006",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Roscommon Associates",
+     "role": "Information Technology staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "adam c. wright|dallas baptist university": {
@@ -1337,16 +1551,33 @@
   "adam donaldson|georgetown university": {
    "name": "Adam Donaldson",
    "university": "Georgetown University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Bell Labs / Lucent Technologies"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Bell Labs / Lucent Technologies",
+     "role": "Project Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "adam falk|williams college": {
@@ -1481,12 +1712,14 @@
    "name": "Adam Marcus",
    "university": "Emory University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1medical"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -1525,15 +1758,52 @@
    "name": "Adam Rathbun",
    "university": "Montclair State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Borough of Beaver, Pennsylvania",
+    "National Security Agency",
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Borough of Beaver, Pennsylvania",
+     "role": "Borough Manager and Treasurer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Security Agency",
+     "role": "Various positions supporting the Information Assurance Directorate and technical signals intelligence programs",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Service member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance & treasury executive"
@@ -1635,15 +1905,43 @@
    "name": "Adam Voigts",
    "university": "Drake University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Iowa Student Loan Liquidity Corporation",
+    "Indianola Municipal Utilities"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Iowa Student Loan Liquidity Corporation",
+     "role": "Member, Board of Directors (Audit Committee Chair; Executive and Finance Committees)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Indianola Municipal Utilities",
+     "role": "Vice-Chair (formerly Chair), Board of Trustees",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ],
    "flags": [
     "careerBackground: Finance; CPA/CMA, former VP at Grand View University"
@@ -1725,16 +2023,75 @@
   "adebisi oladipupo|hampton university": {
    "name": "Adebisi Oladipupo",
    "university": "Hampton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Technology"
+   ],
+   "firms": [
+    "Rivers State Government of Nigeria",
+    "National Science Foundation",
+    "IBM",
+    "Lucent Technologies",
+    "Motorola, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Rivers State Government of Nigeria",
+     "role": "Chief Technology Advisor to the Governor",
+     "seniority": "senior",
+     "years": "2008",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Member, inaugural NSF Advisory Board on cyberinfrastructure; technical reviewer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Technology consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Lucent Technologies",
+     "role": "Technology consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Motorola, Inc.",
+     "role": "Technology consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "adejoke b. ayoola|palm beach atlantic university": {
@@ -1844,15 +2201,53 @@
    "name": "Adile Quennarouch",
    "university": "Johns Hopkins University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "RiskMetrics Group",
+    "Institutional Shareholder Services",
+    "TAMM (Abu Dhabi government services platform)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "RiskMetrics Group",
+     "role": "Various positions",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Institutional Shareholder Services",
+     "role": "Various positions",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "TAMM (Abu Dhabi government services platform)",
+     "role": "Various positions",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "careerBackground: Finance/CFO/treasurer"
@@ -1946,12 +2341,14 @@
    "name": "Adrian Bautista",
    "university": "Skidmore College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -2017,12 +2414,14 @@
    "name": "Adrian Rodriguez",
    "university": "Texas A&M University-Corpus Christi",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -2115,29 +2514,69 @@
   "adrienne b. mitchell|medical college of wisconsin": {
    "name": "Adrienne B. Mitchell",
    "university": "Medical College of Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Wayne Health",
+    "Rush University Medical Center",
+    "University of Chicago Medicine"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Wayne Health",
+     "role": "Vice President, Chief Human Resources Officer and Chief Information Officer",
+     "seniority": "executive",
+     "years": "2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Rush University Medical Center",
+     "role": "Associate Vice President, HR Technology and Operational Excellence",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University of Chicago Medicine",
+     "role": "HR leadership positions",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "adrienne frame|university of central florida": {
    "name": "Adrienne Frame",
    "university": "University of Central Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -2189,12 +2628,14 @@
    "name": "Afshin Afrookhteh",
    "university": "Alliant International University-San Diego",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -2302,28 +2743,47 @@
   "ahmad m. itani|university of texas at el paso": {
    "name": "Ahmad M. Itani",
    "university": "University of Texas at El Paso",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "California Department of Transportation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "California Department of Transportation",
+     "role": "Engineer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ahmed mahdy|texas a&m university-corpus christi": {
    "name": "Ahmed Mahdy",
    "university": "Texas A&M University-Corpus Christi",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -2360,16 +2820,47 @@
   "aileen m. ugalde|university of miami": {
    "name": "Aileen M. Ugalde",
    "university": "University of Miami",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Adrienne Arsht Center for the Performing Arts Trust",
+    "Akerman Senterfitt & Eidson"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Adrienne Arsht Center for the Performing Arts Trust",
+     "role": "Chair of the Board of Directors",
+     "seniority": "executive",
+     "years": "2015",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Akerman Senterfitt & Eidson",
+     "role": "Litigation attorney",
+     "seniority": "professional",
+     "years": "1994",
+     "endYear": 1994,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "aileen zerrudo|university of california berkeley": {
@@ -2435,13 +2926,15 @@
   "aimee heeter|university of illinois urbana-champaign": {
    "name": "Aimee Heeter",
    "university": "University of Illinois Urbana-Champaign",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 0,
    "sectors": [],
    "flags": [
@@ -2573,15 +3066,45 @@
   "ainsley a. goulbourne|southwestern university": {
    "name": "Ainsley A. Goulbourne",
    "university": "Southwestern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "New York Academy of Sciences",
+    "NYU Langone Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "New York Academy of Sciences",
+     "role": "Chief Operating and Administrative Officer",
+     "seniority": "executive",
+     "years": "2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "NYU Langone Health",
+     "role": "Office of the Chief of Staff and CFO",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "ainsley goulbourne|southwestern university": {
@@ -2602,11 +3125,13 @@
    "name": "Aisha Jackson",
    "university": "University of California Davis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -2783,16 +3308,44 @@
   "akilah rosado|barnard college": {
    "name": "Akilah Rosado",
    "university": "Barnard College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Consulting"
+   ],
+   "firms": [
+    "New York State Assembly",
+    "Public Strategies Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York State Assembly",
+     "role": "Staff member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Public Strategies Group",
+     "role": "Organizational and leadership development consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "akinlolu o. ojo|university of kansas": {
@@ -2855,15 +3408,32 @@
   "al checcio|temple university": {
    "name": "Al Checcio",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Children's Hospital of Philadelphia"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Children's Hospital of Philadelphia",
+     "role": "Vice President of Development",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "al sacco jr.|texas tech university": {
@@ -2886,16 +3456,33 @@
   "al sturgeon|ripon college": {
    "name": "Al Sturgeon",
    "university": "Ripon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Ocean Springs Church of Christ"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Ocean Springs Church of Christ",
+     "role": "Preaching Minister",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "alain-philippe durand|university of arizona": {
@@ -2915,16 +3502,45 @@
   "alaina gilligo|cuny baruch college": {
    "name": "Alaina Gilligo",
    "university": "CUNY Baruch College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York City Office of the Comptroller",
+    "Office of the Manhattan Borough President"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Office of the Comptroller",
+     "role": "Chief Operating Officer / First Deputy Comptroller",
+     "seniority": "executive",
+     "years": "2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Manhattan Borough President",
+     "role": "Chief of Staff",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "alaina macaulay|tufts university": {
@@ -3242,15 +3858,34 @@
   "alan schomaker|loyola university new orleans": {
    "name": "Alan Schomaker",
    "university": "Loyola University New Orleans",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "East Jefferson General Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "East Jefferson General Hospital",
+     "role": "Senior Database and PeopleSoft System Administrator",
+     "seniority": "professional",
+     "years": "1998-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "alan stolzer|embry-riddle aeronautical university": {
@@ -3312,13 +3947,15 @@
   "alan thibeault|university of new england": {
    "name": "Alan Thibeault",
    "university": "University of New England",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -3830,31 +4467,85 @@
   "alex najera|university of california riverside": {
    "name": "Alex Najera",
    "university": "University of California Riverside",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Inland Empire Utilities Agency",
+    "City of Indio",
+    "County of Riverside"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Inland Empire Utilities Agency",
+     "role": "Human resources role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Indio",
+     "role": "Human resources position",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "County of Riverside",
+     "role": "Human resources position",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "alex perez|the new school": {
    "name": "Alex Perez",
    "university": "The New School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Sullivan & Cromwell LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Sullivan & Cromwell LLP",
+     "role": "Associate, General Practice Group",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "alex smith|university of west florida": {
@@ -3905,14 +4596,33 @@
    "name": "Alexa Konstantinos",
    "university": "The College of Wooster",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "CoverMyMeds"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "CoverMyMeds",
+     "role": "Vice President of Marketing",
+     "seniority": "senior",
+     "years": "2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 57
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -4041,16 +4751,55 @@
   "alexander e. mcquilkin|binghamton university": {
    "name": "Alexander E. McQuilkin",
    "university": "Binghamton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Other industry"
+   ],
+   "firms": [
+    "The Lundquist Institute for Biomedical Innovation at Harbor-UCLA Medical Center",
+    "CannonDesign",
+    "gkkworks"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Lundquist Institute for Biomedical Innovation at Harbor-UCLA Medical Center",
+     "role": "Vice President, Capital Projects and Facilities Management",
+     "seniority": "executive",
+     "years": "2015-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "CannonDesign",
+     "role": "Construction and project management role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "gkkworks",
+     "role": "Construction and project management role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "alexander field|santa clara university": {
@@ -4173,15 +4922,32 @@
   "alexander r. miller|washington and lee university": {
    "name": "Alexander R. Miller",
    "university": "Washington and Lee University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Licking Memorial Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Licking Memorial Hospital",
+     "role": "Member, Board of Trustees",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "alexander triantis|johns hopkins university": {
@@ -4216,12 +4982,14 @@
    "name": "Alexandra Keller",
    "university": "Smith College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -4230,16 +4998,44 @@
   "alexandra schimmer|denison university": {
    "name": "Alexandra Schimmer",
    "university": "Denison University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Office of the Ohio Attorney General",
+    "Vorys, Sater, Seymour and Pease"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Ohio Attorney General",
+     "role": "Solicitor General of Ohio (previously Chief Deputy Solicitor General)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Vorys, Sater, Seymour and Pease",
+     "role": "Litigation and appellate attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "alexandre f.t. yokochi|baylor university": {
@@ -4775,15 +5571,43 @@
   "alicia estey|university of vermont": {
    "name": "Alicia Estey",
    "university": "University of Vermont",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Boise School District",
+    "J.R. Simplot Company"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Boise School District",
+     "role": "Trustee, Board of Education",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "J.R. Simplot Company",
+     "role": "Corporate tax department staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "alicia fereday|university of new england": {
@@ -4820,12 +5644,14 @@
    "name": "Alicia Lloyd",
    "university": "Aquinas College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -4977,27 +5803,59 @@
   "alisa macksey|la salle university": {
    "name": "Alisa Macksey",
    "university": "La Salle University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Christian Brothers Conference",
+    "Lasallian Volunteers"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Christian Brothers Conference",
+     "role": "Interim Executive Director and Regional Programs Director",
+     "seniority": "executive",
+     "years": "2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lasallian Volunteers",
+     "role": "Director (previously Associate Director); earlier a volunteer",
+     "seniority": "executive",
+     "years": "2000",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "alisa robertson|university of wisconsin madison": {
    "name": "Alisa Robertson",
    "university": "University of Wisconsin Madison",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -5177,11 +6035,13 @@
    "name": "Alison Dougherty",
    "university": "Lafayette College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -5205,13 +6065,15 @@
    "name": "Alison Harmon",
    "university": "Montana State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -5265,15 +6127,34 @@
   "alison miller|virginia commonwealth university": {
    "name": "Alison Miller",
    "university": "Virginia Commonwealth University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Titan Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Titan Group",
+     "role": "Senior Human Resources Consultant",
+     "seniority": "senior",
+     "years": "2005-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "alison mincey|university of miami": {
