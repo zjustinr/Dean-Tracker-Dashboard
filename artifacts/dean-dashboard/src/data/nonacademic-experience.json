@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2835,
-  "no": 10960,
+  "yes": 2846,
+  "no": 10949,
   "unknown": 15675,
-  "namedFirm": 2381,
-  "flagOnly": 454,
-  "firms": 2838,
-  "sittingWithTie": 1708,
-  "sittingSeniorTie": 1030,
-  "researched": 1978
+  "namedFirm": 2389,
+  "flagOnly": 457,
+  "firms": 2846,
+  "sittingWithTie": 1716,
+  "sittingSeniorTie": 1036,
+  "researched": 1993
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -141599,13 +141599,15 @@
   "kelly statmore|gwynedd mercy university": {
    "name": "Kelly Statmore",
    "university": "Gwynedd Mercy University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -141774,11 +141776,13 @@
    "name": "Ken Cornell",
    "university": "Seattle Pacific University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -141801,13 +141805,15 @@
   "ken davis|south carolina state university": {
    "name": "Ken Davis",
    "university": "South Carolina State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -141877,31 +141883,80 @@
   "ken horstman|university of minnesota twin cities": {
    "name": "Ken Horstman",
    "university": "University of Minnesota Twin Cities",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Minnesota Health Action Group"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Minnesota Health Action Group",
+     "role": "Chairman of the Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "ken ihrer|the city college of new york": {
    "name": "Ken Ihrer",
    "university": "The City College of New York",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare & Pharma",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "CVS Health",
+    "Dallas Independent School District"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "CVS Health",
+     "role": "Senior Manager",
+     "seniority": "professional",
+     "years": "2000-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 18
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Dallas Independent School District",
+     "role": "TAC Manager",
+     "seniority": "professional",
+     "years": "1994-1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "ken mcallister|university of arizona": {
@@ -142022,11 +142077,13 @@
    "name": "Kendall D. Jones",
    "university": "Florida Agricultural and Mechanical University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -142255,15 +142312,43 @@
   "kenneth c. hall|florida international university": {
    "name": "Kenneth C. Hall",
    "university": "Florida International University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Financial Services"
+   ],
+   "firms": [
+    "Pennsylvania Department of Agriculture",
+    "MassMutual"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Pennsylvania Department of Agriculture",
+     "role": "International trade consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "MassMutual",
+     "role": "Estate and charitable planner",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kenneth c. herbst|wake forest university": {
@@ -142440,15 +142525,34 @@
   "kenneth lutchen|boston university": {
    "name": "Kenneth Lutchen",
    "university": "Boston University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Member, Advisory Committee for the Directorate for Engineering",
+     "seniority": "senior",
+     "years": "2016-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "kenneth m. lusht|penn state university": {
@@ -142677,15 +142781,32 @@
   "kenneth rahn|southern connecticut state university": {
    "name": "Kenneth Rahn",
    "university": "Southern Connecticut State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Milford Police Department"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Milford Police Department",
+     "role": "Deputy Chief (previously patrol officer, K-9 handler, detective, administrative supervisor)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "kenneth rogers|emerson college": {
@@ -143061,15 +143182,34 @@
    "name": "Kent Siltman",
    "university": "Illinois College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "Bound to Stay Bound Books, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "Bound to Stay Bound Books, Inc.",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2015-2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 63
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -143294,13 +143434,15 @@
   "kerry edmonds|hollins university": {
    "name": "Kerry Edmonds",
    "university": "Hollins University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -143310,11 +143452,13 @@
    "name": "Kerry Greenstein",
    "university": "Sweet Briar College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -143337,16 +143481,34 @@
   "kerry kruckel|long island university": {
    "name": "Kerry Kruckel",
    "university": "Long Island University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Oxbridge Academy of the Palm Beaches"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Oxbridge Academy of the Palm Beaches",
+     "role": "Director of Development",
+     "seniority": "senior",
+     "years": "2016-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "kerry laplante|university of rhode island": {
@@ -143426,12 +143588,14 @@
   "kerry witcher|university of tennessee": {
    "name": "Kerry Witcher",
    "university": "University of Tennessee",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -143468,15 +143632,32 @@
   "kevan buck|oklahoma city university": {
    "name": "Kevan Buck",
    "university": "Oklahoma City University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Visit Tulsa"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Visit Tulsa",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "kevin a. harris|virginia commonwealth university": {
