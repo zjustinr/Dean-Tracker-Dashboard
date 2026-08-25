@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3357,
-  "no": 10438,
+  "yes": 3365,
+  "no": 10430,
   "unknown": 15675,
-  "namedFirm": 2775,
+  "namedFirm": 2783,
   "flagOnly": 582,
-  "firms": 3389,
-  "sittingWithTie": 2102,
-  "sittingSeniorTie": 1274,
-  "researched": 2806
+  "firms": 3406,
+  "sittingWithTie": 2110,
+  "sittingSeniorTie": 1279,
+  "researched": 2821
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -255514,16 +255514,55 @@
   "vince alberta|university of nevada las vegas": {
    "name": "Vince Alberta",
    "university": "University of Nevada Las Vegas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Technology",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Las Vegas Convention and Visitors Authority",
+    "Sprint",
+    "Nevada Power Company (now NV Energy)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Las Vegas Convention and Visitors Authority",
+     "role": "Vice President of Public Affairs",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Sprint",
+     "role": "Communications/marketing role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Nevada Power Company (now NV Energy)",
+     "role": "Communications/marketing role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "vince dimiceli|hunter college": {
@@ -255561,11 +255600,13 @@
    "name": "Vince DiScipio",
    "university": "The College of Wooster",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -255589,12 +255630,14 @@
    "name": "Vincent A. Miller",
    "university": "Valdosta State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -255694,15 +255737,42 @@
   "vincent d. clark|pace university": {
    "name": "Vincent D. Clark",
    "university": "Pace University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "William-Emslie YMCA",
+    "Buffalo Urban League"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "William-Emslie YMCA",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Buffalo Urban League",
+     "role": "Vice President of Development and Communications",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "vincent d. rougeau|college of the holy cross": {
@@ -255956,11 +256026,13 @@
    "name": "Virginia J. Wise",
    "university": "Tulane University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -256014,12 +256086,14 @@
    "name": "Virginia M. Ambler",
    "university": "College of William & Mary",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -256074,12 +256148,14 @@
    "name": "Virginia Teachey",
    "university": "North Carolina Agricultural and Technical State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -256130,16 +256206,44 @@
   "viva l. mccarver|bowling green state university": {
    "name": "Viva L. McCarver",
    "university": "Bowling Green State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Consulting"
+   ],
+   "firms": [
+    "Nu Tek Steel, LLC",
+    "Infinite Consulting"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Nu Tek Steel, LLC",
+     "role": "Director of Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Infinite Consulting",
+     "role": "Human Resources role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "vivek choudhury|george washington university": {
@@ -256188,12 +256292,14 @@
    "name": "Vivian Garay Santiago",
    "university": "Occidental College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -256428,16 +256534,43 @@
   "w. rochelle calhoun|princeton university": {
    "name": "W. Rochelle Calhoun",
    "university": "Princeton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Planned Parenthood (Saratoga Springs, NY)",
+    "Girls Inc. of Holyoke, Massachusetts"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Planned Parenthood (Saratoga Springs, NY)",
+     "role": "Board of Directors member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Girls Inc. of Holyoke, Massachusetts",
+     "role": "President, Board of Directors",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "w. samuel easterling|iowa state university": {
@@ -256567,11 +256700,13 @@
    "name": "Wade Holmberg",
    "university": "University of St. Thomas (Minnesota)",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -256594,15 +256729,32 @@
   "wade rousse|louisiana state university system": {
    "name": "Wade Rousse",
    "university": "Louisiana State University System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Federal Reserve Bank of Chicago"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Federal Reserve Bank of Chicago",
+     "role": "Economic Outreach Specialist / Policy Research Specialist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "wadell ridley jr.|saint joseph's university": {
@@ -257075,15 +257227,53 @@
   "warren hills|western michigan university": {
    "name": "Warren Hills",
    "university": "Western Michigan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Tower Automotive",
+    "Gerber Products Co.",
+    "Sara Lee/Chef Pierre"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Tower Automotive",
+     "role": "Human Resources Executive",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Gerber Products Co.",
+     "role": "Plant Personnel Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Sara Lee/Chef Pierre",
+     "role": "Plant Personnel Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "warren o. nash, iii|georgetown college": {
@@ -257308,16 +257498,55 @@
   "wayne roberts|texas a&m university": {
    "name": "Wayne Roberts",
    "university": "Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Abrigo",
+    "Accruent",
+    "Baylor Scott & White"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Abrigo",
+     "role": "President and Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Accruent",
+     "role": "Chief Operating Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Baylor Scott & White",
+     "role": "Board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "wayne t. davis|university of tennessee": {
@@ -257485,15 +257714,47 @@
   "wendy hensel|university of hawaii system": {
    "name": "Wendy Hensel",
    "university": "University of Hawaii System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Alston & Bird",
+    "U.S. District Court for the Northern District of Georgia"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Alston & Bird",
+     "role": "Associate Attorney (labor and employment)",
+     "seniority": "professional",
+     "years": "1996-1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 18
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. District Court for the Northern District of Georgia",
+     "role": "Law Clerk to Judge Orinda Dale Evans",
+     "seniority": "professional",
+     "years": "1995-1996",
+     "endYear": 1996,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "wendy hinton|desales university": {
