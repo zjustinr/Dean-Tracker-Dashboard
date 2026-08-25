@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2312,
-  "no": 11483,
+  "yes": 2319,
+  "no": 11476,
   "unknown": 15675,
-  "namedFirm": 1933,
+  "namedFirm": 1940,
   "flagOnly": 379,
-  "firms": 2089,
-  "sittingWithTie": 1260,
-  "sittingSeniorTie": 722,
-  "researched": 1168
+  "firms": 2106,
+  "sittingWithTie": 1267,
+  "sittingSeniorTie": 726,
+  "researched": 1183
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -47664,13 +47664,15 @@
   "connie dyer|saint vincent college": {
    "name": "Connie Dyer",
    "university": "Saint Vincent College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -47879,13 +47881,15 @@
   "corey kelly|boston college": {
    "name": "Corey Kelly",
    "university": "Boston College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -47966,15 +47970,68 @@
   "cori bargmann|the rockefeller university": {
    "name": "Cori Bargmann",
    "university": "The Rockefeller University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 81,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "AstraZeneca PLC",
+    "Chan Zuckerberg Biohub Network",
+    "Simons Foundation",
+    "Chan Zuckerberg Initiative"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare & Pharma",
+     "firm": "AstraZeneca PLC",
+     "role": "Non-Executive Director, Board of Directors (member, Science Committee)",
+     "seniority": "executive",
+     "years": "2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 81
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chan Zuckerberg Biohub Network",
+     "role": "Board of Directors member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Simons Foundation",
+     "role": "Board of Directors member",
+     "seniority": "executive",
+     "years": "2023",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Chan Zuckerberg Initiative",
+     "role": "Head of Science",
+     "seniority": "executive",
+     "years": "2016-2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "cori bazemore-james|university of minnesota twin cities": {
@@ -48023,12 +48080,14 @@
    "name": "Corinne Peek-Asa",
    "university": "University of California San Diego",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -48038,12 +48097,14 @@
    "name": "Corlisse Thomas",
    "university": "Rutgers University-Newark",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -48265,15 +48326,32 @@
   "courtney jarrett|shenandoah university": {
    "name": "Courtney Jarrett",
    "university": "Shenandoah University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Cherry Bekaert (Cherry, Bekaert & Holland LLP)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Cherry Bekaert (Cherry, Bekaert & Holland LLP)",
+     "role": "Public accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "courtney knoll|university of north carolina": {
@@ -48380,11 +48458,13 @@
    "name": "Courtney Stephens",
    "university": "Muhlenberg College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -48485,15 +48565,32 @@
   "craig bickley|stockton university": {
    "name": "Craig Bickley",
    "university": "Stockton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Providence Public Schools (Providence Public School District, RI)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Providence Public Schools (Providence Public School District, RI)",
+     "role": "Senior Executive Director, Human Resources & Chief Human Resources Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "craig brownson|university of washington": {
@@ -48513,28 +48610,90 @@
   "craig burgess|morehouse college": {
    "name": "Craig Burgess",
    "university": "Morehouse College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector",
+    "Law (private practice)",
+    "Technology"
+   ],
+   "firms": [
+    "United Way of the Chattahoochee Valley",
+    "Columbus Ironworks Convention & Trade Center Authority",
+    "Nelson Mullins Riley & Scarborough LLP",
+    "BellSouth Corporation (later AT&T)",
+    "Barnwell, Whaley, Patterson & Helms LLC"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of the Chattahoochee Valley",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Columbus Ironworks Convention & Trade Center Authority",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Nelson Mullins Riley & Scarborough LLP",
+     "role": "Associate, later Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "BellSouth Corporation (later AT&T)",
+     "role": "Senior Litigation Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Barnwell, Whaley, Patterson & Helms LLC",
+     "role": "Special Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "craig chatriand|idaho state university": {
    "name": "Craig Chatriand",
    "university": "Idaho State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -48670,14 +48829,53 @@
    "name": "Craig Koch",
    "university": "Marian University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 39,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Browning Construction",
+    "Shiel Sexton",
+    "Hunt Construction Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Browning Construction",
+     "role": "Project Manager",
+     "seniority": "professional",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 39
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Shiel Sexton",
+     "role": "Construction management role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Hunt Construction Group",
+     "role": "Construction management role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -48686,16 +48884,45 @@
   "craig menzemer|university of akron": {
    "name": "Craig Menzemer",
    "university": "University of Akron",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "United States Steel Corporation",
+    "Alcoa"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "United States Steel Corporation",
+     "role": "Engineer (industry role)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Alcoa",
+     "role": "Engineer (industry role)",
+     "seniority": "professional",
+     "years": "1996",
+     "endYear": 1996,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "craig pintens|loyola marymount university": {
@@ -49150,11 +49377,13 @@
    "name": "Crystal L. Lopez",
    "university": "Rutgers University-Newark",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -49264,11 +49493,13 @@
    "name": "Curtis Burton",
    "university": "Saint Leo University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -49320,15 +49551,32 @@
    "name": "Curtis Reynolds",
    "university": "Baylor University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Gainesville-Alachua County Regional Airport Authority"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Gainesville-Alachua County Regional Airport Authority",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ],
    "flags": [
     "careerBackground: Finance and business operations"
