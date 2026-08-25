@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3349,
-  "no": 10446,
+  "yes": 3357,
+  "no": 10438,
   "unknown": 15675,
-  "namedFirm": 2768,
-  "flagOnly": 581,
-  "firms": 3384,
-  "sittingWithTie": 2095,
-  "sittingSeniorTie": 1269,
-  "researched": 2791
+  "namedFirm": 2775,
+  "flagOnly": 582,
+  "firms": 3389,
+  "sittingWithTie": 2102,
+  "sittingSeniorTie": 1274,
+  "researched": 2806
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -229632,16 +229632,44 @@
   "sharon hewitt watkins|barnard college": {
    "name": "Sharon Hewitt Watkins",
    "university": "Barnard College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "New York Public Library",
+    "KPMG"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "New York Public Library",
+     "role": "Vice President for Finance",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG",
+     "role": "CPA and Senior Audit Manager",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "sharon higgins|regis college": {
@@ -229705,16 +229733,33 @@
   "sharon kurek|virginia tech": {
    "name": "Sharon Kurek",
    "university": "Virginia Tech",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Georgia Department of Audits"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Georgia Department of Audits",
+     "role": "External Auditor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "sharon l. oswald|mississippi state university": {
@@ -229791,13 +229836,15 @@
   "sharon martin|clemson university": {
    "name": "Sharon Martin",
    "university": "Clemson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -229878,16 +229925,44 @@
   "sharon reich paulsen|university of vermont": {
    "name": "Sharon Reich Paulsen",
    "university": "University of Vermont",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Faegre & Benson (now Faegre Drinker Biddle & Reath LLP)",
+    "U.S. Department of Justice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Faegre & Benson (now Faegre Drinker Biddle & Reath LLP)",
+     "role": "Litigation Attorney",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Justice",
+     "role": "Trial Attorney, Civil Division",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "sharon thompson|duke university": {
@@ -229922,14 +229997,55 @@
    "name": "Sharonda Williams",
    "university": "Loyola University New Orleans",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "City of New Orleans",
+    "Fishman Haygood, L.L.P.",
+    "Sher Garner Cahill Richter Klein & Hilbert, L.L.C."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of New Orleans",
+     "role": "City Attorney",
+     "seniority": "executive",
+     "years": "2013-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Fishman Haygood, L.L.P.",
+     "role": "Special Counsel",
+     "seniority": "senior",
+     "years": "2016",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Sher Garner Cahill Richter Klein & Hilbert, L.L.C.",
+     "role": "Litigation Partner",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -229939,12 +230055,14 @@
    "name": "Sharra Hynes",
    "university": "Baylor University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -229981,28 +230099,48 @@
   "sharron m. evans|university of illinois at chicago": {
    "name": "Sharron M. Evans",
    "university": "University of Illinois at Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "The Law Firm of Ellis & Evans"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "The Law Firm of Ellis & Evans",
+     "role": "Founder / Attorney",
+     "seniority": "senior",
+     "years": "2019",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "shashank priya|michigan state university": {
    "name": "Shashank Priya",
    "university": "Michigan State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230025,15 +230163,32 @@
   "shaun b. keister|university of california davis": {
    "name": "Shaun B. Keister",
    "university": "University of California Davis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Campbell & Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Campbell & Company",
+     "role": "Annual Giving Consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "shaun nelms|university of rochester": {
@@ -230152,11 +230307,13 @@
    "name": "Shawn de Jong",
    "university": "College of the Holy Cross",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230194,11 +230351,13 @@
    "name": "Shawn L. Scoville",
    "university": "Oregon State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -230249,13 +230408,15 @@
   "shawn p. curtin|franklin and marshall college": {
    "name": "Shawn P. Curtin",
    "university": "Franklin and Marshall College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230338,12 +230499,14 @@
    "name": "Shawna Patterson-Stephens",
    "university": "Central Michigan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230353,12 +230516,14 @@
    "name": "Shay Little",
    "university": "Georgia Southern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -230367,16 +230532,33 @@
   "shayna m. chabner|california institute of technology": {
    "name": "Shayna M. Chabner",
    "university": "California Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-25",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "North County Times"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "North County Times",
+     "role": "Reporter",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "shea kidd brown|wake forest university": {
