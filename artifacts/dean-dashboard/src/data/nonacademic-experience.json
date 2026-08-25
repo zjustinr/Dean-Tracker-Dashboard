@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3165,
-  "no": 10630,
+  "yes": 3173,
+  "no": 10622,
   "unknown": 15675,
-  "namedFirm": 2637,
-  "flagOnly": 528,
-  "firms": 3226,
-  "sittingWithTie": 1964,
-  "sittingSeniorTie": 1194,
-  "researched": 2473
+  "namedFirm": 2644,
+  "flagOnly": 529,
+  "firms": 3233,
+  "sittingWithTie": 1971,
+  "sittingSeniorTie": 1197,
+  "researched": 2488
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -208966,13 +208966,15 @@
   "rhonda gibler|university of missouri": {
    "name": "Rhonda Gibler",
    "university": "University of Missouri",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 0,
    "sectors": [],
    "flags": [
@@ -209115,12 +209117,14 @@
    "name": "Ricardo Hall",
    "university": "Denison University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -209157,12 +209161,14 @@
   "rich czarnecki|michigan state university": {
    "name": "Rich Czarnecki",
    "university": "Michigan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -209217,15 +209223,47 @@
   "rich majerus|trinity college": {
    "name": "Rich Majerus",
    "university": "Trinity College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "National Outdoor Leadership School (NOLS)",
+    "Third Coast Analytics"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Outdoor Leadership School (NOLS)",
+     "role": "Vice President of Expeditions",
+     "seniority": "executive",
+     "years": "2024-2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Third Coast Analytics",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 63
+    }
    ]
   },
   "rich margerum|university of oregon": {
@@ -209259,12 +209297,14 @@
   "rich pewe|hillsdale college": {
    "name": "Rich Pewe",
    "university": "Hillsdale College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -209391,16 +209431,33 @@
   "richard allen|university of california berkeley": {
    "name": "Richard Allen",
    "university": "University of California Berkeley",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Google"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Google",
+     "role": "Research Scientist, Earthquake Team (Android Earthquake Alerts)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "richard b. evans|university of virginia": {
@@ -209493,16 +209550,35 @@
   "richard brow|missouri university of science and technology": {
    "name": "Richard Brow",
    "university": "Missouri University of Science and Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Sandia National Laboratories"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Sandia National Laboratories",
+     "role": "Member of Technical Staff, Ceramic Development Division",
+     "seniority": "professional",
+     "years": "1985-1997",
+     "endYear": 1997,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "richard buggs|california institute of integral studies": {
@@ -210452,13 +210528,15 @@
   "richard mendola|johns hopkins university": {
    "name": "Richard Mendola",
    "university": "Johns Hopkins University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -210468,12 +210546,14 @@
    "name": "Richard Mocarski",
    "university": "Northern Illinois University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -210581,15 +210661,32 @@
   "richard p. virgin|university of san diego": {
    "name": "Richard P. Virgin",
    "university": "University of San Diego",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Partnership 4 Kids"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Partnership 4 Kids",
+     "role": "Board Member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "richard pattenaude|university of arizona global campus": {
@@ -211068,14 +211165,45 @@
    "name": "Richard Y. Uchida",
    "university": "Colby College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Hinckley, Allen & Snyder LLP",
+    "Orr & Reno"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hinckley, Allen & Snyder LLP",
+     "role": "Partner, Real Estate Law Group",
+     "seniority": "senior",
+     "years": "2012-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Orr & Reno",
+     "role": "Partner",
+     "seniority": "senior",
+     "years": "2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -211176,11 +211304,13 @@
    "name": "Rick Barthelmas",
    "university": "Russell Sage College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -211292,26 +211422,71 @@
   "rick gallot|university of louisiana system": {
    "name": "Rick Gallot",
    "university": "University of Louisiana System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Cleco Corporation",
+    "Louisiana State Senate",
+    "Louisiana House of Representatives"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Energy & Industrials",
+     "firm": "Cleco Corporation",
+     "role": "Member, Board of Managers",
+     "seniority": "senior",
+     "years": "2016",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Louisiana State Senate",
+     "role": "State Senator, District 29",
+     "seniority": "senior",
+     "years": "2012-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Louisiana House of Representatives",
+     "role": "State Representative, District 11",
+     "seniority": "senior",
+     "years": "2000-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    }
    ]
   },
   "rick gonzalez|chapman university": {
    "name": "Rick Gonzalez",
    "university": "Chapman University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -211365,17 +211540,36 @@
   "rick page|miami university": {
    "name": "Rick Page",
    "university": "Miami University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Cleveland Clinic"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Cleveland Clinic",
+     "role": "Postdoctoral Fellow",
+     "seniority": "professional",
+     "years": "2008-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "rick paradis|san francisco state university": {
