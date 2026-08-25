@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2647,
-  "no": 11148,
+  "yes": 2658,
+  "no": 11137,
   "unknown": 15675,
-  "namedFirm": 2233,
-  "flagOnly": 414,
-  "firms": 2593,
-  "sittingWithTie": 1560,
-  "sittingSeniorTie": 924,
-  "researched": 1693
+  "namedFirm": 2243,
+  "flagOnly": 415,
+  "firms": 2615,
+  "sittingWithTie": 1570,
+  "sittingSeniorTie": 931,
+  "researched": 1708
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -105024,30 +105024,115 @@
   "janet l. williams|elon university": {
    "name": "Janet L. Williams",
    "university": "Elon University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Energy & Industrials",
+    "Consumer & Retail",
+    "Consulting"
+   ],
+   "firms": [
+    "Lockheed Martin Corporation",
+    "Corning, Inc.",
+    "Kraft Foods, Inc.",
+    "Ernst & Young"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Lockheed Martin Corporation",
+     "role": "Senior Manager (finance, pricing, business operations)",
+     "seniority": "senior",
+     "years": "2005-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Corning, Inc.",
+     "role": "Business Controller, Corporate and Steuben Glass Division",
+     "seniority": "senior",
+     "years": "1999-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Kraft Foods, Inc.",
+     "role": "Plant Controller",
+     "seniority": "senior",
+     "years": "1985-1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Ernst & Young",
+     "role": "Staff Auditor",
+     "seniority": "professional",
+     "years": "1983-1985",
+     "endYear": 1985,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "janet marsden|kenyon college": {
    "name": "Janet Marsden",
    "university": "Kenyon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "International Paper Company",
+    "Storey Communications"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "International Paper Company",
+     "role": "Corporate communications staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Storey Communications",
+     "role": "Managing Editor, custom publishing division",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "janet morgan riggs|gettysburg college": {
@@ -105098,16 +105183,35 @@
   "janet o'leary|city university of seattle": {
    "name": "Janet O'Leary",
    "university": "City University of Seattle",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Westward Seafoods, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Westward Seafoods, Inc.",
+     "role": "Director of Human Resources",
+     "seniority": "senior",
+     "years": "1989-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "janet s. carpenter|indiana university": {
@@ -105127,12 +105231,14 @@
   "janet scannell|carleton college": {
    "name": "Janet Scannell",
    "university": "Carleton College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -105358,15 +105464,32 @@
    "name": "Janine Wilcox",
    "university": "New York University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Wells Fargo"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Wells Fargo",
+     "role": "Vice President",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "careerBackground: Finance / CFO / Treasurer"
@@ -105646,12 +105769,14 @@
   "jason chapman|coe college": {
    "name": "Jason Chapman",
    "university": "Coe College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -105660,16 +105785,33 @@
   "jason cook|baylor university": {
    "name": "Jason Cook",
    "university": "Baylor University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "HealthSouth Corp."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "HealthSouth Corp.",
+     "role": "Assistant Vice President of Media and Communications",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jason d. coleman|university of nebraska at omaha": {
@@ -105690,11 +105832,13 @@
    "name": "Jason Diffenderfer",
    "university": "Baylor University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -105854,15 +105998,52 @@
   "jason j. nichols|university of alabama at birmingham": {
    "name": "Jason J. Nichols",
    "university": "University of Alabama at Birmingham",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Sjögren's Foundation",
+    "American Optometric Foundation",
+    "American Academy of Optometry"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Sjögren's Foundation",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Optometric Foundation",
+     "role": "Member, Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Academy of Optometry",
+     "role": "Chair, Research Committee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "jason keith|iowa state university": {
@@ -105898,16 +106079,44 @@
   "jason king|hofstra university": {
    "name": "Jason King",
    "university": "Hofstra University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Texas Ethics Commission",
+    "Akers & Boulware-Wells, LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Texas Ethics Commission",
+     "role": "Assistant General Counsel",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Akers & Boulware-Wells, LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jason king|university of southern california": {
@@ -106048,16 +106257,44 @@
   "jason macleod|d'youville university": {
    "name": "Jason MacLeod",
    "university": "D'Youville University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Energy & Industrials",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "O'Brien & Gere",
+    "Institute for the Application of Geospatial Technology"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "O'Brien & Gere",
+     "role": "Unspecified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Institute for the Application of Geospatial Technology",
+     "role": "MBA intern working directly with the CEO on business restructuring",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jason mastrogiovanni|university of florida": {
@@ -106264,12 +106501,14 @@
    "name": "Jason Ruckert",
    "university": "Embry-Riddle Aeronautical University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -106378,16 +106617,55 @@
   "jason tolbert|ouachita baptist university": {
    "name": "Jason Tolbert",
    "university": "Ouachita Baptist University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting",
+    "Technology"
+   ],
+   "firms": [
+    "Arkansas Baptist Foundation",
+    "PricewaterhouseCoopers",
+    "Alltel Information Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Arkansas Baptist Foundation",
+     "role": "Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "PricewaterhouseCoopers",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Alltel Information Services",
+     "role": "Staff Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jason tomlinson|texas woman's university": {
@@ -106408,11 +106686,13 @@
    "name": "Jason Trumbower",
    "university": "Florida State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -106581,15 +106861,96 @@
   "jay a. perman|university system of maryland": {
    "name": "Jay A. Perman",
    "university": "University System of Maryland",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 67,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "The Children's Cancer Foundation, Inc.",
+    "North American Society for Pediatric Gastroenterology and Nutrition",
+    "Virginia Department of Medical Assistance Services",
+    "Kennedy Krieger Institute",
+    "Mt. Washington Pediatric Hospital",
+    "Harbor Hospital Center"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Children's Cancer Foundation, Inc.",
+     "role": "Board Member",
+     "seniority": "executive",
+     "years": "1999-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 67
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "North American Society for Pediatric Gastroenterology and Nutrition",
+     "role": "President",
+     "seniority": "executive",
+     "years": "1988-1990",
+     "endYear": 1990,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Virginia Department of Medical Assistance Services",
+     "role": "Advisory Board member",
+     "seniority": "senior",
+     "years": "1997-1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Kennedy Krieger Institute",
+     "role": "Director, Pediatric Gastroenterology/Nutrition",
+     "seniority": "senior",
+     "years": "1989-1996",
+     "endYear": 1996,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Mt. Washington Pediatric Hospital",
+     "role": "Director, Feeding Disorders Program",
+     "seniority": "senior",
+     "years": "2001-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Harbor Hospital Center",
+     "role": "Consultant Staff, Department of Pediatrics",
+     "seniority": "professional",
+     "years": "1993-1996",
+     "endYear": 1996,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "jay b. silveria|university of arkansas system": {
