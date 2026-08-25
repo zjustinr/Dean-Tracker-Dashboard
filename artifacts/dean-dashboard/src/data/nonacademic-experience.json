@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2284,
-  "no": 11511,
+  "yes": 2291,
+  "no": 11504,
   "unknown": 15675,
-  "namedFirm": 1905,
-  "flagOnly": 379,
-  "firms": 2038,
-  "sittingWithTie": 1232,
-  "sittingSeniorTie": 702,
-  "researched": 1108
+  "namedFirm": 1913,
+  "flagOnly": 378,
+  "firms": 2057,
+  "sittingWithTie": 1240,
+  "sittingSeniorTie": 706,
+  "researched": 1123
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -33479,11 +33479,13 @@
    "name": "Byron Kennedy",
    "university": "Texas Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -34072,14 +34074,44 @@
    "name": "Caitlin Goss",
    "university": "Middlebury College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 57,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail",
+    "Consulting"
+   ],
+   "firms": [
+    "Rhino Foods",
+    "Bain & Company"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Rhino Foods",
+     "role": "Director of People and Culture",
+     "seniority": "senior",
+     "years": "2017-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Bain & Company",
+     "role": "Team Leader, Employee Engagement, Global Human Capital",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -34102,13 +34134,15 @@
   "cale fessler|university of arkansas": {
    "name": "Cale Fessler",
    "university": "University of Arkansas",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -34148,16 +34182,43 @@
   "calhoun allen|centenary college of louisiana": {
    "name": "Calhoun Allen",
    "university": "Centenary College of Louisiana",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Atkins Group",
+    "Anderson Marketing Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Atkins Group",
+     "role": "Marketing/advertising role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Anderson Marketing Group",
+     "role": "Marketing/advertising role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "calhoun l. kennedy jr.|wofford college": {
@@ -34192,12 +34253,14 @@
    "name": "Calvin Phillips",
    "university": "University of Minnesota Twin Cities",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -34250,16 +34313,33 @@
   "cameron etezady|temple university": {
    "name": "Cameron Etezady",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Hamburg & Golden, P.C."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hamburg & Golden, P.C.",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "cameron g. duncan|florida atlantic university": {
@@ -34552,11 +34632,13 @@
    "name": "Can Saygin",
    "university": "The University of Texas Rio Grande Valley",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -34795,12 +34877,14 @@
    "name": "Carey Usher",
    "university": "Mary Baldwin University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -34863,15 +34947,81 @@
   "carine m. feyten|texas woman's university system": {
    "name": "Carine M. Feyten",
    "university": "Texas Woman's University System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 81,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment",
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "KERA",
+    "North Texas Commission",
+    "Denton Economic Development Partnership",
+    "Dallas Arboretum and Botanical Garden",
+    "Federal Reserve Bank of Dallas"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Media & Entertainment",
+     "firm": "KERA",
+     "role": "Board member",
+     "seniority": "executive",
+     "years": "2016-2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 81
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "North Texas Commission",
+     "role": "Board member",
+     "seniority": "executive",
+     "years": "2025",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Denton Economic Development Partnership",
+     "role": "Board member",
+     "seniority": "executive",
+     "years": "2016",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Dallas Arboretum and Botanical Garden",
+     "role": "Member, CEO Advisory Council",
+     "seniority": "senior",
+     "years": "2018-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 65
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Federal Reserve Bank of Dallas",
+     "role": "Member, Business and Community Advisory Council (Chair from 2025)",
+     "seniority": "senior",
+     "years": "2018",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "carisa ramming|oklahoma state university": {
@@ -35000,16 +35150,66 @@
   "carl m. ries|mount holyoke college": {
    "name": "Carl M. Ries",
    "university": "Mount Holyoke College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Media & Entertainment",
+    "Consulting",
+    "Nonprofit & Foundations",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Los Angeles Opera",
+    "Avery Business Management",
+    "Alliance for College-Ready Public Schools",
+    "Crate & Barrel"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Los Angeles Opera",
+     "role": "Vice President and Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Avery Business Management",
+     "role": "Owner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Alliance for College-Ready Public Schools",
+     "role": "Accounting and managerial roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Crate & Barrel",
+     "role": "Accounting/managerial role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "carl mummert|marshall university": {
@@ -35282,12 +35482,14 @@
    "name": "Carllos Lassiter",
    "university": "Austin College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -35437,15 +35639,32 @@
   "carlton \"trey\" jones iii|louisiana state university": {
    "name": "Carlton \"Trey\" Jones III",
    "university": "Louisiana State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Roedel Parsons"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Roedel Parsons",
+     "role": "Civil litigation attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "carlton e. brown|clark atlanta university": {
@@ -35647,12 +35866,14 @@
   "carmen patricia parés parés|university of puerto rico at mayaguez": {
    "name": "Carmen Patricia Parés Parés",
    "university": "University of Puerto Rico at Mayaguez",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -35764,16 +35985,65 @@
   "carol ann boyle|adelphi university": {
    "name": "Carol Ann Boyle",
    "university": "Adelphi University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare & Pharma",
+    "Law (private practice)",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Biodex Medical Systems",
+    "Bachner Tally Polevoy and Misher LLP",
+    "Scheine Fusco Brandenstein and Rada PC",
+    "The Shield Institute"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Biodex Medical Systems",
+     "role": "Computer Specialist, Customer Support",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Bachner Tally Polevoy and Misher LLP",
+     "role": "Manager of Information Technology",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Scheine Fusco Brandenstein and Rada PC",
+     "role": "MIS Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Shield Institute",
+     "role": "Manager of Information Technology",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "carol ann mooney|saint mary's college": {
@@ -35821,15 +36091,43 @@
   "carol carpenter|st. john's college": {
    "name": "Carol Carpenter",
    "university": "St. John's College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "New York City Outward Bound",
+    "Paramount Pictures"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "New York City Outward Bound",
+     "role": "Communications Director and Annual Giving Officer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Paramount Pictures",
+     "role": "Advertising and publishing roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "carol cummings|rhode island college": {
