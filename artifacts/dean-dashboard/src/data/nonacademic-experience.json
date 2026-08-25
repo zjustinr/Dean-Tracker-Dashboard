@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2148,
-  "no": 11647,
+  "yes": 2132,
+  "no": 11663,
   "unknown": 15675,
-  "namedFirm": 1762,
-  "flagOnly": 386,
-  "firms": 1800,
-  "sittingWithTie": 1081,
-  "sittingSeniorTie": 602,
-  "researched": 835
+  "namedFirm": 1745,
+  "flagOnly": 387,
+  "firms": 1781,
+  "sittingWithTie": 1072,
+  "sittingSeniorTie": 596,
+  "researched": 838
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -3380,12 +3380,14 @@
    "name": "Akirah J. Bradley-Armstrong",
    "university": "University of California Santa Cruz",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -4253,11 +4255,13 @@
    "name": "Ale Kennedy",
    "university": "Clemson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -4582,11 +4586,13 @@
    "name": "Alex Wirth-Cauchon",
    "university": "Mount Holyoke College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -9797,7 +9803,7 @@
   "andrea chapdelaine|connecticut college": {
    "name": "Andrea Chapdelaine",
    "university": "Connecticut College",
-   "status": "yes",
+   "status": "no",
    "confidence": "high",
    "sitting": true,
    "indices": [
@@ -9805,34 +9811,9 @@
    ],
    "evidence": "research",
    "researchedOn": "2026-08-19",
-   "score": 58,
-   "seniority": "senior",
-   "categories": [
-    "Nonprofit & Foundations"
-   ],
-   "firms": [
-    "Association of American Colleges and Universities",
-    "Council of Independent Colleges"
-   ],
-   "ties": [
-    {
-     "kind": "board",
-     "category": "Nonprofit & Foundations",
-     "firm": "Association of American Colleges and Universities",
-     "role": "Board member",
-     "seniority": "senior",
-     "source": "research",
-     "score": 58
-    },
-    {
-     "kind": "board",
-     "category": "Nonprofit & Foundations",
-     "firm": "Council of Independent Colleges",
-     "role": "Board member",
-     "seniority": "senior",
-     "source": "research",
-     "score": 58
-    }
+   "stops": 3,
+   "sectors": [
+    "Academic"
    ]
   },
   "andrea cornett-scott|mary baldwin university": {
@@ -20193,31 +20174,15 @@
   "benjamin m. batey|bowling green state university": {
    "name": "Benjamin M. Batey",
    "university": "Bowling Green State University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "usr2"
    ],
-   "score": 26,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Wood County Health Department"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Wood County Health Department",
-     "role": "Health Commissioner",
-     "seniority": "unknown",
-     "source": "priorInstitution",
-     "score": 26
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "benjamin ola akande|westminster college (missouri)": {
@@ -22533,32 +22498,16 @@
   "bob crabtree|tennessee technological university": {
    "name": "Bob Crabtree",
    "university": "Tennessee Technological University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "score": 26,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Putnam County Sheriff's Office"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Putnam County Sheriff's Office",
-     "role": "Chief Deputy",
-     "seniority": "unknown",
-     "source": "priorInstitution",
-     "score": 26
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "bob fass|pitzer college": {
@@ -24610,61 +24559,29 @@
   "brandon paradise|rutgers university": {
    "name": "Brandon Paradise",
    "university": "Rutgers University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "r1law"
    ],
-   "score": 22,
-   "seniority": "professional",
-   "categories": [
-    "Law (private practice)"
-   ],
-   "firms": [
-    "Wachtell, Lipton, Rosen & Katz"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Law (private practice)",
-     "sector": "Industry",
-     "firm": "Wachtell, Lipton, Rosen & Katz",
-     "role": "Litigation Associate",
-     "seniority": "professional",
-     "source": "priorInstitution",
-     "score": 22
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "brandon pate|university of indianapolis": {
    "name": "Brandon Pate",
    "university": "University of Indianapolis",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "score": 36,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Johnson County Sheriff's Office"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Johnson County Sheriff's Office",
-     "seniority": "unknown",
-     "endYear": 2015,
-     "source": "priorInstitution",
-     "score": 36
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "brandon robinson|university of arkansas for medical sciences": {
@@ -29961,30 +29878,15 @@
   "c. rhett jackson|university of georgia": {
    "name": "C. Rhett Jackson",
    "university": "University of Georgia",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "usag"
    ],
-   "score": 26,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "King County, WA"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "King County, WA",
-     "seniority": "unknown",
-     "source": "priorInstitution",
-     "score": 26
-    }
+   "stops": 2,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "c. roland haden|arizona state university": {
@@ -34179,31 +34081,15 @@
   "chad cheek|wake forest university": {
    "name": "Chad Cheek",
    "university": "Wake Forest University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "usadvancement"
    ],
-   "score": 53,
-   "seniority": "executive",
-   "categories": [
-    "Law (private practice)"
-   ],
-   "firms": [
-    "Elephant In The Room (Winston-Salem creative agency)"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Law (private practice)",
-     "sector": "Industry",
-     "firm": "Elephant In The Room (Winston-Salem creative agency)",
-     "role": "Owner/Managing Director",
-     "seniority": "executive",
-     "source": "priorInstitution",
-     "score": 53
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "chad gentry|lipscomb university": {
@@ -36502,32 +36388,15 @@
   "chet madison jr.|california state university, sacramento": {
    "name": "Chet Madison Jr.",
    "university": "California State University, Sacramento",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "score": 43,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Sacramento County Sheriff's Office"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Sacramento County Sheriff's Office",
-     "role": "Deputy Sheriff",
-     "seniority": "unknown",
-     "endYear": 2021,
-     "source": "priorInstitution",
-     "score": 43
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "chevanne devaney|hobart william smith colleges": {
@@ -42150,31 +42019,15 @@
   "colleen chaney|eastern kentucky university": {
    "name": "Colleen Chaney",
    "university": "Eastern Kentucky University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "usr2"
    ],
-   "score": 26,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Madison County, Kentucky"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Madison County, Kentucky",
-     "role": "Deputy Judge Executive",
-     "seniority": "unknown",
-     "source": "priorInstitution",
-     "score": 26
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "colleen dwyer donegan|st. john fisher university": {
@@ -50255,15 +50108,30 @@
   "david cho|george mason university": {
    "name": "David Cho",
    "university": "George Mason University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": false,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Sutherland Asbill & Brennan"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "sector": "Industry",
+     "firm": "Sutherland Asbill & Brennan",
+     "seniority": "unknown",
+     "source": "priorInstitution",
+     "score": 26
+    }
    ]
   },
   "david comroe|teachers college, columbia university": {
@@ -50953,7 +50821,7 @@
    "score": 18,
    "seniority": "unknown",
    "categories": [
-    "Nonprofit & Foundations"
+    "Technology"
    ],
    "firms": [
     "Bell Laboratories"
@@ -50961,8 +50829,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Nonprofit & Foundations",
-     "sector": "Nonprofit",
+     "category": "Technology",
+     "sector": "Industry",
      "firm": "Bell Laboratories",
      "role": "Department Head, Physics Division",
      "seniority": "unknown",
@@ -65975,32 +65843,16 @@
   "ellen bemis|husson university": {
    "name": "Ellen Bemis",
    "university": "Husson University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "score": 53,
-   "seniority": "executive",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Aroostook County Action Program"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Aroostook County Action Program",
-     "role": "Chief Financial Officer",
-     "seniority": "executive",
-     "source": "priorInstitution",
-     "score": 53
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "ellen bredehoft|rutgers university new brunswick": {
@@ -74265,7 +74117,7 @@
    "score": 22,
    "seniority": "professional",
    "categories": [
-    "Nonprofit & Foundations"
+    "Technology"
    ],
    "firms": [
     "AT&T Bell Laboratories"
@@ -74273,8 +74125,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Nonprofit & Foundations",
-     "sector": "Nonprofit",
+     "category": "Technology",
+     "sector": "Industry",
      "firm": "AT&T Bell Laboratories",
      "role": "Member of Technical Staff",
      "seniority": "professional",
@@ -76431,17 +76283,32 @@
   "ginette garza brown|tennessee state university": {
    "name": "Ginette Garza Brown",
    "university": "Tennessee State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Bass, Berry & Sims"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "sector": "Industry",
+     "firm": "Bass, Berry & Sims",
+     "role": "Associate Attorney",
+     "seniority": "professional",
+     "source": "priorInstitution",
+     "score": 22
+    }
    ]
   },
   "ginny painter|marshall university": {
@@ -83968,7 +83835,7 @@
    "score": 32,
    "seniority": "senior",
    "categories": [
-    "Nonprofit & Foundations"
+    "Other industry"
    ],
    "firms": [
     "Smith Kline & French Laboratories"
@@ -83976,8 +83843,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Nonprofit & Foundations",
-     "sector": "Nonprofit",
+     "category": "Other industry",
+     "sector": "Industry",
      "firm": "Smith Kline & French Laboratories",
      "role": "Senior Director of Pathology and Toxicology",
      "seniority": "senior",
@@ -89266,31 +89133,14 @@
    "name": "James Lumpkin",
    "university": "Oklahoma State University",
    "status": "yes",
-   "confidence": "high",
+   "confidence": "low",
    "sitting": false,
    "indices": [
     "r1bschool"
    ],
-   "score": 18,
-   "seniority": "professional",
-   "categories": [
-    "Law (private practice)"
-   ],
-   "firms": [
-    "Unknown (previous deanships at Bradley U, Louisiana Tech)"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Law (private practice)",
-     "sector": "Industry",
-     "firm": "Unknown (previous deanships at Bradley U, Louisiana Tech)",
-     "role": "Associate Dean (and Gene Brauns Chair professor)",
-     "seniority": "professional",
-     "endYear": 2000,
-     "source": "priorInstitution",
-     "score": 18
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ],
    "flags": [
     "hasConsultingBg"
@@ -89372,32 +89222,16 @@
   "james m. shuart|hofstra university": {
    "name": "James M. Shuart",
    "university": "Hofstra University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "usr2"
    ],
-   "score": 18,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Nassau County, NY government"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Nassau County, NY government",
-     "role": "Deputy Nassau County Executive (formerly Commissioner of Social Services, Nassau County)",
-     "seniority": "unknown",
-     "endYear": 1976,
-     "source": "priorInstitution",
-     "score": 18
-    }
+   "stops": 2,
+   "sectors": [
+    "Academic",
+    "Unclassified"
    ]
   },
   "james m. simmons|lamar university": {
@@ -94282,7 +94116,7 @@
    "score": 26,
    "seniority": "unknown",
    "categories": [
-    "Nonprofit & Foundations"
+    "Healthcare & Pharma"
    ],
    "firms": [
     "Abbott Laboratories"
@@ -94290,8 +94124,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Nonprofit & Foundations",
-     "sector": "Nonprofit",
+     "category": "Healthcare & Pharma",
+     "sector": "Industry",
      "firm": "Abbott Laboratories",
      "role": "Senior IT Executive",
      "seniority": "unknown",
@@ -94315,7 +94149,7 @@
    "score": 22,
    "seniority": "professional",
    "categories": [
-    "Government & Public Sector"
+    "Nonprofit & Foundations"
    ],
    "firms": [
     "Community Foundation of Muncie and Delaware County",
@@ -94324,8 +94158,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
      "firm": "Community Foundation of Muncie and Delaware County",
      "role": "Development Officer",
      "seniority": "professional",
@@ -94334,8 +94168,8 @@
     },
     {
      "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
      "firm": "Community Foundation for Muncie and Delaware County",
      "role": "Development Officer",
      "seniority": "professional",
@@ -95387,31 +95221,15 @@
   "jeff konya|san jose state university": {
    "name": "Jeff Konya",
    "university": "San Jose State University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "usr2"
    ],
-   "score": 40,
-   "seniority": "senior",
-   "categories": [
-    "Law (private practice)"
-   ],
-   "firms": [
-    "Cal State Bakersfield"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Law (private practice)",
-     "sector": "Industry",
-     "firm": "Cal State Bakersfield",
-     "role": "Director of Athletics",
-     "seniority": "senior",
-     "source": "priorInstitution",
-     "score": 40
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "jeff l. pittman|saint louis community college": {
@@ -98131,31 +97949,15 @@
   "jennifer l. hooker, esq.|clark atlanta university": {
    "name": "Jennifer L. Hooker, Esq.",
    "university": "Clark Atlanta University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "usr2"
    ],
-   "score": 53,
-   "seniority": "executive",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Memphis-Shelby County Schools"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Memphis-Shelby County Schools",
-     "role": "General Counsel and Chief Legal Officer",
-     "seniority": "executive",
-     "source": "priorInstitution",
-     "score": 53
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "jennifer l. hunt|university of florida": {
@@ -102819,32 +102621,15 @@
   "jin chang|california institute of technology": {
    "name": "Jin Chang",
    "university": "California Institute of Technology",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "score": 63,
-   "seniority": "executive",
-   "categories": [
-    "Nonprofit & Foundations"
-   ],
-   "firms": [
-    "Fermi National Accelerator Laboratory"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Nonprofit & Foundations",
-     "sector": "Nonprofit",
-     "firm": "Fermi National Accelerator Laboratory",
-     "role": "Deputy CIO",
-     "seniority": "executive",
-     "endYear": 2017,
-     "source": "priorInstitution",
-     "score": 63
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "jin sook lee|university of california santa barbara": {
@@ -103722,30 +103507,17 @@
    "indices": [
     "usag"
    ],
-   "score": 36,
+   "score": 26,
    "seniority": "unknown",
    "categories": [
     "Government & Public Sector",
     "Nonprofit & Foundations"
    ],
    "firms": [
-    "Onondaga County, New York",
     "Onondaga County District Attorney's Office",
     "Syracuse Common Council"
    ],
    "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Onondaga County, New York",
-     "role": "County Executive (three terms; first woman elected to the office)",
-     "seniority": "unknown",
-     "years": "2008-2018",
-     "endYear": 2018,
-     "source": "leader-research.career",
-     "score": 36
-    },
     {
      "kind": "employment",
      "category": "Government & Public Sector",
@@ -120391,31 +120163,16 @@
   "kathleen weigel|lynn university": {
    "name": "Kathleen Weigel",
    "university": "Lynn University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": true,
    "indices": [
     "useducation"
    ],
-   "score": 40,
-   "seniority": "senior",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Palm Beach County Schools"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Palm Beach County Schools",
-     "role": "Principal",
-     "seniority": "senior",
-     "source": "leader-research.career",
-     "score": 40
-    }
+   "stops": 2,
+   "sectors": [
+    "Unclassified",
+    "Academic"
    ]
   },
   "kathryn \"katie\" cardarelli|university of louisville": {
@@ -126179,7 +125936,7 @@
    "score": 40,
    "seniority": "senior",
    "categories": [
-    "Government & Public Sector"
+    "Other industry"
    ],
    "firms": [
     "Harris County Sports & Convention Corporation (NRG Park)"
@@ -126187,8 +125944,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
+     "category": "Other industry",
+     "sector": "Industry",
      "firm": "Harris County Sports & Convention Corporation (NRG Park)",
      "role": "Executive Director",
      "seniority": "senior",
@@ -129366,8 +129123,7 @@
    "score": 70,
    "seniority": "executive",
    "categories": [
-    "Nonprofit & Foundations",
-    "Government & Public Sector"
+    "Nonprofit & Foundations"
    ],
    "firms": [
     "Museum of Fine Arts, St. Petersburg, Florida",
@@ -129412,8 +129168,8 @@
     },
     {
      "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
      "firm": "Los Angeles County Museum of Art (LACMA)",
      "role": "Staff roles",
      "seniority": "professional",
@@ -135094,32 +134850,15 @@
   "lee f. jackson|university of north texas system": {
    "name": "Lee F. Jackson",
    "university": "University of North Texas System",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "ussystem"
    ],
-   "score": 22,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Dallas County, Texas"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Dallas County, Texas",
-     "role": "Dallas County Judge",
-     "seniority": "unknown",
-     "endYear": 2002,
-     "source": "priorInstitution",
-     "score": 22
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "lee gorsuch|city university of seattle": {
@@ -148948,7 +148687,7 @@
    "score": 40,
    "seniority": "senior",
    "categories": [
-    "Government & Public Sector"
+    "Healthcare Providers"
    ],
    "firms": [
     "Cook County Health and Hospitals System"
@@ -148956,8 +148695,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
+     "category": "Healthcare Providers",
+     "sector": "Healthcare Provider",
      "firm": "Cook County Health and Hospitals System",
      "role": "Executive Director",
      "seniority": "senior",
@@ -153172,30 +152911,15 @@
   "matthew lige|eastern michigan university": {
    "name": "Matthew Lige",
    "university": "Eastern Michigan University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "score": 26,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Washtenaw County public safety agencies"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Washtenaw County public safety agencies",
-     "seniority": "unknown",
-     "source": "priorInstitution",
-     "score": 26
-    }
+   "stops": 1,
+   "sectors": [
+    "Academic"
    ]
   },
   "matthew loden|rice university": {
@@ -169567,7 +169291,7 @@
    "score": 22,
    "seniority": "professional",
    "categories": [
-    "Government & Public Sector"
+    "Law (private practice)"
    ],
    "firms": [
     "Fulton County Attorney's Office"
@@ -169575,8 +169299,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
+     "category": "Law (private practice)",
+     "sector": "Industry",
      "firm": "Fulton County Attorney's Office",
      "role": "Senior Attorney",
      "seniority": "professional",
@@ -172683,32 +172407,16 @@
   "patti hetrick|luther college": {
    "name": "Patti Hetrick",
    "university": "Luther College",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "score": 40,
-   "seniority": "senior",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Anoka County, Minnesota"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Anoka County, Minnesota",
-     "role": "Budget Director",
-     "seniority": "senior",
-     "source": "priorInstitution",
-     "score": 40
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "patti miles|university of maine": {
@@ -176882,31 +176590,15 @@
   "phil tyler|gonzaga university": {
    "name": "Phil Tyler",
    "university": "Gonzaga University",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "score": 40,
-   "seniority": "senior",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Spokane County Sheriff's Office"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Spokane County Sheriff's Office",
-     "role": "Associate Director, Campus Security & Public Safety",
-     "seniority": "senior",
-     "source": "priorInstitution",
-     "score": 40
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "philip a. glotzbach|skidmore college": {
@@ -177432,15 +177124,31 @@
   "phyllis c. taite|university of oklahoma": {
    "name": "Phyllis C. Taite",
    "university": "University of Oklahoma",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": false,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Zimmerman Kiser & Sutcliffe"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "sector": "Industry",
+     "firm": "Zimmerman Kiser & Sutcliffe",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "priorInstitution",
+     "score": 22
+    }
    ]
   },
   "phyllis vetter|university of utah": {
@@ -185735,7 +185443,7 @@
    "score": 70,
    "seniority": "executive",
    "categories": [
-    "Government & Public Sector"
+    "Healthcare Providers"
    ],
    "firms": [
     "Ellis County Animal Hospital"
@@ -185743,8 +185451,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
+     "category": "Healthcare Providers",
+     "sector": "Healthcare Provider",
      "firm": "Ellis County Animal Hospital",
      "role": "Owner and practicing veterinarian, Ellis County Animal Hospital, Shattuck, Oklahoma",
      "seniority": "executive",
@@ -189131,32 +188839,15 @@
   "robert l. king|state university of new york": {
    "name": "Robert L. King",
    "university": "State University of New York",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "ussystem"
    ],
-   "score": 22,
-   "seniority": "unknown",
-   "categories": [
-    "Government & Public Sector"
-   ],
-   "firms": [
-    "Erie County, New York"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
-     "firm": "Erie County, New York",
-     "role": "Erie County Executive; former NY State Assembly member",
-     "seniority": "unknown",
-     "endYear": 2000,
-     "source": "priorInstitution",
-     "score": 22
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "robert l. manuel|depaul university": {
@@ -192132,7 +191823,7 @@
    "score": 26,
    "seniority": "unknown",
    "categories": [
-    "Government & Public Sector"
+    "Nonprofit & Foundations"
    ],
    "firms": [
     "Orange County Community Foundation"
@@ -192140,8 +191831,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
      "firm": "Orange County Community Foundation",
      "role": "Development role",
      "seniority": "unknown",
@@ -195266,7 +194957,7 @@
    "score": 22,
    "seniority": "professional",
    "categories": [
-    "Government & Public Sector"
+    "Law (private practice)"
    ],
    "firms": [
     "Office of the State Attorney, Broward County, Florida"
@@ -195274,8 +194965,8 @@
    "ties": [
     {
      "kind": "employment",
-     "category": "Government & Public Sector",
-     "sector": "Government",
+     "category": "Law (private practice)",
+     "sector": "Industry",
      "firm": "Office of the State Attorney, Broward County, Florida",
      "role": "Prosecuting Attorney, Career Criminal and Special Prosecutions Unit",
      "seniority": "professional",
@@ -216333,15 +216024,31 @@
   "terri lynn helge|texas a&m university": {
    "name": "Terri Lynn Helge",
    "university": "Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": false,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Thompson & Knight"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "sector": "Industry",
+     "firm": "Thompson & Knight",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "priorInstitution",
+     "score": 22
+    }
    ]
   },
   "terri rosen deutsch|hunter college": {
@@ -219506,16 +219213,32 @@
   "tim spivey|pepperdine university": {
    "name": "Tim Spivey",
    "university": "Pepperdine University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": false,
    "indices": [
     "r1university",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "New Vintage Church"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "sector": "Nonprofit",
+     "firm": "New Vintage Church",
+     "role": "Senior Minister/Founding Pastor",
+     "seniority": "unknown",
+     "source": "priorInstitution",
+     "score": 26
+    }
    ]
   },
   "tim stump|portland state university": {
@@ -220733,31 +220456,15 @@
   "todd rogers|university of colorado boulder": {
    "name": "Todd Rogers",
    "university": "University of Colorado Boulder",
-   "status": "yes",
-   "confidence": "high",
+   "status": "no",
+   "confidence": "medium",
    "sitting": false,
    "indices": [
     "r1law"
    ],
-   "score": 22,
-   "seniority": "professional",
-   "categories": [
-    "Law (private practice)"
-   ],
-   "firms": [
-    "Lathrop & Gage"
-   ],
-   "ties": [
-    {
-     "kind": "employment",
-     "category": "Law (private practice)",
-     "sector": "Industry",
-     "firm": "Lathrop & Gage",
-     "role": "Attorney",
-     "seniority": "professional",
-     "source": "priorInstitution",
-     "score": 22
-    }
+   "stops": 1,
+   "sectors": [
+    "Unclassified"
    ]
   },
   "todd ruppar|loyola university chicago": {
@@ -229449,12 +229156,10 @@
    "score": 63,
    "seniority": "executive",
    "categories": [
-    "Nonprofit & Foundations",
-    "Law (private practice)"
+    "Nonprofit & Foundations"
    ],
    "firms": [
-    "American Bar Association",
-    "Nelson Mullins Riley & Scarborough"
+    "American Bar Association"
    ],
    "ties": [
     {
@@ -229468,16 +229173,6 @@
      "endYear": 2015,
      "source": "leader-research.career",
      "score": 63
-    },
-    {
-     "kind": "employment",
-     "category": "Law (private practice)",
-     "sector": "Industry",
-     "firm": "Nelson Mullins Riley & Scarborough",
-     "role": "Partner",
-     "seniority": "senior",
-     "source": "leader-research.career",
-     "score": 40
     }
    ]
   },

@@ -76,10 +76,17 @@ const ACAD_ABBREV = stems([
   "nyu\\b", "ucla", "ucsd", "ucsf", "ucsb", "uf-ifas", "stevens institute", "cornell\\b",
   // Short and informal school names in the corpus
   "rutgers\\b", "pitt\\b", "pitt business", "pitt medicine", "sacramento state",
-  "missouri s&t", "missouri s\\.?&?t", "tuskegee\\b", "vin university", "vin",
+  "missouri s&t", "missouri s\\.?&?t", "tuskegee\\b", "vinuniversity", "vin university",
   "mcgill", "williston northampton", "hotchkiss", "chautauqua", "berklee\\b",
   "fermilab", "augustine institute", "cal arts", "california institute", "art institute",
   "new hampshire institute", "lutheran high", "high school", "secondary school",
+  // Higher-education sector bodies, by acronym. Their spelled-out names carry a
+  // school word and are caught above; the acronym alone matches nothing, and the
+  // nonprofit rule would otherwise count a seat on one as a tie outside academia.
+  // It is not one -- the constituency is colleges, so the network is the same
+  // higher-education network the university seat already carries.
+  "aacsb\\b", "aacu\\b", "aac&u\\b", "naspa\\b", "cupa\\b", "nacubo\\b",
+  "educause\\b", "aascu\\b", "acenet\\b", "nitle\\b",
 ]);
 /**
  * Build the academic recognizer over a corpus.
@@ -168,21 +175,23 @@ const GOVT = stems([
   "infantry (?:division|brigade|battalion)", "brigade combat team",
   // More government entities
   "county (?:board|court|commission|administration|government|clerk)", "government of",
-  "[a-z]+ county\\b",
 ]);
 // A US-flavoured entity name ending in a corporate-sounding word is still
 // federal: the DFC, the TVA, the USPS. Checked alongside GOVT.
+const BARE_COUNTY = /^[a-z][a-z .'-]{2,30} county$/i;
 const US_ENTITY = /(?:\bu\.?s\.?\b|\bunited states\b|\bnational\b|\bfederal\b).{0,40}\b(?:corporation|authority|administration|agency|commission|bureau|service|committee|board)\b/i;
 const NONPROFIT = stems([
   "foundation", "nonprofit", "non-profit", "ngo\\b", "charitable", "philanthrop",
   "association", "society", "council", "institute for", "museum", "public library",
   "ymca\\b", "red cross", "united way", "think tank", "brookings", "rand corporation",
   "urban institute", "aspen institute", "carnegie (?:corporation|endowment)",
-  "ford foundation", "gates foundation", "acls\\b", "aacsb\\b", "naacp\\b",
+  "ford foundation", "gates foundation", "acls\\b", "naacp\\b",
   "girl scouts", "boy scouts", "goodwill", "habitat for humanity", "church",
   "diocese", "archdiocese", "synagogue", "ministries", "sisters of", "congregation",
-  // Research institutes and labs
-  "laborator", "research institute", "research center", "research lab",
+  // Research institutes and labs. NOT a bare "laborator" stem -- that claimed
+  // Abbott Laboratories and Bell Laboratories, which are a pharma company and a
+  // corporate R&D arm, before the industry rules ever ran.
+  "research institute", "research center", "research lab",
   "jackson laboratory", "scripps research", "national renewable energy",
   "southwest research", "fermi lab", "lawrence (?:berkeley|livermore|national)",
   "oak ridge", "sandia national", "argonne national", "brookhaven national",
@@ -328,12 +337,21 @@ const INDUSTRY = [
     "davis polk", "debevoise", "gibson dunn", "paul weiss", "arnold ?(?:&|and) ?porter",
     "morrison ?(?:&|and) ?foerster", "baker mckenzie", "hogan lovells", "dla piper",
     "greenberg traurig", "k&l gates", "burr ?(?:&|and) ?forman", "attorneys at law",
-    // Additional law firms from unclassified list with flexible matching for punctuation
-    "steptoe", "gray plant", "munger", "lathrop", "wyatt", "shea",
-    "archer", "mcgrath", "nelson", "baker", "barnes", "bass berry",
-    "bradley", "alston", "anglin", "allen norton", "katz",
-    "zinsman", "winston", "waller", "wallace", "donelson",
-    "waller lansden", "baker & mckenzie", "baker botts", "baker donelson",
+    // Firms named in the corpus's own prior-institution cells. Each carries
+    // enough of the partnership name to identify the firm: a bare surname here
+    // matches any organisation that merely STARTS with the word, which filed
+    // Barnes & Noble, Archer Daniels Midland and the Winston-Salem Journal as
+    // law practices. Commas are optional because the corpus spells these both
+    // ways ("Munger, Tolles & Olson" and "Munger Tolles & Olson").
+    "steptoe ?(?:&|and) ?johnson", "gray plant mooty", "munger,? ?tolles",
+    "lathrop gpm", "wyatt,? ?tarrant", "shea ?(?:&|and) ?gardner",
+    "archer ?(?:&|and) ?greiner", "mcgrath north", "nelson ?\\| ?williams",
+    "baker botts", "baker ?(?:&|and) ?mckenzie", "baker donelson", "bakerhostetler",
+    "baker,? donelson", "barnes ?(?:&|and) ?thornburg", "bass,? ?berry",
+    "bradley arant", "alston ?(?:&|and) ?bird", "anglin reichmann",
+    "allen norton ?(?:&|and) ?blue", "zimmerman kiser", "winston ?(?:&|and) ?strawn",
+    "waller lansden", "wallace jordan", "sutherland asbill", "thompson ?(?:&|and) ?knight",
+    "vorys,? ?sater", "akerman senterfitt", "ziemer,? ?stayman", "kahn,? ?dees",
   ])],
 ];
 
@@ -391,7 +409,7 @@ export function makeClassifier(academic, { onUnclassified } = {}) {
     const s = String(raw || "").trim().replace(/\s+/g, " ").replace(ANNOTATION, "").trim();
     if (!s || s.length < 2 || NON_ORG.test(s) || BOOKKEEPING.test(s)) return null;
     if (academic.isAcademic(s)) return { sector: "Academic" };
-    if (GOVT.test(s) || US_ENTITY.test(s)) return nonAcademic("Government", s);
+    if (GOVT.test(s) || US_ENTITY.test(s) || BARE_COUNTY.test(s)) return nonAcademic("Government", s);
     if (NONPROFIT.test(s)) return nonAcademic("Nonprofit", s);
     if (HEALTH_PROVIDER.test(s)) return nonAcademic("Healthcare Provider", s);
     for (const [category, re] of INDUSTRY) if (re.test(s)) return { sector: "Industry", category, firm: s };
