@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2355,
-  "no": 11440,
+  "yes": 2360,
+  "no": 11435,
   "unknown": 15675,
-  "namedFirm": 1976,
-  "flagOnly": 379,
-  "firms": 2169,
-  "sittingWithTie": 1303,
-  "sittingSeniorTie": 749,
-  "researched": 1243
+  "namedFirm": 1984,
+  "flagOnly": 376,
+  "firms": 2183,
+  "sittingWithTie": 1311,
+  "sittingSeniorTie": 756,
+  "researched": 1258
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -55596,30 +55596,68 @@
   "dave stanfield|sarah lawrence college": {
    "name": "Dave Stanfield",
    "university": "Sarah Lawrence College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Council of International Schools"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Council of International Schools",
+     "role": "Head of Research and Development",
+     "seniority": "senior",
+     "years": "2014-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "dave traube|marshall university": {
    "name": "Dave Traube",
    "university": "Marshall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Raleigh County Board of Education"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Raleigh County Board of Education",
+     "role": "Director of Public Relations",
+     "seniority": "senior",
+     "years": "2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "david (dave) gallagher|california institute of technology": {
@@ -55835,11 +55873,13 @@
    "name": "David A. Lively",
    "university": "Northwestern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -55937,15 +55977,53 @@
   "david a. stone|oakland university": {
    "name": "David A. Stone",
    "university": "Oakland University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Fenway Community Health Center",
+    "Tufts New England Medical Center",
+    "Boston Department of Health and Hospitals"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Fenway Community Health Center",
+     "role": "Director of Research",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Tufts New England Medical Center",
+     "role": "Founding Associate Director, Pediatric and Adolescent Health Research Center",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Boston Department of Health and Hospitals",
+     "role": "Senior Research Associate, Institute for Urban Health Policy, Research and Education",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david a. strand|illinois state university": {
@@ -55966,12 +56044,14 @@
    "name": "David A. Surratt",
    "university": "University of Oklahoma",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -56180,16 +56260,54 @@
   "david b. hale|university of richmond": {
    "name": "David B. Hale",
    "university": "University of Richmond",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Community Memorial Hospital",
+    "Sony Pictures Entertainment",
+    "Paramount Pictures"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Community Memorial Hospital",
+     "role": "Board Member and Chair of the Finance Committee",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Sony Pictures Entertainment",
+     "role": "Director of International Accounting",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Paramount Pictures",
+     "role": "Head of International Accounting Office (Netherlands); division controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "david b. jaffe|american university": {
@@ -56209,13 +56327,15 @@
   "david b. moore|ohio university": {
    "name": "David B. Moore",
    "university": "Ohio University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 0,
    "sectors": [],
    "flags": [
@@ -56407,15 +56527,45 @@
    "name": "David Brickhouse",
    "university": "New College of Florida",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Avolve Sports",
+    "Nelson Mullins Broad and Cassel"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Avolve Sports",
+     "role": "Chief Operating Officer and General Counsel",
+     "seniority": "executive",
+     "years": "2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Nelson Mullins Broad and Cassel",
+     "role": "Corporate Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -56452,16 +56602,44 @@
   "david buckingham|randolph-macon college": {
    "name": "David Buckingham",
    "university": "Randolph-Macon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Norfolk Collegiate School",
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Norfolk Collegiate School",
+     "role": "Interim senior administrator",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Marine (Vietnam-era service)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "david burge|george mason university": {
@@ -56551,16 +56729,33 @@
   "david c. hess|augusta university": {
    "name": "David C. Hess",
    "university": "Augusta University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "REACH Health, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare & Pharma",
+     "firm": "REACH Health, Inc.",
+     "role": "Co-Founder and Chairman of the Board of Directors",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "david c. hodge|miami university": {
@@ -56755,11 +56950,13 @@
    "name": "David C. Schwebel",
    "university": "University of Iowa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -56769,12 +56966,14 @@
    "name": "David C. Weindorf",
    "university": "Georgia Southern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -56827,11 +57026,13 @@
    "name": "David Comroe",
    "university": "Teachers College, Columbia University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -56840,14 +57041,16 @@
   "david creamer|miami university": {
    "name": "David Creamer",
    "university": "Miami University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -57164,16 +57367,55 @@
   "david english|denison university": {
    "name": "David English",
    "university": "Denison University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector",
+    "Technology",
+    "Financial Services"
+   ],
+   "firms": [
+    "Federal Reserve Bank of Richmond",
+    "Gateway",
+    "Northwestern Air Lease"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Federal Reserve Bank of Richmond",
+     "role": "Staff role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Gateway",
+     "role": "Staff role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Northwestern Air Lease",
+     "role": "Staff role (title not specified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "david f. feldon|utah state university": {
