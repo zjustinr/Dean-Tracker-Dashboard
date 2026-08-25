@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3096,
-  "no": 10699,
+  "yes": 3106,
+  "no": 10689,
   "unknown": 15675,
-  "namedFirm": 2590,
+  "namedFirm": 2600,
   "flagOnly": 506,
-  "firms": 3152,
-  "sittingWithTie": 1917,
-  "sittingSeniorTie": 1169,
-  "researched": 2383
+  "firms": 3165,
+  "sittingWithTie": 1927,
+  "sittingSeniorTie": 1175,
+  "researched": 2398
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -210858,14 +210858,45 @@
    "name": "Rick Petillo",
    "university": "Clemson University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 0,
-   "sectors": [],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "First Southwest Company",
+    "Bank of America Merrill Lynch"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "First Southwest Company",
+     "role": "Senior Vice President",
+     "seniority": "senior",
+     "years": "2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Bank of America Merrill Lynch",
+     "role": "Vice President",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
+   ],
    "flags": [
     "careerBackground: Finance and Operations / CFO"
    ]
@@ -210986,12 +211017,14 @@
    "name": "Rima Berry-Hung",
    "university": "University of Michigan-Dearborn",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -211058,16 +211091,52 @@
   "rita l. walters|montclair state university": {
    "name": "Rita L. Walters",
    "university": "Montclair State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Catholic Charities of Maryland",
+    "Washington National Cathedral",
+    "The Baltimore Presbytery"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Catholic Charities of Maryland",
+     "role": "Chief Development Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Washington National Cathedral",
+     "role": "Chief Development Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Baltimore Presbytery",
+     "role": "Director of Development",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "rita teutonico|florida international university": {
@@ -211143,16 +211212,43 @@
   "rob cramer|university of wisconsin madison": {
    "name": "Rob Cramer",
    "university": "University of Wisconsin Madison",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "State of Wisconsin Building Commission",
+    "Wisconsin Department of Administration"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "State of Wisconsin Building Commission",
+     "role": "Secretary",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Wisconsin Department of Administration",
+     "role": "Administrator, Division of State Facilities",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "rob culligan|saint johns university": {
@@ -211214,26 +211310,45 @@
   "rob lowden|ohio state university": {
    "name": "Rob Lowden",
    "university": "Ohio State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Navy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Navy",
+     "role": "Navy veteran (service role unspecified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "rob thompson|wayne state university": {
    "name": "Rob Thompson",
    "university": "Wayne State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -211242,30 +211357,77 @@
   "rob wellbaum|auburn university": {
    "name": "Rob Wellbaum",
    "university": "Auburn University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Scottish Rite Children's Medical Center Foundation (now Children's Healthcare of Atlanta)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Scottish Rite Children's Medical Center Foundation (now Children's Healthcare of Atlanta)",
+     "role": "Development officer",
+     "seniority": "professional",
+     "years": "1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "rob young|randolph-macon college": {
    "name": "Rob Young",
    "university": "Randolph-Macon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Consulting"
+   ],
+   "firms": [
+    "ClearPointe",
+    "Deloitte & Touche LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "ClearPointe",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte & Touche LLP",
+     "role": "Audit Senior Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "robb t. brumfield|louisiana state university": {
@@ -211344,16 +211506,35 @@
   "robert (bob) lindquist|university of alabama in huntsville": {
    "name": "Robert (Bob) Lindquist",
    "university": "University of Alabama in Huntsville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Corning Incorporated"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Corning Incorporated",
+     "role": "Senior Research Scientist / Liquid Crystal Technology Manager",
+     "seniority": "professional",
+     "years": "2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "robert (bob) murtaugh|rocky vista university": {
@@ -211971,12 +212152,14 @@
   "robert chapa|ave maria university": {
    "name": "Robert Chapa",
    "university": "Ave Maria University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -212135,16 +212318,35 @@
   "robert d. wynkoop|covenant college": {
    "name": "Robert D. Wynkoop",
    "university": "Covenant College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Indiana Department of Administration"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Indiana Department of Administration",
+     "role": "Commissioner",
+     "seniority": "executive",
+     "years": "2010-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "robert dicenzo|massachusetts college of pharmacy and health sciences": {
@@ -212876,11 +213078,13 @@
    "name": "Robert Henderson",
    "university": "University of the Pacific",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -212984,11 +213188,13 @@
    "name": "Robert Howard Jr.",
    "university": "University of Alabama at Birmingham",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -213011,16 +213217,46 @@
   "robert iannelli|albright college": {
    "name": "Robert Iannelli",
    "university": "Albright College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 39,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Boyertown Area School District",
+    "Berks Earned Income Tax Bureau"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Boyertown Area School District",
+     "role": "Director of Information Technology",
+     "seniority": "professional",
+     "years": "2018-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 39
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Berks Earned Income Tax Bureau",
+     "role": "Fractional Director of IT",
+     "seniority": "professional",
+     "years": "2020",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "robert ivany|university of st. thomas (houston)": {
@@ -213783,15 +214019,66 @@
    "name": "Robert Maffia",
    "university": "Stevens Institute of Technology",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Financial Services",
+    "Other industry"
+   ],
+   "firms": [
+    "NYU Langone Medical Center",
+    "Lehman Brothers",
+    "J.A. Jennings Co.",
+    "AIG Realty"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "NYU Langone Medical Center",
+     "role": "Senior Director of Construction Management",
+     "seniority": "senior",
+     "years": "2008-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Lehman Brothers",
+     "role": "Vice President of Global Real Estate",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "J.A. Jennings Co.",
+     "role": "Construction management leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "AIG Realty",
+     "role": "Director of Facilities Management",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: 35+ years facilities management, higher ed and corporate"
