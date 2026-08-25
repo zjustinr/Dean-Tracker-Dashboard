@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3106,
-  "no": 10689,
+  "yes": 3121,
+  "no": 10674,
   "unknown": 15675,
-  "namedFirm": 2600,
-  "flagOnly": 506,
-  "firms": 3165,
-  "sittingWithTie": 1927,
-  "sittingSeniorTie": 1175,
-  "researched": 2398
+  "namedFirm": 2610,
+  "flagOnly": 511,
+  "firms": 3181,
+  "sittingWithTie": 1937,
+  "sittingSeniorTie": 1179,
+  "researched": 2413
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -216072,16 +216072,46 @@
   "rodney clark|university of north dakota": {
    "name": "Rodney Clark",
    "university": "University of North Dakota",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Air Force",
+    "U.S. Army Military Police Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Air Force",
+     "role": "Security forces / police administration roles",
+     "seniority": "professional",
+     "years": "1995-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Army Military Police Corps",
+     "role": "Military Police officer",
+     "seniority": "professional",
+     "years": "2007",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "rodney cruise|embry-riddle aeronautical university": {
@@ -216222,15 +216252,32 @@
   "rodney m. grabowski|university of central florida": {
    "name": "Rodney M. Grabowski",
    "university": "University of Central Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "UC Health Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UC Health Foundation",
+     "role": "President and CEO",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "rodney morrison|franklin and marshall college": {
@@ -216250,13 +216297,15 @@
   "rodney neal|loma linda university": {
    "name": "Rodney Neal",
    "university": "Loma Linda University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -216649,15 +216698,54 @@
   "roger wakeman|kenyon college": {
    "name": "Roger Wakeman",
    "university": "Kenyon College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Rutland Regional Medical Center",
+    "Phillips Exeter Academy",
+    "U.S. Navy Civil Engineer Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Rutland Regional Medical Center",
+     "role": "Facilities role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Phillips Exeter Academy",
+     "role": "Facilities and planning roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Navy Civil Engineer Corps",
+     "role": "Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "roger wakimoto|ucla": {
@@ -216961,31 +217049,97 @@
   "romayne l. botti|the rockefeller university": {
    "name": "Romayne L. Botti",
    "university": "The Rockefeller University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Children's Institute"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Children's Institute",
+     "role": "Board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "romy riddick|princeton university": {
    "name": "Romy Riddick",
    "university": "Princeton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Consulting",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "TD Bank",
+    "PricewaterhouseCoopers",
+    "Merrill Lynch",
+    "Maryland State Government"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "TD Bank",
+     "role": "Head of Talent Management and Diversity",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "PricewaterhouseCoopers",
+     "role": "National diversity recruitment and retention lead",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Merrill Lynch",
+     "role": "Organizational Development Trainer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Maryland State Government",
+     "role": "Legislative aide, Maryland State Women's Caucus",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ron adams|oregon state university": {
@@ -217113,16 +217267,48 @@
   "ron menchaca|college of charleston": {
    "name": "Ron Menchaca",
    "university": "College of Charleston",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "The Post and Courier",
+    "U.S. Army"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Post and Courier",
+     "role": "Reporter (investigative)",
+     "seniority": "professional",
+     "years": "1998-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Army",
+     "role": "Paratrooper and radio communications specialist, 82nd Airborne Division",
+     "seniority": "professional",
+     "years": "1992-1996",
+     "endYear": 1996,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "ron r. walcott|university of georgia": {
@@ -217157,16 +217343,33 @@
   "ron stalnaker|georgia southern university": {
    "name": "Ron Stalnaker",
    "university": "Georgia Southern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "IBM Global Services"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM Global Services",
+     "role": "Technology project lead/consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ron steiger|barry university": {
@@ -217247,13 +217450,15 @@
   "ron woody|eastern michigan university": {
    "name": "Ron Woody",
    "university": "Eastern Michigan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -217318,15 +217523,75 @@
   "ronald b. mckinley|texas southern university": {
    "name": "Ronald B. McKinley",
    "university": "Texas Southern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Other industry",
+    "Consulting",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Texas Children's Hospital",
+    "Cincinnati Children's Hospital Medical Center",
+    "APAC Teleservices",
+    "Williams and Company Consulting",
+    "U.S. Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Texas Children's Hospital",
+     "role": "Chief Human Resources Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Cincinnati Children's Hospital Medical Center",
+     "role": "Chief Human Resources Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "APAC Teleservices",
+     "role": "Chief Human Resources Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Williams and Company Consulting",
+     "role": "Senior Business Consultant and General Manager, Kansas City office",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Marine Corps",
+     "role": "Marine (Vietnam veteran)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "ronald c. anderson|temple university": {
@@ -217703,13 +217968,15 @@
   "ronald van blarcom|concordia university-irvine": {
    "name": "Ronald Van Blarcom",
    "university": "Concordia University-Irvine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Unclassified"
@@ -217788,14 +218055,16 @@
   "ronnie hebert|university of alabama in huntsville": {
    "name": "Ronnie Hebert",
    "university": "University of Alabama in Huntsville",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -217877,16 +218146,33 @@
   "roqua montez iv|university of colorado boulder": {
    "name": "Roqua Montez IV",
    "university": "University of Colorado Boulder",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Hewlett-Packard"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Hewlett-Packard",
+     "role": "Senior internal communications leader",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "rosa j. rodríguez benítez|university of puerto rico at río piedras": {
@@ -217920,16 +218206,54 @@
   "rosa liliana \"lili\" palacios-baldwin|tufts university": {
    "name": "Rosa Liliana \"Lili\" Palacios-Baldwin",
    "university": "Tufts University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Robinson & Cole LLP",
+    "U.S. Equal Employment Opportunity Commission",
+    "Hirsch Roberts Weinstein LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Robinson & Cole LLP",
+     "role": "Attorney (land use, real estate, labor and employment)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Equal Employment Opportunity Commission",
+     "role": "Senior Trial Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hirsch Roberts Weinstein LLP",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "rosa oppenheim|rutgers university": {
@@ -218008,12 +218332,14 @@
   "rosalyn eaton-neeb|st olaf college": {
    "name": "Rosalyn Eaton-Neeb",
    "university": "St Olaf College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
