@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2381,
-  "no": 11414,
+  "yes": 2392,
+  "no": 11403,
   "unknown": 15675,
-  "namedFirm": 2003,
-  "flagOnly": 378,
-  "firms": 2211,
-  "sittingWithTie": 1330,
-  "sittingSeniorTie": 770,
-  "researched": 1288
+  "namedFirm": 2015,
+  "flagOnly": 377,
+  "firms": 2231,
+  "sittingWithTie": 1342,
+  "sittingSeniorTie": 779,
+  "researched": 1303
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -59475,26 +59475,56 @@
   "david lifka|lafayette college": {
    "name": "David Lifka",
    "university": "Lafayette College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Kyndryl",
+    "Argonne National Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Kyndryl",
+     "role": "Microsoft Industry Solutions Consultant",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Argonne National Laboratory",
+     "role": "Associate Computer Scientist / Senior Technical Support Analyst",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david livingston|university of texas at austin": {
    "name": "David Livingston",
    "university": "University of Texas at Austin",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -59562,16 +59592,34 @@
   "david m. robinson|university of california berkeley": {
    "name": "David M. Robinson",
    "university": "University of California Berkeley",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 49,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Goldfarb & Lipman"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Goldfarb & Lipman",
+     "role": "Partner",
+     "seniority": "executive",
+     "years": "2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 49
+    }
    ]
   },
   "david m. smith|pepperdine university": {
@@ -59735,15 +59783,54 @@
    "name": "David Marino",
    "university": "Temple University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Technology",
+    "Healthcare Providers",
+    "Consulting"
+   ],
+   "firms": [
+    "Bentley Systems",
+    "Crozer-Keystone Health System",
+    "Deloitte & Touche LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Bentley Systems",
+     "role": "Director of Corporate Finance",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Crozer-Keystone Health System",
+     "role": "Controller",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte & Touche LLP",
+     "role": "Staff/Audit role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "careerBackground: Finance / treasury"
@@ -59855,46 +59942,148 @@
   "david mcmahan|florida institute of technology": {
    "name": "David McMahan",
    "university": "Florida Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Office of the Tulsa County District Attorney",
+    "United States Bankruptcy Court for the Northern District of Oklahoma"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of the Tulsa County District Attorney",
+     "role": "Criminal prosecutor and civil litigator (limited-license intern)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Bankruptcy Court for the Northern District of Oklahoma",
+     "role": "Law clerk to Chief Judge Mickey D. Wilson",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david meadows|roanoke college": {
    "name": "David Meadows",
    "university": "Roanoke College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Financial Services",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "SunTrust",
+    "Banc One",
+    "American Express",
+    "Government of the District of Columbia",
+    "Richmond Police Department"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "SunTrust",
+     "role": "Finance role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Banc One",
+     "role": "Finance role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "American Express",
+     "role": "Finance role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Government of the District of Columbia",
+     "role": "Financial management role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Richmond Police Department",
+     "role": "Financial management role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "david meaney|university of pennsylvania": {
    "name": "David Meaney",
    "university": "University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Axonova Medical"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Axonova Medical",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "david mee|d'youville university": {
@@ -59914,16 +60103,43 @@
   "david miller|wichita state university": {
    "name": "David Miller",
    "university": "Wichita State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Sedgwick County, Kansas",
+    "Kansas Governor's Budget Office"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Sedgwick County, Kansas",
+     "role": "Budget Director, later Chief Information Officer",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Kansas Governor's Budget Office",
+     "role": "Budget staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david murray|university at buffalo": {
@@ -60028,12 +60244,14 @@
    "name": "David Overby",
    "university": "South Dakota State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -60056,15 +60274,34 @@
   "david p. andrews|juniata college": {
    "name": "David P. Andrews",
    "university": "Juniata College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Andrews and Beard"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Andrews and Beard",
+     "role": "Managing Partner",
+     "seniority": "executive",
+     "years": "2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 63
+    }
    ]
   },
   "david p. angel|clark university": {
@@ -60126,16 +60363,43 @@
   "david p. harris|loma linda university": {
    "name": "David P. Harris",
    "university": "Loma Linda University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "SunGard Higher Education",
+    "Collegis"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "SunGard Higher Education",
+     "role": "IT leadership role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Collegis",
+     "role": "IT leadership role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "david p. trainor|boston college": {
@@ -60214,15 +60478,47 @@
   "david provost|middlebury college": {
    "name": "David Provost",
    "university": "Middlebury College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 49,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail",
+    "Consulting"
+   ],
+   "firms": [
+    "Skis Dynastar Inc.",
+    "Deloitte"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Skis Dynastar Inc.",
+     "role": "Chief Financial Officer, then Chief Executive Officer",
+     "seniority": "executive",
+     "years": "1991-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 49
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte",
+     "role": "Accountant",
+     "seniority": "professional",
+     "years": "1986-1991",
+     "endYear": 1991,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "david puleo|university of alabama in huntsville": {
@@ -60393,31 +60689,90 @@
   "david reese|lewis & clark college": {
    "name": "David Reese",
    "university": "Lewis & Clark College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Office of Oregon Governor Ted Kulongoski",
+    "Stoel Rives LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of Oregon Governor Ted Kulongoski",
+     "role": "General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Stoel Rives LLP",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "david ripple|wayne state university": {
    "name": "David Ripple",
    "university": "Wayne State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Other industry",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "The Remington Group",
+    "Trinity Health Michigan"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "The Remington Group",
+     "role": "President",
+     "seniority": "executive",
+     "years": "2016-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Trinity Health Michigan",
+     "role": "Vice President of Philanthropy",
+     "seniority": "senior",
+     "years": "2018-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 57
+    }
    ]
   },
   "david robinson|university of california berkeley": {
@@ -60583,11 +60938,13 @@
    "name": "David Sanchez",
    "university": "Southwestern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
