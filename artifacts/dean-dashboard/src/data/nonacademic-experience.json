@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2972,
-  "no": 10823,
+  "yes": 2983,
+  "no": 10812,
   "unknown": 15675,
-  "namedFirm": 2492,
-  "flagOnly": 480,
-  "firms": 3014,
-  "sittingWithTie": 1819,
-  "sittingSeniorTie": 1105,
-  "researched": 2188
+  "namedFirm": 2501,
+  "flagOnly": 482,
+  "firms": 3023,
+  "sittingWithTie": 1828,
+  "sittingSeniorTie": 1112,
+  "researched": 2203
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -179100,16 +179100,46 @@
   "michael d. seamon|university of notre dame": {
    "name": "Michael D. Seamon",
    "university": "University of Notre Dame",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Boys & Girls Club of St. Joseph County",
+    "Tampa Bay Rays (Major League Baseball)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Boys & Girls Club of St. Joseph County",
+     "role": "Board of Directors Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Tampa Bay Rays (Major League Baseball)",
+     "role": "Director of Sales and Marketing",
+     "seniority": "senior",
+     "years": "1997",
+     "endYear": 1997,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "michael d. stefan|pennsylvania state university": {
@@ -179204,16 +179234,35 @@
   "michael dewees|wittenberg university": {
    "name": "Michael DeWees",
    "university": "Wittenberg University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Central Ohio Transit Authority"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Central Ohio Transit Authority",
+     "role": "Senior Director of Finance and Business Services / Interim Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "michael dolsak|case western reserve university": {
@@ -179523,15 +179572,32 @@
   "michael e. zwick|rutgers university": {
    "name": "Michael E. Zwick",
    "university": "Rutgers University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Navy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Navy",
+     "role": "Naval Officer, retired at rank of Commander (O-5)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "michael evenden|emory university": {
@@ -179610,13 +179676,15 @@
    "name": "Michael F. Malone",
    "university": "University of Massachusetts Amherst",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1eschool",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -179625,30 +179693,76 @@
   "michael f. sweeney|university of california davis": {
    "name": "Michael F. Sweeney",
    "university": "University of California Davis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "California Attorney General's Office",
+    "California Department of Fair Employment and Housing"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "California Attorney General's Office",
+     "role": "Civil Rights Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "California Department of Fair Employment and Housing",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael f. wagner|williams college": {
    "name": "Michael F. Wagner",
    "university": "Williams College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "PricewaterhouseCoopers LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "PricewaterhouseCoopers LLP",
+     "role": "Senior Manager",
+     "seniority": "senior",
+     "years": "2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "michael fahy|university of rochester": {
@@ -179682,13 +179796,15 @@
   "michael freer|bethel university": {
    "name": "Michael Freer",
    "university": "Bethel University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -179698,12 +179814,14 @@
    "name": "Michael Friedlander",
    "university": "Virginia Tech",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -179866,27 +179984,48 @@
   "michael guns|university of st. francis": {
    "name": "Michael Guns",
    "university": "University of St. Francis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Lutheran Social Services of Wisconsin and Upper Michigan"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lutheran Social Services of Wisconsin and Upper Michigan",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "michael h. hites|southern methodist university": {
    "name": "Michael H. Hites",
    "university": "Southern Methodist University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -180023,12 +180162,14 @@
   "michael holbeck|south dakota state university": {
    "name": "Michael Holbeck",
    "university": "South Dakota State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -180207,15 +180348,42 @@
   "michael j. bunker|syracuse university": {
    "name": "Michael J. Bunker",
    "university": "Syracuse University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Coast Guard",
+    "City of Falls Church Police Department (Virginia)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Coast Guard",
+     "role": "Servicemember, 14 years",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "City of Falls Church Police Department (Virginia)",
+     "role": "Police Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael j. chajes|university of delaware": {
@@ -180537,11 +180705,13 @@
    "name": "Michael J. Westfall",
    "university": "Oakland University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -180550,29 +180720,101 @@
   "michael jagoda|university of rhode island": {
    "name": "Michael Jagoda",
    "university": "University of Rhode Island",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Connecticut State Police"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Connecticut State Police",
+     "role": "Major, commanding officer of operational and administrative divisions",
+     "seniority": "senior",
+     "years": "2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "michael jarry|springfield college": {
    "name": "Michael Jarry",
    "university": "Springfield College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Energy & Industrials",
+    "Consulting"
+   ],
+   "firms": [
+    "The Loomis Communities",
+    "Baystate Health",
+    "Northeast Utilities",
+    "Deloitte"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "The Loomis Communities",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2024-2026",
+     "endYear": 2026,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Baystate Health",
+     "role": "Senior Director of Finance, Hospital Operations (11+ years, progressively senior roles)",
+     "seniority": "senior",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 57
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Northeast Utilities",
+     "role": "Senior Accountant, SEC reporting",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte",
+     "role": "Auditor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael johnson|marian university": {
