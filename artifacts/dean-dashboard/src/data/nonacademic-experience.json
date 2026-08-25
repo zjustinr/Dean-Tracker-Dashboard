@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3048,
-  "no": 10747,
+  "yes": 3059,
+  "no": 10736,
   "unknown": 15675,
-  "namedFirm": 2549,
-  "flagOnly": 499,
-  "firms": 3096,
-  "sittingWithTie": 1876,
-  "sittingSeniorTie": 1143,
-  "researched": 2308
+  "namedFirm": 2558,
+  "flagOnly": 501,
+  "firms": 3108,
+  "sittingWithTie": 1885,
+  "sittingSeniorTie": 1149,
+  "researched": 2323
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -193622,12 +193622,14 @@
    "name": "Owen Guthrie",
    "university": "University of Alaska Fairbanks",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -193705,16 +193707,44 @@
   "p. srirama rao|virginia commonwealth university": {
    "name": "P. Srirama Rao",
    "university": "Virginia Commonwealth University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "La Jolla Institute for Molecular Medicine",
+    "Pharmacia (Experimental Medicine, La Jolla)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "La Jolla Institute for Molecular Medicine",
+     "role": "Vice President for Research; Head of Vascular Biology",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Pharmacia (Experimental Medicine, La Jolla)",
+     "role": "Postdoctoral scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "p. wesley lundburg|san diego miramar college": {
@@ -193804,16 +193834,33 @@
   "page hetzel|university of rochester": {
    "name": "Page Hetzel",
    "university": "University of Rochester",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Hewlett-Packard"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Hewlett-Packard",
+     "role": "Manager of Online Marketing",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "paige ware|southern methodist university": {
@@ -194129,16 +194176,43 @@
   "pamela l. wilkins|duquesne university": {
    "name": "Pamela L. Wilkins",
    "university": "Duquesne University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Pittsburgh Community Broadcasting Corporation",
+    "Leadership Pittsburgh, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Pittsburgh Community Broadcasting Corporation",
+     "role": "Vice Chair, Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Leadership Pittsburgh, Inc.",
+     "role": "Board Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "pamela m. jolicoeur|concordia college at moorhead": {
@@ -194416,15 +194490,32 @@
   "param bedi|bucknell university": {
    "name": "Param Bedi",
    "university": "Bucknell University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "The Pittsburgh Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "The Pittsburgh Foundation",
+     "role": "Chief Information Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "param vir singh|carnegie mellon university": {
@@ -194558,15 +194649,32 @@
   "pat morena|the city college of new york": {
    "name": "Pat Morena",
    "university": "The City College of New York",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "New York City Police Department (NYPD)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "New York City Police Department (NYPD)",
+     "role": "Captain",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "pat pitney|university of alaska system": {
@@ -194618,11 +194726,13 @@
    "name": "Pat Vickerman",
    "university": "Illinois State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -194717,16 +194827,33 @@
   "patricia a. schoknecht|bates college": {
    "name": "Patricia A. Schoknecht",
    "university": "Bates College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "USDA Children's Nutrition Research Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "USDA Children's Nutrition Research Center",
+     "role": "Postdoctoral Fellow",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "patricia a. sullivan|university of north carolina at greensboro": {
@@ -194747,12 +194874,14 @@
    "name": "Patricia A. Whitely",
    "university": "University of Miami",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -194803,13 +194932,15 @@
   "patricia canterino|immaculata university": {
    "name": "Patricia Canterino",
    "university": "Immaculata University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -195043,12 +195174,14 @@
   "patricia l. franklin|cleveland state university": {
    "name": "Patricia L. Franklin",
    "university": "Cleveland State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -195085,30 +195218,84 @@
   "patricia m. langer|bryn mawr college": {
    "name": "Patricia M. Langer",
    "university": "Bryn Mawr College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Nebraska Supreme Court",
+    "Nebraska State Historical Society",
+    "Nebraska Department of Roads"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Nebraska Supreme Court",
+     "role": "Administrative Fiscal and Budget Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Nebraska State Historical Society",
+     "role": "Senior Accountant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Nebraska Department of Roads",
+     "role": "Statistics Unit Supervisor",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "patricia m. lynch|university of north carolina at greensboro": {
    "name": "Patricia M. Lynch",
    "university": "University of North Carolina at Greensboro",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Guilford Child Development"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Guilford Child Development",
+     "role": "Director of Human Resources",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "patricia minnis|southern university and a&m college": {
@@ -195553,12 +195740,14 @@
    "name": "Patrick Gallagher",
    "university": "UMass Chan Medical School",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -195567,16 +195756,43 @@
   "patrick gonzales|the university of texas rio grande valley": {
    "name": "Patrick Gonzales",
    "university": "The University of Texas Rio Grande Valley",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Lubbock Avalanche-Journal",
+    "The Detroit News"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Lubbock Avalanche-Journal",
+     "role": "Newspaper staff (role unspecified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Detroit News",
+     "role": "Newspaper staff (role unspecified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "patrick h. dussault|university of nebraska lincoln": {
