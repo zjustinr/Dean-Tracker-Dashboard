@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2479,
-  "no": 11316,
+  "yes": 2492,
+  "no": 11303,
   "unknown": 15675,
-  "namedFirm": 2091,
-  "flagOnly": 388,
-  "firms": 2358,
-  "sittingWithTie": 1418,
-  "sittingSeniorTie": 829,
-  "researched": 1438
+  "namedFirm": 2102,
+  "flagOnly": 390,
+  "firms": 2375,
+  "sittingWithTie": 1429,
+  "sittingSeniorTie": 833,
+  "researched": 1453
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -89907,15 +89907,42 @@
   "haley beckham|mercer university": {
    "name": "Haley Beckham",
    "university": "Mercer University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Georgia Department of Juvenile Justice",
+    "Baldwin County Sheriff's Office"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Georgia Department of Juvenile Justice",
+     "role": "Chief Investigator",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Baldwin County Sheriff's Office",
+     "role": "Deputy Sheriff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "haley f. oliver-jischke|purdue university": {
@@ -89991,15 +90018,42 @@
   "hampton cantrell|california institute of technology": {
    "name": "Hampton Cantrell",
    "university": "California Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Inglewood Police Department",
+    "Compton Police Department"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Inglewood Police Department",
+     "role": "Senior Police Captain",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Compton Police Department",
+     "role": "Patrol Officer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "hanchen huang|oklahoma state university": {
@@ -90137,15 +90191,53 @@
   "hannah ross|middlebury college": {
    "name": "Hannah Ross",
    "university": "Middlebury College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Vermont Supreme Court",
+    "Hill & Barlow",
+    "Goulston & Storrs"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Vermont Supreme Court",
+     "role": "Law Clerk to Justice Denise Johnson",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hill & Barlow",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Goulston & Storrs",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "hans coetzee, ph.d.|kansas state university": {
@@ -90207,16 +90299,53 @@
   "hari sastry|georgetown university": {
    "name": "Hari Sastry",
    "university": "Georgetown University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of State",
+    "U.S. Department of Commerce",
+    "White House Office of Management and Budget"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of State",
+     "role": "Director, Office of U.S. Foreign Assistance Resources",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Commerce",
+     "role": "Senior Executive Service official",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "White House Office of Management and Budget",
+     "role": "Senior Executive Service official",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "harlan patterson|bastyr university": {
@@ -90482,16 +90611,33 @@
   "harrison long|kennesaw state university": {
    "name": "Harrison Long",
    "university": "Kennesaw State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "CBS"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "CBS",
+     "role": "Dialogue Coach",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "harry a. atwater|california institute of technology": {
@@ -90999,13 +91145,15 @@
   "heath v. tuttle|university at buffalo": {
    "name": "Heath V. Tuttle",
    "university": "University at Buffalo",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -91087,28 +91235,57 @@
   "heather christophersen|university of notre dame": {
    "name": "Heather Christophersen",
    "university": "University of Notre Dame",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "BP Chemicals",
+    "Elevance Renewable Sciences"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "BP Chemicals",
+     "role": "Manufacturing, logistics and asset management roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Elevance Renewable Sciences",
+     "role": "Operations and asset management roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "heather cox|university of cincinnati": {
    "name": "Heather Cox",
    "university": "University of Cincinnati",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -91375,15 +91552,52 @@
   "heather johns|smith college": {
    "name": "Heather Johns",
    "university": "Smith College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "The Hollywood Reporter",
+    "TV Guide",
+    "Fitness Management magazine"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "The Hollywood Reporter",
+     "role": "Editorial staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "TV Guide",
+     "role": "Editorial staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Fitness Management magazine",
+     "role": "Editorial staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "heather kruse|phoenix college": {
@@ -91404,11 +91618,13 @@
    "name": "Heather L. Meier",
    "university": "Widener University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -91571,15 +91787,32 @@
   "heather randol|portland state university": {
    "name": "Heather Randol",
    "university": "Portland State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Tosco Refining and Marketing"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Tosco Refining and Marketing",
+     "role": "unspecified",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "heather russell|florida international university": {
@@ -91687,12 +91920,14 @@
    "name": "Heather White",
    "university": "University of Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -91783,15 +92018,32 @@
   "heather woods|smith college": {
    "name": "Heather Woods",
    "university": "Smith College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "National Counseling Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "National Counseling Group",
+     "role": "Foster Parent Coordinator and Case Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "heather woofter|university of texas at austin": {
@@ -91826,16 +92078,33 @@
   "hector flores|lamar university": {
    "name": "Hector Flores",
    "university": "Lamar University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Marine (combat veteran)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "hee-young park|boston university": {
@@ -91883,16 +92152,44 @@
   "heidi grunwald|north dakota state university": {
    "name": "Heidi Grunwald",
    "university": "North Dakota State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Legal Science LLC (Legal Science Partners)",
+    "Philly Pumptrack"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Legal Science LLC (Legal Science Partners)",
+     "role": "Co-Founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Philly Pumptrack",
+     "role": "Co-Founder and Project Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "heidi hennink-kaminski|michigan state university": {
