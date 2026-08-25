@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3087,
-  "no": 10708,
+  "yes": 3096,
+  "no": 10699,
   "unknown": 15675,
-  "namedFirm": 2584,
-  "flagOnly": 503,
-  "firms": 3141,
-  "sittingWithTie": 1911,
-  "sittingSeniorTie": 1166,
-  "researched": 2368
+  "namedFirm": 2590,
+  "flagOnly": 506,
+  "firms": 3152,
+  "sittingWithTie": 1917,
+  "sittingSeniorTie": 1169,
+  "researched": 2383
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -205740,6 +205740,8 @@
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -205863,15 +205865,54 @@
   "rebecca burgstahler|the college of wooster": {
    "name": "Rebecca Burgstahler",
    "university": "The College of Wooster",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consulting",
+    "Energy & Industrials",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Ernst & Young (EY)",
+    "CNH Industrial",
+    "USDA Economic Research Service"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Ernst & Young (EY)",
+     "role": "Consulting/audit leader, operating model effectiveness",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "CNH Industrial",
+     "role": "Finance roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "USDA Economic Research Service",
+     "role": "Finance and research role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "rebecca cantor|austin college": {
@@ -205921,12 +205962,14 @@
   "rebecca cunningham|university of minnesota system": {
    "name": "Rebecca Cunningham",
    "university": "University of Minnesota System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -206200,12 +206243,14 @@
   "rebecca o'banion|university of mary hardin-baylor": {
    "name": "Rebecca O'Banion",
    "university": "University of Mary Hardin-Baylor",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -206541,16 +206586,54 @@
   "reed sheard|westmont college": {
    "name": "Reed Sheard",
    "university": "Westmont College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Technology",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Consonus Inc.",
+    "Apple Inc.",
+    "General Electric"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Consonus Inc.",
+     "role": "Technology roles",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Apple Inc.",
+     "role": "Technology roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "General Electric",
+     "role": "Technology roles",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "reem hanna-harwell|ucla": {
@@ -206563,6 +206646,8 @@
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -206644,15 +206729,32 @@
   "regina lawson|wake forest university": {
    "name": "Regina Lawson",
    "university": "Wake Forest University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "American Red Cross (Northeast North Carolina Chapter)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Red Cross (Northeast North Carolina Chapter)",
+     "role": "Board member (two terms)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "regina luttrell|syracuse university": {
@@ -206811,12 +206913,14 @@
    "name": "Remzi Seker",
    "university": "Western Michigan University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -206955,15 +207059,32 @@
   "renea p. morris|st. mary's college of maryland": {
    "name": "Renea P. Morris",
    "university": "St. Mary's College of Maryland",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "Carnegie (Carnegie Higher Ed)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Carnegie (Carnegie Higher Ed)",
+     "role": "Brand strategist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "renee (leblanc) decesare|boston college": {
@@ -207012,12 +207133,14 @@
    "name": "Renee Boggis",
    "university": "University of Connecticut",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -207187,15 +207310,53 @@
   "renee wachter|universities of wisconsin": {
    "name": "Renee Wachter",
    "university": "Universities of Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Girl Scouts of Eastern Missouri, Inc.",
+    "Kirksville Chamber of Commerce",
+    "Missouri Department of Higher Education"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Girl Scouts of Eastern Missouri, Inc.",
+     "role": "Board of Directors member-at-large; treasurer-elect and finance committee chair-elect",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Kirksville Chamber of Commerce",
+     "role": "Board of Directors member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Missouri Department of Higher Education",
+     "role": "P-20 initiative and distance education workgroup member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "reneé h. moore|drexel university": {
@@ -207216,12 +207377,14 @@
    "name": "Renique T. Kersh",
    "university": "University of Maryland Baltimore County",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -207311,15 +207474,45 @@
   "renu khator|university of houston system": {
    "name": "Renu Khator",
    "university": "University of Houston System",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 68,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Financial Services"
+   ],
+   "firms": [
+    "Federal Reserve Bank of Dallas",
+    "Camden Property Trust"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Federal Reserve Bank of Dallas",
+     "role": "Board member, deputy chair, then chair",
+     "seniority": "senior",
+     "years": "2011-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 68
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Camden Property Trust",
+     "role": "Board of Trust Managers member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "rené hauser|st. bonaventure university": {
@@ -208117,11 +208310,13 @@
    "name": "Rhea Turteltaub",
    "university": "University of California Los Angeles",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -208203,12 +208398,14 @@
   "rhonda beassie|sam houston state university": {
    "name": "Rhonda Beassie",
    "university": "Sam Houston State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
