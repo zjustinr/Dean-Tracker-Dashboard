@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2530,
-  "no": 11265,
+  "yes": 2536,
+  "no": 11259,
   "unknown": 15675,
-  "namedFirm": 2136,
+  "namedFirm": 2142,
   "flagOnly": 394,
-  "firms": 2440,
-  "sittingWithTie": 1463,
-  "sittingSeniorTie": 864,
-  "researched": 1513
+  "firms": 2454,
+  "sittingWithTie": 1469,
+  "sittingSeniorTie": 869,
+  "researched": 1528
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -79669,12 +79669,14 @@
    "name": "Esther Henry",
    "university": "University of Colorado Boulder",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -79726,11 +79728,13 @@
    "name": "Esther Olaleye",
    "university": "Sam Houston State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -80032,11 +80036,13 @@
    "name": "Eusebio Alvaro",
    "university": "Claremont Graduate University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -80158,12 +80164,14 @@
    "name": "Evangeline J. Downie",
    "university": "George Washington University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -80261,31 +80269,76 @@
   "ezemenari m. obasi|wayne state university": {
    "name": "Ezemenari M. Obasi",
    "university": "Wayne State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "HEALTH Equity Empowerment, LLC",
+    "McLean Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "HEALTH Equity Empowerment, LLC",
+     "role": "Founder and Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "McLean Hospital",
+     "role": "Clinical intern",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "f. carl walton|southern university and a&m college": {
    "name": "F. Carl Walton",
    "university": "Southern University and A&M College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Deep Center"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Deep Center",
+     "role": "Board Chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "f. david fowler|george washington university": {
@@ -80889,16 +80942,44 @@
   "felicia a. washington|university of pennsylvania": {
    "name": "Felicia A. Washington",
    "university": "University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "North Carolina Medical Board",
+    "K&L Gates LLP"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "North Carolina Medical Board",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "K&L Gates LLP",
+     "role": "Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "felicia lin|university of pennsylvania": {
@@ -80932,15 +81013,75 @@
   "felix v. matos rodriguez|the city university of new york": {
    "name": "Felix V. Matos Rodriguez",
    "university": "The City University of New York",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "ussystem"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United Way of New York City",
+    "Association for a Better New York",
+    "Phipps Houses",
+    "New York City Regional Economic Development Council",
+    "Puerto Rico Department of Family Services"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of New York City",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Association for a Better New York",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Phipps Houses",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "New York City Regional Economic Development Council",
+     "role": "Co-chair",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Puerto Rico Department of Family Services",
+     "role": "Secretary (cabinet member)",
+     "seniority": "executive",
+     "years": "2006-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "fen yu|arkansas state university": {
@@ -80989,13 +81130,15 @@
    "name": "Fernanda Leite",
    "university": "University of Texas at Austin",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1eschool",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -81323,16 +81466,47 @@
   "fountain walker|new york university": {
    "name": "Fountain Walker",
    "university": "New York University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Cornelius Police Department (Cornelius, North Carolina)",
+    "United States Marine Corps"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Cornelius Police Department (Cornelius, North Carolina)",
+     "role": "Sergeant",
+     "seniority": "professional",
+     "years": "1995-2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 18
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Marine Corps",
+     "role": "Marine",
+     "seniority": "professional",
+     "years": "1986-1994",
+     "endYear": 1994,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "fousseni chabi-yo|university of massachusetts amherst": {
@@ -81490,12 +81664,14 @@
    "name": "Frances Faehner",
    "university": "Andrews University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -81505,12 +81681,14 @@
    "name": "Frances Keene",
    "university": "Virginia Tech",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -81534,11 +81712,13 @@
    "name": "Frances Magee",
    "university": "Susquehanna University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -81561,16 +81741,52 @@
   "frances teves|california state polytechnic university, pomona": {
    "name": "Frances Teves",
    "university": "California State Polytechnic University, Pomona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 3,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Los Angeles Area Chamber of Commerce",
+    "Los Angeles Economic Development Committee",
+    "San Gabriel Valley Economic Partnership"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Los Angeles Area Chamber of Commerce",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Los Angeles Economic Development Committee",
+     "role": "Executive Committee member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "San Gabriel Valley Economic Partnership",
+     "role": "Executive Committee member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "francesca cornelli|northwestern university": {
@@ -81591,12 +81807,14 @@
    "name": "Francesca Reynolds",
    "university": "Saint Joseph's University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
