@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2785,
-  "no": 11010,
+  "yes": 2790,
+  "no": 11005,
   "unknown": 15675,
-  "namedFirm": 2342,
+  "namedFirm": 2347,
   "flagOnly": 443,
-  "firms": 2774,
-  "sittingWithTie": 1669,
-  "sittingSeniorTie": 1002,
-  "researched": 1888
+  "firms": 2783,
+  "sittingWithTie": 1674,
+  "sittingSeniorTie": 1006,
+  "researched": 1903
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -144556,15 +144556,34 @@
   "kim asch|st lawrence university": {
    "name": "Kim Asch",
    "university": "St Lawrence University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 39,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "University of Vermont Medical Center and Health Network"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University of Vermont Medical Center and Health Network",
+     "role": "Senior Communications Specialist",
+     "seniority": "professional",
+     "years": "2022",
+     "endYear": 2022,
+     "source": "research",
+     "score": 39
+    }
    ]
   },
   "kim b. clark|harvard university": {
@@ -144822,16 +144841,64 @@
   "kim rytter|university of idaho": {
    "name": "Kim Rytter",
    "university": "University of Idaho",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Oklahoma Department of Public Safety",
+    "Oklahoma Attorney General's Office",
+    "Oklahoma Insurance Department",
+    "Elliott and Pederson"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Oklahoma Department of Public Safety",
+     "role": "Deputy General Counsel",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Oklahoma Attorney General's Office",
+     "role": "Assistant General Counsel",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Oklahoma Insurance Department",
+     "role": "Assistant General Counsel",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Elliott and Pederson",
+     "role": "Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kim schatzel|eastern michigan university": {
@@ -144893,16 +144960,45 @@
   "kim taylor|duke university": {
    "name": "Kim Taylor",
    "university": "Duke University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Hilton & Bishop",
+    "Kirkland & Ellis"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Hilton & Bishop",
+     "role": "Partner",
+     "seniority": "executive",
+     "years": "2012-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 63
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Kirkland & Ellis",
+     "role": "Equity Partner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "kim toatley|georgia institute of technology": {
@@ -144926,11 +145022,13 @@
    "name": "Kim Tobin",
    "university": "Michigan State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -145052,12 +145150,14 @@
    "name": "Kimberley McAllister",
    "university": "Wake Forest University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -145143,15 +145243,42 @@
   "kimberly a. hopely|rutgers university": {
    "name": "Kimberly A. Hopely",
    "university": "Rutgers University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "United Way of Grays Harbor",
+    "Banner Health Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "United Way of Grays Harbor",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Banner Health Foundation",
+     "role": "Senior Director of Operations and Development",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "kimberly a. maune|emory university": {
@@ -145343,15 +145470,32 @@
   "kimberly d. williams|florida institute of technology": {
    "name": "Kimberly D. Williams",
    "university": "Florida Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "CD Holdings"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "CD Holdings",
+     "role": "Corporate CFO",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "kimberly derego|university of new hampshire": {
@@ -145545,12 +145689,14 @@
    "name": "Kimberly Kvaal",
    "university": "University of Puget Sound",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -145715,12 +145861,14 @@
    "name": "Kimberly Scott",
    "university": "University of Massachusetts Dartmouth",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -145744,11 +145892,13 @@
    "name": "Kimberly Spears-McNatt",
    "university": "Clemson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146023,12 +146173,14 @@
    "name": "Kirk Dombrowski",
    "university": "University of Vermont",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146138,12 +146290,14 @@
    "name": "Kirsten Turner",
    "university": "University of Kentucky",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146213,12 +146367,14 @@
    "name": "Kivanc Oner",
    "university": "University of Nevada Las Vegas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146256,11 +146412,13 @@
    "name": "Koren Bakkegard",
    "university": "College of the Holy Cross",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -146370,12 +146528,14 @@
    "name": "Kris Winter",
    "university": "Utah State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
