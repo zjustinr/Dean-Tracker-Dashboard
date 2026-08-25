@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 2617,
-  "no": 11178,
+  "yes": 2636,
+  "no": 11159,
   "unknown": 15675,
-  "namedFirm": 2214,
-  "flagOnly": 403,
-  "firms": 2561,
-  "sittingWithTie": 1541,
-  "sittingSeniorTie": 910,
-  "researched": 1648
+  "namedFirm": 2226,
+  "flagOnly": 410,
+  "firms": 2580,
+  "sittingWithTie": 1553,
+  "sittingSeniorTie": 918,
+  "researched": 1678
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -106454,15 +106454,32 @@
   "jay e. davenport|pennsylvania state university": {
    "name": "Jay E. Davenport",
    "university": "Pennsylvania State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Catholic Memorial High School"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Catholic Memorial High School",
+     "role": "Development and administrative leadership role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jay e. maddock|texas a&m university": {
@@ -106540,11 +106557,13 @@
    "name": "Jay Gruber",
    "university": "American University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -106613,11 +106632,13 @@
    "name": "Jay Kahn",
    "university": "University of Oklahoma",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -106714,11 +106735,13 @@
    "name": "Jay Stroman",
    "university": "University of South Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -106741,13 +106764,15 @@
   "jay thomas|kennesaw state university": {
    "name": "Jay Thomas",
    "university": "Kennesaw State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -106935,13 +106960,15 @@
    "name": "Jayne Brownell",
    "university": "Miami University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -106964,15 +106991,32 @@
   "jc lopez|grinnell college": {
    "name": "JC Lopez",
    "university": "Grinnell College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Kappa Delta Rho National Fraternity"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Kappa Delta Rho National Fraternity",
+     "role": "Educational Leadership Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jean ann larson|university of alabama at birmingham": {
@@ -107394,16 +107438,44 @@
   "jeanette weiland|university of new orleans": {
    "name": "Jeanette Weiland",
    "university": "University of New Orleans",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Healthcare Providers",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Ochsner Health",
+    "New Orleans Business Alliance"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Ochsner Health",
+     "role": "Leadership role in strategic growth and finance",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "New Orleans Business Alliance",
+     "role": "Leadership role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jeanine m. buchanich|university of pittsburgh": {
@@ -107424,12 +107496,14 @@
    "name": "Jeanine Ward-Roof",
    "university": "Ferris State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -107452,31 +107526,65 @@
   "jeanne hossenlopp|marquette university": {
    "name": "Jeanne Hossenlopp",
    "university": "Marquette University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Milwaukee Academy of Science"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Milwaukee Academy of Science",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jeanne m. finlayson|stonehill college": {
    "name": "Jeanne M. Finlayson",
    "university": "Stonehill College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Holy Cross Family Ministries Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Holy Cross Family Ministries Foundation",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jeanne m. mcginn|curtis institute of music": {
@@ -107569,12 +107677,14 @@
    "name": "Jeannette Smith",
    "university": "Massachusetts College of Liberal Arts",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -107584,11 +107694,13 @@
    "name": "Jeannie Barrett",
    "university": "Illinois State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -107597,13 +107709,15 @@
   "jeannie reifsnyder|kent state university": {
    "name": "Jeannie Reifsnyder",
    "university": "Kent State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -107672,11 +107786,13 @@
    "name": "Jed Hancock",
    "university": "Utah State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -116599,16 +116715,75 @@
   "jo ellen pinkham|rochester institute of technology": {
    "name": "Jo Ellen Pinkham",
    "university": "Rochester Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Consulting",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Common Ground Health",
+    "Mary Cariola Children's Center",
+    "HR Works Inc.",
+    "Constellation Brands Inc.",
+    "Mercer"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Common Ground Health",
+     "role": "Board of Directors member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Mary Cariola Children's Center",
+     "role": "Board member (former)",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "HR Works Inc.",
+     "role": "Leadership position (title unspecified)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Constellation Brands Inc.",
+     "role": "Leadership position (title unspecified)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Mercer",
+     "role": "Leadership position (title unspecified)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "joan c. hendricks|university of pennsylvania": {
@@ -116676,11 +116851,13 @@
    "name": "Joan E. O'Neill",
    "university": "Yale University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -116749,15 +116926,45 @@
   "joan l. lucas|mississippi state university": {
    "name": "Joan L. Lucas",
    "university": "Mississippi State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Mississippi Attorney General's Office",
+    "Baker, Donelson, Bearman, Caldwell & Berkowitz"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Mississippi Attorney General's Office",
+     "role": "Special Assistant Attorney General",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Baker, Donelson, Bearman, Caldwell & Berkowitz",
+     "role": "Attorney, Litigation Group (Jackson office)",
+     "seniority": "professional",
+     "years": "2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "joan lescinski|saint ambrose university": {
@@ -117048,12 +117255,14 @@
   "joanna gallagher|gwynedd mercy university": {
    "name": "Joanna Gallagher",
    "university": "Gwynedd Mercy University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -117411,13 +117620,15 @@
   "joanne p. williams|fairfield university": {
    "name": "JoAnne P. Williams",
    "university": "Fairfield University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -117511,16 +117722,33 @@
   "jodi bailey accavallo|temple university": {
    "name": "Jodi Bailey Accavallo",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Campus Philly"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Campus Philly",
+     "role": "Board of Directors member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "jodi collins|augusta university": {
@@ -117554,15 +117782,32 @@
   "jodi geary|wake forest university": {
    "name": "Jodi Geary",
    "university": "Wake Forest University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "KPMG LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG LLP",
+     "role": "Auditing and advisory practice (title unspecified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jodi korich|cornell university": {
@@ -117612,16 +117857,55 @@
   "jodie penrod|marshall university": {
    "name": "Jodie Penrod",
    "university": "Marshall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Consumer & Retail",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Buckeye Rural Electric Cooperative",
+    "Red Bird Rose Company",
+    "Holzer Medical"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Energy & Industrials",
+     "firm": "Buckeye Rural Electric Cooperative",
+     "role": "Board member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Red Bird Rose Company",
+     "role": "Owner",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Holzer Medical",
+     "role": "Information technology role (title unspecified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "jody fournier|baker university": {
@@ -117804,11 +118088,13 @@
    "name": "Joe Bales",
    "university": "Middle Tennessee State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -117919,12 +118205,14 @@
   "joe housenick|wilkes university": {
    "name": "Joe Housenick",
    "university": "Wilkes University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -117933,12 +118221,14 @@
   "joe kirk|the college of wooster": {
    "name": "Joe Kirk",
    "university": "The College of Wooster",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -118107,12 +118397,14 @@
    "name": "Joe Sherlin",
    "university": "East Tennessee State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -118121,15 +118413,42 @@
   "joe vitale|oberlin college": {
    "name": "Joe Vitale",
    "university": "Oberlin College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "City of Olmsted Falls, Ohio",
+    "Office of U.S. Senator John Glenn"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "City of Olmsted Falls, Ohio",
+     "role": "City Council member, elected council president pro tempore",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Office of U.S. Senator John Glenn",
+     "role": "Deputy Finance Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "joe wehrman|university of colorado colorado springs": {
@@ -118209,16 +118528,33 @@
   "joel caplan|rutgers university-newark": {
    "name": "Joel Caplan",
    "university": "Rutgers University-Newark",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Simsi, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Simsi, Inc.",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "joel costa|bethel university": {
@@ -118498,12 +118834,14 @@
   "joel sovanski|william woods university": {
    "name": "Joel Sovanski",
    "university": "William Woods University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
