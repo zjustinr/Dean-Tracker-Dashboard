@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3152,
-  "no": 10643,
+  "yes": 3165,
+  "no": 10630,
   "unknown": 15675,
-  "namedFirm": 2630,
-  "flagOnly": 522,
-  "firms": 3218,
-  "sittingWithTie": 1957,
-  "sittingSeniorTie": 1191,
-  "researched": 2458
+  "namedFirm": 2637,
+  "flagOnly": 528,
+  "firms": 3226,
+  "sittingWithTie": 1964,
+  "sittingSeniorTie": 1194,
+  "researched": 2473
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -196198,13 +196198,15 @@
   "patrick norton|tulane university": {
    "name": "Patrick Norton",
    "university": "Tulane University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -196213,12 +196215,14 @@
   "patrick o'hern|boston college": {
    "name": "Patrick O'Hern",
    "university": "Boston College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -196241,28 +196245,57 @@
   "patrick o'shea|university of maryland college park": {
    "name": "Patrick O'Shea",
    "university": "University of Maryland College Park",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Maryland Cybersecurity Council",
+    "Los Alamos National Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Maryland Cybersecurity Council",
+     "role": "Member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Los Alamos National Laboratory",
+     "role": "research position (unspecified)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "patrick roberts|university of akron": {
    "name": "Patrick Roberts",
    "university": "University of Akron",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadvancement",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -196303,13 +196336,15 @@
   "patrick stewart|lamar university": {
    "name": "Patrick Stewart",
    "university": "Lamar University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -196360,13 +196395,15 @@
   "patrick wiseman|university of texas at austin": {
    "name": "Patrick Wiseman",
    "university": "University of Texas at Austin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -196404,13 +196441,15 @@
   "patty bice|suny at purchase college": {
    "name": "Patty Bice",
    "university": "SUNY at Purchase College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -196450,16 +196489,33 @@
   "patty puglia|daemen university": {
    "name": "Patty Puglia",
    "university": "Daemen University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "NAPA Auto Parts"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "NAPA Auto Parts",
+     "role": "Human Resources Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "paul a. fleury|yale university": {
@@ -196497,16 +196553,46 @@
   "paul a. meggett|university of maryland baltimore county": {
    "name": "Paul A. Meggett",
    "university": "University of Maryland Baltimore County",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 42,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "UNC Health",
+    "North Carolina Supreme Court"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UNC Health",
+     "role": "Associate General Counsel",
+     "seniority": "senior",
+     "years": "1999-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 42
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "North Carolina Supreme Court",
+     "role": "Law Clerk to Chief Justice Burley B. Mitchell Jr.",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "paul a. pavlou|university of houston": {
@@ -196625,15 +196711,32 @@
   "paul baker-porazinski|bennington college": {
    "name": "Paul Baker-Porazinski",
    "university": "Bennington College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Path at Stone Summit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Path at Stone Summit",
+     "role": "Director of Operations (earlier Vocational Specialist)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "paul beasley|wayne state university": {
@@ -196723,12 +196826,14 @@
   "paul burlingame|university at albany, suny": {
    "name": "Paul Burlingame",
    "university": "University at Albany, SUNY",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -196752,11 +196857,13 @@
    "name": "Paul Byrnes",
    "university": "University of Tennessee Knoxville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -197043,16 +197150,35 @@
   "paul e. fisher jr.|seton hall university": {
    "name": "Paul E. Fisher Jr.",
    "university": "Seton Hall University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "King Abdul Aziz City of Science and Technology (KACST)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "King Abdul Aziz City of Science and Technology (KACST)",
+     "role": "Member, Technology Strategic Plan Development Committee",
+     "seniority": "professional",
+     "years": "2011-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "paul e. patton|university of pikeville": {
@@ -197176,16 +197302,35 @@
   "paul f. occhiogrosso|the city college of new york": {
    "name": "Paul F. Occhiogrosso",
    "university": "The City College of New York",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "usr2"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Kramer Levin Naftalis & Frankel LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Kramer Levin Naftalis & Frankel LLP",
+     "role": "Litigation Associate",
+     "seniority": "professional",
+     "years": "1988-1994",
+     "endYear": 1994,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "paul fina|rosalind franklin university of medicine and science": {
@@ -197296,16 +197441,48 @@
   "paul hatty|hillsdale college": {
    "name": "Paul Hatty",
    "university": "Hillsdale College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usadminleaders",
     "uslac"
    ],
-   "stops": 1,
-   "sectors": [
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "CXtec",
+    "ShelterLogic Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "CXtec",
+     "role": "Vice President and Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2024-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "ShelterLogic Group",
+     "role": "Chief Financial Officer",
+     "seniority": "executive",
+     "years": "2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 70
+    }
    ]
   },
   "paul hennigan|point park university": {
