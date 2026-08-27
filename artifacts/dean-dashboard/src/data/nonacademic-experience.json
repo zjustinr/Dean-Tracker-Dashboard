@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3395,
-  "no": 10400,
+  "yes": 3412,
+  "no": 10383,
   "unknown": 15675,
-  "namedFirm": 2802,
-  "flagOnly": 593,
-  "firms": 3428,
-  "sittingWithTie": 2129,
-  "sittingSeniorTie": 1288,
-  "researched": 2866
+  "namedFirm": 2817,
+  "flagOnly": 595,
+  "firms": 3448,
+  "sittingWithTie": 2144,
+  "sittingSeniorTie": 1296,
+  "researched": 2911
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -677,11 +677,13 @@
    "name": "Aaron F. Bobick",
    "university": "Washington University in St. Louis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -2715,15 +2717,33 @@
   "ah-hyung alissa park|university of california los angeles": {
    "name": "Ah-Hyung Alissa Park",
    "university": "University of California Los Angeles",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "GreenOre CleanTech"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "GreenOre CleanTech",
+     "role": "Co-Founder",
+     "seniority": "executive",
+     "years": "2016",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "ahmad ezzeddine|university of washington": {
@@ -3140,12 +3160,14 @@
   "aisha morris moultry|texas southern university": {
    "name": "Aisha Morris Moultry",
    "university": "Texas Southern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -3752,16 +3774,35 @@
   "alan kallmeyer|north dakota state university": {
    "name": "Alan Kallmeyer",
    "university": "North Dakota State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool",
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Air Force Research Laboratory, Wright-Patterson Air Force Base"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Air Force Research Laboratory, Wright-Patterson Air Force Base",
+     "role": "Visiting Scientist, Materials Research Laboratory",
+     "seniority": "professional",
+     "years": "1998-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "alan m. garber|harvard university": {
@@ -4154,14 +4195,33 @@
    "name": "Albert P. Pisano",
    "university": "University of California San Diego",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "DARPA (Defense Advanced Research Projects Agency)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "DARPA (Defense Advanced Research Projects Agency)",
+     "role": "Program Manager, Microelectromechanical Systems",
+     "seniority": "senior",
+     "years": "1997-1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 36
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -4199,11 +4259,13 @@
    "name": "Alberto A. Cuitiño",
    "university": "Rutgers University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -4854,14 +4916,33 @@
    "name": "Alexander L. Wolf",
    "university": "University of California Santa Cruz",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "AT&T Bell Laboratories"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "AT&T Bell Laboratories",
+     "role": "Member of Technical Staff",
+     "seniority": "professional",
+     "years": "1987-1992",
+     "endYear": 1992,
+     "source": "research",
+     "score": 14
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -4884,15 +4965,32 @@
   "alexander mckelvie|syracuse university": {
    "name": "Alexander McKelvie",
    "university": "Syracuse University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "CNBC"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Media & Entertainment",
+     "firm": "CNBC",
+     "role": "Member, Disruptor Advisory Council",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "alexander n. cartwright|university of central florida": {
@@ -4960,11 +5058,13 @@
    "name": "Alexander Triantis",
    "university": "Johns Hopkins University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -5374,11 +5474,13 @@
    "name": "Ali Abolmaali",
    "university": "Wayne State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -5768,11 +5870,13 @@
    "name": "Alina Chircu",
    "university": "University of New Mexico",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -6404,11 +6508,13 @@
    "name": "Allen L. Robinson",
    "university": "Colorado State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -8726,11 +8832,13 @@
    "name": "Amy Friedman Wilson",
    "university": "Creighton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -9120,11 +9228,13 @@
    "name": "Amy Kristof-Brown",
    "university": "University of Iowa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -9191,15 +9301,42 @@
   "amy l. seybert|university of pittsburgh": {
    "name": "Amy L. Seybert",
    "university": "University of Pittsburgh",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "UPMC (University of Pittsburgh Medical Center)",
+    "Tampa General Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UPMC (University of Pittsburgh Medical Center)",
+     "role": "Pharmacy Residency Administrator",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Tampa General Hospital",
+     "role": "Cardiovascular Critical Care Pharmacy Resident",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "amy l. waer|texas a&m university": {
@@ -9563,11 +9700,13 @@
    "name": "Amy S. Fleischer",
    "university": "Boise State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -9798,11 +9937,13 @@
    "name": "Amy Zeng",
    "university": "Chapman University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -9979,12 +10120,14 @@
   "anand iyer|hampton university": {
    "name": "Anand Iyer",
    "university": "Hampton University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -10028,11 +10171,13 @@
    "name": "Anand K. Gramopadhye",
    "university": "Clemson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -10042,11 +10187,13 @@
    "name": "Anandi V. Law",
    "university": "Thomas Jefferson University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -10056,11 +10203,13 @@
    "name": "Ananth V. Iyer",
    "university": "University at Buffalo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -10138,15 +10287,34 @@
   "anastasia rivkin|fairleigh dickinson university": {
    "name": "Anastasia Rivkin",
    "university": "Fairleigh Dickinson University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Yale-New Haven Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Yale-New Haven Hospital",
+     "role": "Pharmacy Practice Resident",
+     "seniority": "professional",
+     "years": "2000-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "anastasiya ghosh|university of arizona": {
@@ -11319,12 +11487,14 @@
   "andrew c. boynton|boston college": {
    "name": "Andrew C. Boynton",
    "university": "Boston College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -11334,11 +11504,13 @@
    "name": "Andrew Call",
    "university": "University of Southern California",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -11663,11 +11835,13 @@
    "name": "Andrew Houck",
    "university": "Princeton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -12274,15 +12448,32 @@
   "andrew r. klein|wake forest university": {
    "name": "Andrew R. Klein",
    "university": "Wake Forest University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Sidley & Austin"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Sidley & Austin",
+     "role": "Associate, products liability litigation (pharmaceutical products)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "andrew read|pennsylvania state university": {
@@ -12424,15 +12615,44 @@
   "andrew singer|stony brook university": {
    "name": "Andrew Singer",
    "university": "Stony Brook University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Intersymbol Communications, Inc.",
+    "OceanComm, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Intersymbol Communications, Inc.",
+     "role": "Co-Founder and Chief Executive Officer",
+     "seniority": "executive",
+     "years": "2000-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "OceanComm, Inc.",
+     "role": "Co-Founder and Chief Executive Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "andrew stein|stevens institute of technology": {
@@ -14982,16 +15202,56 @@
   "anna e. carpenter|university of oklahoma": {
    "name": "Anna E. Carpenter",
    "university": "University of Oklahoma",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 5,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "San Diego Volunteer Lawyer Program",
+    "Rebecca Project for Human Rights",
+    "Futures Without Violence"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "San Diego Volunteer Lawyer Program",
+     "role": "Staff Attorney",
+     "seniority": "professional",
+     "years": "2009-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Rebecca Project for Human Rights",
+     "role": "Legal and Policy Clerk",
+     "seniority": "professional",
+     "years": "2008-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Futures Without Violence",
+     "role": "Public Policy Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "anna edwards|university of south carolina": {
@@ -15866,11 +16126,13 @@
    "name": "Anne P. Massey",
    "university": "University of Massachusetts Amherst",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -16027,15 +16289,53 @@
   "anne y. f. lin|st. john's university": {
    "name": "Anne Y. F. Lin",
    "university": "St. John's University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Caroline Center",
+    "Executive Alliance",
+    "Medical College of Virginia Hospitals"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Caroline Center",
+     "role": "Board Member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Executive Alliance",
+     "role": "Board Member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Medical College of Virginia Hospitals",
+     "role": "Clinical Pharmacy Resident",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "anne-marie albano|elms college": {
@@ -16898,12 +17198,14 @@
   "anthony marchese|university of rhode island": {
    "name": "Anthony Marchese",
    "university": "University of Rhode Island",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -17557,15 +17859,32 @@
   "anuj mehrotra|georgia tech": {
    "name": "Anuj Mehrotra",
    "university": "Georgia Tech",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Greater Washington Board of Trade"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Greater Washington Board of Trade",
+     "role": "Board Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "anuj mehrotra|university of miami": {
@@ -17840,26 +18159,55 @@
   "arash t. dabestani|long island university": {
    "name": "Arash T. Dabestani",
    "university": "Long Island University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "NYU Langone Health",
+    "Stanford University Hospital and Clinics"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "NYU Langone Health",
+     "role": "Senior Director of Pharmacy",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Stanford University Hospital and Clinics",
+     "role": "Associate Director of Pharmacy",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "aravind chandrasekaran|ohio state university": {
    "name": "Aravind Chandrasekaran",
    "university": "Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -18878,15 +19226,33 @@
   "arvind raman|purdue university": {
    "name": "Arvind Raman",
    "university": "Purdue University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Institute of Standards and Technology (U.S. Dept. of Commerce)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Institute of Standards and Technology (U.S. Dept. of Commerce)",
+     "role": "Director of NIST / Under Secretary of Commerce for Standards and Technology",
+     "seniority": "executive",
+     "years": "2026",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "arwen staros duffy|university of massachusetts amherst": {
@@ -20196,11 +20562,13 @@
    "name": "Azim Eskandarian",
    "university": "Virginia Commonwealth University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -20472,11 +20840,13 @@
    "name": "Balaji Rajagopalan",
    "university": "University of Missouri",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -22501,12 +22871,14 @@
   "berit p. gundersen|university of the pacific": {
    "name": "Berit P. Gundersen",
    "university": "University of the Pacific",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -23847,15 +24219,33 @@
   "bharat n. anand|new york university": {
    "name": "Bharat N. Anand",
    "university": "New York University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "JioStar"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Media & Entertainment",
+     "firm": "JioStar",
+     "role": "Independent Director",
+     "seniority": "senior",
+     "years": "2025",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "bharath prabhakaran|university of cincinnati": {
@@ -26404,11 +26794,13 @@
    "name": "Brad Kramer",
    "university": "Kansas State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -28224,11 +28616,13 @@
    "name": "Brent D. Williams",
    "university": "University of Arkansas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -28657,12 +29051,14 @@
   "brett gunnink|montana state university": {
    "name": "Brett Gunnink",
    "university": "Montana State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -29287,11 +29683,13 @@
    "name": "Brian Cummings",
    "university": "Wayne State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -29940,11 +30338,13 @@
    "name": "Brian L. Erstad",
    "university": "University of Arizona",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -30918,11 +31318,13 @@
    "name": "Brian T. Tsuji",
    "university": "University of Colorado",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-27",
    "stops": 2,
    "sectors": [
     "Academic"
