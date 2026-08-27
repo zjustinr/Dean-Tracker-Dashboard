@@ -1,0 +1,552 @@
+<title>Pre-Fall Baton Briefing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --ink: #16233b;
+    --ink-soft: #3d4a63;
+    --paper: #eef1ec;
+    --paper-raised: #ffffff;
+    --rule: #cbd0c6;
+    --gold: #a8763a;
+    --gold-strong: #8a5f2a;
+    --verdigris: #3f6659;
+    --verdigris-soft: #e4ece8;
+    --tag-watch: #6b4a8a;
+    --tag-watch-soft: #ece6f2;
+    --shadow: 220 20% 30%;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #ece7d8;
+      --ink-soft: #b7bdc9;
+      --paper: #10161f;
+      --paper-raised: #171f2b;
+      --rule: #303a48;
+      --gold: #d9a856;
+      --gold-strong: #eec27c;
+      --verdigris: #7fb4a2;
+      --verdigris-soft: #16281f;
+      --tag-watch: #b79bd6;
+      --tag-watch-soft: #241d33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #ece7d8;
+    --ink-soft: #b7bdc9;
+    --paper: #10161f;
+    --paper-raised: #171f2b;
+    --rule: #303a48;
+    --gold: #d9a856;
+    --gold-strong: #eec27c;
+    --verdigris: #7fb4a2;
+    --verdigris-soft: #16281f;
+    --tag-watch: #b79bd6;
+    --tag-watch-soft: #241d33;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--gold-strong); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-strong); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+  }
+
+  /* ---------- Masthead ---------- */
+  header.masthead {
+    padding: 56px 0 28px;
+    text-align: center;
+  }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--verdigris);
+    margin: 0 0 14px;
+  }
+  .wordmark {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 8vw, 3.6rem);
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .wordmark em {
+    font-style: italic;
+    color: var(--gold-strong);
+  }
+  .masthead-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 22px;
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+  }
+  .masthead-rule::before,
+  .masthead-rule::after {
+    content: "";
+    height: 1px;
+    width: 46px;
+    background: var(--rule);
+  }
+
+  /* ---------- Lede ---------- */
+  .lede {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.28rem;
+    line-height: 1.55;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 36px 0 8px;
+    text-wrap: balance;
+  }
+  .byline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.03em;
+    margin: 0 0 40px;
+  }
+
+  /* ---------- Stat strip ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 0 52px;
+  }
+  .stat {
+    background: var(--paper-raised);
+    padding: 20px 10px;
+    text-align: center;
+  }
+  .stat-num {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    font-size: clamp(1.15rem, 3.4vw, 1.5rem);
+    color: var(--gold-strong);
+  }
+  .stat-label {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  /* ---------- Sections ---------- */
+  section.block { margin: 0 0 56px; }
+  .eyebrow {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 0 0 6px;
+  }
+  .eyebrow .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--gold-strong);
+  }
+  .eyebrow .label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  h2.section-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .section-dek {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin: 0 0 28px;
+    max-width: 56ch;
+  }
+
+  /* ---------- Story items ---------- */
+  .story {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .story:first-of-type { border-top: none; }
+  .story-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--verdigris-soft);
+    color: var(--verdigris);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .story-role {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold-strong);
+    background: color-mix(in srgb, var(--gold) 14%, transparent);
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .story h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.14rem;
+    margin: 0 0 5px;
+    text-wrap: balance;
+  }
+  .story p.meta {
+    margin: 0 0 8px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+  .story a.src {
+    font-size: 0.82rem;
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--gold-strong) 45%, transparent);
+  }
+  .story a.src:hover { border-bottom-color: var(--gold-strong); }
+  .story a.src::after { content: " \2197"; }
+
+  /* ---------- Watch list (developing stories) ---------- */
+  .watch-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    background: var(--tag-watch-soft);
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .watch-tag {
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--tag-watch);
+    border: 1px solid color-mix(in srgb, var(--tag-watch) 55%, transparent);
+    padding: 3px 7px;
+    border-radius: 999px;
+    margin-top: 2px;
+  }
+  .watch-item p { margin: 0; font-size: 0.94rem; }
+  .watch-item .w-meta { font-size: 0.8rem; color: var(--ink-soft); margin-top: 3px; }
+
+  /* ---------- Open searches table ---------- */
+  .searches {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  .searches-scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; }
+  .searches th {
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    padding: 12px 16px;
+    background: var(--paper-raised);
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  .searches td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .searches tr:last-child td { border-bottom: none; }
+  .searches td.school { font-weight: 600; }
+  .searches td.status { color: var(--ink-soft); }
+
+  /* ---------- Closing ---------- */
+  .closing {
+    text-align: center;
+    padding: 44px 32px;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+  }
+  .closing h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .closing p { color: var(--ink-soft); margin: 0 0 22px; max-width: 44ch; margin-left: auto; margin-right: auto; }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--gold-strong);
+    padding: 12px 22px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+  }
+  .cta::after { content: "\2192"; }
+
+  footer.colophon {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  footer.colophon p { margin: 4px 0; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  @media (max-width: 520px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .story { grid-template-columns: 1fr; }
+    .story-mark { display: none; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker">A Baton Index Briefing &middot; Issue 01</p>
+    <h1 class="wordmark">The Baton<br><em>Pre-Fall Briefing</em></h1>
+    <div class="masthead-rule">August 27, 2026</div>
+  </header>
+
+  <p class="lede reveal">Summer's changing of the guard, in one sitting. Below: the presidents, provosts and deans who took the podium since July, the searches still quietly underway, and the stories we're still confirming before fall convocations open.</p>
+  <p class="byline reveal">Compiled from the Baton Index's daily leadership scan &middot; 21 tracked indices</p>
+
+  <div class="stats reveal">
+    <div class="stat"><span class="stat-num">20,329</span><span class="stat-label">Appointments on record</span></div>
+    <div class="stat"><span class="stat-num">8,527</span><span class="stat-label">Sitting leaders today</span></div>
+    <div class="stat"><span class="stat-num">6,778</span><span class="stat-label">Schools tracked</span></div>
+    <div class="stat"><span class="stat-num">since 1850</span><span class="stat-label">Earliest record</span></div>
+  </div>
+
+  <section class="block reveal">
+    <div class="eyebrow"><span class="num">01</span><span class="label">Corner Office Moves</span></div>
+    <h2 class="section-title">Who took the baton this summer</h2>
+    <p class="section-dek">Confirmed appointments and interim installations from the past several weeks, newest first.</p>
+
+    <div class="story">
+      <div class="story-mark">CR</div>
+      <div>
+        <span class="story-role">President</span>
+        <h3>C. Cybele Raver named president of the University of Michigan</h3>
+        <p class="meta">University of Michigan &middot; Office of the President &middot; Aug 18, 2026</p>
+        <a class="src" href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxOaDdtY0M0TDZfVHVzbW9hcHJrUnBRaVV2aXNqTzVlbnN4X2VKRjl2ZnZiSDdXYjEyNmJZOWh3Nl9sZ1dEck9vRUFwTERGTnZpMXhGZXI3ZGQ5bGNra3hBdlNScUlSLWxUdDZCWGFaNEUzVkJJMzg2SVlfRC1BZHNxNTZHVncwVVJtdnRzbWNxa0FSWVhaQ3V1QW81NDlrRm1qUThWOXg3QUFfMVFZRHh3bERXS0hXUEFkSklpampuckFSS0czT3VjMXZaUlA0VmdnVjg3UHN6cw?oc=5" target="_blank" rel="noopener">Read the announcement</a>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-mark">CA</div>
+      <div>
+        <span class="story-role">Dean</span>
+        <h3>Chris Adin named dean of UF's College of Veterinary Medicine</h3>
+        <p class="meta">University of Florida &middot; Aug 20, 2026</p>
+        <a class="src" href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE1pbTZlSUFEeDdHdDRuMEFOUy14MVIzZ3NoQVFwQ0RZLUJkOVBhdlVCckRQY2RyV1JOUUtkb3BvVWg3bjg5SDNzMkdjYy1SRnlV?oc=5" target="_blank" rel="noopener">Read the announcement</a>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-mark">RB</div>
+      <div>
+        <span class="story-role">Dean</span>
+        <h3>Ravi Bapna named dean of Santa Clara's Leavey School of Business</h3>
+        <p class="meta">Santa Clara University &middot; Aug 17, 2026</p>
+        <a class="src" href="https://news.google.com/rss/articles/CBMiogJBVV95cUxONWtaNTRvOEItUlcwQ0M3N0VfUERDaWV3Tmo4TTlVVTdPVWRHbUxLWXV5NGpVNnhzUG5QZnVKb3VUTWlsTEt1R2FyLWhMR3E5T3dUQVh5R2otajBIZlV4cHJLQmpRekdCUl9ZNTBOZFdpVHZVNGlGcWt4ZlRqTnVuRnROT29MMC1SVEhRZk9uS2dvZEE4ekppdkhsa05Wa0RjRUJPQWR0T2t6cEhMOFR0T1hldVVWcEF1a0l6SGU3azZEZEU0TmwyZnY2VUN0MFQ1cUsxM0ZPMFA0T3ZWaWxEVFQ5c3AxNmdvMGcwVWZpMDdBd3poazZaLTZxSU12WHZRNDNvQU1qSUQyOUxRNmVLMjFfS05HQTRrQ19SQ0N2eE01QQ?oc=5" target="_blank" rel="noopener">Read the announcement</a>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-mark">GS</div>
+      <div>
+        <span class="story-role">Interim Dean</span>
+        <h3>Grishma Shah named interim business school dean at Manhattan University</h3>
+        <p class="meta">Manhattan University &middot; Aug 19, 2026</p>
+        <a class="src" href="https://news.google.com/rss/articles/CBMivAFBVV95cUxNZTFuNVZmRXRCODJ4dnllOC1qRHdVU1BsQmJ6di1HcTlkVS1ZY2NYeDRKaEJYRkxNMHcySjc5X1dxZHdybG1xR2ZSdE85YW9pVW4wZnlmVHpuQ1h3MWpXaTZKQkRGZnNzYV9oZGtmUnM0WW9MajRhaTRaYVpSd2F5QU51R1V2NzZ1VU5raWlNakxKLUlCU2RVUlUyc1d5RDVUcjN0YngxWDZqQlh2U045dnJKRFZTSzBhSjhXYg?oc=5" target="_blank" rel="noopener">Read the announcement</a>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-mark">CB</div>
+      <div>
+        <span class="story-role">Provost</span>
+        <h3>Christina Bloebaum named provost at Wayne State University</h3>
+        <p class="meta">Wayne State University &middot; Office of the Provost &middot; Aug 3, 2026</p>
+        <a class="src" href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxOYnl6cEQzUXk1QThHS1NiWVJ0X0FKeTJDaXpvYWp4X2xRNHRaa3pCR0w0a0d1RzFqWnNkQU15cnBxNFdBMWVKbC1SYUpsU0dCeEdSQXYzZ04taDB5Y2xSN0ZndUJxd0tmYm9vVGNpb0ZEYkx0MjNublJOQy1lTkhZZzA2eTRsWXlXM1N2Rm9pS2xub19UWU10SE1MNW85aXlQRFh1MlNINy1paEt6T0pyc195d21FT3E3RXEzN1Y1Y1BoSlZsM09lQ2ttQm52M2ZRa2c?oc=5" target="_blank" rel="noopener">Read the announcement</a>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-mark">DK</div>
+      <div>
+        <span class="story-role">Interim Provost</span>
+        <h3>Denise Eby Konan appointed interim provost at UH M&#257;noa</h3>
+        <p class="meta">University of Hawai&#699;i System &middot; Jul 31, 2026</p>
+        <a class="src" href="https://news.google.com/rss/articles/CBMidkFVX3lxTE05Rzh4MlNXcEtMUG9uY2tTZ1ZRNDI5ZzVJay1HNC1nYzJpdXhERmxIZW9JcGY0R0pVa1ZrZkY4WmdVRTh3SDFrcVhTM1B0ejBQWmVkaW5wdHJlM2pNWmcwUkNuVllXWkt5LTNRdDZjWjZDMk8zZEE?oc=5" target="_blank" rel="noopener">Read the announcement</a>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-mark">LA</div>
+      <div>
+        <span class="story-role">Interim Dean</span>
+        <h3>Laurence Ales named interim dean of Carnegie Mellon's Tepper School</h3>
+        <p class="meta">Carnegie Mellon University &middot; Jul 28, 2026</p>
+        <a class="src" href="https://news.google.com/rss/articles/CBMifEFVX3lxTE11bmM1bEJIQU5mS2FkdzJhcVlxT1NpT0JVWXZReHNKMWdjQnA1MkhRaS1raXVILWJXaTlENzVyY3BzN2k4V1gwbEFkOFVaYU5tamx5S0cxaExVNkdMLXg5VnJTVjZZNTdSQ0d5NEw0MkQtWm1kNlVIeFdsYko?oc=5" target="_blank" rel="noopener">Read the announcement</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="eyebrow"><span class="num">02</span><span class="label">Developing</span></div>
+    <h2 class="section-title">Stories we're still confirming</h2>
+    <p class="section-dek">Reported but not yet locked into the record &mdash; the scout flags these for a second source before they're applied.</p>
+
+    <div class="watch-item">
+      <span class="watch-tag">Pending</span>
+      <div>
+        <p>Former UNC provost Jim Dean named president of the University of New Hampshire.</p>
+        <p class="w-meta">Reported Aug 17 &middot; awaiting a second source</p>
+      </div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-tag">Pending</span>
+      <div>
+        <p>Texas A&amp;M names a new interim provost after Alan Sams' decision to step down.</p>
+        <p class="w-meta">Reported Aug 21 &middot; awaiting a second source</p>
+      </div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-tag">Pending</span>
+      <div>
+        <p>Virginia Tech's presidential search continues as the fall term opens.</p>
+        <p class="w-meta">Reported Aug 18 &middot; awaiting a second source</p>
+      </div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-tag">Pending</span>
+      <div>
+        <p>Brown University's president resigns &mdash; successor process not yet announced.</p>
+        <p class="w-meta">Reported Aug 10 &middot; awaiting a second source</p>
+      </div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-tag">Pending</span>
+      <div>
+        <p>George Mason's Board of Visitors welcomes a new provost, per its August meeting notes.</p>
+        <p class="w-meta">Reported Aug 3 &middot; awaiting a second source</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="eyebrow"><span class="num">03</span><span class="label">Open Searches</span></div>
+    <h2 class="section-title">Seats still open heading into fall</h2>
+    <p class="section-dek">A working list of vacant or interim-held deanships worth watching this semester.</p>
+
+    <div class="searches-scroll">
+      <table class="searches">
+        <thead>
+          <tr><th>Institution</th><th>School</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="school">Florida A&amp;M University</td><td>Business &amp; Industry</td><td class="status">Interim since 2024</td></tr>
+          <tr><td class="school">University of South Carolina</td><td>Darla Moore</td><td class="status">Interim: Greg Niehaus</td></tr>
+          <tr><td class="school">University of Rochester</td><td>Simon</td><td class="status">Interim since Jul 2025</td></tr>
+          <tr><td class="school">University of Toronto</td><td>Rotman</td><td class="status">Dean's term ends Jun 2026</td></tr>
+          <tr><td class="school">UC Davis</td><td>&mdash;</td><td class="status">Dean stepping down Jun 2026</td></tr>
+          <tr><td class="school">University of Oxford</td><td>Sa&iuml;d</td><td class="status">Vacant since Sept 2025</td></tr>
+          <tr><td class="school">Syracuse University</td><td>Whitman</td><td class="status">Interim since 2022</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="closing reveal">
+    <h2>See the full board</h2>
+    <p>Every appointment above, plus tenure timelines, succession patterns and 21 leadership indices going back to 1850.</p>
+    <a class="cta" href="https://deantracker.vercel.app" target="_blank" rel="noopener">Open the Baton Index</a>
+  </div>
+
+  <footer class="colophon">
+    <p>The Baton is compiled from the Baton Index's automated daily leadership scan and reviewed before publication.</p>
+    <p>Spotted a correction? Reply and we'll run it down.</p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
