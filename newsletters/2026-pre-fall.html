@@ -1,6 +1,6 @@
 <title>Pre-Fall Baton Briefing</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
   :root {
     --ink: #16233b;
@@ -14,7 +14,13 @@
     --verdigris-soft: #e4ece8;
     --tag-watch: #6b4a8a;
     --tag-watch-soft: #ece6f2;
-    --shadow: 220 20% 30%;
+
+    /* Cover is a fixed "printed" identity -- it does not follow reader theme. */
+    --cover-bg: #0e1830;
+    --cover-bg-2: #1c2c4d;
+    --cover-text: #f4efe2;
+    --cover-text-soft: #aab6d1;
+    --cover-gold: #d9a856;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -48,6 +54,7 @@
 
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
   body {
     margin: 0;
@@ -67,49 +74,104 @@
     padding: 0 24px 96px;
   }
 
-  /* ---------- Masthead ---------- */
-  header.masthead {
-    padding: 56px 0 28px;
+  /* ---------- Cover ---------- */
+  .cover {
+    min-height: 100svh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    background: radial-gradient(ellipse 900px 700px at 50% 0%, var(--cover-bg-2), var(--cover-bg) 68%);
+    color: var(--cover-text);
+    padding: 80px 24px 56px;
+    position: relative;
   }
-  .kicker {
+  .cover::before, .cover::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(560px, 80%);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--cover-gold) 55%, transparent), transparent);
+  }
+  .cover::before { top: 40px; }
+  .cover::after { bottom: 40px; }
+  .cover-kicker {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--verdigris);
-    margin: 0 0 14px;
+    color: var(--cover-gold);
+    margin: 0 0 20px;
   }
-  .wordmark {
+  .cover-word {
     font-family: 'Fraunces', Georgia, serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-size: clamp(2.6rem, 8vw, 3.6rem);
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    font-size: clamp(3rem, 13vw, 5.4rem);
+    letter-spacing: -0.02em;
     margin: 0;
     text-wrap: balance;
   }
-  .wordmark em {
+  .cover-sub {
+    font-family: 'Fraunces', Georgia, serif;
     font-style: italic;
-    color: var(--gold-strong);
+    font-weight: 500;
+    color: var(--cover-gold);
+    font-size: clamp(1.25rem, 4.4vw, 1.8rem);
+    margin: 6px 0 0;
   }
-  .masthead-rule {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin-top: 22px;
-    color: var(--ink-soft);
+  .cover-date {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--cover-text-soft);
+    margin: 22px 0 0;
   }
-  .masthead-rule::before,
-  .masthead-rule::after {
-    content: "";
-    height: 1px;
-    width: 46px;
-    background: var(--rule);
+  .coverlines {
+    list-style: none;
+    margin: 44px 0 0;
+    padding: 0;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
   }
+  .coverlines li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 0.94rem;
+    color: var(--cover-text-soft);
+    line-height: 1.45;
+  }
+  .coverlines li::before {
+    content: "\2014";
+    position: absolute;
+    left: 0;
+    color: var(--cover-gold);
+  }
+  .coverlines strong { color: var(--cover-text); font-weight: 600; }
+  .scroll-cue {
+    margin-top: 52px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--cover-text-soft);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .scroll-cue:hover { color: var(--cover-text); }
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-cue svg { animation: bob 1.8s ease-in-out infinite; }
+  }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 
   /* ---------- Lede ---------- */
   .lede {
@@ -118,7 +180,7 @@
     line-height: 1.55;
     font-weight: 400;
     color: var(--ink);
-    margin: 36px 0 8px;
+    margin: 44px 0 8px;
     text-wrap: balance;
   }
   .byline {
@@ -138,7 +200,7 @@
     border: 1px solid var(--rule);
     border-radius: 10px;
     overflow: hidden;
-    margin: 0 0 52px;
+    margin: 0 0 60px;
   }
   .stat {
     background: var(--paper-raised);
@@ -163,7 +225,7 @@
   }
 
   /* ---------- Sections ---------- */
-  section.block { margin: 0 0 56px; }
+  section.block { margin: 0 0 60px; scroll-margin-top: 20px; }
   .eyebrow {
     display: flex;
     align-items: baseline;
@@ -194,6 +256,60 @@
     font-size: 0.98rem;
     margin: 0 0 28px;
     max-width: 56ch;
+  }
+
+  /* ---------- Editorial ---------- */
+  .editorial-body p {
+    font-size: 1.01rem;
+    line-height: 1.75;
+    margin: 0 0 20px;
+  }
+  .editorial-body p.drop::first-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 3.3em;
+    line-height: 0.78;
+    float: left;
+    padding: 4px 9px 0 0;
+    color: var(--gold-strong);
+  }
+  .chart-block {
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 22px 18px 14px;
+    margin: 8px 0 28px;
+  }
+  .chart-block svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .chart-block .grid { stroke: var(--rule); stroke-width: 1; }
+  .chart-block .axis-label, .chart-block .x-label {
+    fill: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .line-interim { fill: none; stroke: var(--gold-strong); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .line-female { fill: none; stroke: var(--verdigris); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .pts-interim circle { fill: var(--gold-strong); }
+  .pts-female circle { fill: var(--verdigris); }
+  .pts-interim circle.endpoint, .pts-female circle.endpoint { stroke: var(--paper-raised); stroke-width: 2; }
+  .chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+  .chart-legend .sw { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; }
+  .chart-legend .sw.gold { background: var(--gold-strong); }
+  .chart-legend .sw.teal { background: var(--verdigris); }
+  .chart-caption {
+    text-align: center;
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+    margin: 12px 0 2px;
   }
 
   /* ---------- Story items ---------- */
@@ -304,6 +420,113 @@
   .searches td.school { font-weight: 600; }
   .searches td.status { color: var(--ink-soft); }
 
+  /* ---------- Choose Your Track (directory) ---------- */
+  .idx-group { margin-bottom: 30px; }
+  .idx-group:last-child { margin-bottom: 0; }
+  .group-heading {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--verdigris);
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .idx-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+    gap: 10px;
+  }
+  .idx-link {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 14px 14px 12px;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .idx-link:hover { transform: translateY(-2px); border-color: var(--gold-strong); }
+  .idx-link .idx-link-label {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 0.96rem;
+  }
+  .idx-link .idx-link-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.28rem;
+    font-weight: 600;
+    color: var(--gold-strong);
+    margin-top: 4px;
+  }
+  .idx-link .idx-link-sub {
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Index by index (detail cards) ---------- */
+  .idx-detail {
+    padding: 26px 0;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 20px;
+  }
+  .idx-group-detail:first-child .idx-detail:first-child { border-top: none; }
+  .idx-detail-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .idx-detail-head h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+  .back-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    border-bottom: 1px dotted var(--rule);
+    white-space: nowrap;
+  }
+  .back-link:hover { color: var(--gold-strong); border-color: var(--gold-strong); }
+  .idx-desc {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin: 8px 0 18px;
+    max-width: 58ch;
+  }
+  .idx-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .idx-stats div { text-align: center; }
+  .idx-stats .n {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    font-size: 1.14rem;
+    color: var(--ink);
+  }
+  .idx-stats .l {
+    display: block;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    margin-top: 3px;
+  }
+
   /* ---------- Closing ---------- */
   .closing {
     text-align: center;
@@ -359,18 +582,30 @@
     .stats { grid-template-columns: repeat(2, 1fr); }
     .story { grid-template-columns: 1fr; }
     .story-mark { display: none; }
+    .idx-stats { grid-template-columns: repeat(2, 1fr); row-gap: 14px; }
   }
 </style>
 
+<section class="cover">
+  <p class="cover-kicker">A Baton Index Briefing &middot; Issue 01</p>
+  <h1 class="cover-word">The Baton</h1>
+  <p class="cover-sub">Pre-Fall Briefing</p>
+  <p class="cover-date">August 27, 2026</p>
+  <ul class="coverlines">
+    <li>Interim installations reach <strong>30.6%</strong> of new appointments this year &mdash; the steepest climb we've logged</li>
+    <li>The share of new appointments going to a woman has fallen every year since 2023</li>
+    <li><strong>13</strong> deanships sit open heading into fall</li>
+    <li>Inside: all <strong>21</strong> tracked indices &mdash; pick a track and jump straight to it</li>
+  </ul>
+  <a class="scroll-cue" href="#editorial">
+    <span>Read the issue</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
 <div class="wrap">
 
-  <header class="masthead">
-    <p class="kicker">A Baton Index Briefing &middot; Issue 01</p>
-    <h1 class="wordmark">The Baton<br><em>Pre-Fall Briefing</em></h1>
-    <div class="masthead-rule">August 27, 2026</div>
-  </header>
-
-  <p class="lede reveal">Summer's changing of the guard, in one sitting. Below: the presidents, provosts and deans who took the podium since July, the searches still quietly underway, and the stories we're still confirming before fall convocations open.</p>
+  <p class="lede reveal">Summer's changing of the guard, in one sitting. Below: an editorial read on where 2026 is heading, the presidents, provosts and deans who took the podium since July, the searches still quietly underway, and the full board &mdash; all 21 indices, ready to jump to.</p>
   <p class="byline reveal">Compiled from the Baton Index's daily leadership scan &middot; 21 tracked indices</p>
 
   <div class="stats reveal">
@@ -380,8 +615,61 @@
     <div class="stat"><span class="stat-num">since 1850</span><span class="stat-label">Earliest record</span></div>
   </div>
 
-  <section class="block reveal">
-    <div class="eyebrow"><span class="num">01</span><span class="label">Corner Office Moves</span></div>
+  <section id="editorial" class="block reveal">
+    <div class="eyebrow"><span class="num">01</span><span class="label">Editorial</span></div>
+    <h2 class="section-title">The State of the Bench, 2026</h2>
+    <div class="editorial-body">
+      <p class="drop">Two lines moved against each other this year, and both are six years in the making. Roughly one in five new appointments was an interim installation in 2023; so far in 2026, it's roughly one in three &mdash; the steepest climb we've logged since we started tracking appointment origin this closely. The share of new appointments going to a woman ran the opposite way: it rose through 2023, then reversed, and has fallen every year since.</p>
+
+      <div class="chart-block">
+        <svg viewBox="0 0 620 236" role="img" aria-label="Line chart from 2021 to 2026: interim share of new appointments rose from 24.1% to 30.6%, while the share held by a woman fell from a peak of 43.2% in 2023 to 36.6% in 2026.">
+          <line class="grid" x1="50" y1="170" x2="600" y2="170" />
+          <text class="axis-label" x="44" y="174" text-anchor="end">20%</text>
+          <line class="grid" x1="50" y1="50" x2="600" y2="50" />
+          <text class="axis-label" x="44" y="54" text-anchor="end">40%</text>
+
+          <polyline class="line-female" points="50,40 160,39 270,31 380,48 490,57 600,70" />
+          <polyline class="line-interim" points="50,145 160,160 270,177 380,155 490,126 600,106" />
+
+          <g class="pts-female">
+            <circle cx="50" cy="40" r="3.5" />
+            <circle cx="160" cy="39" r="3.5" />
+            <circle cx="270" cy="31" r="3.5" />
+            <circle cx="380" cy="48" r="3.5" />
+            <circle cx="490" cy="57" r="3.5" />
+            <circle class="endpoint" cx="600" cy="70" r="5" />
+          </g>
+          <g class="pts-interim">
+            <circle cx="50" cy="145" r="3.5" />
+            <circle cx="160" cy="160" r="3.5" />
+            <circle cx="270" cy="177" r="3.5" />
+            <circle cx="380" cy="155" r="3.5" />
+            <circle cx="490" cy="126" r="3.5" />
+            <circle class="endpoint" cx="600" cy="106" r="5" />
+          </g>
+
+          <text class="x-label" x="50" y="222" text-anchor="middle">2021</text>
+          <text class="x-label" x="160" y="222" text-anchor="middle">2022</text>
+          <text class="x-label" x="270" y="222" text-anchor="middle">2023</text>
+          <text class="x-label" x="380" y="222" text-anchor="middle">2024</text>
+          <text class="x-label" x="490" y="222" text-anchor="middle">2025</text>
+          <text class="x-label" x="600" y="222" text-anchor="middle">2026*</text>
+        </svg>
+        <div class="chart-legend">
+          <span><i class="sw gold"></i>Interim share of new appointments</span>
+          <span><i class="sw teal"></i>Held by a woman</span>
+        </div>
+        <p class="chart-caption">By year an appointment began, across all 21 tracked indices. *2026 is partial, through Aug 27.</p>
+      </div>
+
+      <p>The interim climb isn't concentrated in one corner of the org chart. Education (11.3% of sitting deans), Creative Arts (9.2%) and the Graduate College (6.8%) show it about as often as the much larger Administrative index does (6.5% of 4,473 sitting officers) &mdash; different disciplines, same reluctance to name a permanent successor before a search has fully run its course. Of the 620 appointments logged so far in 2026, 190 &mdash; nearly a third &mdash; were interim.</p>
+
+      <p>The rest of this issue is the board itself: the season's confirmed moves, the stories still developing, the seats still open, and &mdash; new this edition &mdash; a full walk through the 21 indices behind every number above. Pick a track below and jump straight to it.</p>
+    </div>
+  </section>
+
+  <section id="moves" class="block reveal">
+    <div class="eyebrow"><span class="num">02</span><span class="label">Corner Office Moves</span></div>
     <h2 class="section-title">Who took the baton this summer</h2>
     <p class="section-dek">Confirmed appointments and interim installations from the past several weeks, newest first.</p>
 
@@ -456,8 +744,8 @@
     </div>
   </section>
 
-  <section class="block reveal">
-    <div class="eyebrow"><span class="num">02</span><span class="label">Developing</span></div>
+  <section id="developing" class="block reveal">
+    <div class="eyebrow"><span class="num">03</span><span class="label">Developing</span></div>
     <h2 class="section-title">Stories we're still confirming</h2>
     <p class="section-dek">Reported but not yet locked into the record &mdash; the scout flags these for a second source before they're applied.</p>
 
@@ -498,8 +786,8 @@
     </div>
   </section>
 
-  <section class="block reveal">
-    <div class="eyebrow"><span class="num">03</span><span class="label">Open Searches</span></div>
+  <section id="searches" class="block reveal">
+    <div class="eyebrow"><span class="num">04</span><span class="label">Open Searches</span></div>
     <h2 class="section-title">Seats still open heading into fall</h2>
     <p class="section-dek">A working list of vacant or interim-held deanships worth watching this semester.</p>
 
@@ -518,6 +806,310 @@
           <tr><td class="school">Syracuse University</td><td>Whitman</td><td class="status">Interim since 2022</td></tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section id="choose" class="block reveal">
+    <div class="eyebrow"><span class="num">05</span><span class="label">Choose Your Track</span></div>
+    <h2 class="section-title">Twenty-one indices, one board</h2>
+    <p class="section-dek">Every seat the Index tracks, grouped below the same way the dashboard's dataset switcher does. Pick a track to jump straight to its numbers in Section 06 &mdash; a bookmark, not a new page.</p>
+
+    <div class="idx-group">
+      <h3 class="group-heading">Executive Leadership</h3>
+      <div class="idx-grid">
+        <a class="idx-link" href="#idx-r1university"><span class="idx-link-label">President</span><span class="idx-link-num">1,632</span><span class="idx-link-sub">sitting &middot; 160 schools</span></a>
+        <a class="idx-link" href="#idx-r1provost"><span class="idx-link-label">Provost</span><span class="idx-link-num">993</span><span class="idx-link-sub">sitting &middot; 161 schools</span></a>
+        <a class="idx-link" href="#idx-uslac"><span class="idx-link-label">LAC President</span><span class="idx-link-num">993</span><span class="idx-link-sub">sitting &middot; 206 schools</span></a>
+        <a class="idx-link" href="#idx-ussystem"><span class="idx-link-label">System</span><span class="idx-link-num">313</span><span class="idx-link-sub">sitting &middot; 44 systems</span></a>
+      </div>
+    </div>
+
+    <div class="idx-group">
+      <h3 class="group-heading">Professional &amp; Graduate Schools</h3>
+      <div class="idx-grid">
+        <a class="idx-link" href="#idx-r1bschool"><span class="idx-link-label">Business</span><span class="idx-link-num">628</span><span class="idx-link-sub">sitting &middot; 153 schools</span></a>
+        <a class="idx-link" href="#idx-r1law"><span class="idx-link-label">Law</span><span class="idx-link-num">842</span><span class="idx-link-sub">sitting &middot; 94 schools</span></a>
+        <a class="idx-link" href="#idx-r1medical"><span class="idx-link-label">Medical</span><span class="idx-link-num">1,410</span><span class="idx-link-sub">sitting &middot; 89 schools</span></a>
+        <a class="idx-link" href="#idx-usnursing"><span class="idx-link-label">Nursing</span><span class="idx-link-num">876</span><span class="idx-link-sub">sitting &middot; 255 schools</span></a>
+        <a class="idx-link" href="#idx-uspharmacy"><span class="idx-link-label">Pharmacy</span><span class="idx-link-num">629</span><span class="idx-link-sub">sitting &middot; 135 schools</span></a>
+        <a class="idx-link" href="#idx-uspublichealth"><span class="idx-link-label">Public Health</span><span class="idx-link-num">415</span><span class="idx-link-sub">sitting &middot; 63 schools</span></a>
+        <a class="idx-link" href="#idx-usvet"><span class="idx-link-label">Veterinary</span><span class="idx-link-num">216</span><span class="idx-link-sub">sitting &middot; 39 schools</span></a>
+        <a class="idx-link" href="#idx-usgrad"><span class="idx-link-label">Graduate College</span><span class="idx-link-num">444</span><span class="idx-link-sub">sitting &middot; 151 schools</span></a>
+      </div>
+    </div>
+
+    <div class="idx-group">
+      <h3 class="group-heading">Academic Disciplines</h3>
+      <div class="idx-grid">
+        <a class="idx-link" href="#idx-r1eschool"><span class="idx-link-label">Engineering</span><span class="idx-link-num">676</span><span class="idx-link-sub">sitting &middot; 132 schools</span></a>
+        <a class="idx-link" href="#idx-r1arts"><span class="idx-link-label">Arts &amp; Sciences</span><span class="idx-link-num">822</span><span class="idx-link-sub">sitting &middot; 210 schools</span></a>
+        <a class="idx-link" href="#idx-useducation"><span class="idx-link-label">Education</span><span class="idx-link-num">293</span><span class="idx-link-sub">sitting &middot; 296 schools</span></a>
+        <a class="idx-link" href="#idx-usag"><span class="idx-link-label">Ag &amp; Forestry</span><span class="idx-link-num">314</span><span class="idx-link-sub">sitting &middot; 110 schools</span></a>
+        <a class="idx-link" href="#idx-uscreativearts"><span class="idx-link-label">Creative Arts</span><span class="idx-link-num">379</span><span class="idx-link-sub">sitting &middot; 117 schools</span></a>
+      </div>
+    </div>
+
+    <div class="idx-group">
+      <h3 class="group-heading">Institutions &amp; Operations</h3>
+      <div class="idx-grid">
+        <a class="idx-link" href="#idx-usr2"><span class="idx-link-label">R2</span><span class="idx-link-num">2,134</span><span class="idx-link-sub">sitting &middot; 312 schools</span></a>
+        <a class="idx-link" href="#idx-uscommunitycollege"><span class="idx-link-label">Community College</span><span class="idx-link-num">1,100</span><span class="idx-link-sub">sitting &middot; 1,101 schools</span></a>
+        <a class="idx-link" href="#idx-usadminleaders"><span class="idx-link-label">Administrative</span><span class="idx-link-num">4,473</span><span class="idx-link-sub">sitting &middot; 700 schools</span></a>
+        <a class="idx-link" href="#idx-usadvancement"><span class="idx-link-label">Advancement</span><span class="idx-link-num">1,042</span><span class="idx-link-sub">sitting &middot; 293 schools</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="indices" class="block reveal">
+    <div class="eyebrow"><span class="num">06</span><span class="label">The Board</span></div>
+    <h2 class="section-title">Index by index</h2>
+    <p class="section-dek">The full digest behind Section 05 &mdash; sitting count, schools tracked, interim share, and how many seats changed hands so far in 2026.</p>
+
+    <div class="idx-group-detail">
+      <h3 class="group-heading">Executive Leadership</h3>
+
+      <div id="idx-r1university" class="idx-detail">
+        <div class="idx-detail-head"><h4>President</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">University presidents and chancellors &mdash; the seat every other seat on this board eventually reports to.</p>
+        <div class="idx-stats">
+          <div><span class="n">1,632</span><span class="l">Sitting today</span></div>
+          <div><span class="n">160</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">6.3%</span><span class="l">Interim share</span></div>
+          <div><span class="n">22</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-r1provost" class="idx-detail">
+        <div class="idx-detail-head"><h4>Provost</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Chief academic officers &mdash; the most common last stop before a presidency.</p>
+        <div class="idx-stats">
+          <div><span class="n">993</span><span class="l">Sitting today</span></div>
+          <div><span class="n">161</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">2.5%</span><span class="l">Interim share</span></div>
+          <div><span class="n">40</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-uslac" class="idx-detail">
+        <div class="idx-detail-head"><h4>LAC President</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Presidents of liberal arts colleges, tracked separately from the university-wide bench.</p>
+        <div class="idx-stats">
+          <div><span class="n">993</span><span class="l">Sitting today</span></div>
+          <div><span class="n">206</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">1.0%</span><span class="l">Interim share</span></div>
+          <div><span class="n">16</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-ussystem" class="idx-detail">
+        <div class="idx-detail-head"><h4>System</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Chancellors and presidents overseeing multi-campus systems rather than a single university.</p>
+        <div class="idx-stats">
+          <div><span class="n">313</span><span class="l">Sitting today</span></div>
+          <div><span class="n">44</span><span class="l">Systems tracked</span></div>
+          <div><span class="n">1.0%</span><span class="l">Interim share</span></div>
+          <div><span class="n">6</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="idx-group-detail">
+      <h3 class="group-heading">Professional &amp; Graduate Schools</h3>
+
+      <div id="idx-r1bschool" class="idx-detail">
+        <div class="idx-detail-head"><h4>Business</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of business schools and colleges, from flagship MBA programs to regional colleges of business.</p>
+        <div class="idx-stats">
+          <div><span class="n">628</span><span class="l">Sitting today</span></div>
+          <div><span class="n">153</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">3.7%</span><span class="l">Interim share</span></div>
+          <div><span class="n">25</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-r1law" class="idx-detail">
+        <div class="idx-detail-head"><h4>Law</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Law school deans.</p>
+        <div class="idx-stats">
+          <div><span class="n">842</span><span class="l">Sitting today</span></div>
+          <div><span class="n">94</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">1.2%</span><span class="l">Interim share</span></div>
+          <div><span class="n">16</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-r1medical" class="idx-detail">
+        <div class="idx-detail-head"><h4>Medical</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of medical schools.</p>
+        <div class="idx-stats">
+          <div><span class="n">1,410</span><span class="l">Sitting today</span></div>
+          <div><span class="n">89</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">0.9%</span><span class="l">Interim share</span></div>
+          <div><span class="n">10</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-usnursing" class="idx-detail">
+        <div class="idx-detail-head"><h4>Nursing</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of nursing schools and colleges.</p>
+        <div class="idx-stats">
+          <div><span class="n">876</span><span class="l">Sitting today</span></div>
+          <div><span class="n">255</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">2.3%</span><span class="l">Interim share</span></div>
+          <div><span class="n">18</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-uspharmacy" class="idx-detail">
+        <div class="idx-detail-head"><h4>Pharmacy</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of pharmacy schools and colleges.</p>
+        <div class="idx-stats">
+          <div><span class="n">629</span><span class="l">Sitting today</span></div>
+          <div><span class="n">135</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">1.3%</span><span class="l">Interim share</span></div>
+          <div><span class="n">7</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-uspublichealth" class="idx-detail">
+        <div class="idx-detail-head"><h4>Public Health</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of schools of public health.</p>
+        <div class="idx-stats">
+          <div><span class="n">415</span><span class="l">Sitting today</span></div>
+          <div><span class="n">63</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">0.2%</span><span class="l">Interim share</span></div>
+          <div><span class="n">5</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-usvet" class="idx-detail">
+        <div class="idx-detail-head"><h4>Veterinary</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of veterinary medicine &mdash; the smallest bench in this issue by seat count.</p>
+        <div class="idx-stats">
+          <div><span class="n">216</span><span class="l">Sitting today</span></div>
+          <div><span class="n">39</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">1.4%</span><span class="l">Interim share</span></div>
+          <div><span class="n">5</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-usgrad" class="idx-detail">
+        <div class="idx-detail-head"><h4>Graduate College</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans and vice provosts over graduate education institution-wide.</p>
+        <div class="idx-stats">
+          <div><span class="n">444</span><span class="l">Sitting today</span></div>
+          <div><span class="n">151</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">6.8%</span><span class="l">Interim share</span></div>
+          <div><span class="n">27</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="idx-group-detail">
+      <h3 class="group-heading">Academic Disciplines</h3>
+
+      <div id="idx-r1eschool" class="idx-detail">
+        <div class="idx-detail-head"><h4>Engineering</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of engineering schools and colleges.</p>
+        <div class="idx-stats">
+          <div><span class="n">676</span><span class="l">Sitting today</span></div>
+          <div><span class="n">132</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">1.5%</span><span class="l">Interim share</span></div>
+          <div><span class="n">5</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-r1arts" class="idx-detail">
+        <div class="idx-detail-head"><h4>Arts &amp; Sciences</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of the college that typically enrolls the largest share of undergraduates.</p>
+        <div class="idx-stats">
+          <div><span class="n">822</span><span class="l">Sitting today</span></div>
+          <div><span class="n">210</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">4.7%</span><span class="l">Interim share</span></div>
+          <div><span class="n">42</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-useducation" class="idx-detail">
+        <div class="idx-detail-head"><h4>Education</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of schools of education &mdash; the widest range of institution types in the Index.</p>
+        <div class="idx-stats">
+          <div><span class="n">293</span><span class="l">Sitting today</span></div>
+          <div><span class="n">296</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">11.3%</span><span class="l">Interim share</span></div>
+          <div><span class="n">39</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-usag" class="idx-detail">
+        <div class="idx-detail-head"><h4>Ag &amp; Forestry</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of agriculture, forestry and natural-resources colleges, concentrated at land-grant universities.</p>
+        <div class="idx-stats">
+          <div><span class="n">314</span><span class="l">Sitting today</span></div>
+          <div><span class="n">110</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">6.7%</span><span class="l">Interim share</span></div>
+          <div><span class="n">11</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-uscreativearts" class="idx-detail">
+        <div class="idx-detail-head"><h4>Creative Arts</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Deans of art, music, theater and design schools.</p>
+        <div class="idx-stats">
+          <div><span class="n">379</span><span class="l">Sitting today</span></div>
+          <div><span class="n">117</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">9.2%</span><span class="l">Interim share</span></div>
+          <div><span class="n">20</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="idx-group-detail">
+      <h3 class="group-heading">Institutions &amp; Operations</h3>
+
+      <div id="idx-usr2" class="idx-detail">
+        <div class="idx-detail-head"><h4>R2</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Presidents and provosts of R2 (&ldquo;high research activity&rdquo;) universities, the tier just below R1.</p>
+        <div class="idx-stats">
+          <div><span class="n">2,134</span><span class="l">Sitting today</span></div>
+          <div><span class="n">312</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">5.8%</span><span class="l">Interim share</span></div>
+          <div><span class="n">37</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-uscommunitycollege" class="idx-detail">
+        <div class="idx-detail-head"><h4>Community College</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Chancellors and presidents of community colleges and districts &mdash; the largest bench in the Index by school count.</p>
+        <div class="idx-stats">
+          <div><span class="n">1,100</span><span class="l">Sitting today</span></div>
+          <div><span class="n">1,101</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">4.5%</span><span class="l">Interim share</span></div>
+          <div><span class="n">48</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-usadminleaders" class="idx-detail">
+        <div class="idx-detail-head"><h4>Administrative</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Vice presidents and chief officers below the president's chair &mdash; finance, facilities, HR and beyond.</p>
+        <div class="idx-stats">
+          <div><span class="n">4,473</span><span class="l">Sitting today</span></div>
+          <div><span class="n">700</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">6.5%</span><span class="l">Interim share</span></div>
+          <div><span class="n">190</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
+
+      <div id="idx-usadvancement" class="idx-detail">
+        <div class="idx-detail-head"><h4>Advancement</h4><a class="back-link" href="#choose">&uarr; Choose another track</a></div>
+        <p class="idx-desc">Chief advancement and development officers.</p>
+        <div class="idx-stats">
+          <div><span class="n">1,042</span><span class="l">Sitting today</span></div>
+          <div><span class="n">293</span><span class="l">Schools tracked</span></div>
+          <div><span class="n">1.9%</span><span class="l">Interim share</span></div>
+          <div><span class="n">31</span><span class="l">New in 2026</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
