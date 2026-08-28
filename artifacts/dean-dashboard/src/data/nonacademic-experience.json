@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3412,
-  "no": 10383,
+  "yes": 3444,
+  "no": 10351,
   "unknown": 15675,
-  "namedFirm": 2817,
-  "flagOnly": 595,
-  "firms": 3448,
-  "sittingWithTie": 2144,
-  "sittingSeniorTie": 1296,
-  "researched": 2911
+  "namedFirm": 2835,
+  "flagOnly": 609,
+  "firms": 3474,
+  "sittingWithTie": 2162,
+  "sittingSeniorTie": 1307,
+  "researched": 2956
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -31962,15 +31962,71 @@
   "brigitte c. madrian|brigham young university": {
    "name": "Brigitte C. Madrian",
    "university": "Brigham Young University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 68,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "FINRA",
+    "Intermountain Health, Utah Valley Hospitals Governing Board",
+    "Social Security Advisory Board Technical Panel",
+    "Consumer Financial Protection Bureau, Academic Research Council"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "FINRA",
+     "role": "Board Member",
+     "seniority": "senior",
+     "years": "2014-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 68
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Intermountain Health, Utah Valley Hospitals Governing Board",
+     "role": "Board Member / Chair",
+     "seniority": "senior",
+     "years": "2020",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Social Security Advisory Board Technical Panel",
+     "role": "Chair",
+     "seniority": "senior",
+     "years": "2010-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Consumer Financial Protection Bureau, Academic Research Council",
+     "role": "Council Member",
+     "seniority": "professional",
+     "years": "2016-2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "brigitte tenhumberg, ph.d.|university of nebraska lincoln": {
@@ -32310,11 +32366,13 @@
    "name": "Brookie Best",
    "university": "University of California, San Diego",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -32542,16 +32600,71 @@
   "bruce blonigen|university of oregon": {
    "name": "Bruce Blonigen",
    "university": "University of Oregon",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool",
     "r1arts"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Inter-American Development Bank",
+    "U.S. Army Corps of Engineers",
+    "World Bank",
+    "U.S. International Trade Commission"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Inter-American Development Bank",
+     "role": "Scientific Advisor",
+     "seniority": "senior",
+     "years": "2014-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Army Corps of Engineers",
+     "role": "Consultant",
+     "seniority": "professional",
+     "years": "2004-2006",
+     "endYear": 2006,
+     "source": "research",
+     "score": 32
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "World Bank",
+     "role": "Consultant",
+     "seniority": "professional",
+     "years": "2002-2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. International Trade Commission",
+     "role": "Economist",
+     "seniority": "professional",
+     "years": "1994-1995",
+     "endYear": 1995,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "bruce bollinger|north dakota state university": {
@@ -32997,11 +33110,13 @@
    "name": "Bruce W. Weber",
    "university": "CUNY Baruch College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -33837,11 +33952,13 @@
    "name": "Burcu Akinci",
    "university": "Carnegie Mellon University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -34881,15 +34998,32 @@
   "camille carey|university of new mexico": {
    "name": "Camille Carey",
    "university": "University of New Mexico",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Legal Aid Society of New York"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Legal Aid Society of New York",
+     "role": "Staff Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "camille heenan|chapman university": {
@@ -37734,11 +37868,13 @@
    "name": "Carroll L. (Les) Ramos",
    "university": "Southwestern Oklahoma State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -37762,11 +37898,13 @@
    "name": "Carroll",
    "university": "Oregon State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -38322,15 +38460,33 @@
   "catherine cone|touro university california": {
    "name": "Catherine Cone",
    "university": "Touro University California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Raymond G. Murphy VA Health Care System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Raymond G. Murphy VA Health Care System",
+     "role": "Ambulatory Care Clinical Pharmacist / Residency Program Director",
+     "seniority": "professional",
+     "years": "1997",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "catherine cooper|washington state university": {
@@ -42645,15 +42801,42 @@
   "chris guthrie|vanderbilt university": {
    "name": "Chris Guthrie",
    "university": "Vanderbilt University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. District Court for the District of Columbia (Judge Royce C. Lamberth)",
+    "U.S. Court of Appeals for the Federal Circuit (Judge Timothy B. Dyk)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. District Court for the District of Columbia (Judge Royce C. Lamberth)",
+     "role": "Law Clerk",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Federal Circuit (Judge Timothy B. Dyk)",
+     "role": "Law Clerk",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "chris halladay|lehigh university": {
@@ -43791,15 +43974,34 @@
   "christiana ochoa|indiana university bloomington": {
    "name": "Christiana Ochoa",
    "university": "Indiana University Bloomington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Clifford Chance"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Clifford Chance",
+     "role": "Corporate Attorney",
+     "seniority": "professional",
+     "years": "1997-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "christie fitz-patrick|new college of florida": {
@@ -44675,12 +44877,14 @@
   "christine r. birnie|st. john fisher university": {
    "name": "Christine R. Birnie",
    "university": "St. John Fisher University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -44898,14 +45102,31 @@
    "name": "Christopher A. Schuh",
    "university": "Northwestern University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Xtalic Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Xtalic Corporation",
+     "role": "Co-Founder / Chief Scientist",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)",
@@ -45791,11 +46012,13 @@
    "name": "Christopher L. Shook",
    "university": "University of Alabama at Birmingham",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -46275,15 +46498,32 @@
   "christopher surratt|university of cincinnati": {
    "name": "Christopher Surratt",
    "university": "University of Cincinnati",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Institute on Drug Abuse (NIH)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Institute on Drug Abuse (NIH)",
+     "role": "Senior Staff Fellow",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "christopher t. nomura|university of idaho": {
@@ -46434,12 +46674,14 @@
   "christos christodoulou|university of new mexico": {
    "name": "Christos Christodoulou",
    "university": "University of New Mexico",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -46760,15 +47002,34 @@
   "cindy d. stowe|university of arkansas for medical sciences": {
    "name": "Cindy D. Stowe",
    "university": "University of Arkansas for Medical Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Arkansas Children's Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Arkansas Children's Hospital",
+     "role": "Affiliated Health Professional Staff",
+     "seniority": "professional",
+     "years": "1995-2013",
+     "endYear": 2013,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "cindy galindo|loyola marymount university": {
@@ -47790,12 +48051,14 @@
   "clifford l. henderson|university of alabama": {
    "name": "Clifford L. Henderson",
    "university": "University of Alabama",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -49140,11 +49403,13 @@
    "name": "Corey Phelps",
    "university": "Penn State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 6,
    "sectors": [
     "Academic",
@@ -49469,15 +49734,33 @@
   "costis maglaras|columbia university": {
    "name": "Costis Maglaras",
    "university": "Columbia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Pearson plc"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Media & Entertainment",
+     "firm": "Pearson plc",
+     "role": "Independent Non-Executive Director",
+     "seniority": "senior",
+     "years": "2025",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "coulter ward|binghamton university (suny)": {
@@ -49670,15 +49953,52 @@
   "courtney q. brooks|university of new hampshire": {
    "name": "Courtney Q. Brooks",
    "university": "University of New Hampshire",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Nixon Peabody LLP",
+    "Pierce Atwood LLP",
+    "Reed Smith LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Nixon Peabody LLP",
+     "role": "Litigation attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Pierce Atwood LLP",
+     "role": "Litigation attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Reed Smith LLP",
+     "role": "Litigation attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "courtney smith|the university of texas at tyler": {
@@ -49762,15 +50082,32 @@
   "craig a. martin|university of kentucky": {
    "name": "Craig A. Martin",
    "university": "University of Kentucky",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Kentucky Board of Pharmacy"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Kentucky Board of Pharmacy",
+     "role": "Board Member and President (2019)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "craig b. whitman|temple university": {
@@ -49957,12 +50294,14 @@
   "craig crossland|texas christian university": {
    "name": "Craig Crossland",
    "university": "Texas Christian University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -51999,12 +52338,14 @@
   "damon fleming|university of memphis": {
    "name": "Damon Fleming",
    "university": "University of Memphis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -53331,15 +53672,43 @@
   "daniel abebe|columbia university": {
    "name": "Daniel Abebe",
    "university": "Columbia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Argonne National Laboratory",
+    "Cravath, Swaine & Moore"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Argonne National Laboratory",
+     "role": "Board of Governors (prior service)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Cravath, Swaine & Moore",
+     "role": "Associate Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "daniel amato|university of illinois at chicago": {
@@ -53920,12 +54289,14 @@
   "daniel j. hansen|south dakota state university": {
    "name": "Daniel J. Hansen",
    "university": "South Dakota State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -54010,16 +54381,32 @@
   "daniel j. pack|baylor university": {
    "name": "Daniel J. Pack",
    "university": "Baylor University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "United States Air Force Academy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United States Air Force Academy",
+     "role": "Professor of Electrical and Computer Engineering (now Emeritus); Director, Academy Center for Unmanned Aircraft Systems Research",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "daniel j. scholz|cardinal stritch university": {
@@ -57440,12 +57827,14 @@
   "david bearden|oregon state university": {
    "name": "David Bearden",
    "university": "Oregon State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -57455,14 +57844,52 @@
    "name": "David Blackwell",
    "university": "University of South Florida",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Consulting"
+   ],
+   "firms": [
+    "Truist (formerly BB&T)",
+    "PricewaterhouseCoopers",
+    "KPMG"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Truist (formerly BB&T)",
+     "role": "Local Advisory Board Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "PricewaterhouseCoopers",
+     "role": "Manager and Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "KPMG",
+     "role": "Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ],
    "flags": [
     "hasConsultingBg",
@@ -57479,6 +57906,8 @@
     "r1eschool",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -58178,12 +58607,14 @@
   "david dietz|university of kansas": {
    "name": "David Dietz",
    "university": "University of Kansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -58494,12 +58925,14 @@
   "david ford|mississippi state university": {
    "name": "David Ford",
    "university": "Mississippi State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -59324,12 +59757,14 @@
   "david jones|utah state university": {
    "name": "David Jones",
    "university": "Utah State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -60144,12 +60579,14 @@
   "david m. smith|pepperdine university": {
    "name": "David M. Smith",
    "university": "Pepperdine University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -60172,15 +60609,46 @@
   "david m. szymanski|baylor university": {
    "name": "David M. Szymanski",
    "university": "Baylor University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 75,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "OfficeMax Inc. / ODP Corporation (Office Depot)",
+    "Zale Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Consumer & Retail",
+     "firm": "OfficeMax Inc. / ODP Corporation (Office Depot)",
+     "role": "Board Director",
+     "seniority": "senior",
+     "years": "2004-2024",
+     "endYear": 2024,
+     "source": "research",
+     "score": 75
+    },
+    {
+     "kind": "board",
+     "category": "Consumer & Retail",
+     "firm": "Zale Corporation",
+     "role": "Board Director",
+     "seniority": "senior",
+     "years": "2004-2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 60
+    }
    ]
   },
   "david m. szymanski|university of cincinnati": {
@@ -61646,12 +62114,14 @@
   "david souder|michigan state university": {
    "name": "David Souder",
    "university": "Michigan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -62421,12 +62891,14 @@
   "david weldon|william carey university": {
    "name": "David Weldon",
    "university": "William Carey University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -62948,15 +63420,33 @@
   "dayna bowen matthew|george washington university": {
    "name": "Dayna Bowen Matthew",
    "university": "George Washington University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "NALP Foundation for Law Career Research and Education"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "NALP Foundation for Law Career Research and Education",
+     "role": "Board of Trustees Member",
+     "seniority": "senior",
+     "years": "2022",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "dayna herrera|california baptist university": {
@@ -63447,12 +63937,14 @@
   "debbie c. byrd|east tennessee state university": {
    "name": "Debbie C. Byrd",
    "university": "East Tennessee State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -63811,12 +64303,14 @@
   "deborah compeau|washington state university": {
    "name": "Deborah Compeau",
    "university": "Washington State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -64212,12 +64706,14 @@
   "deborah spake|kent state university": {
    "name": "Deborah Spake",
    "university": "Kent State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -64534,15 +65030,44 @@
   "debra parker|university of findlay": {
    "name": "Debra Parker",
    "university": "University of Findlay",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Physicians Inc.",
+    "Blanchard Valley Medical Associates"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Physicians Inc.",
+     "role": "Director of Clinical Pharmacy Services",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Blanchard Valley Medical Associates",
+     "role": "Clinical Pharmacist",
+     "seniority": "professional",
+     "years": "2006-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "debra pemstein|bard college": {
@@ -67754,11 +68279,13 @@
    "name": "Donald A. Godwin",
    "university": "University of New Mexico",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -67953,12 +68480,14 @@
   "donald g. klepser|university of nebraska medical center": {
    "name": "Donald G. Klepser",
    "university": "University of Nebraska Medical Center",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -69002,12 +69531,14 @@
   "donna west-strum|university of mississippi": {
    "name": "Donna West-Strum",
    "university": "University of Mississippi",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
