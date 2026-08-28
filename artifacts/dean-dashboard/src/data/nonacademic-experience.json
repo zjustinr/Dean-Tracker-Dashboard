@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3444,
-  "no": 10351,
+  "yes": 3465,
+  "no": 10330,
   "unknown": 15675,
-  "namedFirm": 2835,
-  "flagOnly": 609,
-  "firms": 3474,
-  "sittingWithTie": 2162,
-  "sittingSeniorTie": 1307,
-  "researched": 2956
+  "namedFirm": 2855,
+  "flagOnly": 610,
+  "firms": 3501,
+  "sittingWithTie": 2182,
+  "sittingSeniorTie": 1318,
+  "researched": 3001
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -69578,11 +69578,13 @@
    "name": "Doreen E. Szollosi",
    "university": "University of Saint Joseph",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -70237,11 +70239,13 @@
    "name": "Douglas B. Williams",
    "university": "Georgia Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -70727,11 +70731,13 @@
    "name": "Douglas W. Van Citters",
    "university": "Dartmouth College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -73227,11 +73233,13 @@
    "name": "Ed Schlesinger",
    "university": "Johns Hopkins University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -73972,11 +73980,13 @@
    "name": "Edward Foote",
    "university": "Saint Joseph's University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -74879,15 +74889,34 @@
   "elena umland|albany college of pharmacy and health sciences": {
    "name": "Elena Umland",
    "university": "Albany College of Pharmacy and Health Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Veterans Administration Hospital / VA Medical Center (Iowa City)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Veterans Administration Hospital / VA Medical Center (Iowa City)",
+     "role": "Ambulatory/Primary Care Pharmacy Practice Resident",
+     "seniority": "professional",
+     "years": "1995-1996",
+     "endYear": 1996,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "eli capilouto|university of kentucky": {
@@ -75117,11 +75146,13 @@
    "name": "Elise F. Morgan",
    "university": "Boston University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -75912,16 +75943,33 @@
   "elizabeth kronk warner|university of utah": {
    "name": "Elizabeth Kronk Warner",
    "university": "University of Utah",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Sault Ste. Marie Tribe of Chippewa Indians (Tribal Court)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Sault Ste. Marie Tribe of Chippewa Indians (Tribal Court)",
+     "role": "Appellate Judge / Acting Chief Judge",
+     "seniority": "senior",
+     "years": "2008",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "elizabeth loboa|university of missouri": {
@@ -77699,14 +77747,31 @@
    "name": "Emmanuel G. Collins",
    "university": "University of Louisville",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Harris Corporation (Government Aerospace Systems Division)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Harris Corporation (Government Aerospace Systems Division)",
+     "role": "Research and development engineer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -78405,11 +78470,13 @@
    "name": "Eric L. Barker",
    "university": "Purdue University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -78706,11 +78773,13 @@
    "name": "Eric R. Blough",
    "university": "Marshall University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -79481,12 +79550,14 @@
   "erik jorvig|concordia university wisconsin": {
    "name": "Erik Jorvig",
    "university": "Concordia University Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -79511,15 +79582,33 @@
   "erik maki|drake university": {
    "name": "Erik Maki",
    "university": "Drake University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Iowa Board of Pharmacy"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Iowa Board of Pharmacy",
+     "role": "Board Member (later Chair)",
+     "seniority": "senior",
+     "years": "2021",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "erik p. ankerberg|concordia university wisconsin": {
@@ -79638,15 +79727,44 @@
   "erika h. james|university of pennsylvania": {
    "name": "Erika H. James",
    "university": "University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Financial Services",
+    "Technology"
+   ],
+   "firms": [
+    "Morgan Stanley",
+    "Momentive Global (SurveyMonkey)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Morgan Stanley",
+     "role": "Independent Director",
+     "seniority": "executive",
+     "years": "2022",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "Momentive Global (SurveyMonkey)",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "erika j. smith|connecticut college": {
@@ -80471,15 +80589,47 @@
   "erwin chemerinsky|university of california berkeley": {
    "name": "Erwin Chemerinsky",
    "university": "University of California Berkeley",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "U.S. Department of Justice, Civil Division",
+    "Dobrovir, Oakes & Gebhardt"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Justice, Civil Division",
+     "role": "Honors Attorney",
+     "seniority": "professional",
+     "years": "1978-1979",
+     "endYear": 1979,
+     "source": "research",
+     "score": 14
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Dobrovir, Oakes & Gebhardt",
+     "role": "Associate Attorney",
+     "seniority": "professional",
+     "years": "1979-1980",
+     "endYear": 1980,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "eréndira rubin|university of california santa cruz": {
@@ -80810,11 +80960,13 @@
    "name": "Eugene \"Gene\" Anderson",
    "university": "University of Pittsburgh",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -81027,11 +81179,13 @@
    "name": "Evan Robinson",
    "university": "University of North Texas Health Science Center",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -82311,11 +82465,13 @@
    "name": "Forrest Masters",
    "university": "Oregon State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -82725,15 +82881,80 @@
   "francesca cornelli|northwestern university": {
    "name": "Francesca Cornelli",
    "university": "Northwestern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 68,
+   "seniority": "senior",
+   "categories": [
+    "Other industry",
+    "Financial Services",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Telecom Italia",
+    "GCM Grosvenor, Inc.",
+    "Banca Intesa Sanpaolo",
+    "Swiss Re (Europe/International/Holdings)",
+    "Lyric Opera of Chicago"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Other industry",
+     "firm": "Telecom Italia",
+     "role": "Board Member",
+     "seniority": "senior",
+     "years": "2014-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 68
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "GCM Grosvenor, Inc.",
+     "role": "Board of Directors",
+     "seniority": "senior",
+     "years": "2020",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Banca Intesa Sanpaolo",
+     "role": "Board Member",
+     "seniority": "senior",
+     "years": "2016",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Swiss Re (Europe/International/Holdings)",
+     "role": "Board Member",
+     "seniority": "senior",
+     "years": "2013",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Lyric Opera of Chicago",
+     "role": "Board of Directors",
+     "seniority": "senior",
+     "years": "2021",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "francesca reynolds|saint joseph's university": {
@@ -82987,15 +83208,42 @@
   "franita tolson|university of southern california": {
    "name": "Franita Tolson",
    "university": "University of Southern California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. District Court for the Northern District of Illinois",
+    "U.S. Court of Appeals for the Seventh Circuit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. District Court for the Northern District of Illinois",
+     "role": "Judicial Law Clerk to Judge Rubén Castillo",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Seventh Circuit",
+     "role": "Judicial Law Clerk to Judge Ann Claire Williams",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "frank buckless|north carolina state university": {
@@ -83223,11 +83471,13 @@
    "name": "Frank Hodge",
    "university": "University of Washington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -84859,11 +85109,13 @@
    "name": "Gareth James",
    "university": "UCLA",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -85483,15 +85735,33 @@
   "gary m. pollack|university at buffalo (suny)": {
    "name": "Gary M. Pollack",
    "university": "University at Buffalo (SUNY)",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Qualyst, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Qualyst, Inc.",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "years": "2001",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "gary moskowitz|southern methodist university": {
@@ -86546,15 +86816,32 @@
   "george e. mackinnon iii|medical college of wisconsin": {
    "name": "George E. MacKinnon III",
    "university": "Medical College of Wisconsin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Abbott Laboratories"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Abbott Laboratories",
+     "role": "Director of Global Health Economics and Outcomes Research",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "george e. ross|central michigan university": {
@@ -86931,15 +87218,32 @@
   "george triantis|stanford university": {
    "name": "George Triantis",
    "university": "Stanford University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Fraser & Beatty"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Fraser & Beatty",
+     "role": "Corporate and banking lawyer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "george v. hillyer|university of puerto rico at río piedras": {
@@ -87687,11 +87991,13 @@
    "name": "Gert-Jan (GJ) de Vreede",
    "university": "Stevens Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -88248,12 +88554,14 @@
   "giuseppe gumina|presbyterian college": {
    "name": "Giuseppe Gumina",
    "university": "Presbyterian College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -88468,12 +88776,14 @@
   "glen t. schumock|university of illinois chicago": {
    "name": "Glen T. Schumock",
    "university": "University of Illinois Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -89207,15 +89517,32 @@
   "grace kuo|texas tech university health sciences center": {
    "name": "Grace Kuo",
    "university": "Texas Tech University Health Sciences Center",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "HHS Health Resources and Services Administration (HRSA) - Advisory Committee on Interdisciplinary, Community-Based Linkages"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "HHS Health Resources and Services Administration (HRSA) - Advisory Committee on Interdisciplinary, Community-Based Linkages",
+     "role": "Chair",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "grace soyon lee|university of alabama": {
@@ -90244,15 +90571,56 @@
   "gregory d. abowd|northeastern university": {
    "name": "Gregory D. Abowd",
    "university": "Northeastern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Atlanta Autism Consortium",
+    "Marcus Autism Center",
+    "State of Georgia Autism Advisory Council"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Atlanta Autism Consortium",
+     "role": "Founder; President and Board Chair",
+     "seniority": "executive",
+     "years": "2008-2021",
+     "endYear": 2021,
+     "source": "research",
+     "score": 70
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Marcus Autism Center",
+     "role": "Board Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "State of Georgia Autism Advisory Council",
+     "role": "Member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "gregory d. hess|wabash college": {
@@ -90577,14 +90945,41 @@
    "name": "Gregory Mosier",
    "university": "University of Nevada Reno",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "PBS Reno (Sierra Nevada Public Broadcasting)",
+    "Reno-Sparks Chamber of Commerce"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "PBS Reno (Sierra Nevada Public Broadcasting)",
+     "role": "Board of Trustees",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Reno-Sparks Chamber of Commerce",
+     "role": "Board member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -90743,11 +91138,13 @@
    "name": "Gregory R. Niehaus",
    "university": "University of South Carolina",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -91714,11 +92111,13 @@
    "name": "H. Rao Unnava",
    "university": "University of California Davis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -91859,12 +92258,14 @@
   "haider ala hamoudi|university of cincinnati": {
    "name": "Haider Ala Hamoudi",
    "university": "University of Cincinnati",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic",
@@ -92149,12 +92550,14 @@
   "hanchen huang|oklahoma state university": {
    "name": "Hanchen Huang",
    "university": "Oklahoma State University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -92733,15 +93136,54 @@
   "harry a. atwater|california institute of technology": {
    "name": "Harry A. Atwater",
    "university": "California Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Technology",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Alta Devices",
+    "Aonex Corporation",
+    "Lawrence Livermore National Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Alta Devices",
+     "role": "Founder and Chief Technical Advisor",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Aonex Corporation",
+     "role": "Founder and Chief Technical Advisor",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Lawrence Livermore National Laboratory",
+     "role": "Member, Director's Review Committee, Chemistry and Materials Science Division",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "harry bulow|purdue university": {
@@ -93102,11 +93544,13 @@
    "name": "Hasan Pirkul",
    "university": "University of Texas at Dallas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -95043,15 +95487,32 @@
   "henry cohen|touro university": {
    "name": "Henry Cohen",
    "university": "Touro University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Kingsbrook Jewish Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Kingsbrook Jewish Medical Center",
+     "role": "Chief Pharmacy Officer / Director of Pharmacy Residency Programs",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "henry e. riggs|harvey mudd college": {
@@ -96356,26 +96817,45 @@
   "horace e. anderson jr.|pace university": {
    "name": "Horace E. Anderson Jr.",
    "university": "Pace University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "White & Case LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "White & Case LLP",
+     "role": "Associate, IP/privacy/technology practice",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "hossein haj-hariri|university of south carolina": {
    "name": "Hossein Haj-Hariri",
    "university": "University of South Carolina",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -97455,12 +97935,14 @@
   "ian o. williamson|university of california irvine": {
    "name": "Ian O. Williamson",
    "university": "University of California Irvine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 4,
    "sectors": [
     "Academic",
@@ -97828,14 +98310,32 @@
    "name": "Ines Triay",
    "university": "Florida International University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Department of Energy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Energy",
+     "role": "Assistant Secretary for Environmental Management (Senate-confirmed)",
+     "seniority": "executive",
+     "years": "2009",
+     "source": "research",
+     "score": 53
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -99969,15 +100469,32 @@
   "jack wade nowlin|texas tech university": {
    "name": "Jack Wade Nowlin",
    "university": "Texas Tech University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "National Judicial College"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "National Judicial College",
+     "role": "Faculty member, teaching Fourth Amendment law to trial and appellate judges",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jacki black|edgewood college": {
@@ -102769,11 +103286,13 @@
    "name": "James K. Drennen III",
    "university": "Duquesne University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -103559,16 +104078,32 @@
   "james r. hackney jr.|northeastern university": {
    "name": "James R. Hackney Jr.",
    "university": "Northeastern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 3,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-28",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Irell & Manella LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Irell & Manella LLP",
+     "role": "Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "james r. hallmark|texas a&m university-kingsville": {
