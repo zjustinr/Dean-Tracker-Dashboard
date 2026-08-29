@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3549,
-  "no": 10246,
+  "yes": 3579,
+  "no": 10216,
   "unknown": 15675,
-  "namedFirm": 2925,
-  "flagOnly": 624,
-  "firms": 3603,
-  "sittingWithTie": 2252,
-  "sittingSeniorTie": 1353,
-  "researched": 3181
+  "namedFirm": 2942,
+  "flagOnly": 637,
+  "firms": 3625,
+  "sittingWithTie": 2269,
+  "sittingSeniorTie": 1361,
+  "researched": 3226
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -236687,15 +236687,47 @@
   "sophia z. lee|university of pennsylvania": {
    "name": "Sophia Z. Lee",
    "university": "University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "U.S. District Court for the Southern District of New York",
+    "Vera Institute of Justice"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. District Court for the Southern District of New York",
+     "role": "Law Clerk to Chief Judge Kimba M. Wood",
+     "seniority": "professional",
+     "years": "2008-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Vera Institute of Justice",
+     "role": "Research Associate",
+     "seniority": "professional",
+     "years": "2000-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "sophie ano|state university of new york college of agriculture and technology at cobleskill": {
@@ -237051,15 +237083,78 @@
   "srikant m. datar|harvard university": {
    "name": "Srikant M. Datar",
    "university": "Harvard University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 81,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Consulting",
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "HCL Technologies",
+    "KPIT Technologies",
+    "ICF International",
+    "Stryker Corporation",
+    "T-Mobile US"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "HCL Technologies",
+     "role": "Director",
+     "seniority": "executive",
+     "years": "2012-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 81
+    },
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "KPIT Technologies",
+     "role": "Director",
+     "seniority": "executive",
+     "years": "2007-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 73
+    },
+    {
+     "kind": "board",
+     "category": "Consulting",
+     "firm": "ICF International",
+     "role": "Lead Independent Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare & Pharma",
+     "firm": "Stryker Corporation",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "T-Mobile US",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "srikanth kolluru|university of the pacific": {
@@ -237356,14 +237451,16 @@
   "stacie petter|wake forest university": {
    "name": "Stacie Petter",
    "university": "Wake Forest University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool",
     "r1provost",
     "usr2"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -238066,12 +238163,14 @@
   "stefanie a. lindquist|washington university in st. louis": {
    "name": "Stefanie A. Lindquist",
    "university": "Washington University in St. Louis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -238277,15 +238376,34 @@
   "stephanie adams|university of texas at dallas": {
    "name": "Stephanie Adams",
    "university": "University of Texas at Dallas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Program Director and AAAS/NSF Science and Engineering Policy Fellow",
+     "seniority": "professional",
+     "years": "2005-2007",
+     "endYear": 2007,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "stephanie akunvabey|pace university": {
@@ -239572,13 +239690,15 @@
    "name": "Stephen J. Cutler",
    "university": "University of South Carolina",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy",
     "r1provost",
     "r1university"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -239866,12 +239986,14 @@
   "stephen mangum|university of tennessee": {
    "name": "Stephen Mangum",
    "university": "University of Tennessee",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -240259,15 +240381,34 @@
   "stephen w. mazza|university of kansas": {
    "name": "Stephen W. Mazza",
    "university": "University of Kansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Kilpatrick & Stockton"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Kilpatrick & Stockton",
+     "role": "Tax Associate",
+     "seniority": "professional",
+     "years": "1993-1995",
+     "endYear": 1995,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "sterling daniel|virginia commonwealth university": {
@@ -241701,11 +241842,13 @@
    "name": "Steven M. Swanson",
    "university": "University of Wisconsin-Madison",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -242300,15 +242443,43 @@
   "stuart beatty|ohio northern university": {
    "name": "Stuart Beatty",
    "university": "Ohio Northern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Consulting",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Strategic Pharmacy Initiatives, LLC",
+    "Ohio Pharmacists Association"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Strategic Pharmacy Initiatives, LLC",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Ohio Pharmacists Association",
+     "role": "Director of Strategy and Practice Transformation",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "stuart d. flynn|texas christian university": {
@@ -242524,11 +242695,13 @@
    "name": "Subrata Deb",
    "university": "Larkin University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -242978,12 +243151,14 @@
   "sunil prabhu|western university of health sciences": {
    "name": "Sunil Prabhu",
    "university": "Western University of Health Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -244737,12 +244912,14 @@
   "suvranu de|florida state university": {
    "name": "Suvranu De",
    "university": "Florida State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -244751,12 +244928,14 @@
   "suzanna long|university of idaho": {
    "name": "Suzanna Long",
    "university": "University of Idaho",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -245567,15 +245746,53 @@
   "t. russell crook|louisiana state university": {
    "name": "T. Russell Crook",
    "university": "Louisiana State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Energy & Industrials",
+    "Technology"
+   ],
+   "firms": [
+    "American Airlines",
+    "US Airways",
+    "IBM"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "American Airlines",
+     "role": "Strategic planning / global procurement role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "US Airways",
+     "role": "Strategic planning / global procurement role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Strategic planning / global procurement role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "t. samuel shomaker|university of hawaii at manoa": {
@@ -245609,12 +245826,14 @@
   "t. sean vasaitis|university of maryland eastern shore": {
    "name": "T. Sean Vasaitis",
    "university": "University of Maryland Eastern Shore",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -245817,12 +246036,14 @@
   "tamara f. lawson|university of washington": {
    "name": "Tamara F. Lawson",
    "university": "University of Washington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -247399,11 +247620,13 @@
    "name": "Tejal A. Desai",
    "university": "Brown University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -249056,15 +249279,33 @@
   "thomas a. turk|chapman university": {
    "name": "Thomas A. Turk",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Orange County Business Council"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Orange County Business Council",
+     "role": "Board of Directors / Executive Committee member",
+     "seniority": "unknown",
+     "years": "2025",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "thomas bailey|teachers college, columbia university": {
@@ -249918,12 +250159,14 @@
   "thomas j. steenburgh|vanderbilt university": {
    "name": "Thomas J. Steenburgh",
    "university": "Vanderbilt University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -252212,15 +252455,54 @@
   "timothy m. smith|south college": {
    "name": "Timothy M. Smith",
    "university": "South College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "P3 Compounding",
+    "Fort Sanders Regional Medical Center",
+    "U.S. Department of Veterans Affairs"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "P3 Compounding",
+     "role": "Owner/Pharmacist (opened the pharmacy)",
+     "seniority": "executive",
+     "years": "2010",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Fort Sanders Regional Medical Center",
+     "role": "Hospital pharmacy leadership role",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Department of Veterans Affairs",
+     "role": "Pharmacy role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "timothy m. wick|university of alabama at birmingham": {
@@ -252686,12 +252968,14 @@
   "todd a. mooradian|college of william & mary": {
    "name": "Todd A. Mooradian",
    "university": "College of William & Mary",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -252986,12 +253270,14 @@
   "todd pettys|university of iowa": {
    "name": "Todd Pettys",
    "university": "University of Iowa",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -253145,12 +253431,14 @@
   "todd t. milbourn|southern methodist university": {
    "name": "Todd T. Milbourn",
    "university": "Southern Methodist University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -253367,12 +253655,14 @@
   "tom campbell|lipscomb university": {
    "name": "Tom Campbell",
    "university": "Lipscomb University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -257278,14 +257568,32 @@
    "name": "Umesh Mishra",
    "university": "University of California Santa Barbara",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Transphorm, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Transphorm, Inc.",
+     "role": "Co-founder and Chief Technical Officer",
+     "seniority": "executive",
+     "years": "2007",
+     "source": "research",
+     "score": 53
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -257869,11 +258177,13 @@
    "name": "Vallabh Sambamurthy",
    "university": "University of Wisconsin-Madison",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -258238,15 +258548,34 @@
   "vassilios papadopoulos|university of southern california": {
    "name": "Vassilios Papadopoulos",
    "university": "University of Southern California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 63,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Research Institute of the McGill University Health Centre (RI-MUHC)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Research Institute of the McGill University Health Centre (RI-MUHC)",
+     "role": "Executive Director and Chief Scientific Officer",
+     "seniority": "executive",
+     "years": "2007-2016",
+     "endYear": 2016,
+     "source": "research",
+     "score": 63
+    }
    ]
   },
   "vassilis l. syrmos|university of hawaii at manoa": {
@@ -258580,15 +258909,44 @@
   "vicki colvin|louisiana state university": {
    "name": "Vicki Colvin",
    "university": "Louisiana State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 44,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Technology"
+   ],
+   "firms": [
+    "Schlumberger Foundation",
+    "AT&T Bell Laboratories"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Schlumberger Foundation",
+     "role": "Board member",
+     "seniority": "unknown",
+     "years": "2014",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "AT&T Bell Laboratories",
+     "role": "Researcher (materials for holographic data storage)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "vicki d. house|hardin-simmons university": {
@@ -258624,12 +258982,14 @@
   "vicki l. ellingrod|university of michigan": {
    "name": "Vicki L. Ellingrod",
    "university": "University of Michigan",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -259043,12 +259403,14 @@
   "vijay khatri|university of colorado boulder": {
    "name": "Vijay Khatri",
    "university": "University of Colorado Boulder",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -259132,15 +259494,43 @@
   "vikas anand|university of vermont": {
    "name": "Vikas Anand",
    "university": "University of Vermont",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Consumer & Retail",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "ITC Ltd.",
+    "Eicher Goodearth Ltd."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "ITC Ltd.",
+     "role": "International business/management role (global marketing, trade, operations)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Eicher Goodearth Ltd.",
+     "role": "International business/management role (global marketing, trade, operations)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "vince alberta|university of nevada las vegas": {
@@ -259810,15 +260200,32 @@
   "vishal gaur|cornell university": {
    "name": "Vishal Gaur",
    "university": "Cornell University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Nagarro SE"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "Nagarro SE",
+     "role": "Supervisory Board Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "vishal narayan|university of connecticut": {
@@ -259996,15 +260403,32 @@
   "w. brooke elliott|university of illinois urbana-champaign": {
    "name": "W. Brooke Elliott",
    "university": "University of Illinois Urbana-Champaign",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Gordon Food Service"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Consumer & Retail",
+     "firm": "Gordon Food Service",
+     "role": "Board of Directors and Audit Committee Member",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "w. clinton pettus|cheyney university of pennsylvania": {
@@ -260209,11 +260633,13 @@
    "name": "W. Samuel Easterling",
    "university": "Iowa State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -260303,15 +260729,34 @@
   "w. thomas smith|manchester university": {
    "name": "W. Thomas Smith",
    "university": "Manchester University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Corum Health Service"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Corum Health Service",
+     "role": "Operations Director",
+     "seniority": "senior",
+     "years": "1994-2000",
+     "endYear": 2000,
+     "source": "research",
+     "score": 36
+    }
    ]
   },
   "w.f. \"frank\" owsley|tarleton state university": {
@@ -261199,11 +261644,13 @@
    "name": "Wen Mao",
    "university": "Villanova University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -261271,11 +261718,13 @@
    "name": "Wendi Heinzelman",
    "university": "University of Rochester",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -261587,6 +262036,8 @@
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -263593,6 +264044,8 @@
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -265408,11 +265861,13 @@
    "name": "Xianjun Geng",
    "university": "University of Houston",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -265449,15 +265904,42 @@
   "xiaodong feng|california northstate university": {
    "name": "Xiaodong Feng",
    "university": "California Northstate University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Sutter Davis Hospital",
+    "Dignity Health Medical Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Sutter Davis Hospital",
+     "role": "Clinical Pharmacist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Dignity Health Medical Foundation",
+     "role": "Oncology Pharmacy Specialist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "xingbo liu|west virginia university": {
@@ -265505,12 +265987,14 @@
   "yael grushka-cockayne|university of virginia": {
    "name": "Yael Grushka-Cockayne",
    "university": "University of Virginia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -265533,15 +266017,32 @@
   "yannis c. yortsos|university of southern california": {
    "name": "Yannis C. Yortsos",
    "university": "University of Southern California",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 34,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Member, Engineering Advisory Committee",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "yanping chen|university of management and technology": {
@@ -265981,11 +266482,13 @@
    "name": "Yunzeng Wang",
    "university": "University of California Riverside",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
