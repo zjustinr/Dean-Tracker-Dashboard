@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3489,
-  "no": 10306,
+  "yes": 3512,
+  "no": 10283,
   "unknown": 15675,
-  "namedFirm": 2874,
-  "flagOnly": 615,
-  "firms": 3533,
-  "sittingWithTie": 2201,
-  "sittingSeniorTie": 1331,
-  "researched": 3046
+  "namedFirm": 2892,
+  "flagOnly": 620,
+  "firms": 3551,
+  "sittingWithTie": 2219,
+  "sittingSeniorTie": 1336,
+  "researched": 3091
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -143404,15 +143404,45 @@
   "kelly m. smith|university of georgia": {
    "name": "Kelly M. Smith",
    "university": "University of Georgia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 81,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "American Society of Health-System Pharmacists",
+    "University Medical Center Jacksonville (now UF Health Jacksonville)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Society of Health-System Pharmacists",
+     "role": "President",
+     "seniority": "executive",
+     "years": "2018-2019",
+     "endYear": 2019,
+     "source": "research",
+     "score": 81
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University Medical Center Jacksonville (now UF Health Jacksonville)",
+     "role": "Pharmacy Resident",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kelly mccarron|university of south alabama": {
@@ -143775,11 +143805,13 @@
    "name": "Kemper E. Lewis",
    "university": "University at Buffalo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -144206,15 +144238,32 @@
   "kenith meissner|university of texas at el paso": {
    "name": "Kenith Meissner",
    "university": "University of Texas at El Paso",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Sandia National Laboratories"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Sandia National Laboratories",
+     "role": "Postdoctoral Appointee, Surface Physics Group",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kenitra hendrix|purdue university": {
@@ -144854,11 +144903,13 @@
    "name": "Kenneth S. Ball",
    "university": "George Mason University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -145034,15 +145085,43 @@
   "kent barnett|ohio state university": {
    "name": "Kent Barnett",
    "university": "Ohio State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Weil, Gotshal & Manges",
+    "U.S. Court of Appeals for the Sixth Circuit (Judge John M. Rogers)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Weil, Gotshal & Manges",
+     "role": "Associate, Complex Commercial Litigation and Appellate Groups",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Sixth Circuit (Judge John M. Rogers)",
+     "role": "Judicial Clerk",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kent bergemann|cardinal stritch university": {
@@ -145632,11 +145711,13 @@
    "name": "Kerwin K. Charles",
    "university": "Yale University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -146205,14 +146286,31 @@
    "name": "Kevin Gwinner",
    "university": "Kansas State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Boy Scout Coronado Area Council"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Boy Scout Coronado Area Council",
+     "role": "Executive Board Member; Past President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -147511,11 +147609,13 @@
    "name": "Kim Brouwer",
    "university": "University of North Carolina at Chapel Hill",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -147664,15 +147764,33 @@
   "kim lascola needy|university of arkansas": {
    "name": "Kim LaScola Needy",
    "university": "University of Arkansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "PPG Industries"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "PPG Industries",
+     "role": "Programmer Analyst, Coatings and Resins Division",
+     "seniority": "professional",
+     "years": "1984",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kim litwack|university of wisconsin-milwaukee": {
@@ -147692,15 +147810,43 @@
   "kim m. jones|union university": {
    "name": "Kim M. Jones",
    "university": "Union University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Tennessee Pharmacists Association",
+    "Tennessee Society for Health-System Pharmacists"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Tennessee Pharmacists Association",
+     "role": "President",
+     "seniority": "executive",
+     "years": "2021",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Tennessee Society for Health-System Pharmacists",
+     "role": "President",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "kim o'rourke|virginia tech": {
@@ -150604,12 +150750,14 @@
   "kristin wiisanen|rosalind franklin university of medicine and science": {
    "name": "Kristin Wiisanen",
    "university": "Rosalind Franklin University of Medicine and Science",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -151151,11 +151299,13 @@
    "name": "Kurt Dirks",
    "university": "University of Utah",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -151398,11 +151548,13 @@
    "name": "Kyle D. Squires",
    "university": "Arizona State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -151499,15 +151651,32 @@
   "kyle m. sousa|loma linda university": {
    "name": "Kyle M. Sousa",
    "university": "Loma Linda University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "City of Hope National Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "City of Hope National Medical Center",
+     "role": "Postdoctoral Fellow",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kyle marrero|georgia southern university": {
@@ -151697,11 +151866,13 @@
    "name": "Kyongbum Lee",
    "university": "Tufts University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -152325,15 +152496,34 @@
   "lance c. perez|university of nebraska lincoln": {
    "name": "Lance C. Perez",
    "university": "University of Nebraska Lincoln",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Science Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Science Foundation",
+     "role": "Program Director, Division of Undergraduate Education",
+     "seniority": "professional",
+     "years": "2008-2010",
+     "endYear": 2010,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "lance collins|virginia tech": {
@@ -152381,15 +152571,42 @@
   "lance gable|wayne state university": {
    "name": "Lance Gable",
    "university": "Wayne State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Pan American Health Organization",
+    "Health Resources and Services Administration"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Pan American Health Organization",
+     "role": "Human Rights Consultant",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Health Resources and Services Administration",
+     "role": "Project Director, Emergency System for Advance Registration of Volunteer Health Professionals Legal and Regulatory Issues Project",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "lance kieth|west texas a&m university": {
@@ -152630,11 +152847,13 @@
    "name": "Larry \"Chip\" Hunter",
    "university": "Temple University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -152772,15 +152991,34 @@
   "larry d. fannin|roseman university of health sciences": {
    "name": "Larry D. Fannin",
    "university": "Roseman University of Health Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Holy Family Hospital (Atlanta, GA)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Holy Family Hospital (Atlanta, GA)",
+     "role": "Director of Pharmacy Services",
+     "seniority": "professional",
+     "years": "1975-1977",
+     "endYear": 1977,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "larry d. johnson jr.|phoenix college": {
@@ -156423,11 +156661,13 @@
    "name": "Lei Lei",
    "university": "Rutgers University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -156480,12 +156720,14 @@
   "leigh ann ross|auburn university": {
    "name": "Leigh Ann Ross",
    "university": "Auburn University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -157093,12 +157335,14 @@
   "leonard m. baynes|university of houston": {
    "name": "Leonard M. Baynes",
    "university": "University of Houston",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -157310,11 +157554,13 @@
    "name": "Lerzan Aksoy",
    "university": "Fordham University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -159102,15 +159348,32 @@
   "linda t.m. bui|brandeis university": {
    "name": "Linda T.M. Bui",
    "university": "Brandeis University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. Environmental Protection Agency"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Environmental Protection Agency",
+     "role": "Member, EPA Science Advisory Board Council on Economy-wide Modeling and Environmental Justice; Member, Scientific and Technological Achievement Awards Committee",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "linda thomas|james madison university": {
@@ -159830,11 +160093,13 @@
    "name": "Lisa D. Ordóñez",
    "university": "University of California San Diego",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -160981,12 +161246,14 @@
   "lisa victoravich|university of idaho": {
    "name": "Lisa Victoravich",
    "university": "University of Idaho",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -161407,15 +161674,33 @@
   "lola eniola-adefeso|university of illinois at chicago": {
    "name": "Lola Eniola-Adefeso",
    "university": "University of Illinois at Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Asalyxa Bio"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Asalyxa Bio",
+     "role": "Co-founder and Chief Scientific Officer",
+     "seniority": "executive",
+     "years": "2020",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "lola mauer|ball state university": {
@@ -161449,12 +161734,14 @@
   "lolita buckner inniss|university of colorado boulder": {
    "name": "Lolita Buckner Inniss",
    "university": "University of Colorado Boulder",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -162806,11 +163093,13 @@
    "name": "Luay Nakhleh",
    "university": "Rice University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -163040,12 +163329,14 @@
   "lucy gilson|university of new hampshire": {
    "name": "Lucy Gilson",
    "university": "University of New Hampshire",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -164422,15 +164713,46 @@
   "madhav v. rajan|university of chicago": {
    "name": "Madhav V. Rajan",
    "university": "University of Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 81,
+   "seniority": "executive",
+   "categories": [
+    "Technology",
+    "Financial Services"
+   ],
+   "firms": [
+    "Cavium, Inc.",
+    "iShares, Inc./iShares Trust"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Technology",
+     "firm": "Cavium, Inc.",
+     "role": "Director",
+     "seniority": "executive",
+     "years": "2013-2018",
+     "endYear": 2018,
+     "source": "research",
+     "score": 81
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "iShares, Inc./iShares Trust",
+     "role": "Director/Trustee",
+     "seniority": "executive",
+     "years": "2011",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "madhavi marasinghe|university of north dakota": {
@@ -165024,15 +165346,34 @@
   "mandar dewoolkar|university of vermont": {
    "name": "Mandar Dewoolkar",
    "university": "University of Vermont",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Consulting"
+   ],
+   "firms": [
+    "GEI Consultants, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "GEI Consultants, Inc.",
+     "role": "Geotechnical Engineer/Project Manager",
+     "seniority": "professional",
+     "years": "2000-2003",
+     "endYear": 2003,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "mandy konkle|albion college": {
@@ -165228,11 +165569,13 @@
    "name": "Manoj K. Malhotra",
    "university": "Lehigh University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -166824,11 +167167,13 @@
    "name": "Margaret L. Williams",
    "university": "Texas Tech University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -167571,11 +167916,13 @@
    "name": "Marianne W. Lewis",
    "university": "University of Cincinnati",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -168160,11 +168507,13 @@
    "name": "Mario Eden",
    "university": "Auburn University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -170123,12 +170472,14 @@
    "name": "Mark Luer",
    "university": "Southern Illinois University Edwardsville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy",
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -170950,15 +171301,32 @@
   "marketa marvanova|pacific university": {
    "name": "Marketa Marvanova",
    "university": "Pacific University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 7,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Wolters Kluwer (Lexicomp)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Healthcare & Pharma",
+     "firm": "Wolters Kluwer (Lexicomp)",
+     "role": "Clinical Pharmacy Specialist Consultant (Neurology/Psychiatry)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "markus kemmelmeier|university of nevada reno": {
@@ -173121,11 +173489,13 @@
    "name": "Mary Frances Luce",
    "university": "Duke University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -173356,15 +173726,32 @@
   "mary jayne kennedy|high point university": {
    "name": "Mary Jayne Kennedy",
    "university": "High Point University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Children's Mercy Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Children's Mercy Hospital",
+     "role": "Postdoctoral Fellow, Pediatric Clinical Pharmacology",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "mary jean king|seton hall university": {
@@ -173909,11 +174296,13 @@
    "name": "Mary Rezac",
    "university": "University of Kansas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -175692,15 +176081,32 @@
   "matthew g. fete|university of montana": {
    "name": "Matthew G. Fete",
    "university": "University of Montana",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Sierra Neuropharmaceuticals, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Sierra Neuropharmaceuticals, Inc.",
+     "role": "Research Scientist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "matthew g. interis|clemson university": {
@@ -178464,11 +178870,13 @@
    "name": "Melanie B. Jacobs",
    "university": "University of Louisville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -179550,11 +179958,13 @@
    "name": "Melissa S. Medina",
    "university": "University of Oklahoma",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -180340,15 +180750,34 @@
   "michael (mike) kendrach|samford university": {
    "name": "Michael (Mike) Kendrach",
    "university": "Samford University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "University of Pittsburgh Medical Center (UPMC)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University of Pittsburgh Medical Center (UPMC)",
+     "role": "Drug Information Pharmacy Resident",
+     "seniority": "professional",
+     "years": "1992-1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "michael (mike) moyer|cornell university": {
