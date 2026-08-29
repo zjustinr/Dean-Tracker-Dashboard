@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3606,
-  "no": 10189,
+  "yes": 3625,
+  "no": 10170,
   "unknown": 15675,
-  "namedFirm": 2958,
-  "flagOnly": 648,
-  "firms": 3646,
-  "sittingWithTie": 2285,
-  "sittingSeniorTie": 1370,
-  "researched": 3271
+  "namedFirm": 2970,
+  "flagOnly": 655,
+  "firms": 3665,
+  "sittingWithTie": 2297,
+  "sittingSeniorTie": 1379,
+  "researched": 3316
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -9724,12 +9724,14 @@
   "amy l. fry|purdue university northwest": {
    "name": "Amy L. Fry",
    "university": "Purdue University Northwest",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -9779,12 +9781,14 @@
   "amy l. waer|texas a&m university": {
    "name": "Amy L. Waer",
    "university": "Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -9810,12 +9814,14 @@
   "amy lingo|georgia southern university": {
    "name": "Amy Lingo",
    "university": "Georgia Southern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -9825,11 +9831,13 @@
    "name": "Amy M. Moore",
    "university": "Ohio State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -9927,12 +9935,14 @@
   "amy nwora|niagara university": {
    "name": "Amy Nwora",
    "university": "Niagara University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -9988,11 +9998,13 @@
    "name": "Amy P. Murtha",
    "university": "Rutgers University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -10404,11 +10416,13 @@
    "name": "Ana Franco-Watkins",
    "university": "University of Kentucky",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -10530,11 +10544,13 @@
    "name": "Anadeli Bencomo",
    "university": "University of Texas at El Paso",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -10672,16 +10688,53 @@
   "anantha shekhar|university of pittsburgh": {
    "name": "Anantha Shekhar",
    "university": "University of Pittsburgh",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical",
     "r1university"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 61,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Syndeio Biosciences",
+    "Gate Neurosciences",
+    "Anagin, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Healthcare & Pharma",
+     "firm": "Syndeio Biosciences",
+     "role": "Chief Scientific Advisor",
+     "seniority": "executive",
+     "source": "research",
+     "score": 61
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Gate Neurosciences",
+     "role": "Chief Scientific Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Anagin, Inc.",
+     "role": "Founder, Chief Scientific Officer and Chief Medical Officer",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "anas ben addi|delaware state university": {
@@ -10905,11 +10958,13 @@
    "name": "Andrea Baccarelli",
    "university": "Harvard University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspublichealth"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -11350,12 +11405,14 @@
   "andrea miller|university of oklahoma": {
    "name": "Andrea Miller",
    "university": "University of Oklahoma",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 5,
    "sectors": [
     "Academic",
@@ -11770,15 +11827,58 @@
   "andrew (andy) saultz|lewis & clark college": {
    "name": "Andrew (Andy) Saultz",
    "university": "Lewis & Clark College",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 46,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Okemos Public Schools",
+    "Okemos High School / Okemos Public Schools",
+    "Senate Fiscal Agency, State of Michigan"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "Okemos Public Schools",
+     "role": "School Board Member",
+     "seniority": "unknown",
+     "years": "2010-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 46
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Okemos High School / Okemos Public Schools",
+     "role": "High School Social Studies Teacher",
+     "seniority": "professional",
+     "years": "2006-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 24
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Senate Fiscal Agency, State of Michigan",
+     "role": "Summer Research Analyst",
+     "seniority": "professional",
+     "years": "2009-2009",
+     "endYear": 2009,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "andrew a. sorensen|university of south carolina system": {
@@ -12111,11 +12211,13 @@
    "name": "Andrew Finstuen",
    "university": "Boise State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -12485,12 +12587,14 @@
   "andrew m. hoffman|university of pennsylvania": {
    "name": "Andrew M. Hoffman",
    "university": "University of Pennsylvania",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usvet"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -13249,11 +13353,13 @@
    "name": "Andrew Thoron",
    "university": "Abraham Baldwin Agricultural College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usag"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 5,
    "sectors": [
     "Academic",
@@ -13511,12 +13617,14 @@
    "name": "André Denham",
    "university": "University of Alabama",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -13542,11 +13650,13 @@
    "name": "André Green",
    "university": "East Carolina University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -13985,11 +14095,13 @@
    "name": "Angela Amedee",
    "university": "Louisiana State University Health Sciences Center, New Orleans",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -14162,15 +14274,32 @@
   "angela f. amar|new york university": {
    "name": "Angela F. Amar",
    "university": "New York University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Minority Fellowship Program (American Nurses Association / SAMHSA)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Minority Fellowship Program (American Nurses Association / SAMHSA)",
+     "role": "National Advisory Committee member",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "angela floro|lesley university": {
@@ -14499,11 +14628,13 @@
    "name": "Angela Starkweather",
    "university": "Rutgers, The State University of New Jersey",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -14585,15 +14716,44 @@
   "angelia mickle|cedarville university": {
    "name": "Angelia Mickle",
    "university": "Cedarville University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Ohio Air National Guard, 121st Medical Group",
+    "Kettering Health Medical Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Ohio Air National Guard, 121st Medical Group",
+     "role": "Lieutenant Colonel",
+     "seniority": "senior",
+     "years": "2014",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Kettering Health Medical Group",
+     "role": "Family Nurse Practitioner",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "angelica ferreira|pace university": {
@@ -14739,11 +14899,13 @@
    "name": "Angi Elsea Bourgeois",
    "university": "Mississippi State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -14767,11 +14929,13 @@
    "name": "Angie Cartwright",
    "university": "University of North Texas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -14915,16 +15079,32 @@
   "anita cooney|pratt institute": {
    "name": "Anita Cooney",
    "university": "Pratt Institute",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Other industry"
+   ],
+   "firms": [
+    "AC2 Design Studio"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "AC2 Design Studio",
+     "role": "Co-founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "anita davis|trinity college": {
@@ -15036,11 +15216,13 @@
    "name": "Anita Vangelisti",
    "university": "University of Texas at Austin",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -15225,11 +15407,13 @@
    "name": "Ann Carruth",
    "university": "Southeastern Louisiana University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -15441,11 +15625,13 @@
    "name": "Ann Marie P. Mauro",
    "university": "Hunter College (CUNY)",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -15569,15 +15755,32 @@
   "ann warner|mcneese state university": {
    "name": "Ann Warner",
    "university": "McNeese State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Southwest Louisiana Area Health Education Center (SWLAHEC)"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Southwest Louisiana Area Health Education Center (SWLAHEC)",
+     "role": "Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "ann-margaret navarra|stony brook university (suny)": {
@@ -15765,11 +15968,13 @@
    "name": "Anna M. Ortiz",
    "university": "California State University, Long Beach",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -15778,15 +15983,33 @@
   "anna maria siega-riz|university of massachusetts amherst": {
    "name": "Anna Maria Siega-Riz",
    "university": "University of Massachusetts Amherst",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspublichealth"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Blue Cross Blue Shield of Massachusetts Foundation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Blue Cross Blue Shield of Massachusetts Foundation",
+     "role": "Board of Directors member",
+     "seniority": "senior",
+     "years": "2025",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "anna p. nelson|loma linda university": {
@@ -15821,11 +16044,13 @@
    "name": "Anna Stenport",
    "university": "University of Georgia",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -16078,15 +16303,34 @@
   "anne burdick|artcenter college of design": {
    "name": "Anne Burdick",
    "university": "ArtCenter College of Design",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 24,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Electronic Book Review"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Electronic Book Review",
+     "role": "Designer / Design Editor",
+     "seniority": "professional",
+     "years": "1995-2012",
+     "endYear": 2012,
+     "source": "research",
+     "score": 24
+    }
    ]
   },
   "anne d'alleva|binghamton university": {
@@ -16214,27 +16458,56 @@
   "anne f. hogan|chapman university": {
    "name": "Anne F. Hogan",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
-   "stops": 6,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Royal Academy of Dance",
+    "Boston Ballet"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Royal Academy of Dance",
+     "role": "Director of Education",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Boston Ballet",
+     "role": "Professional Ballet Dancer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "anne gaines|the new school (parsons school of design)": {
    "name": "Anne Gaines",
    "university": "The New School (Parsons School of Design)",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -16475,12 +16748,14 @@
   "anne mason|washington state university": {
    "name": "Anne Mason",
    "university": "Washington State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -16895,16 +17170,32 @@
   "annette b. wysocki|university at buffalo (suny)": {
    "name": "Annette B. Wysocki",
    "university": "University at Buffalo (SUNY)",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
-   "stops": 2,
-   "sectors": [
-    "Unclassified",
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Institutes of Health (NINR)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Institutes of Health (NINR)",
+     "role": "First permanent Scientific Director, National Institute of Nursing Research; Chief, Wound Healing Laboratory",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "annette diorio|union college": {
@@ -16941,15 +17232,46 @@
   "annette hux|arkansas state university": {
    "name": "Annette Hux",
    "university": "Arkansas State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 36,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Clarkton C-4 School District (Clarkton, MO)",
+    "Van Buren Elementary"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Clarkton C-4 School District (Clarkton, MO)",
+     "role": "Elementary Principal",
+     "seniority": "senior",
+     "years": "2000-2001",
+     "endYear": 2001,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Van Buren Elementary",
+     "role": "Special Education Teacher",
+     "seniority": "professional",
+     "years": "1996-1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "annette l. ranft|auburn university": {
@@ -17029,11 +17351,13 @@
    "name": "Annette S. Kluck",
    "university": "University of Mississippi",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -17745,11 +18069,13 @@
    "name": "Anthony S. Davis",
    "university": "University of New Hampshire",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usag"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -19055,11 +19381,13 @@
    "name": "Arnab Chakraborty",
    "university": "University of Utah",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic",
@@ -19126,11 +19454,13 @@
    "name": "Aroutis Foster",
    "university": "American University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -19291,11 +19621,13 @@
    "name": "Arthur G. Appel",
    "university": "Auburn University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usag"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -19712,11 +20044,13 @@
    "name": "Ash Abebe",
    "university": "Auburn University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -19757,12 +20091,14 @@
    "name": "Ashby Kinch",
    "university": "University of New Hampshire",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -19785,15 +20121,32 @@
   "ashish joshi|university of memphis": {
    "name": "Ashish Joshi",
    "university": "University of Memphis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspublichealth"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Foundation of Healthcare Technologies Society (FHTS)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Foundation of Healthcare Technologies Society (FHTS)",
+     "role": "Founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "ashish k. jha|brown university": {
