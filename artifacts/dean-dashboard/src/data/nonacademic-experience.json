@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3512,
-  "no": 10283,
+  "yes": 3533,
+  "no": 10262,
   "unknown": 15675,
-  "namedFirm": 2892,
-  "flagOnly": 620,
-  "firms": 3551,
-  "sittingWithTie": 2219,
-  "sittingSeniorTie": 1336,
-  "researched": 3091
+  "namedFirm": 2909,
+  "flagOnly": 624,
+  "firms": 3574,
+  "sittingWithTie": 2236,
+  "sittingSeniorTie": 1343,
+  "researched": 3136
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -181616,15 +181616,42 @@
   "michael crouch|mercer university": {
    "name": "Michael Crouch",
    "university": "Mercer University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Wake Forest Baptist Medical Center",
+    "Medical University of South Carolina Health"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Wake Forest Baptist Medical Center",
+     "role": "PGY-1 Pharmacy Resident",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Medical University of South Carolina Health",
+     "role": "PGY-2 Pharmacy Resident (Cardiology)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael d. anderson|university of alabama in huntsville": {
@@ -182614,11 +182641,13 @@
    "name": "Michael Georgiopoulos",
    "university": "University of Central Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -182805,15 +182834,32 @@
   "michael hartline|florida state university": {
    "name": "Michael Hartline",
    "university": "Florida State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Kmart"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Kmart",
+     "role": "Shoe department sales (pre-academic)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "michael harvey|university of mississippi": {
@@ -183147,15 +183193,32 @@
   "michael j. gonyeau|northeastern university": {
    "name": "Michael J. Gonyeau",
    "university": "Northeastern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Boston Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Boston Medical Center",
+     "role": "PGY-1 Pharmacy Resident",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael j. higdon|university of tennessee knoxville": {
@@ -183189,15 +183252,53 @@
   "michael j. kaufman|santa clara university": {
    "name": "Michael J. Kaufman",
    "university": "Santa Clara University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 34,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector",
+    "Law (private practice)"
+   ],
+   "firms": [
+    "U.S. Securities and Exchange Commission / Consumer Financial Protection Bureau / Illinois Attorney General's Office",
+    "U.S. Court of Appeals for the Sixth Circuit",
+    "Sachnoff & Weaver (now part of Reed Smith)"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Securities and Exchange Commission / Consumer Financial Protection Bureau / Illinois Attorney General's Office",
+     "role": "Consultant / public arbitrator on securities matters",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. Court of Appeals for the Sixth Circuit",
+     "role": "Law Clerk to Judge Nathaniel R. Jones",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Sachnoff & Weaver (now part of Reed Smith)",
+     "role": "Attorney, civil rights and securities litigation",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "michael j. lepore|university of massachusetts amherst": {
@@ -183245,15 +183346,32 @@
   "michael j. mazzeo|washington university st. louis": {
    "name": "Michael J. Mazzeo",
    "university": "Washington University St. Louis",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Howard Brown Health"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Howard Brown Health",
+     "role": "Board of Directors",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "michael j. moody|massachusetts institute of technology": {
@@ -183851,12 +183969,14 @@
   "michael lenox|university of virginia": {
    "name": "Michael Lenox",
    "university": "University of Virginia",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -185399,12 +185519,14 @@
   "michael sant'ambrogio|michigan state university": {
    "name": "Michael Sant'Ambrogio",
    "university": "Michigan State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186341,11 +186463,13 @@
    "name": "Michelle A. Clark",
    "university": "Nova Southeastern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -186624,15 +186748,32 @@
   "michelle d. mason|florida international university": {
    "name": "Michelle D. Mason",
    "university": "Florida International University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Phillips Exeter Academy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Phillips Exeter Academy",
+     "role": "Staff (specific role not specified in sources)",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    }
    ]
   },
   "michelle d. young|university of california, berkeley": {
@@ -188516,16 +188657,33 @@
   "miriam a. mobley smith|chicago state university": {
    "name": "Miriam A. Mobley Smith",
    "university": "Chicago State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 5,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Sinai Hospital of Detroit"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Sinai Hospital of Detroit",
+     "role": "Pharmacy Practice Resident (first African American female resident there, 1979)",
+     "seniority": "professional",
+     "years": "1979",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "miroslav humer|case western reserve university": {
@@ -188562,12 +188720,14 @@
   "misty stutz|sullivan university": {
    "name": "Misty Stutz",
    "university": "Sullivan University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -188665,11 +188825,13 @@
    "name": "Mitch Lovett",
    "university": "University of Rochester",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -189000,12 +189162,14 @@
   "mohammed a. islam|american university of health sciences": {
    "name": "Mohammed A. Islam",
    "university": "American University of Health Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -190071,16 +190235,34 @@
   "moshe kam|new jersey institute of technology": {
    "name": "Moshe Kam",
    "university": "New Jersey Institute of Technology",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "IEEE (Institute of Electrical and Electronics Engineers)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "IEEE (Institute of Electrical and Electronics Engineers)",
+     "role": "President and CEO",
+     "seniority": "executive",
+     "years": "2011-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "mossie richmond|arkansas state university": {
@@ -190922,15 +191104,53 @@
    "name": "Nancy L. Allbritton",
    "university": "University of Washington",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "ProteinSimple",
+    "Cell Microsystems, Inc.",
+    "Altis Biosystems, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "ProteinSimple",
+     "role": "Founder",
+     "seniority": "executive",
+     "years": "2000",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Cell Microsystems, Inc.",
+     "role": "Founder/Director",
+     "seniority": "executive",
+     "years": "2010",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Altis Biosystems, Inc.",
+     "role": "Founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -191278,11 +191498,13 @@
    "name": "Naren Agrawal",
    "university": "Santa Clara University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -191810,11 +192032,13 @@
    "name": "Nate Y. Sharp",
    "university": "Texas A&M University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -192382,16 +192606,32 @@
   "neel u. sukhatme|university of michigan": {
    "name": "Neel U. Sukhatme",
    "university": "University of Michigan",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Latham & Watkins LLP"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Latham & Watkins LLP",
+     "role": "Patent Attorney",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "neelam azad|hampton university": {
@@ -193473,12 +193713,14 @@
   "nicky boothe|university of illinois at chicago": {
    "name": "Nicky Boothe",
    "university": "University of Illinois at Chicago",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -194387,15 +194629,53 @@
   "nilanjan sen|university at albany": {
    "name": "Nilanjan Sen",
    "university": "University at Albany",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Wingsure",
+    "American Red Cross (Northeast Region)",
+    "Junior Achievement"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Financial Services",
+     "firm": "Wingsure",
+     "role": "Principal Advisor",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Red Cross (Northeast Region)",
+     "role": "Board Member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Junior Achievement",
+     "role": "Board Member",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 44
+    }
    ]
   },
   "niles eggleston|virginia commonwealth university": {
@@ -194816,14 +195096,31 @@
    "name": "Noah Manring",
    "university": "University of Missouri",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "Caterpillar Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Caterpillar Inc.",
+     "role": "Program Manager, Technical Center",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -195550,11 +195847,13 @@
    "name": "Ohad Kadan",
    "university": "Arizona State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -195564,11 +195863,13 @@
    "name": "Okenwa Okoli",
    "university": "University of Memphis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -195773,15 +196074,34 @@
   "oluwaranti akiyode|howard university": {
    "name": "Oluwaranti Akiyode",
    "university": "Howard University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Howard University Hospital Diabetes Treatment Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Howard University Hospital Diabetes Treatment Center",
+     "role": "Founding Pharmacist",
+     "seniority": "senior",
+     "years": "2007-2017",
+     "endYear": 2017,
+     "source": "research",
+     "score": 50
+    }
    ]
   },
   "omar a. syed|rice university": {
@@ -196134,11 +196454,13 @@
    "name": "Oscar Garza",
    "university": "Keck Graduate Institute",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -196746,12 +197068,14 @@
   "pamela heaton|university of toledo": {
    "name": "Pamela Heaton",
    "university": "University of Toledo",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -197004,11 +197328,13 @@
    "name": "Pamella Ochoa",
    "university": "University of Texas at Tyler",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -197089,15 +197415,65 @@
   "paquita davis-friday|university at albany": {
    "name": "Paquita Davis-Friday",
    "university": "University at Albany",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector",
+    "Consulting",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Pollyanna, Inc.",
+    "NYC Independent Budget Office",
+    "Deloitte",
+    "Ford Motor Company"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Pollyanna, Inc.",
+     "role": "Chair, Board",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "NYC Independent Budget Office",
+     "role": "Vice Chair, Advisory Board",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "Deloitte",
+     "role": "Auditor (Detroit); Tax Accountant (Ann Arbor)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Ford Motor Company",
+     "role": "Finance staff",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "para m. jones|stark state college": {
@@ -197221,11 +197597,13 @@
    "name": "Partha Pratim Pande",
    "university": "Washington State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -197605,11 +197983,13 @@
    "name": "Patricia Culligan",
    "university": "University of Notre Dame",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -198044,15 +198424,34 @@
   "patricia sanchez abril|university of miami": {
    "name": "Patricia Sanchez Abril",
    "university": "University of Miami",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Univision"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Univision",
+     "role": "Legal and business affairs counsel",
+     "seniority": "professional",
+     "years": "2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "patricia simino boyce|fairfield university": {
@@ -198439,12 +198838,14 @@
   "patrick j. fox|ohio university": {
    "name": "Patrick J. Fox",
    "university": "Ohio University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -198688,11 +199089,13 @@
    "name": "Patrick O'Neill",
    "university": "University of North Dakota",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -199154,11 +199557,13 @@
    "name": "Paul Almeida",
    "university": "Georgetown University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -199884,11 +200289,13 @@
    "name": "Paul H. Schwager",
    "university": "College of Charleston",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -200344,11 +200751,13 @@
    "name": "Paul L. Caron",
    "university": "Pepperdine University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -200634,11 +201043,13 @@
    "name": "Paul Pavlou",
    "university": "University of Miami",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -201356,14 +201767,51 @@
    "name": "Paula T. Hammond",
    "university": "Massachusetts Institute of Technology",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Alector Therapeutics",
+    "Sail Biomedicines",
+    "Moderna Therapeutics"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare & Pharma",
+     "firm": "Alector Therapeutics",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare & Pharma",
+     "firm": "Sail Biomedicines",
+     "role": "Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "advisory",
+     "category": "Healthcare & Pharma",
+     "firm": "Moderna Therapeutics",
+     "role": "Scientific Advisory Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -201493,11 +201941,13 @@
    "name": "Paulo Goes",
    "university": "Tulane University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -201591,11 +202041,13 @@
    "name": "Pedro J. Mago",
    "university": "West Virginia University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -203110,11 +203562,13 @@
    "name": "Peter Swaan",
    "university": "University of Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -203317,12 +203771,14 @@
   "phelps|pennsylvania state university": {
    "name": "Phelps",
    "university": "Pennsylvania State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -203559,12 +204015,14 @@
   "philip d. hall|medical university of south carolina": {
    "name": "Philip D. Hall",
    "university": "Medical University of South Carolina",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -203689,15 +204147,32 @@
   "philip m. hritcko|university of connecticut": {
    "name": "Philip M. Hritcko",
    "university": "University of Connecticut",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "VA Connecticut Healthcare System"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "VA Connecticut Healthcare System",
+     "role": "Community/clinical pharmacist; designed pharmacist-managed Anticoagulation Clinic",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "philip p. gerbino|university of the sciences": {
