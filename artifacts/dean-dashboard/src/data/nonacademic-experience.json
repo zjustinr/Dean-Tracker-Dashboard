@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3579,
-  "no": 10216,
+  "yes": 3606,
+  "no": 10189,
   "unknown": 15675,
-  "namedFirm": 2942,
-  "flagOnly": 637,
-  "firms": 3625,
-  "sittingWithTie": 2269,
-  "sittingSeniorTie": 1361,
-  "researched": 3226
+  "namedFirm": 2958,
+  "flagOnly": 648,
+  "firms": 3646,
+  "sittingWithTie": 2285,
+  "sittingSeniorTie": 1370,
+  "researched": 3271
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -796,15 +796,43 @@
   "aaron m. sebach|wilmington university": {
    "name": "Aaron M. Sebach",
    "university": "Wilmington University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "TidalHealth Peninsula Regional",
+    "Salisbury Fire Department"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "TidalHealth Peninsula Regional",
+     "role": "EMS/Mobile Integrated Health Nurse Practitioner",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Salisbury Fire Department",
+     "role": "Volunteer Firefighter/Paramedic",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "aaron martin|susquehanna university": {
@@ -1021,11 +1049,13 @@
    "name": "Abbie R. Strunc",
    "university": "Sam Houston State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -1077,11 +1107,13 @@
    "name": "Abdellah Ahmidouch",
    "university": "North Carolina A&T State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -1243,16 +1275,42 @@
   "abra k. bush|indiana university bloomington": {
    "name": "Abra K. Bush",
    "university": "Indiana University Bloomington",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Opera Columbus",
+    "Boston Baroque"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Opera Columbus",
+     "role": "Soprano (opera performer)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Boston Baroque",
+     "role": "Soprano (opera performer)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "abraham stoll|johns hopkins university": {
@@ -1658,11 +1716,13 @@
    "name": "Adam J. Woods",
    "university": "University of Texas at Dallas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -1671,15 +1731,34 @@
   "adam k. leibovich|university of pittsburgh": {
    "name": "Adam K. Leibovich",
    "university": "University of Pittsburgh",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Fermi National Accelerator Laboratory (Fermilab)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Fermi National Accelerator Laboratory (Fermilab)",
+     "role": "Postdoctoral Research Fellow",
+     "seniority": "professional",
+     "years": "2000-2002",
+     "endYear": 2002,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "adam kolker|columbia university": {
@@ -1730,16 +1809,44 @@
   "adam meyer|the juilliard school": {
    "name": "Adam Meyer",
    "university": "The Juilliard School",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic",
-    "Unclassified"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Media & Entertainment"
+   ],
+   "firms": [
+    "Bryant Park String Quartet",
+    "Des Moines Symphony"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Bryant Park String Quartet",
+     "role": "Co-founder/Violist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Media & Entertainment",
+     "firm": "Des Moines Symphony",
+     "role": "Viola section member",
+     "seniority": "professional",
+     "years": "1995-1996",
+     "endYear": 1996,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "adam miller|whitman college": {
@@ -1966,15 +2073,32 @@
   "adam wagler|university of nebraska-lincoln": {
    "name": "Adam Wagler",
    "university": "University of Nebraska-Lincoln",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 30,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Hudl"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Hudl",
+     "role": "Freelance design/digital strategy consultant to marketing team",
+     "seniority": "professional",
+     "source": "research",
+     "score": 30
+    }
    ]
   },
   "adam waszkiewicz|alvernia university": {
@@ -2099,12 +2223,14 @@
   "adejoke b. ayoola|palm beach atlantic university": {
    "name": "Adejoke B. Ayoola",
    "university": "Palm Beach Atlantic University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -2286,15 +2412,42 @@
   "adnan a. hyder|boston university": {
    "name": "Adnan A. Hyder",
    "university": "Boston University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspublichealth"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "World Health Organization",
+    "World Bank"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "World Health Organization",
+     "role": "Advisory/chair positions",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "World Bank",
+     "role": "Advisory roles",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "adrea spoon|bowling green state university": {
@@ -2401,15 +2554,43 @@
   "adrian parr zaretsky|university of oregon": {
    "name": "Adrian Parr Zaretsky",
    "university": "University of Oregon",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Consulting"
+   ],
+   "firms": [
+    "UNESCO",
+    "DesignIntelligence / Design Futures Council"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "UNESCO",
+     "role": "UNESCO Chair on Water and Human Settlements",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Consulting",
+     "firm": "DesignIntelligence / Design Futures Council",
+     "role": "Senior Fellow",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "adrian rodriguez|texas a&m university-corpus christi": {
@@ -2446,12 +2627,14 @@
   "adrian w. b. randolph|northwestern university": {
    "name": "Adrian W. B. Randolph",
    "university": "Northwestern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -2616,11 +2799,13 @@
    "name": "Adrienne Redmond-Sanogo",
    "university": "San Jose State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -2690,11 +2875,13 @@
    "name": "Agustin Rayo",
    "university": "Massachusetts Institute of Technology",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -2931,12 +3118,14 @@
   "aimee edmondson|ohio university": {
    "name": "Aimee Edmondson",
    "university": "Ohio University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic",
@@ -3008,12 +3197,14 @@
   "aimee l. badeaux|northwestern state university of louisiana": {
    "name": "Aimee L. Badeaux",
    "university": "Northwestern State University of Louisiana",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -3023,11 +3214,13 @@
    "name": "Aimee M. Surprenant",
    "university": "Virginia Tech",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -3373,15 +3566,32 @@
   "akinlolu o. ojo|university of kansas": {
    "name": "Akinlolu O. Ojo",
    "university": "University of Kansas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Arbor Research Collaborative for Health"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Arbor Research Collaborative for Health",
+     "role": "Director (Board Member)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "akira mizuta lippit|university of southern california": {
@@ -3512,15 +3722,34 @@
   "alain-philippe durand|university of arizona": {
    "name": "Alain-Philippe Durand",
    "university": "University of Arizona",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 75,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Arizona Humanities"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Arizona Humanities",
+     "role": "Board of Directors",
+     "seniority": "senior",
+     "years": "2017-2023",
+     "endYear": 2023,
+     "source": "research",
+     "score": 75
+    }
    ]
   },
   "alaina gilligo|cuny baruch college": {
@@ -3599,11 +3828,13 @@
    "name": "Alan (Al) Smith",
    "university": "Utah State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -4050,11 +4281,13 @@
    "name": "Alastair Cribb",
    "university": "Tufts University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usvet"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -4092,15 +4325,34 @@
   "alayne thorpe|andrews university": {
    "name": "Alayne Thorpe",
    "university": "Andrews University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Griggs University / Griggs International Academy"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Griggs University / Griggs International Academy",
+     "role": "Senior Vice President for Education; Vice President and Interim President",
+     "seniority": "executive",
+     "years": "2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 55
+    }
    ]
   },
   "albert bernt anderson|misericordia university": {
@@ -4360,15 +4612,53 @@
   "alec c. kimmelman|new york university": {
    "name": "Alec C. Kimmelman",
    "university": "New York University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Vescor Therapeutics",
+    "Rafael/Cornerstone Pharmaceuticals",
+    "OncoRev"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Healthcare & Pharma",
+     "firm": "Vescor Therapeutics",
+     "role": "Scientific Co-Founder (equity interest)",
+     "seniority": "senior",
+     "years": "2017",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Healthcare & Pharma",
+     "firm": "Rafael/Cornerstone Pharmaceuticals",
+     "role": "Scientific Advisory Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Healthcare & Pharma",
+     "firm": "OncoRev",
+     "role": "Scientific Advisory Board member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "alec d. gallimore|duke university": {
@@ -4952,11 +5242,13 @@
    "name": "Alexander M. 'Sasha' Sidorkin",
    "university": "California State University, Sacramento",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -5665,12 +5957,14 @@
   "alicia crowe|kent state university": {
    "name": "Alicia Crowe",
    "university": "Kent State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -5810,15 +6104,34 @@
   "alicia ribar|university of cincinnati": {
    "name": "Alicia Ribar",
    "university": "University of Cincinnati",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 32,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Eau Claire Cooperative Health Centers"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Eau Claire Cooperative Health Centers",
+     "role": "Primary Care Nurse Practitioner",
+     "seniority": "professional",
+     "years": "2018-2020",
+     "endYear": 2020,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "alicia shier estey|university of vermont": {
@@ -6330,12 +6643,14 @@
   "alison netski|university of nevada las vegas": {
    "name": "Alison Netski",
    "university": "University of Nevada Las Vegas",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -6448,11 +6763,13 @@
    "name": "Allen C. Grant",
    "university": "Louisiana State University in Shreveport",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -6736,16 +7053,34 @@
   "allison brashear|university at buffalo": {
    "name": "Allison Brashear",
    "university": "University at Buffalo",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical",
     "r1university"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "UBMD Physicians' Group"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UBMD Physicians' Group",
+     "role": "President and CEO",
+     "seniority": "executive",
+     "years": "2021",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "allison d. garrett|the oklahoma state system of higher education": {
@@ -6912,11 +7247,13 @@
    "name": "Allison R. Webel",
    "university": "University of Michigan",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -7058,12 +7395,14 @@
   "allyssa l. harris|prairie view a&m university": {
    "name": "Allyssa L. Harris",
    "university": "Prairie View A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -7072,15 +7411,33 @@
   "alma b. littles|florida state university": {
    "name": "Alma B. Littles",
    "university": "Florida State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Florida Medical Association"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Florida Medical Association",
+     "role": "President (150th); prior Vice President and Secretary",
+     "seniority": "executive",
+     "years": "2026",
+     "source": "research",
+     "score": 71
+    }
    ]
   },
   "almeda jacks|new college of florida": {
@@ -7443,12 +7800,14 @@
    "name": "Alyssa Crittenden",
    "university": "University of Nevada Las Vegas",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad",
     "r1provost"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -7576,12 +7935,14 @@
   "amanda bryant-friedrich|wayne state university": {
    "name": "Amanda Bryant-Friedrich",
    "university": "Wayne State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -7590,12 +7951,14 @@
   "amanda choflet|northeastern university": {
    "name": "Amanda Choflet",
    "university": "Northeastern University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -7776,11 +8139,13 @@
    "name": "Amanda Godley",
    "university": "University of Pittsburgh",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "usgrad"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -7856,11 +8221,13 @@
    "name": "Amanda Haertling Thein",
    "university": "University of Colorado Boulder",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -7943,12 +8310,14 @@
   "amanda jones|united states university": {
    "name": "Amanda Jones",
    "university": "United States University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "usnursing"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8225,11 +8594,13 @@
    "name": "Amanda Woodward",
    "university": "University of Chicago",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8366,26 +8737,67 @@
   "amitabh varshney|university of maryland college park": {
    "name": "Amitabh Varshney",
    "university": "University of Maryland College Park",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1arts"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 34,
+   "seniority": "unknown",
+   "categories": [
+    "Technology",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "NVIDIA",
+    "IBM",
+    "Honda"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "NVIDIA",
+     "role": "Industry consultant/collaborator",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "IBM",
+     "role": "Industry consultant/collaborator",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 34
+    },
+    {
+     "kind": "advisory",
+     "category": "Consumer & Retail",
+     "firm": "Honda",
+     "role": "Industry consultant/collaborator (Honda Research Initiation Award, 1997)",
+     "seniority": "unknown",
+     "years": "1997",
+     "source": "research",
+     "score": 34
+    }
    ]
   },
   "amity noltemeyer|miami university": {
    "name": "Amity Noltemeyer",
    "university": "Miami University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -8690,11 +9102,13 @@
    "name": "Amy Cook",
    "university": "Emerson College",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -8941,11 +9355,13 @@
    "name": "Amy Gratch Hoyle",
    "university": "Monmouth University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "useducation"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -8983,11 +9399,13 @@
    "name": "Amy Hardison Tully",
    "university": "Texas Christian University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uscreativearts"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -9121,15 +9539,34 @@
   "amy j. goldberg|temple university": {
    "name": "Amy J. Goldberg",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1medical"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 88,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "American Board of Surgery"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "American Board of Surgery",
+     "role": "Chair (2024-2025), prior Vice Chair (2023-2024) and Director",
+     "seniority": "executive",
+     "years": "2023-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 88
+    }
    ]
   },
   "amy j. moll|boise state university": {
