@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3533,
-  "no": 10262,
+  "yes": 3549,
+  "no": 10246,
   "unknown": 15675,
-  "namedFirm": 2909,
+  "namedFirm": 2925,
   "flagOnly": 624,
-  "firms": 3574,
-  "sittingWithTie": 2236,
-  "sittingSeniorTie": 1343,
-  "researched": 3136
+  "firms": 3603,
+  "sittingWithTie": 2252,
+  "sittingSeniorTie": 1353,
+  "researched": 3181
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -204268,12 +204268,14 @@
   "philippe fauchet|vanderbilt university": {
    "name": "Philippe Fauchet",
    "university": "Vanderbilt University",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -204706,14 +204708,64 @@
    "name": "Poonam Arora",
    "university": "Babson College",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Financial Services",
+    "Consulting",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Working Today Inc.",
+    "Citicorp Securities",
+    "McKinsey & Company",
+    "United Nations International Fund for Agricultural Development"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Working Today Inc.",
+     "role": "Acting Executive Director and CFO",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Citicorp Securities",
+     "role": "Vice President, U.S. Securitization",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Consulting",
+     "firm": "McKinsey & Company",
+     "role": "Senior Associate",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "United Nations International Fund for Agricultural Development",
+     "role": "Junior Economist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasConsultingBg",
@@ -204768,11 +204820,13 @@
    "name": "Prabhudev Konana",
    "university": "University of Maryland",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -204844,12 +204898,14 @@
   "pradeep sharma|university of houston": {
    "name": "Pradeep Sharma",
    "university": "University of Houston",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -204995,15 +205051,58 @@
   "pratim biswas|university of miami": {
    "name": "Pratim Biswas",
    "university": "University of Miami",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Energy & Industrials",
+    "Other industry"
+   ],
+   "firms": [
+    "Ministry of Environment & Forests, Government of India",
+    "Applied Particle Technologies",
+    "SmArT LLC"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "Ministry of Environment & Forests, Government of India",
+     "role": "Advisor",
+     "seniority": "senior",
+     "years": "2010-2014",
+     "endYear": 2014,
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "Applied Particle Technologies",
+     "role": "Co-Founder",
+     "seniority": "executive",
+     "years": "2015",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Other industry",
+     "firm": "SmArT LLC",
+     "role": "Co-Founder",
+     "seniority": "executive",
+     "years": "2017",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "praveen kumar|university of houston": {
@@ -206642,29 +206741,83 @@
   "rachel roberts ogden|lake erie college of osteopathic medicine": {
    "name": "Rachel Roberts Ogden",
    "university": "Lake Erie College of Osteopathic Medicine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Full Circle Solutions",
+    "Grove City Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Full Circle Solutions",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Grove City Medical Center",
+     "role": "Director of Pharmacy",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "rachel roberts ogden|lake erie college of osteopathic medicine (lecom)": {
    "name": "Rachel Roberts Ogden",
    "university": "Lake Erie College of Osteopathic Medicine (LECOM)",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Full Circle Solutions",
+    "Grove City Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Full Circle Solutions",
+     "role": "Executive Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Grove City Medical Center",
+     "role": "Director of Pharmacy",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "rachel segalman|university of california santa barbara": {
@@ -206925,11 +207078,13 @@
    "name": "Rae Matsumoto",
    "university": "University of Hawaii at Hilo",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -207191,12 +207346,14 @@
   "raj agnihotri|iowa state university": {
    "name": "Raj Agnihotri",
    "university": "Iowa State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -207642,12 +207799,14 @@
   "rama venkat|university of nevada las vegas": {
    "name": "Rama Venkat",
    "university": "University of Nevada Las Vegas",
-   "status": "yes",
-   "confidence": "low",
+   "status": "no",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -207922,15 +208081,32 @@
   "randall t. peterson|university of utah": {
    "name": "Randall T. Peterson",
    "university": "University of Utah",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Corventum, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Corventum, Inc.",
+     "role": "Co-Founder",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "randall t. ruble|erskine college": {
@@ -208425,15 +208601,91 @@
    "name": "Rashid Bashir",
    "university": "University of Illinois Urbana-Champaign",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma",
+    "Technology"
+   ],
+   "firms": [
+    "Daktari, Inc.",
+    "BioVitesse, Inc.",
+    "Prenosis, Inc.",
+    "Oxford Nanopore Technologies",
+    "Taiwan Semiconductor Manufacturing Corporation",
+    "National Semiconductor Corporation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare & Pharma",
+     "firm": "Daktari, Inc.",
+     "role": "Co-Founder, Chair of Technical Advisory Board",
+     "seniority": "executive",
+     "years": "2008",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "BioVitesse, Inc.",
+     "role": "Co-Founder, VP Technology Development",
+     "seniority": "executive",
+     "years": "2002-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Prenosis, Inc.",
+     "role": "Co-Founder, Chief Scientist",
+     "seniority": "executive",
+     "years": "2014",
+     "source": "research",
+     "score": 53
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Oxford Nanopore Technologies",
+     "role": "Consultant",
+     "seniority": "senior",
+     "years": "2012",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "Taiwan Semiconductor Manufacturing Corporation",
+     "role": "Consultant",
+     "seniority": "senior",
+     "years": "2011",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "National Semiconductor Corporation",
+     "role": "Sr. Engineering Manager, Analog/Mixed Signal Process Technology Development",
+     "seniority": "senior",
+     "years": "1992-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 36
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -210304,11 +210556,13 @@
    "name": "Reginald F. Frye",
    "university": "University of Tennessee Health Science Center",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -210876,12 +211130,14 @@
   "rennolds ostrom|chapman university": {
    "name": "Rennolds Ostrom",
    "university": "Chapman University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -213242,11 +213498,13 @@
    "name": "Richard L. Corsi",
    "university": "University of California Davis",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -213428,14 +213686,33 @@
    "name": "Richard M. Locke",
    "university": "MIT",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 70,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "Apple Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Apple Inc.",
+     "role": "Dean of Apple University",
+     "seniority": "executive",
+     "years": "2023-2025",
+     "endYear": 2025,
+     "source": "research",
+     "score": 70
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)",
@@ -215142,11 +215419,13 @@
    "name": "Robert \"Bob\" Day",
    "university": "University of Connecticut",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -215234,11 +215513,13 @@
    "name": "Robert (Robbie) Kidd",
    "university": "Shenandoah University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -216015,15 +216296,34 @@
   "robert dicenzo|massachusetts college of pharmacy and health sciences": {
    "name": "Robert DiCenzo",
    "university": "Massachusetts College of Pharmacy and Health Sciences",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Rochester General Hospital"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Rochester General Hospital",
+     "role": "Clinical Pharmacist",
+     "seniority": "professional",
+     "years": "1988-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "robert doerksen|university of mississippi": {
@@ -216502,15 +216802,43 @@
   "robert h. bishop|texas a&m university": {
    "name": "Robert H. Bishop",
    "university": "Texas A&M University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Nonprofit & Foundations",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Charles Stark Draper Laboratory",
+    "NASA Jet Propulsion Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Charles Stark Draper Laboratory",
+     "role": "Guidance and navigation group engineer",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "NASA Jet Propulsion Laboratory",
+     "role": "Faculty Fellow",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "robert h. bruininks|university of minnesota system": {
@@ -218527,15 +218855,32 @@
   "robert soltis|butler university": {
    "name": "Robert Soltis",
    "university": "Butler University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "National Institutes of Health (National Institute of Neurological Disorders and Stroke)"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "National Institutes of Health (National Institute of Neurological Disorders and Stroke)",
+     "role": "Pharmacology Research Associate (PRAT Fellow)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "robert swerdlow|ucla": {
@@ -220407,15 +220752,33 @@
   "roger bonnecaze|university of texas at austin": {
    "name": "Roger Bonnecaze",
    "university": "University of Texas at Austin",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 61,
+   "seniority": "executive",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "SandBox Semiconductor"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Technology",
+     "firm": "SandBox Semiconductor",
+     "role": "Co-Founder & Technical Advisor",
+     "seniority": "executive",
+     "years": "2019",
+     "source": "research",
+     "score": 61
+    }
    ]
   },
   "roger d. huang|university of notre dame": {
@@ -221976,12 +222339,14 @@
   "ronn smith|colorado state university": {
    "name": "Ronn Smith",
    "university": "Colorado State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -224750,15 +225115,33 @@
   "s. suresh madhavan|temple university": {
    "name": "S. Suresh Madhavan",
    "university": "Temple University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Walgreens"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Consumer & Retail",
+     "firm": "Walgreens",
+     "role": "Member, Walgreens Deans Advisory Council",
+     "seniority": "senior",
+     "years": "2024",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "s. todd brown|university at buffalo": {
@@ -224950,11 +225333,13 @@
    "name": "Sabrina DeTurk",
    "university": "Northeastern University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -225111,11 +225496,13 @@
    "name": "Saby Mitra",
    "university": "Emory University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -225125,11 +225512,13 @@
    "name": "Sabyasachi Mitra",
    "university": "University of Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -225925,15 +226314,54 @@
   "samit shah|regis university": {
    "name": "Samit Shah",
    "university": "Regis University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Tepeyac Community Health Center",
+    "Rite Aid Pharmacy",
+    "HealthQwest Clinic"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Tepeyac Community Health Center",
+     "role": "Board of Directors member",
+     "seniority": "senior",
+     "years": "2018",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Rite Aid Pharmacy",
+     "role": "PRN Pharmacist / Pharmacist-in-Charge",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "HealthQwest Clinic",
+     "role": "Pharmacist",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "samuel a. kirkpatrick|eastern michigan university": {
@@ -225982,11 +226410,13 @@
    "name": "Samuel M. Poloyac",
    "university": "University of Texas at Austin",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -226052,11 +226482,13 @@
    "name": "Samuel Mukasa",
    "university": "University of New Hampshire",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -226842,11 +227274,13 @@
    "name": "Sandy Wayne",
    "university": "University of Illinois at Chicago",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -227176,11 +227610,13 @@
    "name": "Saonee Sarker",
    "university": "Virginia Tech",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 5,
    "sectors": [
     "Academic"
@@ -227189,12 +227625,14 @@
   "sara (mandy) reece|philadelphia college of osteopathic medicine": {
    "name": "Sara (Mandy) Reece",
    "university": "Philadelphia College of Osteopathic Medicine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -227780,12 +228218,14 @@
   "sarah a. soule|stanford university": {
    "name": "Sarah A. Soule",
    "university": "Stanford University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-23",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -228270,11 +228710,13 @@
    "name": "Sarah L. J. Michel",
    "university": "University of Maryland, Baltimore",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -229581,11 +230023,13 @@
    "name": "Scott Dawson",
    "university": "University of Colorado Denver",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 6,
    "sectors": [
     "Academic"
@@ -229804,14 +230248,52 @@
    "name": "Scott J. Grawe",
    "university": "Mississippi State University",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 26,
+   "seniority": "unknown",
+   "categories": [
+    "Financial Services",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Principal Financial Group",
+    "Polaris Industries",
+    "Target"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "Principal Financial Group",
+     "role": "Unknown role",
+     "seniority": "unknown",
+     "source": "research",
+     "score": 26
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Polaris Industries",
+     "role": "Supply Chain Management role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Target",
+     "role": "Supply Chain Management role",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)",
@@ -230914,14 +231396,54 @@
    "name": "Sean Edmund Rogers",
    "university": "University of Rhode Island",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 4,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 28,
+   "seniority": "unknown",
+   "categories": [
+    "Government & Public Sector",
+    "Energy & Industrials"
+   ],
+   "firms": [
+    "US Army Reserve",
+    "US Airways",
+    "UPS"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "US Army Reserve",
+     "role": "Enlisted soldier/NCO; combat tour 2003 (Operation Iraqi Freedom)",
+     "seniority": "unknown",
+     "years": "2000-2008",
+     "endYear": 2008,
+     "source": "research",
+     "score": 28
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "US Airways",
+     "role": "Industrial engineering, finance, pricing, network/schedule planning",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Energy & Industrials",
+     "firm": "UPS",
+     "role": "Network and schedule planning",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -231506,12 +232028,14 @@
   "sevin yeltekin|george washington university": {
    "name": "Sevin Yeltekin",
    "university": "George Washington University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -232501,11 +233025,13 @@
    "name": "Sharon F. Matusik",
    "university": "University of Michigan",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -233002,12 +233528,14 @@
   "sharrel pinto|belmont university": {
    "name": "Sharrel Pinto",
    "university": "Belmont University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -233910,15 +234438,34 @@
   "shekhar garde|rensselaer polytechnic institute": {
    "name": "Shekhar Garde",
    "university": "Rensselaer Polytechnic Institute",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 18,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Los Alamos National Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Los Alamos National Laboratory",
+     "role": "Director's Postdoctoral Fellow",
+     "seniority": "professional",
+     "years": "1997-1999",
+     "endYear": 1999,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "shela levante|massachusetts college of liberal arts": {
@@ -234009,11 +234556,13 @@
    "name": "Shelley D. Dionne",
    "university": "Binghamton University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -234787,12 +235336,14 @@
   "shih-fu chang|columbia university": {
    "name": "Shih-Fu Chang",
    "university": "Columbia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -235427,11 +235978,13 @@
    "name": "Simon J. Sheather",
    "university": "University of Kentucky",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 5,
    "sectors": [
     "Academic"
