@@ -31,15 +31,15 @@
  ],
  "counts": {
   "people": 29470,
-  "yes": 3465,
-  "no": 10330,
+  "yes": 3489,
+  "no": 10306,
   "unknown": 15675,
-  "namedFirm": 2855,
-  "flagOnly": 610,
-  "firms": 3501,
-  "sittingWithTie": 2182,
-  "sittingSeniorTie": 1318,
-  "researched": 3001
+  "namedFirm": 2874,
+  "flagOnly": 615,
+  "firms": 3533,
+  "sittingWithTie": 2201,
+  "sittingSeniorTie": 1331,
+  "researched": 3046
  },
  "people": {
   "a-j aronstein|barnard college": {
@@ -106831,12 +106831,14 @@
   "janice c. zgibor|university of south florida": {
    "name": "Janice C. Zgibor",
    "university": "University of South Florida",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -107408,15 +107410,32 @@
   "jason harkins|university of maine": {
    "name": "Jason Harkins",
    "university": "University of Maine",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Scratchpad Accelerator"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Nonprofit & Foundations",
+     "firm": "Scratchpad Accelerator",
+     "role": "Founder / Program Director",
+     "seniority": "executive",
+     "source": "research",
+     "score": 53
+    }
    ]
   },
   "jason irizarry|university of connecticut": {
@@ -107868,12 +107887,14 @@
   "jason p. nance|southern methodist university": {
    "name": "Jason P. Nance",
    "university": "Southern Methodist University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -108072,11 +108093,13 @@
    "name": "Jason T. Greene",
    "university": "University of Alabama in Huntsville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -108227,15 +108250,47 @@
   "jason zara|george washington university": {
    "name": "Jason Zara",
    "university": "George Washington University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 55,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma",
+    "Technology"
+   ],
+   "firms": [
+    "Lumacoustic Systems, LLC",
+    "Memscept, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Lumacoustic Systems, LLC",
+     "role": "Co-Founder",
+     "seniority": "executive",
+     "years": "2009-2011",
+     "endYear": 2011,
+     "source": "research",
+     "score": 55
+    },
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "Memscept, Inc.",
+     "role": "Co-Founder and Consultant",
+     "seniority": "executive",
+     "years": "2001-2005",
+     "endYear": 2005,
+     "source": "research",
+     "score": 49
+    }
    ]
   },
   "javad tafreshi|marshall b. ketchum university": {
@@ -108917,11 +108972,13 @@
    "name": "Jayanth Panyam",
    "university": "University of Washington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -110228,11 +110285,13 @@
    "name": "Jeff Fleming",
    "university": "Rice University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -110500,15 +110559,33 @@
   "jeff mercer|campbell university": {
    "name": "Jeff Mercer",
    "university": "Campbell University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "Publix Super Markets, Inc."
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Publix Super Markets, Inc.",
+     "role": "Pharmacy Supervisor and District Manager",
+     "seniority": "senior",
+     "years": "2004",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "jeff morgan|harding university": {
@@ -110951,6 +111028,8 @@
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -111145,11 +111224,13 @@
    "name": "Jeffrey F. Brock",
    "university": "Yale University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -112849,14 +112930,56 @@
    "name": "Jennifer Chatman",
    "university": "University of California Berkeley",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 71,
+   "seniority": "executive",
+   "categories": [
+    "Energy & Industrials",
+    "Nonprofit & Foundations",
+    "Consulting"
+   ],
+   "firms": [
+    "Simpson Manufacturing Co. (NYSE: SSD)",
+    "Prospect Sierra School",
+    "The Trium Group"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Energy & Industrials",
+     "firm": "Simpson Manufacturing Co. (NYSE: SSD)",
+     "role": "Outside Director; Chair, Compensation and Leadership Committee",
+     "seniority": "executive",
+     "years": "2004",
+     "source": "research",
+     "score": 71
+    },
+    {
+     "kind": "board",
+     "category": "Nonprofit & Foundations",
+     "firm": "Prospect Sierra School",
+     "role": "Trustee; Chair, Compensation Working Group",
+     "seniority": "senior",
+     "years": "2006",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Consulting",
+     "firm": "The Trium Group",
+     "role": "Academic Affiliate",
+     "seniority": "senior",
+     "years": "2004",
+     "source": "research",
+     "score": 48
+    }
    ],
    "flags": [
     "hasConsultingBg"
@@ -113622,14 +113745,32 @@
    "name": "Jennifer L. West",
    "university": "University of Virginia",
    "status": "yes",
-   "confidence": "low",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 53,
+   "seniority": "executive",
+   "categories": [
+    "Healthcare & Pharma"
+   ],
+   "firms": [
+    "Nanospectra Biosciences"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare & Pharma",
+     "firm": "Nanospectra Biosciences",
+     "role": "Co-Founder",
+     "seniority": "executive",
+     "years": "2000",
+     "source": "research",
+     "score": 53
+    }
    ],
    "flags": [
     "hasIndustryExp (existing)"
@@ -113953,11 +114094,13 @@
    "name": "Jennifer Mueller-Phillips",
    "university": "Auburn University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -114573,15 +114716,32 @@
   "jennifer w. reynolds|university of oregon": {
    "name": "Jennifer W. Reynolds",
    "university": "University of Oregon",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)"
+   ],
+   "firms": [
+    "Dow Lohnes PLLC"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Dow Lohnes PLLC",
+     "role": "Associate (First Amendment and employment matters)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "jennifer walker|brandeis university": {
@@ -114615,15 +114775,34 @@
   "jennifer widom|stanford university": {
    "name": "Jennifer Widom",
    "university": "Stanford University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 14,
+   "seniority": "professional",
+   "categories": [
+    "Technology"
+   ],
+   "firms": [
+    "IBM Almaden Research Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Technology",
+     "firm": "IBM Almaden Research Center",
+     "role": "Research Staff Member",
+     "seniority": "professional",
+     "years": "1987-1993",
+     "endYear": 1993,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "jennifer winge|allegheny college": {
@@ -114752,12 +114931,14 @@
   "jenny darroch|miami university": {
    "name": "Jenny Darroch",
    "university": "Miami University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -114948,11 +115129,13 @@
    "name": "Jens David Ohlin",
    "university": "Cornell University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -115727,15 +115910,33 @@
   "jerome p. lynch|duke university": {
    "name": "Jerome P. Lynch",
    "university": "Duke University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "North Carolina Board of Science, Technology & Innovation"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "North Carolina Board of Science, Technology & Innovation",
+     "role": "Board Member",
+     "seniority": "senior",
+     "years": "2025",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "jerono p. rotich|indiana university bloomington": {
@@ -117650,11 +117851,13 @@
    "name": "Jill M. Kolesar",
    "university": "University of Iowa",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -119615,11 +119818,13 @@
    "name": "JoAnn Browning",
    "university": "University of Texas at San Antonio",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -119788,11 +119993,13 @@
    "name": "Joanna Millunchick",
    "university": "Indiana University Bloomington",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -121551,15 +121758,32 @@
   "johanna bond|rutgers university": {
    "name": "Johanna Bond",
    "university": "Rutgers University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "U.S. District Court for the District of Minnesota"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. District Court for the District of Minnesota",
+     "role": "Law Clerk to Judge Ann D. Montgomery",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "johanna mills metzgar|stanford university": {
@@ -124273,11 +124497,13 @@
    "name": "John Hadjimarcou",
    "university": "University of Texas at El Paso",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -125363,11 +125589,13 @@
    "name": "John M. Pezzuto",
    "university": "Western New England University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -126001,11 +126229,13 @@
    "name": "John Papapolymerou",
    "university": "Michigan State University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -127544,11 +127774,13 @@
    "name": "John Wiencek",
    "university": "University of South Florida",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -128622,15 +128854,46 @@
   "jonathan d. ference|wilkes university": {
    "name": "Jonathan D. Ference",
    "university": "Wilkes University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 50,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "The Wright Center for Graduate Medical Education",
+    "UPMC St. Margaret"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "The Wright Center for Graduate Medical Education",
+     "role": "Director of Pharmacotherapy Education",
+     "seniority": "senior",
+     "years": "2008-2015",
+     "endYear": 2015,
+     "source": "research",
+     "score": 50
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "UPMC St. Margaret",
+     "role": "Family Medicine Pharmacy Resident / Faculty Development Fellow",
+     "seniority": "professional",
+     "years": "2003-2004",
+     "endYear": 2004,
+     "source": "research",
+     "score": 18
+    }
    ]
   },
   "jonathan d. green|susquehanna university": {
@@ -129333,11 +129596,13 @@
    "name": "Jonathon Halbesleben",
    "university": "University of Texas at San Antonio",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -129857,15 +130122,69 @@
   "jose o. rivera|university of texas at el paso": {
    "name": "Jose O. Rivera",
    "university": "University of Texas at El Paso",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "R.E. Thomason General Hospital",
+    "Sierra Medical Center",
+    "University of Cincinnati Hospital",
+    "Presbyterian Family Healthcare Rio Rancho"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "R.E. Thomason General Hospital",
+     "role": "Critical Care Pharmacist / Director of Pharmacy Practice Residency",
+     "seniority": "senior",
+     "years": "1999",
+     "source": "research",
+     "score": 40
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Sierra Medical Center",
+     "role": "Director of Pharmacy Services",
+     "seniority": "senior",
+     "years": "1995-1998",
+     "endYear": 1998,
+     "source": "research",
+     "score": 36
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University of Cincinnati Hospital",
+     "role": "Associate Director for Clinical Programs",
+     "seniority": "senior",
+     "years": "1985-1988",
+     "endYear": 1988,
+     "source": "research",
+     "score": 32
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "Presbyterian Family Healthcare Rio Rancho",
+     "role": "Director of Pharmacy Services",
+     "seniority": "senior",
+     "years": "1992-1995",
+     "endYear": 1995,
+     "source": "research",
+     "score": 32
+    }
    ]
   },
   "jose padilla|valparaiso university": {
@@ -129944,15 +130263,65 @@
   "joseph a. barone|rutgers, the state university of new jersey": {
    "name": "Joseph A. Barone",
    "university": "Rutgers, The State University of New Jersey",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "State of New Jersey Health Planning Board",
+    "New Jersey Medical Emergency Disaster Prevention and Response Expert Panel (MEDPREP)",
+    "Robert Wood Johnson University Hospital",
+    "University of Illinois Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Government & Public Sector",
+     "firm": "State of New Jersey Health Planning Board",
+     "role": "Board Member",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "advisory",
+     "category": "Government & Public Sector",
+     "firm": "New Jersey Medical Emergency Disaster Prevention and Response Expert Panel (MEDPREP)",
+     "role": "Chair, Executive Committee (former)",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "advisory",
+     "category": "Healthcare Providers",
+     "firm": "Robert Wood Johnson University Hospital",
+     "role": "Co-Chair, Pharmacy and Therapeutics Committee",
+     "seniority": "senior",
+     "source": "research",
+     "score": 48
+    },
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "University of Illinois Medical Center",
+     "role": "Chief Resident, Emergency Medicine Pharmacy Residency",
+     "seniority": "professional",
+     "years": "1981-1982",
+     "endYear": 1982,
+     "source": "research",
+     "score": 14
+    }
    ]
   },
   "joseph a. brennan|montclair state university": {
@@ -131781,16 +132150,44 @@
   "joshua c. teitelbaum|georgetown university": {
    "name": "Joshua C. Teitelbaum",
    "university": "Georgetown University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1law",
     "r1university"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Law (private practice)",
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Cahill Gordon & Reindel LLP",
+    "U.S. District Court for the Southern District of New York"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Law (private practice)",
+     "firm": "Cahill Gordon & Reindel LLP",
+     "role": "Associate (corporate and securities law)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "U.S. District Court for the Southern District of New York",
+     "role": "Law Clerk to Judge Richard M. Berman",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "joshua colwell|university of central florida": {
@@ -132007,15 +132404,33 @@
   "joshua hall (also 'josh hall')|west virginia university": {
    "name": "Joshua Hall (also 'Josh Hall')",
    "university": "West Virginia University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 48,
+   "seniority": "senior",
+   "categories": [
+    "Nonprofit & Foundations"
+   ],
+   "firms": [
+    "Fraser Institute"
+   ],
+   "ties": [
+    {
+     "kind": "advisory",
+     "category": "Nonprofit & Foundations",
+     "firm": "Fraser Institute",
+     "role": "Senior Fellow (Fraser Advisory Council, since 2014)",
+     "seniority": "senior",
+     "years": "2014",
+     "source": "research",
+     "score": 48
+    }
    ]
   },
   "joshua kooistra|michigan state university": {
@@ -132659,16 +133074,33 @@
   "juan de pablo|new york university": {
    "name": "Juan de Pablo",
    "university": "New York University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool",
     "r1university"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 40,
+   "seniority": "senior",
+   "categories": [
+    "Government & Public Sector"
+   ],
+   "firms": [
+    "Argonne National Laboratory"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Government & Public Sector",
+     "firm": "Argonne National Laboratory",
+     "role": "Senior Scientist",
+     "seniority": "senior",
+     "source": "research",
+     "score": 40
+    }
    ]
   },
   "juan e. gonzález|university of texas at dallas": {
@@ -133567,11 +133999,13 @@
    "name": "Julia Bear",
    "university": "Stony Brook University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -133881,15 +134315,43 @@
   "julie akers|washington state university": {
    "name": "Julie Akers",
    "university": "Washington State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers",
+    "Consumer & Retail"
+   ],
+   "firms": [
+    "The Everett Clinic",
+    "Bartell Drugs"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "The Everett Clinic",
+     "role": "Retail Pharmacies Manager / Director of Retail Pharmacies",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    },
+    {
+     "kind": "employment",
+     "category": "Consumer & Retail",
+     "firm": "Bartell Drugs",
+     "role": "Pharmacist, then Pharmacy Manager, then Pharmacy District Manager",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "julie allen|northwestern university": {
@@ -134252,15 +134714,32 @@
   "julie hixson-wallace|harding university": {
    "name": "Julie Hixson-Wallace",
    "university": "Harding University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
-   "stops": 1,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 22,
+   "seniority": "professional",
+   "categories": [
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "DeKalb Medical Center"
+   ],
+   "ties": [
+    {
+     "kind": "employment",
+     "category": "Healthcare Providers",
+     "firm": "DeKalb Medical Center",
+     "role": "Pharmacy Practice Resident",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "julie honey|belmont university": {
@@ -135546,15 +136025,33 @@
   "k.j. martijn cremers|university of notre dame": {
    "name": "K.J. Martijn Cremers",
    "university": "University of Notre Dame",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 3,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services"
+   ],
+   "firms": [
+    "Ariel Investments"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Ariel Investments",
+     "role": "Independent Director",
+     "seniority": "senior",
+     "years": "2018",
+     "source": "research",
+     "score": 58
+    }
    ]
   },
   "ka yee c. lee|university of chicago": {
@@ -139019,11 +139516,13 @@
    "name": "Kathleen M. Giacomini",
    "university": "University of California, San Francisco",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -139296,12 +139795,14 @@
   "kathryn birkeland|north dakota state university": {
    "name": "Kathryn Birkeland",
    "university": "North Dakota State University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 3,
    "sectors": [
     "Academic"
@@ -139785,15 +140286,63 @@
   "kathy farrell|university of nebraska lincoln": {
    "name": "Kathy Farrell",
    "university": "University of Nebraska Lincoln",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
-   "stops": 2,
-   "sectors": [
-    "Academic"
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
+   "score": 58,
+   "seniority": "senior",
+   "categories": [
+    "Financial Services",
+    "Healthcare Providers"
+   ],
+   "firms": [
+    "Nelnet, Inc.",
+    "Assurity, Inc.",
+    "Bryan Health",
+    "KPMG Peat Marwick"
+   ],
+   "ties": [
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Nelnet, Inc.",
+     "role": "Board Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Financial Services",
+     "firm": "Assurity, Inc.",
+     "role": "Board Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "board",
+     "category": "Healthcare Providers",
+     "firm": "Bryan Health",
+     "role": "Board Director",
+     "seniority": "senior",
+     "source": "research",
+     "score": 58
+    },
+    {
+     "kind": "employment",
+     "category": "Financial Services",
+     "firm": "KPMG Peat Marwick",
+     "role": "Auditor (Baltimore and Atlanta)",
+     "seniority": "professional",
+     "source": "research",
+     "score": 22
+    }
    ]
   },
   "kathy fox|syracuse university": {
@@ -140379,11 +140928,13 @@
    "name": "Katie Hartman",
    "university": "Ohio University",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 2,
    "sectors": [
     "Academic"
@@ -141018,12 +141569,14 @@
   "kay m. palan|university of alabama": {
    "name": "Kay M. Palan",
    "university": "University of Alabama",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1bschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 4,
    "sectors": [
     "Academic"
@@ -141592,11 +142145,13 @@
    "name": "Keith Hollingsworth",
    "university": "University of Alabama in Huntsville",
    "status": "no",
-   "confidence": "medium",
+   "confidence": "high",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -141776,12 +142331,14 @@
   "keith molenaar|university of colorado boulder": {
    "name": "Keith Molenaar",
    "university": "University of Colorado Boulder",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "r1eschool"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
@@ -141947,12 +142504,14 @@
   "kelechi c. ogbonna|virginia commonwealth university": {
    "name": "Kelechi C. Ogbonna",
    "university": "Virginia Commonwealth University",
-   "status": "no",
-   "confidence": "medium",
+   "status": "yes",
+   "confidence": "low",
    "sitting": true,
    "indices": [
     "uspharmacy"
    ],
+   "evidence": "research",
+   "researchedOn": "2026-08-29",
    "stops": 1,
    "sectors": [
     "Academic"
