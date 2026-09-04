@@ -11,7 +11,7 @@ import {
 import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
-import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, useNonAcademicExperience, type AffEntry, type AffMap } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, useNonAcademicExperience, syntheticCareerSteps, type AffEntry, type AffMap } from "@/data/enrichment";
 import ScoutAssistant from "@/components/ScoutAssistant";
 import { useTrial } from "@/data/TrialContext";
 
@@ -114,7 +114,7 @@ const TIER_ORDER = ["R1", "R2", "R3 / Other Doctoral", "Regional / Master's", "L
  * <select> + tappable rows, no custom dropdown to mis-tap.
  */
 export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }: { prefill?: DeanSearchPrefill | null; onOpenSchool?: (university: string, school: string) => void; onOpenLeader?: (index: string | null, fullName: string) => void }) {
-  const { datasetId, bundle, noun, nounLower, nounPluralLower } = useDataset();
+  const { datasetId, bundle, noun, nounLower, nounPluralLower, titleOf } = useDataset();
   const allDeans = useAllDeans();
   const PHOTOS = usePhotoMap();
   // Does this index carry an associate/vice-dean feeder bench (roleType "subdean")?
@@ -279,6 +279,16 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     const roots = (careerRoots as Record<string, { level?: string }[]>)[enrichKey(d.dean, d.university)];
     return !!roots && roots.some((r) => DOCT_RE.test(r.level || ""));
   };
+  // hasPhd ships false on every associate/vice-dean feeder-bench row (roleType
+  // "subdean") -- nobody has ever researched their credentials, so "false" there
+  // means "nobody looked," not "no PhD" (BI-1, batonindexdefects.md: Amy Ostrom,
+  // a President's Professor, reads hasPhd:false in her feeder-bench row). Only a
+  // dean-level row's "false" is a researched, confirmed negative -- a subdean row
+  // with no positive doctorate evidence is UNKNOWN, so it should not be excluded
+  // by the Ph.D. filter (a searcher opting into the screen should narrow the
+  // slate, not silently delete the whole feeder bench).
+  const phdConfirmedAbsent = (d: Dean): boolean =>
+    (d as { roleType?: string }).roleType !== "subdean" && !hasDoctorate(d);
   const wasProfessor = (d: Dean): boolean => {
     // Dean-level roles require a professorship by definition; only the associate/
     // vice-dean bench (which mixes in staff-track administrators) needs a signal.
@@ -288,6 +298,22 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     const car = researchMap[enrichKey(d.dean, d.university)]?.career;
     return !!car && car.some((s) => PROF_RE.test(s.role || ""));
   };
+
+  // Ph.D. coverage for the current appointment cohort, shown on the Credentials
+  // toggle itself (BI-1's cross-cutting fix: a filter should say what it can't
+  // evaluate for this cohort, not just apply silently). Scoped to apptType only
+  // (not every other filter) so the number reads as "this appointment slice,"
+  // matching the apptSubline bench/interim breakdown just below.
+  const phdCoverage = useMemo(() => {
+    const cohort = allDeans.filter((d) => {
+      const isSub = (d as { roleType?: string }).roleType === "subdean";
+      if (apptType === "perm" && (isSub || d.isInterim)) return false;
+      if (apptType === "interim" && !isSub && !d.isInterim) return false;
+      return true;
+    });
+    return { confirmed: cohort.filter((d) => hasDoctorate(d)).length, total: cohort.length };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allDeans, apptType]);
 
   // Named-firm industry tie (nonacademic-experience.json). Deliberately requires
   // confidence "high": a flag-only yes has no employer to show, so filtering on
@@ -488,7 +514,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       const isSub = (d as { roleType?: string }).roleType === "subdean";
       if (apptType === "perm" && (isSub || d.isInterim)) return false;
       if (apptType === "interim" && !isSub && !d.isInterim) return false;
-      if (requirePhd && !hasDoctorate(d)) return false;
+      if (requirePhd && phdConfirmedAbsent(d)) return false;
       if (requireProf && !wasProfessor(d)) return false;
       if (requireIndustryTie && !hasIndustryTie(d)) return false;
       if (includeGender !== "all") {
@@ -630,6 +656,46 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     });
     return rows;
   }, [locBase, effectiveStates, stateOf, sortBy]);
+
+  // Zero-result reason (BI-8, batonindexdefects.md): "No X match these filters"
+  // reads identically whether the filter genuinely excludes everyone or the
+  // underlying field simply has no coverage for this cohort -- which is exactly
+  // what made BI-2 (no startYear on the associate/vice-dean feeder bench)
+  // invisible. When the years-in-seat screen is active and nobody in the
+  // relevant appointment/tenure-window slice has a recorded start date at all,
+  // say so and name the field, instead of reporting a plain empty match.
+  const zeroResultReason = useMemo(() => {
+    if (results.length !== 0 || !hasFilter) return null;
+    if (servedMin > 0 || servedMax < SERVED_CAP) {
+      const cohort = allDeans.filter((d) => {
+        if (tenureWin === "sitting" && d.endYear != null) return false;
+        if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
+        if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) return false;
+        const isSub = (d as { roleType?: string }).roleType === "subdean";
+        if (apptType === "perm" && (isSub || d.isInterim)) return false;
+        if (apptType === "interim" && !isSub && !d.isInterim) return false;
+        return true;
+      });
+      if (cohort.length === 0) return null;
+      // The feeder bench specifically has zero startYear coverage (BI-2) --
+      // call that out by name even when the rest of the cohort has some dates
+      // (just none landing in this window), since the bench is the majority
+      // of what silently vanished.
+      const subdeanCohort = cohort.filter((d) => (d as { roleType?: string }).roleType === "subdean");
+      const subdeanWithYears = subdeanCohort.filter((d) => elapsedYears(d) != null).length;
+      if (subdeanCohort.length > 0 && subdeanWithYears === 0) {
+        const rest = cohort.length - subdeanCohort.length;
+        return `${subdeanCohort.length.toLocaleString()} of these ${nounPluralLower} are associate/vice-dean feeder-bench records with no recorded start date, so "years in seat" can never evaluate them` +
+          (rest > 0 ? ` — the other ${rest.toLocaleString()} just don't fall in this window.` : ".");
+      }
+      const withYears = cohort.filter((d) => elapsedYears(d) != null).length;
+      if (withYears === 0) {
+        return `None of the ${cohort.length.toLocaleString()} ${nounPluralLower} in this appointment/tenure slice have a recorded start date, so "years in seat" can't be evaluated here — clear that filter to see them.`;
+      }
+    }
+    return null;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [results.length, hasFilter, servedMin, servedMax, allDeans, tenureWin, apptType, nounPluralLower]);
 
   // Name typeahead: unique people in the current index whose name matches, best
   // (sitting, else latest) record per person, prefix matches first.
@@ -851,7 +917,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                 </FilterRow>
                 <FilterRow label="Credentials" hint="Held a doctorate · faculty rank · a named organisation outside the academy.">
                   <PillToggles items={[
-                    { key: "phd", label: "Ph.D.", on: requirePhd, onToggle: () => { setRequirePhd(!requirePhd); setExpandedId(null); } },
+                    { key: "phd", label: phdCoverage.total ? `Ph.D. (${phdCoverage.confirmed}/${phdCoverage.total} confirmed)` : "Ph.D.", on: requirePhd, onToggle: () => { setRequirePhd(!requirePhd); setExpandedId(null); } },
                     { key: "prof", label: "Professor", on: requireProf, onToggle: () => { setRequireProf(!requireProf); setExpandedId(null); } },
                     { key: "na", label: "Non-academic tie", on: requireIndustryTie, accent: "teal", onToggle: () => { setRequireIndustryTie(!requireIndustryTie); setExpandedId(null); } },
                   ]} />
@@ -1203,8 +1269,15 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
             {/* The open candidate's movability assessment lives here, in the map column. */}
             {(() => {
               const d = expandedId != null ? shown.find((x) => x.id === expandedId) : null;
-              const career = d ? researchMap[enrichKey(d.dean, d.university)]?.career : null;
-              if (!d || !career || !career.length) return null;
+              if (!d) return null;
+              // Fall back to a synthetic PhD -> current-seat trajectory when there's
+              // no researched career at all, same as DeanProfile/DeanTimeline -- the
+              // Movability Index chip only needs tenure data, not researched career
+              // steps, so gating this panel on real research alone made the panel
+              // vanish while a chip elsewhere for the same person still rendered
+              // (BI-7, batonindexdefects.md).
+              const research = researchMap[enrichKey(d.dean, d.university)]?.career;
+              const career = research?.length ? research : syntheticCareerSteps(d, titleOf(d));
               return (
                 <div className="rounded-xl border border-border bg-card p-3">
                   <div className="text-[11px] font-semibold text-muted-foreground mb-1.5 truncate">{d.dean}</div>
@@ -1219,7 +1292,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
 
       {results.length === 0 && hasFilter && (
         <div className="bg-card border border-border rounded-xl p-8 text-center">
-          <p className="text-muted-foreground text-sm">No {nounPluralLower} match these filters.</p>
+          <p className="text-muted-foreground text-sm">{zeroResultReason || `No ${nounPluralLower} match these filters.`}</p>
         </div>
       )}
 

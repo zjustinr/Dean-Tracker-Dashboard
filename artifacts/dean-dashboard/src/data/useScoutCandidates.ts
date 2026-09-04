@@ -138,6 +138,49 @@ function ownDomainTies(e: AffEntry, datasetId: string): AffEntry {
   return { ...e, admin: e.admin.filter(keep), faculty: e.faculty.filter(keep) };
 }
 
+// A person's own title is genuine senior ACADEMIC leadership -- dean, provost,
+// chancellor, or (non-"vice") president -- as opposed to a corporate-officer
+// or staff title that merely mentions one of those words in passing ("Chief of
+// staff TO THE PRESIDENT", "Executive VICE PRESIDENT"). Checked against the
+// PRIMARY (first-listed) title only, since a long compound role string ("EVP,
+// COO and CFO, Finance, Administration and Operations (Treasurer also)") can
+// mention "president" deep inside a title that isn't actually one.
+const VICE_TITLE_RE = /^(interim\s+|acting\s+)?vice[\s-]?(president|provost|chancellor|dean)\b/i;
+const SENIOR_TITLE_RE = /^(interim\s+|acting\s+)?(dean|provost|chancellor|president)\b/i;
+function isSeniorAcademicLeader(role: string): boolean {
+  const primary = (role.split(",")[0] || "").trim();
+  return SENIOR_TITLE_RE.test(primary) && !VICE_TITLE_RE.test(primary);
+}
+
+// Alumni (grad/undergrad) ties carry no domain-naming evidence text of their
+// own -- unlike an admin/faculty tie, a "BA, University of X" line never says
+// which field the alumnus went on to work in, so ownDomainTies above always
+// let them through untouched. That's the mechanism behind BI-3
+// (batonindexdefects.md): an R1 business-school "Best fit" search ranked a
+// Nursing interim dean, a Nursing dean who left the role in 2013, a
+// university COO/CFO/Treasurer, a president's chief of staff, and a VP of
+// Marketing & Communications all ahead of real business-school candidates --
+// every one of them a CU Denver alum and nothing else. The alumni tie itself
+// is real; treating it as business-leadership signal is not. Judged against
+// the person's registered HOME index instead of evidence text:
+//   - a home index that's itself a different single-school domain (nursing,
+//     medicine, law, ...) never counts, the same as an admin/faculty tie that
+//     explicitly names a different school.
+//   - a home index with no single-school domain of its own (university,
+//     provost, r2university, system, ...) counts only if the person's own
+//     title is genuine senior academic leadership, or explicitly names this
+//     search's own domain -- a career staff/operations officer with a
+//     decades-old degree from here is not a signal "Best fit" should surface
+//     above people who actually work in this field.
+function alumniTieIsRelevant(e: AffEntry, datasetId: string): boolean {
+  const searchType = DATASETS_META[datasetId as DatasetId]?.schoolType;
+  if (!searchType || !SINGLE_SCHOOL_TYPES.has(searchType)) return true; // same scoping as ownDomainTies -- doesn't apply outside a single-school search
+  const entryType = e.index ? DATASETS_META[e.index as DatasetId]?.schoolType : undefined;
+  if (entryType && SINGLE_SCHOOL_TYPES.has(entryType)) return entryType === searchType;
+  if (SCHOOL_DOMAIN_RE[searchType]?.test(e.role)) return true;
+  return isSeniorAcademicLeader(e.role);
+}
+
 // An affinity candidate's strongest tie category (admin > faculty > grad >
 // undergrad -- a working tie beats a merely alumni one) and its log-lift score
 // from gen-scout-insights.mjs's tieLift: how often THIS category shows up
@@ -146,7 +189,11 @@ function ownDomainTies(e: AffEntry, datasetId: string): AffEntry {
 // unvalidated index contributes exactly 0, not a guess.
 export function affinityTieFit(e: AffEntry, idx: ScoutIndexInsights, datasetId: string): { score: number; category: "admin" | "faculty" | "grad" | "undergrad" | null } {
   const own = ownDomainTies(e, datasetId);
-  const category = own.admin.length ? "admin" : own.faculty.length ? "faculty" : own.grad.length ? "grad" : own.undergrad.length ? "undergrad" : null;
+  let category: "admin" | "faculty" | "grad" | "undergrad" | null =
+    own.admin.length ? "admin" : own.faculty.length ? "faculty" : own.grad.length ? "grad" : own.undergrad.length ? "undergrad" : null;
+  // An alumni-only tie (no surviving admin/faculty evidence) needs its own
+  // relevance check -- see alumniTieIsRelevant above (BI-3).
+  if ((category === "grad" || category === "undergrad") && !alumniTieIsRelevant(e, datasetId)) category = null;
   if (!category) return { score: 0, category: null };
   const cat = idx.tieLift?.categories[category];
   if (!cat) return { score: 0, category };
@@ -474,7 +521,20 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
       }
       return { c: { ...c, score, matchedKeywords }, resolved };
     };
-    const all = [...benchShortlist, ...affinityShortlist, ...weakLinkShortlist, ...broadShortlist].map(withExtras);
+    const all = [...benchShortlist, ...affinityShortlist, ...weakLinkShortlist, ...broadShortlist].map(withExtras)
+      // A candidate tier is for people who could take the job NEXT. Once a tie
+      // resolves to a definite record showing the person has already left that
+      // seat (endYear set), they're a former leader, not a candidate -- no
+      // score is high enough to make someone who's been gone for over a
+      // decade a live prospect (BI-4, batonindexdefects.md: Marcia C. Maurer,
+      // Dean of Nursing 2003-2013, surfaced as a "Best fit" candidate on the
+      // strength of a shared alma mater alone). broadShortlist already
+      // excludes ended records at construction; this closes the same gap for
+      // affinity/weak-link candidates once their profile resolves.
+      .filter(({ c, resolved }) => {
+        const dean = c.dean ?? (resolved && resolved !== "not-found" ? resolved : undefined);
+        return !dean || dean.endYear == null;
+      });
     const filtered = filter
       ? all.filter(({ c, resolved }) => {
           const dean = c.dean ?? (resolved && resolved !== "not-found" ? resolved : undefined);

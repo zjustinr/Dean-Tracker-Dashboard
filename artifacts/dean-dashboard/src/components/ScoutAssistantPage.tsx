@@ -187,8 +187,16 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
     return !!rec && rec.status === "yes" && rec.confidence === "high" && !!rec.ties?.length;
   }, [industryPeople]);
 
+  // hasPhd ships false on every associate/vice-dean feeder-bench row (roleType
+  // "subdean") -- nobody has ever researched their credentials there, so a
+  // dean-level "false" is a researched negative but a subdean "false" only
+  // means nobody looked (BI-1, batonindexdefects.md). Only exclude a subdean
+  // row from the Ph.D. filter when it has POSITIVE doctorate evidence to lack.
+  const phdConfirmedAbsent = useCallback((d: Dean): boolean =>
+    (d as { roleType?: string }).roleType !== "subdean" && !hasDoctorate(d), [hasDoctorate]);
+
   const rosterFilter = useCallback((d: Dean): boolean => {
-    if (requirePhd && !hasDoctorate(d)) return false;
+    if (requirePhd && phdConfirmedAbsent(d)) return false;
     if (requireProf && !wasProfessor(d)) return false;
     if (requireIndustryTie && !hasIndustryTie(d)) return false;
     if (includeGender !== "all") {
@@ -209,7 +217,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
       if (!st || !effectiveStates.has(st)) return false;
     }
     return true;
-  }, [requirePhd, requireProf, requireIndustryTie, hasIndustryTie, includeGender, apptType, functions, tiers, tierOf, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
+  }, [requirePhd, requireProf, requireIndustryTie, hasIndustryTie, includeGender, apptType, functions, tiers, tierOf, effectiveStates, stateOf, phdConfirmedAbsent, wasProfessor]);
 
   // Job-description keyword boost: a heuristic overlap score against a broad
   // text surface for each candidate -- discipline, career background, prior
