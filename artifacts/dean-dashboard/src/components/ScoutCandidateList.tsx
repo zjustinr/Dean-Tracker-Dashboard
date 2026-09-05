@@ -7,6 +7,9 @@ import DeanProfile from "@/components/DeanProfile";
 import { CareerAssessment, useCareerAnalysis, type Root } from "@/components/CareerMap";
 import { MovabilityGaugeIcon } from "@/components/MovabilityGaugeIcon";
 import careerRoots from "@/data/career-roots.json";
+import { useTenureNorms } from "@/data/survival";
+
+const NOW = 2026;
 
 /**
  * The ranked-candidate-row renderer shared by the Scout Assistant section
@@ -44,19 +47,16 @@ export default function ScoutCandidateList({
   const tiesPeople = useNonAcademicExperience()?.people ?? null;
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
 
-  // Cohort tenure distribution for the Movability Index, mirroring IndividualSearch's
-  // own tenureFor (same cohort-wide percentiles, so the rating reads identically
-  // wherever it's shown).
+  // Cohort tenure norm for the Movability Index, shared with every other screen
+  // that renders the chip so the rating reads identically wherever it's shown.
+  const norms = useTenureNorms(allDeans, NOW);
   function tenureFor(dn: Dean) {
-    const NOW = 2026;
-    const lens = allDeans.filter((x) => x.endYear != null && !x.isInterim && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number).sort((a, b) => a - b);
-    const p = (q: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(q * lens.length))] : null);
     const past = allDeans.filter((x) => x.dean === dn.dean && x.id !== dn.id && x.endYear != null && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number);
     const personalAvg = past.length ? past.reduce((a, b) => a + b, 0) / past.length : null;
     return {
       sitting: dn.endYear == null,
       currentTenure: dn.endYear == null && dn.startYear ? NOW - dn.startYear : dn.tenureLength ?? null,
-      median: p(0.5), p75: p(0.75), personalAvg, cohortN: lens.length,
+      ...norms, personalAvg,
     };
   }
 

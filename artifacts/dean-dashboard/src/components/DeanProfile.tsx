@@ -9,6 +9,9 @@ import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
 import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps, usePhotoMap, useNonAcademicExperience, type NewsItem } from "@/data/enrichment";
+import { useTenureNorms } from "@/data/survival";
+
+const NOW = 2026;
 
 function formatArchiveDate(capturedAt: string): string {
   // capturedAt is YYYYMMDD (see photo-lib.mjs's today()).
@@ -82,15 +85,10 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
   const allDeans = useAllDeans();
 
   // Tenure inputs for the Career Map's movability rating: this leader's years in
-  // the current role, their own past average tenure, and the cohort's completed
-  // permanent-tenure distribution (median + 75th percentile) for this index.
+  // the current role, their own past average tenure, and the index-wide
+  // censoring-aware cohort norm (median + 75th percentile).
+  const norms = useTenureNorms(allDeans, NOW);
   const tenure = useMemo(() => {
-    const NOW = 2026;
-    const lens = allDeans
-      .filter((d) => d.endYear != null && !d.isInterim && (d.tenureLength ?? 0) > 0)
-      .map((d) => d.tenureLength as number)
-      .sort((a, b) => a - b);
-    const pct = (p: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(p * lens.length))] : null);
     const pastLens = careerPositions
       .filter((p) => p.endYear != null && (p.tenureLength ?? 0) > 0)
       .map((p) => p.tenureLength as number);
@@ -98,12 +96,10 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
     return {
       sitting: dean.endYear == null,
       currentTenure: dean.endYear == null && dean.startYear ? NOW - dean.startYear : dean.tenureLength ?? null,
-      median: pct(0.5),
-      p75: pct(0.75),
+      ...norms,
       personalAvg,
-      cohortN: lens.length,
     };
-  }, [allDeans, careerPositions, dean]);
+  }, [norms, careerPositions, dean]);
 
   // "Last job before they first became a dean": the career step just before the
   // earliest TOP leadership role (dean/president/chancellor, excluding associate/
