@@ -11,6 +11,14 @@
  * positive -- only a genuine new-record-without-sourceUrl or
  * had-a-sourceUrl-now-doesn't regression fails the check.
  *
+ * `id` isn't actually guaranteed populated (scripts/backfill-missing-ids.mjs
+ * exists precisely because ~6,500 ad-hoc-research feeder-bench records
+ * shipped without one), so an id-only match breaks the moment a record's id
+ * changes from nothing to something: the record looks brand new against the
+ * base ref even though nothing about the PERSON changed. Falls back to a
+ * name+university match whenever the id lookup misses, so a pure id backfill
+ * (like that script) is recognized as the same record, not a new one.
+ *
  *   node scripts/validate-source-urls.mjs [--base <ref>]
  * Base ref resolution: --base flag > $BASE_REF env > $GITHUB_BASE_REF (as
  * origin/<branch>, set by GitHub Actions on pull_request) > "HEAD^1".
@@ -43,6 +51,13 @@ function readAtRef(ref, absPath) {
 
 const files = readdirSync(SRC).filter((f) => /deans.*\.json$/.test(f) && !/schools/.test(f) && f !== "dean-photos.json");
 
+// Fallback identity for the id-backfill case above: name+university. Not
+// unique in general (the same person can hold non-contiguous spells at one
+// school), but it's only ever consulted when the id lookup already missed,
+// so a collision just means one fewer false positive, never a false negative
+// severe enough to matter here.
+const nameUniKey = (r) => `${(r.dean || "").trim().toLowerCase()}|${(r.university || "").trim().toLowerCase()}`;
+
 const violations = [];
 for (const f of files) {
   const absPath = join(SRC, f);
@@ -52,16 +67,22 @@ for (const f of files) {
 
   const baseRaw = readAtRef(BASE_REF, absPath);
   let baseById = new Map();
+  let baseByNameUni = new Map();
   if (baseRaw) {
     try {
       const baseArr = JSON.parse(baseRaw);
-      if (Array.isArray(baseArr)) baseById = new Map(baseArr.map((r) => [r.id, r]));
+      if (Array.isArray(baseArr)) {
+        for (const r of baseArr) {
+          if (r.id != null) baseById.set(r.id, r);
+          baseByNameUni.set(nameUniKey(r), r);
+        }
+      }
     } catch { /* base version unparsable -- treat every head record as new */ }
   }
 
   for (const r of head) {
     if (r.id == null || !r.dean || !r.university) continue;
-    const before = baseById.get(r.id);
+    const before = baseById.get(r.id) ?? baseByNameUni.get(nameUniKey(r));
     const hasUrl = !!r.sourceUrl;
     if (hasUrl) continue;
     if (!before) {
