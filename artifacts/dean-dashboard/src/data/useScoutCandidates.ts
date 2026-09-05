@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { useDataset } from "@/data/DatasetContext";
 import { useAllDeans } from "@/data/useData";
 import {
-  useScoutInsights, useEmployerAffinity, loadAffinity, getAffinityCache,
+  useScoutInsights, useEmployerAffinity, loadAffinity, getAffinityCache, enrichKey,
   type ScoutIndexInsights, type ScoutTrait, type AffMap, type AffEntry, type WeakLinkEntry, type EmployerSchoolProfile,
   type ScoutOriginCategory,
 } from "@/data/enrichment";
@@ -395,7 +395,15 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
         const { score, matched } = traitFitScore(d, idx.traits);
         const origin = originFitScore("bench", d, idx);
         return {
-          key: `bench:${d.id}`, source: "bench" as const, name: d.dean, university: d.university,
+          // `d.id` is unpopulated on a large share of feeder-bench rows across
+          // many indices (an ad-hoc-research data gap, not a fetch/parsing
+          // bug) -- every such row's key collapsed to the literal string
+          // "bench:undefined", so React's keyed reconciliation couldn't tell
+          // the candidates apart as the list re-sorted while affinity/weak-
+          // link profiles resolved in, leaving stale duplicate rows behind in
+          // the DOM. name+university is the same join key photos/research
+          // already rely on and is always present.
+          key: `bench:${enrichKey(d.dean, d.university)}`, source: "bench" as const, name: d.dean, university: d.university,
           subtitle: d.discipline || d.priorTitle || "",
           dean: d,
           reasoning: matched.length > 0 ? traitReasoning(matched[0]) : null,
@@ -482,7 +490,9 @@ export function useScoutCandidateEngine({ university, cap, includeBroad = true, 
       const { score, matched } = traitFitScore(d, idx.traits);
       const origin = originFitScore("broad", d, idx);
       out.push({
-        key: `broad:${d.id}`, source: "broad", name: d.dean, university: d.university,
+        // Same reasoning as benchShortlist's key above -- name+university over
+        // `d.id`, which schema promises but a subset of records don't carry.
+        key: `broad:${enrichKey(d.dean, d.university)}`, source: "broad", name: d.dean, university: d.university,
         subtitle: `${d.school ? d.school + ", " : ""}${d.university}`,
         dean: d,
         reasoning: matched.length > 0 ? traitReasoning(matched[0]) : null,
