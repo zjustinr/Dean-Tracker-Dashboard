@@ -24,6 +24,7 @@ export interface Dean {
   disciplineBroad: string;
   phdField: string;
   phdInstitution?: string;
+  phdYear?: number | null; // doctorate award year; sourced from bio pages, see docs/data-provenance.md
   hasPriorDeanExp: boolean;
   priorAssocOrAsstDean: boolean;
   hadAssocDeanRole: boolean;
