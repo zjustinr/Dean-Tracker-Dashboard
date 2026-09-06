@@ -11,8 +11,9 @@ import {
 import ResultsMap from "@/components/ResultsMap";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
-import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, useNonAcademicExperience, type AffEntry, type AffMap } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, useNonAcademicExperience, syntheticCareerSteps, type AffEntry, type AffMap } from "@/data/enrichment";
 import ScoutAssistant from "@/components/ScoutAssistant";
+import { tenureSurvival, logLogisticHazard, useTenureNorms, type TenureSpell } from "@/data/survival";
 import { useTrial } from "@/data/TrialContext";
 
 // Cross-index AFFINITY selector kinds (see @/data/enrichment for the fetch/cache
@@ -114,7 +115,7 @@ const TIER_ORDER = ["R1", "R2", "R3 / Other Doctoral", "Regional / Master's", "L
  * <select> + tappable rows, no custom dropdown to mis-tap.
  */
 export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }: { prefill?: DeanSearchPrefill | null; onOpenSchool?: (university: string, school: string) => void; onOpenLeader?: (index: string | null, fullName: string) => void }) {
-  const { datasetId, bundle, noun, nounLower, nounPluralLower } = useDataset();
+  const { datasetId, bundle, noun, nounLower, nounPluralLower, titleOf } = useDataset();
   const allDeans = useAllDeans();
   const PHOTOS = usePhotoMap();
   // Does this index carry an associate/vice-dean feeder bench (roleType "subdean")?
@@ -279,6 +280,16 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     const roots = (careerRoots as Record<string, { level?: string }[]>)[enrichKey(d.dean, d.university)];
     return !!roots && roots.some((r) => DOCT_RE.test(r.level || ""));
   };
+  // hasPhd ships false on every associate/vice-dean feeder-bench row (roleType
+  // "subdean") -- nobody has ever researched their credentials, so "false" there
+  // means "nobody looked," not "no PhD" (BI-1, batonindexdefects.md: Amy Ostrom,
+  // a President's Professor, reads hasPhd:false in her feeder-bench row). Only a
+  // dean-level row's "false" is a researched, confirmed negative -- a subdean row
+  // with no positive doctorate evidence is UNKNOWN, so it should not be excluded
+  // by the Ph.D. filter (a searcher opting into the screen should narrow the
+  // slate, not silently delete the whole feeder bench).
+  const phdConfirmedAbsent = (d: Dean): boolean =>
+    (d as { roleType?: string }).roleType !== "subdean" && !hasDoctorate(d);
   const wasProfessor = (d: Dean): boolean => {
     // Dean-level roles require a professorship by definition; only the associate/
     // vice-dean bench (which mixes in staff-track administrators) needs a signal.
@@ -288,6 +299,22 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     const car = researchMap[enrichKey(d.dean, d.university)]?.career;
     return !!car && car.some((s) => PROF_RE.test(s.role || ""));
   };
+
+  // Ph.D. coverage for the current appointment cohort, shown on the Credentials
+  // toggle itself (BI-1's cross-cutting fix: a filter should say what it can't
+  // evaluate for this cohort, not just apply silently). Scoped to apptType only
+  // (not every other filter) so the number reads as "this appointment slice,"
+  // matching the apptSubline bench/interim breakdown just below.
+  const phdCoverage = useMemo(() => {
+    const cohort = allDeans.filter((d) => {
+      const isSub = (d as { roleType?: string }).roleType === "subdean";
+      if (apptType === "perm" && (isSub || d.isInterim)) return false;
+      if (apptType === "interim" && !isSub && !d.isInterim) return false;
+      return true;
+    });
+    return { confirmed: cohort.filter((d) => hasDoctorate(d)).length, total: cohort.length };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allDeans, apptType]);
 
   // Named-firm industry tie (nonacademic-experience.json). Deliberately requires
   // confidence "high": a flag-only yes has no employer to show, so filtering on
@@ -299,18 +326,15 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   }, [industryPeople]);
 
   // Tenure inputs for the movability assessment shown in the results-map column.
-  // Mirrors DeanProfile's computation (cohort tenure distribution + this leader's
-  // own past average) so the rating reads identically.
+  // Cohort norm is shared with every other screen that renders the chip.
+  const norms = useTenureNorms(allDeans, NOW);
   function tenureFor(dn: Dean) {
-    const NOW = 2026;
-    const lens = allDeans.filter((x) => x.endYear != null && !x.isInterim && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number).sort((a, b) => a - b);
-    const pct = (p: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(p * lens.length))] : null);
     const past = allDeans.filter((x) => x.dean === dn.dean && x.id !== dn.id && x.endYear != null && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number);
     const personalAvg = past.length ? past.reduce((a, b) => a + b, 0) / past.length : null;
     return {
       sitting: dn.endYear == null,
       currentTenure: dn.endYear == null && dn.startYear ? NOW - dn.startYear : dn.tenureLength ?? null,
-      median: pct(0.5), p75: pct(0.75), personalAvg, cohortN: lens.length,
+      ...norms, personalAvg,
     };
   }
 
@@ -488,7 +512,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       const isSub = (d as { roleType?: string }).roleType === "subdean";
       if (apptType === "perm" && (isSub || d.isInterim)) return false;
       if (apptType === "interim" && !isSub && !d.isInterim) return false;
-      if (requirePhd && !hasDoctorate(d)) return false;
+      if (requirePhd && phdConfirmedAbsent(d)) return false;
       if (requireProf && !wasProfessor(d)) return false;
       if (requireIndustryTie && !hasIndustryTie(d)) return false;
       if (includeGender !== "all") {
@@ -538,22 +562,23 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const yFrom = yrFrom ?? yearBounds.lo;
   const yTo = yrTo ?? NOW;
 
-  // Tenure-benchmark histogram. Built from COMPLETED tenures only: sitting leaders
-  // are right-censored (a 2-year-in dean who will serve 10 would drag the
-  // distribution short), so including them biases the "normal duration" a client
-  // sees. Reflects the discipline + location filters and the era window, so it
-  // reads as the norm for THIS cohort, not the whole index. Independent of the
-  // years-in-seat screen — that only shades which bars are highlighted.
+  // Tenure benchmark for the filtered cohort — discipline + location filters and
+  // the era window, so it reads as the norm for THIS cohort, not the whole index.
+  // Independent of the years-in-seat screen, which only shades which bars glow.
+  //
+  // Two different things are computed here and they must not be conflated:
+  //   * the HISTOGRAM (bins/mean/mode) is completed spells only, because it is a
+  //     picture of tenures that actually finished and there is no honest bar to
+  //     draw for a dean who is three years in and still going;
+  //   * the MEDIAN and the hazard curve come from `tenureSurvival`, which counts
+  //     still-serving leaders as right-censored. Dropping them would understate
+  //     the norm, since the longest servers are exactly the ones least likely to
+  //     have finished. The headline median is the censoring-aware one.
   const hist = useMemo(() => {
     const TMAX = 30, NB = TMAX + 1; // domain 0..30 yrs; the extra tail lets the fitted hazard show its full decline
     const bins = new Array(NB).fill(0); // completed-tenure distribution (departed only)
     const vals: number[] = [];
-    // Life-table inputs for the departure hazard. events[t] = leaders who left in
-    // year t. atRisk[t] = leaders still in the seat at the START of year t — this
-    // must include people STILL SERVING (right-censored), not only those who have
-    // already left, or the probability of moving is badly overstated.
-    const events = new Array(NB).fill(0);
-    const atRisk = new Array(NB).fill(0);
+    const cohort: TenureSpell[] = [];
     for (const d of allDeans) {
       if (!d.startYear) continue;
       if (d.isInterim) continue; // interims serve ~1 yr and skew the norm
@@ -568,49 +593,34 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
         if (!st || !effectiveStates.has(st)) continue;
       }
       if (d.startYear < yFrom || d.startYear > yTo) continue;
-      const departed = d.endYear != null;
-      const raw = departed ? (d.tenureLength ?? (d.endYear! - d.startYear)) : (NOW - d.startYear);
-      if (raw == null || raw < 0) continue;
-      const t = Math.min(TMAX, Math.floor(raw));
-      for (let j = 0; j <= t; j++) atRisk[j]++; // in the seat through the start of every year up to t
-      if (departed) { events[t]++; bins[t]++; vals.push(raw); } // a completed departure at year t
+      cohort.push(d);
+      if (d.endYear != null) {
+        const raw = d.tenureLength ?? d.endYear - d.startYear;
+        if (raw == null || raw < 0) continue;
+        bins[Math.min(TMAX, Math.floor(raw))]++;
+        vals.push(raw);
+      }
     }
+    const curve = tenureSurvival(cohort, { now: NOW, tmax: TMAX });
     vals.sort((a, b) => a - b);
-    const median = vals.length ? vals[Math.floor((vals.length - 1) / 2)] : 0;
     const mean = vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
     let mode = 0, best = -1, lastBin = 0;
     for (let i = 0; i < bins.length; i++) { if (bins[i] > best) { best = bins[i]; mode = i; } if (bins[i] > 0) lastBin = i; }
-    // Raw per-year life-table hazard: h(t) = P(leaves in year t | still in seat at
-    // the start of year t). Unbiased but noisy at long tenures where few remain at
-    // risk (one departure on a denominator of 2–3 spikes it), so we don't plot it
-    // directly. Instead we fit the smooth unimodal reliability curve it estimates.
-    const hazard = events.map((e, t) => (atRisk[t] > 0 ? e / atRisk[t] : 0));
-    // Kaplan–Meier survival past year t, then a log-logistic fit (hazard is
-    // unimodal when shape β>1). Scale α = censoring-aware median tenure; shape from
-    // the 50th/75th survival quantiles. This is the reliability-style hazard curve.
-    const surv = new Array(NB).fill(1);
-    { let s = 1; for (let t = 0; t < NB; t++) { s *= 1 - hazard[t]; surv[t] = s; } }
-    const quantile = (p: number) => { for (let t = 0; t < NB; t++) if (1 - surv[t] >= p) return t + 0.5; return NaN; };
-    const m50 = quantile(0.5), m75 = quantile(0.75);
-    let fit: number[] | null = null; // fitted hazard sampled every 0.5 yr over 0..TMAX
-    if (vals.length >= 8 && isFinite(m50) && isFinite(m75) && m75 > m50 && m50 > 0) {
-      const alpha = m50, beta = Math.log(3) / Math.log(m75 / m50);
-      if (beta > 0) {
-        fit = [];
-        for (let k = 0; k <= TMAX * 2; k++) {
-          const t = k * 0.5;
-          if (t <= 0) { fit.push(0); continue; }
-          const z = Math.pow(t / alpha, beta);
-          fit.push((beta / alpha) * Math.pow(t / alpha, beta - 1) / (1 + z));
-        }
-      }
-    }
-    // Peak of whichever hazard series we plot (fitted curve, else the raw
-    // fallback). Used to auto-scale the curve to fill the panel and to label the
-    // right-hand axis with the actual probability at the peak.
-    const hazSeries = fit ?? hazard.slice(0, lastBin + 1);
+    // The raw per-year hazard is unbiased but noisy at long tenures where few
+    // remain at risk (one departure on a denominator of 2–3 spikes it), so we
+    // plot the smooth log-logistic curve matched to the cohort's own quantiles
+    // and keep the raw series only as a fallback.
+    const fit = logLogisticHazard(curve);
+    // Peak of whichever hazard series we plot. Used to auto-scale the curve to
+    // fill the panel and to label the right axis with the probability at peak.
+    const hazSeries = fit ?? curve.hazard.slice(0, lastBin + 1);
     const hazPeak = hazSeries.length ? Math.max(...hazSeries) : 0;
-    return { bins, bw: 252 / NB, tmax: TMAX, max: Math.max(1, ...bins), median, mean, mode, n: vals.length, hazard, fit, hazPeak, lastBin, atRiskN: atRisk[0] };
+    return {
+      bins, bw: 252 / NB, tmax: TMAX, max: Math.max(1, ...bins),
+      median: curve.median, mean, mode,
+      n: vals.length, nCensored: curve.nCensored, nTotal: curve.nTotal,
+      hazard: curve.hazard, fit, hazPeak, lastBin,
+    };
   }, [allDeans, disciplines, tiers, tierOf, effectiveStates, stateOf, yFrom, yTo]);
 
   // Narrow, recent windows read short: long tenures started in that window have
@@ -630,6 +640,46 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     });
     return rows;
   }, [locBase, effectiveStates, stateOf, sortBy]);
+
+  // Zero-result reason (BI-8, batonindexdefects.md): "No X match these filters"
+  // reads identically whether the filter genuinely excludes everyone or the
+  // underlying field simply has no coverage for this cohort -- which is exactly
+  // what made BI-2 (no startYear on the associate/vice-dean feeder bench)
+  // invisible. When the years-in-seat screen is active and nobody in the
+  // relevant appointment/tenure-window slice has a recorded start date at all,
+  // say so and name the field, instead of reporting a plain empty match.
+  const zeroResultReason = useMemo(() => {
+    if (results.length !== 0 || !hasFilter) return null;
+    if (servedMin > 0 || servedMax < SERVED_CAP) {
+      const cohort = allDeans.filter((d) => {
+        if (tenureWin === "sitting" && d.endYear != null) return false;
+        if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
+        if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) return false;
+        const isSub = (d as { roleType?: string }).roleType === "subdean";
+        if (apptType === "perm" && (isSub || d.isInterim)) return false;
+        if (apptType === "interim" && !isSub && !d.isInterim) return false;
+        return true;
+      });
+      if (cohort.length === 0) return null;
+      // The feeder bench specifically has zero startYear coverage (BI-2) --
+      // call that out by name even when the rest of the cohort has some dates
+      // (just none landing in this window), since the bench is the majority
+      // of what silently vanished.
+      const subdeanCohort = cohort.filter((d) => (d as { roleType?: string }).roleType === "subdean");
+      const subdeanWithYears = subdeanCohort.filter((d) => elapsedYears(d) != null).length;
+      if (subdeanCohort.length > 0 && subdeanWithYears === 0) {
+        const rest = cohort.length - subdeanCohort.length;
+        return `${subdeanCohort.length.toLocaleString()} of these ${nounPluralLower} are associate/vice-dean feeder-bench records with no recorded start date, so "years in seat" can never evaluate them` +
+          (rest > 0 ? ` — the other ${rest.toLocaleString()} just don't fall in this window.` : ".");
+      }
+      const withYears = cohort.filter((d) => elapsedYears(d) != null).length;
+      if (withYears === 0) {
+        return `None of the ${cohort.length.toLocaleString()} ${nounPluralLower} in this appointment/tenure slice have a recorded start date, so "years in seat" can't be evaluated here — clear that filter to see them.`;
+      }
+    }
+    return null;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [results.length, hasFilter, servedMin, servedMax, allDeans, tenureWin, apptType, nounPluralLower]);
 
   // Name typeahead: unique people in the current index whose name matches, best
   // (sitting, else latest) record per person, prefix matches first.
@@ -851,7 +901,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                 </FilterRow>
                 <FilterRow label="Credentials" hint="Held a doctorate · faculty rank · a named organisation outside the academy.">
                   <PillToggles items={[
-                    { key: "phd", label: "Ph.D.", on: requirePhd, onToggle: () => { setRequirePhd(!requirePhd); setExpandedId(null); } },
+                    { key: "phd", label: phdCoverage.total ? `Ph.D. (${phdCoverage.confirmed}/${phdCoverage.total} confirmed)` : "Ph.D.", on: requirePhd, onToggle: () => { setRequirePhd(!requirePhd); setExpandedId(null); } },
                     { key: "prof", label: "Professor", on: requireProf, onToggle: () => { setRequireProf(!requireProf); setExpandedId(null); } },
                     { key: "na", label: "Non-academic tie", on: requireIndustryTie, accent: "teal", onToggle: () => { setRequireIndustryTie(!requireIndustryTie); setExpandedId(null); } },
                   ]} />
@@ -934,7 +984,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
             <h3 className="text-sm font-bold mb-0.5">Tenure benchmark</h3>
             <p className="text-[11px] text-muted-foreground mb-2 leading-snug">
               {hist.n
-                ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{disciplines.size ? ` · ${Array.from(disciplines).join(", ")}` : ""}</>
+                ? <>{hist.n} completed permanent {hist.n === 1 ? "tenure" : "tenures"}{hist.nCensored ? ` + ${hist.nCensored} still serving` : ""}{disciplines.size ? ` · ${Array.from(disciplines).join(", ")}` : ""}</>
                 : "No completed permanent tenures in this range yet."}
               {(datasetId === "usgrad" || datasetId === "usadvancement") && hist.n < 5 && (
                 <span className="block mt-0.5 text-muted-foreground/80">
@@ -944,8 +994,12 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
             </p>
             {hist.n > 0 && (
               <div className="grid grid-cols-3 gap-1.5 mb-2">
-                {([["Mean", hist.mean.toFixed(1)], ["Median", String(hist.median)], ["Mode", String(hist.mode)]] as [string, string][]).map(([k, v]) => (
-                  <div key={k} className="rounded-md bg-muted/50 border border-muted-foreground/15 py-1 text-center">
+                {([
+                  ["Mean", hist.mean.toFixed(1), "Average of completed tenures only. Still-serving leaders can't contribute a finished length, so this runs short of the true norm — the median beside it is the censoring-corrected figure."],
+                  ["Median", hist.median == null ? "—" : String(hist.median), `Kaplan-Meier median: the year by which half this cohort has left the seat. Estimated from all ${hist.nTotal} leaders — the ${hist.nCensored} still serving count as time-at-risk rather than being dropped, so long tenures aren't discarded just for being unfinished.`],
+                  ["Mode", String(hist.mode), "Most common completed tenure length, i.e. the tallest bar below. Completed tenures only."],
+                ] as [string, string, string][]).map(([k, v, tip]) => (
+                  <div key={k} title={tip} className="rounded-md bg-muted/50 border border-muted-foreground/15 py-1 text-center cursor-help">
                     <div className="text-base font-bold text-[#011F5B] tabular-nums leading-none">{v}</div>
                     <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{k}</div>
                   </div>
@@ -974,7 +1028,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                   return <rect key={i} x={i * bw + 0.5} y={78 - bh} width={bw - 1} height={bh} rx={1}
                     fill="currentColor" className={inBand ? "text-[#011F5B]" : "text-muted-foreground/40"} />;
                 })}
-                {hist.n > 0 && (() => {
+                {hist.median != null && (() => {
                   const mx = (Math.min(hist.tmax, hist.median) + 0.5) * hist.bw;
                   return <line x1={mx} x2={mx} y1={2} y2={78} stroke="currentColor" className="text-[#E8A33D]" strokeWidth={1.5} strokeDasharray="2 2" />;
                 })()}
@@ -1001,7 +1055,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               </svg>
             </div>
             <div className="flex items-center justify-between mt-1 gap-2 flex-wrap">
-              <p className="text-[10px] text-muted-foreground">Years served · left axis = count · amber = median{showHazard ? ` · red = P(move), fitted (peak ${(hist.hazPeak * 100).toFixed(0)}%)` : ""}</p>
+              <p className="text-[10px] text-muted-foreground" title="Bars are completed tenures. The amber median and the hazard curve are Kaplan-Meier estimates over the full cohort, counting still-serving leaders as right-censored, so the median can fall to the right of the bars' own midpoint.">Years served · bars = completed · left axis = count · amber = median (censoring-adjusted){showHazard ? ` · red = P(move), fitted (peak ${(hist.hazPeak * 100).toFixed(0)}%)` : ""}</p>
               <label className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground cursor-pointer select-none" title="Probability a leader leaves in year t given they are still in the seat at the start of year t. Smooth log-logistic fit to the cohort's censored tenures (the reliability-style unimodal hazard); the raw per-year rate is too noisy at long tenures, where few remain at risk, to plot directly.">
                 <input type="checkbox" checked={showHazard} onChange={(e) => setShowHazard(e.target.checked)} className="accent-[#A31F34] w-3 h-3" />
                 Probability of Moving (Hazard rate)
@@ -1203,8 +1257,15 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
             {/* The open candidate's movability assessment lives here, in the map column. */}
             {(() => {
               const d = expandedId != null ? shown.find((x) => x.id === expandedId) : null;
-              const career = d ? researchMap[enrichKey(d.dean, d.university)]?.career : null;
-              if (!d || !career || !career.length) return null;
+              if (!d) return null;
+              // Fall back to a synthetic PhD -> current-seat trajectory when there's
+              // no researched career at all, same as DeanProfile/DeanTimeline -- the
+              // Movability Index chip only needs tenure data, not researched career
+              // steps, so gating this panel on real research alone made the panel
+              // vanish while a chip elsewhere for the same person still rendered
+              // (BI-7, batonindexdefects.md).
+              const research = researchMap[enrichKey(d.dean, d.university)]?.career;
+              const career = research?.length ? research : syntheticCareerSteps(d, titleOf(d));
               return (
                 <div className="rounded-xl border border-border bg-card p-3">
                   <div className="text-[11px] font-semibold text-muted-foreground mb-1.5 truncate">{d.dean}</div>
@@ -1219,7 +1280,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
 
       {results.length === 0 && hasFilter && (
         <div className="bg-card border border-border rounded-xl p-8 text-center">
-          <p className="text-muted-foreground text-sm">No {nounPluralLower} match these filters.</p>
+          <p className="text-muted-foreground text-sm">{zeroResultReason || `No ${nounPluralLower} match these filters.`}</p>
         </div>
       )}
 

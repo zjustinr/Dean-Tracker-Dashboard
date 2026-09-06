@@ -125,8 +125,14 @@ export function useCareerAnalysis(steps: CareerStep[], tenure: TenureInfo | unde
     if (!t || !t.sitting || t.currentTenure == null || t.median == null) return null;
     const ct = t.currentTenure;
     const own = t.personalAvg != null ? ` · usually stays ~${Math.round(t.personalAvg)} yr${Math.round(t.personalAvg) === 1 ? "" : "s"}` : "";
+    // Past the 75th percentile isn't "overdue to leave" -- read against this
+    // cohort, that long a stay is itself the strongest evidence someone is
+    // staying put, not about to move. Labeling it "Overdue" contradicted its
+    // own reason text (BI-6, batonindexdefects.md): the chip said one thing,
+    // the sentence beneath it said the opposite. "Entrenched" says what the
+    // data actually shows.
     if (t.p75 != null && ct >= t.p75)
-      return { label: "Overdue", tone: "lightgreen" as const, cls: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300", reason: `${ct} yrs in role, past the 75th-pct (${t.p75} yrs) for this cohort -- this far past the typical window usually means they're staying put, not about to leave${own}` };
+      return { label: "Entrenched", tone: "lightgreen" as const, cls: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300", reason: `${ct} yrs in role, past the 75th-pct (${t.p75} yrs) for this cohort -- this far past the typical window usually means they're staying put, not about to leave${own}` };
     if (ct >= t.median || (t.personalAvg != null && ct >= t.personalAvg))
       return { label: "Could move", tone: "green" as const, cls: "bg-green-200 text-green-900 dark:bg-green-800 dark:text-green-100", reason: `${ct} yrs in role, near the typical ${t.median} yrs${own}` };
     return { label: "Not up to move", tone: "yellow" as const, cls: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200", reason: `${ct} yrs in role, below the typical ${t.median} yrs${own}` };
@@ -233,7 +239,15 @@ export default function CareerMap({ steps, roots }: { steps: CareerStep[]; roots
  */
 export function CareerAssessment({ steps, tenure, roots }: { steps: CareerStep[]; tenure?: TenureInfo; roots?: Root[] }) {
   const { located, stats, rating, ties } = useCareerAnalysis(steps, tenure, roots);
-  if (!located.length) return null;
+  // `rating` only needs tenure data (see the useMemo above), not a geocoded
+  // career map -- gating the whole panel on `located.length` alone made this
+  // panel disappear for people with no researched career while the Movability
+  // Index chip elsewhere (which computes `rating` the same way, independent of
+  // this component) still rendered for the same person: chip with no panel
+  // behind it to justify it (BI-7, batonindexdefects.md). Render whenever
+  // there's a rating to show OR a map to show; the Moves/Reach/ties block below
+  // stays gated on `stats` (which does need located career stops) as before.
+  if (!located.length && !rating) return null;
   return (
     <div className="rounded-lg border border-border bg-muted/30 p-3 text-left">
       {rating && (

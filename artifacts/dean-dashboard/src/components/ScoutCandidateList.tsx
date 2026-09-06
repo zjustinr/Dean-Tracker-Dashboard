@@ -1,11 +1,15 @@
 import { useState } from "react";
 import type { Dean } from "@/data/types";
-import { usePhotoMap, useResearchMap, enrichKey, useNonAcademicExperience } from "@/data/enrichment";
+import { usePhotoMap, useResearchMap, enrichKey, useNonAcademicExperience, syntheticCareerSteps, type CareerStep } from "@/data/enrichment";
+import { useDataset } from "@/data/DatasetContext";
 import { affKey, SOURCE_THEME, type ScoutCandidate } from "@/data/useScoutCandidates";
 import DeanProfile from "@/components/DeanProfile";
 import { CareerAssessment, useCareerAnalysis, type Root } from "@/components/CareerMap";
 import { MovabilityGaugeIcon } from "@/components/MovabilityGaugeIcon";
 import careerRoots from "@/data/career-roots.json";
+import { useTenureNorms } from "@/data/survival";
+
+const NOW = 2026;
 
 /**
  * The ranked-candidate-row renderer shared by the Scout Assistant section
@@ -25,32 +29,40 @@ export default function ScoutCandidateList({
 }) {
   const photos = usePhotoMap();
   const researchMap = useResearchMap();
+  const { titleOf } = useDataset();
+  // Fall back to a synthetic PhD -> current-seat trajectory when there's no
+  // researched career at all, same as DeanProfile/DeanTimeline. Without this,
+  // the badge (which computes `rating` from tenure alone, no career steps
+  // needed) rendered for people research never reached, while the expanded
+  // panel below -- keyed on real `career` only -- silently had nothing to show
+  // for the very same person: a chip with no panel behind it (BI-7,
+  // batonindexdefects.md).
+  const careerFor = (dean: Dean): CareerStep[] => {
+    const research = researchMap[enrichKey(dean.dean, dean.university)]?.career;
+    return research?.length ? research : syntheticCareerSteps(dean, titleOf(dean));
+  };
   // Named-firm industry ties (scripts/gen-nonacademic-experience.mjs): a candidate
   // who carries a senior corporate network gets a chip saying WHICH firm at WHAT
   // rank -- exactly the door-opening signal the connections use case scouts for.
   const tiesPeople = useNonAcademicExperience()?.people ?? null;
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
 
-  // Cohort tenure distribution for the Movability Index, mirroring IndividualSearch's
-  // own tenureFor (same cohort-wide percentiles, so the rating reads identically
-  // wherever it's shown).
+  // Cohort tenure norm for the Movability Index, shared with every other screen
+  // that renders the chip so the rating reads identically wherever it's shown.
+  const norms = useTenureNorms(allDeans, NOW);
   function tenureFor(dn: Dean) {
-    const NOW = 2026;
-    const lens = allDeans.filter((x) => x.endYear != null && !x.isInterim && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number).sort((a, b) => a - b);
-    const p = (q: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(q * lens.length))] : null);
     const past = allDeans.filter((x) => x.dean === dn.dean && x.id !== dn.id && x.endYear != null && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number);
     const personalAvg = past.length ? past.reduce((a, b) => a + b, 0) / past.length : null;
     return {
       sitting: dn.endYear == null,
       currentTenure: dn.endYear == null && dn.startYear ? NOW - dn.startYear : dn.tenureLength ?? null,
-      median: p(0.5), p75: p(0.75), personalAvg, cohortN: lens.length,
+      ...norms, personalAvg,
     };
   }
 
   function MovabilityBadge({ dean }: { dean: Dean }) {
-    const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
     const roots = (careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)];
-    const { rating } = useCareerAnalysis(career || [], tenureFor(dean), roots);
+    const { rating } = useCareerAnalysis(careerFor(dean), tenureFor(dean), roots);
     if (!rating) return null;
     return (
       <div className="flex flex-col items-center gap-0.5 shrink-0 w-14" title={`Movability Index: ${rating.label}`}>
@@ -61,16 +73,13 @@ export default function ScoutCandidateList({
   }
 
   function ExpandedProfile({ dean, onClose }: { dean: Dean; onClose: () => void }) {
-    const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
     const roots = (careerRoots as Record<string, Root[]>)[enrichKey(dean.dean, dean.university)];
     return (
       <div className="grid gap-3 grid-cols-[minmax(0,1fr)_260px] items-start">
         <DeanProfile dean={dean} onClose={onClose} onOpenSchool={onOpenSchool} hideAssessment />
-        {career && career.length > 0 && (
-          <div className="sticky top-4">
-            <CareerAssessment steps={career} tenure={tenureFor(dean)} roots={roots} />
-          </div>
-        )}
+        <div className="sticky top-4">
+          <CareerAssessment steps={careerFor(dean)} tenure={tenureFor(dean)} roots={roots} />
+        </div>
       </div>
     );
   }
