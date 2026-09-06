@@ -152,9 +152,18 @@ export function extractStartYear(text, opts = {}) {
       if (!shares) continue;
     }
 
-    // "... since 2017"
+    // "... since 2017". Guarded against the employer form: "has been working at
+    // UNF since 1999 ... including associate vice president" dates the job at
+    // the institution, not the role the row is about.
     let m = s.match(/\bsince\s+(?:\w+\s+){0,2}((?:19[7-9]\d|20[0-4]\d))\b/i);
-    if (m) { cands.push({ year: +m[1], pattern: 'since', rank: 0, evidence: s }); continue; }
+    if (m) {
+      const lead = s.slice(0, m.index);
+      const employerTenure = /\b(?:working|been|worked|employed|here|on the faculty)\s+(?:at|with|in)\b[^.]{0,40}$/i.test(lead)
+        || /\bjoin(?:ed|ing)\b[^.]{0,40}$/i.test(lead)
+        || /\bincluding\b/i.test(s);
+      if (!employerTenure) { cands.push({ year: +m[1], pattern: 'since', rank: 0, evidence: s }); continue; }
+      continue;
+    }
     // "2019-present"
     m = s.match(/\b((?:19[7-9]\d|20[0-4]\d))\s*[-–—]\s*(?:present|current|now)\b/i);
     if (m) { cands.push({ year: +m[1], pattern: 'range-present', rank: 0, evidence: s }); continue; }
