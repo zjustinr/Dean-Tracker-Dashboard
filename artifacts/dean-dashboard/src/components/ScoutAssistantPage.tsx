@@ -3,6 +3,7 @@ import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { genderNorm } from "@/data/types";
+import { FLAGS, resolveGenderInclude, passesGenderInclude, type GenderInclude } from "@/config/flags";
 import { usePhotoMap, useResearchMap, enrichKey, useNonAcademicExperience } from "@/data/enrichment";
 import { useScoutCandidateEngine, affKey } from "@/data/useScoutCandidates";
 import { matchKeywords, type Keyword } from "@/data/keywordMatch";
@@ -54,7 +55,12 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
 
   const [university, setUniversity] = useState("");
   const [stringency, setStringency] = useState(1);
-  const [includeGender, setIncludeGender] = useState<"all" | "women" | "men">("all");
+  // Include: All / Women / Men. Clamped through resolveGenderInclude on the way
+  // in AND on every set, so with ENABLE_GENDER_SELECTION_FILTER off the value is
+  // "all" no matter what any caller supplies -- see src/config/flags.ts.
+  const [includeGenderRaw, setIncludeGenderRaw] = useState<GenderInclude>(() => resolveGenderInclude("all"));
+  const includeGender = resolveGenderInclude(includeGenderRaw);
+  const setIncludeGender = useCallback((v: GenderInclude) => setIncludeGenderRaw(resolveGenderInclude(v)), []);
   const [requirePhd, setRequirePhd] = useState(false);
   const [requireProf, setRequireProf] = useState(false);
   // Named-firm industry tie (nonacademic-experience.json), not the legacy
@@ -191,11 +197,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
     if (requirePhd && !hasDoctorate(d)) return false;
     if (requireProf && !wasProfessor(d)) return false;
     if (requireIndustryTie && !hasIndustryTie(d)) return false;
-    if (includeGender !== "all") {
-      const g = genderNorm(d.gender);
-      if (includeGender === "women" && g !== "F") return false;
-      if (includeGender === "men" && g !== "M") return false;
-    }
+    if (!passesGenderInclude(includeGender, genderNorm(d.gender))) return false;
     const isSub = (d as { roleType?: string }).roleType === "subdean";
     if (apptType === "perm" && (isSub || d.isInterim)) return false;
     if (apptType === "interim" && !isSub && !d.isInterim) return false;
@@ -369,10 +371,12 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
               </FilterGroup>
 
               <FilterGroup title="Person" summary={personSummary} defaultOpen>
-                <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
-                  <SegGroup ariaLabel="Include" value={includeGender} onChange={setIncludeGender}
-                    options={[["all", "All"], ["women", "Women"], ["men", "Men"]]} />
-                </FilterRow>
+                {FLAGS.ENABLE_GENDER_SELECTION_FILTER && (
+                  <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
+                    <SegGroup ariaLabel="Include" value={includeGender} onChange={setIncludeGender}
+                      options={[["all", "All"], ["women", "Women"], ["men", "Men"]]} />
+                  </FilterRow>
+                )}
                 <FilterRow label="Credentials" hint="Held a doctorate · faculty rank · a named organisation outside the academy.">
                   <PillToggles items={[
                     { key: "phd", label: "Ph.D.", on: requirePhd, onToggle: () => setRequirePhd(!requirePhd) },

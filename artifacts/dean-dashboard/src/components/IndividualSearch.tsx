@@ -3,6 +3,7 @@ import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
 import { yearsLabel, genderNorm } from "@/data/types";
+import { FLAGS, resolveGenderInclude, passesGenderInclude, type GenderInclude } from "@/config/flags";
 import DeanProfile from "@/components/DeanProfile";
 import RegionMap from "@/components/RegionMap";
 import {
@@ -162,10 +163,13 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // on it would silently empty the list). Filters to people the derivation can
   // actually point at an employer for.
   const [requireIndustryTie, setRequireIndustryTie] = useState(false);
-  // Widen-the-pool control for building a diverse slate, not an exclusionary
-  // screen: defaults to "all" and is framed as "Include", the same posture as
-  // an affinity filter that surfaces candidates rather than filters them out.
-  const [includeGender, setIncludeGender] = useState<"all" | "women" | "men">("all");
+  // Include: All / Women / Men. Clamped through resolveGenderInclude on the way
+  // in AND on every set, so with ENABLE_GENDER_SELECTION_FILTER off the value is
+  // "all" no matter what any caller supplies -- a persisted slate, a URL
+  // parameter or a trial scope link included. See src/config/flags.ts.
+  const [includeGenderRaw, setIncludeGenderRaw] = useState<GenderInclude>(() => resolveGenderInclude("all"));
+  const includeGender = resolveGenderInclude(includeGenderRaw);
+  const setIncludeGender = useCallback((v: GenderInclude) => setIncludeGenderRaw(resolveGenderInclude(v)), []);
   const [affinity, setAffinity] = useState<Set<string>>(new Set());
   // Overlay the departure hazard rate on the tenure histogram (off by default).
   const [showHazard, setShowHazard] = useState(false);
@@ -491,11 +495,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       if (requirePhd && !hasDoctorate(d)) return false;
       if (requireProf && !wasProfessor(d)) return false;
       if (requireIndustryTie && !hasIndustryTie(d)) return false;
-      if (includeGender !== "all") {
-        const g = genderNorm(d.gender);
-        if (includeGender === "women" && g !== "F") return false;
-        if (includeGender === "men" && g !== "M") return false;
-      }
+      if (!passesGenderInclude(includeGender, genderNorm(d.gender))) return false;
       if (servedMin > 0 || servedMax < SERVED_CAP) {
         const yrs = elapsedYears(d);
         if (yrs == null || yrs < servedMin || yrs > servedMax) return false;
@@ -844,11 +844,13 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               </FilterGroup>
 
               <FilterGroup title="Person" summary={personSummary} defaultOpen>
-                <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
-                  <SegGroup ariaLabel="Include" value={includeGender}
-                    onChange={(v) => { setIncludeGender(v); setExpandedId(null); }}
-                    options={[["all", "All"], ["women", "Women"], ["men", "Men"]]} />
-                </FilterRow>
+                {FLAGS.ENABLE_GENDER_SELECTION_FILTER && (
+                  <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
+                    <SegGroup ariaLabel="Include" value={includeGender}
+                      onChange={(v) => { setIncludeGender(v); setExpandedId(null); }}
+                      options={[["all", "All"], ["women", "Women"], ["men", "Men"]]} />
+                  </FilterRow>
+                )}
                 <FilterRow label="Credentials" hint="Held a doctorate · faculty rank · a named organisation outside the academy.">
                   <PillToggles items={[
                     { key: "phd", label: "Ph.D.", on: requirePhd, onToggle: () => { setRequirePhd(!requirePhd); setExpandedId(null); } },
