@@ -274,6 +274,23 @@ arithmetic** — 31 records with negative spans, a start year of zero (one read 
 2,004-year tenure), and 80-to-136-year spells whose end year was a placeholder for
 "not documented".
 
+### Out-of-sample validation (`scripts/scout-holdout.mjs`)
+
+`pnpm scout-holdout` trains the Scout ranking on appointments before a cutoff and tests it on every
+appointment since — a split by TIME, not by row, which is the only split that supports a claim about
+the future. `scout-backtest.mjs` answers a different question (leave-one-out over a sample from any
+year) and both now share one scorer in `scripts/lib/scout-model.mjs`, so they cannot drift into
+testing two different models.
+
+Current result, and the way to state it: of the last three years' appointments the model would have
+shown the actual hire in its top ten **15.8%** of the time, about twice a shuffled list — with the
+ceiling set by coverage, since only **27.5%** of those hires were in the candidate pool at all, and
+among those it ranked them top ten **57.5%** of the time. Full report, per-index table and
+approximations: `docs/out-of-sample-validation.md`. Two rules when quoting it: the per-index spread is
+wide (R1 medical 11.6× chance, community college at chance — check the table before quoting the
+corpus figure for one index), and the shipped tie/employer components make the ranking *worse*
+out-of-sample, which is a finding to investigate rather than a number to publish.
+
 ### Departure outcomes (`src/data/departure.ts` + `scripts/lib/departure.mjs`)
 
 One closed, mutually exclusive set of destinations — promotion, another deanship,
