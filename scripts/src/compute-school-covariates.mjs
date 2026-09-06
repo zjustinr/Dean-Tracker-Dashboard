@@ -15,6 +15,17 @@
 //                          the institution; constant across that university's
 //                          deans, matching how the field was used before.
 //
+//   enrollmentStart        total enrolment in the APPOINTMENT year.
+//   businessPctStart       business share of completions in the appointment year.
+//   businessDegreesStart   business completions in the appointment year.
+//
+// The three *Start fields are matched to startYear EXACTLY -- no drifting to a
+// nearby year. A dean appointed in 1995 would otherwise silently receive the
+// panel's earliest figure (2000) as if it described their appointment, which is
+// the kind of undocumented substitution this whole pass exists to avoid. They
+// are therefore null wherever startYear is unknown or predates the panel, which
+// is most of the feeder bench.
+//
 // Rows resolve to null, on purpose and on the record, when the university is a
 // multi-campus system office (no IPEDS institution exists), when the name does
 // not resolve, or when the tenure window falls outside the panel's year range.
@@ -58,6 +69,7 @@ const files = fs.readdirSync(DATA)
 const totals = {
   rows: 0, resolved: 0, systemOffice: 0, unmatched: 0, outOfRange: 0,
   enrollmentEnd: 0, enrollmentAvg: 0, businessPctEnd: 0, businessDegreesLatest: 0,
+  enrollmentStart: 0, businessPctStart: 0, businessDegreesStart: 0,
   legacyChanged: 0, legacyMatched: 0,
 };
 const legacyDeltas = [];
@@ -73,7 +85,8 @@ for (const file of files) {
     // default, anything already on file is left exactly as it is.
     const clear = () => {
       if (keepLegacy) return;
-      for (const k of ['enrollmentEnd', 'enrollmentAvg', 'businessPctEnd', 'businessDegreesLatest']) {
+      for (const k of ['enrollmentEnd', 'enrollmentAvg', 'businessPctEnd', 'businessDegreesLatest',
+        'enrollmentStart', 'businessPctStart', 'businessDegreesStart']) {
         if (row[k] !== null && row[k] !== undefined) { row[k] = null; touched++; }
       }
     };
@@ -96,6 +109,8 @@ for (const file of files) {
     const before = {
       enrollmentEnd: row.enrollmentEnd, enrollmentAvg: row.enrollmentAvg,
       businessPctEnd: row.businessPctEnd, businessDegreesLatest: row.businessDegreesLatest,
+      enrollmentStart: row.enrollmentStart, businessPctStart: row.businessPctStart,
+      businessDegreesStart: row.businessDegreesStart,
     };
 
     // Nearest available panel year at or before endRef, resolved per metric:
@@ -106,6 +121,7 @@ for (const file of files) {
 
     const next = {
       enrollmentEnd: null, enrollmentAvg: null, businessPctEnd: null, businessDegreesLatest: null,
+      enrollmentStart: null, businessPctStart: null, businessDegreesStart: null,
     };
 
     const enrolYear = refFor('enrol');
@@ -115,6 +131,21 @@ for (const file of files) {
     if (degYear != null) {
       const c = cell(unitid, degYear);
       if (c.totDeg) next.businessPctEnd = round4((c.bizDeg || 0) / c.totDeg);
+    }
+
+    // Institution as it stood at appointment. Exact year only: see the header.
+    if (row.startYear != null) {
+      const at = cell(unitid, row.startYear);
+      if (at) {
+        if (at.enrol) next.enrollmentStart = at.enrol;
+        if (at.totDeg) {
+          // An institution with no CIP 52 rows awards no business degrees, so an
+          // absent bizDeg means zero, not unknown -- record it as 0 so the count
+          // and the share agree rather than reading "0% of degrees, count null".
+          next.businessPctStart = round4((at.bizDeg || 0) / at.totDeg);
+          next.businessDegreesStart = at.bizDeg || 0;
+        }
+      }
     }
 
     // Mean over the enrolment-bearing panel years inside the tenure window. A

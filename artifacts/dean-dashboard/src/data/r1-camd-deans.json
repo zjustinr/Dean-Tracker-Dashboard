@@ -54,7 +54,9 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2020s",
   "sourceUrl": "https://herbergerinstitute.asu.edu/about",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0.2073,
+  "businessDegreesStart": 4659
  },
  {
   "startLabel": "2021",
@@ -112,7 +114,10 @@
   "era": "2020s",
   "sourceUrl": "https://cronkite.asu.edu/about/from-the-dean",
   "roleTier": "Dean",
-  "phdInstitution": "Hampton University"
+  "phdInstitution": "Hampton University",
+  "enrollmentStart": 77881,
+  "businessPctStart": 0.2106,
+  "businessDegreesStart": 4448
  },
  {
   "startLabel": "",
@@ -455,7 +460,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.bu.edu/com/about-com/office-of-the-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 33720,
+  "businessPctStart": 0.1743,
+  "businessDegreesStart": 2039
  },
  {
   "startLabel": "2026",
@@ -569,7 +577,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "",
   "sourceUrl": "https://portal.cca.edu/essentials/academic-affairs/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 1983,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "",
@@ -684,7 +695,9 @@
   "era": "2020s",
   "sourceUrl": "https://news.chapman.edu/2024/04/16/anne-f-hogan-named-new-dean-of-college-of-performing-arts/",
   "roleTier": "Dean",
-  "phdInstitution": "Brown University"
+  "phdInstitution": "Brown University",
+  "businessPctStart": 0.2393,
+  "businessDegreesStart": 649
  },
  {
   "startLabel": "",
@@ -913,7 +926,10 @@
   "era": "2010s",
   "sourceUrl": "https://www.colum.edu/news-and-events/press-releases/",
   "roleTier": "Dean",
-  "phdInstitution": "University of Southern California"
+  "phdInstitution": "University of Southern California",
+  "enrollmentStart": 8120,
+  "businessPctStart": 0.0812,
+  "businessDegreesStart": 165
  },
  {
   "startLabel": "2024",
@@ -970,7 +986,9 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2020s",
   "sourceUrl": "https://arts.columbia.edu/deans-office",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0.117,
+  "businessDegreesStart": 1864
  },
  {
   "startLabel": "2020",
@@ -1027,7 +1045,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://www.ccad.edu/about-us/senior-leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 1009,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2019",
@@ -1084,7 +1105,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://aap.cornell.edu/about/dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 24027,
+  "businessPctStart": 0.2004,
+  "businessDegreesStart": 1482
  },
  {
   "startLabel": "2025",
@@ -1198,7 +1222,9 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://www.curtis.edu/about/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2023",
@@ -1255,7 +1281,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://www.depaul.edu/faculty/john-milbauer",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 21348,
+  "businessPctStart": 0.2736,
+  "businessDegreesStart": 1571
  },
  {
   "startLabel": "2022",
@@ -1312,7 +1341,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2020s",
   "sourceUrl": "https://www.depaul.edu/about/administration/Pages/green-rogers.aspx",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 20917,
+  "businessPctStart": 0.2946,
+  "businessDegreesStart": 1742
  },
  {
   "startLabel": "",
@@ -1599,7 +1631,10 @@
   "era": "2020s",
   "sourceUrl": "https://cci.fsu.edu/about/",
   "roleTier": "Dean",
-  "phdInstitution": "University of Illinois at Urbana-Champaign"
+  "phdInstitution": "University of Illinois at Urbana-Champaign",
+  "enrollmentStart": 43234,
+  "businessPctStart": 0.2083,
+  "businessDegreesStart": 2863
  },
  {
   "startLabel": "2019",
@@ -1656,7 +1691,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://cfa.fsu.edu/people/james-frazier/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 42450,
+  "businessPctStart": 0.1966,
+  "businessDegreesStart": 2273
  },
  {
   "startLabel": "",
@@ -1770,7 +1808,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://music.fsu.edu/person/todd-queen/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 45130,
+  "businessPctStart": 0.1889,
+  "businessDegreesStart": 2308
  },
  {
   "startLabel": "2015",
@@ -1827,7 +1868,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://catalog.gmu.edu/colleges-schools/visual-performing-arts/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 33929,
+  "businessPctStart": 0.1328,
+  "businessDegreesStart": 1171
  },
  {
   "startLabel": "2019",
@@ -1884,7 +1928,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://www.gsd.harvard.edu/office/deans-office/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 31655,
+  "businessPctStart": 0.155,
+  "businessDegreesStart": 1306
  },
  {
   "startLabel": "2020",
@@ -1941,7 +1988,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2020s",
   "sourceUrl": "https://eskenazi.indiana.edu/faculty/leadership/index.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 43064,
+  "businessPctStart": 0.2966,
+  "businessDegreesStart": 3390
  },
  {
   "startLabel": "2023",
@@ -1998,7 +2048,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://music.indiana.edu/about/leadership/index.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 47527,
+  "businessPctStart": 0.3341,
+  "businessDegreesStart": 4011
  },
  {
   "startLabel": "2023",
@@ -2055,7 +2108,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://mediaschool.indiana.edu/people/leadership.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 47527,
+  "businessPctStart": 0.3341,
+  "businessDegreesStart": 4011
  },
  {
   "startLabel": "2025",
@@ -2169,7 +2225,9 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://www.lcad.edu/learn-more/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2023",
@@ -2227,7 +2285,10 @@
   "era": "2020s",
   "sourceUrl": "https://www.lsu.edu/manship/",
   "roleTier": "Dean",
-  "phdInstitution": "Syracuse University"
+  "phdInstitution": "Syracuse University",
+  "enrollmentStart": 39418,
+  "businessPctStart": 0.2254,
+  "businessDegreesStart": 1676
  },
  {
   "startLabel": "2022",
@@ -2285,7 +2346,10 @@
   "era": "2020s",
   "sourceUrl": "https://newsroom.lmu.edu/press-release/lmu-names-joanne-moore-as-school-of-film-and-television-dean/",
   "roleTier": "Dean",
-  "phdInstitution": "UCLA"
+  "phdInstitution": "UCLA",
+  "enrollmentStart": 10165,
+  "businessPctStart": 0.1892,
+  "businessDegreesStart": 535
  },
  {
   "startLabel": "2018",
@@ -2342,7 +2406,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://www.msmnyc.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 1008,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2025",
@@ -2456,7 +2523,9 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://www.mica.edu/about-mica/leadership/cecilia-mccormick/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0.0482,
+  "businessDegreesStart": 31
  },
  {
   "startLabel": "2022",
@@ -2513,7 +2582,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://massart.edu/about/leadership/cabinet/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 1939,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2023",
@@ -2571,7 +2643,10 @@
   "era": "2020s",
   "sourceUrl": "https://comartsci.msu.edu/about/deans-office",
   "roleTier": "Dean",
-  "phdInstitution": "University of Georgia"
+  "phdInstitution": "University of Georgia",
+  "enrollmentStart": 51316,
+  "businessPctStart": 0.17,
+  "businessDegreesStart": 2173
  },
  {
   "startLabel": "1995",
@@ -2799,7 +2874,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://moore.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 368,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "",
@@ -3087,7 +3165,10 @@
   "era": "2020s",
   "sourceUrl": "https://www.music.northwestern.edu/news/2023/jonathan-bailey-holland-named-dean-bienen-school-music",
   "roleTier": "Dean",
-  "phdInstitution": "Harvard University"
+  "phdInstitution": "Harvard University",
+  "enrollmentStart": 23203,
+  "businessPctStart": 0.255,
+  "businessDegreesStart": 2287
  },
  {
   "startLabel": "2019",
@@ -3144,7 +3225,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.medill.northwestern.edu/directory/administration-deans/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 22448,
+  "businessPctStart": 0.2468,
+  "businessDegreesStart": 1957
  },
  {
   "startLabel": "",
@@ -3318,7 +3402,9 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://otis.edu/about/leadership/provost.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2026",
@@ -3604,7 +3690,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://www.pratt.edu/about/leadership-governance/officers-and-deans/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 4353,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "",
@@ -3719,7 +3808,10 @@
   "era": "2020s",
   "sourceUrl": "https://www.pratt.edu/administrative-departments/office-of-the-provost/",
   "roleTier": "Dean",
-  "phdInstitution": "Yale University"
+  "phdInstitution": "Yale University",
+  "enrollmentStart": 5494,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2023",
@@ -3776,7 +3868,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://risd.coursedog.com/about/risd-leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 2540,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2021",
@@ -3833,7 +3928,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://news.rice.edu/news/2025/loden-reappointed-dean-rices-shepherd-school-music",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 8285,
+  "businessPctStart": 0.1981,
+  "businessDegreesStart": 446
  },
  {
   "startLabel": "2023",
@@ -3891,7 +3989,10 @@
   "era": "2020s",
   "sourceUrl": "https://www.ringling.edu/about/leadership-and-administration/",
   "roleTier": "Dean",
-  "phdInstitution": "University of Plymouth"
+  "phdInstitution": "University of Plymouth",
+  "enrollmentStart": 1722,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2026",
@@ -4119,7 +4220,8 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://www.scad.edu/about/scad-president",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 4923
  },
  {
   "startLabel": "",
@@ -4233,7 +4335,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://www.saic.edu/leadership-governance/office-provost",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 3682,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "",
@@ -4349,7 +4454,10 @@
   "era": "2010s",
   "sourceUrl": "https://vpa.syracuse.edu/about/administration/",
   "roleTier": "Dean",
-  "phdInstitution": "New York University"
+  "phdInstitution": "New York University",
+  "enrollmentStart": 21970,
+  "businessPctStart": 0.1243,
+  "businessDegreesStart": 800
  },
  {
   "startLabel": "2020",
@@ -4406,7 +4514,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://newhouse.syracuse.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 21322,
+  "businessPctStart": 0.1481,
+  "businessDegreesStart": 1051
  },
  {
   "startLabel": "",
@@ -4578,7 +4689,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://tyler.temple.edu/about-tyler/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 39937,
+  "businessPctStart": 0.2163,
+  "businessDegreesStart": 2030
  },
  {
   "startLabel": "",
@@ -4865,7 +4979,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://www.juilliard.edu/school/about/leaders-and-administration",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 961,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2025",
@@ -5094,7 +5211,10 @@
   "era": "2010s",
   "sourceUrl": "https://cis.ua.edu/about/",
   "roleTier": "Dean",
-  "phdInstitution": null
+  "phdInstitution": null,
+  "enrollmentStart": 38100,
+  "businessPctStart": 0.263,
+  "businessDegreesStart": 2393
  },
  {
   "startLabel": "2025",
@@ -5440,7 +5560,9 @@
   "era": "2020s",
   "sourceUrl": "https://www.uc.edu/news/articles/2024/04/peter-jutras-named-ccm-dean.html",
   "roleTier": "Dean",
-  "phdInstitution": "University of North Texas"
+  "phdInstitution": "University of North Texas",
+  "businessPctStart": 0.1586,
+  "businessDegreesStart": 1993
  },
  {
   "startLabel": "2015",
@@ -5498,7 +5620,10 @@
   "era": "2010s",
   "sourceUrl": "https://www.colorado.edu/cmdi/people/lori-bergen",
   "roleTier": "Dean",
-  "phdInstitution": "Indiana University Bloomington"
+  "phdInstitution": "Indiana University Bloomington",
+  "enrollmentStart": 33056,
+  "businessPctStart": 0.1306,
+  "businessDegreesStart": 934
  },
  {
   "startLabel": "2021",
@@ -5555,7 +5680,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://www.colorado.edu/music/about-us",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 39000,
+  "businessPctStart": 0.1795,
+  "businessDegreesStart": 1656
  },
  {
   "startLabel": "2016",
@@ -5614,7 +5742,10 @@
   "sourceUrl": "https://dcp.ufl.edu/chimay-anumba/",
   "roleTier": "Dean",
   "phdInstitution": "University of Leeds",
-  "phdYear": 2006
+  "phdYear": 2006,
+  "enrollmentStart": 52367,
+  "businessPctStart": 0.1316,
+  "businessDegreesStart": 1896
  },
  {
   "startLabel": "2021",
@@ -5671,7 +5802,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://www.jou.ufl.edu/hub-brown-about/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 55781,
+  "businessPctStart": 0.1242,
+  "businessDegreesStart": 2106
  },
  {
   "startLabel": "2026",
@@ -5786,7 +5920,10 @@
   "era": "2010s",
   "sourceUrl": "https://news.uga.edu/charles-n-davis-named-dean-grady-college/",
   "roleTier": "Dean",
-  "phdInstitution": "University of Florida"
+  "phdInstitution": "University of Florida",
+  "enrollmentStart": 34536,
+  "businessPctStart": 0.1889,
+  "businessDegreesStart": 1798
  },
  {
   "startLabel": "2024",
@@ -5843,7 +5980,9 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2020s",
   "sourceUrl": "https://faa.illinois.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0.2274,
+  "businessDegreesStart": 3810
  },
  {
   "startLabel": "",
@@ -6015,7 +6154,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://finearts.uky.edu/college-fine-arts/faculty-staff/mark-shanda",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 29465,
+  "businessPctStart": 0.1421,
+  "businessDegreesStart": 987
  },
  {
   "startLabel": "2023",
@@ -6072,7 +6214,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://merrill.umd.edu/about/faculty-and-staff",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 40813,
+  "businessPctStart": 0.1633,
+  "businessDegreesStart": 1981
  },
  {
   "startLabel": "",
@@ -6187,7 +6332,10 @@
   "era": "2010s",
   "sourceUrl": "https://people.miami.edu/profile/2c5b28b9a86e94a3a7d8d9343677b73e",
   "roleTier": "Dean",
-  "phdInstitution": "University of Pennsylvania"
+  "phdInstitution": "University of Pennsylvania",
+  "enrollmentStart": 17811,
+  "businessPctStart": 0.2146,
+  "businessDegreesStart": 1130
  },
  {
   "startLabel": "2022",
@@ -6244,7 +6392,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://stamps.umich.edu/news/carlos-jackson-appointed-as-stamps-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 51225,
+  "businessPctStart": 0.1043,
+  "businessDegreesStart": 1531
  },
  {
   "startLabel": "2018",
@@ -6301,7 +6452,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://smtd.umich.edu/david-gier-reappointed-dean-of-school-of-music-theatre-and-dance",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 46716,
+  "businessPctStart": 0.1098,
+  "businessDegreesStart": 1528
  },
  {
   "startLabel": "2017",
@@ -6359,7 +6513,10 @@
   "era": "2010s",
   "sourceUrl": "https://taubmancollege.umich.edu/about/staff-directory/",
   "roleTier": "Dean",
-  "phdInstitution": "Princeton University"
+  "phdInstitution": "Princeton University",
+  "enrollmentStart": 46002,
+  "businessPctStart": 0.1116,
+  "businessDegreesStart": 1477
  },
  {
   "startLabel": "2023",
@@ -6417,7 +6574,10 @@
   "era": "2020s",
   "sourceUrl": "https://design.umn.edu/deans-office",
   "roleTier": "Dean",
-  "phdInstitution": "University College London"
+  "phdInstitution": "University College London",
+  "enrollmentStart": 54890,
+  "businessPctStart": 0.1294,
+  "businessDegreesStart": 1677
  },
  {
   "startLabel": "2015",
@@ -6475,7 +6635,10 @@
   "era": "2010s",
   "sourceUrl": "https://journalism.missouri.edu/position/dean/",
   "roleTier": "Dean",
-  "phdInstitution": "University of Wisconsin-Madison"
+  "phdInstitution": "University of Wisconsin-Madison",
+  "enrollmentStart": 35424,
+  "businessPctStart": 0.1358,
+  "businessDegreesStart": 1177
  },
  {
   "startLabel": "2026",
@@ -6589,7 +6752,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://www.unlv.edu/finearts/deans-message",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 29702,
+  "businessPctStart": 0.2541,
+  "businessDegreesStart": 1353
  },
  {
   "startLabel": "2022",
@@ -6646,7 +6812,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://www.unc.edu/posts/2026/07/17/raul-reis-to-step-down-as-unc-hussman-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 31705,
+  "businessPctStart": 0.1625,
+  "businessDegreesStart": 1370
  },
  {
   "startLabel": "2024",
@@ -6704,7 +6873,9 @@
   "era": "2020s",
   "sourceUrl": "https://www.ou.edu/news/articles/2024/april/ou-names-new-dean-of-the-gaylord-college-of-journalism-and-mass-communication",
   "roleTier": "Dean",
-  "phdInstitution": "University of Missouri"
+  "phdInstitution": "University of Missouri",
+  "businessPctStart": 0.2445,
+  "businessDegreesStart": 1822
  },
  {
   "startLabel": "2018",
@@ -6761,7 +6932,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://www.ou.edu/provost/about/meet-the-deans",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 28564,
+  "businessPctStart": 0.217,
+  "businessDegreesStart": 1497
  },
  {
   "startLabel": "2021",
@@ -6818,7 +6992,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://design.uoregon.edu/dsgn-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 22257,
+  "businessPctStart": 0.1382,
+  "businessDegreesStart": 828
  },
  {
   "startLabel": "",
@@ -7048,7 +7225,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2020s",
   "sourceUrl": "https://kaufman.usc.edu/about/deans-message/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 48945,
+  "businessPctStart": 0.1948,
+  "businessDegreesStart": 3495
  },
  {
   "startLabel": "2018",
@@ -7105,7 +7285,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://roski.usc.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 47310,
+  "businessPctStart": 0.1704,
+  "businessDegreesStart": 2857
  },
  {
   "startLabel": "1991",
@@ -7220,7 +7403,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2020s",
   "sourceUrl": "https://dramaticarts.usc.edu/meet-dean-emily-roxworthy/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 49318,
+  "businessPctStart": 0.1873,
+  "businessDegreesStart": 3285
  },
  {
   "startLabel": "2023",
@@ -7278,7 +7464,10 @@
   "era": "2020s",
   "sourceUrl": "https://music.usc.edu/about/office-of-the-dean/",
   "roleTier": "Dean",
-  "phdInstitution": "New York University"
+  "phdInstitution": "New York University",
+  "enrollmentStart": 47147,
+  "businessPctStart": 0.194,
+  "businessDegreesStart": 3752
  },
  {
   "startLabel": "2021",
@@ -7335,7 +7524,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2020s",
   "sourceUrl": "https://archdesign.utk.edu/news/young-named-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 31701,
+  "businessPctStart": 0.2235,
+  "businessDegreesStart": 1682
  },
  {
   "startLabel": "",
@@ -7450,7 +7642,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://music.utk.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 36304,
+  "businessPctStart": 0.2511,
+  "businessDegreesStart": 2087
  },
  {
   "startLabel": "2021",
@@ -7508,7 +7703,10 @@
   "era": "2020s",
   "sourceUrl": "https://finearts.utexas.edu/about/about-college-fine-arts",
   "roleTier": "Dean",
-  "phdInstitution": "University of Texas at Austin"
+  "phdInstitution": "University of Texas at Austin",
+  "enrollmentStart": 51991,
+  "businessPctStart": 0.1455,
+  "businessDegreesStart": 2562
  },
  {
   "startLabel": "2024",
@@ -7565,7 +7763,9 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://moody.utexas.edu/about/moody-college-leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0.1051,
+  "businessDegreesStart": 1894
  },
  {
   "startLabel": "2023",
@@ -7622,7 +7822,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2020s",
   "sourceUrl": "https://soa.utexas.edu/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 53082,
+  "businessPctStart": 0.136,
+  "businessDegreesStart": 2383
  },
  {
   "startLabel": "2023",
@@ -7679,7 +7882,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2020s",
   "sourceUrl": "https://attheu.utah.edu/hires-promotions/dean-of-college-of-architecture-planning-named/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 35260,
+  "businessPctStart": 0.1514,
+  "businessDegreesStart": 1437
  },
  {
   "startLabel": "2020",
@@ -7737,7 +7943,10 @@
   "era": "2020s",
   "sourceUrl": "https://www.finearts.utah.edu/about/deans-office/message-from-the-dean",
   "roleTier": "Dean",
-  "phdInstitution": "University of Wisconsin-Madison"
+  "phdInstitution": "University of Wisconsin-Madison",
+  "enrollmentStart": 33081,
+  "businessPctStart": 0.1683,
+  "businessDegreesStart": 1539
  },
  {
   "startLabel": "2025",
@@ -7852,7 +8061,9 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://blair.vanderbilt.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0.0904,
+  "businessDegreesStart": 397
  },
  {
   "startLabel": "2022",
@@ -7910,7 +8121,10 @@
   "era": "2020s",
   "sourceUrl": "https://bulletin.vcu.edu/undergraduate/arts/administration/",
   "roleTier": "Dean",
-  "phdInstitution": "University of Michigan"
+  "phdInstitution": "University of Michigan",
+  "enrollmentStart": 28082,
+  "businessPctStart": 0.1229,
+  "businessDegreesStart": 917
  },
  {
   "startLabel": "2026",
@@ -8082,7 +8296,10 @@
   "era": "2020s",
   "sourceUrl": "https://news.yale.edu/2026/03/23/kymberly-pinder-reappointed-dean-yale-school-art",
   "roleTier": "Dean",
-  "phdInstitution": "Yale University"
+  "phdInstitution": "Yale University",
+  "enrollmentStart": 14567,
+  "businessPctStart": 0.1221,
+  "businessDegreesStart": 503
  },
  {
   "startLabel": "2023",
@@ -8139,7 +8356,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://music.yale.edu/news/jose-garcia-leon-named-yale-school-musics-next-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 15081,
+  "businessPctStart": 0.1094,
+  "businessDegreesStart": 568
  },
  {
   "startLabel": "2014",
@@ -8196,7 +8416,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://herbergerinstitute.asu.edu/about",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50320,
+  "businessPctStart": 0.2541,
+  "businessDegreesStart": 3496
  },
  {
   "startLabel": "2013",
@@ -8253,7 +8476,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://herbergerinstitute.asu.edu/about",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 48702,
+  "businessPctStart": 0.2446,
+  "businessDegreesStart": 3334
  },
  {
   "startLabel": "2006",
@@ -8310,7 +8536,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://herbergerinstitute.asu.edu/about",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 51234,
+  "businessPctStart": 0.1983,
+  "businessDegreesStart": 2037
  },
  {
   "startLabel": "2020",
@@ -8367,7 +8596,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://cronkite.asu.edu/about/from-the-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 74795,
+  "businessPctStart": 0.2176,
+  "businessDegreesStart": 4571
  },
  {
   "startLabel": "2005",
@@ -8424,7 +8656,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://cronkite.asu.edu/about/from-the-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 51612,
+  "businessPctStart": 0.1973,
+  "businessDegreesStart": 2007
  },
  {
   "startLabel": "2018",
@@ -8538,7 +8773,9 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://music.baylor.edu/staff",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0.2206,
+  "businessDegreesStart": 1333
  },
  {
   "startLabel": "2015",
@@ -8595,7 +8832,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://music.baylor.edu/staff",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 16787,
+  "businessPctStart": 0.2423,
+  "businessDegreesStart": 931
  },
  {
   "startLabel": "2014",
@@ -8652,7 +8892,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://music.baylor.edu/staff",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 16263,
+  "businessPctStart": 0.2349,
+  "businessDegreesStart": 890
  },
  {
   "startLabel": "2000",
@@ -8709,7 +8952,8 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://music.baylor.edu/staff",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 13719
  },
  {
   "startLabel": "",
@@ -8880,7 +9124,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.bu.edu/com/about-com/office-of-the-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 31766,
+  "businessPctStart": 0.1659,
+  "businessDegreesStart": 1505
  },
  {
   "startLabel": "2006",
@@ -8937,7 +9184,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.bu.edu/com/about-com/office-of-the-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 31574,
+  "businessPctStart": 0.1682,
+  "businessDegreesStart": 1418
  },
  {
   "startLabel": "",
@@ -9051,7 +9301,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://www.bu.edu/cfa/news/articles/2026/lynne-allen-interim-dean-appointment/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 34657,
+  "businessPctStart": 0.1848,
+  "businessDegreesStart": 2042
  },
  {
   "startLabel": "2010",
@@ -9108,7 +9361,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://www.bu.edu/cfa/news/articles/2026/lynne-allen-interim-dean-appointment/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 32179,
+  "businessPctStart": 0.188,
+  "businessDegreesStart": 1722
  },
  {
   "startLabel": "2002",
@@ -9165,7 +9421,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://www.bu.edu/cfa/news/articles/2026/lynne-allen-interim-dean-appointment/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 28982,
+  "businessPctStart": 0.1878,
+  "businessDegreesStart": 1396
  },
  {
   "startLabel": "2001",
@@ -9222,7 +9481,8 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://www.bu.edu/cfa/news/articles/2026/lynne-allen-interim-dean-appointment/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 27756
  },
  {
   "startLabel": "",
@@ -9336,7 +9596,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://cfa.cmu.edu/about/contact/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11978,
+  "businessPctStart": 0.1315,
+  "businessDegreesStart": 513
  },
  {
   "startLabel": "2005",
@@ -9393,7 +9656,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://cfa.cmu.edu/about/contact/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 10017,
+  "businessPctStart": 0.2457,
+  "businessDegreesStart": 742
  },
  {
   "startLabel": "1993",
@@ -9507,7 +9773,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://news.chapman.edu/2024/04/16/anne-f-hogan-named-new-dean-of-college-of-performing-arts/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 8305,
+  "businessPctStart": 0.2231,
+  "businessDegreesStart": 504
  },
  {
   "startLabel": "2010",
@@ -9564,7 +9833,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://news.chapman.edu/2024/04/16/anne-f-hogan-named-new-dean-of-college-of-performing-arts/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 6881,
+  "businessPctStart": 0.2305,
+  "businessDegreesStart": 385
  },
  {
   "startLabel": "2007",
@@ -9621,7 +9893,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://news.chapman.edu/2024/04/16/anne-f-hogan-named-new-dean-of-college-of-performing-arts/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 6022,
+  "businessPctStart": 0.1972,
+  "businessDegreesStart": 297
  },
  {
   "startLabel": "2019",
@@ -9678,7 +9953,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.chapman.edu/dodge/about/message.aspx",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 9850,
+  "businessPctStart": 0.2405,
+  "businessDegreesStart": 619
  },
  {
   "startLabel": "1996",
@@ -9849,7 +10127,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://arts.columbia.edu/deans-office",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 22655,
+  "businessPctStart": 0.1284,
+  "businessDegreesStart": 1180
  },
  {
   "startLabel": "1999",
@@ -10020,7 +10301,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://aap.cornell.edu/about/dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 23600,
+  "businessPctStart": 0.1919,
+  "businessDegreesStart": 1392
  },
  {
   "startLabel": "2008",
@@ -10077,7 +10361,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://aap.cornell.edu/about/dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 20273,
+  "businessPctStart": 0.1756,
+  "businessDegreesStart": 1046
  },
  {
   "startLabel": "2004",
@@ -10134,7 +10421,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://aap.cornell.edu/about/dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 19518,
+  "businessPctStart": 0.2088,
+  "businessDegreesStart": 1304
  },
  {
   "startLabel": "1999",
@@ -10305,7 +10595,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://cranbrookart.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 130,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2014",
@@ -10362,7 +10655,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://cranbrookart.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 156,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2007",
@@ -10419,7 +10715,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://cranbrookart.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 144,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "1995",
@@ -10590,7 +10889,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://www.curtis.edu/about/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 168,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2016",
@@ -10647,7 +10949,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://www.depaul.edu/faculty/john-milbauer",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 23110,
+  "businessPctStart": 0.2965,
+  "businessDegreesStart": 1906
  },
  {
   "startLabel": "2015",
@@ -10704,7 +11009,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://www.depaul.edu/faculty/john-milbauer",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 23539,
+  "businessPctStart": 0.2891,
+  "businessDegreesStart": 1888
  },
  {
   "startLabel": "1995",
@@ -10818,7 +11126,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2020s",
   "sourceUrl": "https://www.depaul.edu/about/administration/Pages/green-rogers.aspx",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 21670,
+  "businessPctStart": 0.3139,
+  "businessDegreesStart": 2003
  },
  {
   "startLabel": "2000",
@@ -10875,7 +11186,8 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2000s",
   "sourceUrl": "https://www.depaul.edu/about/administration/Pages/green-rogers.aspx",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 20548
  },
  {
   "startLabel": "2020",
@@ -10932,7 +11244,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://drexel.edu/westphal/about/overview/westphal-leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 23589,
+  "businessPctStart": 0.1539,
+  "businessDegreesStart": 1002
  },
  {
   "startLabel": "2005",
@@ -10989,7 +11304,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://drexel.edu/westphal/about/overview/westphal-leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 18466,
+  "businessPctStart": 0.2631,
+  "businessDegreesStart": 1024
  },
  {
   "startLabel": "2022",
@@ -11046,7 +11364,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://emerson.edu/about-emerson/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 5891,
+  "businessPctStart": 0.1251,
+  "businessDegreesStart": 188
  },
  {
   "startLabel": "2016",
@@ -11103,7 +11424,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://emerson.edu/about-emerson/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 4442,
+  "businessPctStart": 0.1916,
+  "businessDegreesStart": 236
  },
  {
   "startLabel": "2023",
@@ -11160,7 +11484,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2020s",
   "sourceUrl": "https://today.emerson.edu/2026/04/21/emersons-new-soa-dean-on-interdisciplinarity-ai-and-shakespeare/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 5670,
+  "businessPctStart": 0.0966,
+  "businessDegreesStart": 125
  },
  {
   "startLabel": "2013",
@@ -11217,7 +11544,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://today.emerson.edu/2026/04/21/emersons-new-soa-dean-on-interdisciplinarity-ai-and-shakespeare/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 4561,
+  "businessPctStart": 0.2121,
+  "businessDegreesStart": 255
  },
  {
   "startLabel": "",
@@ -11331,7 +11661,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://cci.fsu.edu/about/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 45130,
+  "businessPctStart": 0.1889,
+  "businessDegreesStart": 2308
  },
  {
   "startLabel": "2009",
@@ -11388,7 +11721,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://cci.fsu.edu/about/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 39785,
+  "businessPctStart": 0.1626,
+  "businessDegreesStart": 1731
  },
  {
   "startLabel": "2013",
@@ -11445,7 +11781,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://cfa.fsu.edu/people/james-frazier/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 40909,
+  "businessPctStart": 0.1627,
+  "businessDegreesStart": 1818
  },
  {
   "startLabel": "2003",
@@ -11502,7 +11841,10 @@
   "disciplineBroad": "Film & Media",
   "era": "2000s",
   "sourceUrl": "https://film.fsu.edu/about/faculty-staff/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 36884,
+  "businessPctStart": 0.1869,
+  "businessDegreesStart": 1616
  },
  {
   "startLabel": "2013",
@@ -11559,7 +11901,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://music.fsu.edu/person/todd-queen/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 40909,
+  "businessPctStart": 0.1627,
+  "businessDegreesStart": 1818
  },
  {
   "startLabel": "2005",
@@ -11616,7 +11961,10 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://music.fsu.edu/person/todd-queen/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 39146,
+  "businessPctStart": 0.1748,
+  "businessDegreesStart": 1623
  },
  {
   "startLabel": "2001",
@@ -11673,7 +12021,8 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://catalog.gmu.edu/colleges-schools/visual-performing-arts/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 24897
  },
  {
   "startLabel": "2008",
@@ -11730,7 +12079,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://www.gsd.harvard.edu/office/deans-office/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 26496,
+  "businessPctStart": 0.1344,
+  "businessDegreesStart": 962
  },
  {
   "startLabel": "2005",
@@ -11787,7 +12139,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://www.gsd.harvard.edu/office/deans-office/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 25017,
+  "businessPctStart": 0.1516,
+  "businessDegreesStart": 1047
  },
  {
   "startLabel": "1992",
@@ -11901,7 +12256,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://music.indiana.edu/about/leadership/index.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 43064,
+  "businessPctStart": 0.2966,
+  "businessDegreesStart": 3390
  },
  {
   "startLabel": "2001",
@@ -11958,7 +12316,8 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://music.indiana.edu/about/leadership/index.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 37963
  },
  {
   "startLabel": "1997",
@@ -12129,7 +12488,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://mediaschool.indiana.edu/people/leadership.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 45328,
+  "businessPctStart": 0.2878,
+  "businessDegreesStart": 3281
  },
  {
   "startLabel": "2015",
@@ -12186,7 +12548,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://mediaschool.indiana.edu/people/leadership.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 48514,
+  "businessPctStart": 0.2278,
+  "businessDegreesStart": 2508
  },
  {
   "startLabel": "2020",
@@ -12243,7 +12608,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://www.lsu.edu/manship/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 34285,
+  "businessPctStart": 0.2275,
+  "businessDegreesStart": 1611
  },
  {
   "startLabel": "2018",
@@ -12300,7 +12668,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.lsu.edu/manship/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 30983,
+  "businessPctStart": 0.2232,
+  "businessDegreesStart": 1510
  },
  {
   "startLabel": "2011",
@@ -12357,7 +12728,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.lsu.edu/manship/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 29718,
+  "businessPctStart": 0.1781,
+  "businessDegreesStart": 1080
  },
  {
   "startLabel": "2010",
@@ -12414,7 +12788,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.lsu.edu/manship/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 29451,
+  "businessPctStart": 0.1838,
+  "businessDegreesStart": 1107
  },
  {
   "startLabel": "1992",
@@ -12528,7 +12905,10 @@
   "disciplineBroad": "Film & Media",
   "era": "2020s",
   "sourceUrl": "https://newsroom.lmu.edu/press-release/lmu-names-joanne-moore-as-school-of-film-and-television-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 10184,
+  "businessPctStart": 0.1854,
+  "businessDegreesStart": 537
  },
  {
   "startLabel": "2018",
@@ -12585,7 +12965,10 @@
   "disciplineBroad": "Film & Media",
   "era": "2010s",
   "sourceUrl": "https://newsroom.lmu.edu/press-release/lmu-names-joanne-moore-as-school-of-film-and-television-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 9838,
+  "businessPctStart": 0.182,
+  "businessDegreesStart": 500
  },
  {
   "startLabel": "2010",
@@ -12642,7 +13025,10 @@
   "disciplineBroad": "Film & Media",
   "era": "2010s",
   "sourceUrl": "https://newsroom.lmu.edu/press-release/lmu-names-joanne-moore-as-school-of-film-and-television-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 9223,
+  "businessPctStart": 0.2021,
+  "businessDegreesStart": 512
  },
  {
   "startLabel": "2003",
@@ -12699,7 +13085,10 @@
   "disciplineBroad": "Film & Media",
   "era": "2000s",
   "sourceUrl": "https://newsroom.lmu.edu/press-release/lmu-names-joanne-moore-as-school-of-film-and-television-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 8652,
+  "businessPctStart": 0.2471,
+  "businessDegreesStart": 525
  },
  {
   "startLabel": "2018",
@@ -12756,7 +13145,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.marquette.edu/communication/dean-welcome.php",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11605,
+  "businessPctStart": 0.2068,
+  "businessDegreesStart": 605
  },
  {
   "startLabel": "2016",
@@ -12813,7 +13205,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.marquette.edu/communication/dean-welcome.php",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11294,
+  "businessPctStart": 0.1924,
+  "businessDegreesStart": 586
  },
  {
   "startLabel": "2015",
@@ -12870,7 +13265,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.marquette.edu/communication/dean-welcome.php",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11491,
+  "businessPctStart": 0.205,
+  "businessDegreesStart": 605
  },
  {
   "startLabel": "2009",
@@ -12927,7 +13325,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.marquette.edu/communication/dean-welcome.php",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11689,
+  "businessPctStart": 0.192,
+  "businessDegreesStart": 540
  },
  {
   "startLabel": "2008",
@@ -12984,7 +13385,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.marquette.edu/communication/dean-welcome.php",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11633,
+  "businessPctStart": 0.1849,
+  "businessDegreesStart": 514
  },
  {
   "startLabel": "2006",
@@ -13041,7 +13445,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.marquette.edu/communication/dean-welcome.php",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11548,
+  "businessPctStart": 0.1886,
+  "businessDegreesStart": 507
  },
  {
   "startLabel": "2015",
@@ -13098,7 +13505,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://www.mica.edu/mica-dna/leadership/administration/dr-ray-barclay/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 2197,
+  "businessPctStart": 0.024,
+  "businessDegreesStart": 15
  },
  {
   "startLabel": "",
@@ -13212,7 +13622,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://massart.edu/about/leadership/cabinet/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 1907,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2022",
@@ -13269,7 +13682,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://comartsci.msu.edu/about/deans-office",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50023,
+  "businessPctStart": 0.1802,
+  "businessDegreesStart": 2282
  },
  {
   "startLabel": "2015",
@@ -13326,7 +13742,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://comartsci.msu.edu/about/deans-office",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50538,
+  "businessPctStart": 0.1708,
+  "businessDegreesStart": 2036
  },
  {
   "startLabel": "2009",
@@ -13383,7 +13802,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://comartsci.msu.edu/about/deans-office",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 47071,
+  "businessPctStart": 0.1842,
+  "businessDegreesStart": 1978
  },
  {
   "startLabel": "1988",
@@ -13668,7 +14090,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://www.miad.edu/about-miad/people/senior-staff",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 657,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "",
@@ -13782,7 +14207,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://moore.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 529,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "",
@@ -13954,7 +14382,10 @@
   "era": "2020s",
   "sourceUrl": "https://www.nyu.edu/about/leadership-university-administration/deans-and-directors.html",
   "roleTier": "Dean",
-  "phdInstitution": "University of California"
+  "phdInstitution": "University of California",
+  "enrollmentStart": 52775,
+  "businessPctStart": 0.1755,
+  "businessDegreesStart": 3159
  },
  {
   "startLabel": "2014",
@@ -14011,7 +14442,10 @@
   "disciplineBroad": "Creative Arts",
   "era": "2010s",
   "sourceUrl": "https://www.nyu.edu/about/leadership-university-administration/deans-and-directors.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 49274,
+  "businessPctStart": 0.201,
+  "businessDegreesStart": 3167
  },
  {
   "startLabel": "2003",
@@ -14068,7 +14502,10 @@
   "disciplineBroad": "Creative Arts",
   "era": "2000s",
   "sourceUrl": "https://www.nyu.edu/about/leadership-university-administration/deans-and-directors.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 38188,
+  "businessPctStart": 0.1883,
+  "businessDegreesStart": 2312
  },
  {
   "startLabel": "2014",
@@ -14125,7 +14562,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://tisch.nyu.edu/about/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 49274,
+  "businessPctStart": 0.201,
+  "businessDegreesStart": 3167
  },
  {
   "startLabel": "1991",
@@ -14296,7 +14736,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://camd.northeastern.edu/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 19940,
+  "businessPctStart": 0.2061,
+  "businessDegreesStart": 1266
  },
  {
   "startLabel": "2014",
@@ -14353,7 +14796,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://camd.northeastern.edu/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 19798,
+  "businessPctStart": 0.2459,
+  "businessDegreesStart": 1523
  },
  {
   "startLabel": "2010",
@@ -14410,7 +14856,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://camd.northeastern.edu/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 29519,
+  "businessPctStart": 0.2634,
+  "businessDegreesStart": 1675
  },
  {
   "startLabel": "2003",
@@ -14467,7 +14916,10 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://www.music.northwestern.edu/news/2023/jonathan-bailey-holland-named-dean-bienen-school-music",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 17625,
+  "businessPctStart": 0.2595,
+  "businessDegreesStart": 1415
  },
  {
   "startLabel": "1990",
@@ -14581,7 +15033,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.medill.northwestern.edu/directory/administration-deans/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 21215,
+  "businessPctStart": 0.2253,
+  "businessDegreesStart": 1496
  },
  {
   "startLabel": "2006",
@@ -14638,7 +15093,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.medill.northwestern.edu/directory/administration-deans/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 18486,
+  "businessPctStart": 0.2527,
+  "businessDegreesStart": 1425
  },
  {
   "startLabel": "2001",
@@ -14695,7 +15153,8 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.medill.northwestern.edu/directory/administration-deans/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 17000
  },
  {
   "startLabel": "1998",
@@ -14809,7 +15268,8 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://communication.northwestern.edu/about/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 16952
  },
  {
   "startLabel": "1988",
@@ -14923,7 +15383,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.ohio.edu/news/2026/05/ohio-names-dr-aimee-edmondson-interim-dean-scripps-college-communication",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 25108,
+  "businessPctStart": 0.1408,
+  "businessDegreesStart": 825
  },
  {
   "startLabel": "2005",
@@ -14980,7 +15443,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.ohio.edu/news/2026/05/ohio-names-dr-aimee-edmondson-interim-dean-scripps-college-communication",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 20461,
+  "businessPctStart": 0.1229,
+  "businessDegreesStart": 698
  },
  {
   "startLabel": "",
@@ -15094,7 +15560,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://otis.edu/about/leadership/provost.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 1073,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "",
@@ -15208,7 +15677,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2020s",
   "sourceUrl": "https://www.pafa.org/organization/administration",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 178,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2013",
@@ -15265,7 +15737,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://www.pafa.org/organization/administration",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 299,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2014",
@@ -15322,7 +15797,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.psu.edu/news/bellisario-college-communications/story/emily-metzgar-named-dean-penn-state-bellisario-college",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 47040,
+  "businessPctStart": 0.1447,
+  "businessDegreesStart": 1974
  },
  {
   "startLabel": "1999",
@@ -15436,7 +15914,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://arts.psu.edu/aa-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 43252,
+  "businessPctStart": 0.1497,
+  "businessDegreesStart": 1789
  },
  {
   "startLabel": "2019",
@@ -15493,7 +15974,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://www.pratt.edu/about/leadership-governance/officers-and-deans/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 5069,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "1994",
@@ -15607,7 +16091,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://risd.coursedog.com/about/risd-leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 2620,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2019",
@@ -15664,7 +16151,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://risd.coursedog.com/about/risd-leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 2501,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2003",
@@ -15721,7 +16211,10 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://news.rice.edu/news/2025/loden-reappointed-dean-rices-shepherd-school-music",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 4805,
+  "businessPctStart": 0.1841,
+  "businessDegreesStart": 227
  },
  {
   "startLabel": "1986",
@@ -15835,7 +16328,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2020s",
   "sourceUrl": "https://www.rutgers.edu/news/michael-kim-appointed-dean-mason-gross-school-arts",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50411,
+  "businessPctStart": 0.1286,
+  "businessDegreesStart": 1734
  },
  {
   "startLabel": "2019",
@@ -15892,7 +16388,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://www.rutgers.edu/news/michael-kim-appointed-dean-mason-gross-school-arts",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50173,
+  "businessPctStart": 0.1264,
+  "businessDegreesStart": 1693
  },
  {
   "startLabel": "2006",
@@ -15949,7 +16448,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://www.rutgers.edu/news/michael-kim-appointed-dean-mason-gross-school-arts",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 34392,
+  "businessPctStart": 0.0697,
+  "businessDegreesStart": 546
  },
  {
   "startLabel": "2025",
@@ -16063,7 +16565,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://newbrunswick.rutgers.edu/chancellor/communications/announcing-william-klein-dean-school-communication-information",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 49428,
+  "businessPctStart": 0.1058,
+  "businessDegreesStart": 1248
  },
  {
   "startLabel": "2013",
@@ -16120,7 +16625,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://newbrunswick.rutgers.edu/chancellor/communications/announcing-william-klein-dean-school-communication-information",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 48036,
+  "businessPctStart": 0.1021,
+  "businessDegreesStart": 982
  },
  {
   "startLabel": "2008",
@@ -16177,7 +16685,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://newbrunswick.rutgers.edu/chancellor/communications/announcing-william-klein-dean-school-communication-information",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 36041,
+  "businessPctStart": 0.0687,
+  "businessDegreesStart": 522
  },
  {
   "startLabel": "1998",
@@ -16519,7 +17030,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://www.saic.edu/leadership-governance/office-provost",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 3328,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2006",
@@ -16576,7 +17090,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://www.smu.edu/aboutsmu/administration/dean-meadows",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 10941,
+  "businessPctStart": 0.2702,
+  "businessDegreesStart": 868
  },
  {
   "startLabel": "1994",
@@ -16747,7 +17264,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://vpa.syracuse.edu/about/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 19366,
+  "businessPctStart": 0.1056,
+  "businessDegreesStart": 543
  },
  {
   "startLabel": "2000",
@@ -16804,7 +17324,8 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://vpa.syracuse.edu/about/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 18186
  },
  {
   "startLabel": "2019",
@@ -16861,7 +17382,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://newhouse.syracuse.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 22850,
+  "businessPctStart": 0.1332,
+  "businessDegreesStart": 909
  },
  {
   "startLabel": "2008",
@@ -16918,7 +17442,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://newhouse.syracuse.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 19366,
+  "businessPctStart": 0.1056,
+  "businessDegreesStart": 543
  },
  {
   "startLabel": "1990",
@@ -17032,7 +17559,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://klein.temple.edu/about/welcome-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 37270,
+  "businessPctStart": 0.1783,
+  "businessDegreesStart": 1559
  },
  {
   "startLabel": "2015",
@@ -17089,7 +17619,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://tyler.temple.edu/about-tyler/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 38007,
+  "businessPctStart": 0.1844,
+  "businessDegreesStart": 1633
  },
  {
   "startLabel": "2009",
@@ -17146,7 +17679,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://tyler.temple.edu/about-tyler/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 36507,
+  "businessPctStart": 0.1821,
+  "businessDegreesStart": 1409
  },
  {
   "startLabel": "2008",
@@ -17203,7 +17739,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://schieffercollege.tcu.edu/about/deans-message/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 8696,
+  "businessPctStart": 0.2751,
+  "businessDegreesStart": 587
  },
  {
   "startLabel": "2002",
@@ -17260,7 +17799,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://schieffercollege.tcu.edu/about/deans-message/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 8074,
+  "businessPctStart": 0.2963,
+  "businessDegreesStart": 539
  },
  {
   "startLabel": "2018",
@@ -17317,7 +17859,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://finearts.tcu.edu/about/deans-welcome.php",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 10918,
+  "businessPctStart": 0.2508,
+  "businessDegreesStart": 665
  },
  {
   "startLabel": "2015",
@@ -17374,7 +17919,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://finearts.tcu.edu/about/deans-welcome.php",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 10324,
+  "businessPctStart": 0.2541,
+  "businessDegreesStart": 674
  },
  {
   "startLabel": "2000",
@@ -17431,7 +17979,8 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://finearts.tcu.edu/about/deans-welcome.php",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 7775
  },
  {
   "startLabel": "2023",
@@ -17488,7 +18037,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://www.depts.ttu.edu/comc/about/college/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 40773,
+  "businessPctStart": 0.2062,
+  "businessDegreesStart": 2159
  },
  {
   "startLabel": "2013",
@@ -17545,7 +18097,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.depts.ttu.edu/comc/about/college/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 33111,
+  "businessPctStart": 0.1891,
+  "businessDegreesStart": 1352
  },
  {
   "startLabel": "2004",
@@ -17602,7 +18157,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.depts.ttu.edu/comc/about/college/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 28325,
+  "businessPctStart": 0.2747,
+  "businessDegreesStart": 1454
  },
  {
   "startLabel": "",
@@ -17716,7 +18274,10 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://www.juilliard.edu/school/about/leaders-and-administration",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 1034,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "1994",
@@ -17830,7 +18391,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://www.newschool.edu/performing-arts/leadership-administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 10344,
+  "businessPctStart": 0.072,
+  "businessDegreesStart": 221
  },
  {
   "startLabel": "2024",
@@ -17887,7 +18451,9 @@
   "disciplineBroad": "Art & Design",
   "era": "2020s",
   "sourceUrl": "https://www.newschool.edu/parsons/anne-gaines/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "businessPctStart": 0.0583,
+  "businessDegreesStart": 169
  },
  {
   "startLabel": "2019",
@@ -17944,7 +18510,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://www.newschool.edu/parsons/anne-gaines/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 10432,
+  "businessPctStart": 0.044,
+  "businessDegreesStart": 129
  },
  {
   "startLabel": "2009",
@@ -18001,7 +18570,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://www.newschool.edu/parsons/anne-gaines/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 10260,
+  "businessPctStart": 0.1034,
+  "businessDegreesStart": 276
  },
  {
   "startLabel": "2016",
@@ -18058,7 +18630,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://smfa.tufts.edu/about/dean-leadership-team",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11489,
+  "businessPctStart": 0.0081,
+  "businessDegreesStart": 28
  },
  {
   "startLabel": "2014",
@@ -18115,7 +18690,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://cis.ua.edu/about/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 36047,
+  "businessPctStart": 0.2568,
+  "businessDegreesStart": 1947
  },
  {
   "startLabel": "2006",
@@ -18172,7 +18750,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://cis.ua.edu/about/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 23838,
+  "businessPctStart": 0.2316,
+  "businessDegreesStart": 1012
  },
  {
   "startLabel": "1996",
@@ -18286,7 +18867,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://provost.arizona.edu/home/university-deans",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 44097,
+  "businessPctStart": 0.1447,
+  "businessDegreesStart": 1489
  },
  {
   "startLabel": "2010",
@@ -18343,7 +18927,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://provost.arizona.edu/home/university-deans",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 39086,
+  "businessPctStart": 0.139,
+  "businessDegreesStart": 1110
  },
  {
   "startLabel": "2019",
@@ -18400,7 +18987,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://schoolofmusic.ucla.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 44371,
+  "businessPctStart": 0.0852,
+  "businessDegreesStart": 1158
  },
  {
   "startLabel": "2020",
@@ -18457,7 +19047,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2020s",
   "sourceUrl": "https://www.tft.ucla.edu/about/leadership-and-staff/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 44589,
+  "businessPctStart": 0.0701,
+  "businessDegreesStart": 990
  },
  {
   "startLabel": "2009",
@@ -18514,7 +19107,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2000s",
   "sourceUrl": "https://www.tft.ucla.edu/about/leadership-and-staff/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 38550,
+  "businessPctStart": 0.0777,
+  "businessDegreesStart": 902
  },
  {
   "startLabel": "1999",
@@ -18685,7 +19281,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://newsroom.ucla.edu/releases/lionel-popkin-named-permanent-dean-of-ucla-arts",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 44027,
+  "businessPctStart": 0.0876,
+  "businessDegreesStart": 1158
  },
  {
   "startLabel": "2016",
@@ -18742,7 +19341,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://newsroom.ucla.edu/releases/lionel-popkin-named-permanent-dean-of-ucla-arts",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 43548,
+  "businessPctStart": 0.0861,
+  "businessDegreesStart": 1077
  },
  {
   "startLabel": "2004",
@@ -18799,7 +19401,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://newsroom.ucla.edu/releases/lionel-popkin-named-permanent-dean-of-ucla-arts",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 35966,
+  "businessPctStart": 0.0814,
+  "businessDegreesStart": 903
  },
  {
   "startLabel": "2018",
@@ -18856,7 +19461,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://www.daap.uc.edu/about/directory/college-office.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 37886,
+  "businessPctStart": 0.1624,
+  "businessDegreesStart": 1726
  },
  {
   "startLabel": "2007",
@@ -18913,7 +19521,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://www.daap.uc.edu/about/directory/college-office.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 29319,
+  "businessPctStart": 0.1296,
+  "businessDegreesStart": 743
  },
  {
   "startLabel": "2002",
@@ -18970,7 +19581,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://www.daap.uc.edu/about/directory/college-office.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 26552,
+  "businessPctStart": 0.1863,
+  "businessDegreesStart": 953
  },
  {
   "startLabel": "1982",
@@ -19084,7 +19698,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://www.uc.edu/news/articles/2024/04/peter-jutras-named-ccm-dean.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 41155,
+  "businessPctStart": 0.1628,
+  "businessDegreesStart": 1933
  },
  {
   "startLabel": "2018",
@@ -19141,7 +19758,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://www.uc.edu/news/articles/2024/04/peter-jutras-named-ccm-dean.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 37886,
+  "businessPctStart": 0.1624,
+  "businessDegreesStart": 1726
  },
  {
   "startLabel": "2011",
@@ -19198,7 +19818,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://www.uc.edu/news/articles/2024/04/peter-jutras-named-ccm-dean.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 33329,
+  "businessPctStart": 0.1068,
+  "businessDegreesStart": 778
  },
  {
   "startLabel": "2014",
@@ -19255,7 +19878,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://www.colorado.edu/music/about-us",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 32432,
+  "businessPctStart": 0.1174,
+  "businessDegreesStart": 838
  },
  {
   "startLabel": "1993",
@@ -19369,7 +19995,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://dcp.ufl.edu/chimay-anumba/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50912,
+  "businessPctStart": 0.1628,
+  "businessDegreesStart": 2188
  },
  {
   "startLabel": "2005",
@@ -19426,7 +20055,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://dcp.ufl.edu/chimay-anumba/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 49693,
+  "businessPctStart": 0.1771,
+  "businessDegreesStart": 2389
  },
  {
   "startLabel": "1999",
@@ -19597,7 +20229,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.jou.ufl.edu/hub-brown-about/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 49878,
+  "businessPctStart": 0.1209,
+  "businessDegreesStart": 1822
  },
  {
   "startLabel": "2006",
@@ -19654,7 +20289,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.jou.ufl.edu/hub-brown-about/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50912,
+  "businessPctStart": 0.1628,
+  "businessDegreesStart": 2188
  },
  {
   "startLabel": "1994",
@@ -19825,7 +20463,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://arts.ufl.edu/news/university-of-florida-appoints-kevin-robert-orr-dean-of-college-of-the-arts/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 52218,
+  "businessPctStart": 0.1315,
+  "businessDegreesStart": 2008
  },
  {
   "startLabel": "2006",
@@ -19882,7 +20523,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://arts.ufl.edu/news/university-of-florida-appoints-kevin-robert-orr-dean-of-college-of-the-arts/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50912,
+  "businessPctStart": 0.1628,
+  "businessDegreesStart": 2188
  },
  {
   "startLabel": "",
@@ -19996,7 +20640,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://news.uga.edu/charles-n-davis-named-dean-grady-college/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 33959,
+  "businessPctStart": 0.1877,
+  "businessDegreesStart": 1604
  },
  {
   "startLabel": "2001",
@@ -20053,7 +20700,8 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://news.uga.edu/charles-n-davis-named-dean-grady-college/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 32317
  },
  {
   "startLabel": "",
@@ -20167,7 +20815,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://faa.illinois.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 49702,
+  "businessPctStart": 0.1405,
+  "businessDegreesStart": 1832
  },
  {
   "startLabel": "2016",
@@ -20224,7 +20875,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://faa.illinois.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 46951,
+  "businessPctStart": 0.1534,
+  "businessDegreesStart": 1897
  },
  {
   "startLabel": "2007",
@@ -20281,7 +20935,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://faa.illinois.edu/about/leadership/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 42326,
+  "businessPctStart": 0.173,
+  "businessDegreesStart": 1844
  },
  {
   "startLabel": "",
@@ -20395,7 +21052,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://arcd.ku.edu/welcome-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 27259,
+  "businessPctStart": 0.1385,
+  "businessDegreesStart": 900
  },
  {
   "startLabel": "1994",
@@ -20509,7 +21169,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://journalism.ku.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 26934,
+  "businessPctStart": 0.1196,
+  "businessDegreesStart": 659
  },
  {
   "startLabel": "1997",
@@ -20623,7 +21286,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://finearts.uky.edu/college-fine-arts/faculty-staff/mark-shanda",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 27108,
+  "businessPctStart": 0.1495,
+  "businessDegreesStart": 817
  },
  {
   "startLabel": "1998",
@@ -20737,7 +21403,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://merrill.umd.edu/about/faculty-and-staff",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 37248,
+  "businessPctStart": 0.1719,
+  "businessDegreesStart": 1773
  },
  {
   "startLabel": "2009",
@@ -20794,7 +21463,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://merrill.umd.edu/about/faculty-and-staff",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 37195,
+  "businessPctStart": 0.1796,
+  "businessDegreesStart": 1735
  },
  {
   "startLabel": "2001",
@@ -20851,7 +21523,8 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://merrill.umd.edu/about/faculty-and-staff",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 34160
  },
  {
   "startLabel": "2007",
@@ -20908,7 +21581,10 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://www.frost.miami.edu/the-frost-advantage/leadership/administration/index.html",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 15449,
+  "businessPctStart": 0.2088,
+  "businessDegreesStart": 892
  },
  {
   "startLabel": "1982",
@@ -21022,7 +21698,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://people.miami.edu/profile/2c5b28b9a86e94a3a7d8d9343677b73e",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 16068,
+  "businessPctStart": 0.1698,
+  "businessDegreesStart": 697
  },
  {
   "startLabel": "2005",
@@ -21079,7 +21758,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://people.miami.edu/profile/2c5b28b9a86e94a3a7d8d9343677b73e",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 15674,
+  "businessPctStart": 0.2163,
+  "businessDegreesStart": 885
  },
  {
   "startLabel": "1985",
@@ -21193,7 +21875,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://stamps.umich.edu/news/carlos-jackson-appointed-as-stamps-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 43426,
+  "businessPctStart": 0.1107,
+  "businessDegreesStart": 1358
  },
  {
   "startLabel": "2000",
@@ -21250,7 +21935,8 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://stamps.umich.edu/news/carlos-jackson-appointed-as-stamps-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 38103
  },
  {
   "startLabel": "",
@@ -21364,7 +22050,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://smtd.umich.edu/david-gier-reappointed-dean-of-school-of-music-theatre-and-dance",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 46002,
+  "businessPctStart": 0.1116,
+  "businessDegreesStart": 1477
  },
  {
   "startLabel": "2015",
@@ -21421,7 +22110,10 @@
   "disciplineBroad": "Music",
   "era": "2010s",
   "sourceUrl": "https://smtd.umich.edu/david-gier-reappointed-dean-of-school-of-music-theatre-and-dance",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 43651,
+  "businessPctStart": 0.1109,
+  "businessDegreesStart": 1461
  },
  {
   "startLabel": "2005",
@@ -21478,7 +22170,10 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://smtd.umich.edu/david-gier-reappointed-dean-of-school-of-music-theatre-and-dance",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 39993,
+  "businessPctStart": 0.1112,
+  "businessDegreesStart": 1214
  },
  {
   "startLabel": "2000",
@@ -21535,7 +22230,8 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://smtd.umich.edu/david-gier-reappointed-dean-of-school-of-music-theatre-and-dance",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 38103
  },
  {
   "startLabel": "1979",
@@ -21649,7 +22345,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://taubmancollege.umich.edu/about/staff-directory/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 44718,
+  "businessPctStart": 0.1158,
+  "businessDegreesStart": 1518
  },
  {
   "startLabel": "2008",
@@ -21706,7 +22405,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://taubmancollege.umich.edu/about/staff-directory/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 41028,
+  "businessPctStart": 0.1093,
+  "businessDegreesStart": 1219
  },
  {
   "startLabel": "1998",
@@ -21820,7 +22522,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://design.umn.edu/deans-office",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 51848,
+  "businessPctStart": 0.1227,
+  "businessDegreesStart": 1653
  },
  {
   "startLabel": "2015",
@@ -21877,7 +22582,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://design.umn.edu/deans-office",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50678,
+  "businessPctStart": 0.1261,
+  "businessDegreesStart": 1652
  },
  {
   "startLabel": "2006",
@@ -21934,7 +22642,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://design.umn.edu/deans-office",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50402,
+  "businessPctStart": 0.1322,
+  "businessDegreesStart": 1487
  },
  {
   "startLabel": "1989",
@@ -22048,7 +22759,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://journalism.unl.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 25108,
+  "businessPctStart": 0.2126,
+  "businessDegreesStart": 1233
  },
  {
   "startLabel": "2018",
@@ -22105,7 +22819,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://journalism.unl.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 25820,
+  "businessPctStart": 0.2093,
+  "businessDegreesStart": 1140
  },
  {
   "startLabel": "2014",
@@ -22162,7 +22879,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://journalism.unl.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 25006,
+  "businessPctStart": 0.1873,
+  "businessDegreesStart": 970
  },
  {
   "startLabel": "2012",
@@ -22219,7 +22939,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://journalism.unl.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 24207,
+  "businessPctStart": 0.1917,
+  "businessDegreesStart": 985
  },
  {
   "startLabel": "2010",
@@ -22276,7 +22999,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://journalism.unl.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 24610,
+  "businessPctStart": 0.1825,
+  "businessDegreesStart": 840
  },
  {
   "startLabel": "1995",
@@ -22390,7 +23116,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.unc.edu/posts/2026/07/17/raul-reis-to-step-down-as-unc-hussman-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 29278,
+  "businessPctStart": 0.1225,
+  "businessDegreesStart": 935
  },
  {
   "startLabel": "2006",
@@ -22447,7 +23176,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.unc.edu/posts/2026/07/17/raul-reis-to-step-down-as-unc-hussman-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 27717,
+  "businessPctStart": 0.1271,
+  "businessDegreesStart": 864
  },
  {
   "startLabel": "1979",
@@ -22561,7 +23293,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2020s",
   "sourceUrl": "https://www.ou.edu/news/articles/2024/april/ou-names-new-dean-of-the-gaylord-college-of-journalism-and-mass-communication",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 29145,
+  "businessPctStart": 0.239,
+  "businessDegreesStart": 1748
  },
  {
   "startLabel": "2016",
@@ -22618,7 +23353,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://www.ou.edu/news/articles/2024/april/ou-names-new-dean-of-the-gaylord-college-of-journalism-and-mass-communication",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 27918,
+  "businessPctStart": 0.2271,
+  "businessDegreesStart": 1429
  },
  {
   "startLabel": "2005",
@@ -22675,7 +23413,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.ou.edu/news/articles/2024/april/ou-names-new-dean-of-the-gaylord-college-of-journalism-and-mass-communication",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 26506,
+  "businessPctStart": 0.2443,
+  "businessDegreesStart": 1368
  },
  {
   "startLabel": "2001",
@@ -22732,7 +23473,8 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://www.ou.edu/news/articles/2024/april/ou-names-new-dean-of-the-gaylord-college-of-journalism-and-mass-communication",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 25104
  },
  {
   "startLabel": "2007",
@@ -22789,7 +23531,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://www.ou.edu/provost/about/meet-the-deans",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 26068,
+  "businessPctStart": 0.2302,
+  "businessDegreesStart": 1313
  },
  {
   "startLabel": "2019",
@@ -22846,7 +23591,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://design.uoregon.edu/dsgn-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 22517,
+  "businessPctStart": 0.1479,
+  "businessDegreesStart": 909
  },
  {
   "startLabel": "2016",
@@ -22903,7 +23651,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://design.uoregon.edu/dsgn-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 23546,
+  "businessPctStart": 0.1389,
+  "businessDegreesStart": 858
  },
  {
   "startLabel": "2005",
@@ -22960,7 +23711,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://design.uoregon.edu/dsgn-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 20347,
+  "businessPctStart": 0.123,
+  "businessDegreesStart": 650
  },
  {
   "startLabel": "2016",
@@ -23017,7 +23771,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://journalism.uoregon.edu/about/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 23546,
+  "businessPctStart": 0.1389,
+  "businessDegreesStart": 858
  },
  {
   "startLabel": "2013",
@@ -23074,7 +23831,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://journalism.uoregon.edu/about/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 24473,
+  "businessPctStart": 0.1331,
+  "businessDegreesStart": 828
  },
  {
   "startLabel": "1997",
@@ -23188,7 +23948,8 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://musicanddance.uoregon.edu/about/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 18956
  },
  {
   "startLabel": "2007",
@@ -23245,7 +24006,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://annenberg.usc.edu/about/dean-willow-bay",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 33408,
+  "businessPctStart": 0.2057,
+  "businessDegreesStart": 2112
  },
  {
   "startLabel": "1996",
@@ -23359,7 +24123,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2010s",
   "sourceUrl": "https://kaufman.usc.edu/about/deans-message/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 43401,
+  "businessPctStart": 0.164,
+  "businessDegreesStart": 2479
  },
  {
   "startLabel": "2013",
@@ -23416,7 +24183,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://roski.usc.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 41368,
+  "businessPctStart": 0.1665,
+  "businessDegreesStart": 2194
  },
  {
   "startLabel": "1995",
@@ -23587,7 +24357,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2010s",
   "sourceUrl": "https://dramaticarts.usc.edu/meet-dean-emily-roxworthy/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 43401,
+  "businessPctStart": 0.164,
+  "businessDegreesStart": 2479
  },
  {
   "startLabel": "2002",
@@ -23644,7 +24417,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2000s",
   "sourceUrl": "https://dramaticarts.usc.edu/meet-dean-emily-roxworthy/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 30682,
+  "businessPctStart": 0.2181,
+  "businessDegreesStart": 1795
  },
  {
   "startLabel": "2022",
@@ -23701,7 +24477,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://music.usc.edu/about/office-of-the-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 48945,
+  "businessPctStart": 0.1948,
+  "businessDegreesStart": 3495
  },
  {
   "startLabel": "2002",
@@ -23758,7 +24537,10 @@
   "disciplineBroad": "Music",
   "era": "2000s",
   "sourceUrl": "https://music.usc.edu/about/office-of-the-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 30682,
+  "businessPctStart": 0.2181,
+  "businessDegreesStart": 1795
  },
  {
   "startLabel": "1986",
@@ -23872,7 +24654,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://archdesign.utk.edu/news/young-named-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 30194,
+  "businessPctStart": 0.1716,
+  "businessDegreesStart": 1221
  },
  {
   "startLabel": "2005",
@@ -23929,7 +24714,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://archdesign.utk.edu/news/young-named-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 28512,
+  "businessPctStart": 0.1515,
+  "businessDegreesStart": 954
  },
  {
   "startLabel": "1994",
@@ -24043,7 +24831,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://cci.utk.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 28901,
+  "businessPctStart": 0.1461,
+  "businessDegreesStart": 919
  },
  {
   "startLabel": "2007",
@@ -24100,7 +24891,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://finearts.utexas.edu/about/about-college-fine-arts",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50170,
+  "businessPctStart": 0.1461,
+  "businessDegreesStart": 1836
  },
  {
   "startLabel": "1999",
@@ -24215,7 +25009,10 @@
   "era": "2020s",
   "sourceUrl": "https://moody.utexas.edu/about/moody-college-leadership",
   "roleTier": "Dean",
-  "phdInstitution": "University of North Carolina at Chapel Hill"
+  "phdInstitution": "University of North Carolina at Chapel Hill",
+  "enrollmentStart": 53082,
+  "businessPctStart": 0.136,
+  "businessDegreesStart": 2383
  },
  {
   "startLabel": "2016",
@@ -24272,7 +25069,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2010s",
   "sourceUrl": "https://moody.utexas.edu/about/moody-college-leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 51331,
+  "businessPctStart": 0.2385,
+  "businessDegreesStart": 4097
  },
  {
   "startLabel": "2004",
@@ -24329,7 +25129,10 @@
   "disciplineBroad": "Communication & Journalism",
   "era": "2000s",
   "sourceUrl": "https://moody.utexas.edu/about/moody-college-leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50377,
+  "businessPctStart": 0.1629,
+  "businessDegreesStart": 2127
  },
  {
   "startLabel": "1993",
@@ -24443,7 +25246,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://soa.utexas.edu/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 51525,
+  "businessPctStart": 0.2284,
+  "businessDegreesStart": 3794
  },
  {
   "startLabel": "2016",
@@ -24500,7 +25306,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://soa.utexas.edu/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 51331,
+  "businessPctStart": 0.2385,
+  "businessDegreesStart": 4097
  },
  {
   "startLabel": "2001",
@@ -24557,7 +25366,8 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://soa.utexas.edu/leadership",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 50616
  },
  {
   "startLabel": "1992",
@@ -24671,7 +25481,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://attheu.utah.edu/hires-promotions/dean-of-college-of-architecture-planning-named/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 31515,
+  "businessPctStart": 0.1332,
+  "businessDegreesStart": 1069
  },
  {
   "startLabel": "2002",
@@ -24728,7 +25541,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://attheu.utah.edu/hires-promotions/dean-of-college-of-architecture-planning-named/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 28369,
+  "businessPctStart": 0.1684,
+  "businessDegreesStart": 1016
  },
  {
   "startLabel": "2005",
@@ -24785,7 +25601,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2000s",
   "sourceUrl": "https://www.finearts.utah.edu/about/deans-office/message-from-the-dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 30558,
+  "businessPctStart": 0.1418,
+  "businessDegreesStart": 1033
  },
  {
   "startLabel": "1997",
@@ -24899,7 +25718,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://be.uw.edu/about/office-of-the-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 47576,
+  "businessPctStart": 0.0863,
+  "businessDegreesStart": 1199
  },
  {
   "startLabel": "2013",
@@ -24956,7 +25778,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2010s",
   "sourceUrl": "https://be.uw.edu/about/office-of-the-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 43762,
+  "businessPctStart": 0.0978,
+  "businessDegreesStart": 1216
  },
  {
   "startLabel": "2009",
@@ -25013,7 +25838,10 @@
   "disciplineBroad": "Architecture & Design",
   "era": "2000s",
   "sourceUrl": "https://be.uw.edu/about/office-of-the-dean/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 45943,
+  "businessPctStart": 0.119,
+  "businessDegreesStart": 1307
  },
  {
   "startLabel": "2020",
@@ -25070,7 +25898,10 @@
   "disciplineBroad": "Music",
   "era": "2020s",
   "sourceUrl": "https://blair.vanderbilt.edu/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 13537,
+  "businessPctStart": 0.0639,
+  "businessDegreesStart": 249
  },
  {
   "startLabel": "1993",
@@ -25184,7 +26015,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://bulletin.vcu.edu/undergraduate/arts/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 29757,
+  "businessPctStart": 0.1308,
+  "businessDegreesStart": 1006
  },
  {
   "startLabel": "2017",
@@ -25241,7 +26075,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://bulletin.vcu.edu/undergraduate/arts/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 30675,
+  "businessPctStart": 0.1431,
+  "businessDegreesStart": 1097
  },
  {
   "startLabel": "2011",
@@ -25298,7 +26135,10 @@
   "disciplineBroad": "Multidisciplinary Arts",
   "era": "2010s",
   "sourceUrl": "https://bulletin.vcu.edu/undergraduate/arts/administration/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 31627,
+  "businessPctStart": 0.1301,
+  "businessDegreesStart": 930
  },
  {
   "startLabel": "1996",
@@ -25469,7 +26309,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://source.washu.edu/2026/04/white-appointed-dean-of-sam-fox-school/",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 13355,
+  "businessPctStart": 0.1762,
+  "businessDegreesStart": 643
  },
  {
   "startLabel": "2002",
@@ -25526,7 +26369,10 @@
   "disciplineBroad": "Theatre & Dance",
   "era": "2000s",
   "sourceUrl": "https://news.yale.edu/2026/04/07/yionoulis-named-next-dean-david-geffen-school-drama-yale",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11378,
+  "businessPctStart": 0.0656,
+  "businessDegreesStart": 233
  },
  {
   "startLabel": "1991",
@@ -25697,7 +26543,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2010s",
   "sourceUrl": "https://news.yale.edu/2026/03/23/kymberly-pinder-reappointed-dean-yale-school-art",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 12458,
+  "businessPctStart": 0.1001,
+  "businessDegreesStart": 442
  },
  {
   "startLabel": "2006",
@@ -25754,7 +26603,10 @@
   "disciplineBroad": "Art & Design",
   "era": "2000s",
   "sourceUrl": "https://news.yale.edu/2026/03/23/kymberly-pinder-reappointed-dean-yale-school-art",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 11415,
+  "businessPctStart": 0.0586,
+  "businessDegreesStart": 228
  },
  {
   "startLabel": "1996",
@@ -26102,7 +26954,9 @@
   "roleTier": "Department Chair",
   "roleType": "subdean",
   "phdInstitution": "University of California",
-  "phdYear": 2002
+  "phdYear": 2002,
+  "businessPctStart": 0.0976,
+  "businessDegreesStart": 534
  },
  {
   "startLabel": "",
@@ -27554,7 +28408,10 @@
   "era": "",
   "sourceUrl": "https://film-media.dartmouth.edu/people",
   "roleTier": "Department Chair",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "enrollmentStart": 6744,
+  "businessPctStart": 0.1452,
+  "businessDegreesStart": 277
  },
  {
   "startLabel": "",
@@ -28539,7 +29396,10 @@
   "era": "2020s",
   "sourceUrl": "https://filmandmedia.emory.edu/people/bios/schreiber-michele.html",
   "roleTier": "Department Chair",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "enrollmentStart": 14779,
+  "businessPctStart": 0.1605,
+  "businessDegreesStart": 730
  },
  {
   "startLabel": "",
@@ -30105,7 +30965,10 @@
   "era": "2020s",
   "sourceUrl": "https://arthistory.berkeley.edu/people/shannon-jackson",
   "roleTier": "Department Chair",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "enrollmentStart": 45699,
+  "businessPctStart": 0.0752,
+  "businessDegreesStart": 1096
  },
  {
   "startLabel": "",
@@ -30742,7 +31605,10 @@
   "disciplineBroad": "Theater",
   "era": "2020s",
   "sourceUrl": "https://www.arts.uci.edu/dean",
-  "roleTier": "Dean"
+  "roleTier": "Dean",
+  "enrollmentStart": 35937,
+  "businessPctStart": 0.1353,
+  "businessDegreesStart": 1532
  },
  {
   "startLabel": "",
@@ -31380,7 +32246,9 @@
   "era": "",
   "sourceUrl": "https://www.play.pitt.edu/people/theatre-arts-faculty",
   "roleTier": "Department Chair",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "businessPctStart": 0.1066,
+  "businessDegreesStart": 1051
  },
  {
   "startLabel": "",
@@ -32250,7 +33118,10 @@
   "era": "",
   "sourceUrl": "https://www.berklee.edu/president/maria-iturriaga-promoted-svp-ile-ed-valencia",
   "roleTier": "Dean",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "enrollmentStart": 6405,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2024",
@@ -32308,7 +33179,9 @@
   "era": "",
   "sourceUrl": "https://nyc.berklee.edu/news/betsie-becker-named-executive-director-of-berklee-nyc",
   "roleTier": "Dean",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "2024",
@@ -32366,7 +33239,9 @@
   "era": "",
   "sourceUrl": "https://bostonconservatory.berklee.edu/about/boston-conservatory-berklee-leadership",
   "roleTier": "Dean",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "",
@@ -35326,7 +36201,10 @@
   "era": "",
   "sourceUrl": "https://newhouse.syracuse.edu/people/regina-luttrell",
   "roleTier": "Associate Dean",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "enrollmentStart": 22948,
+  "businessPctStart": 0.1363,
+  "businessDegreesStart": 904
  },
  {
   "startLabel": "",
@@ -35732,7 +36610,10 @@
   "era": "",
   "sourceUrl": "https://tianjin.juilliard.edu/school/administration",
   "roleTier": "Dean",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "enrollmentStart": 986,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "startLabel": "",
@@ -37009,7 +37890,10 @@
   "era": "",
   "sourceUrl": "https://merrill.umd.edu/directory/alexander-pyles",
   "roleTier": "Associate Dean",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "enrollmentStart": 40813,
+  "businessPctStart": 0.1633,
+  "businessDegreesStart": 1981
  },
  {
   "startLabel": "",
@@ -38575,7 +39459,10 @@
   "era": "",
   "sourceUrl": "https://finearts.utexas.edu/about/people",
   "roleTier": "Associate Dean",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "enrollmentStart": 51991,
+  "businessPctStart": 0.1455,
+  "businessDegreesStart": 2562
  },
  {
   "startLabel": "",

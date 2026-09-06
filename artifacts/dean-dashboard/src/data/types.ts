@@ -52,6 +52,9 @@ export interface Dean {
   surpriseDeparture: boolean;
   surpriseEvidence: string;
   sourceUrl: string;
+  enrollmentStart: number | null;   // institution at APPOINTMENT year (exact year match; see docs/data-provenance.md)
+  businessPctStart: number | null;
+  businessDegreesStart: number | null;
   enrollmentEnd: number | null;
   enrollmentAvg: number | null;
   businessPctEnd: number | null;

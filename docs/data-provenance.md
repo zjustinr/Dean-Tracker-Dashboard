@@ -16,6 +16,9 @@ on them would have been fitted to a small, unexplained subsample.
 | `enrollmentAvg` | 2.5% | 88.7% | IPEDS |
 | `businessPctEnd` | 2.3% | 87.6% | IPEDS |
 | `businessDegreesLatest` | 2.3% | 84.4% | IPEDS |
+| `enrollmentStart` | **field did not exist** | 10,375 (30.8%) | IPEDS |
+| `businessPctStart` | **field did not exist** | 10,699 (31.8%) | IPEDS |
+| `businessDegreesStart` | **field did not exist** | 10,699 (31.8%) | IPEDS |
 
 `phdYear` read 0.0% because it was never a field: it was absent from
 `types.ts` and from all 33,664 records. It is now declared and populated.
@@ -103,6 +106,35 @@ used, by year. In summary:
 | `enrollmentAvg` | mean total enrolment over the panel years within `startYear..endRef` |
 | `businessPctEnd` | business completions ÷ all completions, at the latest panel year at or before `endRef` |
 | `businessDegreesLatest` | business completions in the latest panel year for the institution (constant across that university's deans) |
+| `enrollmentStart` | total enrolment in the **appointment year**, matched exactly |
+| `businessPctStart` | business share of completions in the appointment year, matched exactly |
+| `businessDegreesStart` | business completions in the appointment year, matched exactly |
+
+The `End` and `Avg` fields describe the institution as the dean *left* it or on
+average across the tenure. The `Start` fields describe it as they *found* it,
+which is what a hiring analysis needs to control for: whether someone was handed
+a growing institution or a shrinking one is a property of the appointment, not
+of the person.
+
+**Start values are matched to `startYear` exactly.** They never drift to a
+nearby year, unlike the `End` values, which take the latest panel year at or
+before the tenure end. A dean appointed in 1995 would otherwise silently receive
+the panel's earliest figure (2000) as though it described their appointment --
+the same undocumented substitution this document exists to prevent. The cost of
+that strictness is coverage: `enrollmentStart` reaches 30.8% of rows against
+88.7% for `enrollmentEnd`.
+
+Consecutive deans at one institution therefore agree at the handover, which is a
+useful self-check: at American University, Erran Carmel's exit figures (13,346
+enrolled, 13.28% business) are exactly John Delaney's appointment figures.
+
+The two reasons the `Start` fields are null are structural, not fixable by
+better matching:
+
+- **No `startYear` on the row (15,281 rows).** Overwhelmingly the feeder bench,
+  which has no appointment dates for the reasons set out above.
+- **Appointed before the panel begins (4,894 rows).** Tenures starting before
+  2000.
 
 Enrolment is the "all students total" line (`EFALEVEL=1`, field `EFTOTLT`; in
 the 2000–2003 layout, `line 29 / section 3` with `EFRACE15+EFRACE16`).

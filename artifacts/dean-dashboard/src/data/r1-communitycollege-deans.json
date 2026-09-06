@@ -282,7 +282,10 @@
   "businessDegreesLatest": 978,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 2395,
+  "businessPctStart": 0.1011,
+  "businessDegreesStart": 27
  },
  {
   "id": 6,
@@ -624,7 +627,10 @@
   "businessDegreesLatest": 507,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 27955,
+  "businessPctStart": 0.0243,
+  "businessDegreesStart": 96
  },
  {
   "id": 12,
@@ -681,7 +687,10 @@
   "businessDegreesLatest": 273,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 9706,
+  "businessPctStart": 0.1135,
+  "businessDegreesStart": 112
  },
  {
   "id": 13,
@@ -738,7 +747,10 @@
   "businessDegreesLatest": 273,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 14127,
+  "businessPctStart": 0.1095,
+  "businessDegreesStart": 226
  },
  {
   "id": 14,
@@ -795,7 +807,10 @@
   "businessDegreesLatest": 273,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 13408,
+  "businessPctStart": 0.1375,
+  "businessDegreesStart": 195
  },
  {
   "id": 15,
@@ -1194,7 +1209,10 @@
   "businessDegreesLatest": 535,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 36606,
+  "businessPctStart": 0.1041,
+  "businessDegreesStart": 403
  },
  {
   "id": 22,
@@ -1251,7 +1269,10 @@
   "businessDegreesLatest": 535,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 36885,
+  "businessPctStart": 0.1605,
+  "businessDegreesStart": 1111
  },
  {
   "id": 23,
@@ -1308,7 +1329,10 @@
   "businessDegreesLatest": 535,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 33397,
+  "businessPctStart": 0.1495,
+  "businessDegreesStart": 971
  },
  {
   "id": 24,
@@ -1365,7 +1389,10 @@
   "businessDegreesLatest": 535,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 29506,
+  "businessPctStart": 0.1266,
+  "businessDegreesStart": 920
  },
  {
   "id": 25,
@@ -1422,7 +1449,9 @@
   "businessDegreesLatest": 535,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0852,
+  "businessDegreesStart": 535
  },
  {
   "id": 26,
@@ -1536,7 +1565,10 @@
   "businessDegreesLatest": 856,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 23482,
+  "businessPctStart": 0.0726,
+  "businessDegreesStart": 282
  },
  {
   "id": 28,
@@ -1593,7 +1625,10 @@
   "businessDegreesLatest": 856,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 23923,
+  "businessPctStart": 0.073,
+  "businessDegreesStart": 309
  },
  {
   "id": 29,
@@ -1650,7 +1685,10 @@
   "businessDegreesLatest": 856,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 23874,
+  "businessPctStart": 0.0738,
+  "businessDegreesStart": 344
  },
  {
   "id": 30,
@@ -1707,7 +1745,10 @@
   "businessDegreesLatest": 856,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 17566,
+  "businessPctStart": 0.0773,
+  "businessDegreesStart": 347
  },
  {
   "id": 31,
@@ -1821,7 +1862,10 @@
   "businessDegreesLatest": 78,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9154,
+  "businessPctStart": 0.0422,
+  "businessDegreesStart": 77
  },
  {
   "id": 33,
@@ -1878,7 +1922,10 @@
   "businessDegreesLatest": 78,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8851,
+  "businessPctStart": 0.0361,
+  "businessDegreesStart": 69
  },
  {
   "id": 34,
@@ -1935,7 +1982,10 @@
   "businessDegreesLatest": 78,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8851,
+  "businessPctStart": 0.0361,
+  "businessDegreesStart": 69
  },
  {
   "id": 35,
@@ -1992,7 +2042,10 @@
   "businessDegreesLatest": 78,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8378,
+  "businessPctStart": 0.0344,
+  "businessDegreesStart": 72
  },
  {
   "id": 36,
@@ -2049,7 +2102,10 @@
   "businessDegreesLatest": 78,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8378,
+  "businessPctStart": 0.0344,
+  "businessDegreesStart": 72
  },
  {
   "id": 37,
@@ -2391,7 +2447,10 @@
   "businessDegreesLatest": 677,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 28962,
+  "businessPctStart": 0.1207,
+  "businessDegreesStart": 684
  },
  {
   "id": 43,
@@ -2448,7 +2507,10 @@
   "businessDegreesLatest": 677,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 28962,
+  "businessPctStart": 0.1207,
+  "businessDegreesStart": 684
  },
  {
   "id": 44,
@@ -2505,7 +2567,10 @@
   "businessDegreesLatest": 461,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 22562,
+  "businessPctStart": 0.1407,
+  "businessDegreesStart": 195
  },
  {
   "id": 45,
@@ -2562,7 +2627,10 @@
   "businessDegreesLatest": 461,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 24613,
+  "businessPctStart": 0.1351,
+  "businessDegreesStart": 281
  },
  {
   "id": 46,
@@ -2619,7 +2687,10 @@
   "businessDegreesLatest": 461,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 24073,
+  "businessPctStart": 0.1334,
+  "businessDegreesStart": 281
  },
  {
   "id": 47,
@@ -2676,7 +2747,10 @@
   "businessDegreesLatest": 461,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 17813,
+  "businessPctStart": 0.0654,
+  "businessDegreesStart": 363
  },
  {
   "id": 48,
@@ -2733,7 +2807,10 @@
   "businessDegreesLatest": 461,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 18569,
+  "businessPctStart": 0.0827,
+  "businessDegreesStart": 412
  },
  {
   "id": 49,
@@ -2847,7 +2924,10 @@
   "businessDegreesLatest": 265,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 23210,
+  "businessPctStart": 0.2187,
+  "businessDegreesStart": 446
  },
  {
   "id": 51,
@@ -2904,7 +2984,10 @@
   "businessDegreesLatest": 265,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 22595,
+  "businessPctStart": 0.2068,
+  "businessDegreesStart": 454
  },
  {
   "id": 52,
@@ -3075,7 +3158,10 @@
   "businessDegreesLatest": 5012,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 13439,
+  "businessPctStart": 0.1756,
+  "businessDegreesStart": 167
  },
  {
   "id": 55,
@@ -3132,7 +3218,10 @@
   "businessDegreesLatest": 5012,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 78910,
+  "businessPctStart": 0.1796,
+  "businessDegreesStart": 3482
  },
  {
   "id": 56,
@@ -3246,7 +3335,10 @@
   "businessDegreesLatest": 737,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 24704,
+  "businessPctStart": 0.2098,
+  "businessDegreesStart": 386
  },
  {
   "id": 58,
@@ -3303,7 +3395,10 @@
   "businessDegreesLatest": 737,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 24658,
+  "businessPctStart": 0.1874,
+  "businessDegreesStart": 394
  },
  {
   "id": 59,
@@ -3360,7 +3455,10 @@
   "businessDegreesLatest": 737,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 23147,
+  "businessPctStart": 0.1558,
+  "businessDegreesStart": 722
  },
  {
   "id": 60,
@@ -3417,7 +3515,10 @@
   "businessDegreesLatest": 737,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 21761,
+  "businessPctStart": 0.147,
+  "businessDegreesStart": 752
  },
  {
   "id": 61,
@@ -3474,7 +3575,10 @@
   "businessDegreesLatest": 737,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 22402,
+  "businessPctStart": 0.1441,
+  "businessDegreesStart": 746
  },
  {
   "id": 62,
@@ -3531,7 +3635,10 @@
   "businessDegreesLatest": 897,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 16948,
+  "businessPctStart": 0.1195,
+  "businessDegreesStart": 521
  },
  {
   "id": 63,
@@ -3588,7 +3695,10 @@
   "businessDegreesLatest": 897,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 15772,
+  "businessPctStart": 0.1235,
+  "businessDegreesStart": 468
  },
  {
   "id": 64,
@@ -3645,7 +3755,9 @@
   "businessDegreesLatest": 897,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.1394,
+  "businessDegreesStart": 897
  },
  {
   "id": 65,
@@ -3702,7 +3814,9 @@
   "businessDegreesLatest": 897,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.1394,
+  "businessDegreesStart": 897
  },
  {
   "id": 66,
@@ -3759,7 +3873,10 @@
   "businessDegreesLatest": 112,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10526,
+  "businessPctStart": 0.0479,
+  "businessDegreesStart": 83
  },
  {
   "id": 67,
@@ -3816,7 +3933,10 @@
   "businessDegreesLatest": 112,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11407,
+  "businessPctStart": 0.0264,
+  "businessDegreesStart": 43
  },
  {
   "id": 68,
@@ -3873,7 +3993,10 @@
   "businessDegreesLatest": 112,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 15299,
+  "businessPctStart": 0.0426,
+  "businessDegreesStart": 75
  },
  {
   "id": 69,
@@ -3930,7 +4053,10 @@
   "businessDegreesLatest": 112,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 14725,
+  "businessPctStart": 0.0411,
+  "businessDegreesStart": 88
  },
  {
   "id": 70,
@@ -3987,7 +4113,10 @@
   "businessDegreesLatest": 1266,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 57978,
+  "businessPctStart": 0.1217,
+  "businessDegreesStart": 722
  },
  {
   "id": 71,
@@ -4044,7 +4173,10 @@
   "businessDegreesLatest": 1266,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 58276,
+  "businessPctStart": 0.0919,
+  "businessDegreesStart": 543
  },
  {
   "id": 72,
@@ -4101,7 +4233,10 @@
   "businessDegreesLatest": 1266,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 49749,
+  "businessPctStart": 0.1958,
+  "businessDegreesStart": 1286
  },
  {
   "id": 73,
@@ -4158,7 +4293,9 @@
   "businessDegreesLatest": 1266,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1882,
+  "businessDegreesStart": 1266
  },
  {
   "id": 74,
@@ -4215,7 +4352,10 @@
   "businessDegreesLatest": 799,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 28908,
+  "businessPctStart": 0.1036,
+  "businessDegreesStart": 169
  },
  {
   "id": 75,
@@ -4272,7 +4412,10 @@
   "businessDegreesLatest": 799,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 28337,
+  "businessPctStart": 0.1244,
+  "businessDegreesStart": 194
  },
  {
   "id": 76,
@@ -4329,7 +4472,10 @@
   "businessDegreesLatest": 799,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 30615,
+  "businessPctStart": 0.0996,
+  "businessDegreesStart": 372
  },
  {
   "id": 77,
@@ -4386,7 +4532,10 @@
   "businessDegreesLatest": 799,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 30828,
+  "businessPctStart": 0.1154,
+  "businessDegreesStart": 561
  },
  {
   "id": 78,
@@ -4443,7 +4592,10 @@
   "businessDegreesLatest": 350,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 30134,
+  "businessPctStart": 0.1581,
+  "businessDegreesStart": 619
  },
  {
   "id": 79,
@@ -4500,7 +4652,10 @@
   "businessDegreesLatest": 350,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 30134,
+  "businessPctStart": 0.1581,
+  "businessDegreesStart": 619
  },
  {
   "id": 80,
@@ -4557,7 +4712,10 @@
   "businessDegreesLatest": 350,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 20941,
+  "businessPctStart": 0.119,
+  "businessDegreesStart": 519
  },
  {
   "id": 81,
@@ -4614,7 +4772,10 @@
   "businessDegreesLatest": 350,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16769,
+  "businessPctStart": 0.1279,
+  "businessDegreesStart": 466
  },
  {
   "id": 82,
@@ -4671,7 +4832,10 @@
   "businessDegreesLatest": 353,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 10959,
+  "businessPctStart": 0.172,
+  "businessDegreesStart": 373
  },
  {
   "id": 83,
@@ -4728,7 +4892,10 @@
   "businessDegreesLatest": 353,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 9050,
+  "businessPctStart": 0.1642,
+  "businessDegreesStart": 319
  },
  {
   "id": 84,
@@ -4785,7 +4952,10 @@
   "businessDegreesLatest": 353,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 9649,
+  "businessPctStart": 0.1467,
+  "businessDegreesStart": 305
  },
  {
   "id": 85,
@@ -5013,7 +5183,10 @@
   "businessDegreesLatest": 2130,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 31730,
+  "businessPctStart": 0.0491,
+  "businessDegreesStart": 171
  },
  {
   "id": 89,
@@ -5070,7 +5243,10 @@
   "businessDegreesLatest": 2130,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 40784,
+  "businessPctStart": 0.3201,
+  "businessDegreesStart": 3822
  },
  {
   "id": 90,
@@ -5184,7 +5360,10 @@
   "businessDegreesLatest": 339,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 32127,
+  "businessPctStart": 0.0693,
+  "businessDegreesStart": 307
  },
  {
   "id": 92,
@@ -5298,7 +5477,10 @@
   "businessDegreesLatest": 252,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 18975,
+  "businessPctStart": 0.07,
+  "businessDegreesStart": 192
  },
  {
   "id": 94,
@@ -5355,7 +5537,9 @@
   "businessDegreesLatest": 252,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0826,
+  "businessDegreesStart": 252
  },
  {
   "id": 95,
@@ -5412,7 +5596,9 @@
   "businessDegreesLatest": 345,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.1173,
+  "businessDegreesStart": 345
  },
  {
   "id": 96,
@@ -5469,7 +5655,10 @@
   "businessDegreesLatest": 419,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 20271,
+  "businessPctStart": 0.1107,
+  "businessDegreesStart": 422
  },
  {
   "id": 97,
@@ -5583,7 +5772,10 @@
   "businessDegreesLatest": 409,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 17861,
+  "businessPctStart": 0.1856,
+  "businessDegreesStart": 488
  },
  {
   "id": 99,
@@ -5640,7 +5832,10 @@
   "businessDegreesLatest": 406,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16971,
+  "businessPctStart": 0.2317,
+  "businessDegreesStart": 735
  },
  {
   "id": 100,
@@ -5754,7 +5949,9 @@
   "businessDegreesLatest": 426,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1458,
+  "businessDegreesStart": 426
  },
  {
   "id": 102,
@@ -5811,7 +6008,10 @@
   "businessDegreesLatest": 288,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10764,
+  "businessPctStart": 0.0796,
+  "businessDegreesStart": 191
  },
  {
   "id": 103,
@@ -5868,7 +6068,9 @@
   "businessDegreesLatest": 288,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.068,
+  "businessDegreesStart": 288
  },
  {
   "id": 104,
@@ -5925,7 +6127,10 @@
   "businessDegreesLatest": 285,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12142,
+  "businessPctStart": 0.137,
+  "businessDegreesStart": 252
  },
  {
   "id": 105,
@@ -6096,7 +6301,10 @@
   "businessDegreesLatest": 407,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 14414,
+  "businessPctStart": 0.1129,
+  "businessDegreesStart": 308
  },
  {
   "id": 108,
@@ -6210,7 +6418,10 @@
   "businessDegreesLatest": 415,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 17650,
+  "businessPctStart": 0.2072,
+  "businessDegreesStart": 465
  },
  {
   "id": 110,
@@ -6324,7 +6535,10 @@
   "businessDegreesLatest": 134,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8892,
+  "businessPctStart": 0.044,
+  "businessDegreesStart": 103
  },
  {
   "id": 112,
@@ -6381,7 +6595,10 @@
   "businessDegreesLatest": 230,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10873,
+  "businessPctStart": 0.074,
+  "businessDegreesStart": 180
  },
  {
   "id": 113,
@@ -6495,7 +6712,10 @@
   "businessDegreesLatest": 191,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11310,
+  "businessPctStart": 0.1502,
+  "businessDegreesStart": 201
  },
  {
   "id": 115,
@@ -6552,7 +6772,10 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11684,
+  "businessPctStart": 0.0462,
+  "businessDegreesStart": 53
  },
  {
   "id": 116,
@@ -6609,7 +6832,9 @@
   "businessDegreesLatest": 126,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0819,
+  "businessDegreesStart": 126
  },
  {
   "id": 117,
@@ -6666,7 +6891,10 @@
   "businessDegreesLatest": 1534,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10024,
+  "businessPctStart": 0.1197,
+  "businessDegreesStart": 178
  },
  {
   "id": 118,
@@ -6723,7 +6951,10 @@
   "businessDegreesLatest": 1534,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 64156,
+  "businessPctStart": 0.1516,
+  "businessDegreesStart": 1654
  },
  {
   "id": 119,
@@ -6837,7 +7068,10 @@
   "businessDegreesLatest": 396,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 29133,
+  "businessPctStart": 0.0411,
+  "businessDegreesStart": 286
  },
  {
   "id": 121,
@@ -6894,7 +7128,10 @@
   "businessDegreesLatest": 396,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 29908,
+  "businessPctStart": 0.1037,
+  "businessDegreesStart": 393
  },
  {
   "id": 122,
@@ -6951,7 +7188,10 @@
   "businessDegreesLatest": 1282,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11095,
+  "businessPctStart": 0.1323,
+  "businessDegreesStart": 172
  },
  {
   "id": 123,
@@ -7008,7 +7248,10 @@
   "businessDegreesLatest": 1282,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 22003,
+  "businessPctStart": 0.2297,
+  "businessDegreesStart": 1671
  },
  {
   "id": 124,
@@ -7122,7 +7365,10 @@
   "businessDegreesLatest": 536,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 15985,
+  "businessPctStart": 0.1308,
+  "businessDegreesStart": 401
  },
  {
   "id": 126,
@@ -7236,7 +7482,10 @@
   "businessDegreesLatest": 93,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 18711,
+  "businessPctStart": 0.0535,
+  "businessDegreesStart": 139
  },
  {
   "id": 128,
@@ -7350,7 +7599,9 @@
   "businessDegreesLatest": 240,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1526,
+  "businessDegreesStart": 240
  },
  {
   "id": 130,
@@ -7464,7 +7715,10 @@
   "businessDegreesLatest": 508,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 20042,
+  "businessPctStart": 0.1237,
+  "businessDegreesStart": 649
  },
  {
   "id": 132,
@@ -7521,7 +7775,10 @@
   "businessDegreesLatest": 69,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 18902,
+  "businessPctStart": 0.0349,
+  "businessDegreesStart": 88
  },
  {
   "id": 133,
@@ -7635,7 +7892,10 @@
   "businessDegreesLatest": 614,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 15426,
+  "businessPctStart": 0.0956,
+  "businessDegreesStart": 398
  },
  {
   "id": 135,
@@ -7692,7 +7952,10 @@
   "businessDegreesLatest": 614,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 13023,
+  "businessPctStart": 0.108,
+  "businessDegreesStart": 380
  },
  {
   "id": 136,
@@ -7863,7 +8126,10 @@
   "businessDegreesLatest": 429,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 13112,
+  "businessPctStart": 0.2171,
+  "businessDegreesStart": 195
  },
  {
   "id": 139,
@@ -7920,7 +8186,10 @@
   "businessDegreesLatest": 429,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 12218,
+  "businessPctStart": 0.138,
+  "businessDegreesStart": 347
  },
  {
   "id": 140,
@@ -8091,7 +8360,9 @@
   "businessDegreesLatest": 116,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0532,
+  "businessDegreesStart": 116
  },
  {
   "id": 143,
@@ -8205,7 +8476,10 @@
   "businessDegreesLatest": 532,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 15062,
+  "businessPctStart": 0.1222,
+  "businessDegreesStart": 322
  },
  {
   "id": 145,
@@ -8319,7 +8593,10 @@
   "businessDegreesLatest": 314,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7376,
+  "businessPctStart": 0.0759,
+  "businessDegreesStart": 189
  },
  {
   "id": 147,
@@ -8376,7 +8653,10 @@
   "businessDegreesLatest": 242,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9392,
+  "businessPctStart": 0.1348,
+  "businessDegreesStart": 228
  },
  {
   "id": 148,
@@ -8490,7 +8770,9 @@
   "businessDegreesLatest": 55,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0177,
+  "businessDegreesStart": 55
  },
  {
   "id": 150,
@@ -8547,7 +8829,10 @@
   "businessDegreesLatest": 105,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10306,
+  "businessPctStart": 0.0559,
+  "businessDegreesStart": 137
  },
  {
   "id": 151,
@@ -8604,7 +8889,10 @@
   "businessDegreesLatest": 153,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9021,
+  "businessPctStart": 0.1518,
+  "businessDegreesStart": 235
  },
  {
   "id": 152,
@@ -8661,7 +8949,10 @@
   "businessDegreesLatest": 153,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7134,
+  "businessPctStart": 0.1764,
+  "businessDegreesStart": 193
  },
  {
   "id": 153,
@@ -8718,7 +9009,10 @@
   "businessDegreesLatest": 9715,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 51679,
+  "businessPctStart": 0.2479,
+  "businessDegreesStart": 4140
  },
  {
   "id": 154,
@@ -8775,7 +9069,10 @@
   "businessDegreesLatest": 9715,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 44002,
+  "businessPctStart": 0.2426,
+  "businessDegreesStart": 4250
  },
  {
   "id": 155,
@@ -8832,7 +9129,10 @@
   "businessDegreesLatest": 1168,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 28742,
+  "businessPctStart": 0.2014,
+  "businessDegreesStart": 1001
  },
  {
   "id": 156,
@@ -8889,7 +9189,10 @@
   "businessDegreesLatest": 1197,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 23592,
+  "businessPctStart": 0.1738,
+  "businessDegreesStart": 930
  },
  {
   "id": 157,
@@ -8946,7 +9249,10 @@
   "businessDegreesLatest": 534,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16168,
+  "businessPctStart": 0.1144,
+  "businessDegreesStart": 478
  },
  {
   "id": 158,
@@ -9003,7 +9309,10 @@
   "businessDegreesLatest": 3708,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 19860,
+  "businessPctStart": 0.1622,
+  "businessDegreesStart": 242
  },
  {
   "id": 159,
@@ -9060,7 +9369,10 @@
   "businessDegreesLatest": 246,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 19780,
+  "businessPctStart": 0.1876,
+  "businessDegreesStart": 323
  },
  {
   "id": 160,
@@ -9117,7 +9429,10 @@
   "businessDegreesLatest": 395,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 15372,
+  "businessPctStart": 0.0573,
+  "businessDegreesStart": 252
  },
  {
   "id": 161,
@@ -9174,7 +9489,10 @@
   "businessDegreesLatest": 412,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 15236,
+  "businessPctStart": 0.1481,
+  "businessDegreesStart": 669
  },
  {
   "id": 162,
@@ -9231,7 +9549,10 @@
   "businessDegreesLatest": 417,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10212,
+  "businessPctStart": 0.1467,
+  "businessDegreesStart": 432
  },
  {
   "id": 163,
@@ -9288,7 +9609,10 @@
   "businessDegreesLatest": 76,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16788,
+  "businessPctStart": 0.0166,
+  "businessDegreesStart": 57
  },
  {
   "id": 164,
@@ -9345,7 +9669,10 @@
   "businessDegreesLatest": 285,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 14292,
+  "businessPctStart": 0.1408,
+  "businessDegreesStart": 600
  },
  {
   "id": 165,
@@ -9402,7 +9729,10 @@
   "businessDegreesLatest": 295,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 9852,
+  "businessPctStart": 0.156,
+  "businessDegreesStart": 271
  },
  {
   "id": 166,
@@ -9459,7 +9789,10 @@
   "businessDegreesLatest": 421,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 11979,
+  "businessPctStart": 0.1725,
+  "businessDegreesStart": 655
  },
  {
   "id": 167,
@@ -9516,7 +9849,10 @@
   "businessDegreesLatest": 161,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11353,
+  "businessPctStart": 0.1146,
+  "businessDegreesStart": 232
  },
  {
   "id": 168,
@@ -9573,7 +9909,10 @@
   "businessDegreesLatest": 551,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7234,
+  "businessPctStart": 0.2684,
+  "businessDegreesStart": 815
  },
  {
   "id": 169,
@@ -9630,7 +9969,10 @@
   "businessDegreesLatest": 291,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 10433,
+  "businessPctStart": 0.0402,
+  "businessDegreesStart": 220
  },
  {
   "id": 170,
@@ -9687,7 +10029,10 @@
   "businessDegreesLatest": 107,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7321,
+  "businessPctStart": 0.0734,
+  "businessDegreesStart": 91
  },
  {
   "id": 171,
@@ -9744,7 +10089,10 @@
   "businessDegreesLatest": 257,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9056,
+  "businessPctStart": 0.1504,
+  "businessDegreesStart": 211
  },
  {
   "id": 172,
@@ -9858,7 +10206,10 @@
   "businessDegreesLatest": 214,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12966,
+  "businessPctStart": 0.1687,
+  "businessDegreesStart": 286
  },
  {
   "id": 174,
@@ -9915,7 +10266,10 @@
   "businessDegreesLatest": 1251,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 52873,
+  "businessPctStart": 0.1507,
+  "businessDegreesStart": 1175
  },
  {
   "id": 175,
@@ -9972,7 +10326,10 @@
   "businessDegreesLatest": 645,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 34169,
+  "businessPctStart": 0.1347,
+  "businessDegreesStart": 673
  },
  {
   "id": 176,
@@ -10029,7 +10386,9 @@
   "businessDegreesLatest": 645,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1281,
+  "businessDegreesStart": 645
  },
  {
   "id": 177,
@@ -10143,7 +10502,10 @@
   "businessDegreesLatest": 509,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 29548,
+  "businessPctStart": 0.0779,
+  "businessDegreesStart": 573
  },
  {
   "id": 179,
@@ -10200,7 +10562,10 @@
   "businessDegreesLatest": 344,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 28494,
+  "businessPctStart": 0.1715,
+  "businessDegreesStart": 912
  },
  {
   "id": 180,
@@ -10257,7 +10622,10 @@
   "businessDegreesLatest": 344,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 19400,
+  "businessPctStart": 0.0707,
+  "businessDegreesStart": 335
  },
  {
   "id": 181,
@@ -10314,7 +10682,10 @@
   "businessDegreesLatest": 826,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 21398,
+  "businessPctStart": 0.0802,
+  "businessDegreesStart": 846
  },
  {
   "id": 182,
@@ -10428,7 +10799,9 @@
   "businessDegreesLatest": 656,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1392,
+  "businessDegreesStart": 656
  },
  {
   "id": 184,
@@ -10542,7 +10915,10 @@
   "businessDegreesLatest": 355,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 17003,
+  "businessPctStart": 0.1476,
+  "businessDegreesStart": 188
  },
  {
   "id": 186,
@@ -10599,7 +10975,10 @@
   "businessDegreesLatest": 977,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 18104,
+  "businessPctStart": 0.1989,
+  "businessDegreesStart": 1129
  },
  {
   "id": 187,
@@ -10656,7 +11035,10 @@
   "businessDegreesLatest": 188,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 15731,
+  "businessPctStart": 0.0551,
+  "businessDegreesStart": 164
  },
  {
   "id": 188,
@@ -10713,7 +11095,10 @@
   "businessDegreesLatest": 329,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11902,
+  "businessPctStart": 0.0843,
+  "businessDegreesStart": 302
  },
  {
   "id": 189,
@@ -10770,7 +11155,10 @@
   "businessDegreesLatest": 366,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12660,
+  "businessPctStart": 0.137,
+  "businessDegreesStart": 360
  },
  {
   "id": 190,
@@ -10827,7 +11215,10 @@
   "businessDegreesLatest": 264,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12345,
+  "businessPctStart": 0.0593,
+  "businessDegreesStart": 222
  },
  {
   "id": 191,
@@ -10941,7 +11332,10 @@
   "businessDegreesLatest": 248,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11357,
+  "businessPctStart": 0.1569,
+  "businessDegreesStart": 185
  },
  {
   "id": 193,
@@ -11055,7 +11449,9 @@
   "businessDegreesLatest": 562,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0784,
+  "businessDegreesStart": 562
  },
  {
   "id": 195,
@@ -11112,7 +11508,10 @@
   "businessDegreesLatest": 85,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 8840,
+  "businessPctStart": 0.0531,
+  "businessDegreesStart": 112
  },
  {
   "id": 196,
@@ -11169,7 +11568,10 @@
   "businessDegreesLatest": 565,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 15653,
+  "businessPctStart": 0.1943,
+  "businessDegreesStart": 261
  },
  {
   "id": 197,
@@ -11340,7 +11742,8 @@
   "businessDegreesLatest": 5554,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 27565
  },
  {
   "id": 200,
@@ -11397,7 +11800,10 @@
   "businessDegreesLatest": 5554,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 43599,
+  "businessPctStart": 0.3425,
+  "businessDegreesStart": 6233
  },
  {
   "id": 201,
@@ -11454,7 +11860,10 @@
   "businessDegreesLatest": 472,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 30513,
+  "businessPctStart": 0.1487,
+  "businessDegreesStart": 373
  },
  {
   "id": 202,
@@ -11511,7 +11920,10 @@
   "businessDegreesLatest": 353,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 13719,
+  "businessPctStart": 0.2238,
+  "businessDegreesStart": 318
  },
  {
   "id": 203,
@@ -11625,7 +12037,10 @@
   "businessDegreesLatest": 736,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 19709,
+  "businessPctStart": 0.0804,
+  "businessDegreesStart": 552
  },
  {
   "id": 205,
@@ -11739,7 +12154,9 @@
   "businessDegreesLatest": 245,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0532,
+  "businessDegreesStart": 245
  },
  {
   "id": 207,
@@ -11910,7 +12327,10 @@
   "businessDegreesLatest": 447,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 22823,
+  "businessPctStart": 0.0507,
+  "businessDegreesStart": 237
  },
  {
   "id": 210,
@@ -11967,7 +12387,10 @@
   "businessDegreesLatest": 447,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16803,
+  "businessPctStart": 0.0699,
+  "businessDegreesStart": 388
  },
  {
   "id": 211,
@@ -12024,7 +12447,10 @@
   "businessDegreesLatest": 207,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 19622,
+  "businessPctStart": 0.1154,
+  "businessDegreesStart": 210
  },
  {
   "id": 212,
@@ -12081,7 +12507,10 @@
   "businessDegreesLatest": 226,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 15411,
+  "businessPctStart": 0.1288,
+  "businessDegreesStart": 351
  },
  {
   "id": 213,
@@ -12138,7 +12567,9 @@
   "businessDegreesLatest": 245,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0956,
+  "businessDegreesStart": 245
  },
  {
   "id": 214,
@@ -12195,7 +12626,10 @@
   "businessDegreesLatest": 223,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 2939,
+  "businessPctStart": 0.0913,
+  "businessDegreesStart": 41
  },
  {
   "id": 215,
@@ -12252,7 +12686,10 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12607,
+  "businessPctStart": 0.0291,
+  "businessDegreesStart": 98
  },
  {
   "id": 216,
@@ -12309,7 +12746,10 @@
   "businessDegreesLatest": 317,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11996,
+  "businessPctStart": 0.1315,
+  "businessDegreesStart": 307
  },
  {
   "id": 217,
@@ -12366,7 +12806,10 @@
   "businessDegreesLatest": 254,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12323,
+  "businessPctStart": 0.0619,
+  "businessDegreesStart": 175
  },
  {
   "id": 218,
@@ -12423,7 +12866,10 @@
   "businessDegreesLatest": 357,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10885,
+  "businessPctStart": 0.0546,
+  "businessDegreesStart": 87
  },
  {
   "id": 219,
@@ -12480,7 +12926,10 @@
   "businessDegreesLatest": 513,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12932,
+  "businessPctStart": 0.085,
+  "businessDegreesStart": 303
  },
  {
   "id": 220,
@@ -12537,7 +12986,10 @@
   "businessDegreesLatest": 434,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11664,
+  "businessPctStart": 0.1493,
+  "businessDegreesStart": 523
  },
  {
   "id": 221,
@@ -12594,7 +13046,10 @@
   "businessDegreesLatest": 287,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 10120,
+  "businessPctStart": 0.114,
+  "businessDegreesStart": 266
  },
  {
   "id": 222,
@@ -12651,7 +13106,10 @@
   "businessDegreesLatest": 308,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10665,
+  "businessPctStart": 0.0365,
+  "businessDegreesStart": 72
  },
  {
   "id": 223,
@@ -12708,7 +13166,10 @@
   "businessDegreesLatest": 712,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 40131,
+  "businessPctStart": 0.0906,
+  "businessDegreesStart": 681
  },
  {
   "id": 224,
@@ -12765,7 +13226,9 @@
   "businessDegreesLatest": 392,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0766,
+  "businessDegreesStart": 392
  },
  {
   "id": 225,
@@ -12879,7 +13342,10 @@
   "businessDegreesLatest": 1196,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 24605,
+  "businessPctStart": 0.2382,
+  "businessDegreesStart": 1799
  },
  {
   "id": 227,
@@ -12936,7 +13402,10 @@
   "businessDegreesLatest": 552,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 19100,
+  "businessPctStart": 0.1044,
+  "businessDegreesStart": 313
  },
  {
   "id": 228,
@@ -12993,7 +13462,10 @@
   "businessDegreesLatest": 333,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 18076,
+  "businessPctStart": 0.2016,
+  "businessDegreesStart": 374
  },
  {
   "id": 229,
@@ -13107,7 +13579,10 @@
   "businessDegreesLatest": 300,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 21014,
+  "businessPctStart": 0.1335,
+  "businessDegreesStart": 398
  },
  {
   "id": 231,
@@ -13221,7 +13696,9 @@
   "businessDegreesLatest": 756,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.241,
+  "businessDegreesStart": 756
  },
  {
   "id": 233,
@@ -13278,7 +13755,10 @@
   "businessDegreesLatest": 633,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 17202,
+  "businessPctStart": 0.0334,
+  "businessDegreesStart": 142
  },
  {
   "id": 234,
@@ -13335,7 +13815,10 @@
   "businessDegreesLatest": 84,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 15569,
+  "businessPctStart": 0.134,
+  "businessDegreesStart": 223
  },
  {
   "id": 235,
@@ -13392,7 +13875,10 @@
   "businessDegreesLatest": 672,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 14140,
+  "businessPctStart": 0.1335,
+  "businessDegreesStart": 426
  },
  {
   "id": 236,
@@ -13449,7 +13935,10 @@
   "businessDegreesLatest": 171,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12518,
+  "businessPctStart": 0.1079,
+  "businessDegreesStart": 221
  },
  {
   "id": 237,
@@ -13506,7 +13995,10 @@
   "businessDegreesLatest": 432,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10815,
+  "businessPctStart": 0.1551,
+  "businessDegreesStart": 440
  },
  {
   "id": 238,
@@ -13563,7 +14055,10 @@
   "businessDegreesLatest": 347,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12219,
+  "businessPctStart": 0.1629,
+  "businessDegreesStart": 254
  },
  {
   "id": 239,
@@ -13734,7 +14229,10 @@
   "businessDegreesLatest": 234,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 8796,
+  "businessPctStart": 0.1106,
+  "businessDegreesStart": 226
  },
  {
   "id": 242,
@@ -13791,7 +14289,10 @@
   "businessDegreesLatest": 227,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 17153,
+  "businessPctStart": 0.1379,
+  "businessDegreesStart": 384
  },
  {
   "id": 243,
@@ -14076,7 +14577,10 @@
   "businessDegreesLatest": 337,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 30248,
+  "businessPctStart": 0.0653,
+  "businessDegreesStart": 289
  },
  {
   "id": 248,
@@ -14133,7 +14637,9 @@
   "businessDegreesLatest": 337,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.072,
+  "businessDegreesStart": 337
  },
  {
   "id": 249,
@@ -14190,7 +14696,10 @@
   "businessDegreesLatest": 542,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 18736,
+  "businessPctStart": 0.1112,
+  "businessDegreesStart": 222
  },
  {
   "id": 250,
@@ -14247,7 +14756,10 @@
   "businessDegreesLatest": 657,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 22496,
+  "businessPctStart": 0.1807,
+  "businessDegreesStart": 860
  },
  {
   "id": 251,
@@ -14304,7 +14816,10 @@
   "businessDegreesLatest": 474,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 18339,
+  "businessPctStart": 0.1062,
+  "businessDegreesStart": 289
  },
  {
   "id": 252,
@@ -14361,7 +14876,10 @@
   "businessDegreesLatest": 474,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 18831,
+  "businessPctStart": 0.1725,
+  "businessDegreesStart": 390
  },
  {
   "id": 253,
@@ -14532,7 +15050,10 @@
   "businessDegreesLatest": 346,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 30082,
+  "businessPctStart": 0.0766,
+  "businessDegreesStart": 427
  },
  {
   "id": 256,
@@ -14589,7 +15110,9 @@
   "businessDegreesLatest": 346,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0615,
+  "businessDegreesStart": 346
  },
  {
   "id": 257,
@@ -14646,7 +15169,10 @@
   "businessDegreesLatest": 91,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11897,
+  "businessPctStart": 0.0322,
+  "businessDegreesStart": 21
  },
  {
   "id": 258,
@@ -14703,7 +15229,10 @@
   "businessDegreesLatest": 292,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 13477,
+  "businessPctStart": 0.129,
+  "businessDegreesStart": 531
  },
  {
   "id": 259,
@@ -14760,7 +15289,10 @@
   "businessDegreesLatest": 1009,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 12199,
+  "businessPctStart": 0.1511,
+  "businessDegreesStart": 853
  },
  {
   "id": 260,
@@ -14817,7 +15349,10 @@
   "businessDegreesLatest": 154,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 14193,
+  "businessPctStart": 0.0286,
+  "businessDegreesStart": 91
  },
  {
   "id": 261,
@@ -14931,7 +15466,10 @@
   "businessDegreesLatest": 371,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 12908,
+  "businessPctStart": 0.0389,
+  "businessDegreesStart": 65
  },
  {
   "id": 263,
@@ -14988,7 +15526,9 @@
   "businessDegreesLatest": 371,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0744,
+  "businessDegreesStart": 371
  },
  {
   "id": 264,
@@ -15102,7 +15642,10 @@
   "businessDegreesLatest": 1257,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10877,
+  "businessPctStart": 0.1235,
+  "businessDegreesStart": 312
  },
  {
   "id": 266,
@@ -15159,7 +15702,10 @@
   "businessDegreesLatest": 304,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9667,
+  "businessPctStart": 0.0901,
+  "businessDegreesStart": 85
  },
  {
   "id": 267,
@@ -15216,7 +15762,10 @@
   "businessDegreesLatest": 200,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9317,
+  "businessPctStart": 0.0614,
+  "businessDegreesStart": 126
  },
  {
   "id": 268,
@@ -15273,7 +15822,10 @@
   "businessDegreesLatest": 441,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9982,
+  "businessPctStart": 0.0923,
+  "businessDegreesStart": 436
  },
  {
   "id": 269,
@@ -15330,7 +15882,10 @@
   "businessDegreesLatest": 343,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4580,
+  "businessPctStart": 0.0801,
+  "businessDegreesStart": 46
  },
  {
   "id": 270,
@@ -15387,7 +15942,10 @@
   "businessDegreesLatest": 242,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11321,
+  "businessPctStart": 0.0898,
+  "businessDegreesStart": 163
  },
  {
   "id": 271,
@@ -15558,7 +16116,10 @@
   "businessDegreesLatest": 524,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 20118,
+  "businessPctStart": 0.1076,
+  "businessDegreesStart": 624
  },
  {
   "id": 274,
@@ -15615,7 +16176,10 @@
   "businessDegreesLatest": 524,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 23852,
+  "businessPctStart": 0.081,
+  "businessDegreesStart": 455
  },
  {
   "id": 275,
@@ -15672,7 +16236,10 @@
   "businessDegreesLatest": 422,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 19449,
+  "businessPctStart": 0.1715,
+  "businessDegreesStart": 973
  },
  {
   "id": 276,
@@ -15729,7 +16296,10 @@
   "businessDegreesLatest": 6,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 18808,
+  "businessPctStart": 0.0008,
+  "businessDegreesStart": 2
  },
  {
   "id": 277,
@@ -15786,7 +16356,10 @@
   "businessDegreesLatest": 1578,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 18304,
+  "businessPctStart": 0.2522,
+  "businessDegreesStart": 1097
  },
  {
   "id": 278,
@@ -15843,7 +16416,10 @@
   "businessDegreesLatest": 1578,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 15682,
+  "businessPctStart": 0.2644,
+  "businessDegreesStart": 1100
  },
  {
   "id": 279,
@@ -15900,7 +16476,10 @@
   "businessDegreesLatest": 309,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16139,
+  "businessPctStart": 0.083,
+  "businessDegreesStart": 320
  },
  {
   "id": 280,
@@ -16071,7 +16650,10 @@
   "businessDegreesLatest": 608,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 16982,
+  "businessPctStart": 0.1116,
+  "businessDegreesStart": 321
  },
  {
   "id": 283,
@@ -16128,7 +16710,10 @@
   "businessDegreesLatest": 277,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 15865,
+  "businessPctStart": 0.1068,
+  "businessDegreesStart": 266
  },
  {
   "id": 284,
@@ -16185,7 +16770,10 @@
   "businessDegreesLatest": 277,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 14076,
+  "businessPctStart": 0.0875,
+  "businessDegreesStart": 252
  },
  {
   "id": 285,
@@ -16242,7 +16830,10 @@
   "businessDegreesLatest": 339,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 13480,
+  "businessPctStart": 0.0976,
+  "businessDegreesStart": 330
  },
  {
   "id": 286,
@@ -16299,7 +16890,10 @@
   "businessDegreesLatest": 363,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11619,
+  "businessPctStart": 0.0678,
+  "businessDegreesStart": 326
  },
  {
   "id": 287,
@@ -16356,7 +16950,10 @@
   "businessDegreesLatest": 79,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12655,
+  "businessPctStart": 0.0363,
+  "businessDegreesStart": 89
  },
  {
   "id": 288,
@@ -16470,7 +17067,10 @@
   "businessDegreesLatest": 32,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10800,
+  "businessPctStart": 0.0086,
+  "businessDegreesStart": 20
  },
  {
   "id": 290,
@@ -16527,7 +17127,10 @@
   "businessDegreesLatest": 252,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 11715,
+  "businessPctStart": 0.1277,
+  "businessDegreesStart": 279
  },
  {
   "id": 291,
@@ -16584,7 +17187,10 @@
   "businessDegreesLatest": 252,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 10261,
+  "businessPctStart": 0.172,
+  "businessDegreesStart": 395
  },
  {
   "id": 292,
@@ -16641,7 +17247,10 @@
   "businessDegreesLatest": 229,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9539,
+  "businessPctStart": 0.0476,
+  "businessDegreesStart": 64
  },
  {
   "id": 293,
@@ -16812,7 +17421,10 @@
   "businessDegreesLatest": 176,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 9053,
+  "businessPctStart": 0.064,
+  "businessDegreesStart": 150
  },
  {
   "id": 296,
@@ -16869,7 +17481,9 @@
   "businessDegreesLatest": 176,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0689,
+  "businessDegreesStart": 176
  },
  {
   "id": 297,
@@ -16926,7 +17540,10 @@
   "businessDegreesLatest": 173,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 6894,
+  "businessPctStart": 0.1993,
+  "businessDegreesStart": 224
  },
  {
   "id": 298,
@@ -16983,7 +17600,10 @@
   "businessDegreesLatest": 173,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 9208,
+  "businessPctStart": 0.1673,
+  "businessDegreesStart": 179
  },
  {
   "id": 299,
@@ -17040,7 +17660,9 @@
   "businessDegreesLatest": 173,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.1346,
+  "businessDegreesStart": 173
  },
  {
   "id": 300,
@@ -17211,7 +17833,10 @@
   "businessDegreesLatest": 1226,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 27011,
+  "businessPctStart": 0.1138,
+  "businessDegreesStart": 484
  },
  {
   "id": 303,
@@ -17268,7 +17893,9 @@
   "businessDegreesLatest": 329,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0958,
+  "businessDegreesStart": 329
  },
  {
   "id": 304,
@@ -17382,7 +18009,10 @@
   "businessDegreesLatest": 2769,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 22043,
+  "businessPctStart": 0.2237,
+  "businessDegreesStart": 469
  },
  {
   "id": 306,
@@ -17439,7 +18069,10 @@
   "businessDegreesLatest": 412,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 20549,
+  "businessPctStart": 0.1314,
+  "businessDegreesStart": 467
  },
  {
   "id": 307,
@@ -17496,7 +18129,10 @@
   "businessDegreesLatest": 414,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 17137,
+  "businessPctStart": 0.1648,
+  "businessDegreesStart": 491
  },
  {
   "id": 308,
@@ -17667,7 +18303,10 @@
   "businessDegreesLatest": 259,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 15673,
+  "businessPctStart": 0.1301,
+  "businessDegreesStart": 273
  },
  {
   "id": 311,
@@ -17724,7 +18363,9 @@
   "businessDegreesLatest": 259,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0732,
+  "businessDegreesStart": 259
  },
  {
   "id": 312,
@@ -17781,7 +18422,10 @@
   "businessDegreesLatest": 393,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 14275,
+  "businessPctStart": 0.0559,
+  "businessDegreesStart": 277
  },
  {
   "id": 313,
@@ -17838,7 +18482,10 @@
   "businessDegreesLatest": 393,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 12709,
+  "businessPctStart": 0.07,
+  "businessDegreesStart": 371
  },
  {
   "id": 314,
@@ -17895,7 +18542,10 @@
   "businessDegreesLatest": 664,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16712,
+  "businessPctStart": 0.1185,
+  "businessDegreesStart": 331
  },
  {
   "id": 315,
@@ -17952,7 +18602,9 @@
   "businessDegreesLatest": 664,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1919,
+  "businessDegreesStart": 664
  },
  {
   "id": 316,
@@ -18009,7 +18661,10 @@
   "businessDegreesLatest": 134,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 12438,
+  "businessPctStart": 0.0773,
+  "businessDegreesStart": 182
  },
  {
   "id": 317,
@@ -18066,7 +18721,10 @@
   "businessDegreesLatest": 134,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 12931,
+  "businessPctStart": 0.0946,
+  "businessDegreesStart": 167
  },
  {
   "id": 318,
@@ -18180,7 +18838,10 @@
   "businessDegreesLatest": 292,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12286,
+  "businessPctStart": 0.1308,
+  "businessDegreesStart": 325
  },
  {
   "id": 320,
@@ -18237,7 +18898,10 @@
   "businessDegreesLatest": 292,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11472,
+  "businessPctStart": 0.1313,
+  "businessDegreesStart": 254
  },
  {
   "id": 321,
@@ -18294,7 +18958,10 @@
   "businessDegreesLatest": 339,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 13342,
+  "businessPctStart": 0.0919,
+  "businessDegreesStart": 308
  },
  {
   "id": 322,
@@ -18408,7 +19075,10 @@
   "businessDegreesLatest": 115,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16650,
+  "businessPctStart": 0.0581,
+  "businessDegreesStart": 148
  },
  {
   "id": 324,
@@ -18465,7 +19135,10 @@
   "businessDegreesLatest": 115,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11144,
+  "businessPctStart": 0.0293,
+  "businessDegreesStart": 104
  },
  {
   "id": 325,
@@ -18579,7 +19252,8 @@
   "businessDegreesLatest": 136,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3683
  },
  {
   "id": 327,
@@ -18636,7 +19310,10 @@
   "businessDegreesLatest": 136,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9920,
+  "businessPctStart": 0.0885,
+  "businessDegreesStart": 139
  },
  {
   "id": 328,
@@ -18693,7 +19370,10 @@
   "businessDegreesLatest": 208,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12405,
+  "businessPctStart": 0.1669,
+  "businessDegreesStart": 409
  },
  {
   "id": 329,
@@ -18807,7 +19487,10 @@
   "businessDegreesLatest": 261,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11856,
+  "businessPctStart": 0.1806,
+  "businessDegreesStart": 370
  },
  {
   "id": 331,
@@ -18921,7 +19604,9 @@
   "businessDegreesLatest": 288,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0404,
+  "businessDegreesStart": 288
  },
  {
   "id": 333,
@@ -19035,7 +19720,10 @@
   "businessDegreesLatest": 419,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 29616,
+  "businessPctStart": 0.0993,
+  "businessDegreesStart": 658
  },
  {
   "id": 335,
@@ -19092,7 +19780,10 @@
   "businessDegreesLatest": 603,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 20437,
+  "businessPctStart": 0.1218,
+  "businessDegreesStart": 573
  },
  {
   "id": 336,
@@ -19149,7 +19840,10 @@
   "businessDegreesLatest": 277,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 17719,
+  "businessPctStart": 0.1317,
+  "businessDegreesStart": 294
  },
  {
   "id": 337,
@@ -19206,7 +19900,9 @@
   "businessDegreesLatest": 161,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0498,
+  "businessDegreesStart": 161
  },
  {
   "id": 338,
@@ -19320,7 +20016,10 @@
   "businessDegreesLatest": 89,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 9844,
+  "businessPctStart": 0.0701,
+  "businessDegreesStart": 88
  },
  {
   "id": 340,
@@ -19377,7 +20076,10 @@
   "businessDegreesLatest": 392,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 15946,
+  "businessPctStart": 0.0877,
+  "businessDegreesStart": 90
  },
  {
   "id": 341,
@@ -19434,7 +20136,10 @@
   "businessDegreesLatest": 392,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 14398,
+  "businessPctStart": 0.1584,
+  "businessDegreesStart": 181
  },
  {
   "id": 342,
@@ -19491,7 +20196,10 @@
   "businessDegreesLatest": 153,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11625,
+  "businessPctStart": 0.0368,
+  "businessDegreesStart": 59
  },
  {
   "id": 343,
@@ -19548,7 +20256,10 @@
   "businessDegreesLatest": 153,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12557,
+  "businessPctStart": 0.0492,
+  "businessDegreesStart": 118
  },
  {
   "id": 344,
@@ -19776,7 +20487,10 @@
   "businessDegreesLatest": 289,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10645,
+  "businessPctStart": 0.116,
+  "businessDegreesStart": 362
  },
  {
   "id": 348,
@@ -19890,7 +20604,10 @@
   "businessDegreesLatest": 314,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11142,
+  "businessPctStart": 0.1509,
+  "businessDegreesStart": 221
  },
  {
   "id": 350,
@@ -19947,7 +20664,10 @@
   "businessDegreesLatest": 283,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11070,
+  "businessPctStart": 0.1185,
+  "businessDegreesStart": 308
  },
  {
   "id": 351,
@@ -20061,7 +20781,10 @@
   "businessDegreesLatest": 703,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11024,
+  "businessPctStart": 0.0708,
+  "businessDegreesStart": 100
  },
  {
   "id": 353,
@@ -20118,7 +20841,10 @@
   "businessDegreesLatest": 215,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9335,
+  "businessPctStart": 0.0918,
+  "businessDegreesStart": 246
  },
  {
   "id": 354,
@@ -20175,7 +20901,10 @@
   "businessDegreesLatest": 271,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11529,
+  "businessPctStart": 0.0304,
+  "businessDegreesStart": 56
  },
  {
   "id": 355,
@@ -20289,7 +21018,10 @@
   "businessDegreesLatest": 147,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 14023,
+  "businessPctStart": 0.217,
+  "businessDegreesStart": 281
  },
  {
   "id": 357,
@@ -20346,7 +21078,10 @@
   "businessDegreesLatest": 143,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10704,
+  "businessPctStart": 0.159,
+  "businessDegreesStart": 349
  },
  {
   "id": 358,
@@ -20403,7 +21138,10 @@
   "businessDegreesLatest": 16,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 3860,
+  "businessPctStart": 0.1591,
+  "businessDegreesStart": 21
  },
  {
   "id": 359,
@@ -20631,7 +21369,10 @@
   "businessDegreesLatest": 464,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11482,
+  "businessPctStart": 0.151,
+  "businessDegreesStart": 264
  },
  {
   "id": 363,
@@ -20688,7 +21429,10 @@
   "businessDegreesLatest": 124,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 8989,
+  "businessPctStart": 0.1143,
+  "businessDegreesStart": 144
  },
  {
   "id": 364,
@@ -20745,7 +21489,9 @@
   "businessDegreesLatest": 124,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.1417,
+  "businessDegreesStart": 124
  },
  {
   "id": 365,
@@ -20973,7 +21719,10 @@
   "businessDegreesLatest": 1,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 5550,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "id": 369,
@@ -21087,7 +21836,10 @@
   "businessDegreesLatest": 266,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9827,
+  "businessPctStart": 0.1538,
+  "businessDegreesStart": 220
  },
  {
   "id": 371,
@@ -21429,7 +22181,10 @@
   "businessDegreesLatest": 140,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9078,
+  "businessPctStart": 0.1806,
+  "businessDegreesStart": 247
  },
  {
   "id": 377,
@@ -21486,7 +22241,10 @@
   "businessDegreesLatest": 184,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12143,
+  "businessPctStart": 0.1625,
+  "businessDegreesStart": 269
  },
  {
   "id": 378,
@@ -21543,7 +22301,10 @@
   "businessDegreesLatest": 184,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10896,
+  "businessPctStart": 0.1649,
+  "businessDegreesStart": 311
  },
  {
   "id": 379,
@@ -21600,7 +22361,9 @@
   "businessDegreesLatest": 184,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1289,
+  "businessDegreesStart": 184
  },
  {
   "id": 380,
@@ -21999,7 +22762,10 @@
   "businessDegreesLatest": 224,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9060,
+  "businessPctStart": 0.2251,
+  "businessDegreesStart": 415
  },
  {
   "id": 387,
@@ -22056,7 +22822,10 @@
   "businessDegreesLatest": 224,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8375,
+  "businessPctStart": 0.2087,
+  "businessDegreesStart": 283
  },
  {
   "id": 388,
@@ -22113,7 +22882,10 @@
   "businessDegreesLatest": 578,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 6792,
+  "businessPctStart": 0.4246,
+  "businessDegreesStart": 974
  },
  {
   "id": 389,
@@ -22170,7 +22942,10 @@
   "businessDegreesLatest": 91,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7569,
+  "businessPctStart": 0.0409,
+  "businessDegreesStart": 91
  },
  {
   "id": 390,
@@ -22341,7 +23116,10 @@
   "businessDegreesLatest": 151,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 8043,
+  "businessPctStart": 0.1377,
+  "businessDegreesStart": 172
  },
  {
   "id": 393,
@@ -22398,7 +23176,10 @@
   "businessDegreesLatest": 128,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8340,
+  "businessPctStart": 0.0401,
+  "businessDegreesStart": 83
  },
  {
   "id": 394,
@@ -22455,7 +23236,9 @@
   "businessDegreesLatest": 128,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0436,
+  "businessDegreesStart": 128
  },
  {
   "id": 395,
@@ -22626,7 +23409,10 @@
   "businessDegreesLatest": 173,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10723,
+  "businessPctStart": 0.0592,
+  "businessDegreesStart": 245
  },
  {
   "id": 398,
@@ -22683,7 +23469,10 @@
   "businessDegreesLatest": 135,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7839,
+  "businessPctStart": 0.0561,
+  "businessDegreesStart": 47
  },
  {
   "id": 399,
@@ -22740,7 +23529,10 @@
   "businessDegreesLatest": 93,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 14918,
+  "businessPctStart": 0.1192,
+  "businessDegreesStart": 283
  },
  {
   "id": 400,
@@ -22797,7 +23589,10 @@
   "businessDegreesLatest": 93,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5062,
+  "businessPctStart": 0.0763,
+  "businessDegreesStart": 44
  },
  {
   "id": 401,
@@ -22854,7 +23649,10 @@
   "businessDegreesLatest": 93,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6216,
+  "businessPctStart": 0.1009,
+  "businessDegreesStart": 54
  },
  {
   "id": 402,
@@ -22968,7 +23766,10 @@
   "businessDegreesLatest": 181,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6132,
+  "businessPctStart": 0.1412,
+  "businessDegreesStart": 130
  },
  {
   "id": 404,
@@ -23025,7 +23826,10 @@
   "businessDegreesLatest": 181,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11018,
+  "businessPctStart": 0.1386,
+  "businessDegreesStart": 228
  },
  {
   "id": 405,
@@ -23082,7 +23886,10 @@
   "businessDegreesLatest": 181,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8484,
+  "businessPctStart": 0.1229,
+  "businessDegreesStart": 173
  },
  {
   "id": 406,
@@ -23196,7 +24003,10 @@
   "businessDegreesLatest": 113,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10533,
+  "businessPctStart": 0.0183,
+  "businessDegreesStart": 32
  },
  {
   "id": 408,
@@ -23253,7 +24063,9 @@
   "businessDegreesLatest": 113,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0638,
+  "businessDegreesStart": 113
  },
  {
   "id": 409,
@@ -23367,7 +24179,10 @@
   "businessDegreesLatest": 177,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8996,
+  "businessPctStart": 0.0886,
+  "businessDegreesStart": 169
  },
  {
   "id": 411,
@@ -23424,7 +24239,10 @@
   "businessDegreesLatest": 177,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8745,
+  "businessPctStart": 0.1068,
+  "businessDegreesStart": 208
  },
  {
   "id": 412,
@@ -23481,7 +24299,10 @@
   "businessDegreesLatest": 553,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9972,
+  "businessPctStart": 0.1093,
+  "businessDegreesStart": 250
  },
  {
   "id": 413,
@@ -23538,7 +24359,10 @@
   "businessDegreesLatest": 214,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10789,
+  "businessPctStart": 0.1864,
+  "businessDegreesStart": 165
  },
  {
   "id": 414,
@@ -23595,7 +24419,10 @@
   "businessDegreesLatest": 214,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8737,
+  "businessPctStart": 0.1339,
+  "businessDegreesStart": 220
  },
  {
   "id": 415,
@@ -23766,7 +24593,10 @@
   "businessDegreesLatest": 130,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7523,
+  "businessPctStart": 0.1285,
+  "businessDegreesStart": 69
  },
  {
   "id": 418,
@@ -23823,7 +24653,10 @@
   "businessDegreesLatest": 130,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8177,
+  "businessPctStart": 0.1362,
+  "businessDegreesStart": 183
  },
  {
   "id": 419,
@@ -23880,7 +24713,10 @@
   "businessDegreesLatest": 163,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 18976,
+  "businessPctStart": 0.1656,
+  "businessDegreesStart": 444
  },
  {
   "id": 420,
@@ -23937,7 +24773,10 @@
   "businessDegreesLatest": 163,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10161,
+  "businessPctStart": 0.116,
+  "businessDegreesStart": 220
  },
  {
   "id": 421,
@@ -23994,7 +24833,10 @@
   "businessDegreesLatest": 163,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8721,
+  "businessPctStart": 0.1137,
+  "businessDegreesStart": 204
  },
  {
   "id": 422,
@@ -24051,7 +24893,10 @@
   "businessDegreesLatest": 115,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 9446,
+  "businessPctStart": 0.149,
+  "businessDegreesStart": 131
  },
  {
   "id": 423,
@@ -24108,7 +24953,10 @@
   "businessDegreesLatest": 115,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 8378,
+  "businessPctStart": 0.075,
+  "businessDegreesStart": 104
  },
  {
   "id": 424,
@@ -24450,7 +25298,10 @@
   "businessDegreesLatest": 114,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6688,
+  "businessPctStart": 0.0367,
+  "businessDegreesStart": 74
  },
  {
   "id": 430,
@@ -24621,7 +25472,10 @@
   "businessDegreesLatest": 44,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5168,
+  "businessPctStart": 0.2467,
+  "businessDegreesStart": 295
  },
  {
   "id": 433,
@@ -24678,7 +25532,10 @@
   "businessDegreesLatest": 44,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5298,
+  "businessPctStart": 0.0381,
+  "businessDegreesStart": 54
  },
  {
   "id": 434,
@@ -24735,7 +25592,10 @@
   "businessDegreesLatest": 71,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 12834,
+  "businessPctStart": 0.139,
+  "businessDegreesStart": 180
  },
  {
   "id": 435,
@@ -24792,7 +25652,10 @@
   "businessDegreesLatest": 71,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7320,
+  "businessPctStart": 0.0891,
+  "businessDegreesStart": 82
  },
  {
   "id": 436,
@@ -24849,7 +25712,10 @@
   "businessDegreesLatest": 48,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 14308,
+  "businessPctStart": 0.0697,
+  "businessDegreesStart": 194
  },
  {
   "id": 437,
@@ -24906,7 +25772,10 @@
   "businessDegreesLatest": 48,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8841,
+  "businessPctStart": 0.0227,
+  "businessDegreesStart": 58
  },
  {
   "id": 438,
@@ -24963,7 +25832,10 @@
   "businessDegreesLatest": 127,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9234,
+  "businessPctStart": 0.112,
+  "businessDegreesStart": 118
  },
  {
   "id": 439,
@@ -25020,7 +25892,10 @@
   "businessDegreesLatest": 127,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9320,
+  "businessPctStart": 0.1325,
+  "businessDegreesStart": 144
  },
  {
   "id": 440,
@@ -25134,7 +26009,10 @@
   "businessDegreesLatest": 179,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 8230,
+  "businessPctStart": 0.0754,
+  "businessDegreesStart": 153
  },
  {
   "id": 442,
@@ -25191,7 +26069,10 @@
   "businessDegreesLatest": 261,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 13126,
+  "businessPctStart": 0.078,
+  "businessDegreesStart": 160
  },
  {
   "id": 443,
@@ -25305,7 +26186,10 @@
   "businessDegreesLatest": 132,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8020,
+  "businessPctStart": 0.0867,
+  "businessDegreesStart": 108
  },
  {
   "id": 445,
@@ -25362,7 +26246,10 @@
   "businessDegreesLatest": 132,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7593,
+  "businessPctStart": 0.0856,
+  "businessDegreesStart": 175
  },
  {
   "id": 446,
@@ -25419,7 +26306,10 @@
   "businessDegreesLatest": 534,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16949,
+  "businessPctStart": 0.1078,
+  "businessDegreesStart": 204
  },
  {
   "id": 447,
@@ -25476,7 +26366,10 @@
   "businessDegreesLatest": 534,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 16640,
+  "businessPctStart": 0.1365,
+  "businessDegreesStart": 420
  },
  {
   "id": 448,
@@ -25590,7 +26483,10 @@
   "businessDegreesLatest": 446,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 19562,
+  "businessPctStart": 0.1089,
+  "businessDegreesStart": 435
  },
  {
   "id": 450,
@@ -25647,7 +26543,10 @@
   "businessDegreesLatest": 446,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8192,
+  "businessPctStart": 0.188,
+  "businessDegreesStart": 391
  },
  {
   "id": 451,
@@ -25818,7 +26717,10 @@
   "businessDegreesLatest": 241,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7357,
+  "businessPctStart": 0.1053,
+  "businessDegreesStart": 212
  },
  {
   "id": 454,
@@ -26103,7 +27005,10 @@
   "businessDegreesLatest": 570,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5634,
+  "businessPctStart": 0.1088,
+  "businessDegreesStart": 157
  },
  {
   "id": 459,
@@ -26160,7 +27065,10 @@
   "businessDegreesLatest": 570,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6998,
+  "businessPctStart": 0.1889,
+  "businessDegreesStart": 465
  },
  {
   "id": 460,
@@ -26274,7 +27182,10 @@
   "businessDegreesLatest": 125,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9864,
+  "businessPctStart": 0.0855,
+  "businessDegreesStart": 127
  },
  {
   "id": 462,
@@ -26445,7 +27356,9 @@
   "businessDegreesLatest": 282,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1213,
+  "businessDegreesStart": 282
  },
  {
   "id": 465,
@@ -26559,7 +27472,8 @@
   "businessDegreesLatest": 63,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7890
  },
  {
   "id": 467,
@@ -26616,7 +27530,10 @@
   "businessDegreesLatest": 63,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8324,
+  "businessPctStart": 0.0368,
+  "businessDegreesStart": 57
  },
  {
   "id": 468,
@@ -26673,7 +27590,10 @@
   "businessDegreesLatest": 250,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7427,
+  "businessPctStart": 0.1228,
+  "businessDegreesStart": 229
  },
  {
   "id": 469,
@@ -26730,7 +27650,10 @@
   "businessDegreesLatest": 47,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10169,
+  "businessPctStart": 0.0296,
+  "businessDegreesStart": 31
  },
  {
   "id": 470,
@@ -26787,7 +27710,10 @@
   "businessDegreesLatest": 169,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 8631,
+  "businessPctStart": 0.0912,
+  "businessDegreesStart": 62
  },
  {
   "id": 471,
@@ -26844,7 +27770,10 @@
   "businessDegreesLatest": 169,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 7448,
+  "businessPctStart": 0.1415,
+  "businessDegreesStart": 195
  },
  {
   "id": 472,
@@ -26958,7 +27887,10 @@
   "businessDegreesLatest": 129,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9347,
+  "businessPctStart": 0.0885,
+  "businessDegreesStart": 167
  },
  {
   "id": 475,
@@ -27015,7 +27947,10 @@
   "businessDegreesLatest": 152,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7843,
+  "businessPctStart": 0.1113,
+  "businessDegreesStart": 189
  },
  {
   "id": 476,
@@ -27072,7 +28007,10 @@
   "businessDegreesLatest": 152,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7618,
+  "businessPctStart": 0.1069,
+  "businessDegreesStart": 125
  },
  {
   "id": 477,
@@ -27129,7 +28067,10 @@
   "businessDegreesLatest": 227,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8048,
+  "businessPctStart": 0.1636,
+  "businessDegreesStart": 470
  },
  {
   "id": 478,
@@ -27243,7 +28184,10 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7091,
+  "businessPctStart": 0.077,
+  "businessDegreesStart": 87
  },
  {
   "id": 480,
@@ -27414,7 +28358,10 @@
   "businessDegreesLatest": 117,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5826,
+  "businessPctStart": 0.0616,
+  "businessDegreesStart": 52
  },
  {
   "id": 483,
@@ -27471,7 +28418,10 @@
   "businessDegreesLatest": 323,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4562,
+  "businessPctStart": 0.1719,
+  "businessDegreesStart": 115
  },
  {
   "id": 484,
@@ -27528,7 +28478,10 @@
   "businessDegreesLatest": 323,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7079,
+  "businessPctStart": 0.087,
+  "businessDegreesStart": 135
  },
  {
   "id": 485,
@@ -27870,7 +28823,10 @@
   "businessDegreesLatest": 99,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7205,
+  "businessPctStart": 0.1505,
+  "businessDegreesStart": 118
  },
  {
   "id": 491,
@@ -27927,7 +28883,9 @@
   "businessDegreesLatest": 99,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1148,
+  "businessDegreesStart": 99
  },
  {
   "id": 492,
@@ -28041,7 +28999,10 @@
   "businessDegreesLatest": 253,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9460,
+  "businessPctStart": 0.1833,
+  "businessDegreesStart": 253
  },
  {
   "id": 494,
@@ -28098,7 +29059,10 @@
   "businessDegreesLatest": 253,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7516,
+  "businessPctStart": 0.1224,
+  "businessDegreesStart": 226
  },
  {
   "id": 495,
@@ -28155,7 +29119,10 @@
   "businessDegreesLatest": 172,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9128,
+  "businessPctStart": 0.0977,
+  "businessDegreesStart": 76
  },
  {
   "id": 496,
@@ -28212,7 +29179,10 @@
   "businessDegreesLatest": 176,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7368,
+  "businessPctStart": 0.1784,
+  "businessDegreesStart": 239
  },
  {
   "id": 497,
@@ -28326,7 +29296,10 @@
   "businessDegreesLatest": 196,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6776,
+  "businessPctStart": 0.1489,
+  "businessDegreesStart": 162
  },
  {
   "id": 499,
@@ -28440,7 +29413,10 @@
   "businessDegreesLatest": 136,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8303,
+  "businessPctStart": 0.1141,
+  "businessDegreesStart": 85
  },
  {
   "id": 501,
@@ -28497,7 +29473,10 @@
   "businessDegreesLatest": 136,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7193,
+  "businessPctStart": 0.1028,
+  "businessDegreesStart": 102
  },
  {
   "id": 502,
@@ -28611,7 +29590,10 @@
   "businessDegreesLatest": 275,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5920,
+  "businessPctStart": 0.088,
+  "businessDegreesStart": 53
  },
  {
   "id": 504,
@@ -28668,7 +29650,10 @@
   "businessDegreesLatest": 275,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8185,
+  "businessPctStart": 0.1452,
+  "businessDegreesStart": 394
  },
  {
   "id": 505,
@@ -28725,7 +29710,9 @@
   "businessDegreesLatest": 275,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1323,
+  "businessDegreesStart": 275
  },
  {
   "id": 506,
@@ -28896,7 +29883,10 @@
   "businessDegreesLatest": 78,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9374,
+  "businessPctStart": 0.0475,
+  "businessDegreesStart": 60
  },
  {
   "id": 509,
@@ -28953,7 +29943,10 @@
   "businessDegreesLatest": 78,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8152,
+  "businessPctStart": 0.0525,
+  "businessDegreesStart": 74
  },
  {
   "id": 510,
@@ -29067,7 +30060,10 @@
   "businessDegreesLatest": 143,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 14587,
+  "businessPctStart": 0.0391,
+  "businessDegreesStart": 57
  },
  {
   "id": 512,
@@ -29124,7 +30120,10 @@
   "businessDegreesLatest": 143,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10997,
+  "businessPctStart": 0.0448,
+  "businessDegreesStart": 79
  },
  {
   "id": 513,
@@ -29181,7 +30180,10 @@
   "businessDegreesLatest": 143,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7770,
+  "businessPctStart": 0.1174,
+  "businessDegreesStart": 164
  },
  {
   "id": 514,
@@ -29238,7 +30240,10 @@
   "businessDegreesLatest": 95,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7535,
+  "businessPctStart": 0.0392,
+  "businessDegreesStart": 48
  },
  {
   "id": 515,
@@ -29295,7 +30300,10 @@
   "businessDegreesLatest": 95,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6791,
+  "businessPctStart": 0.069,
+  "businessDegreesStart": 111
  },
  {
   "id": 516,
@@ -29352,7 +30360,9 @@
   "businessDegreesLatest": 95,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.063,
+  "businessDegreesStart": 95
  },
  {
   "id": 517,
@@ -29466,7 +30476,10 @@
   "businessDegreesLatest": 90,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8197,
+  "businessPctStart": 0.0447,
+  "businessDegreesStart": 77
  },
  {
   "id": 519,
@@ -29523,7 +30536,10 @@
   "businessDegreesLatest": 90,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8284,
+  "businessPctStart": 0.079,
+  "businessDegreesStart": 105
  },
  {
   "id": 520,
@@ -29580,7 +30596,10 @@
   "businessDegreesLatest": 163,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6856,
+  "businessPctStart": 0.0592,
+  "businessDegreesStart": 53
  },
  {
   "id": 521,
@@ -29637,7 +30656,10 @@
   "businessDegreesLatest": 163,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6708,
+  "businessPctStart": 0.1274,
+  "businessDegreesStart": 211
  },
  {
   "id": 522,
@@ -29694,7 +30716,10 @@
   "businessDegreesLatest": 205,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9705,
+  "businessPctStart": 0.1262,
+  "businessDegreesStart": 170
  },
  {
   "id": 523,
@@ -29751,7 +30776,10 @@
   "businessDegreesLatest": 205,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7665,
+  "businessPctStart": 0.1494,
+  "businessDegreesStart": 287
  },
  {
   "id": 524,
@@ -29808,7 +30836,10 @@
   "businessDegreesLatest": 172,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7837,
+  "businessPctStart": 0.0877,
+  "businessDegreesStart": 71
  },
  {
   "id": 525,
@@ -29865,7 +30896,10 @@
   "businessDegreesLatest": 172,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7428,
+  "businessPctStart": 0.0941,
+  "businessDegreesStart": 162
  },
  {
   "id": 526,
@@ -30207,7 +31241,10 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10608,
+  "businessPctStart": 0.1526,
+  "businessDegreesStart": 163
  },
  {
   "id": 532,
@@ -30264,7 +31301,10 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 11030,
+  "businessPctStart": 0.1549,
+  "businessDegreesStart": 225
  },
  {
   "id": 533,
@@ -30321,7 +31361,10 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7638,
+  "businessPctStart": 0.1331,
+  "businessDegreesStart": 180
  },
  {
   "id": 534,
@@ -30378,7 +31421,10 @@
   "businessDegreesLatest": 84,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 7115,
+  "businessPctStart": 0.0636,
+  "businessDegreesStart": 82
  },
  {
   "id": 535,
@@ -30435,7 +31481,10 @@
   "businessDegreesLatest": 84,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 6911,
+  "businessPctStart": 0.0435,
+  "businessDegreesStart": 122
  },
  {
   "id": 536,
@@ -30492,7 +31541,9 @@
   "businessDegreesLatest": 84,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0277,
+  "businessDegreesStart": 84
  },
  {
   "id": 537,
@@ -30606,7 +31657,10 @@
   "businessDegreesLatest": 160,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6031,
+  "businessPctStart": 0.1652,
+  "businessDegreesStart": 169
  },
  {
   "id": 539,
@@ -30663,7 +31717,10 @@
   "businessDegreesLatest": 160,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5389,
+  "businessPctStart": 0.1857,
+  "businessDegreesStart": 195
  },
  {
   "id": 540,
@@ -30720,7 +31777,10 @@
   "businessDegreesLatest": 160,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5811,
+  "businessPctStart": 0.1643,
+  "businessDegreesStart": 153
  },
  {
   "id": 541,
@@ -30777,7 +31837,10 @@
   "businessDegreesLatest": 420,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7943,
+  "businessPctStart": 0.102,
+  "businessDegreesStart": 132
  },
  {
   "id": 542,
@@ -30834,7 +31897,9 @@
   "businessDegreesLatest": 420,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1628,
+  "businessDegreesStart": 420
  },
  {
   "id": 543,
@@ -30891,7 +31956,10 @@
   "businessDegreesLatest": 649,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5994,
+  "businessPctStart": 0.1949,
+  "businessDegreesStart": 509
  },
  {
   "id": 544,
@@ -30948,7 +32016,10 @@
   "businessDegreesLatest": 649,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6616,
+  "businessPctStart": 0.2465,
+  "businessDegreesStart": 743
  },
  {
   "id": 545,
@@ -31062,7 +32133,10 @@
   "businessDegreesLatest": 108,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7876,
+  "businessPctStart": 0.1054,
+  "businessDegreesStart": 150
  },
  {
   "id": 547,
@@ -31176,7 +32250,10 @@
   "businessDegreesLatest": 25,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5915,
+  "businessPctStart": 0.0615,
+  "businessDegreesStart": 73
  },
  {
   "id": 549,
@@ -31290,7 +32367,10 @@
   "businessDegreesLatest": 116,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7351,
+  "businessPctStart": 0.1036,
+  "businessDegreesStart": 116
  },
  {
   "id": 551,
@@ -31347,7 +32427,8 @@
   "businessDegreesLatest": 215,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7143
  },
  {
   "id": 552,
@@ -31404,7 +32485,10 @@
   "businessDegreesLatest": 215,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7429,
+  "businessPctStart": 0.159,
+  "businessDegreesStart": 220
  },
  {
   "id": 553,
@@ -31518,7 +32602,10 @@
   "businessDegreesLatest": 199,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 7065,
+  "businessPctStart": 0.2278,
+  "businessDegreesStart": 313
  },
  {
   "id": 555,
@@ -31632,7 +32719,10 @@
   "businessDegreesLatest": 69,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5392,
+  "businessPctStart": 0.1308,
+  "businessDegreesStart": 118
  },
  {
   "id": 557,
@@ -31689,7 +32779,10 @@
   "businessDegreesLatest": 208,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10954,
+  "businessPctStart": 0.1532,
+  "businessDegreesStart": 207
  },
  {
   "id": 558,
@@ -31746,7 +32839,10 @@
   "businessDegreesLatest": 208,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6360,
+  "businessPctStart": 0.1975,
+  "businessDegreesStart": 188
  },
  {
   "id": 559,
@@ -31803,7 +32899,10 @@
   "businessDegreesLatest": 54,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 6952,
+  "businessPctStart": 0.0551,
+  "businessDegreesStart": 53
  },
  {
   "id": 560,
@@ -31860,7 +32959,10 @@
   "businessDegreesLatest": 54,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 6261,
+  "businessPctStart": 0.0605,
+  "businessDegreesStart": 77
  },
  {
   "id": 561,
@@ -31974,7 +33076,10 @@
   "businessDegreesLatest": 80,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9135,
+  "businessPctStart": 0.1457,
+  "businessDegreesStart": 163
  },
  {
   "id": 563,
@@ -32031,7 +33136,10 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6991,
+  "businessPctStart": 0.1356,
+  "businessDegreesStart": 83
  },
  {
   "id": 564,
@@ -32088,7 +33196,10 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8177,
+  "businessPctStart": 0.0614,
+  "businessDegreesStart": 135
  },
  {
   "id": 565,
@@ -32145,7 +33256,10 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7417,
+  "businessPctStart": 0.0605,
+  "businessDegreesStart": 100
  },
  {
   "id": 566,
@@ -32202,7 +33316,9 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1106,
+  "businessDegreesStart": 162
  },
  {
   "id": 567,
@@ -32259,7 +33375,8 @@
   "businessDegreesLatest": 86,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6054
  },
  {
   "id": 568,
@@ -32316,7 +33433,10 @@
   "businessDegreesLatest": 86,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7637,
+  "businessPctStart": 0.1005,
+  "businessDegreesStart": 172
  },
  {
   "id": 569,
@@ -32430,7 +33550,10 @@
   "businessDegreesLatest": 260,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6536,
+  "businessPctStart": 0.107,
+  "businessDegreesStart": 238
  },
  {
   "id": 571,
@@ -32487,7 +33610,10 @@
   "businessDegreesLatest": 260,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6200,
+  "businessPctStart": 0.1466,
+  "businessDegreesStart": 314
  },
  {
   "id": 572,
@@ -32544,7 +33670,10 @@
   "businessDegreesLatest": 554,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6354,
+  "businessPctStart": 0.1585,
+  "businessDegreesStart": 329
  },
  {
   "id": 573,
@@ -32601,7 +33730,10 @@
   "businessDegreesLatest": 179,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9130,
+  "businessPctStart": 0.127,
+  "businessDegreesStart": 103
  },
  {
   "id": 574,
@@ -32658,7 +33790,10 @@
   "businessDegreesLatest": 179,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5747,
+  "businessPctStart": 0.0819,
+  "businessDegreesStart": 154
  },
  {
   "id": 575,
@@ -32715,7 +33850,10 @@
   "businessDegreesLatest": 305,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5068,
+  "businessPctStart": 0.2001,
+  "businessDegreesStart": 400
  },
  {
   "id": 576,
@@ -32829,7 +33967,10 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9142,
+  "businessPctStart": 0.0616,
+  "businessDegreesStart": 77
  },
  {
   "id": 578,
@@ -33000,7 +34141,10 @@
   "businessDegreesLatest": 184,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 2702,
+  "businessPctStart": 0.0952,
+  "businessDegreesStart": 30
  },
  {
   "id": 581,
@@ -33057,7 +34201,10 @@
   "businessDegreesLatest": 184,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3381,
+  "businessPctStart": 0.1481,
+  "businessDegreesStart": 80
  },
  {
   "id": 582,
@@ -33171,7 +34318,9 @@
   "businessDegreesLatest": 148,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0847,
+  "businessDegreesStart": 148
  },
  {
   "id": 584,
@@ -33399,7 +34548,10 @@
   "businessDegreesLatest": 63,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 6749,
+  "businessPctStart": 0.0457,
+  "businessDegreesStart": 61
  },
  {
   "id": 588,
@@ -33456,7 +34608,10 @@
   "businessDegreesLatest": 207,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8214,
+  "businessPctStart": 0.0942,
+  "businessDegreesStart": 103
  },
  {
   "id": 589,
@@ -33570,7 +34725,10 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7982,
+  "businessPctStart": 0.0725,
+  "businessDegreesStart": 118
  },
  {
   "id": 591,
@@ -33627,7 +34785,10 @@
   "businessDegreesLatest": 139,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8937,
+  "businessPctStart": 0.0405,
+  "businessDegreesStart": 112
  },
  {
   "id": 592,
@@ -33741,7 +34902,10 @@
   "businessDegreesLatest": 116,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7977,
+  "businessPctStart": 0.1116,
+  "businessDegreesStart": 242
  },
  {
   "id": 594,
@@ -33798,7 +34962,10 @@
   "businessDegreesLatest": 116,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6211,
+  "businessPctStart": 0.0811,
+  "businessDegreesStart": 138
  },
  {
   "id": 595,
@@ -33855,7 +35022,10 @@
   "businessDegreesLatest": 180,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5713,
+  "businessPctStart": 0.1588,
+  "businessDegreesStart": 101
  },
  {
   "id": 596,
@@ -33912,7 +35082,10 @@
   "businessDegreesLatest": 180,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6036,
+  "businessPctStart": 0.1582,
+  "businessDegreesStart": 128
  },
  {
   "id": 597,
@@ -33969,7 +35142,10 @@
   "businessDegreesLatest": 180,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4108,
+  "businessPctStart": 0.0838,
+  "businessDegreesStart": 64
  },
  {
   "id": 598,
@@ -34083,7 +35259,10 @@
   "businessDegreesLatest": 91,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 6513,
+  "businessPctStart": 0.0913,
+  "businessDegreesStart": 66
  },
  {
   "id": 600,
@@ -34140,7 +35319,10 @@
   "businessDegreesLatest": 91,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 5388,
+  "businessPctStart": 0.1385,
+  "businessDegreesStart": 86
  },
  {
   "id": 601,
@@ -34197,7 +35379,10 @@
   "businessDegreesLatest": 216,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10071,
+  "businessPctStart": 0.0248,
+  "businessDegreesStart": 33
  },
  {
   "id": 602,
@@ -34254,7 +35439,10 @@
   "businessDegreesLatest": 216,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8762,
+  "businessPctStart": 0.0182,
+  "businessDegreesStart": 25
  },
  {
   "id": 603,
@@ -34311,7 +35499,10 @@
   "businessDegreesLatest": 216,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8890,
+  "businessPctStart": 0.0245,
+  "businessDegreesStart": 34
  },
  {
   "id": 604,
@@ -34368,7 +35559,10 @@
   "businessDegreesLatest": 106,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9905,
+  "businessPctStart": 0.137,
+  "businessDegreesStart": 164
  },
  {
   "id": 605,
@@ -34425,7 +35619,10 @@
   "businessDegreesLatest": 106,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7222,
+  "businessPctStart": 0.1295,
+  "businessDegreesStart": 129
  },
  {
   "id": 606,
@@ -34710,7 +35907,10 @@
   "businessDegreesLatest": 97,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 10256,
+  "businessPctStart": 0.0948,
+  "businessDegreesStart": 152
  },
  {
   "id": 611,
@@ -34767,7 +35967,10 @@
   "businessDegreesLatest": 97,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8601,
+  "businessPctStart": 0.0667,
+  "businessDegreesStart": 103
  },
  {
   "id": 612,
@@ -34881,7 +36084,10 @@
   "businessDegreesLatest": 245,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9798,
+  "businessPctStart": 0.1709,
+  "businessDegreesStart": 473
  },
  {
   "id": 614,
@@ -34938,7 +36144,10 @@
   "businessDegreesLatest": 245,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8041,
+  "businessPctStart": 0.2235,
+  "businessDegreesStart": 553
  },
  {
   "id": 615,
@@ -35052,7 +36261,10 @@
   "businessDegreesLatest": 141,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 7193,
+  "businessPctStart": 0.0859,
+  "businessDegreesStart": 124
  },
  {
   "id": 617,
@@ -35109,7 +36321,10 @@
   "businessDegreesLatest": 141,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 5832,
+  "businessPctStart": 0.0887,
+  "businessDegreesStart": 123
  },
  {
   "id": 618,
@@ -35280,7 +36495,10 @@
   "businessDegreesLatest": 30,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6389,
+  "businessPctStart": 0.0407,
+  "businessDegreesStart": 41
  },
  {
   "id": 623,
@@ -35394,7 +36612,10 @@
   "businessDegreesLatest": 163,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6601,
+  "businessPctStart": 0.0778,
+  "businessDegreesStart": 111
  },
  {
   "id": 625,
@@ -35451,7 +36672,10 @@
   "businessDegreesLatest": 144,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9905,
+  "businessPctStart": 0.119,
+  "businessDegreesStart": 124
  },
  {
   "id": 626,
@@ -35508,7 +36732,10 @@
   "businessDegreesLatest": 144,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9393,
+  "businessPctStart": 0.0972,
+  "businessDegreesStart": 143
  },
  {
   "id": 627,
@@ -35565,7 +36792,10 @@
   "businessDegreesLatest": 144,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8612,
+  "businessPctStart": 0.1398,
+  "businessDegreesStart": 274
  },
  {
   "id": 628,
@@ -35622,7 +36852,10 @@
   "businessDegreesLatest": 86,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6771,
+  "businessPctStart": 0.0758,
+  "businessDegreesStart": 36
  },
  {
   "id": 629,
@@ -35679,7 +36912,10 @@
   "businessDegreesLatest": 86,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6568,
+  "businessPctStart": 0.1163,
+  "businessDegreesStart": 132
  },
  {
   "id": 630,
@@ -35736,7 +36972,10 @@
   "businessDegreesLatest": 49,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9463,
+  "businessPctStart": 0.0623,
+  "businessDegreesStart": 69
  },
  {
   "id": 631,
@@ -35907,7 +37146,10 @@
   "businessDegreesLatest": 255,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4909,
+  "businessPctStart": 0.171,
+  "businessDegreesStart": 246
  },
  {
   "id": 634,
@@ -36078,7 +37320,10 @@
   "businessDegreesLatest": 132,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5338,
+  "businessPctStart": 0.0745,
+  "businessDegreesStart": 60
  },
  {
   "id": 637,
@@ -36135,7 +37380,10 @@
   "businessDegreesLatest": 568,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7115,
+  "businessPctStart": 0.1609,
+  "businessDegreesStart": 499
  },
  {
   "id": 638,
@@ -36192,7 +37440,10 @@
   "businessDegreesLatest": 107,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5832,
+  "businessPctStart": 0.129,
+  "businessDegreesStart": 142
  },
  {
   "id": 639,
@@ -36249,7 +37500,10 @@
   "businessDegreesLatest": 131,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 9182,
+  "businessPctStart": 0.2022,
+  "businessDegreesStart": 182
  },
  {
   "id": 640,
@@ -36306,7 +37560,10 @@
   "businessDegreesLatest": 131,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7560,
+  "businessPctStart": 0.1387,
+  "businessDegreesStart": 138
  },
  {
   "id": 641,
@@ -36363,7 +37620,10 @@
   "businessDegreesLatest": 131,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5821,
+  "businessPctStart": 0.1287,
+  "businessDegreesStart": 118
  },
  {
   "id": 642,
@@ -36534,7 +37794,10 @@
   "businessDegreesLatest": 76,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8069,
+  "businessPctStart": 0.0721,
+  "businessDegreesStart": 83
  },
  {
   "id": 645,
@@ -36648,7 +37911,8 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7904
  },
  {
   "id": 647,
@@ -36762,7 +38026,10 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6869,
+  "businessPctStart": 0.1824,
+  "businessDegreesStart": 160
  },
  {
   "id": 649,
@@ -36819,7 +38086,10 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5175,
+  "businessPctStart": 0.1221,
+  "businessDegreesStart": 119
  },
  {
   "id": 650,
@@ -36990,7 +38260,10 @@
   "businessDegreesLatest": 18,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 9991,
+  "businessPctStart": 0.1118,
+  "businessDegreesStart": 72
  },
  {
   "id": 653,
@@ -37161,7 +38434,10 @@
   "businessDegreesLatest": 51,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 6547,
+  "businessPctStart": 0.078,
+  "businessDegreesStart": 51
  },
  {
   "id": 656,
@@ -37218,7 +38494,10 @@
   "businessDegreesLatest": 134,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4015,
+  "businessPctStart": 0.0342,
+  "businessDegreesStart": 30
  },
  {
   "id": 657,
@@ -37275,7 +38554,10 @@
   "businessDegreesLatest": 134,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5996,
+  "businessPctStart": 0.0828,
+  "businessDegreesStart": 166
  },
  {
   "id": 659,
@@ -37332,7 +38614,10 @@
   "businessDegreesLatest": 201,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6223,
+  "businessPctStart": 0.2221,
+  "businessDegreesStart": 227
  },
  {
   "id": 660,
@@ -37389,7 +38674,9 @@
   "businessDegreesLatest": 201,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.2161,
+  "businessDegreesStart": 201
  },
  {
   "id": 661,
@@ -37446,7 +38733,8 @@
   "businessDegreesLatest": 153,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3768
  },
  {
   "id": 662,
@@ -37503,7 +38791,10 @@
   "businessDegreesLatest": 153,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6779,
+  "businessPctStart": 0.1457,
+  "businessDegreesStart": 116
  },
  {
   "id": 663,
@@ -37617,7 +38908,10 @@
   "businessDegreesLatest": 502,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7189,
+  "businessPctStart": 0.2464,
+  "businessDegreesStart": 519
  },
  {
   "id": 665,
@@ -37674,7 +38968,10 @@
   "businessDegreesLatest": 502,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6242,
+  "businessPctStart": 0.2496,
+  "businessDegreesStart": 486
  },
  {
   "id": 666,
@@ -37731,7 +39028,10 @@
   "businessDegreesLatest": 460,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4703,
+  "businessPctStart": 0.155,
+  "businessDegreesStart": 295
  },
  {
   "id": 667,
@@ -37788,7 +39088,10 @@
   "businessDegreesLatest": 460,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5018,
+  "businessPctStart": 0.1406,
+  "businessDegreesStart": 549
  },
  {
   "id": 668,
@@ -38016,7 +39319,10 @@
   "businessDegreesLatest": 37,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 5833,
+  "businessPctStart": 0.0708,
+  "businessDegreesStart": 34
  },
  {
   "id": 672,
@@ -38073,7 +39379,9 @@
   "businessDegreesLatest": 37,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0585,
+  "businessDegreesStart": 37
  },
  {
   "id": 673,
@@ -38244,7 +39552,10 @@
   "businessDegreesLatest": 242,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8067,
+  "businessPctStart": 0.2063,
+  "businessDegreesStart": 263
  },
  {
   "id": 676,
@@ -38358,7 +39669,10 @@
   "businessDegreesLatest": 91,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 7276,
+  "businessPctStart": 0.0838,
+  "businessDegreesStart": 113
  },
  {
   "id": 678,
@@ -38415,7 +39729,10 @@
   "businessDegreesLatest": 54,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3318,
+  "businessPctStart": 0.0112,
+  "businessDegreesStart": 15
  },
  {
   "id": 679,
@@ -38472,7 +39789,10 @@
   "businessDegreesLatest": 85,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4561,
+  "businessPctStart": 0.0776,
+  "businessDegreesStart": 93
  },
  {
   "id": 680,
@@ -38586,7 +39906,10 @@
   "businessDegreesLatest": 58,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6018,
+  "businessPctStart": 0.056,
+  "businessDegreesStart": 85
  },
  {
   "id": 682,
@@ -38700,7 +40023,8 @@
   "businessDegreesLatest": 66,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 2800
  },
  {
   "id": 684,
@@ -38757,7 +40081,10 @@
   "businessDegreesLatest": 66,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4829,
+  "businessPctStart": 0.0366,
+  "businessDegreesStart": 36
  },
  {
   "id": 685,
@@ -38871,7 +40198,10 @@
   "businessDegreesLatest": 77,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5351,
+  "businessPctStart": 0.1375,
+  "businessDegreesStart": 102
  },
  {
   "id": 687,
@@ -38928,7 +40258,10 @@
   "businessDegreesLatest": 77,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6520,
+  "businessPctStart": 0.1703,
+  "businessDegreesStart": 148
  },
  {
   "id": 688,
@@ -38985,7 +40318,10 @@
   "businessDegreesLatest": 36,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3833,
+  "businessPctStart": 0.0734,
+  "businessDegreesStart": 29
  },
  {
   "id": 689,
@@ -39042,7 +40378,10 @@
   "businessDegreesLatest": 36,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5256,
+  "businessPctStart": 0.0268,
+  "businessDegreesStart": 19
  },
  {
   "id": 690,
@@ -39099,7 +40438,10 @@
   "businessDegreesLatest": 36,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6886,
+  "businessPctStart": 0.0141,
+  "businessDegreesStart": 16
  },
  {
   "id": 691,
@@ -39213,7 +40555,10 @@
   "businessDegreesLatest": 29,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5480,
+  "businessPctStart": 0.0139,
+  "businessDegreesStart": 19
  },
  {
   "id": 693,
@@ -39384,7 +40729,10 @@
   "businessDegreesLatest": 125,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7151,
+  "businessPctStart": 0.1537,
+  "businessDegreesStart": 144
  },
  {
   "id": 696,
@@ -39555,7 +40903,10 @@
   "businessDegreesLatest": 750,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 8449,
+  "businessPctStart": 0.0389,
+  "businessDegreesStart": 65
  },
  {
   "id": 699,
@@ -39669,7 +41020,10 @@
   "businessDegreesLatest": 94,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5822,
+  "businessPctStart": 0.1245,
+  "businessDegreesStart": 94
  },
  {
   "id": 701,
@@ -39726,7 +41080,10 @@
   "businessDegreesLatest": 52,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5070,
+  "businessPctStart": 0.1515,
+  "businessDegreesStart": 85
  },
  {
   "id": 702,
@@ -39783,7 +41140,10 @@
   "businessDegreesLatest": 52,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6644,
+  "businessPctStart": 0.0778,
+  "businessDegreesStart": 47
  },
  {
   "id": 703,
@@ -39840,7 +41200,10 @@
   "businessDegreesLatest": 52,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6716,
+  "businessPctStart": 0.0503,
+  "businessDegreesStart": 87
  },
  {
   "id": 704,
@@ -39897,7 +41260,10 @@
   "businessDegreesLatest": 45,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5891,
+  "businessPctStart": 0.0907,
+  "businessDegreesStart": 80
  },
  {
   "id": 705,
@@ -39954,7 +41320,10 @@
   "businessDegreesLatest": 45,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5951,
+  "businessPctStart": 0.0245,
+  "businessDegreesStart": 49
  },
  {
   "id": 706,
@@ -40125,7 +41494,10 @@
   "businessDegreesLatest": 111,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4714,
+  "businessPctStart": 0.1163,
+  "businessDegreesStart": 94
  },
  {
   "id": 709,
@@ -40182,7 +41554,10 @@
   "businessDegreesLatest": 111,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3866,
+  "businessPctStart": 0.1579,
+  "businessDegreesStart": 177
  },
  {
   "id": 710,
@@ -40239,7 +41614,10 @@
   "businessDegreesLatest": 111,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5714,
+  "businessPctStart": 0.0933,
+  "businessDegreesStart": 117
  },
  {
   "id": 711,
@@ -40353,7 +41731,10 @@
   "businessDegreesLatest": 193,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4837,
+  "businessPctStart": 0.0903,
+  "businessDegreesStart": 98
  },
  {
   "id": 713,
@@ -40410,7 +41791,10 @@
   "businessDegreesLatest": 193,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4973,
+  "businessPctStart": 0.1027,
+  "businessDegreesStart": 121
  },
  {
   "id": 714,
@@ -40467,7 +41851,10 @@
   "businessDegreesLatest": 554,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4758,
+  "businessPctStart": 0.1538,
+  "businessDegreesStart": 237
  },
  {
   "id": 715,
@@ -40524,7 +41911,9 @@
   "businessDegreesLatest": 554,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1518,
+  "businessDegreesStart": 554
  },
  {
   "id": 716,
@@ -40581,7 +41970,10 @@
   "businessDegreesLatest": 164,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4641,
+  "businessPctStart": 0.0335,
+  "businessDegreesStart": 24
  },
  {
   "id": 717,
@@ -40638,7 +42030,10 @@
   "businessDegreesLatest": 164,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4460,
+  "businessPctStart": 0.0943,
+  "businessDegreesStart": 84
  },
  {
   "id": 718,
@@ -40695,7 +42090,9 @@
   "businessDegreesLatest": 164,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1355,
+  "businessDegreesStart": 164
  },
  {
   "id": 719,
@@ -40809,7 +42206,10 @@
   "businessDegreesLatest": 127,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6151,
+  "businessPctStart": 0.0658,
+  "businessDegreesStart": 75
  },
  {
   "id": 721,
@@ -40866,7 +42266,10 @@
   "businessDegreesLatest": 127,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6476,
+  "businessPctStart": 0.0977,
+  "businessDegreesStart": 236
  },
  {
   "id": 722,
@@ -41037,7 +42440,10 @@
   "businessDegreesLatest": 98,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6124,
+  "businessPctStart": 0.076,
+  "businessDegreesStart": 90
  },
  {
   "id": 725,
@@ -41094,7 +42500,10 @@
   "businessDegreesLatest": 98,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6085,
+  "businessPctStart": 0.0571,
+  "businessDegreesStart": 80
  },
  {
   "id": 726,
@@ -41151,7 +42560,10 @@
   "businessDegreesLatest": 98,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5100,
+  "businessPctStart": 0.0878,
+  "businessDegreesStart": 107
  },
  {
   "id": 727,
@@ -41208,7 +42620,10 @@
   "businessDegreesLatest": 22,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4573,
+  "businessPctStart": 0.0393,
+  "businessDegreesStart": 34
  },
  {
   "id": 728,
@@ -41265,7 +42680,8 @@
   "businessDegreesLatest": 100,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4600
  },
  {
   "id": 729,
@@ -41322,7 +42738,10 @@
   "businessDegreesLatest": 100,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5251,
+  "businessPctStart": 0.1038,
+  "businessDegreesStart": 79
  },
  {
   "id": 730,
@@ -41379,7 +42798,10 @@
   "businessDegreesLatest": 100,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5258,
+  "businessPctStart": 0.1021,
+  "businessDegreesStart": 102
  },
  {
   "id": 731,
@@ -41493,7 +42915,10 @@
   "businessDegreesLatest": 58,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4770,
+  "businessPctStart": 0.1113,
+  "businessDegreesStart": 56
  },
  {
   "id": 733,
@@ -41607,7 +43032,10 @@
   "businessDegreesLatest": 74,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6120,
+  "businessPctStart": 0.1976,
+  "businessDegreesStart": 130
  },
  {
   "id": 735,
@@ -41664,7 +43092,10 @@
   "businessDegreesLatest": 74,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6982,
+  "businessPctStart": 0.1378,
+  "businessDegreesStart": 117
  },
  {
   "id": 736,
@@ -41778,7 +43209,10 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5795,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "id": 738,
@@ -41835,7 +43269,10 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5219,
+  "businessPctStart": 0.0877,
+  "businessDegreesStart": 101
  },
  {
   "id": 739,
@@ -41892,7 +43329,10 @@
   "businessDegreesLatest": 66,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4808,
+  "businessPctStart": 0.062,
+  "businessDegreesStart": 60
  },
  {
   "id": 740,
@@ -41949,7 +43389,10 @@
   "businessDegreesLatest": 10,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6532,
+  "businessPctStart": 0.0301,
+  "businessDegreesStart": 44
  },
  {
   "id": 741,
@@ -42120,7 +43563,10 @@
   "businessDegreesLatest": 142,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6786,
+  "businessPctStart": 0.1207,
+  "businessDegreesStart": 195
  },
  {
   "id": 744,
@@ -42177,7 +43623,10 @@
   "businessDegreesLatest": 142,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6222,
+  "businessPctStart": 0.129,
+  "businessDegreesStart": 163
  },
  {
   "id": 745,
@@ -42234,7 +43683,10 @@
   "businessDegreesLatest": 141,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5576,
+  "businessPctStart": 0.1182,
+  "businessDegreesStart": 115
  },
  {
   "id": 746,
@@ -42291,7 +43743,10 @@
   "businessDegreesLatest": 141,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6530,
+  "businessPctStart": 0.172,
+  "businessDegreesStart": 282
  },
  {
   "id": 747,
@@ -42405,7 +43860,10 @@
   "businessDegreesLatest": 146,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3745,
+  "businessPctStart": 0.1307,
+  "businessDegreesStart": 97
  },
  {
   "id": 749,
@@ -42462,7 +43920,10 @@
   "businessDegreesLatest": 146,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5383,
+  "businessPctStart": 0.0604,
+  "businessDegreesStart": 69
  },
  {
   "id": 750,
@@ -42519,7 +43980,10 @@
   "businessDegreesLatest": 146,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5997,
+  "businessPctStart": 0.0947,
+  "businessDegreesStart": 131
  },
  {
   "id": 751,
@@ -42576,7 +44040,9 @@
   "businessDegreesLatest": 106,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1561,
+  "businessDegreesStart": 106
  },
  {
   "id": 752,
@@ -42633,7 +44099,10 @@
   "businessDegreesLatest": 111,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 5017,
+  "businessPctStart": 0.1295,
+  "businessDegreesStart": 118
  },
  {
   "id": 753,
@@ -42747,7 +44216,10 @@
   "businessDegreesLatest": 296,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6198,
+  "businessPctStart": 0.3636,
+  "businessDegreesStart": 413
  },
  {
   "id": 755,
@@ -42804,7 +44276,10 @@
   "businessDegreesLatest": 296,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5756,
+  "businessPctStart": 0.4969,
+  "businessDegreesStart": 641
  },
  {
   "id": 756,
@@ -42918,7 +44393,10 @@
   "businessDegreesLatest": 230,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5430,
+  "businessPctStart": 0.1438,
+  "businessDegreesStart": 83
  },
  {
   "id": 758,
@@ -42975,7 +44453,10 @@
   "businessDegreesLatest": 230,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7839,
+  "businessPctStart": 0.13,
+  "businessDegreesStart": 182
  },
  {
   "id": 759,
@@ -43089,7 +44570,10 @@
   "businessDegreesLatest": 78,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 4673,
+  "businessPctStart": 0.0556,
+  "businessDegreesStart": 73
  },
  {
   "id": 762,
@@ -43146,7 +44630,10 @@
   "businessDegreesLatest": 54,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5159,
+  "businessPctStart": 0.0871,
+  "businessDegreesStart": 74
  },
  {
   "id": 763,
@@ -43317,7 +44804,10 @@
   "businessDegreesLatest": 125,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5684,
+  "businessPctStart": 0.0446,
+  "businessDegreesStart": 56
  },
  {
   "id": 766,
@@ -43431,7 +44921,10 @@
   "businessDegreesLatest": 229,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5893,
+  "businessPctStart": 0.1444,
+  "businessDegreesStart": 162
  },
  {
   "id": 768,
@@ -43488,7 +44981,9 @@
   "businessDegreesLatest": 229,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1394,
+  "businessDegreesStart": 229
  },
  {
   "id": 769,
@@ -43659,7 +45154,10 @@
   "businessDegreesLatest": 95,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6789,
+  "businessPctStart": 0.1058,
+  "businessDegreesStart": 108
  },
  {
   "id": 772,
@@ -43773,7 +45271,10 @@
   "businessDegreesLatest": 81,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6136,
+  "businessPctStart": 0.1122,
+  "businessDegreesStart": 141
  },
  {
   "id": 774,
@@ -43830,7 +45331,10 @@
   "businessDegreesLatest": 67,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5622,
+  "businessPctStart": 0.1208,
+  "businessDegreesStart": 127
  },
  {
   "id": 775,
@@ -43944,7 +45448,10 @@
   "businessDegreesLatest": 39,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5926,
+  "businessPctStart": 0.022,
+  "businessDegreesStart": 31
  },
  {
   "id": 777,
@@ -44001,7 +45508,10 @@
   "businessDegreesLatest": 39,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4959,
+  "businessPctStart": 0.0283,
+  "businessDegreesStart": 27
  },
  {
   "id": 778,
@@ -44058,7 +45568,10 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "enrollmentStart": 6574,
+  "businessPctStart": 0.052,
+  "businessDegreesStart": 73
  },
  {
   "id": 779,
@@ -44115,7 +45628,9 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0545,
+  "businessDegreesStart": 70
  },
  {
   "id": 780,
@@ -44172,7 +45687,9 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0545,
+  "businessDegreesStart": 70
  },
  {
   "id": 781,
@@ -44343,7 +45860,10 @@
   "businessDegreesLatest": 30,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5710,
+  "businessPctStart": 0.0256,
+  "businessDegreesStart": 19
  },
  {
   "id": 784,
@@ -44400,7 +45920,9 @@
   "businessDegreesLatest": 30,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0337,
+  "businessDegreesStart": 30
  },
  {
   "id": 785,
@@ -44628,7 +46150,10 @@
   "businessDegreesLatest": 90,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4446,
+  "businessPctStart": 0.0884,
+  "businessDegreesStart": 82
  },
  {
   "id": 789,
@@ -44685,7 +46210,10 @@
   "businessDegreesLatest": 90,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4282,
+  "businessPctStart": 0.06,
+  "businessDegreesStart": 71
  },
  {
   "id": 790,
@@ -44742,7 +46270,10 @@
   "businessDegreesLatest": 90,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4680,
+  "businessPctStart": 0.0588,
+  "businessDegreesStart": 72
  },
  {
   "id": 791,
@@ -44856,7 +46387,10 @@
   "businessDegreesLatest": 101,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4199,
+  "businessPctStart": 0.2222,
+  "businessDegreesStart": 106
  },
  {
   "id": 793,
@@ -44913,7 +46447,10 @@
   "businessDegreesLatest": 113,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6950,
+  "businessPctStart": 0.1189,
+  "businessDegreesStart": 116
  },
  {
   "id": 794,
@@ -44970,7 +46507,10 @@
   "businessDegreesLatest": 113,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5763,
+  "businessPctStart": 0.1372,
+  "businessDegreesStart": 100
  },
  {
   "id": 795,
@@ -45084,7 +46624,10 @@
   "businessDegreesLatest": 71,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6877,
+  "businessPctStart": 0.1624,
+  "businessDegreesStart": 176
  },
  {
   "id": 797,
@@ -45141,7 +46684,10 @@
   "businessDegreesLatest": 71,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5429,
+  "businessPctStart": 0.0974,
+  "businessDegreesStart": 71
  },
  {
   "id": 798,
@@ -45198,7 +46744,8 @@
   "businessDegreesLatest": 210,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 2084
  },
  {
   "id": 799,
@@ -45255,7 +46802,10 @@
   "businessDegreesLatest": 210,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4449,
+  "businessPctStart": 0.0947,
+  "businessDegreesStart": 184
  },
  {
   "id": 800,
@@ -45312,7 +46862,10 @@
   "businessDegreesLatest": 323,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3108,
+  "businessPctStart": 0.0927,
+  "businessDegreesStart": 33
  },
  {
   "id": 801,
@@ -45369,7 +46922,10 @@
   "businessDegreesLatest": 323,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6065,
+  "businessPctStart": 0.1462,
+  "businessDegreesStart": 410
  },
  {
   "id": 802,
@@ -45426,7 +46982,10 @@
   "businessDegreesLatest": 84,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4887,
+  "businessPctStart": 0.0975,
+  "businessDegreesStart": 79
  },
  {
   "id": 803,
@@ -45483,7 +47042,10 @@
   "businessDegreesLatest": 67,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5022,
+  "businessPctStart": 0.0669,
+  "businessDegreesStart": 71
  },
  {
   "id": 804,
@@ -45540,7 +47102,10 @@
   "businessDegreesLatest": 49,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6880,
+  "businessPctStart": 0.0865,
+  "businessDegreesStart": 63
  },
  {
   "id": 805,
@@ -45597,7 +47162,10 @@
   "businessDegreesLatest": 49,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4956,
+  "businessPctStart": 0.0549,
+  "businessDegreesStart": 44
  },
  {
   "id": 806,
@@ -45654,7 +47222,10 @@
   "businessDegreesLatest": 31,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 2750,
+  "businessPctStart": 0.0072,
+  "businessDegreesStart": 3
  },
  {
   "id": 807,
@@ -45711,7 +47282,10 @@
   "businessDegreesLatest": 31,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7492,
+  "businessPctStart": 0.0708,
+  "businessDegreesStart": 40
  },
  {
   "id": 808,
@@ -45768,7 +47342,10 @@
   "businessDegreesLatest": 174,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6135,
+  "businessPctStart": 0.1395,
+  "businessDegreesStart": 94
  },
  {
   "id": 809,
@@ -45825,7 +47402,10 @@
   "businessDegreesLatest": 174,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6762,
+  "businessPctStart": 0.1391,
+  "businessDegreesStart": 123
  },
  {
   "id": 810,
@@ -45996,7 +47576,10 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3696,
+  "businessPctStart": 0.2321,
+  "businessDegreesStart": 143
  },
  {
   "id": 813,
@@ -46053,7 +47636,10 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6040,
+  "businessPctStart": 0.2364,
+  "businessDegreesStart": 417
  },
  {
   "id": 814,
@@ -46110,7 +47696,9 @@
   "businessDegreesLatest": 60,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "businessPctStart": 0.0791,
+  "businessDegreesStart": 60
  },
  {
   "id": 815,
@@ -46167,7 +47755,10 @@
   "businessDegreesLatest": 97,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5894,
+  "businessPctStart": 0.0553,
+  "businessDegreesStart": 74
  },
  {
   "id": 816,
@@ -46224,7 +47815,10 @@
   "businessDegreesLatest": 97,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5280,
+  "businessPctStart": 0.0572,
+  "businessDegreesStart": 68
  },
  {
   "id": 817,
@@ -46281,7 +47875,10 @@
   "businessDegreesLatest": 97,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5129,
+  "businessPctStart": 0.0594,
+  "businessDegreesStart": 63
  },
  {
   "id": 818,
@@ -46395,7 +47992,10 @@
   "businessDegreesLatest": 167,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5083,
+  "businessPctStart": 0.0954,
+  "businessDegreesStart": 134
  },
  {
   "id": 820,
@@ -46509,7 +48109,10 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5417,
+  "businessPctStart": 0.0324,
+  "businessDegreesStart": 15
  },
  {
   "id": 822,
@@ -46566,7 +48169,10 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4672,
+  "businessPctStart": 0.0554,
+  "businessDegreesStart": 73
  },
  {
   "id": 823,
@@ -46623,7 +48229,10 @@
   "businessDegreesLatest": 359,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4491,
+  "businessPctStart": 0.1339,
+  "businessDegreesStart": 272
  },
  {
   "id": 824,
@@ -46680,7 +48289,10 @@
   "businessDegreesLatest": 157,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5019,
+  "businessPctStart": 0.0929,
+  "businessDegreesStart": 129
  },
  {
   "id": 825,
@@ -46737,7 +48349,10 @@
   "businessDegreesLatest": 181,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5722,
+  "businessPctStart": 0.1828,
+  "businessDegreesStart": 106
  },
  {
   "id": 826,
@@ -46794,7 +48409,10 @@
   "businessDegreesLatest": 181,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5044,
+  "businessPctStart": 0.183,
+  "businessDegreesStart": 136
  },
  {
   "id": 827,
@@ -46851,7 +48469,10 @@
   "businessDegreesLatest": 181,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4902,
+  "businessPctStart": 0.2006,
+  "businessDegreesStart": 143
  },
  {
   "id": 828,
@@ -46908,7 +48529,10 @@
   "businessDegreesLatest": 84,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4328,
+  "businessPctStart": 0.0438,
+  "businessDegreesStart": 31
  },
  {
   "id": 829,
@@ -47022,7 +48646,10 @@
   "businessDegreesLatest": 62,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5272,
+  "businessPctStart": 0.0453,
+  "businessDegreesStart": 67
  },
  {
   "id": 831,
@@ -47079,7 +48706,10 @@
   "businessDegreesLatest": 62,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6290,
+  "businessPctStart": 0.041,
+  "businessDegreesStart": 58
  },
  {
   "id": 832,
@@ -47136,7 +48766,10 @@
   "businessDegreesLatest": 62,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5112,
+  "businessPctStart": 0.0656,
+  "businessDegreesStart": 67
  },
  {
   "id": 833,
@@ -47250,7 +48883,9 @@
   "businessDegreesLatest": 44,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.0468,
+  "businessDegreesStart": 44
  },
  {
   "id": 835,
@@ -47421,7 +49056,8 @@
   "businessDegreesLatest": 167,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5285
  },
  {
   "id": 838,
@@ -47535,7 +49171,10 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3207,
+  "businessPctStart": 0.1948,
+  "businessDegreesStart": 67
  },
  {
   "id": 840,
@@ -47592,7 +49231,10 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4156,
+  "businessPctStart": 0.1669,
+  "businessDegreesStart": 132
  },
  {
   "id": 841,
@@ -47649,7 +49291,10 @@
   "businessDegreesLatest": 128,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5653,
+  "businessPctStart": 0.1525,
+  "businessDegreesStart": 84
  },
  {
   "id": 842,
@@ -47763,7 +49408,10 @@
   "businessDegreesLatest": 62,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5289,
+  "businessPctStart": 0.0708,
+  "businessDegreesStart": 62
  },
  {
   "id": 844,
@@ -47820,7 +49468,10 @@
   "businessDegreesLatest": 62,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4308,
+  "businessPctStart": 0.0429,
+  "businessDegreesStart": 48
  },
  {
   "id": 845,
@@ -47934,7 +49585,10 @@
   "businessDegreesLatest": 170,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4596,
+  "businessPctStart": 0.1704,
+  "businessDegreesStart": 154
  },
  {
   "id": 847,
@@ -48048,7 +49702,10 @@
   "businessDegreesLatest": 198,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4984,
+  "businessPctStart": 0.1607,
+  "businessDegreesStart": 257
  },
  {
   "id": 849,
@@ -48105,7 +49762,10 @@
   "businessDegreesLatest": 42,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5585,
+  "businessPctStart": 0.0412,
+  "businessDegreesStart": 47
  },
  {
   "id": 850,
@@ -48276,7 +49936,10 @@
   "businessDegreesLatest": 100,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6299,
+  "businessPctStart": 0.2203,
+  "businessDegreesStart": 113
  },
  {
   "id": 853,
@@ -48390,7 +50053,10 @@
   "businessDegreesLatest": 7,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5825,
+  "businessPctStart": 0.0225,
+  "businessDegreesStart": 28
  },
  {
   "id": 855,
@@ -48447,7 +50113,10 @@
   "businessDegreesLatest": 7,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5885,
+  "businessPctStart": 0.0315,
+  "businessDegreesStart": 40
  },
  {
   "id": 856,
@@ -48504,7 +50173,8 @@
   "businessDegreesLatest": 87,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5233
  },
  {
   "id": 857,
@@ -48561,7 +50231,10 @@
   "businessDegreesLatest": 87,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5155,
+  "businessPctStart": 0.1009,
+  "businessDegreesStart": 77
  },
  {
   "id": 858,
@@ -48618,7 +50291,10 @@
   "businessDegreesLatest": 87,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6508,
+  "businessPctStart": 0.0687,
+  "businessDegreesStart": 63
  },
  {
   "id": 859,
@@ -48675,7 +50351,10 @@
   "businessDegreesLatest": 34,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3888,
+  "businessPctStart": 0.0449,
+  "businessDegreesStart": 42
  },
  {
   "id": 860,
@@ -48960,7 +50639,10 @@
   "businessDegreesLatest": 55,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 2632,
+  "businessPctStart": 0.2264,
+  "businessDegreesStart": 156
  },
  {
   "id": 865,
@@ -49017,7 +50699,10 @@
   "businessDegreesLatest": 55,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4442,
+  "businessPctStart": 0.15,
+  "businessDegreesStart": 63
  },
  {
   "id": 866,
@@ -49245,7 +50930,10 @@
   "businessDegreesLatest": 129,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4869,
+  "businessPctStart": 0.1117,
+  "businessDegreesStart": 68
  },
  {
   "id": 870,
@@ -49530,7 +51218,10 @@
   "businessDegreesLatest": 58,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5063,
+  "businessPctStart": 0.0182,
+  "businessDegreesStart": 20
  },
  {
   "id": 876,
@@ -49758,7 +51449,10 @@
   "businessDegreesLatest": 71,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4213,
+  "businessPctStart": 0.1124,
+  "businessDegreesStart": 48
  },
  {
   "id": 880,
@@ -50385,7 +52079,10 @@
   "businessDegreesLatest": 79,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4514,
+  "businessPctStart": 0.0856,
+  "businessDegreesStart": 56
  },
  {
   "id": 891,
@@ -50613,7 +52310,10 @@
   "businessDegreesLatest": 195,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4548,
+  "businessPctStart": 0.2326,
+  "businessDegreesStart": 230
  },
  {
   "id": 895,
@@ -50727,7 +52427,10 @@
   "businessDegreesLatest": 74,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4683,
+  "businessPctStart": 0.0716,
+  "businessDegreesStart": 123
  },
  {
   "id": 898,
@@ -50898,7 +52601,10 @@
   "businessDegreesLatest": 149,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4579,
+  "businessPctStart": 0.0742,
+  "businessDegreesStart": 109
  },
  {
   "id": 901,
@@ -50955,7 +52661,10 @@
   "businessDegreesLatest": 149,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4296,
+  "businessPctStart": 0.0942,
+  "businessDegreesStart": 130
  },
  {
   "id": 902,
@@ -51183,7 +52892,10 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5081,
+  "businessPctStart": 0.1337,
+  "businessDegreesStart": 111
  },
  {
   "id": 906,
@@ -51240,7 +52952,10 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5439,
+  "businessPctStart": 0.1506,
+  "businessDegreesStart": 150
  },
  {
   "id": 907,
@@ -51297,7 +53012,9 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1849,
+  "businessDegreesStart": 162
  },
  {
   "id": 908,
@@ -51525,7 +53242,10 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4175,
+  "businessPctStart": 0.0748,
+  "businessDegreesStart": 136
  },
  {
   "id": 912,
@@ -51582,7 +53302,10 @@
   "businessDegreesLatest": 157,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4418,
+  "businessPctStart": 0.1876,
+  "businessDegreesStart": 223
  },
  {
   "id": 913,
@@ -51639,7 +53362,10 @@
   "businessDegreesLatest": 38,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4110,
+  "businessPctStart": 0.0953,
+  "businessDegreesStart": 91
  },
  {
   "id": 914,
@@ -51810,7 +53536,10 @@
   "businessDegreesLatest": 65,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4315,
+  "businessPctStart": 0.0926,
+  "businessDegreesStart": 51
  },
  {
   "id": 917,
@@ -52152,7 +53881,10 @@
   "businessDegreesLatest": 19,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3204,
+  "businessPctStart": 0.0161,
+  "businessDegreesStart": 20
  },
  {
   "id": 923,
@@ -52323,7 +54055,10 @@
   "businessDegreesLatest": 63,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5474,
+  "businessPctStart": 0.1595,
+  "businessDegreesStart": 96
  },
  {
   "id": 927,
@@ -52665,7 +54400,10 @@
   "businessDegreesLatest": 73,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3895,
+  "businessPctStart": 0.1823,
+  "businessDegreesStart": 105
  },
  {
   "id": 935,
@@ -52722,7 +54460,10 @@
   "businessDegreesLatest": 73,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5018,
+  "businessPctStart": 0.0775,
+  "businessDegreesStart": 87
  },
  {
   "id": 936,
@@ -52779,7 +54520,10 @@
   "businessDegreesLatest": 73,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4663,
+  "businessPctStart": 0.0626,
+  "businessDegreesStart": 56
  },
  {
   "id": 937,
@@ -52836,7 +54580,10 @@
   "businessDegreesLatest": 73,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4092,
+  "businessPctStart": 0.1005,
+  "businessDegreesStart": 84
  },
  {
   "id": 938,
@@ -53007,7 +54754,10 @@
   "businessDegreesLatest": 104,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4626,
+  "businessPctStart": 0.1353,
+  "businessDegreesStart": 87
  },
  {
   "id": 942,
@@ -53178,7 +54928,10 @@
   "businessDegreesLatest": 30,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3391,
+  "businessPctStart": 0.1332,
+  "businessDegreesStart": 65
  },
  {
   "id": 945,
@@ -53235,7 +54988,10 @@
   "businessDegreesLatest": 30,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5185,
+  "businessPctStart": 0.0698,
+  "businessDegreesStart": 56
  },
  {
   "id": 946,
@@ -53406,7 +55162,10 @@
   "businessDegreesLatest": 80,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 7200,
+  "businessPctStart": 0.1346,
+  "businessDegreesStart": 116
  },
  {
   "id": 949,
@@ -53463,7 +55222,9 @@
   "businessDegreesLatest": 80,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "businessPctStart": 0.1663,
+  "businessDegreesStart": 80
  },
  {
   "id": 950,
@@ -53577,7 +55338,10 @@
   "businessDegreesLatest": 117,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3338,
+  "businessPctStart": 0.2142,
+  "businessDegreesStart": 136
  },
  {
   "id": 952,
@@ -53634,7 +55398,10 @@
   "businessDegreesLatest": 74,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3716,
+  "businessPctStart": 0.0848,
+  "businessDegreesStart": 78
  },
  {
   "id": 953,
@@ -53976,7 +55743,10 @@
   "businessDegreesLatest": 82,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 6298,
+  "businessPctStart": 0.2037,
+  "businessDegreesStart": 187
  },
  {
   "id": 959,
@@ -54033,7 +55803,10 @@
   "businessDegreesLatest": 82,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5565,
+  "businessPctStart": 0.1557,
+  "businessDegreesStart": 154
  },
  {
   "id": 960,
@@ -54090,7 +55863,10 @@
   "businessDegreesLatest": 82,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3706,
+  "businessPctStart": 0.1463,
+  "businessDegreesStart": 96
  },
  {
   "id": 961,
@@ -54204,7 +55980,10 @@
   "businessDegreesLatest": 80,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4426,
+  "businessPctStart": 0.1083,
+  "businessDegreesStart": 61
  },
  {
   "id": 963,
@@ -54261,7 +56040,10 @@
   "businessDegreesLatest": 80,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5177,
+  "businessPctStart": 0.049,
+  "businessDegreesStart": 33
  },
  {
   "id": 964,
@@ -54318,7 +56100,10 @@
   "businessDegreesLatest": 80,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 5007,
+  "businessPctStart": 0.0718,
+  "businessDegreesStart": 49
  },
  {
   "id": 965,
@@ -54603,7 +56388,10 @@
   "businessDegreesLatest": 62,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 4021,
+  "businessPctStart": 0.0666,
+  "businessDegreesStart": 129
  },
  {
   "id": 970,
@@ -54717,7 +56505,10 @@
   "businessDegreesLatest": 76,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "enrollmentStart": 3664,
+  "businessPctStart": 0.0446,
+  "businessDegreesStart": 102
  },
  {
   "id": 972,
@@ -55287,7 +57078,10 @@
   "businessDegreesLatest": 1,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "enrollmentStart": 8366,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "id": 982,
@@ -55344,7 +57138,10 @@
   "businessDegreesLatest": 1,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "enrollmentStart": 6713,
+  "businessPctStart": 0,
+  "businessDegreesStart": 0
  },
  {
   "id": 984,
