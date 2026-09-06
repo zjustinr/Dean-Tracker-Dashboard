@@ -230,13 +230,36 @@ marks a non-academic tie, maroon marks affinity to the target school. Do not
 introduce a fourth for variety.
 
 **No control selects candidates on a protected characteristic.** An
-"Include: All / Women / Men" segmented filter used to sit in the Person group.
-Framed as widening the pool, it was still a selection filter on gender, and
-screening people in or out that way is the practice our buyers consult against.
-It is gone. `PoolComposition.tsx` replaces it with a read-only audit — slate,
-results and eligible pool side by side, unrecorded gender counted rather than
-dropped — so composition stays visible and unfilterable. Do not reintroduce the
-control in another form.
+"Include: All / Women / Men" segmented filter used to sit in the Person group of
+BOTH Slate Builder and Scout Assistant. Framed as widening the pool, it was still
+a selection filter on gender, and screening people in or out that way is the
+practice our buyers consult against. It is gone from both.
+`PoolComposition.tsx` replaces it with a read-only audit — slate, results and
+eligible pool side by side, unrecorded gender counted rather than dropped — so
+composition stays visible and unfilterable. Do not reintroduce the control in
+another form.
+
+**A filter says what it can see.** Coverage belongs on the control, not in a
+support reply: a screen that silently returns nothing because the underlying
+field is empty reads as "no such people". The years-in-seat range reports how
+much of the current pool has a start date at all (`SeatCoverageNote`), and names
+the feeder bench as the gap where it is one — 37 of 11,930 associate/vice-dean
+records corpus-wide carry a start date, so any range over that cohort returns
+almost nothing however the sliders are set.
+
+**The job-description keyword match re-ranks; it never filters.** At the
+strictest Scout tier a zero-keyword candidate used to be excluded outright. No
+other tier excludes anyone, so it contradicted the interface's own claim that the
+tiers are one ranked list truncated at different depths; it rested on the one
+input here that is not validated (a fuzzy text overlap on a flat 0.5 per match,
+not the log-lift scale everything else uses); and it dropped people whose brief
+is thin, which is a coverage artefact rather than a fact about them. It is a soft
+additive score at every tier now, labelled as exploratory where it is offered.
+
+**Every row carries its source.** `SourceLink.tsx` renders the domain behind a
+record on the row itself in both result lists — the domain rather than the word
+"source", because which domain it is *is* the signal — and says "no source" out
+loud for the 2.5% of records that have none rather than rendering nothing.
 
 ### The tenure contract (`src/data/tenure.ts` + `scripts/lib/tenure.mjs`)
 
@@ -250,6 +273,18 @@ averaged still-serving snapshots in with finished appointments. **Impossible
 arithmetic** — 31 records with negative spans, a start year of zero (one read as a
 2,004-year tenure), and 80-to-136-year spells whose end year was a placeholder for
 "not documented".
+
+### The movability definition is versioned (`src/data/movability.ts`)
+
+`MOVABILITY_VERSION` plus `MOVABILITY_CHANGELOG` stamp the definition, and the
+stamp renders beside every reading. The definition has already moved twice — D1
+recomputed every cohort median on a censoring-aware basis, moving them by one to
+three and a half years, and v2.0 collapsed three bands to two — so a reading
+quoted last month is not necessarily the reading today, and until the stamp
+existed there was nothing in the product to explain the difference. Bump the
+version and add an entry for any change to the bands, the boundary, or the cohort
+the median is taken from. Changelog dates carry a `dateNote` wherever the date is
+not the date of the change itself; do not quietly invent a precise one.
 
 The storage invariant is the same rule at write time: generators call
 `normalizeTenureFields()` before writing, `scripts/validate-tenure.mjs` fails CI on

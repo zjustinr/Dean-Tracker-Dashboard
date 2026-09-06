@@ -20,6 +20,60 @@ import { CURRENT_YEAR, completedTenure, isSitting, tenureStats } from "./tenure"
  * position is all this measures.
  */
 
+/**
+ * The definition's version stamp, and every change to it.
+ *
+ * A movability reading is a claim about a person, and the definition behind it
+ * has already moved twice: D1 recomputed every index's cohort median on a
+ * censoring-aware basis (moving them by one to three and a half years, which
+ * moved some people's band), and this revision collapsed three bands to two.
+ * Anyone who quoted a reading before either change gets a different answer today,
+ * and until now there was nothing in the product to explain why. So: the version
+ * rides beside every reading, and what changed is one click away.
+ *
+ * Bump the version and add a changelog entry for ANY change to the bands, the
+ * boundary, or the cohort the median is taken from. Wording fixes that leave the
+ * arithmetic alone do not need one.
+ */
+export const MOVABILITY_VERSION = "2.0";
+
+export interface MovabilityChange {
+  version: string;
+  /** ISO date. `dateNote` says what the date refers to when it isn't the change itself. */
+  date: string;
+  dateNote?: string;
+  summary: string;
+}
+
+export const MOVABILITY_CHANGELOG: MovabilityChange[] = [
+  {
+    version: "2.0",
+    date: "2026-09-06",
+    summary:
+      "Three bands collapsed to two, split at the cohort median. The old top band (past the 75th percentile, labelled " +
+      "\u201cOverdue\u201d) claimed a long-tenured leader was staying put; D4 measured that band departing more often than " +
+      "average, so the claim is gone and the labels now describe a tenure position rather than an intent. Readings in the " +
+      "old middle and top bands are now one band.",
+  },
+  {
+    version: "1.1",
+    date: "2026-09-05",
+    dateNote: "date of the audit that reported it; the change itself landed earlier that week",
+    summary:
+      "Cohort medians recomputed on a censoring-aware basis (D1): sitting leaders' unfinished tenures no longer count as " +
+      "completed ones. Every index's median moved by one to three and a half years, so some readings changed band without " +
+      "the person changing at all.",
+  },
+  {
+    version: "1.0",
+    date: "2026-08-19",
+    dateNote: "earliest revision in the repository; the definition is older than this date",
+    summary:
+      "First definition: three bands, at the cohort median and the 75th percentile, labelled \u201cNot up to move\u201d, " +
+      "\u201cCould move\u201d and \u201cOverdue\u201d.",
+  },
+];
+
 /** The measurement the bands are drawn from. Quoted verbatim in the panel. */
 export const MOVABILITY_EVIDENCE = {
   study: "D4 departure audit, 5 September 2026",

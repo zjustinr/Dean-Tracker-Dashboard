@@ -5,6 +5,7 @@ import { affKey, SOURCE_THEME, type ScoutCandidate } from "@/data/useScoutCandid
 import DeanProfile from "@/components/DeanProfile";
 import { CareerAssessment, useCareerAnalysis, type Root } from "@/components/CareerMap";
 import { MovabilityGaugeIcon } from "@/components/MovabilityGaugeIcon";
+import SourceLink from "@/components/SourceLink";
 import { tenureInfoFor } from "@/data/movability";
 import careerRoots from "@/data/career-roots.json";
 
@@ -88,12 +89,16 @@ export default function ScoutCandidateList({
         const resolved = c.dean ?? (c.resolvable ? resolvedProfiles[affKey(c.resolvable)] : undefined);
         return (
           <div key={c.key}>
+            {/* The row is a flex strip, not one big button: the expand target, the
+                source link and the chevron are three separate controls, and an <a>
+                cannot live inside a <button>. */}
+            <div className={["flex items-center gap-2 pr-4 sm:pr-5 transition-colors", isOpen ? theme.row : "hover:bg-accent/40"].join(" ")}>
             <button
               onClick={() => {
                 setExpandedKey(isOpen ? null : c.key);
                 if (!isOpen && c.resolvable) resolveProfile(c.resolvable);
               }}
-              className={["w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left transition-colors", isOpen ? theme.row : "hover:bg-accent/40"].join(" ")}
+              className="flex-1 min-w-0 flex items-center gap-3 pl-4 sm:pl-5 py-2.5 text-left"
             >
               <CandidateAvatar enrichKeyStr={c.dean ? enrichKey(c.dean.dean, c.dean.university) : c.resolvable!.enrichKey} name={c.name} theme={c.source} />
               <div className="flex-1 min-w-0">
@@ -134,8 +139,23 @@ export default function ScoutCandidateList({
                 )}
               </div>
               {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
-              <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
             </button>
+            {/* Sits outside the row button (an <a> cannot nest inside one). Only
+                for a candidate whose record has been read -- an unresolved row
+                has no source to point at yet, and "no source" would be a claim
+                about the record rather than about what we have loaded. */}
+            {resolved && resolved !== "not-found" && (
+              <SourceLink url={resolved.sourceUrl} subject={resolved.dean} className="self-center" />
+            )}
+            <button
+              onClick={() => {
+                setExpandedKey(isOpen ? null : c.key);
+                if (!isOpen && c.resolvable) resolveProfile(c.resolvable);
+              }}
+              aria-label={`${isOpen ? "Collapse" : "Expand"} ${c.name}`}
+              className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0 self-center"
+            >{isOpen ? "–" : "+"}</button>
+            </div>
             {isOpen && (
               <div className={`px-4 sm:px-5 pb-4 pt-1 border-l-2 ${theme.row} ${theme.border}`}>
                 {!resolved ? (

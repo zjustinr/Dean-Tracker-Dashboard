@@ -65,27 +65,34 @@ function CompositionRow({ label, hint, c }: { label: string; hint?: string; c: C
  */
 export default function PoolComposition({
   results, eligible, slate, nounPluralLower,
+  resultsLabel = "These results",
+  resultsHint = "Everyone matching the current filters.",
+  eligibleHint,
 }: {
-  /** The rows currently on screen, after every filter. */
-  results: Dean[];
-  /** The pool those rows were drawn from, before any filter. */
+  /** The rows currently on screen, after every filter. Omit where the surface
+   *  cannot enumerate them (the Scout list resolves candidate records lazily). */
+  results?: Dean[];
+  /** The pool those rows were drawn from, before the person-level screens. */
   eligible: Dean[];
   /** The saved slate, when the searcher has started one. */
   slate?: Dean[];
   nounPluralLower: string;
+  resultsLabel?: string;
+  resultsHint?: string;
+  eligibleHint?: string;
 }) {
-  const rc = useMemo(() => composition(results), [results]);
+  const rc = useMemo(() => composition(results ?? []), [results]);
   const ec = useMemo(() => composition(eligible), [eligible]);
   const sc = useMemo(() => composition(slate ?? []), [slate]);
   if (!ec.n) return null;
   return (
     <div className="rounded-lg border border-border bg-muted/30 p-2.5">
       {sc.n > 0 && <CompositionRow label="Your slate" c={sc} hint="The candidates you have saved." />}
-      <CompositionRow label="These results" c={rc} hint="Everyone matching the current filters." />
+      <CompositionRow label={resultsLabel} c={rc} hint={resultsHint} />
       <CompositionRow
         label="Eligible pool"
         c={ec}
-        hint={`Every ${nounPluralLower.replace(/s$/, "")} record in this index, before any filter.`}
+        hint={eligibleHint ?? `Every ${nounPluralLower.replace(/s$/, "")} record in this index that clears the scope filters.`}
       />
       <p className="mt-1.5 text-[10px] text-muted-foreground leading-snug">
         Composition is shown for review, not as a filter — no control here selects candidates on gender.

@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import * as RSM from "react-simple-maps";
 import type { CareerStep } from "@/data/enrichment";
 import careerGeo from "@/data/career-geo.json";
-import { MOVABILITY_BANDS, MOVABILITY_COPY, MOVABILITY_EVIDENCE, movabilityBand } from "@/data/movability";
+import { MOVABILITY_BANDS, MOVABILITY_CHANGELOG, MOVABILITY_COPY, MOVABILITY_EVIDENCE, MOVABILITY_VERSION, movabilityBand } from "@/data/movability";
 import type { TenureInfo } from "@/data/movability";
 import { MovabilityGaugeIcon } from "./MovabilityGaugeIcon";
 
@@ -214,6 +214,13 @@ export default function CareerMap({ steps, roots }: { steps: CareerStep[]; roots
   );
 }
 
+/** "2026-09-06" -> "6 Sep 2026". Dates are stamps, not prose, so they stay short. */
+function formatStampDate(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${d} ${MONTHS[m - 1]} ${y}`;
+}
+
 /**
  * The band definitions and the departure rate measured for each, one click from
  * any chip. A reader who wants to know what "at or past median" is worth should
@@ -249,7 +256,24 @@ function MovabilityBandTable() {
             </tr>
           </tbody>
         </table>
-        <p className="text-[11px] text-muted-foreground mt-1 leading-snug">
+        <p className="text-[11px] font-semibold mt-2.5 mb-1">Definition history</p>
+        <ul className="text-[11px] text-muted-foreground space-y-1">
+          {MOVABILITY_CHANGELOG.map((c) => (
+            <li key={c.version}>
+              <span className="font-medium text-foreground">v{c.version}</span>{" "}
+              <span className="tabular-nums" title={c.dateNote}>
+                {formatStampDate(c.date)}{c.dateNote ? "*" : ""}
+              </span>{" "}
+              — {c.summary}
+            </li>
+          ))}
+        </ul>
+        {MOVABILITY_CHANGELOG.some((c) => c.dateNote) && (
+          <p className="text-[10px] text-muted-foreground mt-1 leading-snug">
+            * {MOVABILITY_CHANGELOG.filter((c) => c.dateNote).map((c) => `v${c.version}: ${c.dateNote}`).join("; ")}.
+          </p>
+        )}
+        <p className="text-[11px] text-muted-foreground mt-2 leading-snug">
           {MOVABILITY_EVIDENCE.study}: {MOVABILITY_EVIDENCE.cohortN.toLocaleString()} sitting leaders followed for{" "}
           {MOVABILITY_EVIDENCE.horizonYears} years. The one boundary is the cohort median, because that is the only one the
           measurement supports: the product used to split the upper half again at the 75th percentile, and the two halves
@@ -274,7 +298,15 @@ export function CareerAssessment({ steps, tenure, roots }: { steps: CareerStep[]
           <div className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1.5">Movability Index</div>
           <div className="flex items-center gap-2.5">
             <MovabilityGaugeIcon tone={rating.tone} size={40} className="shrink-0" />
-            <span className={`inline-block text-sm font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
+            <div className="min-w-0">
+              <span className={`inline-block text-sm font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
+              {/* The definition has moved twice, and a reading quoted last month may
+                  not be the reading today. The stamp travels with the reading so the
+                  difference is visible without having to ask us. */}
+              <p className="text-[10px] text-muted-foreground mt-0.5 tabular-nums">
+                Definition v{MOVABILITY_VERSION} · {formatStampDate(MOVABILITY_CHANGELOG[0].date)}
+              </p>
+            </div>
           </div>
           <p className="text-sm text-foreground mt-1.5 leading-snug">{rating.reason}</p>
           {/* What the band is, what it is not, and what it is worth -- in that

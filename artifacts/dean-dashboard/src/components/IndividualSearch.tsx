@@ -10,6 +10,7 @@ import {
 } from "@/components/FilterControls";
 import ResultsMap from "@/components/ResultsMap";
 import PoolComposition from "@/components/PoolComposition";
+import SourceLink from "@/components/SourceLink";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
 import { tenureInfoFor } from "@/data/movability";
 import { CURRENT_YEAR, completedTenure, isSitting, yearsInSeat } from "@/data/tenure";
@@ -69,6 +70,45 @@ const elapsedYears = (d: Dean): number | null => yearsInSeat(d, NOW);
 // Single-track, two-thumb range. More legible than two separate sliders. Built
 // from two overlaid native range inputs so keyboard access and accessibility come
 // free; only the thumbs take pointer events, so they never block each other.
+/**
+ * How much of the current pool the years-in-seat range can actually see.
+ *
+ * Coverage is the difference between "no leader matches that range" and "we do
+ * not know when most of these people started", and only the second is usually
+ * true. The feeder bench is the extreme case: associate and vice deans are
+ * recorded as a current-roster snapshot, and 37 of 11,930 of them corpus-wide
+ * carry a start date at all, so any range over that cohort returns almost
+ * nothing however the sliders are set. Say so on the control rather than let an
+ * empty list imply the people do not exist.
+ */
+function SeatCoverageNote({ cov, nounPluralLower, narrowed }: {
+  cov: { n: number; known: number; bench: number; benchKnown: number };
+  nounPluralLower: string;
+  narrowed: boolean;
+}) {
+  if (!cov.n) return null;
+  const pct = Math.round((cov.known / cov.n) * 100);
+  const complete = cov.known === cov.n;
+  // Loud only when it changes what the control can do: a mostly-unknown pool with
+  // the range actually narrowed is the case that silently returns nothing.
+  const thin = pct < 50;
+  return (
+    <p className={`text-[10px] leading-snug mt-1 ${thin && narrowed ? "text-amber-700 dark:text-amber-500" : "text-muted-foreground"}`}>
+      {complete ? (
+        <>Start date on record for all {cov.n.toLocaleString()} in this pool.</>
+      ) : (
+        <>
+          Start date on record for {cov.known.toLocaleString()} of {cov.n.toLocaleString()} in this pool ({pct}%).
+          {" "}The other {(cov.n - cov.known).toLocaleString()} have no years-in-seat to test, so any range you set drops them.
+        </>
+      )}
+      {cov.bench > 0 && cov.benchKnown < cov.bench && (
+        <> Associate/vice {nounPluralLower} are the gap: {cov.benchKnown.toLocaleString()} of {cov.bench.toLocaleString()} carry one.</>
+      )}
+    </p>
+  );
+}
+
 function DualRange({ min, max, low, high, onLow, onHigh, ariaLow, ariaHigh }: {
   min: number; max: number; low: number; high: number;
   onLow: (v: number) => void; onHigh: (v: number) => void; ariaLow: string; ariaHigh: string;
@@ -642,6 +682,25 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     return rows;
   }, [locBase, effectiveStates, stateOf, sortBy]);
 
+  // What the years-in-seat control can actually see. A start date is what makes a
+  // years-in-seat number possible, and on the feeder bench it is almost never
+  // recorded -- 37 of 11,930 associate/vice-dean records corpus-wide carry one --
+  // so a range applied to that cohort silently returns nothing. The control says
+  // so instead of appearing to have found no such people.
+  const seatCoverage = useMemo(() => {
+    const pool = scopePool.length ? scopePool : allDeans;
+    let known = 0, bench = 0, benchKnown = 0;
+    for (const d of pool) {
+      const hasYears = yearsInSeat(d) != null;
+      if (hasYears) known++;
+      if ((d as { roleType?: string }).roleType === "subdean") {
+        bench++;
+        if (hasYears) benchKnown++;
+      }
+    }
+    return { n: pool.length, known, bench, benchKnown };
+  }, [scopePool, allDeans]);
+
   // The same seats as `results` minus the person-level screens, narrowed by the
   // same location filter -- the baseline the composition panel reads against.
   const eligiblePool = useMemo(() => (
@@ -1042,6 +1101,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                 onHigh={(v) => { setServedMax(Math.max(v, servedMin)); setExpandedId(null); }}
                 ariaLow="Minimum years in seat" ariaHigh="Maximum years in seat" />
               <div className="flex justify-between text-[10px] text-muted-foreground mt-1"><span>0</span><span>{SERVED_CAP}+</span></div>
+              <SeatCoverageNote cov={seatCoverage} nounPluralLower={nounPluralLower} narrowed={servedMin > 0 || servedMax < SERVED_CAP} />
               {(servedMin > 0 || servedMax < SERVED_CAP) && (
                 <button onClick={() => { setServedMin(0); setServedMax(SERVED_CAP); setExpandedId(null); }} className="mt-1 text-[10px] text-muted-foreground hover:text-foreground underline underline-offset-2">Reset</button>
               )}
@@ -1197,8 +1257,16 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                         <p className="text-xs font-bold text-[#011F5B] tabular-nums">{yearsLabel(d.startYear, d.endYear, "Now")}</p>
                         {completedTenure(d) ? <span className="text-[10px] text-muted-foreground">{completedTenure(d)} yr{completedTenure(d) !== 1 ? "s" : ""}</span> : d.isInterim ? <span className="text-[10px] bg-muted px-1.5 py-0.5 rounded">Interim</span> : null}
                       </div>
-                      <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
                     </button>
+                    {/* Outside the row button on purpose: an <a> cannot live inside a
+                        <button>, and the source is worth a real link rather than a
+                        detail you only find after opening the profile. */}
+                    <SourceLink url={d.sourceUrl} subject={d.dean} />
+                    <button
+                      onClick={() => setExpandedId(isOpen ? null : d.id)}
+                      aria-label={`${isOpen ? "Collapse" : "Expand"} ${d.dean}`}
+                      className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0"
+                    >{isOpen ? "–" : "+"}</button>
                   </div>
                   {isOpen && (
                     <div className="px-3 sm:px-4 pb-4 pt-1 bg-[#011F5B]/5 border-l-2 border-[#011F5B]">
