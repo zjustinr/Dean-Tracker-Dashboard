@@ -3,6 +3,7 @@ import * as RSM from "react-simple-maps";
 import type { CareerStep } from "@/data/enrichment";
 import careerGeo from "@/data/career-geo.json";
 import { MovabilityGaugeIcon } from "./MovabilityGaugeIcon";
+import { FLAGS } from "@/config/flags";
 
 const { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } = RSM;
 type Hover = { kind: "career"; num: number; role: string; org: string; place: string; years: string } | { kind: "alma"; school: string; level: string; state: string | null };
@@ -125,8 +126,16 @@ export function useCareerAnalysis(steps: CareerStep[], tenure: TenureInfo | unde
     if (!t || !t.sitting || t.currentTenure == null || t.median == null) return null;
     const ct = t.currentTenure;
     const own = t.personalAvg != null ? ` · usually stays ~${Math.round(t.personalAvg)} yr${Math.round(t.personalAvg) === 1 ? "" : "s"}` : "";
-    if (t.p75 != null && ct >= t.p75)
-      return { label: "Overdue", tone: "lightgreen" as const, cls: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300", reason: `${ct} yrs in role, past the 75th-pct (${t.p75} yrs) for this cohort -- this far past the typical window usually means they're staying put, not about to leave${own}` };
+    if (t.p75 != null && ct >= t.p75) {
+      // The band's factual lines stay; the claim that a very long tenure means
+      // the leader is staying put sits behind ENABLE_TENURE_STAYING_PUT_COPY,
+      // off because the D4 backtest measured the opposite direction. There is
+      // deliberately no hedged replacement -- see src/config/flags.ts.
+      const claim = FLAGS.ENABLE_TENURE_STAYING_PUT_COPY
+        ? " -- this far past the typical window usually means they're staying put, not about to leave"
+        : "";
+      return { label: "Overdue", tone: "lightgreen" as const, cls: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300", reason: `${ct} yrs in role, past the 75th-pct (${t.p75} yrs) for this cohort${claim}${own}` };
+    }
     if (ct >= t.median || (t.personalAvg != null && ct >= t.personalAvg))
       return { label: "Could move", tone: "green" as const, cls: "bg-green-200 text-green-900 dark:bg-green-800 dark:text-green-100", reason: `${ct} yrs in role, near the typical ${t.median} yrs${own}` };
     return { label: "Not up to move", tone: "yellow" as const, cls: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200", reason: `${ct} yrs in role, below the typical ${t.median} yrs${own}` };
