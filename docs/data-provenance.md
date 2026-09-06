@@ -12,10 +12,10 @@ on them would have been fitted to a small, unexplained subsample.
 | `startYear` on feeder bench (`roleType: "subdean"`) | 37 of 11,930 (0.3%) | 579 (4.9%) | source/bio pages |
 | `phdInstitution` | 5,500 of 33,664 (16.3%) | 6,817 (20.3%) | source/bio pages |
 | `phdYear` | **field did not exist** | 1,094 (3.2%) | source/bio pages |
-| `enrollmentEnd` | 2.3% | 88.5% | IPEDS |
-| `enrollmentAvg` | 2.5% | 88.5% | IPEDS |
-| `businessPctEnd` | 2.3% | 87.2% | IPEDS |
-| `businessDegreesLatest` | 2.3% | 84.1% | IPEDS |
+| `enrollmentEnd` | 2.3% | 88.7% | IPEDS |
+| `enrollmentAvg` | 2.5% | 88.7% | IPEDS |
+| `businessPctEnd` | 2.3% | 87.6% | IPEDS |
+| `businessDegreesLatest` | 2.3% | 84.4% | IPEDS |
 
 `phdYear` read 0.0% because it was never a field: it was absent from
 `types.ts` and from all 33,664 records. It is now declared and populated.
@@ -146,20 +146,26 @@ multi-campus **system offices**, and 29 do not resolve.
   `businessPctEnd` is unavailable for tenures ending 2000–2001. Enrolment for
   those years is present and was validated across the schema boundary.
 
-### Legacy values were superseded
+### Pre-existing values are preserved
 
-The ~2% of rows that already carried covariates were computed on an unrecorded
-basis and **do not reproduce** under any IPEDS definition tried: recomputation
-matched the old value 14 times out of 2,348. For one worked example, American
-University's recorded `businessDegreesLatest` of 702 matches no year, and its
-recorded `businessPctEnd` for a 2022 tenure end (0.1747) matches IPEDS *2021*
-completions (0.1745) rather than 2022 (0.1609).
+About 2% of rows already carried covariates. Those values were computed on an
+unrecorded basis and **do not reproduce** under any IPEDS definition tried:
+recomputing them matched the old value 14 times out of 2,348. For one worked
+example, American University's recorded `businessDegreesLatest` of 702 matches
+no year, and its recorded `businessPctEnd` for a 2022 tenure end (0.1747)
+matches IPEDS *2021* completions (0.1745) rather than 2022 (0.1609).
 
-Because these are derived covariates rather than observed facts, they were
-recomputed for every row from the single vintage above rather than left in
-place. Leaving 2% on an unknown basis beside 98% on a documented one would
-reproduce the original problem in a subtler form. Pass `--keep-legacy` to
-preserve pre-existing values instead.
+They are nonetheless **kept as they are**. This pass only fills fields that
+were empty: 3,317 pre-existing values were preserved unchanged and 114,303
+empty ones filled. Preserving is the default, so re-running the pass cannot
+silently rewrite them; `--supersede-legacy` recomputes every row from the panel
+instead, which does change values.
+
+The practical consequence for analysis: the covariates are not a single
+homogeneous series. Roughly 3,300 values come from the earlier, unrecorded
+basis and the rest from the vintage documented here. Where that distinction
+matters, the earlier values are identifiable as the ones present in git history
+before this change.
 
 ## Reproducing
 
@@ -169,6 +175,7 @@ preserve pre-existing values instead.
 node scripts/src/fetch-ipeds-panel.mjs --work /tmp/ipeds --out research/ipeds
 
 # 2. Recompute the school covariates (omit --write for a dry run).
+# Preserves anything already on file; add --supersede-legacy to recompute all.
 node scripts/src/compute-school-covariates.mjs --panel research/ipeds --write
 
 # 3. Re-crawl source/bio pages (--cache makes re-runs cheap; --index limits scope).

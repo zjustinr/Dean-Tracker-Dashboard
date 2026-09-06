@@ -11,6 +11,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { readDataset, writeDataset } from './lib/dataset-io.mjs';
 
 const args = process.argv.slice(2);
 const candPath = args.find(a => !a.startsWith('--'));
@@ -19,12 +20,6 @@ if (!candPath) { console.error('usage: apply-source-page-enrichment.mjs <candida
 
 const DATA = 'artifacts/dean-dashboard/src/data';
 const { hits } = JSON.parse(fs.readFileSync(candPath, 'utf8'));
-
-// Preserve each file's existing indentation so the diff stays reviewable.
-function indentOf(src, parsed) {
-  for (const ind of [1, 2, 4, '\t']) if (JSON.stringify(parsed, null, ind) === src.trim()) return ind;
-  return 1;
-}
 
 const byFile = new Map();
 for (const h of hits) {
@@ -37,9 +32,7 @@ const summary = { startYear: 0, phdInstitution: 0, phdYear: 0, skippedNameMismat
 
 for (const [file, fileHits] of byFile) {
   const p = path.join(DATA, file);
-  const src = fs.readFileSync(p, 'utf8');
-  const rows = JSON.parse(src);
-  const ind = indentOf(src, rows);
+  const { rows, indent } = readDataset(p);
   let touched = 0;
 
   for (const h of fileHits) {
@@ -65,7 +58,7 @@ for (const [file, fileHits] of byFile) {
   }
 
   console.log(`${file}: ${touched} field(s) filled${write ? '' : ' (dry run)'}`);
-  if (write && touched) fs.writeFileSync(p, JSON.stringify(rows, null, ind));
+  if (write && touched) writeDataset(p, rows, indent);
 }
 
 console.log('\n' + JSON.stringify(summary, null, 2));

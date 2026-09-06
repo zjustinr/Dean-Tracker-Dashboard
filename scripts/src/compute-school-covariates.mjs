@@ -19,21 +19,27 @@
 // multi-campus system office (no IPEDS institution exists), when the name does
 // not resolve, or when the tenure window falls outside the panel's year range.
 //
+// Pre-existing values are PRESERVED by default: this project's decision is that
+// the covariates already on file stay as they are and the pass only fills what
+// is empty. Pass --supersede-legacy to recompute every row from the panel
+// instead (they do not reproduce under any single IPEDS definition, so that
+// genuinely changes values -- see docs/data-provenance.md).
+//
 //   node scripts/src/compute-school-covariates.mjs --panel DIR [--index r1-bschool]
-//     [--write] [--keep-legacy]
+//     [--write] [--supersede-legacy]
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { readDataset, writeDataset } from './lib/dataset-io.mjs';
 
 const args = process.argv.slice(2);
 const getOpt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
 const panelDir = getOpt('--panel', null);
 const indexFilter = getOpt('--index', null);
 const write = args.includes('--write');
-// Legacy values were computed on an unrecorded basis and do not reproduce under
-// any single IPEDS definition, so by default they are superseded rather than
-// left to sit alongside a differently-derived 98%.
-const keepLegacy = args.includes('--keep-legacy');
+// Preserving what is already on file is the default, so that re-running this
+// pass can never silently rewrite values a human decided to keep.
+const keepLegacy = !args.includes('--supersede-legacy');
 if (!panelDir) { console.error('--panel DIR is required'); process.exit(1); }
 
 const DATA = 'artifacts/dean-dashboard/src/data';
@@ -42,11 +48,6 @@ const crosswalk = JSON.parse(fs.readFileSync(path.join(panelDir, 'ipeds-crosswal
 
 const yearsFor = unitid => Object.keys(panel[unitid] || {}).map(Number).sort((a, b) => a - b);
 const cell = (unitid, year) => (panel[unitid] || {})[year] || null;
-
-function indentOf(src, parsed) {
-  for (const ind of [1, 2, 4, '\t']) if (JSON.stringify(parsed, null, ind) === src.trim()) return ind;
-  return 1;
-}
 
 const round4 = v => (v == null ? null : Math.round(v * 10000) / 10000);
 
@@ -63,17 +64,13 @@ const legacyDeltas = [];
 
 for (const file of files) {
   const p = path.join(DATA, file);
-  const src = fs.readFileSync(p, 'utf8');
-  const rows = JSON.parse(src);
-  const ind = indentOf(src, rows);
+  const { rows, indent } = readDataset(p);
   let touched = 0;
 
   for (const row of rows) {
     totals.rows++;
-    // Every row is written from the same documented method, including the rows
-    // the method cannot serve. Clearing those matters: a value left behind from
-    // an earlier basis would put the corpus back into the mixed state this is
-    // meant to end.
+    // Rows the method cannot serve are cleared only when superseding; under the
+    // default, anything already on file is left exactly as it is.
     const clear = () => {
       if (keepLegacy) return;
       for (const k of ['enrollmentEnd', 'enrollmentAvg', 'businessPctEnd', 'businessDegreesLatest']) {
@@ -152,7 +149,7 @@ for (const file of files) {
     }
   }
   console.log(`${file}: ${touched} covariate value(s)${write ? '' : ' (dry run)'}`);
-  if (write && touched) fs.writeFileSync(p, JSON.stringify(rows, null, ind));
+  if (write && touched) writeDataset(p, rows, indent);
 }
 
 console.log('\n' + JSON.stringify(totals, null, 2));
