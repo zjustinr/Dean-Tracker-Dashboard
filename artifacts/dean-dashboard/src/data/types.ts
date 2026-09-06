@@ -24,6 +24,7 @@ export interface Dean {
   disciplineBroad: string;
   phdField: string;
   phdInstitution?: string;
+  phdYear?: number | null; // doctorate award year; sourced from bio pages, see docs/data-provenance.md
   hasPriorDeanExp: boolean;
   priorAssocOrAsstDean: boolean;
   hadAssocDeanRole: boolean;
@@ -58,6 +59,9 @@ export interface Dean {
   surpriseDeparture: boolean;
   surpriseEvidence: string;
   sourceUrl: string;
+  enrollmentStart: number | null;   // institution at APPOINTMENT year (exact year match; see docs/data-provenance.md)
+  businessPctStart: number | null;
+  businessDegreesStart: number | null;
   enrollmentEnd: number | null;
   enrollmentAvg: number | null;
   businessPctEnd: number | null;
