@@ -8,6 +8,7 @@ import {
   BarChart, Bar, PieChart, Pie, Cell, Legend,
 } from "recharts";
 import { CHART_COLORS, NEXT_ROLE_LABELS, ORIGIN_LABELS } from "@/data/types";
+import { completedTenure, completedTenures } from "@/data/tenure";
 import { useDataset } from "@/data/DatasetContext";
 
 export default function AggregateTrends() {
@@ -61,12 +62,16 @@ export default function AggregateTrends() {
       .map(([year, v]) => ({ year: Number(year), ...v }));
   }, [data]);
 
+  // Completed spells only, via the shared guard (src/data/tenure.ts). Reading
+  // `tenureLength` directly mixed in sitting leaders -- four indices freeze a
+  // tenure onto people who never left -- and let impossible spans through.
   const tenureByEra = useMemo(() => {
     const eras: Record<string, number[]> = {};
     for (const d of data) {
-      if (!d.era || !d.tenureLength) continue;
+      const t = completedTenure(d);
+      if (!d.era || !t) continue;
       if (!eras[d.era]) eras[d.era] = [];
-      eras[d.era].push(d.tenureLength);
+      eras[d.era].push(t);
     }
     return Object.entries(eras)
       .sort(([a], [b]) => a.localeCompare(b))
@@ -131,7 +136,7 @@ export default function AggregateTrends() {
   }, [data]);
 
   const kpis = useMemo(() => {
-    const tenures = data.filter((d) => d.tenureLength).map((d) => d.tenureLength!);
+    const tenures = completedTenures(data, { includeInterims: true });
     const avgTenure = tenures.length ? Math.round((tenures.reduce((s, v) => s + v, 0) / tenures.length) * 10) / 10 : 0;
     const femalePct = data.length ? Math.round((data.filter((d) => d.isFemale).length / data.length) * 100) : 0;
     const internalPct = data.length ? Math.round((data.filter((d) => d.isInternal && !d.isInterim).length / data.length) * 100) : 0;
@@ -267,7 +272,7 @@ export default function AggregateTrends() {
 
       <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         <KPICard label={`Total ${nounPlural}`} value={String(kpis.total)} />
-        <KPICard label="Avg Tenure" value={`${kpis.avgTenure} yrs`} />
+        <KPICard label="Avg Completed Tenure" value={`${kpis.avgTenure} yrs`} hint="Finished appointments only. Leaders still in the seat have no completed tenure and are excluded." />
         <KPICard label="Female" value={`${kpis.femalePct}%`} />
         <KPICard label="Internal Hire" value={`${kpis.internalPct}%`} />
         <KPICard label="Interim" value={`${kpis.interimPct}%`} />
@@ -293,7 +298,7 @@ export default function AggregateTrends() {
         </Card>
 
         <Card>
-          <CardHeader><CardTitle className="text-base">Average Tenure by Era</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="text-base">Average completed tenure by era</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={tenureByEra} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
@@ -493,10 +498,10 @@ export default function AggregateTrends() {
   );
 }
 
-function KPICard({ label, value }: { label: string; value: string }) {
+function KPICard({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <Card>
-      <CardContent className="pt-4 pb-3 px-4 text-center">
+      <CardContent className="pt-4 pb-3 px-4 text-center" title={hint}>
         <p className="text-2xl font-bold">{value}</p>
         <p className="text-xs text-muted-foreground mt-0.5">{label}</p>
       </CardContent>

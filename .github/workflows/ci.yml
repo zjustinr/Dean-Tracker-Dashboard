@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "artifacts/dean-dashboard/src/data/**.json"
+      - "artifacts/dean-dashboard/scripts/lib/tenure.mjs"
+      - "artifacts/dean-dashboard/scripts/validate-*.mjs"
 
 jobs:
   validate-source-urls:
@@ -19,3 +21,18 @@ jobs:
 
       - name: Check every new/changed record has a sourceUrl
         run: node artifacts/dean-dashboard/scripts/validate-source-urls.mjs --base "origin/${{ github.base_ref }}"
+
+  validate-tenure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Not diff-based: the corpus is clean, so any impossible tenure -- a sitting
+      # leader carrying a stored length, a negative span, a placeholder year, a
+      # spell longer than a career -- is a regression wherever it appears.
+      - name: Check no record carries impossible tenure arithmetic
+        run: node artifacts/dean-dashboard/scripts/validate-tenure.mjs

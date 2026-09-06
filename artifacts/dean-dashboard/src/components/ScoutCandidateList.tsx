@@ -5,6 +5,7 @@ import { affKey, SOURCE_THEME, type ScoutCandidate } from "@/data/useScoutCandid
 import DeanProfile from "@/components/DeanProfile";
 import { CareerAssessment, useCareerAnalysis, type Root } from "@/components/CareerMap";
 import { MovabilityGaugeIcon } from "@/components/MovabilityGaugeIcon";
+import { tenureInfoFor } from "@/data/movability";
 import careerRoots from "@/data/career-roots.json";
 
 /**
@@ -31,21 +32,10 @@ export default function ScoutCandidateList({
   const tiesPeople = useNonAcademicExperience()?.people ?? null;
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
 
-  // Cohort tenure distribution for the Movability Index, mirroring IndividualSearch's
-  // own tenureFor (same cohort-wide percentiles, so the rating reads identically
-  // wherever it's shown).
-  function tenureFor(dn: Dean) {
-    const NOW = 2026;
-    const lens = allDeans.filter((x) => x.endYear != null && !x.isInterim && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number).sort((a, b) => a - b);
-    const p = (q: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(q * lens.length))] : null);
-    const past = allDeans.filter((x) => x.dean === dn.dean && x.id !== dn.id && x.endYear != null && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number);
-    const personalAvg = past.length ? past.reduce((a, b) => a + b, 0) / past.length : null;
-    return {
-      sitting: dn.endYear == null,
-      currentTenure: dn.endYear == null && dn.startYear ? NOW - dn.startYear : dn.tenureLength ?? null,
-      median: p(0.5), p75: p(0.75), personalAvg, cohortN: lens.length,
-    };
-  }
+  // Cohort tenure inputs for the Movability Index, from the shared module — the
+  // same cohort median everywhere the chip is shown, built from completed spells
+  // only (see src/data/tenure.ts).
+  const tenureFor = (dn: Dean) => tenureInfoFor(dn, allDeans);
 
   function MovabilityBadge({ dean }: { dean: Dean }) {
     const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
@@ -53,9 +43,9 @@ export default function ScoutCandidateList({
     const { rating } = useCareerAnalysis(career || [], tenureFor(dean), roots);
     if (!rating) return null;
     return (
-      <div className="flex flex-col items-center gap-0.5 shrink-0 w-14" title={`Movability Index: ${rating.label}`}>
+      <div className="flex flex-col items-center gap-0.5 shrink-0 w-16" title={`Movability Index: ${rating.longLabel} — ${rating.reason}`}>
         <MovabilityGaugeIcon tone={rating.tone} size={22} />
-        <span className={`text-[9px] font-semibold px-1 py-0.5 rounded leading-none whitespace-nowrap ${rating.cls}`}>{rating.label}</span>
+        <span className={`text-[9px] font-semibold px-1 py-0.5 rounded leading-tight text-center ${rating.cls}`}>{rating.chipLabel}</span>
       </div>
     );
   }

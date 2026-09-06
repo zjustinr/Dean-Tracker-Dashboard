@@ -14,6 +14,7 @@
  *   node etl_leaders.mjs --glob s --out r1-system  --label "University System"
  */
 import { readFileSync, writeFileSync, readdirSync } from "fs";
+import { normalizeTenureFields } from "../artifacts/dean-dashboard/scripts/lib/tenure.mjs";
 
 const HERE = "C:/Users/ren/AppData/Local/Temp/claude/C--Users-ren-BOSTON-UNIVERSITY-Dropbox-Justin-Z--Ren-00-Summer-2026-Sean-Willems-MSOM-data/154d52f1-b19f-49c6-9bb4-b1822091d87b/scratchpad/r2/";
 const DATA = "C:/Users/ren/BOSTON UNIVERSITY Dropbox/Justin Z. Ren/00 Spring 2026/Dean Research/App/Dean-Tracker-Dashboard/artifacts/dean-dashboard/src/data/";
@@ -181,6 +182,7 @@ for (const list of Object.values(byUnit)) {
 
 deans.forEach((d, i) => { d.id = i + 1; delete d._nextRaw; });
 
+for (const d of deans) normalizeTenureFields(d);
 writeFileSync(DATA + `${OUT}-deans.json`, JSON.stringify(deans, null, 2));
 writeFileSync(DATA + `${OUT}-schools.json`, JSON.stringify(schools, null, 2));
 writeFileSync(HERE + `photo_manifest_${OUT}.json`, JSON.stringify(photos, null, 2));

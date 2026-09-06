@@ -6,6 +6,7 @@ import { useDataset } from "@/data/DatasetContext";
 import { Badge } from "@/components/ui/badge";
 import { FullPortrait } from "./DeanPortrait";
 import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
+import { tenureInfoFor } from "@/data/movability";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
 import { useResearchMap, enrichKey, useCareerMap, careerKey, syntheticCareerSteps, usePhotoMap, useNonAcademicExperience, type NewsItem } from "@/data/enrichment";
@@ -83,27 +84,12 @@ export default function DeanProfile({ dean, onClose, onOpenSchool, hideAssessmen
 
   // Tenure inputs for the Career Map's movability rating: this leader's years in
   // the current role, their own past average tenure, and the cohort's completed
-  // permanent-tenure distribution (median + 75th percentile) for this index.
-  const tenure = useMemo(() => {
-    const NOW = 2026;
-    const lens = allDeans
-      .filter((d) => d.endYear != null && !d.isInterim && (d.tenureLength ?? 0) > 0)
-      .map((d) => d.tenureLength as number)
-      .sort((a, b) => a - b);
-    const pct = (p: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(p * lens.length))] : null);
-    const pastLens = careerPositions
-      .filter((p) => p.endYear != null && (p.tenureLength ?? 0) > 0)
-      .map((p) => p.tenureLength as number);
-    const personalAvg = pastLens.length ? pastLens.reduce((a, b) => a + b, 0) / pastLens.length : null;
-    return {
-      sitting: dean.endYear == null,
-      currentTenure: dean.endYear == null && dean.startYear ? NOW - dean.startYear : dean.tenureLength ?? null,
-      median: pct(0.5),
-      p75: pct(0.75),
-      personalAvg,
-      cohortN: lens.length,
-    };
-  }, [allDeans, careerPositions, dean]);
+  // permanent-tenure median for this index. Computed by the shared module so a
+  // sitting leader's frozen tenureLength never enters the cohort norm.
+  const tenure = useMemo(
+    () => tenureInfoFor(dean, allDeans, careerPositions),
+    [allDeans, careerPositions, dean],
+  );
 
   // "Last job before they first became a dean": the career step just before the
   // earliest TOP leadership role (dean/president/chancellor, excluding associate/

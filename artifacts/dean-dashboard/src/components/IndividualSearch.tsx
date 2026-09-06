@@ -2,14 +2,17 @@ import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
-import { yearsLabel, genderNorm } from "@/data/types";
+import { yearsLabel } from "@/data/types";
 import DeanProfile from "@/components/DeanProfile";
 import RegionMap from "@/components/RegionMap";
 import {
   FilterRow, FilterGroup, SegGroup, PillGroup, PillToggles, ActiveFilterBar, type ActiveChip,
 } from "@/components/FilterControls";
 import ResultsMap from "@/components/ResultsMap";
+import PoolComposition from "@/components/PoolComposition";
 import { CareerAssessment, type Root } from "@/components/CareerMap";
+import { tenureInfoFor } from "@/data/movability";
+import { CURRENT_YEAR, completedTenure, isSitting, yearsInSeat } from "@/data/tenure";
 import careerRoots from "@/data/career-roots.json";
 import { usePhotoMap, useResearchMap, enrichKey, loadAffinity, getAffinityCache, useNonAcademicExperience, type AffEntry, type AffMap } from "@/data/enrichment";
 import ScoutAssistant from "@/components/ScoutAssistant";
@@ -53,17 +56,15 @@ function useSearchLog(source: "slate-name" | "slate-keyword" | "slate-school", v
 const pkey = (dean: string, uni: string) => `${dean.trim().toLowerCase()}|${uni.trim().toLowerCase()}`;
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const CAP = 2000;
-const NOW = 2026;
+const NOW = CURRENT_YEAR;
 const SERVED_CAP = 40;
 const SLATE_KEY = "bi_slate_v1";
 
 // Years a leader has held the seat: elapsed time for sitting leaders (whose
 // tenureLength is null by construction, since it needs an end year), full tenure
-// for past ones. Uniform across indices, unlike the raw tenureLength field.
-const elapsedYears = (d: Dean): number | null =>
-  d.endYear == null
-    ? (d.startYear ? NOW - d.startYear : null)
-    : (d.tenureLength ?? (d.startYear && d.endYear ? d.endYear - d.startYear : null));
+// for past ones. Uniform across indices, unlike the raw tenureLength field, and
+// null rather than a number wherever the record's arithmetic cannot be true.
+const elapsedYears = (d: Dean): number | null => yearsInSeat(d, NOW);
 
 // Single-track, two-thumb range. More legible than two separate sliders. Built
 // from two overlaid native range inputs so keyboard access and accessibility come
@@ -162,10 +163,11 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // on it would silently empty the list). Filters to people the derivation can
   // actually point at an employer for.
   const [requireIndustryTie, setRequireIndustryTie] = useState(false);
-  // Widen-the-pool control for building a diverse slate, not an exclusionary
-  // screen: defaults to "all" and is framed as "Include", the same posture as
-  // an affinity filter that surfaces candidates rather than filters them out.
-  const [includeGender, setIncludeGender] = useState<"all" | "women" | "men">("all");
+  // There is deliberately no gender control here. An "Include: All / Women / Men"
+  // segmented filter used to sit in this panel; framed as widening the pool, it was
+  // still a selection filter on a protected characteristic. Composition is now shown
+  // read-only instead (see <PoolComposition>): you can audit what a slate is made of,
+  // and you cannot screen people by it.
   const [affinity, setAffinity] = useState<Set<string>>(new Set());
   // Overlay the departure hazard rate on the tenure histogram (off by default).
   const [showHazard, setShowHazard] = useState(false);
@@ -193,7 +195,6 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     if (disciplines.size) f.discipline = Array.from(disciplines);
     if (tiers.size) f.tier = Array.from(tiers);
     if (sortBy !== "name") f.sort = sortBy;
-    if (includeGender !== "all") f.gender = includeGender;
     if (apptType !== "all") f.apptType = apptType;
     if (regions.size) f.regions = Array.from(regions);
     if (states.size) f.states = Array.from(states);
@@ -208,7 +209,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     if (affinity.size) f.affinity = Array.from(affinity);
     return f;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [disciplines, tiers, sortBy, includeGender, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, requireIndustryTie, letter, showHazard, affinity]);
+  }, [disciplines, tiers, sortBy, apptType, regions, states, tenureWin, servedMin, servedMax, yrFrom, yrTo, requirePhd, requireProf, requireIndustryTie, letter, showHazard, affinity]);
   const filterLogTimer = useRef<number | null>(null);
   const filterLogSig = useRef<string>("{}");
   useEffect(() => {
@@ -298,21 +299,10 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     return !!rec && rec.status === "yes" && rec.confidence === "high" && !!rec.ties?.length;
   }, [industryPeople]);
 
-  // Tenure inputs for the movability assessment shown in the results-map column.
-  // Mirrors DeanProfile's computation (cohort tenure distribution + this leader's
-  // own past average) so the rating reads identically.
-  function tenureFor(dn: Dean) {
-    const NOW = 2026;
-    const lens = allDeans.filter((x) => x.endYear != null && !x.isInterim && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number).sort((a, b) => a - b);
-    const pct = (p: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(p * lens.length))] : null);
-    const past = allDeans.filter((x) => x.dean === dn.dean && x.id !== dn.id && x.endYear != null && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number);
-    const personalAvg = past.length ? past.reduce((a, b) => a + b, 0) / past.length : null;
-    return {
-      sitting: dn.endYear == null,
-      currentTenure: dn.endYear == null && dn.startYear ? NOW - dn.startYear : dn.tenureLength ?? null,
-      median: pct(0.5), p75: pct(0.75), personalAvg, cohortN: lens.length,
-    };
-  }
+  // Tenure inputs for the movability assessment shown in the results-map column,
+  // from the shared module — the same cohort median DeanProfile and the Scout
+  // rows use, so the rating reads identically wherever it is shown.
+  const tenureFor = (dn: Dean) => tenureInfoFor(dn, allDeans);
 
   // When a profile opens (a row click, a typeahead pick, or a "View full profile"
   // prefill from the Meet a Leader box), bring its card into view. Without this the
@@ -466,54 +456,70 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     return [...c.values()].sort((a, b) => b.n - a.n || a.display.localeCompare(b.display)).map((v) => v.display);
   }, [allDeans, researchMap]);
 
-  // Base cohort with every filter EXCEPT location, so region chips can show counts.
-  const locBase = useMemo(() => {
-    if (!hasFilter) return [];
+  // Two cohorts from one pass, both with every filter EXCEPT location (so region
+  // chips can show counts):
+  //   rows  -- everything the searcher has narrowed to.
+  //   scope -- the same seats WITHOUT the person-level screens (name, keyword,
+  //            initial, credentials, years in seat). This is the pool the slate
+  //            was drawn from, and the only honest baseline to read a slate's
+  //            composition against: comparing a sitting-leader slate to the whole
+  //            index would measure the corpus's history, not this search.
+  const { rows: locBase, scope: scopePool } = useMemo(() => {
+    if (!hasFilter) return { rows: [] as Dean[], scope: [] as Dean[] };
     const q = query.trim().toLowerCase();
     const kw = keyword.trim().toLowerCase();
-    const seen = new Set<string>();
-    return allDeans.filter((d) => {
-      if (kw) {
-        const exp = researchMap[enrichKey(d.dean, d.university)]?.expertise;
-        if (!exp || !exp.some((t) => String(t).toLowerCase().includes(kw))) return false;
-      }
-      const last = (d.dean.split(/\s+/).pop() || "").toLowerCase();
-      if (tenureWin === "sitting" && d.endYear != null) return false;
-      if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) return false;
-      if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) return false;
+    // One person+school appears once in each list. Two sets, not one: the scope
+    // pool keeps the first record that clears the scope facets, the result list
+    // the first that clears everything -- which for someone with both an interim
+    // and a permanent record at the same school need not be the same row.
+    const seenScope = new Set<string>();
+    const seenRows = new Set<string>();
+    const rows: Dean[] = [];
+    const scope: Dean[] = [];
+    for (const d of allDeans) {
+      // Scope facets: which seats are in play at all.
+      if (tenureWin === "sitting" && !isSitting(d)) continue;
+      if (tenureWin === "5" && d.endYear != null && d.endYear < NOW - 5) continue;
+      if (tenureWin === "10" && d.endYear != null && d.endYear < NOW - 10) continue;
       // Appointment facet. "All" is the true superset: every permanent dean, every
       // interim dean, AND the associate/vice-dean feeder bench. "Permanent" is
       // permanent deans only (no interims, no bench). "Assoc/Vice/Interim" is the
       // interim deans plus the bench.
       const isSub = (d as { roleType?: string }).roleType === "subdean";
-      if (apptType === "perm" && (isSub || d.isInterim)) return false;
-      if (apptType === "interim" && !isSub && !d.isInterim) return false;
-      if (requirePhd && !hasDoctorate(d)) return false;
-      if (requireProf && !wasProfessor(d)) return false;
-      if (requireIndustryTie && !hasIndustryTie(d)) return false;
-      if (includeGender !== "all") {
-        const g = genderNorm(d.gender);
-        if (includeGender === "women" && g !== "F") return false;
-        if (includeGender === "men" && g !== "M") return false;
-      }
-      if (servedMin > 0 || servedMax < SERVED_CAP) {
-        const yrs = elapsedYears(d);
-        if (yrs == null || yrs < servedMin || yrs > servedMax) return false;
-      }
-      if (q && !d.dean.toLowerCase().includes(q)) return false;
-      if (letter && last[0] !== letter.toLowerCase()) return false;
-      if (disciplines.size && !disciplines.has(d.disciplineBroad || "")) return false;
+      if (apptType === "perm" && (isSub || d.isInterim)) continue;
+      if (apptType === "interim" && !isSub && !d.isInterim) continue;
+      if (disciplines.size && !disciplines.has(d.disciplineBroad || "")) continue;
       if (tiers.size) {
         const t = tierOf.get(d.university.toLowerCase());
-        if (!t || !tiers.has(t)) return false;
+        if (!t || !tiers.has(t)) continue;
       }
-      if (school && d.university !== school) return false;
+      if (school && d.university !== school) continue;
       const key = d.dean + "|" + d.university + "|" + d.school;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-  }, [allDeans, query, keyword, researchMap, letter, disciplines, tiers, tierOf, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, requireIndustryTie, hasIndustryTie, includeGender, hasFilter]);
+      if (seenScope.has(key)) continue;
+      seenScope.add(key);
+      scope.push(d);
+
+      // Person-level screens: which of those people the searcher wants to see.
+      if (kw) {
+        const exp = researchMap[enrichKey(d.dean, d.university)]?.expertise;
+        if (!exp || !exp.some((t) => String(t).toLowerCase().includes(kw))) continue;
+      }
+      if (requirePhd && !hasDoctorate(d)) continue;
+      if (requireProf && !wasProfessor(d)) continue;
+      if (requireIndustryTie && !hasIndustryTie(d)) continue;
+      if (servedMin > 0 || servedMax < SERVED_CAP) {
+        const yrs = elapsedYears(d);
+        if (yrs == null || yrs < servedMin || yrs > servedMax) continue;
+      }
+      if (q && !d.dean.toLowerCase().includes(q)) continue;
+      const last = (d.dean.split(/\s+/).pop() || "").toLowerCase();
+      if (letter && last[0] !== letter.toLowerCase()) continue;
+      if (seenRows.has(key)) continue;
+      seenRows.add(key);
+      rows.push(d);
+    }
+    return { rows, scope };
+  }, [allDeans, query, keyword, researchMap, letter, disciplines, tiers, tierOf, school, tenureWin, apptType, servedMin, servedMax, requirePhd, requireProf, requireIndustryTie, hasIndustryTie, hasFilter]);
 
   const regionCounts = useMemo(() => {
     const c: Record<string, number> = { Northeast: 0, Midwest: 0, South: 0, West: 0 };
@@ -568,8 +574,13 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
         if (!st || !effectiveStates.has(st)) continue;
       }
       if (d.startYear < yFrom || d.startYear > yTo) continue;
-      const departed = d.endYear != null;
-      const raw = departed ? (d.tenureLength ?? (d.endYear! - d.startYear)) : (NOW - d.startYear);
+      // completedTenure() is null for anyone still in the seat AND for any record
+      // whose arithmetic cannot be true (a negative span, a placeholder start
+      // year, a spell longer than a career), so an impossible row never reaches
+      // the norms or the life table -- it drops out entirely.
+      const completed = completedTenure(d);
+      const departed = completed != null;
+      const raw = departed ? completed : (isSitting(d) ? NOW - d.startYear : null);
       if (raw == null || raw < 0) continue;
       const t = Math.min(TMAX, Math.floor(raw));
       for (let j = 0; j <= t; j++) atRisk[j]++; // in the seat through the start of every year up to t
@@ -622,7 +633,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
       ? locBase.filter((d) => { const st = stateOf.get(d.university.toLowerCase()); return !!st && effectiveStates.has(st); })
       : locBase.slice();
     rows.sort((a, b) => {
-      if (sortBy === "tenure") return (b.tenureLength || 0) - (a.tenureLength || 0);
+      if (sortBy === "tenure") return (completedTenure(b) || 0) - (completedTenure(a) || 0);
       if (sortBy === "sofar") return (elapsedYears(b) || 0) - (elapsedYears(a) || 0);
       if (sortBy === "recent") return (b.startYear || 0) - (a.startYear || 0);
       const cmp = (a.dean.split(/\s+/).pop() || "").localeCompare(b.dean.split(/\s+/).pop() || "");
@@ -630,6 +641,14 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     });
     return rows;
   }, [locBase, effectiveStates, stateOf, sortBy]);
+
+  // The same seats as `results` minus the person-level screens, narrowed by the
+  // same location filter -- the baseline the composition panel reads against.
+  const eligiblePool = useMemo(() => (
+    effectiveStates.size
+      ? scopePool.filter((d) => { const st = stateOf.get(d.university.toLowerCase()); return !!st && effectiveStates.has(st); })
+      : scopePool
+  ), [scopePool, effectiveStates, stateOf]);
 
   // Name typeahead: unique people in the current index whose name matches, best
   // (sitting, else latest) record per person, prefix matches first.
@@ -672,7 +691,6 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   // two a headhunter touches on almost every search, and leaving them shut made
   // the panel open as four labels and nothing to act on. Institution and
   // Location open only when they hold something.
-  const GENDER_LABEL = { all: "All", women: "Women", men: "Men" } as const;
   const APPT_LABEL = { all: "All", perm: "Permanent", interim: hasBench ? "Assoc/Vice/Interim" : "Interim" } as const;
   const TENURE_LABEL = { sitting: "Sitting now", "5": "Last 5 yrs", "10": "Last 10 yrs", any: "Any time" } as const;
   const AFF_LABEL = Object.fromEntries(AFF_KINDS.map(([k, l]) => [k as string, l]));
@@ -680,8 +698,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const roleSummary = [disciplines.size ? [...disciplines].join(", ") : null,
                        apptType !== "all" ? APPT_LABEL[apptType] : null,
                        TENURE_LABEL[tenureWin]].filter(Boolean).join(" · ");
-  const personSummary = [includeGender !== "all" ? GENDER_LABEL[includeGender] : null,
-                         requirePhd ? "Ph.D." : null, requireProf ? "Professor" : null,
+  const personSummary = [requirePhd ? "Ph.D." : null, requireProf ? "Professor" : null,
                          requireIndustryTie ? "Non-academic tie" : null,
                          keyword.trim() ? `“${keyword.trim()}”` : null].filter(Boolean).join(" · ") || "Anyone";
   const institutionSummary = [tiers.size ? [...tiers].join(", ") : null, school || null,
@@ -694,7 +711,6 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     ...[...disciplines].map((d) => ({ id: `disc:${d}`, label: d, onRemove: () => { toggleSet(setDisciplines, d); setExpandedId(null); } })),
     ...(apptType !== "all" ? [{ id: "appt", label: APPT_LABEL[apptType], onRemove: () => setApptType("all") }] : []),
     ...(tenureWin !== "sitting" ? [{ id: "tenure", label: TENURE_LABEL[tenureWin], onRemove: () => setTenureWin("sitting") }] : []),
-    ...(includeGender !== "all" ? [{ id: "gender", label: GENDER_LABEL[includeGender], onRemove: () => setIncludeGender("all") }] : []),
     ...(requirePhd ? [{ id: "phd", label: "Ph.D.", onRemove: () => setRequirePhd(false) }] : []),
     ...(requireProf ? [{ id: "prof", label: "Professor", onRemove: () => setRequireProf(false) }] : []),
     ...(requireIndustryTie ? [{ id: "na", label: "Non-academic tie", accent: "teal" as const, onRemove: () => setRequireIndustryTie(false) }] : []),
@@ -737,7 +753,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
   const clearAll = () => {
     setQuery(""); setLetter(""); setDisciplines(new Set()); setTiers(new Set()); setSchool(""); setKeyword(""); setAffinity(new Set());
     setServedMin(0); setServedMax(SERVED_CAP); setApptType("all"); setRegions(new Set()); setStates(new Set()); setExpandedId(null);
-    setRequirePhd(false); setRequireProf(false); setIncludeGender("all"); setYrFrom(null); setYrTo(null);
+    setRequirePhd(false); setRequireProf(false); setYrFrom(null); setYrTo(null);
     // Both were missing: "Reset filters" used to leave the non-academic tie
     // switched on and the tenure window wherever it was, so the list did not
     // return to the state the button promises.
@@ -751,7 +767,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
     const lines = [head.join(",")];
     for (const d of slate) {
       lines.push([d.dean, d.school, d.university, stateOf.get(d.university.toLowerCase()) || "", d.disciplineBroad || "",
-        d.startYear || "", d.endYear || "Present", d.tenureLength ?? "", d.isInterim ? "Yes" : "No", d.sourceUrl || ""]
+        d.startYear || "", d.endYear || "Present", completedTenure(d) ?? "", d.isInterim ? "Yes" : "No", d.sourceUrl || ""]
         .map(esc).join(","));
     }
     const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
@@ -844,10 +860,8 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
               </FilterGroup>
 
               <FilterGroup title="Person" summary={personSummary} defaultOpen>
-                <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
-                  <SegGroup ariaLabel="Include" value={includeGender}
-                    onChange={(v) => { setIncludeGender(v); setExpandedId(null); }}
-                    options={[["all", "All"], ["women", "Women"], ["men", "Men"]]} />
+                <FilterRow label="Composition" hint="An audit of the pool you are looking at, not a filter on it.">
+                  <PoolComposition results={results} eligible={eligiblePool} slate={slate} nounPluralLower={nounPluralLower} />
                 </FilterRow>
                 <FilterRow label="Credentials" hint="Held a doctorate · faculty rank · a named organisation outside the academy.">
                   <PillToggles items={[
@@ -1015,8 +1029,12 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                   <span className="text-[#011F5B] font-semibold"> · {servedMin}–{servedMax === SERVED_CAP ? "∞" : servedMax}</span>
                 </span>
                 <div className="flex gap-1">
-                  <button onClick={() => { setServedMin(6); setServedMax(10); setExpandedId(null); }} className={chip(servedMin === 6 && servedMax === 10)} title="Accomplished but not entrenched — the placeable band">Ripe 6–10</button>
-                  <button onClick={() => { setServedMin(10); setServedMax(SERVED_CAP); setExpandedId(null); }} className={chip(servedMin === 10 && servedMax === SERVED_CAP)}>Overdue 10+</button>
+                  {/* Range shortcuts, named for the range. They used to read "Ripe
+                      6-10" and "Overdue 10+", which asserted placeability and
+                      being due to move -- neither is something years in seat
+                      measures, and the second is the reading D4 contradicted. */}
+                  <button onClick={() => { setServedMin(6); setServedMax(10); setExpandedId(null); }} className={chip(servedMin === 6 && servedMax === 10)} title="Six to ten years in the seat.">6–10 yrs</button>
+                  <button onClick={() => { setServedMin(10); setServedMax(SERVED_CAP); setExpandedId(null); }} className={chip(servedMin === 10 && servedMax === SERVED_CAP)} title="Ten or more years in the seat.">10+ yrs</button>
                 </div>
               </div>
               <DualRange min={0} max={SERVED_CAP} low={servedMin} high={servedMax}
@@ -1177,7 +1195,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                       </div>
                       <div className="text-right shrink-0">
                         <p className="text-xs font-bold text-[#011F5B] tabular-nums">{yearsLabel(d.startYear, d.endYear, "Now")}</p>
-                        {d.tenureLength ? <span className="text-[10px] text-muted-foreground">{d.tenureLength} yr{d.tenureLength !== 1 ? "s" : ""}</span> : d.isInterim ? <span className="text-[10px] bg-muted px-1.5 py-0.5 rounded">Interim</span> : null}
+                        {completedTenure(d) ? <span className="text-[10px] text-muted-foreground">{completedTenure(d)} yr{completedTenure(d) !== 1 ? "s" : ""}</span> : d.isInterim ? <span className="text-[10px] bg-muted px-1.5 py-0.5 rounded">Interim</span> : null}
                       </div>
                       <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
                     </button>
@@ -1259,7 +1277,7 @@ export default function IndividualSearch({ prefill, onOpenSchool, onOpenLeader }
                     ["Discipline", (d: Dean) => (d.disciplineBroad && d.disciplineBroad !== "Unknown" ? d.disciplineBroad : "—")],
                     ["Appointed", (d: Dean) => d.startYear || "—"],
                     ["Status", (d: Dean) => (d.endYear == null ? "Sitting" : `Left ${d.endYear}`)],
-                    ["Tenure", (d: Dean) => (d.tenureLength ? `${d.tenureLength} yr${d.tenureLength !== 1 ? "s" : ""}` : "—")],
+                    ["Tenure", (d: Dean) => { const t = completedTenure(d); return t ? `${t} yr${t !== 1 ? "s" : ""}` : "—"; }],
                     ["Prior role", (d: Dean) => d.priorTitle || "—"],
                   ] as [string, (d: Dean) => React.ReactNode][]).map(([label, fn]) => (
                     <tr key={label} className="border-b border-border">
