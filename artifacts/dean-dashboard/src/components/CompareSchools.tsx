@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import type { Dean } from "@/data/types";
 import { useDataset } from "@/data/DatasetContext";
+import { completedTenures } from "@/data/tenure";
 import { useNonAcademicExperience, enrichKey, type NonAcademicRecord } from "@/data/enrichment";
 
 interface BSQSchool {
@@ -119,8 +120,10 @@ function industryPctOf(deans: Dean[], ties: Record<string, NonAcademicRecord> | 
 function computeMetrics(key: string, deans: Dean[], bsq: BSQSchool | null, ties: Record<string, NonAcademicRecord> | null): SchoolMetrics {
   const parsed = parseSchoolKey(key);
   const total = deans.length;
-  const withTenure = deans.filter(d => d.tenureLength != null);
-  const avgTenure = withTenure.length > 0 ? withTenure.reduce((s, d) => s + (d.tenureLength || 0), 0) / withTenure.length : null;
+  // Completed spells only (src/data/tenure.ts): a sitting leader has no completed
+  // tenure, and several indices still store one on people who never left.
+  const completed = completedTenures(deans, { includeInterims: true });
+  const avgTenure = completed.length > 0 ? completed.reduce((s, t) => s + t, 0) / completed.length : null;
   const pctOf = (pred: (d: Dean) => boolean) => total > 0 ? (deans.filter(pred).length / total) * 100 : null;
 
   const b = bsq?.bsq;
@@ -190,7 +193,7 @@ const METRIC_ROWS: MetricRow[] = [
   { key: "rank", label: "US News Rank", category: "Overview", format: m => m.rank != null ? `#${m.rank}` : "\u2014", getValue: m => m.rank, barType: "none", lowerIsBetter: true },
   { key: "control", label: "Control", category: "Overview", format: m => m.control || "\u2014", getValue: () => null, barType: "none" },
   { key: "totalDeans", label: "Total Deans", category: "Dean Leadership", format: m => String(m.totalDeans), getValue: m => m.totalDeans, barType: "number" },
-  { key: "avgTenure", label: "Avg Tenure (yrs)", category: "Dean Leadership", format: m => fmt(m.avgTenure, 1), getValue: m => m.avgTenure, barType: "number" },
+  { key: "avgTenure", label: "Avg Completed Tenure (yrs)", category: "Dean Leadership", format: m => fmt(m.avgTenure, 1), getValue: m => m.avgTenure, barType: "number" },
   { key: "femalePct", label: "Female Deans %", category: "Dean Leadership", format: m => pctStr(m.femalePct), getValue: m => m.femalePct, barType: "pct" },
   { key: "internalPct", label: "Internal Hires %", category: "Dean Leadership", format: m => pctStr(m.internalPct), getValue: m => m.internalPct, barType: "pct" },
   { key: "externalPct", label: "External Hires %", category: "Dean Leadership", format: m => pctStr(m.externalPct), getValue: m => m.externalPct, barType: "pct" },

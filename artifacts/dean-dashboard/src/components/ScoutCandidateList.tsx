@@ -5,6 +5,8 @@ import { affKey, SOURCE_THEME, type ScoutCandidate } from "@/data/useScoutCandid
 import DeanProfile from "@/components/DeanProfile";
 import { CareerAssessment, useCareerAnalysis, type Root } from "@/components/CareerMap";
 import { MovabilityGaugeIcon } from "@/components/MovabilityGaugeIcon";
+import SourceLink from "@/components/SourceLink";
+import { tenureInfoFor } from "@/data/movability";
 import careerRoots from "@/data/career-roots.json";
 
 /**
@@ -31,21 +33,10 @@ export default function ScoutCandidateList({
   const tiesPeople = useNonAcademicExperience()?.people ?? null;
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
 
-  // Cohort tenure distribution for the Movability Index, mirroring IndividualSearch's
-  // own tenureFor (same cohort-wide percentiles, so the rating reads identically
-  // wherever it's shown).
-  function tenureFor(dn: Dean) {
-    const NOW = 2026;
-    const lens = allDeans.filter((x) => x.endYear != null && !x.isInterim && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number).sort((a, b) => a - b);
-    const p = (q: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(q * lens.length))] : null);
-    const past = allDeans.filter((x) => x.dean === dn.dean && x.id !== dn.id && x.endYear != null && (x.tenureLength ?? 0) > 0).map((x) => x.tenureLength as number);
-    const personalAvg = past.length ? past.reduce((a, b) => a + b, 0) / past.length : null;
-    return {
-      sitting: dn.endYear == null,
-      currentTenure: dn.endYear == null && dn.startYear ? NOW - dn.startYear : dn.tenureLength ?? null,
-      median: p(0.5), p75: p(0.75), personalAvg, cohortN: lens.length,
-    };
-  }
+  // Cohort tenure inputs for the Movability Index, from the shared module — the
+  // same cohort median everywhere the chip is shown, built from completed spells
+  // only (see src/data/tenure.ts).
+  const tenureFor = (dn: Dean) => tenureInfoFor(dn, allDeans);
 
   function MovabilityBadge({ dean }: { dean: Dean }) {
     const career = researchMap[enrichKey(dean.dean, dean.university)]?.career;
@@ -53,9 +44,9 @@ export default function ScoutCandidateList({
     const { rating } = useCareerAnalysis(career || [], tenureFor(dean), roots);
     if (!rating) return null;
     return (
-      <div className="flex flex-col items-center gap-0.5 shrink-0 w-14" title={`Movability Index: ${rating.label}`}>
+      <div className="flex flex-col items-center gap-0.5 shrink-0 w-16" title={`Movability Index: ${rating.longLabel} — ${rating.reason}`}>
         <MovabilityGaugeIcon tone={rating.tone} size={22} />
-        <span className={`text-[9px] font-semibold px-1 py-0.5 rounded leading-none whitespace-nowrap ${rating.cls}`}>{rating.label}</span>
+        <span className={`text-[9px] font-semibold px-1 py-0.5 rounded leading-tight text-center ${rating.cls}`}>{rating.chipLabel}</span>
       </div>
     );
   }
@@ -98,12 +89,16 @@ export default function ScoutCandidateList({
         const resolved = c.dean ?? (c.resolvable ? resolvedProfiles[affKey(c.resolvable)] : undefined);
         return (
           <div key={c.key}>
+            {/* The row is a flex strip, not one big button: the expand target, the
+                source link and the chevron are three separate controls, and an <a>
+                cannot live inside a <button>. */}
+            <div className={["flex items-center gap-2 pr-4 sm:pr-5 transition-colors", isOpen ? theme.row : "hover:bg-accent/40"].join(" ")}>
             <button
               onClick={() => {
                 setExpandedKey(isOpen ? null : c.key);
                 if (!isOpen && c.resolvable) resolveProfile(c.resolvable);
               }}
-              className={["w-full flex items-center gap-3 px-4 sm:px-5 py-2.5 text-left transition-colors", isOpen ? theme.row : "hover:bg-accent/40"].join(" ")}
+              className="flex-1 min-w-0 flex items-center gap-3 pl-4 sm:pl-5 py-2.5 text-left"
             >
               <CandidateAvatar enrichKeyStr={c.dean ? enrichKey(c.dean.dean, c.dean.university) : c.resolvable!.enrichKey} name={c.name} theme={c.source} />
               <div className="flex-1 min-w-0">
@@ -144,8 +139,23 @@ export default function ScoutCandidateList({
                 )}
               </div>
               {resolved && resolved !== "not-found" && <MovabilityBadge dean={resolved} />}
-              <span className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0">{isOpen ? "–" : "+"}</span>
             </button>
+            {/* Sits outside the row button (an <a> cannot nest inside one). Only
+                for a candidate whose record has been read -- an unresolved row
+                has no source to point at yet, and "no source" would be a claim
+                about the record rather than about what we have loaded. */}
+            {resolved && resolved !== "not-found" && (
+              <SourceLink url={resolved.sourceUrl} subject={resolved.dean} className="self-center" />
+            )}
+            <button
+              onClick={() => {
+                setExpandedKey(isOpen ? null : c.key);
+                if (!isOpen && c.resolvable) resolveProfile(c.resolvable);
+              }}
+              aria-label={`${isOpen ? "Collapse" : "Expand"} ${c.name}`}
+              className="text-muted-foreground text-lg leading-none w-5 text-center shrink-0 self-center"
+            >{isOpen ? "–" : "+"}</button>
+            </div>
             {isOpen && (
               <div className={`px-4 sm:px-5 pb-4 pt-1 border-l-2 ${theme.row} ${theme.border}`}>
                 {!resolved ? (

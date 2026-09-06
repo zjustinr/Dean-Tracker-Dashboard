@@ -44,6 +44,13 @@ export interface Dean {
   nextRoleCode: number | null;
   nextRoleDetail?: string; // optional free-text specifics of the post-role (e.g. "Professor of Law at Columbia")
   roleType?: string; // "subdean" tags an associate/vice dean feeder-bench row (not a dean); excluded from dean lists + tenure norms
+  // How the start year was established, where it was not simply read off a
+  // source. "bracketed" = the person was absent from the school's leadership page
+  // in one archived snapshot and present in the next (scripts/bench-start-dates.mjs),
+  // so the year is a window, not a date, and startLabel names the window.
+  // Absent on a record means the corpus never recorded its precision -- which is
+  // not the same as "exact", and is what F15 is about.
+  startPrecision?: "bracketed";
   roleTier?: string; // candidate tier for feeder-pool indices: "Dean" | "Associate Dean" | "School Director" | "Department Chair"
   involuntary: boolean;
   hadPriorConnection: boolean;
@@ -59,7 +66,14 @@ export interface Dean {
   enrollmentAvg: number | null;
   businessPctEnd: number | null;
   businessDegreesLatest: number | null;
+  // Interim-to-permanent conversion, as two halves of one fact (see
+  // scripts/lib/departure.mjs). On an INTERIM spell, convertedToPermanent means
+  // this person went on to hold this seat permanently. On a PERMANENT spell,
+  // fromInterim means they held it on an interim basis first -- present only
+  // where true, and the only place the fact lives for the 47 permanent spells
+  // whose interim predecessor was never entered as its own row.
   convertedToPermanent: boolean;
+  fromInterim?: boolean;
   connectionType: string;
 }
 

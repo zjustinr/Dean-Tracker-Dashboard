@@ -6,8 +6,10 @@ import {
   PieChart, Pie, Cell, Legend,
 } from "recharts";
 import type { Dean } from "@/data/types";
-import { CHART_COLORS, NEXT_ROLE_LABELS, genderNorm } from "@/data/types";
+import { CHART_COLORS, genderNorm } from "@/data/types";
 import { useSchoolsInfo, makeSchoolKey } from "@/data/useData";
+import { completedTenure, completedTenures } from "@/data/tenure";
+import { departureBreakdown } from "@/data/departure";
 import { useDataset } from "@/data/DatasetContext";
 import PRESIDENTS from "@/data/university-presidents.json";
 
@@ -72,31 +74,26 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
       .map(([name, value]) => ({ name, value }));
   }, [deans]);
 
-  const nextRoleData = useMemo(() => {
-    const counts: Record<string, number> = {};
-    for (const d of deans) {
-      if (!d.nextRole) continue;
-      const label = NEXT_ROLE_LABELS[d.nextRole] || d.nextRole;
-      counts[label] = (counts[label] || 0) + 1;
-    }
-    return Object.entries(counts)
-      .sort(([, a], [, b]) => b - a)
-      .map(([name, value]) => ({ name, value }));
-  }, [deans]);
+  // The shared destination categories (src/data/departure.ts), same as the
+  // corpus-wide chart in Aggregate Trends.
+  const nextRoleData = useMemo(
+    () => departureBreakdown(deans).map((b) => ({ name: b.label, value: b.value })),
+    [deans],
+  );
 
+  // Completed spells only. Filtering on "has a tenureLength" used to let sitting
+  // leaders in -- four indices freeze a tenure onto people who never left -- which
+  // averaged still-serving snapshots together with finished appointments and read
+  // short. completedTenure() is the shared guard (src/data/tenure.ts).
   const tenureData = useMemo(() => {
     return deans
-      .filter((d) => d.tenureLength)
-      .map((d) => ({
-        name: d.dean,
-        tenure: d.tenureLength!,
-        era: d.era,
-      }))
+      .map((d) => ({ name: d.dean, tenure: completedTenure(d), era: d.era }))
+      .filter((d): d is { name: string; tenure: number; era: string } => !!d.tenure)
       .sort((a, b) => a.tenure - b.tenure);
   }, [deans]);
 
   const kpis = useMemo(() => {
-    const tenures = deans.filter((d) => d.tenureLength).map((d) => d.tenureLength!);
+    const tenures = completedTenures(deans, { includeInterims: true });
     const avgTenure = tenures.length ? Math.round((tenures.reduce((s, v) => s + v, 0) / tenures.length) * 10) / 10 : 0;
     const femalePct = deans.length ? Math.round((deans.filter((d) => d.isFemale).length / deans.length) * 100) : 0;
     const internalPct = deans.length ? Math.round((deans.filter((d) => d.isInternal).length / deans.length) * 100) : 0;
@@ -148,7 +145,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         <MiniKPI label={`Total ${nounPlural}`} value={String(kpis.total)} />
-        <MiniKPI label="Avg Tenure" value={`${kpis.avgTenure} yrs`} />
+        <MiniKPI label="Avg Completed Tenure" value={`${kpis.avgTenure} yrs`} hint="Finished appointments only. Leaders still in the seat have no completed tenure and are excluded." />
         <MiniKPI label="Female" value={`${kpis.femalePct}%`} />
         <MiniKPI label="Internal" value={`${kpis.internalPct}%`} />
         <MiniKPI label="Interim" value={`${kpis.interimPct}%`} />
@@ -207,7 +204,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
         </Card>
 
         <Card>
-          <CardHeader className="pb-2"><CardTitle className="text-sm">Tenure by {noun}</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm">Completed tenure by {noun}</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={tenureData} margin={{ top: 5, right: 10, bottom: 5, left: 0 }}>
@@ -222,7 +219,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
         </Card>
 
         <Card>
-          <CardHeader className="pb-2"><CardTitle className="text-sm">Next Roles</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm">Where they went next</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={nextRoleData} layout="vertical" margin={{ top: 5, right: 10, bottom: 5, left: 5 }}>
@@ -242,10 +239,10 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
   );
 }
 
-function MiniKPI({ label, value }: { label: string; value: string }) {
+function MiniKPI({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <Card>
-      <CardContent className="pt-3 pb-2 px-3 text-center">
+      <CardContent className="pt-3 pb-2 px-3 text-center" title={hint}>
         <p className="text-lg font-bold">{value}</p>
         <p className="text-[10px] text-muted-foreground">{label}</p>
       </CardContent>

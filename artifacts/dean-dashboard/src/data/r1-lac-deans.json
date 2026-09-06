@@ -1055,7 +1055,8 @@
   "businessDegreesLatest": 73,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "University of Vermont"
+  "phdInstitution": "University of Vermont",
+  "fromInterim": true
  },
  {
   "id": 19,
@@ -11088,7 +11089,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "Vanderbilt University"
+  "phdInstitution": "Vanderbilt University",
+  "fromInterim": true
  },
  {
   "id": 190,
@@ -15210,7 +15212,8 @@
   "phdYear": 1984,
   "enrollmentStart": 1986,
   "businessPctStart": 0.0993,
-  "businessDegreesStart": 41
+  "businessDegreesStart": 41,
+  "fromInterim": true
  },
  {
   "id": 260,
@@ -15445,7 +15448,8 @@
   "connectionType": "Same institution",
   "phdInstitution": "Regis College",
   "businessPctStart": 0.1615,
-  "businessDegreesStart": 73
+  "businessDegreesStart": 73,
+  "fromInterim": true
  },
  {
   "id": 264,
@@ -18031,7 +18035,8 @@
   "phdInstitution": "Princeton University",
   "enrollmentStart": 2547,
   "businessPctStart": 0.1365,
-  "businessDegreesStart": 83
+  "businessDegreesStart": 83,
+  "fromInterim": true
  },
  {
   "id": 308,
@@ -28660,7 +28665,8 @@
   "phdInstitution": "University of Virginia",
   "enrollmentStart": 496,
   "businessPctStart": 0.2571,
-  "businessDegreesStart": 36
+  "businessDegreesStart": 36,
+  "fromInterim": true
  },
  {
   "id": 489,
@@ -31411,7 +31417,8 @@
   "phdInstitution": "University of Cambridge",
   "enrollmentStart": 2335,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "fromInterim": true
  },
  {
   "id": 536,
@@ -31884,7 +31891,8 @@
   "phdInstitution": "University of North Carolina at Chapel Hill",
   "enrollmentStart": 2067,
   "businessPctStart": 0.229,
-  "businessDegreesStart": 136
+  "businessDegreesStart": 136,
+  "fromInterim": true
  },
  {
   "id": 544,
@@ -32242,7 +32250,8 @@
   "connectionType": "Same institution",
   "enrollmentStart": 732,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "fromInterim": true
  },
  {
   "id": 550,
@@ -35946,7 +35955,8 @@
   "connectionType": "Same institution",
   "enrollmentStart": 340,
   "businessPctStart": 0.11,
-  "businessDegreesStart": 11
+  "businessDegreesStart": 11,
+  "fromInterim": true
  },
  {
   "id": 613,
@@ -57834,7 +57844,8 @@
   "connectionType": "Same institution",
   "phdInstitution": "Claremont Graduate University",
   "businessPctStart": 0.155,
-  "businessDegreesStart": 40
+  "businessDegreesStart": 40,
+  "fromInterim": true
  },
  {
   "id": 986,
@@ -59508,7 +59519,8 @@
   "enrollmentEnd": 1136,
   "enrollmentAvg": 1136,
   "businessPctEnd": 0.1429,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1015,
@@ -59538,7 +59550,8 @@
   "enrollmentEnd": 1136,
   "enrollmentAvg": 1136,
   "businessPctEnd": 0.1429,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1016,
@@ -59566,7 +59579,8 @@
   "enrollmentEnd": 1136,
   "enrollmentAvg": 1136,
   "businessPctEnd": 0.1429,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1017,
@@ -59596,7 +59610,8 @@
   "enrollmentEnd": 1136,
   "enrollmentAvg": 1136,
   "businessPctEnd": 0.1429,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1018,
@@ -59626,7 +59641,8 @@
   "enrollmentEnd": 1136,
   "enrollmentAvg": 1136,
   "businessPctEnd": 0.1429,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1019,
@@ -59656,7 +59672,8 @@
   "enrollmentEnd": 1136,
   "enrollmentAvg": 1136,
   "businessPctEnd": 0.1429,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1020,
@@ -59686,7 +59703,8 @@
   "enrollmentEnd": 1335,
   "enrollmentAvg": 1335,
   "businessPctEnd": 0.2213,
-  "businessDegreesLatest": 56
+  "businessDegreesLatest": 56,
+  "convertedToPermanent": false
  },
  {
   "id": 1021,
@@ -59714,7 +59732,8 @@
   "enrollmentEnd": 1335,
   "enrollmentAvg": 1335,
   "businessPctEnd": 0.2213,
-  "businessDegreesLatest": 56
+  "businessDegreesLatest": 56,
+  "convertedToPermanent": false
  },
  {
   "id": 1022,
@@ -59744,7 +59763,8 @@
   "enrollmentEnd": 1335,
   "enrollmentAvg": 1335,
   "businessPctEnd": 0.2213,
-  "businessDegreesLatest": 56
+  "businessDegreesLatest": 56,
+  "convertedToPermanent": false
  },
  {
   "id": 1023,
@@ -59762,7 +59782,8 @@
   "enrollmentEnd": 1335,
   "enrollmentAvg": 1335,
   "businessPctEnd": 0.2213,
-  "businessDegreesLatest": 56
+  "businessDegreesLatest": 56,
+  "convertedToPermanent": false
  },
  {
   "id": 1024,
@@ -59792,7 +59813,8 @@
   "enrollmentEnd": 1335,
   "enrollmentAvg": 1335,
   "businessPctEnd": 0.2213,
-  "businessDegreesLatest": 56
+  "businessDegreesLatest": 56,
+  "convertedToPermanent": false
  },
  {
   "id": 1025,
@@ -59822,7 +59844,8 @@
   "enrollmentEnd": 1335,
   "enrollmentAvg": 1335,
   "businessPctEnd": 0.2213,
-  "businessDegreesLatest": 56
+  "businessDegreesLatest": 56,
+  "convertedToPermanent": false
  },
  {
   "id": 1026,
@@ -59852,7 +59875,8 @@
   "enrollmentEnd": 1335,
   "enrollmentAvg": 1335,
   "businessPctEnd": 0.2213,
-  "businessDegreesLatest": 56
+  "businessDegreesLatest": 56,
+  "convertedToPermanent": false
  },
  {
   "id": 1027,
@@ -59882,7 +59906,8 @@
   "enrollmentEnd": 1335,
   "enrollmentAvg": 1335,
   "businessPctEnd": 0.2213,
-  "businessDegreesLatest": 56
+  "businessDegreesLatest": 56,
+  "convertedToPermanent": false
  },
  {
   "id": 1028,
@@ -59910,7 +59935,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1029,
@@ -59940,7 +59966,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1030,
@@ -59970,7 +59997,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1031,
@@ -60000,7 +60028,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1032,
@@ -60030,7 +60059,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1033,
@@ -60058,7 +60088,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1034,
@@ -60088,7 +60119,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1035,
@@ -60118,7 +60150,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1036,
@@ -60148,7 +60181,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1037,
@@ -60166,7 +60200,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1038,
@@ -60196,7 +60231,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1039,
@@ -60226,7 +60262,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1040,
@@ -60254,7 +60291,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1041,
@@ -60282,7 +60320,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1042,
@@ -60300,7 +60339,8 @@
   "enrollmentEnd": 2922,
   "enrollmentAvg": 2922,
   "businessPctEnd": 0.0699,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1043,
@@ -60330,7 +60370,8 @@
   "enrollmentEnd": 967,
   "enrollmentAvg": 967,
   "businessPctEnd": 0.0067,
-  "businessDegreesLatest": 3
+  "businessDegreesLatest": 3,
+  "convertedToPermanent": false
  },
  {
   "id": 1044,
@@ -60361,7 +60402,8 @@
   "enrollmentEnd": 967,
   "enrollmentAvg": 967,
   "businessPctEnd": 0.0067,
-  "businessDegreesLatest": 3
+  "businessDegreesLatest": 3,
+  "convertedToPermanent": false
  },
  {
   "id": 1045,
@@ -60391,7 +60433,8 @@
   "enrollmentEnd": 967,
   "enrollmentAvg": 967,
   "businessPctEnd": 0.0067,
-  "businessDegreesLatest": 3
+  "businessDegreesLatest": 3,
+  "convertedToPermanent": false
  },
  {
   "id": 1046,
@@ -60421,7 +60464,8 @@
   "enrollmentEnd": 967,
   "enrollmentAvg": 967,
   "businessPctEnd": 0.0067,
-  "businessDegreesLatest": 3
+  "businessDegreesLatest": 3,
+  "convertedToPermanent": false
  },
  {
   "id": 1047,
@@ -60451,7 +60495,8 @@
   "enrollmentEnd": 967,
   "enrollmentAvg": 967,
   "businessPctEnd": 0.0067,
-  "businessDegreesLatest": 3
+  "businessDegreesLatest": 3,
+  "convertedToPermanent": false
  },
  {
   "id": 1048,
@@ -60479,7 +60524,8 @@
   "enrollmentEnd": 967,
   "enrollmentAvg": 967,
   "businessPctEnd": 0.0067,
-  "businessDegreesLatest": 3
+  "businessDegreesLatest": 3,
+  "convertedToPermanent": false
  },
  {
   "id": 1049,
@@ -60507,7 +60553,8 @@
   "enrollmentEnd": 1295,
   "enrollmentAvg": 1295,
   "businessPctEnd": 0.2655,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1050,
@@ -60537,7 +60584,8 @@
   "enrollmentEnd": 1295,
   "enrollmentAvg": 1295,
   "businessPctEnd": 0.2655,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1051,
@@ -60567,7 +60615,8 @@
   "enrollmentEnd": 1295,
   "enrollmentAvg": 1295,
   "businessPctEnd": 0.2655,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1052,
@@ -60597,7 +60646,8 @@
   "enrollmentEnd": 1295,
   "enrollmentAvg": 1295,
   "businessPctEnd": 0.2655,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1053,
@@ -60627,7 +60677,8 @@
   "enrollmentEnd": 1295,
   "enrollmentAvg": 1295,
   "businessPctEnd": 0.2655,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1054,
@@ -60657,7 +60708,8 @@
   "enrollmentEnd": 2484,
   "enrollmentAvg": 2484,
   "businessPctEnd": 0.2222,
-  "businessDegreesLatest": 106
+  "businessDegreesLatest": 106,
+  "convertedToPermanent": false
  },
  {
   "id": 1055,
@@ -60687,7 +60739,8 @@
   "enrollmentEnd": 2484,
   "enrollmentAvg": 2484,
   "businessPctEnd": 0.2222,
-  "businessDegreesLatest": 106
+  "businessDegreesLatest": 106,
+  "convertedToPermanent": false
  },
  {
   "id": 1056,
@@ -60717,7 +60770,8 @@
   "enrollmentEnd": 2484,
   "enrollmentAvg": 2484,
   "businessPctEnd": 0.2222,
-  "businessDegreesLatest": 106
+  "businessDegreesLatest": 106,
+  "convertedToPermanent": false
  },
  {
   "id": 1057,
@@ -60751,7 +60805,8 @@
   "businessDegreesLatest": 106,
   "enrollmentStart": 2543,
   "businessPctStart": 0.2052,
-  "businessDegreesStart": 127
+  "businessDegreesStart": 127,
+  "convertedToPermanent": false
  },
  {
   "id": 1058,
@@ -60781,7 +60836,8 @@
   "enrollmentEnd": 2484,
   "enrollmentAvg": 2484,
   "businessPctEnd": 0.2222,
-  "businessDegreesLatest": 106
+  "businessDegreesLatest": 106,
+  "convertedToPermanent": false
  },
  {
   "id": 1059,
@@ -60809,7 +60865,8 @@
   "enrollmentEnd": 2484,
   "enrollmentAvg": 2484,
   "businessPctEnd": 0.2222,
-  "businessDegreesLatest": 106
+  "businessDegreesLatest": 106,
+  "convertedToPermanent": false
  },
  {
   "id": 1060,
@@ -60839,7 +60896,8 @@
   "enrollmentEnd": 1231,
   "enrollmentAvg": 1231,
   "businessPctEnd": 0.0782,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1061,
@@ -60869,7 +60927,8 @@
   "enrollmentEnd": 1231,
   "enrollmentAvg": 1231,
   "businessPctEnd": 0.0782,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1062,
@@ -60899,7 +60958,8 @@
   "enrollmentEnd": 1231,
   "enrollmentAvg": 1231,
   "businessPctEnd": 0.0782,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1063,
@@ -60927,7 +60987,8 @@
   "enrollmentEnd": 677,
   "enrollmentAvg": 677,
   "businessPctEnd": 0.1489,
-  "businessDegreesLatest": 14
+  "businessDegreesLatest": 14,
+  "convertedToPermanent": false
  },
  {
   "id": 1064,
@@ -60955,7 +61016,8 @@
   "enrollmentEnd": 677,
   "enrollmentAvg": 677,
   "businessPctEnd": 0.1489,
-  "businessDegreesLatest": 14
+  "businessDegreesLatest": 14,
+  "convertedToPermanent": false
  },
  {
   "id": 1065,
@@ -60983,7 +61045,8 @@
   "enrollmentEnd": 677,
   "enrollmentAvg": 677,
   "businessPctEnd": 0.1489,
-  "businessDegreesLatest": 14
+  "businessDegreesLatest": 14,
+  "convertedToPermanent": false
  },
  {
   "id": 1066,
@@ -61012,7 +61075,8 @@
   "isFemale": true,
   "enrollmentEnd": 1910,
   "enrollmentAvg": 1910,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1067,
@@ -61039,7 +61103,8 @@
   "hadDeptChairRole": true,
   "enrollmentEnd": 1910,
   "enrollmentAvg": 1910,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1068,
@@ -61068,7 +61133,8 @@
   "isFemale": false,
   "enrollmentEnd": 1910,
   "enrollmentAvg": 1910,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1069,
@@ -61101,7 +61167,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 1855,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1070,
@@ -61130,7 +61197,8 @@
   "isFemale": true,
   "enrollmentEnd": 1910,
   "enrollmentAvg": 1910,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1071,
@@ -61159,7 +61227,8 @@
   "isFemale": true,
   "enrollmentEnd": 1910,
   "enrollmentAvg": 1910,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1072,
@@ -61188,7 +61257,8 @@
   "isFemale": true,
   "enrollmentEnd": 1910,
   "enrollmentAvg": 1910,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1073,
@@ -61217,7 +61287,8 @@
   "isFemale": true,
   "enrollmentEnd": 1910,
   "enrollmentAvg": 1910,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1074,
@@ -61246,7 +61317,8 @@
   "isFemale": false,
   "enrollmentEnd": 1910,
   "enrollmentAvg": 1910,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1075,
@@ -61275,7 +61347,8 @@
   "isFemale": true,
   "enrollmentEnd": 1910,
   "enrollmentAvg": 1910,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1076,
@@ -61305,7 +61378,8 @@
   "enrollmentEnd": 1077,
   "enrollmentAvg": 1077,
   "businessPctEnd": 0.068,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1077,
@@ -61335,7 +61409,8 @@
   "enrollmentEnd": 1077,
   "enrollmentAvg": 1077,
   "businessPctEnd": 0.068,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1078,
@@ -61365,7 +61440,8 @@
   "enrollmentEnd": 1077,
   "enrollmentAvg": 1077,
   "businessPctEnd": 0.068,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1079,
@@ -61395,7 +61471,8 @@
   "enrollmentEnd": 1077,
   "enrollmentAvg": 1077,
   "businessPctEnd": 0.068,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1080,
@@ -61425,7 +61502,8 @@
   "enrollmentEnd": 1077,
   "enrollmentAvg": 1077,
   "businessPctEnd": 0.068,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1081,
@@ -61453,7 +61531,8 @@
   "enrollmentEnd": 1077,
   "enrollmentAvg": 1077,
   "businessPctEnd": 0.068,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1082,
@@ -61481,7 +61560,8 @@
   "enrollmentEnd": 1077,
   "enrollmentAvg": 1077,
   "businessPctEnd": 0.068,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1083,
@@ -61514,7 +61594,8 @@
   "businessPctEnd": 0.068,
   "businessDegreesLatest": 23,
   "businessPctStart": 0.068,
-  "businessDegreesStart": 23
+  "businessDegreesStart": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1084,
@@ -61544,7 +61625,8 @@
   "enrollmentEnd": 1354,
   "enrollmentAvg": 1354,
   "businessPctEnd": 0.1583,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1085,
@@ -61572,7 +61654,8 @@
   "enrollmentEnd": 1354,
   "enrollmentAvg": 1354,
   "businessPctEnd": 0.1583,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1086,
@@ -61602,7 +61685,8 @@
   "enrollmentEnd": 1354,
   "enrollmentAvg": 1354,
   "businessPctEnd": 0.1583,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1087,
@@ -61632,7 +61716,8 @@
   "enrollmentEnd": 1354,
   "enrollmentAvg": 1354,
   "businessPctEnd": 0.1583,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1088,
@@ -61662,7 +61747,8 @@
   "enrollmentEnd": 1354,
   "enrollmentAvg": 1354,
   "businessPctEnd": 0.1583,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1089,
@@ -61690,7 +61776,8 @@
   "enrollmentEnd": 1354,
   "enrollmentAvg": 1354,
   "businessPctEnd": 0.1583,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1090,
@@ -61720,7 +61807,8 @@
   "enrollmentEnd": 1652,
   "enrollmentAvg": 1652,
   "businessPctEnd": 0.2274,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1091,
@@ -61750,7 +61838,8 @@
   "enrollmentEnd": 1652,
   "enrollmentAvg": 1652,
   "businessPctEnd": 0.2274,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1092,
@@ -61768,7 +61857,8 @@
   "enrollmentEnd": 1652,
   "enrollmentAvg": 1652,
   "businessPctEnd": 0.2274,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1093,
@@ -61798,7 +61888,8 @@
   "enrollmentEnd": 1652,
   "enrollmentAvg": 1652,
   "businessPctEnd": 0.2274,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1094,
@@ -61828,7 +61919,8 @@
   "enrollmentEnd": 1652,
   "enrollmentAvg": 1652,
   "businessPctEnd": 0.2274,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1095,
@@ -61858,7 +61950,8 @@
   "enrollmentEnd": 1652,
   "enrollmentAvg": 1652,
   "businessPctEnd": 0.2274,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1096,
@@ -61888,7 +61981,8 @@
   "enrollmentEnd": 867,
   "enrollmentAvg": 867,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1097,
@@ -61918,7 +62012,8 @@
   "enrollmentEnd": 867,
   "enrollmentAvg": 867,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1098,
@@ -61952,7 +62047,8 @@
   "businessPctEnd": 0,
   "businessDegreesLatest": 0,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1099,
@@ -61982,7 +62078,8 @@
   "enrollmentEnd": 867,
   "enrollmentAvg": 867,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1100,
@@ -62012,7 +62109,8 @@
   "enrollmentEnd": 867,
   "enrollmentAvg": 867,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1101,
@@ -62042,7 +62140,8 @@
   "enrollmentEnd": 867,
   "enrollmentAvg": 867,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1102,
@@ -62072,7 +62171,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1103,
@@ -62100,7 +62200,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1104,
@@ -62130,7 +62231,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1105,
@@ -62160,7 +62262,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1106,
@@ -62190,7 +62293,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1107,
@@ -62220,7 +62324,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1108,
@@ -62250,7 +62355,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1109,
@@ -62268,7 +62374,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1110,
@@ -62286,7 +62393,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1111,
@@ -62316,7 +62424,8 @@
   "enrollmentEnd": 1487,
   "enrollmentAvg": 1487,
   "businessPctEnd": 0.1032,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1112,
@@ -62346,7 +62455,8 @@
   "enrollmentEnd": 902,
   "enrollmentAvg": 902,
   "businessPctEnd": 0.2162,
-  "businessDegreesLatest": 32
+  "businessDegreesLatest": 32,
+  "convertedToPermanent": false
  },
  {
   "id": 1113,
@@ -62376,7 +62486,8 @@
   "enrollmentEnd": 902,
   "enrollmentAvg": 902,
   "businessPctEnd": 0.2162,
-  "businessDegreesLatest": 32
+  "businessDegreesLatest": 32,
+  "convertedToPermanent": false
  },
  {
   "id": 1114,
@@ -62406,7 +62517,8 @@
   "enrollmentEnd": 902,
   "enrollmentAvg": 902,
   "businessPctEnd": 0.2162,
-  "businessDegreesLatest": 32
+  "businessDegreesLatest": 32,
+  "convertedToPermanent": false
  },
  {
   "id": 1115,
@@ -62436,7 +62548,8 @@
   "enrollmentEnd": 902,
   "enrollmentAvg": 902,
   "businessPctEnd": 0.2162,
-  "businessDegreesLatest": 32
+  "businessDegreesLatest": 32,
+  "convertedToPermanent": false
  },
  {
   "id": 1116,
@@ -62466,7 +62579,8 @@
   "enrollmentEnd": 902,
   "enrollmentAvg": 902,
   "businessPctEnd": 0.2162,
-  "businessDegreesLatest": 32
+  "businessDegreesLatest": 32,
+  "convertedToPermanent": false
  },
  {
   "id": 1117,
@@ -62496,7 +62610,8 @@
   "enrollmentEnd": 902,
   "enrollmentAvg": 902,
   "businessPctEnd": 0.2162,
-  "businessDegreesLatest": 32
+  "businessDegreesLatest": 32,
+  "convertedToPermanent": false
  },
  {
   "id": 1118,
@@ -62524,7 +62639,8 @@
   "enrollmentEnd": 2515,
   "enrollmentAvg": 2515,
   "businessPctEnd": 0.1951,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1119,
@@ -62554,7 +62670,8 @@
   "enrollmentEnd": 2515,
   "enrollmentAvg": 2515,
   "businessPctEnd": 0.1951,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1120,
@@ -62582,7 +62699,8 @@
   "enrollmentEnd": 2515,
   "enrollmentAvg": 2515,
   "businessPctEnd": 0.1951,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1121,
@@ -62610,7 +62728,8 @@
   "enrollmentEnd": 2515,
   "enrollmentAvg": 2515,
   "businessPctEnd": 0.1951,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1122,
@@ -62640,7 +62759,8 @@
   "enrollmentEnd": 2515,
   "enrollmentAvg": 2515,
   "businessPctEnd": 0.1951,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1123,
@@ -62656,7 +62776,8 @@
   "enrollmentEnd": 2515,
   "enrollmentAvg": 2515,
   "businessPctEnd": 0.1951,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1124,
@@ -62685,7 +62806,8 @@
   "isFemale": true,
   "enrollmentEnd": 3353,
   "enrollmentAvg": 3353,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1125,
@@ -62714,7 +62836,8 @@
   "isFemale": true,
   "enrollmentEnd": 3353,
   "enrollmentAvg": 3353,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1126,
@@ -62743,7 +62866,8 @@
   "isFemale": true,
   "enrollmentEnd": 3353,
   "enrollmentAvg": 3353,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1127,
@@ -62772,7 +62896,8 @@
   "isFemale": true,
   "enrollmentEnd": 3353,
   "enrollmentAvg": 3353,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1128,
@@ -62801,7 +62926,8 @@
   "isFemale": true,
   "enrollmentEnd": 3353,
   "enrollmentAvg": 3353,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1129,
@@ -62830,7 +62956,8 @@
   "isFemale": true,
   "enrollmentEnd": 3353,
   "enrollmentAvg": 3353,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1130,
@@ -62857,7 +62984,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 3353,
   "enrollmentAvg": 3353,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1131,
@@ -62884,7 +63012,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 3353,
   "enrollmentAvg": 3353,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1132,
@@ -62911,7 +63040,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 3353,
   "enrollmentAvg": 3353,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1133,
@@ -62940,7 +63070,8 @@
   "isFemale": true,
   "enrollmentEnd": 1753,
   "enrollmentAvg": 1753,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1134,
@@ -62969,7 +63100,8 @@
   "isFemale": true,
   "enrollmentEnd": 1753,
   "enrollmentAvg": 1753,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1135,
@@ -62998,7 +63130,8 @@
   "isFemale": false,
   "enrollmentEnd": 1753,
   "enrollmentAvg": 1753,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1136,
@@ -63027,7 +63160,8 @@
   "isFemale": true,
   "enrollmentEnd": 1753,
   "enrollmentAvg": 1753,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1137,
@@ -63056,7 +63190,8 @@
   "isFemale": true,
   "enrollmentEnd": 1753,
   "enrollmentAvg": 1753,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1138,
@@ -63089,7 +63224,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 1832,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1139,
@@ -63118,7 +63254,8 @@
   "isFemale": false,
   "enrollmentEnd": 1753,
   "enrollmentAvg": 1753,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1140,
@@ -63147,7 +63284,8 @@
   "isFemale": true,
   "enrollmentEnd": 1753,
   "enrollmentAvg": 1753,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1141,
@@ -63176,7 +63314,8 @@
   "isFemale": true,
   "enrollmentEnd": 1753,
   "enrollmentAvg": 1753,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1142,
@@ -63206,7 +63345,8 @@
   "enrollmentEnd": 948,
   "enrollmentAvg": 948,
   "businessPctEnd": 0.0536,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1143,
@@ -63236,7 +63376,8 @@
   "enrollmentEnd": 948,
   "enrollmentAvg": 948,
   "businessPctEnd": 0.0536,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1144,
@@ -63266,7 +63407,8 @@
   "enrollmentEnd": 948,
   "enrollmentAvg": 948,
   "businessPctEnd": 0.0536,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1145,
@@ -63299,7 +63441,8 @@
   "businessPctEnd": 0.0536,
   "businessDegreesLatest": 9,
   "businessPctStart": 0.0536,
-  "businessDegreesStart": 9
+  "businessDegreesStart": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1146,
@@ -63329,7 +63472,8 @@
   "enrollmentEnd": 948,
   "enrollmentAvg": 948,
   "businessPctEnd": 0.0536,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1147,
@@ -63360,7 +63504,8 @@
   "enrollmentEnd": 948,
   "enrollmentAvg": 948,
   "businessPctEnd": 0.0536,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1148,
@@ -63387,7 +63532,8 @@
   "hadDeptChairRole": true,
   "enrollmentEnd": 1666,
   "enrollmentAvg": 1666,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1149,
@@ -63416,7 +63562,8 @@
   "isFemale": false,
   "enrollmentEnd": 1666,
   "enrollmentAvg": 1666,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1150,
@@ -63445,7 +63592,8 @@
   "isFemale": true,
   "enrollmentEnd": 1666,
   "enrollmentAvg": 1666,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1151,
@@ -63474,7 +63622,8 @@
   "isFemale": false,
   "enrollmentEnd": 1666,
   "enrollmentAvg": 1666,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1152,
@@ -63503,7 +63652,8 @@
   "isFemale": true,
   "enrollmentEnd": 1666,
   "enrollmentAvg": 1666,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1153,
@@ -63532,7 +63682,8 @@
   "isFemale": true,
   "enrollmentEnd": 1666,
   "enrollmentAvg": 1666,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1154,
@@ -63561,7 +63712,8 @@
   "isFemale": true,
   "enrollmentEnd": 1666,
   "enrollmentAvg": 1666,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1155,
@@ -63588,7 +63740,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1666,
   "enrollmentAvg": 1666,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1156,
@@ -63617,7 +63770,8 @@
   "isFemale": true,
   "enrollmentEnd": 1666,
   "enrollmentAvg": 1666,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1157,
@@ -63647,7 +63801,8 @@
   "enrollmentEnd": 3892,
   "enrollmentAvg": 3892,
   "businessPctEnd": 0.1548,
-  "businessDegreesLatest": 135
+  "businessDegreesLatest": 135,
+  "convertedToPermanent": false
  },
  {
   "id": 1158,
@@ -63665,7 +63820,8 @@
   "enrollmentEnd": 3892,
   "enrollmentAvg": 3892,
   "businessPctEnd": 0.1548,
-  "businessDegreesLatest": 135
+  "businessDegreesLatest": 135,
+  "convertedToPermanent": false
  },
  {
   "id": 1159,
@@ -63695,7 +63851,8 @@
   "enrollmentEnd": 3892,
   "enrollmentAvg": 3892,
   "businessPctEnd": 0.1548,
-  "businessDegreesLatest": 135
+  "businessDegreesLatest": 135,
+  "convertedToPermanent": false
  },
  {
   "id": 1160,
@@ -63725,7 +63882,8 @@
   "enrollmentEnd": 3892,
   "enrollmentAvg": 3892,
   "businessPctEnd": 0.1548,
-  "businessDegreesLatest": 135
+  "businessDegreesLatest": 135,
+  "convertedToPermanent": false
  },
  {
   "id": 1161,
@@ -63755,7 +63913,8 @@
   "enrollmentEnd": 3892,
   "enrollmentAvg": 3892,
   "businessPctEnd": 0.1548,
-  "businessDegreesLatest": 135
+  "businessDegreesLatest": 135,
+  "convertedToPermanent": false
  },
  {
   "id": 1162,
@@ -63785,7 +63944,8 @@
   "enrollmentEnd": 3892,
   "enrollmentAvg": 3892,
   "businessPctEnd": 0.1548,
-  "businessDegreesLatest": 135
+  "businessDegreesLatest": 135,
+  "convertedToPermanent": false
  },
  {
   "id": 1163,
@@ -63815,7 +63975,8 @@
   "enrollmentEnd": 3892,
   "enrollmentAvg": 3892,
   "businessPctEnd": 0.1548,
-  "businessDegreesLatest": 135
+  "businessDegreesLatest": 135,
+  "convertedToPermanent": false
  },
  {
   "id": 1164,
@@ -63845,7 +64006,8 @@
   "enrollmentEnd": 3892,
   "enrollmentAvg": 3892,
   "businessPctEnd": 0.1548,
-  "businessDegreesLatest": 135
+  "businessDegreesLatest": 135,
+  "convertedToPermanent": false
  },
  {
   "id": 1165,
@@ -63875,7 +64037,8 @@
   "enrollmentEnd": 3892,
   "enrollmentAvg": 3892,
   "businessPctEnd": 0.1548,
-  "businessDegreesLatest": 135
+  "businessDegreesLatest": 135,
+  "convertedToPermanent": false
  },
  {
   "id": 1166,
@@ -63904,7 +64067,8 @@
   "isFemale": true,
   "enrollmentEnd": 2069,
   "enrollmentAvg": 2069,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1167,
@@ -63933,7 +64097,8 @@
   "isFemale": false,
   "enrollmentEnd": 2069,
   "enrollmentAvg": 2069,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1168,
@@ -63962,7 +64127,8 @@
   "isFemale": true,
   "enrollmentEnd": 2069,
   "enrollmentAvg": 2069,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1169,
@@ -63991,7 +64157,8 @@
   "isFemale": true,
   "enrollmentEnd": 2069,
   "enrollmentAvg": 2069,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1170,
@@ -64020,7 +64187,8 @@
   "isFemale": true,
   "enrollmentEnd": 2069,
   "enrollmentAvg": 2069,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1171,
@@ -64049,7 +64217,8 @@
   "isFemale": false,
   "enrollmentEnd": 2069,
   "enrollmentAvg": 2069,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1172,
@@ -64078,7 +64247,8 @@
   "isFemale": true,
   "enrollmentEnd": 2069,
   "enrollmentAvg": 2069,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1173,
@@ -64108,7 +64278,8 @@
   "enrollmentEnd": 648,
   "enrollmentAvg": 648,
   "businessPctEnd": 0.3468,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1174,
@@ -64138,7 +64309,8 @@
   "enrollmentEnd": 648,
   "enrollmentAvg": 648,
   "businessPctEnd": 0.3468,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1175,
@@ -64168,7 +64340,8 @@
   "enrollmentEnd": 648,
   "enrollmentAvg": 648,
   "businessPctEnd": 0.3468,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1176,
@@ -64198,7 +64371,8 @@
   "enrollmentEnd": 648,
   "enrollmentAvg": 648,
   "businessPctEnd": 0.3468,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1177,
@@ -64228,7 +64402,8 @@
   "enrollmentEnd": 648,
   "enrollmentAvg": 648,
   "businessPctEnd": 0.3468,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1178,
@@ -64258,7 +64433,8 @@
   "enrollmentEnd": 1095,
   "enrollmentAvg": 1095,
   "businessPctEnd": 0.2152,
-  "businessDegreesLatest": 51
+  "businessDegreesLatest": 51,
+  "convertedToPermanent": false
  },
  {
   "id": 1179,
@@ -64276,7 +64452,8 @@
   "enrollmentEnd": 1095,
   "enrollmentAvg": 1095,
   "businessPctEnd": 0.2152,
-  "businessDegreesLatest": 51
+  "businessDegreesLatest": 51,
+  "convertedToPermanent": false
  },
  {
   "id": 1180,
@@ -64304,7 +64481,8 @@
   "enrollmentEnd": 1095,
   "enrollmentAvg": 1095,
   "businessPctEnd": 0.2152,
-  "businessDegreesLatest": 51
+  "businessDegreesLatest": 51,
+  "convertedToPermanent": false
  },
  {
   "id": 1181,
@@ -64332,7 +64510,8 @@
   "enrollmentEnd": 1095,
   "enrollmentAvg": 1095,
   "businessPctEnd": 0.2152,
-  "businessDegreesLatest": 51
+  "businessDegreesLatest": 51,
+  "convertedToPermanent": false
  },
  {
   "id": 1182,
@@ -64361,7 +64540,8 @@
   "isFemale": false,
   "enrollmentEnd": 1356,
   "enrollmentAvg": 1356,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1183,
@@ -64390,7 +64570,8 @@
   "isFemale": true,
   "enrollmentEnd": 1356,
   "enrollmentAvg": 1356,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1184,
@@ -64419,7 +64600,8 @@
   "isFemale": false,
   "enrollmentEnd": 1356,
   "enrollmentAvg": 1356,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1185,
@@ -64448,7 +64630,8 @@
   "isFemale": true,
   "enrollmentEnd": 1356,
   "enrollmentAvg": 1356,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1186,
@@ -64477,7 +64660,8 @@
   "isFemale": false,
   "enrollmentEnd": 1356,
   "enrollmentAvg": 1356,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1187,
@@ -64507,7 +64691,8 @@
   "enrollmentEnd": 724,
   "enrollmentAvg": 724,
   "businessPctEnd": 0.125,
-  "businessDegreesLatest": 12
+  "businessDegreesLatest": 12,
+  "convertedToPermanent": false
  },
  {
   "id": 1188,
@@ -64537,7 +64722,8 @@
   "enrollmentEnd": 724,
   "enrollmentAvg": 724,
   "businessPctEnd": 0.125,
-  "businessDegreesLatest": 12
+  "businessDegreesLatest": 12,
+  "convertedToPermanent": false
  },
  {
   "id": 1189,
@@ -64567,7 +64753,8 @@
   "enrollmentEnd": 724,
   "enrollmentAvg": 724,
   "businessPctEnd": 0.125,
-  "businessDegreesLatest": 12
+  "businessDegreesLatest": 12,
+  "convertedToPermanent": false
  },
  {
   "id": 1190,
@@ -64597,7 +64784,8 @@
   "enrollmentEnd": 724,
   "enrollmentAvg": 724,
   "businessPctEnd": 0.125,
-  "businessDegreesLatest": 12
+  "businessDegreesLatest": 12,
+  "convertedToPermanent": false
  },
  {
   "id": 1191,
@@ -64627,7 +64815,8 @@
   "enrollmentEnd": 1835,
   "enrollmentAvg": 1835,
   "businessPctEnd": 0.1734,
-  "businessDegreesLatest": 60
+  "businessDegreesLatest": 60,
+  "convertedToPermanent": false
  },
  {
   "id": 1192,
@@ -64655,7 +64844,8 @@
   "enrollmentEnd": 1835,
   "enrollmentAvg": 1835,
   "businessPctEnd": 0.1734,
-  "businessDegreesLatest": 60
+  "businessDegreesLatest": 60,
+  "convertedToPermanent": false
  },
  {
   "id": 1193,
@@ -64673,7 +64863,8 @@
   "enrollmentEnd": 1835,
   "enrollmentAvg": 1835,
   "businessPctEnd": 0.1734,
-  "businessDegreesLatest": 60
+  "businessDegreesLatest": 60,
+  "convertedToPermanent": false
  },
  {
   "id": 1194,
@@ -64701,7 +64892,8 @@
   "enrollmentEnd": 1835,
   "enrollmentAvg": 1835,
   "businessPctEnd": 0.1734,
-  "businessDegreesLatest": 60
+  "businessDegreesLatest": 60,
+  "convertedToPermanent": false
  },
  {
   "id": 1195,
@@ -64731,7 +64923,8 @@
   "enrollmentEnd": 1384,
   "enrollmentAvg": 1384,
   "businessPctEnd": 0.0674,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1196,
@@ -64761,7 +64954,8 @@
   "enrollmentEnd": 1384,
   "enrollmentAvg": 1384,
   "businessPctEnd": 0.0674,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1197,
@@ -64791,7 +64985,8 @@
   "enrollmentEnd": 1384,
   "enrollmentAvg": 1384,
   "businessPctEnd": 0.0674,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1198,
@@ -64821,7 +65016,8 @@
   "enrollmentEnd": 1384,
   "enrollmentAvg": 1384,
   "businessPctEnd": 0.0674,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1199,
@@ -64851,7 +65047,8 @@
   "enrollmentEnd": 1384,
   "enrollmentAvg": 1384,
   "businessPctEnd": 0.0674,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1200,
@@ -64878,7 +65075,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 3146,
   "enrollmentAvg": 3146,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1201,
@@ -64905,7 +65103,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 3146,
   "enrollmentAvg": 3146,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1202,
@@ -64934,7 +65133,8 @@
   "isFemale": false,
   "enrollmentEnd": 3146,
   "enrollmentAvg": 3146,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1203,
@@ -64963,7 +65163,8 @@
   "isFemale": true,
   "enrollmentEnd": 3146,
   "enrollmentAvg": 3146,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1204,
@@ -64992,7 +65193,8 @@
   "isFemale": false,
   "enrollmentEnd": 3146,
   "enrollmentAvg": 3146,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1205,
@@ -65021,7 +65223,8 @@
   "isFemale": false,
   "enrollmentEnd": 3146,
   "enrollmentAvg": 3146,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1206,
@@ -65053,7 +65256,8 @@
   "businessDegreesLatest": 49,
   "enrollmentStart": 2217,
   "businessPctStart": 0.1164,
-  "businessDegreesStart": 44
+  "businessDegreesStart": 44,
+  "convertedToPermanent": false
  },
  {
   "id": 1207,
@@ -65083,7 +65287,8 @@
   "enrollmentEnd": 2217,
   "enrollmentAvg": 2217,
   "businessPctEnd": 0.1063,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1208,
@@ -65113,7 +65318,8 @@
   "enrollmentEnd": 2217,
   "enrollmentAvg": 2217,
   "businessPctEnd": 0.1063,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1209,
@@ -65147,7 +65353,8 @@
   "businessDegreesLatest": 49,
   "enrollmentStart": 2137,
   "businessPctStart": 0.1159,
-  "businessDegreesStart": 59
+  "businessDegreesStart": 59,
+  "convertedToPermanent": false
  },
  {
   "id": 1210,
@@ -65178,7 +65385,8 @@
   "enrollmentEnd": 2217,
   "enrollmentAvg": 2217,
   "businessPctEnd": 0.1063,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1211,
@@ -65212,7 +65420,8 @@
   "businessDegreesLatest": 49,
   "enrollmentStart": 2420,
   "businessPctStart": 0.089,
-  "businessDegreesStart": 50
+  "businessDegreesStart": 50,
+  "convertedToPermanent": false
  },
  {
   "id": 1212,
@@ -65243,7 +65452,8 @@
   "enrollmentEnd": 2217,
   "enrollmentAvg": 2217,
   "businessPctEnd": 0.1063,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1213,
@@ -65277,7 +65487,8 @@
   "businessDegreesLatest": 49,
   "enrollmentStart": 1932,
   "businessPctStart": 0.1226,
-  "businessDegreesStart": 64
+  "businessDegreesStart": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1214,
@@ -65311,7 +65522,8 @@
   "businessDegreesLatest": 49,
   "enrollmentStart": 2399,
   "businessPctStart": 0.1,
-  "businessDegreesStart": 53
+  "businessDegreesStart": 53,
+  "convertedToPermanent": false
  },
  {
   "id": 1215,
@@ -65341,7 +65553,8 @@
   "enrollmentEnd": 2217,
   "enrollmentAvg": 2217,
   "businessPctEnd": 0.1063,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1216,
@@ -65371,7 +65584,8 @@
   "enrollmentEnd": 1107,
   "enrollmentAvg": 1107,
   "businessPctEnd": 0.0711,
-  "businessDegreesLatest": 17
+  "businessDegreesLatest": 17,
+  "convertedToPermanent": false
  },
  {
   "id": 1217,
@@ -65401,7 +65615,8 @@
   "enrollmentEnd": 1107,
   "enrollmentAvg": 1107,
   "businessPctEnd": 0.0711,
-  "businessDegreesLatest": 17
+  "businessDegreesLatest": 17,
+  "convertedToPermanent": false
  },
  {
   "id": 1218,
@@ -65431,7 +65646,8 @@
   "enrollmentEnd": 1107,
   "enrollmentAvg": 1107,
   "businessPctEnd": 0.0711,
-  "businessDegreesLatest": 17
+  "businessDegreesLatest": 17,
+  "convertedToPermanent": false
  },
  {
   "id": 1219,
@@ -65459,7 +65675,8 @@
   "enrollmentEnd": 1107,
   "enrollmentAvg": 1107,
   "businessPctEnd": 0.0711,
-  "businessDegreesLatest": 17
+  "businessDegreesLatest": 17,
+  "convertedToPermanent": false
  },
  {
   "id": 1220,
@@ -65487,7 +65704,8 @@
   "enrollmentEnd": 197,
   "enrollmentAvg": 197,
   "businessPctEnd": 0.2,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1221,
@@ -65517,7 +65735,8 @@
   "enrollmentEnd": 197,
   "enrollmentAvg": 197,
   "businessPctEnd": 0.2,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1222,
@@ -65545,7 +65764,8 @@
   "enrollmentEnd": 197,
   "enrollmentAvg": 197,
   "businessPctEnd": 0.2,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1223,
@@ -65574,7 +65794,8 @@
   "isFemale": true,
   "enrollmentEnd": 1424,
   "enrollmentAvg": 1424,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1224,
@@ -65603,7 +65824,8 @@
   "isFemale": false,
   "enrollmentEnd": 1424,
   "enrollmentAvg": 1424,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1225,
@@ -65632,7 +65854,8 @@
   "isFemale": false,
   "enrollmentEnd": 1424,
   "enrollmentAvg": 1424,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1226,
@@ -65661,7 +65884,8 @@
   "isFemale": true,
   "enrollmentEnd": 1424,
   "enrollmentAvg": 1424,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1227,
@@ -65690,7 +65914,8 @@
   "isFemale": true,
   "enrollmentEnd": 1424,
   "enrollmentAvg": 1424,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1228,
@@ -65719,7 +65944,8 @@
   "isFemale": false,
   "enrollmentEnd": 1424,
   "enrollmentAvg": 1424,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1229,
@@ -65748,7 +65974,8 @@
   "isFemale": true,
   "enrollmentEnd": 1424,
   "enrollmentAvg": 1424,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1230,
@@ -65776,7 +66003,8 @@
   "enrollmentEnd": 2846,
   "enrollmentAvg": 2846,
   "businessPctEnd": 0.1076,
-  "businessDegreesLatest": 72
+  "businessDegreesLatest": 72,
+  "convertedToPermanent": false
  },
  {
   "id": 1231,
@@ -65806,7 +66034,8 @@
   "enrollmentEnd": 2846,
   "enrollmentAvg": 2846,
   "businessPctEnd": 0.1076,
-  "businessDegreesLatest": 72
+  "businessDegreesLatest": 72,
+  "convertedToPermanent": false
  },
  {
   "id": 1232,
@@ -65834,7 +66063,8 @@
   "enrollmentEnd": 2846,
   "enrollmentAvg": 2846,
   "businessPctEnd": 0.1076,
-  "businessDegreesLatest": 72
+  "businessDegreesLatest": 72,
+  "convertedToPermanent": false
  },
  {
   "id": 1233,
@@ -65864,7 +66094,8 @@
   "enrollmentEnd": 2846,
   "enrollmentAvg": 2846,
   "businessPctEnd": 0.1076,
-  "businessDegreesLatest": 72
+  "businessDegreesLatest": 72,
+  "convertedToPermanent": false
  },
  {
   "id": 1234,
@@ -65894,7 +66125,8 @@
   "enrollmentEnd": 2846,
   "enrollmentAvg": 2846,
   "businessPctEnd": 0.1076,
-  "businessDegreesLatest": 72
+  "businessDegreesLatest": 72,
+  "convertedToPermanent": false
  },
  {
   "id": 1235,
@@ -65923,7 +66155,8 @@
   "isFemale": false,
   "enrollmentEnd": 2184,
   "enrollmentAvg": 2184,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1236,
@@ -65952,7 +66185,8 @@
   "isFemale": true,
   "enrollmentEnd": 2184,
   "enrollmentAvg": 2184,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1237,
@@ -65981,7 +66215,8 @@
   "isFemale": false,
   "enrollmentEnd": 2184,
   "enrollmentAvg": 2184,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1238,
@@ -66014,7 +66249,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 1711,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1239,
@@ -66043,7 +66279,8 @@
   "isFemale": false,
   "enrollmentEnd": 2184,
   "enrollmentAvg": 2184,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1240,
@@ -66073,7 +66310,8 @@
   "startLabel": "2025",
   "enrollmentEnd": 2184,
   "enrollmentAvg": 2184,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1241,
@@ -66102,7 +66340,8 @@
   "isFemale": true,
   "enrollmentEnd": 2184,
   "enrollmentAvg": 2184,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1242,
@@ -66131,7 +66370,8 @@
   "isFemale": false,
   "enrollmentEnd": 2184,
   "enrollmentAvg": 2184,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1243,
@@ -66160,7 +66400,8 @@
   "isFemale": true,
   "enrollmentEnd": 2184,
   "enrollmentAvg": 2184,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1244,
@@ -66194,7 +66435,8 @@
   "businessDegreesLatest": 41,
   "enrollmentStart": 1286,
   "businessPctStart": 0.0997,
-  "businessDegreesStart": 29
+  "businessDegreesStart": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1245,
@@ -66222,7 +66464,8 @@
   "enrollmentEnd": 1196,
   "enrollmentAvg": 1196,
   "businessPctEnd": 0.1358,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1246,
@@ -66252,7 +66495,8 @@
   "enrollmentEnd": 1196,
   "enrollmentAvg": 1196,
   "businessPctEnd": 0.1358,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1247,
@@ -66286,7 +66530,8 @@
   "businessDegreesLatest": 41,
   "enrollmentStart": 1241,
   "businessPctStart": 0.1432,
-  "businessDegreesStart": 55
+  "businessDegreesStart": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1248,
@@ -66320,7 +66565,8 @@
   "businessDegreesLatest": 41,
   "enrollmentStart": 1210,
   "businessPctStart": 0.1246,
-  "businessDegreesStart": 40
+  "businessDegreesStart": 40,
+  "convertedToPermanent": false
  },
  {
   "id": 1249,
@@ -66350,7 +66596,8 @@
   "enrollmentEnd": 1669,
   "enrollmentAvg": 1669,
   "businessPctEnd": 0.0705,
-  "businessDegreesLatest": 28
+  "businessDegreesLatest": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1250,
@@ -66380,7 +66627,8 @@
   "enrollmentEnd": 1669,
   "enrollmentAvg": 1669,
   "businessPctEnd": 0.0705,
-  "businessDegreesLatest": 28
+  "businessDegreesLatest": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1251,
@@ -66411,7 +66659,8 @@
   "businessPctEnd": 0.0705,
   "businessDegreesLatest": 28,
   "businessPctStart": 0.0705,
-  "businessDegreesStart": 28
+  "businessDegreesStart": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1252,
@@ -66441,7 +66690,8 @@
   "enrollmentEnd": 1669,
   "enrollmentAvg": 1669,
   "businessPctEnd": 0.0705,
-  "businessDegreesLatest": 28
+  "businessDegreesLatest": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1253,
@@ -66473,7 +66723,8 @@
   "businessDegreesLatest": 28,
   "enrollmentStart": 1684,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1254,
@@ -66503,7 +66754,8 @@
   "enrollmentEnd": 1669,
   "enrollmentAvg": 1669,
   "businessPctEnd": 0.0705,
-  "businessDegreesLatest": 28
+  "businessDegreesLatest": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1255,
@@ -66533,7 +66785,8 @@
   "enrollmentEnd": 1669,
   "enrollmentAvg": 1669,
   "businessPctEnd": 0.0705,
-  "businessDegreesLatest": 28
+  "businessDegreesLatest": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1256,
@@ -66563,7 +66816,8 @@
   "enrollmentEnd": 782,
   "enrollmentAvg": 782,
   "businessPctEnd": 0.0612,
-  "businessDegreesLatest": 12
+  "businessDegreesLatest": 12,
+  "convertedToPermanent": false
  },
  {
   "id": 1257,
@@ -66591,7 +66845,8 @@
   "enrollmentEnd": 782,
   "enrollmentAvg": 782,
   "businessPctEnd": 0.0612,
-  "businessDegreesLatest": 12
+  "businessDegreesLatest": 12,
+  "convertedToPermanent": false
  },
  {
   "id": 1258,
@@ -66621,7 +66876,8 @@
   "enrollmentEnd": 782,
   "enrollmentAvg": 782,
   "businessPctEnd": 0.0612,
-  "businessDegreesLatest": 12
+  "businessDegreesLatest": 12,
+  "convertedToPermanent": false
  },
  {
   "id": 1259,
@@ -66651,7 +66907,8 @@
   "enrollmentEnd": 782,
   "enrollmentAvg": 782,
   "businessPctEnd": 0.0612,
-  "businessDegreesLatest": 12
+  "businessDegreesLatest": 12,
+  "convertedToPermanent": false
  },
  {
   "id": 1260,
@@ -66685,7 +66942,8 @@
   "businessDegreesLatest": 27,
   "enrollmentStart": 468,
   "businessPctStart": 0.1852,
-  "businessDegreesStart": 25
+  "businessDegreesStart": 25,
+  "convertedToPermanent": false
  },
  {
   "id": 1261,
@@ -66713,7 +66971,8 @@
   "enrollmentEnd": 547,
   "enrollmentAvg": 547,
   "businessPctEnd": 0.2842,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1262,
@@ -66743,7 +67002,8 @@
   "enrollmentEnd": 547,
   "enrollmentAvg": 547,
   "businessPctEnd": 0.2842,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1263,
@@ -66773,7 +67033,8 @@
   "enrollmentEnd": 547,
   "enrollmentAvg": 547,
   "businessPctEnd": 0.2842,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1264,
@@ -66801,7 +67062,8 @@
   "enrollmentEnd": 1122,
   "enrollmentAvg": 1122,
   "businessPctEnd": 0.1593,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1265,
@@ -66817,7 +67079,8 @@
   "enrollmentEnd": 1122,
   "enrollmentAvg": 1122,
   "businessPctEnd": 0.1593,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1266,
@@ -66845,7 +67108,8 @@
   "enrollmentEnd": 1122,
   "enrollmentAvg": 1122,
   "businessPctEnd": 0.1593,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1267,
@@ -66876,7 +67140,8 @@
   "enrollmentEnd": 1823,
   "enrollmentAvg": 1589,
   "businessPctEnd": 0.1212,
-  "businessDegreesLatest": 48
+  "businessDegreesLatest": 48,
+  "convertedToPermanent": false
  },
  {
   "id": 1268,
@@ -66907,7 +67172,8 @@
   "enrollmentEnd": 1823,
   "enrollmentAvg": 1589,
   "businessPctEnd": 0.1212,
-  "businessDegreesLatest": 48
+  "businessDegreesLatest": 48,
+  "convertedToPermanent": false
  },
  {
   "id": 1269,
@@ -66937,7 +67203,8 @@
   "enrollmentEnd": 1823,
   "enrollmentAvg": 1823,
   "businessPctEnd": 0.1212,
-  "businessDegreesLatest": 48
+  "businessDegreesLatest": 48,
+  "convertedToPermanent": false
  },
  {
   "id": 1270,
@@ -66968,7 +67235,8 @@
   "enrollmentEnd": 1823,
   "enrollmentAvg": 1589,
   "businessPctEnd": 0.1212,
-  "businessDegreesLatest": 48
+  "businessDegreesLatest": 48,
+  "convertedToPermanent": false
  },
  {
   "id": 1271,
@@ -66998,7 +67266,8 @@
   "enrollmentEnd": 1823,
   "enrollmentAvg": 1823,
   "businessPctEnd": 0.1212,
-  "businessDegreesLatest": 48
+  "businessDegreesLatest": 48,
+  "convertedToPermanent": false
  },
  {
   "id": 1272,
@@ -67029,7 +67298,8 @@
   "enrollmentEnd": 1823,
   "enrollmentAvg": 1589,
   "businessPctEnd": 0.1212,
-  "businessDegreesLatest": 48
+  "businessDegreesLatest": 48,
+  "convertedToPermanent": false
  },
  {
   "id": 1273,
@@ -67060,7 +67330,8 @@
   "enrollmentEnd": 1823,
   "enrollmentAvg": 1589,
   "businessPctEnd": 0.1212,
-  "businessDegreesLatest": 48
+  "businessDegreesLatest": 48,
+  "convertedToPermanent": false
  },
  {
   "id": 1274,
@@ -67091,7 +67362,8 @@
   "enrollmentEnd": 1823,
   "enrollmentAvg": 1589,
   "businessPctEnd": 0.1212,
-  "businessDegreesLatest": 48
+  "businessDegreesLatest": 48,
+  "convertedToPermanent": false
  },
  {
   "id": 1275,
@@ -67121,7 +67393,8 @@
   "enrollmentEnd": 1823,
   "enrollmentAvg": 1823,
   "businessPctEnd": 0.1212,
-  "businessDegreesLatest": 48
+  "businessDegreesLatest": 48,
+  "convertedToPermanent": false
  },
  {
   "id": 1276,
@@ -67152,7 +67425,8 @@
   "enrollmentEnd": 2405,
   "enrollmentAvg": 2405,
   "businessPctEnd": 0.0832,
-  "businessDegreesLatest": 42
+  "businessDegreesLatest": 42,
+  "convertedToPermanent": false
  },
  {
   "id": 1277,
@@ -67187,7 +67461,8 @@
   "businessDegreesLatest": 42,
   "enrollmentStart": 2416,
   "businessPctStart": 0.0981,
-  "businessDegreesStart": 53
+  "businessDegreesStart": 53,
+  "convertedToPermanent": false
  },
  {
   "id": 1278,
@@ -67217,7 +67492,8 @@
   "enrollmentEnd": 2405,
   "enrollmentAvg": 2405,
   "businessPctEnd": 0.0832,
-  "businessDegreesLatest": 42
+  "businessDegreesLatest": 42,
+  "convertedToPermanent": false
  },
  {
   "id": 1279,
@@ -67245,7 +67521,8 @@
   "enrollmentEnd": 2405,
   "enrollmentAvg": 2405,
   "businessPctEnd": 0.0832,
-  "businessDegreesLatest": 42
+  "businessDegreesLatest": 42,
+  "convertedToPermanent": false
  },
  {
   "id": 1280,
@@ -67263,7 +67540,8 @@
   "enrollmentEnd": 2405,
   "enrollmentAvg": 2405,
   "businessPctEnd": 0.0832,
-  "businessDegreesLatest": 42
+  "businessDegreesLatest": 42,
+  "convertedToPermanent": false
  },
  {
   "id": 1281,
@@ -67293,7 +67571,8 @@
   "enrollmentEnd": 2405,
   "enrollmentAvg": 2405,
   "businessPctEnd": 0.0832,
-  "businessDegreesLatest": 42
+  "businessDegreesLatest": 42,
+  "convertedToPermanent": false
  },
  {
   "id": 1282,
@@ -67323,7 +67602,8 @@
   "enrollmentEnd": 2405,
   "enrollmentAvg": 2405,
   "businessPctEnd": 0.0832,
-  "businessDegreesLatest": 42
+  "businessDegreesLatest": 42,
+  "convertedToPermanent": false
  },
  {
   "id": 1283,
@@ -67353,7 +67633,8 @@
   "enrollmentEnd": 2405,
   "enrollmentAvg": 2405,
   "businessPctEnd": 0.0832,
-  "businessDegreesLatest": 42
+  "businessDegreesLatest": 42,
+  "convertedToPermanent": false
  },
  {
   "id": 1284,
@@ -67382,7 +67663,8 @@
   "isFemale": true,
   "enrollmentEnd": 1904,
   "enrollmentAvg": 1904,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1285,
@@ -67411,7 +67693,8 @@
   "isFemale": true,
   "enrollmentEnd": 1904,
   "enrollmentAvg": 1904,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1286,
@@ -67438,7 +67721,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1904,
   "enrollmentAvg": 1904,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1287,
@@ -67467,7 +67751,8 @@
   "isFemale": false,
   "enrollmentEnd": 1904,
   "enrollmentAvg": 1904,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1288,
@@ -67484,7 +67769,8 @@
   "isFemale": true,
   "enrollmentEnd": 1904,
   "enrollmentAvg": 1904,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1289,
@@ -67513,7 +67799,8 @@
   "isFemale": true,
   "enrollmentEnd": 1904,
   "enrollmentAvg": 1904,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1290,
@@ -67542,7 +67829,8 @@
   "isFemale": true,
   "enrollmentEnd": 1904,
   "enrollmentAvg": 1904,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1291,
@@ -67571,7 +67859,8 @@
   "isFemale": true,
   "enrollmentEnd": 1904,
   "enrollmentAvg": 1904,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1292,
@@ -67601,7 +67890,8 @@
   "enrollmentEnd": 1819,
   "enrollmentAvg": 1819,
   "businessPctEnd": 0.0183,
-  "businessDegreesLatest": 6
+  "businessDegreesLatest": 6,
+  "convertedToPermanent": false
  },
  {
   "id": 1293,
@@ -67631,7 +67921,8 @@
   "enrollmentEnd": 1819,
   "enrollmentAvg": 1819,
   "businessPctEnd": 0.0183,
-  "businessDegreesLatest": 6
+  "businessDegreesLatest": 6,
+  "convertedToPermanent": false
  },
  {
   "id": 1294,
@@ -67662,7 +67953,8 @@
   "enrollmentEnd": 1819,
   "enrollmentAvg": 1819,
   "businessPctEnd": 0.0183,
-  "businessDegreesLatest": 6
+  "businessDegreesLatest": 6,
+  "convertedToPermanent": false
  },
  {
   "id": 1295,
@@ -67692,7 +67984,8 @@
   "enrollmentEnd": 1819,
   "enrollmentAvg": 1819,
   "businessPctEnd": 0.0183,
-  "businessDegreesLatest": 6
+  "businessDegreesLatest": 6,
+  "convertedToPermanent": false
  },
  {
   "id": 1296,
@@ -67723,7 +68016,8 @@
   "enrollmentEnd": 1819,
   "enrollmentAvg": 1819,
   "businessPctEnd": 0.0183,
-  "businessDegreesLatest": 6
+  "businessDegreesLatest": 6,
+  "convertedToPermanent": false
  },
  {
   "id": 1297,
@@ -67753,7 +68047,8 @@
   "enrollmentEnd": 1819,
   "enrollmentAvg": 1819,
   "businessPctEnd": 0.0183,
-  "businessDegreesLatest": 6
+  "businessDegreesLatest": 6,
+  "convertedToPermanent": false
  },
  {
   "id": 1298,
@@ -67783,7 +68078,8 @@
   "enrollmentEnd": 1463,
   "enrollmentAvg": 1463,
   "businessPctEnd": 0.1137,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1299,
@@ -67813,7 +68109,8 @@
   "enrollmentEnd": 1463,
   "enrollmentAvg": 1463,
   "businessPctEnd": 0.1137,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1300,
@@ -67843,7 +68140,8 @@
   "enrollmentEnd": 1463,
   "enrollmentAvg": 1463,
   "businessPctEnd": 0.1137,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1301,
@@ -67873,7 +68171,8 @@
   "enrollmentEnd": 1463,
   "enrollmentAvg": 1463,
   "businessPctEnd": 0.1137,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1302,
@@ -67903,7 +68202,8 @@
   "enrollmentEnd": 1463,
   "enrollmentAvg": 1463,
   "businessPctEnd": 0.1137,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1303,
@@ -67933,7 +68233,8 @@
   "enrollmentEnd": 1147,
   "enrollmentAvg": 1147,
   "businessPctEnd": 0.1759,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1304,
@@ -67963,7 +68264,8 @@
   "enrollmentEnd": 1147,
   "enrollmentAvg": 1147,
   "businessPctEnd": 0.1759,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1305,
@@ -67991,7 +68293,8 @@
   "enrollmentEnd": 1147,
   "enrollmentAvg": 1147,
   "businessPctEnd": 0.1759,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1306,
@@ -68023,7 +68326,8 @@
   "businessDegreesLatest": 38,
   "enrollmentStart": 1069,
   "businessPctStart": 0.2527,
-  "businessDegreesStart": 46
+  "businessDegreesStart": 46,
+  "convertedToPermanent": false
  },
  {
   "id": 1307,
@@ -68053,7 +68357,8 @@
   "enrollmentEnd": 1147,
   "enrollmentAvg": 1147,
   "businessPctEnd": 0.1759,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1308,
@@ -68082,7 +68387,8 @@
   "isFemale": true,
   "enrollmentEnd": 2764,
   "enrollmentAvg": 2764,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1309,
@@ -68111,7 +68417,8 @@
   "isFemale": true,
   "enrollmentEnd": 2764,
   "enrollmentAvg": 2764,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1310,
@@ -68140,7 +68447,8 @@
   "isFemale": false,
   "enrollmentEnd": 2764,
   "enrollmentAvg": 2764,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1311,
@@ -68169,7 +68477,8 @@
   "isFemale": true,
   "enrollmentEnd": 2764,
   "enrollmentAvg": 2764,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1312,
@@ -68198,7 +68507,8 @@
   "isFemale": false,
   "enrollmentEnd": 2764,
   "enrollmentAvg": 2764,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1313,
@@ -68227,7 +68537,8 @@
   "isFemale": false,
   "enrollmentEnd": 2764,
   "enrollmentAvg": 2764,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1314,
@@ -68257,7 +68568,8 @@
   "enrollmentEnd": 1001,
   "enrollmentAvg": 1001,
   "businessPctEnd": 0.1067,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1315,
@@ -68287,7 +68599,8 @@
   "enrollmentEnd": 1001,
   "enrollmentAvg": 1001,
   "businessPctEnd": 0.1067,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1316,
@@ -68317,7 +68630,8 @@
   "enrollmentEnd": 1001,
   "enrollmentAvg": 1001,
   "businessPctEnd": 0.1067,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1317,
@@ -68347,7 +68661,8 @@
   "enrollmentEnd": 1001,
   "enrollmentAvg": 1001,
   "businessPctEnd": 0.1067,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1318,
@@ -68377,7 +68692,8 @@
   "enrollmentEnd": 1001,
   "enrollmentAvg": 1001,
   "businessPctEnd": 0.1067,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1319,
@@ -68407,7 +68723,8 @@
   "enrollmentEnd": 1001,
   "enrollmentAvg": 1001,
   "businessPctEnd": 0.1067,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1320,
@@ -68437,7 +68754,8 @@
   "enrollmentEnd": 1001,
   "enrollmentAvg": 1001,
   "businessPctEnd": 0.1067,
-  "businessDegreesLatest": 24
+  "businessDegreesLatest": 24,
+  "convertedToPermanent": false
  },
  {
   "id": 1321,
@@ -68470,7 +68788,8 @@
   "businessPctEnd": 0.2174,
   "businessDegreesLatest": 50,
   "businessPctStart": 0.2174,
-  "businessDegreesStart": 50
+  "businessDegreesStart": 50,
+  "convertedToPermanent": false
  },
  {
   "id": 1322,
@@ -68501,7 +68820,8 @@
   "enrollmentEnd": 1063,
   "enrollmentAvg": 1063,
   "businessPctEnd": 0.2174,
-  "businessDegreesLatest": 50
+  "businessDegreesLatest": 50,
+  "convertedToPermanent": false
  },
  {
   "id": 1323,
@@ -68531,7 +68851,8 @@
   "enrollmentEnd": 1063,
   "enrollmentAvg": 1063,
   "businessPctEnd": 0.2174,
-  "businessDegreesLatest": 50
+  "businessDegreesLatest": 50,
+  "convertedToPermanent": false
  },
  {
   "id": 1324,
@@ -68561,7 +68882,8 @@
   "enrollmentEnd": 1063,
   "enrollmentAvg": 1063,
   "businessPctEnd": 0.2174,
-  "businessDegreesLatest": 50
+  "businessDegreesLatest": 50,
+  "convertedToPermanent": false
  },
  {
   "id": 1325,
@@ -68591,7 +68913,8 @@
   "enrollmentEnd": 1063,
   "enrollmentAvg": 1063,
   "businessPctEnd": 0.2174,
-  "businessDegreesLatest": 50
+  "businessDegreesLatest": 50,
+  "convertedToPermanent": false
  },
  {
   "id": 1326,
@@ -68609,7 +68932,8 @@
   "enrollmentEnd": 584,
   "enrollmentAvg": 584,
   "businessPctEnd": 0.2019,
-  "businessDegreesLatest": 21
+  "businessDegreesLatest": 21,
+  "convertedToPermanent": false
  },
  {
   "id": 1327,
@@ -68637,7 +68961,8 @@
   "enrollmentEnd": 584,
   "enrollmentAvg": 584,
   "businessPctEnd": 0.2019,
-  "businessDegreesLatest": 21
+  "businessDegreesLatest": 21,
+  "convertedToPermanent": false
  },
  {
   "id": 1328,
@@ -68655,7 +68980,8 @@
   "enrollmentEnd": 584,
   "enrollmentAvg": 584,
   "businessPctEnd": 0.2019,
-  "businessDegreesLatest": 21
+  "businessDegreesLatest": 21,
+  "convertedToPermanent": false
  },
  {
   "id": 1329,
@@ -68673,7 +68999,8 @@
   "enrollmentEnd": 584,
   "enrollmentAvg": 584,
   "businessPctEnd": 0.2019,
-  "businessDegreesLatest": 21
+  "businessDegreesLatest": 21,
+  "convertedToPermanent": false
  },
  {
   "id": 1330,
@@ -68702,7 +69029,8 @@
   "isFemale": true,
   "enrollmentEnd": 2142,
   "enrollmentAvg": 2142,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1331,
@@ -68731,7 +69059,8 @@
   "isFemale": true,
   "enrollmentEnd": 2142,
   "enrollmentAvg": 2142,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1332,
@@ -68760,7 +69089,8 @@
   "isFemale": true,
   "enrollmentEnd": 2142,
   "enrollmentAvg": 2142,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1333,
@@ -68789,7 +69119,8 @@
   "isFemale": false,
   "enrollmentEnd": 2142,
   "enrollmentAvg": 2142,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1334,
@@ -68818,7 +69149,8 @@
   "isFemale": true,
   "enrollmentEnd": 2142,
   "enrollmentAvg": 2142,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1335,
@@ -68847,7 +69179,8 @@
   "isFemale": false,
   "enrollmentEnd": 2142,
   "enrollmentAvg": 2142,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1336,
@@ -68877,7 +69210,8 @@
   "enrollmentEnd": 1818,
   "enrollmentAvg": 1818,
   "businessPctEnd": 0.2155,
-  "businessDegreesLatest": 111
+  "businessDegreesLatest": 111,
+  "convertedToPermanent": false
  },
  {
   "id": 1337,
@@ -68905,7 +69239,8 @@
   "enrollmentEnd": 1818,
   "enrollmentAvg": 1818,
   "businessPctEnd": 0.2155,
-  "businessDegreesLatest": 111
+  "businessDegreesLatest": 111,
+  "convertedToPermanent": false
  },
  {
   "id": 1338,
@@ -68935,7 +69270,8 @@
   "enrollmentEnd": 1818,
   "enrollmentAvg": 1818,
   "businessPctEnd": 0.2155,
-  "businessDegreesLatest": 111
+  "businessDegreesLatest": 111,
+  "convertedToPermanent": false
  },
  {
   "id": 1339,
@@ -68965,7 +69301,8 @@
   "enrollmentEnd": 1818,
   "enrollmentAvg": 1818,
   "businessPctEnd": 0.2155,
-  "businessDegreesLatest": 111
+  "businessDegreesLatest": 111,
+  "convertedToPermanent": false
  },
  {
   "id": 1340,
@@ -68994,7 +69331,8 @@
   "isFemale": true,
   "enrollmentEnd": 732,
   "enrollmentAvg": 732,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1341,
@@ -69023,7 +69361,8 @@
   "isFemale": false,
   "enrollmentEnd": 732,
   "enrollmentAvg": 732,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1342,
@@ -69052,7 +69391,8 @@
   "isFemale": false,
   "enrollmentEnd": 351,
   "enrollmentAvg": 351,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1343,
@@ -69081,7 +69421,8 @@
   "isFemale": false,
   "enrollmentEnd": 351,
   "enrollmentAvg": 351,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1344,
@@ -69110,7 +69451,8 @@
   "isFemale": false,
   "enrollmentEnd": 351,
   "enrollmentAvg": 351,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1345,
@@ -69140,7 +69482,8 @@
   "enrollmentEnd": 933,
   "enrollmentAvg": 933,
   "businessPctEnd": 0.1243,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1346,
@@ -69170,7 +69513,8 @@
   "enrollmentEnd": 933,
   "enrollmentAvg": 933,
   "businessPctEnd": 0.1243,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1347,
@@ -69200,7 +69544,8 @@
   "enrollmentEnd": 933,
   "enrollmentAvg": 933,
   "businessPctEnd": 0.1243,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1348,
@@ -69228,7 +69573,8 @@
   "enrollmentEnd": 933,
   "enrollmentAvg": 933,
   "businessPctEnd": 0.1243,
-  "businessDegreesLatest": 23
+  "businessDegreesLatest": 23,
+  "convertedToPermanent": false
  },
  {
   "id": 1349,
@@ -69258,7 +69604,8 @@
   "enrollmentEnd": 1523,
   "enrollmentAvg": 1523,
   "businessPctEnd": 0.2263,
-  "businessDegreesLatest": 81
+  "businessDegreesLatest": 81,
+  "convertedToPermanent": false
  },
  {
   "id": 1350,
@@ -69288,7 +69635,8 @@
   "enrollmentEnd": 1523,
   "enrollmentAvg": 1523,
   "businessPctEnd": 0.2263,
-  "businessDegreesLatest": 81
+  "businessDegreesLatest": 81,
+  "convertedToPermanent": false
  },
  {
   "id": 1351,
@@ -69318,7 +69666,8 @@
   "enrollmentEnd": 1523,
   "enrollmentAvg": 1523,
   "businessPctEnd": 0.2263,
-  "businessDegreesLatest": 81
+  "businessDegreesLatest": 81,
+  "convertedToPermanent": false
  },
  {
   "id": 1352,
@@ -69348,7 +69697,8 @@
   "enrollmentEnd": 1523,
   "enrollmentAvg": 1523,
   "businessPctEnd": 0.2263,
-  "businessDegreesLatest": 81
+  "businessDegreesLatest": 81,
+  "convertedToPermanent": false
  },
  {
   "id": 1353,
@@ -69378,7 +69728,8 @@
   "enrollmentEnd": 1523,
   "enrollmentAvg": 1523,
   "businessPctEnd": 0.2263,
-  "businessDegreesLatest": 81
+  "businessDegreesLatest": 81,
+  "convertedToPermanent": false
  },
  {
   "id": 1354,
@@ -69407,7 +69758,8 @@
   "isFemale": true,
   "enrollmentEnd": 1458,
   "enrollmentAvg": 1458,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1355,
@@ -69434,7 +69786,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1458,
   "enrollmentAvg": 1458,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1356,
@@ -69461,7 +69814,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1458,
   "enrollmentAvg": 1458,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1357,
@@ -69488,7 +69842,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1458,
   "enrollmentAvg": 1458,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1358,
@@ -69518,7 +69873,8 @@
   "enrollmentEnd": 1952,
   "enrollmentAvg": 1952,
   "businessPctEnd": 0.1412,
-  "businessDegreesLatest": 62
+  "businessDegreesLatest": 62,
+  "convertedToPermanent": false
  },
  {
   "id": 1359,
@@ -69548,7 +69904,8 @@
   "enrollmentEnd": 1952,
   "enrollmentAvg": 1952,
   "businessPctEnd": 0.1412,
-  "businessDegreesLatest": 62
+  "businessDegreesLatest": 62,
+  "convertedToPermanent": false
  },
  {
   "id": 1360,
@@ -69578,7 +69935,8 @@
   "enrollmentEnd": 1952,
   "enrollmentAvg": 1952,
   "businessPctEnd": 0.1412,
-  "businessDegreesLatest": 62
+  "businessDegreesLatest": 62,
+  "convertedToPermanent": false
  },
  {
   "id": 1361,
@@ -69608,7 +69966,8 @@
   "enrollmentEnd": 1952,
   "enrollmentAvg": 1952,
   "businessPctEnd": 0.1412,
-  "businessDegreesLatest": 62
+  "businessDegreesLatest": 62,
+  "convertedToPermanent": false
  },
  {
   "id": 1362,
@@ -69642,7 +70001,8 @@
   "businessDegreesLatest": 62,
   "enrollmentStart": 1721,
   "businessPctStart": 0.1178,
-  "businessDegreesStart": 47
+  "businessDegreesStart": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1363,
@@ -69672,7 +70032,8 @@
   "enrollmentEnd": 696,
   "enrollmentAvg": 696,
   "businessPctEnd": 0.127,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1364,
@@ -69700,7 +70061,8 @@
   "enrollmentEnd": 696,
   "enrollmentAvg": 696,
   "businessPctEnd": 0.127,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1365,
@@ -69718,7 +70080,8 @@
   "enrollmentEnd": 696,
   "enrollmentAvg": 696,
   "businessPctEnd": 0.127,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1366,
@@ -69748,7 +70111,8 @@
   "enrollmentEnd": 696,
   "enrollmentAvg": 696,
   "businessPctEnd": 0.127,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1367,
@@ -69776,7 +70140,8 @@
   "enrollmentEnd": 696,
   "enrollmentAvg": 696,
   "businessPctEnd": 0.127,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1368,
@@ -69806,7 +70171,8 @@
   "enrollmentEnd": 696,
   "enrollmentAvg": 696,
   "businessPctEnd": 0.127,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1369,
@@ -69822,7 +70188,8 @@
   "enrollmentEnd": 528,
   "enrollmentAvg": 528,
   "businessPctEnd": 0.3235,
-  "businessDegreesLatest": 22
+  "businessDegreesLatest": 22,
+  "convertedToPermanent": false
  },
  {
   "id": 1370,
@@ -69852,7 +70219,8 @@
   "enrollmentEnd": 1986,
   "enrollmentAvg": 1986,
   "businessPctEnd": 0.1096,
-  "businessDegreesLatest": 47
+  "businessDegreesLatest": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1371,
@@ -69870,7 +70238,8 @@
   "enrollmentEnd": 1986,
   "enrollmentAvg": 1986,
   "businessPctEnd": 0.1096,
-  "businessDegreesLatest": 47
+  "businessDegreesLatest": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1372,
@@ -69900,7 +70269,8 @@
   "enrollmentEnd": 1986,
   "enrollmentAvg": 1986,
   "businessPctEnd": 0.1096,
-  "businessDegreesLatest": 47
+  "businessDegreesLatest": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1373,
@@ -69930,7 +70300,8 @@
   "enrollmentEnd": 1986,
   "enrollmentAvg": 1986,
   "businessPctEnd": 0.1096,
-  "businessDegreesLatest": 47
+  "businessDegreesLatest": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1374,
@@ -69960,7 +70331,8 @@
   "enrollmentEnd": 1648,
   "enrollmentAvg": 1648,
   "businessPctEnd": 0.1167,
-  "businessDegreesLatest": 37
+  "businessDegreesLatest": 37,
+  "convertedToPermanent": false
  },
  {
   "id": 1375,
@@ -69990,7 +70362,8 @@
   "enrollmentEnd": 1648,
   "enrollmentAvg": 1648,
   "businessPctEnd": 0.1167,
-  "businessDegreesLatest": 37
+  "businessDegreesLatest": 37,
+  "convertedToPermanent": false
  },
  {
   "id": 1376,
@@ -70020,7 +70393,8 @@
   "enrollmentEnd": 1648,
   "enrollmentAvg": 1648,
   "businessPctEnd": 0.1167,
-  "businessDegreesLatest": 37
+  "businessDegreesLatest": 37,
+  "convertedToPermanent": false
  },
  {
   "id": 1377,
@@ -70054,7 +70428,8 @@
   "businessDegreesLatest": 33,
   "enrollmentStart": 914,
   "businessPctStart": 0.2313,
-  "businessDegreesStart": 62
+  "businessDegreesStart": 62,
+  "convertedToPermanent": false
  },
  {
   "id": 1378,
@@ -70084,7 +70459,8 @@
   "enrollmentEnd": 727,
   "enrollmentAvg": 727,
   "businessPctEnd": 0.1746,
-  "businessDegreesLatest": 33
+  "businessDegreesLatest": 33,
+  "convertedToPermanent": false
  },
  {
   "id": 1379,
@@ -70114,7 +70490,8 @@
   "enrollmentEnd": 727,
   "enrollmentAvg": 727,
   "businessPctEnd": 0.1746,
-  "businessDegreesLatest": 33
+  "businessDegreesLatest": 33,
+  "convertedToPermanent": false
  },
  {
   "id": 1380,
@@ -70144,7 +70521,8 @@
   "enrollmentEnd": 727,
   "enrollmentAvg": 727,
   "businessPctEnd": 0.1746,
-  "businessDegreesLatest": 33
+  "businessDegreesLatest": 33,
+  "convertedToPermanent": false
  },
  {
   "id": 1381,
@@ -70174,7 +70552,8 @@
   "enrollmentEnd": 2738,
   "enrollmentAvg": 2738,
   "businessPctEnd": 0.3659,
-  "businessDegreesLatest": 150
+  "businessDegreesLatest": 150,
+  "convertedToPermanent": false
  },
  {
   "id": 1382,
@@ -70204,7 +70583,8 @@
   "enrollmentEnd": 2738,
   "enrollmentAvg": 2738,
   "businessPctEnd": 0.3659,
-  "businessDegreesLatest": 150
+  "businessDegreesLatest": 150,
+  "convertedToPermanent": false
  },
  {
   "id": 1383,
@@ -70234,7 +70614,8 @@
   "enrollmentEnd": 2738,
   "enrollmentAvg": 2738,
   "businessPctEnd": 0.3659,
-  "businessDegreesLatest": 150
+  "businessDegreesLatest": 150,
+  "convertedToPermanent": false
  },
  {
   "id": 1384,
@@ -70264,7 +70645,8 @@
   "enrollmentEnd": 2738,
   "enrollmentAvg": 2738,
   "businessPctEnd": 0.3659,
-  "businessDegreesLatest": 150
+  "businessDegreesLatest": 150,
+  "convertedToPermanent": false
  },
  {
   "id": 1385,
@@ -70292,7 +70674,8 @@
   "enrollmentEnd": 2738,
   "enrollmentAvg": 2738,
   "businessPctEnd": 0.3659,
-  "businessDegreesLatest": 150
+  "businessDegreesLatest": 150,
+  "convertedToPermanent": false
  },
  {
   "id": 1386,
@@ -70321,7 +70704,8 @@
   "isFemale": true,
   "enrollmentEnd": 2330,
   "enrollmentAvg": 2330,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1387,
@@ -70348,7 +70732,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 2330,
   "enrollmentAvg": 2330,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1388,
@@ -70377,7 +70762,8 @@
   "isFemale": false,
   "enrollmentEnd": 2330,
   "enrollmentAvg": 2330,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1389,
@@ -70406,7 +70792,8 @@
   "isFemale": true,
   "enrollmentEnd": 2330,
   "enrollmentAvg": 2330,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1390,
@@ -70433,7 +70820,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 2330,
   "enrollmentAvg": 2330,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1391,
@@ -70467,7 +70855,8 @@
   "businessDegreesLatest": 71,
   "enrollmentStart": 1399,
   "businessPctStart": 0.1863,
-  "businessDegreesStart": 84
+  "businessDegreesStart": 84,
+  "convertedToPermanent": false
  },
  {
   "id": 1392,
@@ -70497,7 +70886,8 @@
   "enrollmentEnd": 1370,
   "enrollmentAvg": 1370,
   "businessPctEnd": 0.2052,
-  "businessDegreesLatest": 71
+  "businessDegreesLatest": 71,
+  "convertedToPermanent": false
  },
  {
   "id": 1393,
@@ -70527,7 +70917,8 @@
   "enrollmentEnd": 1370,
   "enrollmentAvg": 1370,
   "businessPctEnd": 0.2052,
-  "businessDegreesLatest": 71
+  "businessDegreesLatest": 71,
+  "convertedToPermanent": false
  },
  {
   "id": 1394,
@@ -70557,7 +70948,8 @@
   "enrollmentEnd": 1370,
   "enrollmentAvg": 1370,
   "businessPctEnd": 0.2052,
-  "businessDegreesLatest": 71
+  "businessDegreesLatest": 71,
+  "convertedToPermanent": false
  },
  {
   "id": 1395,
@@ -70587,7 +70979,8 @@
   "enrollmentEnd": 1370,
   "enrollmentAvg": 1370,
   "businessPctEnd": 0.2052,
-  "businessDegreesLatest": 71
+  "businessDegreesLatest": 71,
+  "convertedToPermanent": false
  },
  {
   "id": 1396,
@@ -70617,7 +71010,8 @@
   "enrollmentEnd": 1442,
   "enrollmentAvg": 1442,
   "businessPctEnd": 0.2173,
-  "businessDegreesLatest": 83
+  "businessDegreesLatest": 83,
+  "convertedToPermanent": false
  },
  {
   "id": 1397,
@@ -70645,7 +71039,8 @@
   "enrollmentEnd": 1442,
   "enrollmentAvg": 1442,
   "businessPctEnd": 0.2173,
-  "businessDegreesLatest": 83
+  "businessDegreesLatest": 83,
+  "convertedToPermanent": false
  },
  {
   "id": 1398,
@@ -70675,7 +71070,8 @@
   "enrollmentEnd": 1442,
   "enrollmentAvg": 1442,
   "businessPctEnd": 0.2173,
-  "businessDegreesLatest": 83
+  "businessDegreesLatest": 83,
+  "convertedToPermanent": false
  },
  {
   "id": 1399,
@@ -70703,7 +71099,8 @@
   "enrollmentEnd": 1442,
   "enrollmentAvg": 1442,
   "businessPctEnd": 0.2173,
-  "businessDegreesLatest": 83
+  "businessDegreesLatest": 83,
+  "convertedToPermanent": false
  },
  {
   "id": 1400,
@@ -70733,7 +71130,8 @@
   "enrollmentEnd": 1442,
   "enrollmentAvg": 1442,
   "businessPctEnd": 0.2173,
-  "businessDegreesLatest": 83
+  "businessDegreesLatest": 83,
+  "convertedToPermanent": false
  },
  {
   "id": 1401,
@@ -70763,7 +71161,8 @@
   "enrollmentEnd": 734,
   "enrollmentAvg": 734,
   "businessPctEnd": 0.1615,
-  "businessDegreesLatest": 21
+  "businessDegreesLatest": 21,
+  "convertedToPermanent": false
  },
  {
   "id": 1402,
@@ -70793,7 +71192,8 @@
   "enrollmentEnd": 734,
   "enrollmentAvg": 734,
   "businessPctEnd": 0.1615,
-  "businessDegreesLatest": 21
+  "businessDegreesLatest": 21,
+  "convertedToPermanent": false
  },
  {
   "id": 1403,
@@ -70823,7 +71223,8 @@
   "enrollmentEnd": 734,
   "enrollmentAvg": 734,
   "businessPctEnd": 0.1615,
-  "businessDegreesLatest": 21
+  "businessDegreesLatest": 21,
+  "convertedToPermanent": false
  },
  {
   "id": 1404,
@@ -70853,7 +71254,8 @@
   "enrollmentEnd": 734,
   "enrollmentAvg": 734,
   "businessPctEnd": 0.1615,
-  "businessDegreesLatest": 21
+  "businessDegreesLatest": 21,
+  "convertedToPermanent": false
  },
  {
   "id": 1405,
@@ -70883,7 +71285,8 @@
   "enrollmentEnd": 734,
   "enrollmentAvg": 734,
   "businessPctEnd": 0.1615,
-  "businessDegreesLatest": 21
+  "businessDegreesLatest": 21,
+  "convertedToPermanent": false
  },
  {
   "id": 1406,
@@ -70917,7 +71320,8 @@
   "businessDegreesLatest": 92,
   "enrollmentStart": 1826,
   "businessPctStart": 0.1743,
-  "businessDegreesStart": 76
+  "businessDegreesStart": 76,
+  "convertedToPermanent": false
  },
  {
   "id": 1407,
@@ -70947,7 +71351,8 @@
   "enrollmentEnd": 1835,
   "enrollmentAvg": 1835,
   "businessPctEnd": 0.2222,
-  "businessDegreesLatest": 92
+  "businessDegreesLatest": 92,
+  "convertedToPermanent": false
  },
  {
   "id": 1408,
@@ -70975,7 +71380,8 @@
   "enrollmentEnd": 1835,
   "enrollmentAvg": 1835,
   "businessPctEnd": 0.2222,
-  "businessDegreesLatest": 92
+  "businessDegreesLatest": 92,
+  "convertedToPermanent": false
  },
  {
   "id": 1409,
@@ -70993,7 +71399,8 @@
   "enrollmentEnd": 429,
   "enrollmentAvg": 429,
   "businessPctEnd": 0.1489,
-  "businessDegreesLatest": 7
+  "businessDegreesLatest": 7,
+  "convertedToPermanent": false
  },
  {
   "id": 1410,
@@ -71023,7 +71430,8 @@
   "enrollmentEnd": 429,
   "enrollmentAvg": 429,
   "businessPctEnd": 0.1489,
-  "businessDegreesLatest": 7
+  "businessDegreesLatest": 7,
+  "convertedToPermanent": false
  },
  {
   "id": 1411,
@@ -71051,7 +71459,8 @@
   "enrollmentEnd": 1319,
   "enrollmentAvg": 1319,
   "businessPctEnd": 0.1421,
-  "businessDegreesLatest": 28
+  "businessDegreesLatest": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1412,
@@ -71081,7 +71490,8 @@
   "enrollmentEnd": 1319,
   "enrollmentAvg": 1319,
   "businessPctEnd": 0.1421,
-  "businessDegreesLatest": 28
+  "businessDegreesLatest": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1413,
@@ -71111,7 +71521,8 @@
   "enrollmentEnd": 1319,
   "enrollmentAvg": 1319,
   "businessPctEnd": 0.1421,
-  "businessDegreesLatest": 28
+  "businessDegreesLatest": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1414,
@@ -71141,7 +71552,8 @@
   "enrollmentEnd": 1319,
   "enrollmentAvg": 1319,
   "businessPctEnd": 0.1421,
-  "businessDegreesLatest": 28
+  "businessDegreesLatest": 28,
+  "convertedToPermanent": false
  },
  {
   "id": 1415,
@@ -71176,7 +71588,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 2658,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1416,
@@ -71209,7 +71622,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 2812,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1417,
@@ -71242,7 +71656,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 2853,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1418,
@@ -71271,7 +71686,8 @@
   "isFemale": true,
   "enrollmentEnd": 2976,
   "enrollmentAvg": 2976,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1419,
@@ -71304,7 +71720,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 2658,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1420,
@@ -71333,7 +71750,8 @@
   "isFemale": false,
   "enrollmentEnd": 2976,
   "enrollmentAvg": 2976,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1421,
@@ -71351,7 +71769,8 @@
   "enrollmentEnd": 2226,
   "enrollmentAvg": 2226,
   "businessPctEnd": 0.134,
-  "businessDegreesLatest": 71
+  "businessDegreesLatest": 71,
+  "convertedToPermanent": false
  },
  {
   "id": 1422,
@@ -71381,7 +71800,8 @@
   "enrollmentEnd": 2226,
   "enrollmentAvg": 2226,
   "businessPctEnd": 0.134,
-  "businessDegreesLatest": 71
+  "businessDegreesLatest": 71,
+  "convertedToPermanent": false
  },
  {
   "id": 1423,
@@ -71399,7 +71819,8 @@
   "enrollmentEnd": 2226,
   "enrollmentAvg": 2226,
   "businessPctEnd": 0.134,
-  "businessDegreesLatest": 71
+  "businessDegreesLatest": 71,
+  "convertedToPermanent": false
  },
  {
   "id": 1424,
@@ -71429,7 +71850,8 @@
   "enrollmentEnd": 2226,
   "enrollmentAvg": 2226,
   "businessPctEnd": 0.134,
-  "businessDegreesLatest": 71
+  "businessDegreesLatest": 71,
+  "convertedToPermanent": false
  },
  {
   "id": 1425,
@@ -71459,7 +71881,8 @@
   "enrollmentEnd": 2059,
   "enrollmentAvg": 2059,
   "businessPctEnd": 0.1615,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1426,
@@ -71489,7 +71912,8 @@
   "enrollmentEnd": 2059,
   "enrollmentAvg": 2059,
   "businessPctEnd": 0.1615,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1427,
@@ -71519,7 +71943,8 @@
   "enrollmentEnd": 2059,
   "enrollmentAvg": 2059,
   "businessPctEnd": 0.1615,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1428,
@@ -71537,7 +71962,8 @@
   "enrollmentEnd": 2059,
   "enrollmentAvg": 2059,
   "businessPctEnd": 0.1615,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1429,
@@ -71566,7 +71992,8 @@
   "isFemale": true,
   "enrollmentEnd": 1854,
   "enrollmentAvg": 1854,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1430,
@@ -71595,7 +72022,8 @@
   "isFemale": false,
   "enrollmentEnd": 1854,
   "enrollmentAvg": 1854,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1431,
@@ -71612,7 +72040,8 @@
   "isFemale": true,
   "enrollmentEnd": 1854,
   "enrollmentAvg": 1854,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1432,
@@ -71641,7 +72070,8 @@
   "isFemale": true,
   "enrollmentEnd": 1854,
   "enrollmentAvg": 1854,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1433,
@@ -71670,7 +72100,8 @@
   "isFemale": true,
   "enrollmentEnd": 1854,
   "enrollmentAvg": 1854,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1434,
@@ -71700,7 +72131,8 @@
   "enrollmentEnd": 1522,
   "enrollmentAvg": 1522,
   "businessPctEnd": 0.2196,
-  "businessDegreesLatest": 65
+  "businessDegreesLatest": 65,
+  "convertedToPermanent": false
  },
  {
   "id": 1435,
@@ -71730,7 +72162,8 @@
   "enrollmentEnd": 1522,
   "enrollmentAvg": 1522,
   "businessPctEnd": 0.2196,
-  "businessDegreesLatest": 65
+  "businessDegreesLatest": 65,
+  "convertedToPermanent": false
  },
  {
   "id": 1436,
@@ -71760,7 +72193,8 @@
   "enrollmentEnd": 1522,
   "enrollmentAvg": 1522,
   "businessPctEnd": 0.2196,
-  "businessDegreesLatest": 65
+  "businessDegreesLatest": 65,
+  "convertedToPermanent": false
  },
  {
   "id": 1437,
@@ -71791,7 +72225,8 @@
   "enrollmentEnd": 1452,
   "enrollmentAvg": 1452,
   "businessPctEnd": 0.1551,
-  "businessDegreesLatest": 47
+  "businessDegreesLatest": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1438,
@@ -71821,7 +72256,8 @@
   "enrollmentEnd": 1452,
   "enrollmentAvg": 1452,
   "businessPctEnd": 0.1551,
-  "businessDegreesLatest": 47
+  "businessDegreesLatest": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1439,
@@ -71855,7 +72291,8 @@
   "businessDegreesLatest": 47,
   "enrollmentStart": 1452,
   "businessPctStart": 0.1555,
-  "businessDegreesStart": 44
+  "businessDegreesStart": 44,
+  "convertedToPermanent": false
  },
  {
   "id": 1440,
@@ -71885,7 +72322,8 @@
   "enrollmentEnd": 1452,
   "enrollmentAvg": 1452,
   "businessPctEnd": 0.1551,
-  "businessDegreesLatest": 47
+  "businessDegreesLatest": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1441,
@@ -71915,7 +72353,8 @@
   "enrollmentEnd": 1815,
   "enrollmentAvg": 1815,
   "businessPctEnd": 0.1638,
-  "businessDegreesLatest": 58
+  "businessDegreesLatest": 58,
+  "convertedToPermanent": false
  },
  {
   "id": 1442,
@@ -71943,7 +72382,8 @@
   "enrollmentEnd": 1815,
   "enrollmentAvg": 1815,
   "businessPctEnd": 0.1638,
-  "businessDegreesLatest": 58
+  "businessDegreesLatest": 58,
+  "convertedToPermanent": false
  },
  {
   "id": 1443,
@@ -71973,7 +72413,8 @@
   "enrollmentEnd": 1815,
   "enrollmentAvg": 1815,
   "businessPctEnd": 0.1638,
-  "businessDegreesLatest": 58
+  "businessDegreesLatest": 58,
+  "convertedToPermanent": false
  },
  {
   "id": 1444,
@@ -72003,7 +72444,8 @@
   "enrollmentEnd": 408,
   "enrollmentAvg": 408,
   "businessPctEnd": 0.197,
-  "businessDegreesLatest": 13
+  "businessDegreesLatest": 13,
+  "convertedToPermanent": false
  },
  {
   "id": 1445,
@@ -72021,7 +72463,8 @@
   "enrollmentEnd": 408,
   "enrollmentAvg": 408,
   "businessPctEnd": 0.197,
-  "businessDegreesLatest": 13
+  "businessDegreesLatest": 13,
+  "convertedToPermanent": false
  },
  {
   "id": 1446,
@@ -72051,7 +72494,8 @@
   "enrollmentEnd": 408,
   "enrollmentAvg": 408,
   "businessPctEnd": 0.197,
-  "businessDegreesLatest": 13
+  "businessDegreesLatest": 13,
+  "convertedToPermanent": false
  },
  {
   "id": 1447,
@@ -72081,7 +72525,8 @@
   "enrollmentEnd": 1223,
   "enrollmentAvg": 1223,
   "businessPctEnd": 0.2585,
-  "businessDegreesLatest": 38
+  "businessDegreesLatest": 38,
+  "convertedToPermanent": false
  },
  {
   "id": 1448,
@@ -72109,7 +72554,8 @@
   "enrollmentEnd": 1204,
   "enrollmentAvg": 1204,
   "businessPctEnd": 0.0491,
-  "businessDegreesLatest": 13
+  "businessDegreesLatest": 13,
+  "convertedToPermanent": false
  },
  {
   "id": 1449,
@@ -72137,7 +72583,8 @@
   "enrollmentEnd": 1204,
   "enrollmentAvg": 1204,
   "businessPctEnd": 0.0491,
-  "businessDegreesLatest": 13
+  "businessDegreesLatest": 13,
+  "convertedToPermanent": false
  },
  {
   "id": 1450,
@@ -72167,7 +72614,8 @@
   "enrollmentEnd": 1204,
   "enrollmentAvg": 1204,
   "businessPctEnd": 0.0491,
-  "businessDegreesLatest": 13
+  "businessDegreesLatest": 13,
+  "convertedToPermanent": false
  },
  {
   "id": 1451,
@@ -72197,7 +72645,8 @@
   "enrollmentEnd": 1204,
   "enrollmentAvg": 1204,
   "businessPctEnd": 0.0491,
-  "businessDegreesLatest": 13
+  "businessDegreesLatest": 13,
+  "convertedToPermanent": false
  },
  {
   "id": 1452,
@@ -72226,7 +72675,8 @@
   "isFemale": false,
   "enrollmentEnd": 1664,
   "enrollmentAvg": 1664,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1453,
@@ -72255,7 +72705,8 @@
   "isFemale": true,
   "enrollmentEnd": 1664,
   "enrollmentAvg": 1664,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1454,
@@ -72284,7 +72735,8 @@
   "isFemale": true,
   "enrollmentEnd": 1664,
   "enrollmentAvg": 1664,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1455,
@@ -72313,7 +72765,8 @@
   "isFemale": false,
   "enrollmentEnd": 1664,
   "enrollmentAvg": 1664,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1456,
@@ -72343,7 +72796,8 @@
   "enrollmentEnd": 1136,
   "enrollmentAvg": 1136,
   "businessPctEnd": 0.1741,
-  "businessDegreesLatest": 51
+  "businessDegreesLatest": 51,
+  "convertedToPermanent": false
  },
  {
   "id": 1457,
@@ -72373,7 +72827,8 @@
   "enrollmentEnd": 1136,
   "enrollmentAvg": 1136,
   "businessPctEnd": 0.1741,
-  "businessDegreesLatest": 51
+  "businessDegreesLatest": 51,
+  "convertedToPermanent": false
  },
  {
   "id": 1458,
@@ -72403,7 +72858,8 @@
   "enrollmentEnd": 338,
   "enrollmentAvg": 338,
   "businessPctEnd": 0.1356,
-  "businessDegreesLatest": 8
+  "businessDegreesLatest": 8,
+  "convertedToPermanent": false
  },
  {
   "id": 1459,
@@ -72433,7 +72889,8 @@
   "enrollmentEnd": 338,
   "enrollmentAvg": 338,
   "businessPctEnd": 0.1356,
-  "businessDegreesLatest": 8
+  "businessDegreesLatest": 8,
+  "convertedToPermanent": false
  },
  {
   "id": 1460,
@@ -72463,7 +72920,8 @@
   "enrollmentEnd": 634,
   "enrollmentAvg": 634,
   "businessPctEnd": 0.0625,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1461,
@@ -72493,7 +72951,8 @@
   "enrollmentEnd": 634,
   "enrollmentAvg": 634,
   "businessPctEnd": 0.0625,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1462,
@@ -72523,7 +72982,8 @@
   "enrollmentEnd": 634,
   "enrollmentAvg": 634,
   "businessPctEnd": 0.0625,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1463,
@@ -72553,7 +73013,8 @@
   "enrollmentEnd": 634,
   "enrollmentAvg": 634,
   "businessPctEnd": 0.0625,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1464,
@@ -72583,7 +73044,8 @@
   "enrollmentEnd": 2078,
   "enrollmentAvg": 2078,
   "businessPctEnd": 0.2505,
-  "businessDegreesLatest": 127
+  "businessDegreesLatest": 127,
+  "convertedToPermanent": false
  },
  {
   "id": 1465,
@@ -72613,7 +73075,8 @@
   "enrollmentEnd": 2078,
   "enrollmentAvg": 2078,
   "businessPctEnd": 0.2505,
-  "businessDegreesLatest": 127
+  "businessDegreesLatest": 127,
+  "convertedToPermanent": false
  },
  {
   "id": 1466,
@@ -72643,7 +73106,8 @@
   "enrollmentEnd": 2078,
   "enrollmentAvg": 2078,
   "businessPctEnd": 0.2505,
-  "businessDegreesLatest": 127
+  "businessDegreesLatest": 127,
+  "convertedToPermanent": false
  },
  {
   "id": 1467,
@@ -72673,7 +73137,8 @@
   "enrollmentEnd": 2078,
   "enrollmentAvg": 2078,
   "businessPctEnd": 0.2505,
-  "businessDegreesLatest": 127
+  "businessDegreesLatest": 127,
+  "convertedToPermanent": false
  },
  {
   "id": 1468,
@@ -72703,7 +73168,8 @@
   "enrollmentEnd": 2078,
   "enrollmentAvg": 2078,
   "businessPctEnd": 0.2505,
-  "businessDegreesLatest": 127
+  "businessDegreesLatest": 127,
+  "convertedToPermanent": false
  },
  {
   "id": 1469,
@@ -72733,7 +73199,8 @@
   "enrollmentEnd": 1624,
   "enrollmentAvg": 1624,
   "businessPctEnd": 0.404,
-  "businessDegreesLatest": 162
+  "businessDegreesLatest": 162,
+  "convertedToPermanent": false
  },
  {
   "id": 1470,
@@ -72763,7 +73230,8 @@
   "enrollmentEnd": 1624,
   "enrollmentAvg": 1624,
   "businessPctEnd": 0.404,
-  "businessDegreesLatest": 162
+  "businessDegreesLatest": 162,
+  "convertedToPermanent": false
  },
  {
   "id": 1471,
@@ -72793,7 +73261,8 @@
   "enrollmentEnd": 1624,
   "enrollmentAvg": 1624,
   "businessPctEnd": 0.404,
-  "businessDegreesLatest": 162
+  "businessDegreesLatest": 162,
+  "convertedToPermanent": false
  },
  {
   "id": 1472,
@@ -72823,7 +73292,8 @@
   "enrollmentEnd": 1624,
   "enrollmentAvg": 1624,
   "businessPctEnd": 0.404,
-  "businessDegreesLatest": 162
+  "businessDegreesLatest": 162,
+  "convertedToPermanent": false
  },
  {
   "id": 1473,
@@ -72853,7 +73323,8 @@
   "enrollmentEnd": 1518,
   "enrollmentAvg": 1518,
   "businessPctEnd": 0.1254,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1474,
@@ -72883,7 +73354,8 @@
   "enrollmentEnd": 1518,
   "enrollmentAvg": 1518,
   "businessPctEnd": 0.1254,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1475,
@@ -72913,7 +73385,8 @@
   "enrollmentEnd": 1518,
   "enrollmentAvg": 1518,
   "businessPctEnd": 0.1254,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1476,
@@ -72943,7 +73416,8 @@
   "enrollmentEnd": 1518,
   "enrollmentAvg": 1518,
   "businessPctEnd": 0.1254,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1477,
@@ -72973,7 +73447,8 @@
   "enrollmentEnd": 1451,
   "enrollmentAvg": 1451,
   "businessPctEnd": 0.1386,
-  "businessDegreesLatest": 47
+  "businessDegreesLatest": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1478,
@@ -73003,7 +73478,8 @@
   "enrollmentEnd": 1451,
   "enrollmentAvg": 1451,
   "businessPctEnd": 0.1386,
-  "businessDegreesLatest": 47
+  "businessDegreesLatest": 47,
+  "convertedToPermanent": false
  },
  {
   "id": 1479,
@@ -73032,7 +73508,8 @@
   "isFemale": true,
   "enrollmentEnd": 367,
   "enrollmentAvg": 367,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1480,
@@ -73061,7 +73538,8 @@
   "isFemale": true,
   "enrollmentEnd": 367,
   "enrollmentAvg": 367,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1481,
@@ -73091,7 +73569,8 @@
   "enrollmentEnd": 3035,
   "enrollmentAvg": 3035,
   "businessPctEnd": 0.0253,
-  "businessDegreesLatest": 19
+  "businessDegreesLatest": 19,
+  "convertedToPermanent": false
  },
  {
   "id": 1482,
@@ -73121,7 +73600,8 @@
   "enrollmentEnd": 3035,
   "enrollmentAvg": 3035,
   "businessPctEnd": 0.0253,
-  "businessDegreesLatest": 19
+  "businessDegreesLatest": 19,
+  "convertedToPermanent": false
  },
  {
   "id": 1483,
@@ -73151,7 +73631,8 @@
   "enrollmentEnd": 3035,
   "enrollmentAvg": 3035,
   "businessPctEnd": 0.0253,
-  "businessDegreesLatest": 19
+  "businessDegreesLatest": 19,
+  "convertedToPermanent": false
  },
  {
   "id": 1484,
@@ -73180,7 +73661,8 @@
   "isFemale": true,
   "enrollmentEnd": 2173,
   "enrollmentAvg": 2173,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1485,
@@ -73209,7 +73691,8 @@
   "isFemale": false,
   "enrollmentEnd": 2173,
   "enrollmentAvg": 2173,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1486,
@@ -73238,7 +73721,8 @@
   "isFemale": true,
   "enrollmentEnd": 2173,
   "enrollmentAvg": 2173,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1487,
@@ -73272,7 +73756,8 @@
   "businessDegreesLatest": 90,
   "enrollmentStart": 1919,
   "businessPctStart": 0.1927,
-  "businessDegreesStart": 79
+  "businessDegreesStart": 79,
+  "convertedToPermanent": false
  },
  {
   "id": 1488,
@@ -73302,7 +73787,8 @@
   "enrollmentEnd": 1868,
   "enrollmentAvg": 1868,
   "businessPctEnd": 0.2278,
-  "businessDegreesLatest": 90
+  "businessDegreesLatest": 90,
+  "convertedToPermanent": false
  },
  {
   "id": 1489,
@@ -73332,7 +73818,8 @@
   "enrollmentEnd": 1868,
   "enrollmentAvg": 1868,
   "businessPctEnd": 0.2278,
-  "businessDegreesLatest": 90
+  "businessDegreesLatest": 90,
+  "convertedToPermanent": false
  },
  {
   "id": 1490,
@@ -73361,7 +73848,8 @@
   "isFemale": true,
   "enrollmentEnd": 1995,
   "enrollmentAvg": 1995,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1491,
@@ -73394,7 +73882,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 1829,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1492,
@@ -73423,7 +73912,8 @@
   "isFemale": true,
   "enrollmentEnd": 1995,
   "enrollmentAvg": 1995,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1493,
@@ -73453,7 +73943,8 @@
   "enrollmentEnd": 928,
   "enrollmentAvg": 928,
   "businessPctEnd": 0.1459,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1494,
@@ -73483,7 +73974,8 @@
   "enrollmentEnd": 928,
   "enrollmentAvg": 928,
   "businessPctEnd": 0.1459,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1495,
@@ -73513,7 +74005,8 @@
   "enrollmentEnd": 3846,
   "enrollmentAvg": 3846,
   "businessPctEnd": 0.1785,
-  "businessDegreesLatest": 121
+  "businessDegreesLatest": 121,
+  "convertedToPermanent": false
  },
  {
   "id": 1496,
@@ -73543,7 +74036,8 @@
   "enrollmentEnd": 3846,
   "enrollmentAvg": 3846,
   "businessPctEnd": 0.1785,
-  "businessDegreesLatest": 121
+  "businessDegreesLatest": 121,
+  "convertedToPermanent": false
  },
  {
   "id": 1497,
@@ -73573,7 +74067,8 @@
   "enrollmentEnd": 2405,
   "enrollmentAvg": 2405,
   "businessPctEnd": 0.0832,
-  "businessDegreesLatest": 42
+  "businessDegreesLatest": 42,
+  "convertedToPermanent": false
  },
  {
   "id": 1498,
@@ -73601,7 +74096,8 @@
   "enrollmentEnd": 1911,
   "enrollmentAvg": 1911,
   "businessPctEnd": 0.1498,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1499,
@@ -73629,7 +74125,8 @@
   "enrollmentEnd": 1911,
   "enrollmentAvg": 1911,
   "businessPctEnd": 0.1498,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1500,
@@ -73659,7 +74156,8 @@
   "enrollmentEnd": 1911,
   "enrollmentAvg": 1911,
   "businessPctEnd": 0.1498,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1501,
@@ -73689,7 +74187,8 @@
   "enrollmentEnd": 1911,
   "enrollmentAvg": 1911,
   "businessPctEnd": 0.1498,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1502,
@@ -73719,7 +74218,8 @@
   "enrollmentEnd": 1911,
   "enrollmentAvg": 1911,
   "businessPctEnd": 0.1498,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1503,
@@ -73749,7 +74249,8 @@
   "enrollmentEnd": 1005,
   "enrollmentAvg": 1005,
   "businessPctEnd": 0.0667,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1504,
@@ -73779,7 +74280,8 @@
   "enrollmentEnd": 1005,
   "enrollmentAvg": 1005,
   "businessPctEnd": 0.0667,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1505,
@@ -73807,7 +74309,8 @@
   "enrollmentEnd": 1005,
   "enrollmentAvg": 1005,
   "businessPctEnd": 0.0667,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1506,
@@ -73837,7 +74340,8 @@
   "enrollmentEnd": 1005,
   "enrollmentAvg": 1005,
   "businessPctEnd": 0.0667,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1507,
@@ -73867,7 +74371,8 @@
   "enrollmentEnd": 2505,
   "enrollmentAvg": 2505,
   "businessPctEnd": 0.0963,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1508,
@@ -73897,7 +74402,8 @@
   "enrollmentEnd": 2505,
   "enrollmentAvg": 2505,
   "businessPctEnd": 0.0963,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1509,
@@ -73931,7 +74437,8 @@
   "businessDegreesLatest": 55,
   "enrollmentStart": 2953,
   "businessPctStart": 0.1437,
-  "businessDegreesStart": 94
+  "businessDegreesStart": 94,
+  "convertedToPermanent": false
  },
  {
   "id": 1510,
@@ -73961,7 +74468,8 @@
   "enrollmentEnd": 2505,
   "enrollmentAvg": 2505,
   "businessPctEnd": 0.0963,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1511,
@@ -73995,7 +74503,8 @@
   "businessDegreesLatest": 55,
   "enrollmentStart": 2996,
   "businessPctStart": 0.1214,
-  "businessDegreesStart": 81
+  "businessDegreesStart": 81,
+  "convertedToPermanent": false
  },
  {
   "id": 1512,
@@ -74022,7 +74531,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 2048,
   "enrollmentAvg": 2048,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1513,
@@ -74051,7 +74561,8 @@
   "isFemale": true,
   "enrollmentEnd": 2048,
   "enrollmentAvg": 2048,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1514,
@@ -74080,7 +74591,8 @@
   "isFemale": true,
   "enrollmentEnd": 2048,
   "enrollmentAvg": 2048,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1515,
@@ -74109,7 +74621,8 @@
   "isFemale": false,
   "enrollmentEnd": 2048,
   "enrollmentAvg": 2048,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1516,
@@ -74139,7 +74652,8 @@
   "enrollmentEnd": 876,
   "enrollmentAvg": 876,
   "businessPctEnd": 0.2312,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1517,
@@ -74169,7 +74683,8 @@
   "enrollmentEnd": 876,
   "enrollmentAvg": 876,
   "businessPctEnd": 0.2312,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1518,
@@ -74199,7 +74714,8 @@
   "enrollmentEnd": 876,
   "enrollmentAvg": 876,
   "businessPctEnd": 0.2312,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1519,
@@ -74229,7 +74745,8 @@
   "enrollmentEnd": 876,
   "enrollmentAvg": 876,
   "businessPctEnd": 0.2312,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1520,
@@ -74259,7 +74776,8 @@
   "enrollmentEnd": 717,
   "enrollmentAvg": 717,
   "businessPctEnd": 0.0119,
-  "businessDegreesLatest": 1
+  "businessDegreesLatest": 1,
+  "convertedToPermanent": false
  },
  {
   "id": 1521,
@@ -74289,7 +74807,8 @@
   "enrollmentEnd": 717,
   "enrollmentAvg": 717,
   "businessPctEnd": 0.0119,
-  "businessDegreesLatest": 1
+  "businessDegreesLatest": 1,
+  "convertedToPermanent": false
  },
  {
   "id": 1522,
@@ -74319,7 +74838,8 @@
   "enrollmentEnd": 717,
   "enrollmentAvg": 717,
   "businessPctEnd": 0.0119,
-  "businessDegreesLatest": 1
+  "businessDegreesLatest": 1,
+  "convertedToPermanent": false
  },
  {
   "id": 1523,
@@ -74349,7 +74869,8 @@
   "enrollmentEnd": 1094,
   "enrollmentAvg": 1094,
   "businessPctEnd": 0.0695,
-  "businessDegreesLatest": 18
+  "businessDegreesLatest": 18,
+  "convertedToPermanent": false
  },
  {
   "id": 1524,
@@ -74379,7 +74900,8 @@
   "enrollmentEnd": 1094,
   "enrollmentAvg": 1094,
   "businessPctEnd": 0.0695,
-  "businessDegreesLatest": 18
+  "businessDegreesLatest": 18,
+  "convertedToPermanent": false
  },
  {
   "id": 1525,
@@ -74409,7 +74931,8 @@
   "enrollmentEnd": 1094,
   "enrollmentAvg": 1094,
   "businessPctEnd": 0.0695,
-  "businessDegreesLatest": 18
+  "businessDegreesLatest": 18,
+  "convertedToPermanent": false
  },
  {
   "id": 1526,
@@ -74436,7 +74959,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1743,
   "enrollmentAvg": 1743,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1527,
@@ -74465,7 +74989,8 @@
   "isFemale": true,
   "enrollmentEnd": 1743,
   "enrollmentAvg": 1743,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1528,
@@ -74494,7 +75019,8 @@
   "isFemale": false,
   "enrollmentEnd": 1743,
   "enrollmentAvg": 1743,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1529,
@@ -74524,7 +75050,8 @@
   "enrollmentEnd": 1103,
   "enrollmentAvg": 1103,
   "businessPctEnd": 0.0114,
-  "businessDegreesLatest": 3
+  "businessDegreesLatest": 3,
+  "convertedToPermanent": false
  },
  {
   "id": 1530,
@@ -74552,7 +75079,8 @@
   "enrollmentEnd": 1103,
   "enrollmentAvg": 1103,
   "businessPctEnd": 0.0114,
-  "businessDegreesLatest": 3
+  "businessDegreesLatest": 3,
+  "convertedToPermanent": false
  },
  {
   "id": 1531,
@@ -74580,7 +75108,8 @@
   "enrollmentEnd": 1103,
   "enrollmentAvg": 1103,
   "businessPctEnd": 0.0114,
-  "businessDegreesLatest": 3
+  "businessDegreesLatest": 3,
+  "convertedToPermanent": false
  },
  {
   "id": 1532,
@@ -74608,7 +75137,8 @@
   "enrollmentEnd": 1157,
   "enrollmentAvg": 1157,
   "businessPctEnd": 0.195,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1533,
@@ -74638,7 +75168,8 @@
   "enrollmentEnd": 1157,
   "enrollmentAvg": 1157,
   "businessPctEnd": 0.195,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1534,
@@ -74668,7 +75199,8 @@
   "enrollmentEnd": 1157,
   "enrollmentAvg": 1157,
   "businessPctEnd": 0.195,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1535,
@@ -74698,7 +75230,8 @@
   "enrollmentEnd": 1113,
   "enrollmentAvg": 1113,
   "businessPctEnd": 0.1684,
-  "businessDegreesLatest": 33
+  "businessDegreesLatest": 33,
+  "convertedToPermanent": false
  },
  {
   "id": 1536,
@@ -74728,7 +75261,8 @@
   "enrollmentEnd": 1113,
   "enrollmentAvg": 1113,
   "businessPctEnd": 0.1684,
-  "businessDegreesLatest": 33
+  "businessDegreesLatest": 33,
+  "convertedToPermanent": false
  },
  {
   "id": 1537,
@@ -74746,7 +75280,8 @@
   "enrollmentEnd": 1113,
   "enrollmentAvg": 1113,
   "businessPctEnd": 0.1684,
-  "businessDegreesLatest": 33
+  "businessDegreesLatest": 33,
+  "convertedToPermanent": false
  },
  {
   "id": 1538,
@@ -74776,7 +75311,8 @@
   "enrollmentEnd": 949,
   "enrollmentAvg": 949,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1539,
@@ -74806,7 +75342,8 @@
   "enrollmentEnd": 949,
   "enrollmentAvg": 949,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1540,
@@ -74836,7 +75373,8 @@
   "enrollmentEnd": 949,
   "enrollmentAvg": 949,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1541,
@@ -74866,7 +75404,8 @@
   "enrollmentEnd": 1410,
   "enrollmentAvg": 1410,
   "businessPctEnd": 0.0137,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1542,
@@ -74896,7 +75435,8 @@
   "enrollmentEnd": 1410,
   "enrollmentAvg": 1410,
   "businessPctEnd": 0.0137,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1543,
@@ -74926,7 +75466,8 @@
   "enrollmentEnd": 1410,
   "enrollmentAvg": 1410,
   "businessPctEnd": 0.0137,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1544,
@@ -74956,7 +75497,8 @@
   "enrollmentEnd": 1410,
   "enrollmentAvg": 1410,
   "businessPctEnd": 0.0137,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1545,
@@ -74986,7 +75528,8 @@
   "enrollmentEnd": 3526,
   "enrollmentAvg": 3526,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 1
+  "businessDegreesLatest": 1,
+  "convertedToPermanent": false
  },
  {
   "id": 1546,
@@ -75016,7 +75559,8 @@
   "enrollmentEnd": 3526,
   "enrollmentAvg": 3526,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 1
+  "businessDegreesLatest": 1,
+  "convertedToPermanent": false
  },
  {
   "id": 1547,
@@ -75046,7 +75590,8 @@
   "enrollmentEnd": 3526,
   "enrollmentAvg": 3526,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 1
+  "businessDegreesLatest": 1,
+  "convertedToPermanent": false
  },
  {
   "id": 1548,
@@ -75076,7 +75621,8 @@
   "enrollmentEnd": 3526,
   "enrollmentAvg": 3526,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 1
+  "businessDegreesLatest": 1,
+  "convertedToPermanent": false
  },
  {
   "id": 1549,
@@ -75106,7 +75652,8 @@
   "enrollmentEnd": 966,
   "enrollmentAvg": 966,
   "businessPctEnd": 0.1697,
-  "businessDegreesLatest": 37
+  "businessDegreesLatest": 37,
+  "convertedToPermanent": false
  },
  {
   "id": 1550,
@@ -75136,7 +75683,8 @@
   "enrollmentEnd": 966,
   "enrollmentAvg": 966,
   "businessPctEnd": 0.1697,
-  "businessDegreesLatest": 37
+  "businessDegreesLatest": 37,
+  "convertedToPermanent": false
  },
  {
   "id": 1551,
@@ -75166,7 +75714,8 @@
   "enrollmentEnd": 966,
   "enrollmentAvg": 966,
   "businessPctEnd": 0.1697,
-  "businessDegreesLatest": 37
+  "businessDegreesLatest": 37,
+  "convertedToPermanent": false
  },
  {
   "id": 1552,
@@ -75196,7 +75745,8 @@
   "enrollmentEnd": 966,
   "enrollmentAvg": 966,
   "businessPctEnd": 0.1697,
-  "businessDegreesLatest": 37
+  "businessDegreesLatest": 37,
+  "convertedToPermanent": false
  },
  {
   "id": 1553,
@@ -75226,7 +75776,8 @@
   "enrollmentEnd": 1102,
   "enrollmentAvg": 1102,
   "businessPctEnd": 0.2018,
-  "businessDegreesLatest": 46
+  "businessDegreesLatest": 46,
+  "convertedToPermanent": false
  },
  {
   "id": 1554,
@@ -75256,7 +75807,8 @@
   "enrollmentEnd": 1102,
   "enrollmentAvg": 1102,
   "businessPctEnd": 0.2018,
-  "businessDegreesLatest": 46
+  "businessDegreesLatest": 46,
+  "convertedToPermanent": false
  },
  {
   "id": 1555,
@@ -75286,7 +75838,8 @@
   "enrollmentEnd": 1102,
   "enrollmentAvg": 1102,
   "businessPctEnd": 0.2018,
-  "businessDegreesLatest": 46
+  "businessDegreesLatest": 46,
+  "convertedToPermanent": false
  },
  {
   "id": 1556,
@@ -75316,7 +75869,8 @@
   "enrollmentEnd": 1818,
   "enrollmentAvg": 1818,
   "businessPctEnd": 0.1782,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1557,
@@ -75346,7 +75900,8 @@
   "enrollmentEnd": 1818,
   "enrollmentAvg": 1818,
   "businessPctEnd": 0.1782,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1558,
@@ -75376,7 +75931,8 @@
   "enrollmentEnd": 1818,
   "enrollmentAvg": 1818,
   "businessPctEnd": 0.1782,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1559,
@@ -75404,7 +75960,8 @@
   "enrollmentEnd": 1818,
   "enrollmentAvg": 1818,
   "businessPctEnd": 0.1782,
-  "businessDegreesLatest": 77
+  "businessDegreesLatest": 77,
+  "convertedToPermanent": false
  },
  {
   "id": 1560,
@@ -75434,7 +75991,8 @@
   "enrollmentEnd": 3413,
   "enrollmentAvg": 3413,
   "businessPctEnd": 0.1466,
-  "businessDegreesLatest": 89
+  "businessDegreesLatest": 89,
+  "convertedToPermanent": false
  },
  {
   "id": 1561,
@@ -75464,7 +76022,8 @@
   "enrollmentEnd": 3413,
   "enrollmentAvg": 3413,
   "businessPctEnd": 0.1466,
-  "businessDegreesLatest": 89
+  "businessDegreesLatest": 89,
+  "convertedToPermanent": false
  },
  {
   "id": 1562,
@@ -75494,7 +76053,8 @@
   "enrollmentEnd": 3413,
   "enrollmentAvg": 3413,
   "businessPctEnd": 0.1466,
-  "businessDegreesLatest": 89
+  "businessDegreesLatest": 89,
+  "convertedToPermanent": false
  },
  {
   "id": 1563,
@@ -75523,7 +76083,8 @@
   "isFemale": true,
   "enrollmentEnd": 1775,
   "enrollmentAvg": 1775,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1564,
@@ -75552,7 +76113,8 @@
   "isFemale": true,
   "enrollmentEnd": 1775,
   "enrollmentAvg": 1775,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1565,
@@ -75581,7 +76143,8 @@
   "isFemale": false,
   "enrollmentEnd": 1775,
   "enrollmentAvg": 1775,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1566,
@@ -75610,7 +76173,8 @@
   "isFemale": true,
   "enrollmentEnd": 1775,
   "enrollmentAvg": 1775,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1567,
@@ -75639,7 +76203,8 @@
   "isFemale": false,
   "enrollmentEnd": 1775,
   "enrollmentAvg": 1775,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1568,
@@ -75669,7 +76234,8 @@
   "enrollmentEnd": 1208,
   "enrollmentAvg": 1208,
   "businessPctEnd": 0.1773,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1569,
@@ -75699,7 +76265,8 @@
   "enrollmentEnd": 1208,
   "enrollmentAvg": 1208,
   "businessPctEnd": 0.1773,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1570,
@@ -75729,7 +76296,8 @@
   "enrollmentEnd": 1208,
   "enrollmentAvg": 1208,
   "businessPctEnd": 0.1773,
-  "businessDegreesLatest": 39
+  "businessDegreesLatest": 39,
+  "convertedToPermanent": false
  },
  {
   "id": 1571,
@@ -75759,7 +76327,8 @@
   "enrollmentEnd": 3368,
   "enrollmentAvg": 3368,
   "businessPctEnd": 0.2029,
-  "businessDegreesLatest": 141
+  "businessDegreesLatest": 141,
+  "convertedToPermanent": false
  },
  {
   "id": 1572,
@@ -75787,7 +76356,8 @@
   "enrollmentEnd": 3368,
   "enrollmentAvg": 3368,
   "businessPctEnd": 0.2029,
-  "businessDegreesLatest": 141
+  "businessDegreesLatest": 141,
+  "convertedToPermanent": false
  },
  {
   "id": 1573,
@@ -75817,7 +76387,8 @@
   "enrollmentEnd": 1014,
   "enrollmentAvg": 1014,
   "businessPctEnd": 0.1629,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1574,
@@ -75847,7 +76418,8 @@
   "enrollmentEnd": 1014,
   "enrollmentAvg": 1014,
   "businessPctEnd": 0.1629,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1575,
@@ -75877,7 +76449,8 @@
   "enrollmentEnd": 1014,
   "enrollmentAvg": 1014,
   "businessPctEnd": 0.1629,
-  "businessDegreesLatest": 29
+  "businessDegreesLatest": 29,
+  "convertedToPermanent": false
  },
  {
   "id": 1576,
@@ -75907,7 +76480,8 @@
   "enrollmentEnd": 958,
   "enrollmentAvg": 958,
   "businessPctEnd": 0.2248,
-  "businessDegreesLatest": 58
+  "businessDegreesLatest": 58,
+  "convertedToPermanent": false
  },
  {
   "id": 1577,
@@ -75937,7 +76511,8 @@
   "enrollmentEnd": 958,
   "enrollmentAvg": 958,
   "businessPctEnd": 0.2248,
-  "businessDegreesLatest": 58
+  "businessDegreesLatest": 58,
+  "convertedToPermanent": false
  },
  {
   "id": 1578,
@@ -75967,7 +76542,8 @@
   "enrollmentEnd": 1726,
   "enrollmentAvg": 1726,
   "businessPctEnd": 0.1322,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1579,
@@ -75997,7 +76573,8 @@
   "enrollmentEnd": 1726,
   "enrollmentAvg": 1726,
   "businessPctEnd": 0.1322,
-  "businessDegreesLatest": 73
+  "businessDegreesLatest": 73,
+  "convertedToPermanent": false
  },
  {
   "id": 1580,
@@ -76031,7 +76608,8 @@
   "businessDegreesLatest": 73,
   "enrollmentStart": 1392,
   "businessPctStart": 0.2637,
-  "businessDegreesStart": 72
+  "businessDegreesStart": 72,
+  "convertedToPermanent": false
  },
  {
   "id": 1581,
@@ -76062,7 +76640,8 @@
   "enrollmentEnd": 907,
   "enrollmentAvg": 907,
   "businessPctEnd": 0.2028,
-  "businessDegreesLatest": 44
+  "businessDegreesLatest": 44,
+  "convertedToPermanent": false
  },
  {
   "id": 1582,
@@ -76092,7 +76671,8 @@
   "enrollmentEnd": 907,
   "enrollmentAvg": 907,
   "businessPctEnd": 0.2028,
-  "businessDegreesLatest": 44
+  "businessDegreesLatest": 44,
+  "convertedToPermanent": false
  },
  {
   "id": 1583,
@@ -76122,7 +76702,8 @@
   "enrollmentEnd": 2776,
   "enrollmentAvg": 2776,
   "businessPctEnd": 0.1531,
-  "businessDegreesLatest": 98
+  "businessDegreesLatest": 98,
+  "convertedToPermanent": false
  },
  {
   "id": 1584,
@@ -76152,7 +76733,8 @@
   "enrollmentEnd": 2776,
   "enrollmentAvg": 2776,
   "businessPctEnd": 0.1531,
-  "businessDegreesLatest": 98
+  "businessDegreesLatest": 98,
+  "convertedToPermanent": false
  },
  {
   "id": 1585,
@@ -76182,7 +76764,8 @@
   "enrollmentEnd": 2776,
   "enrollmentAvg": 2776,
   "businessPctEnd": 0.1531,
-  "businessDegreesLatest": 98
+  "businessDegreesLatest": 98,
+  "convertedToPermanent": false
  },
  {
   "id": 1586,
@@ -76212,7 +76795,8 @@
   "enrollmentEnd": 2776,
   "enrollmentAvg": 2776,
   "businessPctEnd": 0.1531,
-  "businessDegreesLatest": 98
+  "businessDegreesLatest": 98,
+  "convertedToPermanent": false
  },
  {
   "id": 1587,
@@ -76241,7 +76825,8 @@
   "isFemale": true,
   "enrollmentEnd": 2830,
   "enrollmentAvg": 2830,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1588,
@@ -76270,7 +76855,8 @@
   "isFemale": false,
   "enrollmentEnd": 2830,
   "enrollmentAvg": 2830,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1589,
@@ -76299,7 +76885,8 @@
   "isFemale": true,
   "enrollmentEnd": 2830,
   "enrollmentAvg": 2830,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1590,
@@ -76328,7 +76915,8 @@
   "isFemale": false,
   "enrollmentEnd": 476,
   "enrollmentAvg": 476,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1591,
@@ -76357,7 +76945,8 @@
   "isFemale": false,
   "enrollmentEnd": 476,
   "enrollmentAvg": 476,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1592,
@@ -76387,7 +76976,8 @@
   "enrollmentEnd": 967,
   "enrollmentAvg": 967,
   "businessPctEnd": 0.2115,
-  "businessDegreesLatest": 33
+  "businessDegreesLatest": 33,
+  "convertedToPermanent": false
  },
  {
   "id": 1593,
@@ -76417,7 +77007,8 @@
   "enrollmentEnd": 967,
   "enrollmentAvg": 967,
   "businessPctEnd": 0.2115,
-  "businessDegreesLatest": 33
+  "businessDegreesLatest": 33,
+  "convertedToPermanent": false
  },
  {
   "id": 1594,
@@ -76447,7 +77038,8 @@
   "enrollmentEnd": 967,
   "enrollmentAvg": 967,
   "businessPctEnd": 0.2115,
-  "businessDegreesLatest": 33
+  "businessDegreesLatest": 33,
+  "convertedToPermanent": false
  },
  {
   "id": 1595,
@@ -76477,7 +77069,8 @@
   "enrollmentEnd": 1463,
   "enrollmentAvg": 1463,
   "businessPctEnd": 0.1834,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1596,
@@ -76507,7 +77100,8 @@
   "enrollmentEnd": 1463,
   "enrollmentAvg": 1463,
   "businessPctEnd": 0.1834,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1597,
@@ -76537,7 +77131,8 @@
   "enrollmentEnd": 1463,
   "enrollmentAvg": 1463,
   "businessPctEnd": 0.1834,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1598,
@@ -76567,7 +77162,8 @@
   "enrollmentEnd": 2895,
   "enrollmentAvg": 2895,
   "businessPctEnd": 0.1081,
-  "businessDegreesLatest": 79
+  "businessDegreesLatest": 79,
+  "convertedToPermanent": false
  },
  {
   "id": 1599,
@@ -76597,7 +77193,8 @@
   "enrollmentEnd": 2895,
   "enrollmentAvg": 2895,
   "businessPctEnd": 0.1081,
-  "businessDegreesLatest": 79
+  "businessDegreesLatest": 79,
+  "convertedToPermanent": false
  },
  {
   "id": 1600,
@@ -76625,7 +77222,8 @@
   "enrollmentEnd": 2895,
   "enrollmentAvg": 2895,
   "businessPctEnd": 0.1081,
-  "businessDegreesLatest": 79
+  "businessDegreesLatest": 79,
+  "convertedToPermanent": false
  },
  {
   "id": 1601,
@@ -76655,7 +77253,8 @@
   "enrollmentEnd": 1610,
   "enrollmentAvg": 1610,
   "businessPctEnd": 0.1395,
-  "businessDegreesLatest": 59
+  "businessDegreesLatest": 59,
+  "convertedToPermanent": false
  },
  {
   "id": 1602,
@@ -76685,7 +77284,8 @@
   "enrollmentEnd": 1610,
   "enrollmentAvg": 1610,
   "businessPctEnd": 0.1395,
-  "businessDegreesLatest": 59
+  "businessDegreesLatest": 59,
+  "convertedToPermanent": false
  },
  {
   "id": 1603,
@@ -76715,7 +77315,8 @@
   "enrollmentEnd": 1610,
   "enrollmentAvg": 1610,
   "businessPctEnd": 0.1395,
-  "businessDegreesLatest": 59
+  "businessDegreesLatest": 59,
+  "convertedToPermanent": false
  },
  {
   "id": 1604,
@@ -76745,7 +77346,8 @@
   "enrollmentEnd": 1500,
   "enrollmentAvg": 1500,
   "businessPctEnd": 0.0541,
-  "businessDegreesLatest": 20
+  "businessDegreesLatest": 20,
+  "convertedToPermanent": false
  },
  {
   "id": 1605,
@@ -76775,7 +77377,8 @@
   "enrollmentEnd": 1500,
   "enrollmentAvg": 1500,
   "businessPctEnd": 0.0541,
-  "businessDegreesLatest": 20
+  "businessDegreesLatest": 20,
+  "convertedToPermanent": false
  },
  {
   "id": 1606,
@@ -76805,7 +77408,8 @@
   "enrollmentEnd": 1500,
   "enrollmentAvg": 1500,
   "businessPctEnd": 0.0541,
-  "businessDegreesLatest": 20
+  "businessDegreesLatest": 20,
+  "convertedToPermanent": false
  },
  {
   "id": 1607,
@@ -76835,7 +77439,8 @@
   "enrollmentEnd": 1914,
   "enrollmentAvg": 1914,
   "businessPctEnd": 0.1153,
-  "businessDegreesLatest": 61
+  "businessDegreesLatest": 61,
+  "convertedToPermanent": false
  },
  {
   "id": 1608,
@@ -76865,7 +77470,8 @@
   "enrollmentEnd": 1914,
   "enrollmentAvg": 1914,
   "businessPctEnd": 0.1153,
-  "businessDegreesLatest": 61
+  "businessDegreesLatest": 61,
+  "convertedToPermanent": false
  },
  {
   "id": 1609,
@@ -76895,7 +77501,8 @@
   "enrollmentEnd": 1914,
   "enrollmentAvg": 1914,
   "businessPctEnd": 0.1153,
-  "businessDegreesLatest": 61
+  "businessDegreesLatest": 61,
+  "convertedToPermanent": false
  },
  {
   "id": 1610,
@@ -76925,7 +77532,8 @@
   "enrollmentEnd": 1914,
   "enrollmentAvg": 1914,
   "businessPctEnd": 0.1153,
-  "businessDegreesLatest": 61
+  "businessDegreesLatest": 61,
+  "convertedToPermanent": false
  },
  {
   "id": 1611,
@@ -76955,7 +77563,8 @@
   "enrollmentEnd": 3776,
   "enrollmentAvg": 3776,
   "businessPctEnd": 0.3617,
-  "businessDegreesLatest": 395
+  "businessDegreesLatest": 395,
+  "convertedToPermanent": false
  },
  {
   "id": 1612,
@@ -76985,7 +77594,8 @@
   "enrollmentEnd": 3776,
   "enrollmentAvg": 3776,
   "businessPctEnd": 0.3617,
-  "businessDegreesLatest": 395
+  "businessDegreesLatest": 395,
+  "convertedToPermanent": false
  },
  {
   "id": 1613,
@@ -77015,7 +77625,8 @@
   "enrollmentEnd": 3776,
   "enrollmentAvg": 3776,
   "businessPctEnd": 0.3617,
-  "businessDegreesLatest": 395
+  "businessDegreesLatest": 395,
+  "convertedToPermanent": false
  },
  {
   "id": 1614,
@@ -77045,7 +77656,8 @@
   "enrollmentEnd": 3776,
   "enrollmentAvg": 3776,
   "businessPctEnd": 0.3617,
-  "businessDegreesLatest": 395
+  "businessDegreesLatest": 395,
+  "convertedToPermanent": false
  },
  {
   "id": 1615,
@@ -77074,7 +77686,8 @@
   "isFemale": true,
   "enrollmentEnd": 4465,
   "enrollmentAvg": 4465,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1616,
@@ -77103,7 +77716,8 @@
   "isFemale": false,
   "enrollmentEnd": 4465,
   "enrollmentAvg": 4465,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1617,
@@ -77132,7 +77746,8 @@
   "isFemale": false,
   "enrollmentEnd": 4465,
   "enrollmentAvg": 4465,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1618,
@@ -77162,7 +77777,8 @@
   "enrollmentEnd": 3808,
   "enrollmentAvg": 3808,
   "businessPctEnd": 0.2165,
-  "businessDegreesLatest": 210
+  "businessDegreesLatest": 210,
+  "convertedToPermanent": false
  },
  {
   "id": 1619,
@@ -77192,7 +77808,8 @@
   "enrollmentEnd": 3808,
   "enrollmentAvg": 3808,
   "businessPctEnd": 0.2165,
-  "businessDegreesLatest": 210
+  "businessDegreesLatest": 210,
+  "convertedToPermanent": false
  },
  {
   "id": 1620,
@@ -77222,7 +77839,8 @@
   "enrollmentEnd": 3808,
   "enrollmentAvg": 3808,
   "businessPctEnd": 0.2165,
-  "businessDegreesLatest": 210
+  "businessDegreesLatest": 210,
+  "convertedToPermanent": false
  },
  {
   "id": 1621,
@@ -77252,7 +77870,8 @@
   "enrollmentEnd": 3808,
   "enrollmentAvg": 3808,
   "businessPctEnd": 0.2165,
-  "businessDegreesLatest": 210
+  "businessDegreesLatest": 210,
+  "convertedToPermanent": false
  },
  {
   "id": 1622,
@@ -77282,7 +77901,8 @@
   "enrollmentEnd": 2082,
   "enrollmentAvg": 2082,
   "businessPctEnd": 0.0331,
-  "businessDegreesLatest": 15
+  "businessDegreesLatest": 15,
+  "convertedToPermanent": false
  },
  {
   "id": 1623,
@@ -77313,7 +77933,8 @@
   "enrollmentEnd": 2082,
   "enrollmentAvg": 2082,
   "businessPctEnd": 0.0331,
-  "businessDegreesLatest": 15
+  "businessDegreesLatest": 15,
+  "convertedToPermanent": false
  },
  {
   "id": 1624,
@@ -77343,7 +77964,8 @@
   "enrollmentEnd": 2082,
   "enrollmentAvg": 2082,
   "businessPctEnd": 0.0331,
-  "businessDegreesLatest": 15
+  "businessDegreesLatest": 15,
+  "convertedToPermanent": false
  },
  {
   "id": 1625,
@@ -77373,7 +77995,8 @@
   "enrollmentEnd": 2082,
   "enrollmentAvg": 2082,
   "businessPctEnd": 0.0331,
-  "businessDegreesLatest": 15
+  "businessDegreesLatest": 15,
+  "convertedToPermanent": false
  },
  {
   "id": 1626,
@@ -77403,7 +78026,8 @@
   "enrollmentEnd": 2082,
   "enrollmentAvg": 2082,
   "businessPctEnd": 0.0331,
-  "businessDegreesLatest": 15
+  "businessDegreesLatest": 15,
+  "convertedToPermanent": false
  },
  {
   "id": 1627,
@@ -77437,7 +78061,8 @@
   "businessDegreesLatest": 15,
   "enrollmentStart": 2047,
   "businessPctStart": 0.0279,
-  "businessDegreesStart": 14
+  "businessDegreesStart": 14,
+  "convertedToPermanent": false
  },
  {
   "id": 1628,
@@ -77467,7 +78092,8 @@
   "enrollmentEnd": 2082,
   "enrollmentAvg": 2082,
   "businessPctEnd": 0.0331,
-  "businessDegreesLatest": 15
+  "businessDegreesLatest": 15,
+  "convertedToPermanent": false
  },
  {
   "id": 1629,
@@ -77495,7 +78121,8 @@
   "enrollmentEnd": 4124,
   "enrollmentAvg": 4124,
   "businessPctEnd": 0.1417,
-  "businessDegreesLatest": 138
+  "businessDegreesLatest": 138,
+  "convertedToPermanent": false
  },
  {
   "id": 1630,
@@ -77525,7 +78152,8 @@
   "enrollmentEnd": 4124,
   "enrollmentAvg": 4124,
   "businessPctEnd": 0.1417,
-  "businessDegreesLatest": 138
+  "businessDegreesLatest": 138,
+  "convertedToPermanent": false
  },
  {
   "id": 1631,
@@ -77553,7 +78181,8 @@
   "enrollmentEnd": 4124,
   "enrollmentAvg": 4124,
   "businessPctEnd": 0.1417,
-  "businessDegreesLatest": 138
+  "businessDegreesLatest": 138,
+  "convertedToPermanent": false
  },
  {
   "id": 1632,
@@ -77583,7 +78212,8 @@
   "enrollmentEnd": 4124,
   "enrollmentAvg": 4124,
   "businessPctEnd": 0.1417,
-  "businessDegreesLatest": 138
+  "businessDegreesLatest": 138,
+  "convertedToPermanent": false
  },
  {
   "id": 1633,
@@ -77613,7 +78243,8 @@
   "enrollmentEnd": 4508,
   "enrollmentAvg": 4508,
   "businessPctEnd": 0.0401,
-  "businessDegreesLatest": 43
+  "businessDegreesLatest": 43,
+  "convertedToPermanent": false
  },
  {
   "id": 1634,
@@ -77647,7 +78278,8 @@
   "businessDegreesLatest": 43,
   "enrollmentStart": 4393,
   "businessPctStart": 0.0537,
-  "businessDegreesStart": 57
+  "businessDegreesStart": 57,
+  "convertedToPermanent": false
  },
  {
   "id": 1635,
@@ -77677,7 +78309,8 @@
   "enrollmentEnd": 1326,
   "enrollmentAvg": 1326,
   "businessPctEnd": 0.1538,
-  "businessDegreesLatest": 34
+  "businessDegreesLatest": 34,
+  "convertedToPermanent": false
  },
  {
   "id": 1636,
@@ -77707,7 +78340,8 @@
   "enrollmentEnd": 1326,
   "enrollmentAvg": 1326,
   "businessPctEnd": 0.1538,
-  "businessDegreesLatest": 34
+  "businessDegreesLatest": 34,
+  "convertedToPermanent": false
  },
  {
   "id": 1637,
@@ -77737,7 +78371,8 @@
   "enrollmentEnd": 1326,
   "enrollmentAvg": 1326,
   "businessPctEnd": 0.1538,
-  "businessDegreesLatest": 34
+  "businessDegreesLatest": 34,
+  "convertedToPermanent": false
  },
  {
   "id": 1638,
@@ -77755,7 +78390,8 @@
   "enrollmentEnd": 2218,
   "enrollmentAvg": 2218,
   "businessPctEnd": 0.2295,
-  "businessDegreesLatest": 81
+  "businessDegreesLatest": 81,
+  "convertedToPermanent": false
  },
  {
   "id": 1639,
@@ -77773,7 +78409,8 @@
   "enrollmentEnd": 2218,
   "enrollmentAvg": 2218,
   "businessPctEnd": 0.2295,
-  "businessDegreesLatest": 81
+  "businessDegreesLatest": 81,
+  "convertedToPermanent": false
  },
  {
   "id": 1640,
@@ -77789,7 +78426,8 @@
   "enrollmentEnd": 2218,
   "enrollmentAvg": 2218,
   "businessPctEnd": 0.2295,
-  "businessDegreesLatest": 81
+  "businessDegreesLatest": 81,
+  "convertedToPermanent": false
  },
  {
   "id": 1641,
@@ -77819,7 +78457,8 @@
   "enrollmentEnd": 2726,
   "enrollmentAvg": 2726,
   "businessPctEnd": 0.0883,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1642,
@@ -77849,7 +78488,8 @@
   "enrollmentEnd": 2726,
   "enrollmentAvg": 2726,
   "businessPctEnd": 0.0883,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1643,
@@ -77879,7 +78519,8 @@
   "enrollmentEnd": 2726,
   "enrollmentAvg": 2726,
   "businessPctEnd": 0.0883,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1644,
@@ -77897,7 +78538,8 @@
   "enrollmentEnd": 2726,
   "enrollmentAvg": 2726,
   "businessPctEnd": 0.0883,
-  "businessDegreesLatest": 55
+  "businessDegreesLatest": 55,
+  "convertedToPermanent": false
  },
  {
   "id": 1645,
@@ -77925,7 +78567,8 @@
   "enrollmentEnd": 1492,
   "enrollmentAvg": 1492,
   "businessPctEnd": 0.0789,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1646,
@@ -77943,7 +78586,8 @@
   "enrollmentEnd": 1492,
   "enrollmentAvg": 1492,
   "businessPctEnd": 0.0789,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1647,
@@ -77973,7 +78617,8 @@
   "enrollmentEnd": 1492,
   "enrollmentAvg": 1492,
   "businessPctEnd": 0.0789,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1648,
@@ -78003,7 +78648,8 @@
   "enrollmentEnd": 1492,
   "enrollmentAvg": 1492,
   "businessPctEnd": 0.0789,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1649,
@@ -78032,7 +78678,8 @@
   "isFemale": false,
   "enrollmentEnd": 2456,
   "enrollmentAvg": 2456,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1650,
@@ -78061,7 +78708,8 @@
   "isFemale": true,
   "enrollmentEnd": 2456,
   "enrollmentAvg": 2456,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1651,
@@ -78090,7 +78738,8 @@
   "isFemale": false,
   "enrollmentEnd": 2456,
   "enrollmentAvg": 2456,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1652,
@@ -78119,7 +78768,8 @@
   "isFemale": false,
   "enrollmentEnd": 2456,
   "enrollmentAvg": 2456,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1653,
@@ -78146,7 +78796,8 @@
   "hadDeptChairRole": true,
   "enrollmentEnd": 1560,
   "enrollmentAvg": 1560,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1654,
@@ -78173,7 +78824,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1560,
   "enrollmentAvg": 1560,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1655,
@@ -78200,7 +78852,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1560,
   "enrollmentAvg": 1560,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1656,
@@ -78228,7 +78881,8 @@
   "enrollmentEnd": 1662,
   "enrollmentAvg": 1662,
   "businessPctEnd": 0.12,
-  "businessDegreesLatest": 30
+  "businessDegreesLatest": 30,
+  "convertedToPermanent": false
  },
  {
   "id": 1657,
@@ -78258,7 +78912,8 @@
   "enrollmentEnd": 1662,
   "enrollmentAvg": 1662,
   "businessPctEnd": 0.12,
-  "businessDegreesLatest": 30
+  "businessDegreesLatest": 30,
+  "convertedToPermanent": false
  },
  {
   "id": 1658,
@@ -78276,7 +78931,8 @@
   "enrollmentEnd": 1662,
   "enrollmentAvg": 1662,
   "businessPctEnd": 0.12,
-  "businessDegreesLatest": 30
+  "businessDegreesLatest": 30,
+  "convertedToPermanent": false
  },
  {
   "id": 1659,
@@ -78306,7 +78962,8 @@
   "enrollmentEnd": 1333,
   "enrollmentAvg": 1333,
   "businessPctEnd": 0.2153,
-  "businessDegreesLatest": 62
+  "businessDegreesLatest": 62,
+  "convertedToPermanent": false
  },
  {
   "id": 1660,
@@ -78340,7 +78997,8 @@
   "businessDegreesLatest": 62,
   "enrollmentStart": 1326,
   "businessPctStart": 0.2188,
-  "businessDegreesStart": 79
+  "businessDegreesStart": 79,
+  "convertedToPermanent": false
  },
  {
   "id": 1661,
@@ -78370,7 +79028,8 @@
   "enrollmentEnd": 1333,
   "enrollmentAvg": 1333,
   "businessPctEnd": 0.2153,
-  "businessDegreesLatest": 62
+  "businessDegreesLatest": 62,
+  "convertedToPermanent": false
  },
  {
   "id": 1662,
@@ -78400,7 +79059,8 @@
   "enrollmentEnd": 1333,
   "enrollmentAvg": 1333,
   "businessPctEnd": 0.2153,
-  "businessDegreesLatest": 62
+  "businessDegreesLatest": 62,
+  "convertedToPermanent": false
  },
  {
   "id": 1663,
@@ -78430,7 +79090,8 @@
   "enrollmentEnd": 1873,
   "enrollmentAvg": 1873,
   "businessPctEnd": 0.2788,
-  "businessDegreesLatest": 126
+  "businessDegreesLatest": 126,
+  "convertedToPermanent": false
  },
  {
   "id": 1664,
@@ -78460,7 +79121,8 @@
   "enrollmentEnd": 1873,
   "enrollmentAvg": 1873,
   "businessPctEnd": 0.2788,
-  "businessDegreesLatest": 126
+  "businessDegreesLatest": 126,
+  "convertedToPermanent": false
  },
  {
   "id": 1665,
@@ -78490,7 +79152,8 @@
   "enrollmentEnd": 1873,
   "enrollmentAvg": 1873,
   "businessPctEnd": 0.2788,
-  "businessDegreesLatest": 126
+  "businessDegreesLatest": 126,
+  "convertedToPermanent": false
  },
  {
   "id": 1666,
@@ -78520,7 +79183,8 @@
   "enrollmentEnd": 1873,
   "enrollmentAvg": 1873,
   "businessPctEnd": 0.2788,
-  "businessDegreesLatest": 126
+  "businessDegreesLatest": 126,
+  "convertedToPermanent": false
  },
  {
   "id": 1667,
@@ -78550,7 +79214,8 @@
   "enrollmentEnd": 1873,
   "enrollmentAvg": 1873,
   "businessPctEnd": 0.2788,
-  "businessDegreesLatest": 126
+  "businessDegreesLatest": 126,
+  "convertedToPermanent": false
  },
  {
   "id": 1668,
@@ -78580,7 +79245,8 @@
   "enrollmentEnd": 1873,
   "enrollmentAvg": 1873,
   "businessPctEnd": 0.2788,
-  "businessDegreesLatest": 126
+  "businessDegreesLatest": 126,
+  "convertedToPermanent": false
  },
  {
   "id": 1669,
@@ -78608,7 +79274,8 @@
   "enrollmentEnd": 1420,
   "enrollmentAvg": 1420,
   "businessPctEnd": 0.233,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1670,
@@ -78638,7 +79305,8 @@
   "enrollmentEnd": 1420,
   "enrollmentAvg": 1420,
   "businessPctEnd": 0.233,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1671,
@@ -78668,7 +79336,8 @@
   "enrollmentEnd": 1420,
   "enrollmentAvg": 1420,
   "businessPctEnd": 0.233,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1672,
@@ -78698,7 +79367,8 @@
   "enrollmentEnd": 1420,
   "enrollmentAvg": 1420,
   "businessPctEnd": 0.233,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1673,
@@ -78728,7 +79398,8 @@
   "enrollmentEnd": 1420,
   "enrollmentAvg": 1420,
   "businessPctEnd": 0.233,
-  "businessDegreesLatest": 41
+  "businessDegreesLatest": 41,
+  "convertedToPermanent": false
  },
  {
   "id": 1674,
@@ -78762,7 +79433,8 @@
   "businessDegreesLatest": 20,
   "enrollmentStart": 1704,
   "businessPctStart": 0.0276,
-  "businessDegreesStart": 12
+  "businessDegreesStart": 12,
+  "convertedToPermanent": false
  },
  {
   "id": 1675,
@@ -78792,7 +79464,8 @@
   "enrollmentEnd": 1693,
   "enrollmentAvg": 1693,
   "businessPctEnd": 0.0455,
-  "businessDegreesLatest": 20
+  "businessDegreesLatest": 20,
+  "convertedToPermanent": false
  },
  {
   "id": 1676,
@@ -78822,7 +79495,8 @@
   "enrollmentEnd": 1693,
   "enrollmentAvg": 1693,
   "businessPctEnd": 0.0455,
-  "businessDegreesLatest": 20
+  "businessDegreesLatest": 20,
+  "convertedToPermanent": false
  },
  {
   "id": 1677,
@@ -78852,7 +79526,8 @@
   "enrollmentEnd": 1693,
   "enrollmentAvg": 1693,
   "businessPctEnd": 0.0455,
-  "businessDegreesLatest": 20
+  "businessDegreesLatest": 20,
+  "convertedToPermanent": false
  },
  {
   "id": 1678,
@@ -78881,7 +79556,8 @@
   "isFemale": false,
   "enrollmentEnd": 539,
   "enrollmentAvg": 539,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1679,
@@ -78910,7 +79586,8 @@
   "isFemale": false,
   "enrollmentEnd": 539,
   "enrollmentAvg": 539,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1680,
@@ -78939,7 +79616,8 @@
   "isFemale": false,
   "enrollmentEnd": 539,
   "enrollmentAvg": 539,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1681,
@@ -78968,7 +79646,8 @@
   "isFemale": false,
   "enrollmentEnd": 539,
   "enrollmentAvg": 539,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1682,
@@ -78998,7 +79677,8 @@
   "enrollmentEnd": 725,
   "enrollmentAvg": 725,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1683,
@@ -79016,7 +79696,8 @@
   "enrollmentEnd": 725,
   "enrollmentAvg": 725,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1684,
@@ -79046,7 +79727,8 @@
   "enrollmentEnd": 725,
   "enrollmentAvg": 725,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1685,
@@ -79064,7 +79746,8 @@
   "enrollmentEnd": 725,
   "enrollmentAvg": 725,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1686,
@@ -79094,7 +79777,8 @@
   "enrollmentEnd": 1472,
   "enrollmentAvg": 1472,
   "businessPctEnd": 0.223,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1687,
@@ -79122,7 +79806,8 @@
   "enrollmentEnd": 1472,
   "enrollmentAvg": 1472,
   "businessPctEnd": 0.223,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1688,
@@ -79152,7 +79837,8 @@
   "enrollmentEnd": 1472,
   "enrollmentAvg": 1472,
   "businessPctEnd": 0.223,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1689,
@@ -79182,7 +79868,8 @@
   "enrollmentEnd": 1472,
   "enrollmentAvg": 1472,
   "businessPctEnd": 0.223,
-  "businessDegreesLatest": 64
+  "businessDegreesLatest": 64,
+  "convertedToPermanent": false
  },
  {
   "id": 1690,
@@ -79212,7 +79899,8 @@
   "enrollmentEnd": 1162,
   "enrollmentAvg": 1162,
   "businessPctEnd": 0.2903,
-  "businessDegreesLatest": 63
+  "businessDegreesLatest": 63,
+  "convertedToPermanent": false
  },
  {
   "id": 1691,
@@ -79242,7 +79930,8 @@
   "enrollmentEnd": 1162,
   "enrollmentAvg": 1162,
   "businessPctEnd": 0.2903,
-  "businessDegreesLatest": 63
+  "businessDegreesLatest": 63,
+  "convertedToPermanent": false
  },
  {
   "id": 1692,
@@ -79272,7 +79961,8 @@
   "enrollmentEnd": 1162,
   "enrollmentAvg": 1162,
   "businessPctEnd": 0.2903,
-  "businessDegreesLatest": 63
+  "businessDegreesLatest": 63,
+  "convertedToPermanent": false
  },
  {
   "id": 1693,
@@ -79302,7 +79992,8 @@
   "enrollmentEnd": 1162,
   "enrollmentAvg": 1162,
   "businessPctEnd": 0.2903,
-  "businessDegreesLatest": 63
+  "businessDegreesLatest": 63,
+  "convertedToPermanent": false
  },
  {
   "id": 1694,
@@ -79332,7 +80023,8 @@
   "enrollmentEnd": 2277,
   "enrollmentAvg": 2277,
   "businessPctEnd": 0.2441,
-  "businessDegreesLatest": 144
+  "businessDegreesLatest": 144,
+  "convertedToPermanent": false
  },
  {
   "id": 1695,
@@ -79362,7 +80054,8 @@
   "enrollmentEnd": 2277,
   "enrollmentAvg": 2277,
   "businessPctEnd": 0.2441,
-  "businessDegreesLatest": 144
+  "businessDegreesLatest": 144,
+  "convertedToPermanent": false
  },
  {
   "id": 1696,
@@ -79392,7 +80085,8 @@
   "enrollmentEnd": 2277,
   "enrollmentAvg": 2277,
   "businessPctEnd": 0.2441,
-  "businessDegreesLatest": 144
+  "businessDegreesLatest": 144,
+  "convertedToPermanent": false
  },
  {
   "id": 1697,
@@ -79410,7 +80104,8 @@
   "enrollmentEnd": 2277,
   "enrollmentAvg": 2277,
   "businessPctEnd": 0.2441,
-  "businessDegreesLatest": 144
+  "businessDegreesLatest": 144,
+  "convertedToPermanent": false
  },
  {
   "id": 1698,
@@ -79440,7 +80135,8 @@
   "enrollmentEnd": 2277,
   "enrollmentAvg": 2277,
   "businessPctEnd": 0.2441,
-  "businessDegreesLatest": 144
+  "businessDegreesLatest": 144,
+  "convertedToPermanent": false
  },
  {
   "id": 1699,
@@ -79469,7 +80165,8 @@
   "isFemale": true,
   "enrollmentEnd": 1544,
   "enrollmentAvg": 1544,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1700,
@@ -79498,7 +80195,8 @@
   "isFemale": false,
   "enrollmentEnd": 1544,
   "enrollmentAvg": 1544,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1701,
@@ -79525,7 +80223,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1544,
   "enrollmentAvg": 1544,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1702,
@@ -79554,7 +80253,8 @@
   "isFemale": false,
   "enrollmentEnd": 1544,
   "enrollmentAvg": 1544,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1703,
@@ -79583,7 +80283,8 @@
   "isFemale": false,
   "enrollmentEnd": 1544,
   "enrollmentAvg": 1544,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1704,
@@ -79613,7 +80314,8 @@
   "enrollmentEnd": 859,
   "enrollmentAvg": 859,
   "businessPctEnd": 0.155,
-  "businessDegreesLatest": 40
+  "businessDegreesLatest": 40,
+  "convertedToPermanent": false
  },
  {
   "id": 1705,
@@ -79643,7 +80345,8 @@
   "enrollmentEnd": 859,
   "enrollmentAvg": 859,
   "businessPctEnd": 0.155,
-  "businessDegreesLatest": 40
+  "businessDegreesLatest": 40,
+  "convertedToPermanent": false
  },
  {
   "id": 1706,
@@ -79671,7 +80374,8 @@
   "enrollmentEnd": 859,
   "enrollmentAvg": 859,
   "businessPctEnd": 0.155,
-  "businessDegreesLatest": 40
+  "businessDegreesLatest": 40,
+  "convertedToPermanent": false
  },
  {
   "id": 1707,
@@ -79699,7 +80403,8 @@
   "enrollmentEnd": 859,
   "enrollmentAvg": 859,
   "businessPctEnd": 0.155,
-  "businessDegreesLatest": 40
+  "businessDegreesLatest": 40,
+  "convertedToPermanent": false
  },
  {
   "id": 1708,
@@ -79729,7 +80434,8 @@
   "enrollmentEnd": 859,
   "enrollmentAvg": 859,
   "businessPctEnd": 0.155,
-  "businessDegreesLatest": 40
+  "businessDegreesLatest": 40,
+  "convertedToPermanent": false
  },
  {
   "id": 1709,
@@ -79759,7 +80465,8 @@
   "enrollmentEnd": 2112,
   "enrollmentAvg": 2112,
   "businessPctEnd": 0.1644,
-  "businessDegreesLatest": 83
+  "businessDegreesLatest": 83,
+  "convertedToPermanent": false
  },
  {
   "id": 1710,
@@ -79789,7 +80496,8 @@
   "enrollmentEnd": 2112,
   "enrollmentAvg": 2112,
   "businessPctEnd": 0.1644,
-  "businessDegreesLatest": 83
+  "businessDegreesLatest": 83,
+  "convertedToPermanent": false
  },
  {
   "id": 1711,
@@ -79819,7 +80527,8 @@
   "enrollmentEnd": 2112,
   "enrollmentAvg": 2112,
   "businessPctEnd": 0.1644,
-  "businessDegreesLatest": 83
+  "businessDegreesLatest": 83,
+  "convertedToPermanent": false
  },
  {
   "id": 1712,
@@ -79847,7 +80556,8 @@
   "enrollmentEnd": 2112,
   "enrollmentAvg": 2112,
   "businessPctEnd": 0.1644,
-  "businessDegreesLatest": 83
+  "businessDegreesLatest": 83,
+  "convertedToPermanent": false
  },
  {
   "id": 1713,
@@ -79874,7 +80584,8 @@
   "hadDeptChairRole": true,
   "enrollmentEnd": 2168,
   "enrollmentAvg": 2168,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1714,
@@ -79903,7 +80614,8 @@
   "isFemale": false,
   "enrollmentEnd": 2168,
   "enrollmentAvg": 2168,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1715,
@@ -79932,7 +80644,8 @@
   "isFemale": true,
   "enrollmentEnd": 2168,
   "enrollmentAvg": 2168,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1716,
@@ -79962,7 +80675,8 @@
   "enrollmentEnd": 1457,
   "enrollmentAvg": 1457,
   "businessPctEnd": 0.219,
-  "businessDegreesLatest": 67
+  "businessDegreesLatest": 67,
+  "convertedToPermanent": false
  },
  {
   "id": 1717,
@@ -79992,7 +80706,8 @@
   "enrollmentEnd": 1457,
   "enrollmentAvg": 1457,
   "businessPctEnd": 0.219,
-  "businessDegreesLatest": 67
+  "businessDegreesLatest": 67,
+  "convertedToPermanent": false
  },
  {
   "id": 1718,
@@ -80022,7 +80737,8 @@
   "enrollmentEnd": 1457,
   "enrollmentAvg": 1457,
   "businessPctEnd": 0.219,
-  "businessDegreesLatest": 67
+  "businessDegreesLatest": 67,
+  "convertedToPermanent": false
  },
  {
   "id": 1719,
@@ -80056,7 +80772,8 @@
   "businessDegreesLatest": 67,
   "enrollmentStart": 1489,
   "businessPctStart": 0.1176,
-  "businessDegreesStart": 36
+  "businessDegreesStart": 36,
+  "convertedToPermanent": false
  },
  {
   "id": 1720,
@@ -80084,7 +80801,8 @@
   "enrollmentEnd": 3633,
   "enrollmentAvg": 3633,
   "businessPctEnd": 0.4979,
-  "businessDegreesLatest": 484
+  "businessDegreesLatest": 484,
+  "convertedToPermanent": false
  },
  {
   "id": 1721,
@@ -80114,7 +80832,8 @@
   "enrollmentEnd": 3633,
   "enrollmentAvg": 3633,
   "businessPctEnd": 0.4979,
-  "businessDegreesLatest": 484
+  "businessDegreesLatest": 484,
+  "convertedToPermanent": false
  },
  {
   "id": 1722,
@@ -80144,7 +80863,8 @@
   "enrollmentEnd": 3633,
   "enrollmentAvg": 3633,
   "businessPctEnd": 0.4979,
-  "businessDegreesLatest": 484
+  "businessDegreesLatest": 484,
+  "convertedToPermanent": false
  },
  {
   "id": 1723,
@@ -80174,7 +80894,8 @@
   "enrollmentEnd": 2089,
   "enrollmentAvg": 2089,
   "businessPctEnd": 0.032,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1724,
@@ -80204,7 +80925,8 @@
   "enrollmentEnd": 2089,
   "enrollmentAvg": 2089,
   "businessPctEnd": 0.032,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1725,
@@ -80234,7 +80956,8 @@
   "enrollmentEnd": 2089,
   "enrollmentAvg": 2089,
   "businessPctEnd": 0.032,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1726,
@@ -80262,7 +80985,8 @@
   "enrollmentEnd": 2089,
   "enrollmentAvg": 2089,
   "businessPctEnd": 0.032,
-  "businessDegreesLatest": 16
+  "businessDegreesLatest": 16,
+  "convertedToPermanent": false
  },
  {
   "id": 1727,
@@ -80289,7 +81013,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 3074,
   "enrollmentAvg": 3074,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1728,
@@ -80318,7 +81043,8 @@
   "isFemale": false,
   "enrollmentEnd": 3074,
   "enrollmentAvg": 3074,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1729,
@@ -80351,7 +81077,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 3099,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1730,
@@ -80382,7 +81109,8 @@
   "businessPctEnd": 0,
   "enrollmentStart": 3048,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1731,
@@ -80411,7 +81139,8 @@
   "isFemale": true,
   "enrollmentEnd": 578,
   "enrollmentAvg": 578,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1732,
@@ -80440,7 +81169,8 @@
   "isFemale": true,
   "enrollmentEnd": 578,
   "enrollmentAvg": 578,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1733,
@@ -80469,7 +81199,8 @@
   "isFemale": false,
   "enrollmentEnd": 578,
   "enrollmentAvg": 578,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1734,
@@ -80498,7 +81229,8 @@
   "isFemale": true,
   "enrollmentEnd": 578,
   "enrollmentAvg": 578,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1735,
@@ -80528,7 +81260,8 @@
   "enrollmentEnd": 1587,
   "enrollmentAvg": 1587,
   "businessPctEnd": 0.0143,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1736,
@@ -80558,7 +81291,8 @@
   "enrollmentEnd": 1587,
   "enrollmentAvg": 1587,
   "businessPctEnd": 0.0143,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1737,
@@ -80588,7 +81322,8 @@
   "enrollmentEnd": 1587,
   "enrollmentAvg": 1587,
   "businessPctEnd": 0.0143,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1738,
@@ -80619,7 +81354,8 @@
   "enrollmentEnd": 1587,
   "enrollmentAvg": 1587,
   "businessPctEnd": 0.0143,
-  "businessDegreesLatest": 5
+  "businessDegreesLatest": 5,
+  "convertedToPermanent": false
  },
  {
   "id": 1739,
@@ -80649,7 +81385,8 @@
   "enrollmentEnd": 3928,
   "enrollmentAvg": 3928,
   "businessPctEnd": 0.1708,
-  "businessDegreesLatest": 167
+  "businessDegreesLatest": 167,
+  "convertedToPermanent": false
  },
  {
   "id": 1740,
@@ -80683,7 +81420,8 @@
   "businessDegreesLatest": 167,
   "enrollmentStart": 5398,
   "businessPctStart": 0.1536,
-  "businessDegreesStart": 207
+  "businessDegreesStart": 207,
+  "convertedToPermanent": false
  },
  {
   "id": 1741,
@@ -80715,7 +81453,8 @@
   "businessDegreesLatest": 167,
   "enrollmentStart": 5398,
   "businessPctStart": 0.1536,
-  "businessDegreesStart": 207
+  "businessDegreesStart": 207,
+  "convertedToPermanent": false
  },
  {
   "id": 1742,
@@ -80745,7 +81484,8 @@
   "enrollmentEnd": 3928,
   "enrollmentAvg": 3928,
   "businessPctEnd": 0.1708,
-  "businessDegreesLatest": 167
+  "businessDegreesLatest": 167,
+  "convertedToPermanent": false
  },
  {
   "id": 1743,
@@ -80779,7 +81519,8 @@
   "businessDegreesLatest": 204,
   "enrollmentStart": 2584,
   "businessPctStart": 0.2882,
-  "businessDegreesStart": 164
+  "businessDegreesStart": 164,
+  "convertedToPermanent": false
  },
  {
   "id": 1744,
@@ -80813,7 +81554,8 @@
   "businessDegreesLatest": 204,
   "enrollmentStart": 2386,
   "businessPctStart": 0.2445,
-  "businessDegreesStart": 144
+  "businessDegreesStart": 144,
+  "convertedToPermanent": false
  },
  {
   "id": 1745,
@@ -80847,7 +81589,8 @@
   "businessDegreesLatest": 204,
   "enrollmentStart": 2500,
   "businessPctStart": 0.2834,
-  "businessDegreesStart": 176
+  "businessDegreesStart": 176,
+  "convertedToPermanent": false
  },
  {
   "id": 1746,
@@ -80880,7 +81623,8 @@
   "businessPctEnd": 0.3218,
   "businessDegreesLatest": 204,
   "businessPctStart": 0.3218,
-  "businessDegreesStart": 204
+  "businessDegreesStart": 204,
+  "convertedToPermanent": false
  },
  {
   "id": 1747,
@@ -80910,7 +81654,8 @@
   "enrollmentEnd": 3229,
   "enrollmentAvg": 3229,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1748,
@@ -80940,7 +81685,8 @@
   "enrollmentEnd": 3229,
   "enrollmentAvg": 3229,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1749,
@@ -80970,7 +81716,8 @@
   "enrollmentEnd": 3229,
   "enrollmentAvg": 3229,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1750,
@@ -81000,7 +81747,8 @@
   "enrollmentEnd": 3229,
   "enrollmentAvg": 3229,
   "businessPctEnd": 0,
-  "businessDegreesLatest": 0
+  "businessDegreesLatest": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1751,
@@ -81030,7 +81778,8 @@
   "enrollmentEnd": 2247,
   "enrollmentAvg": 2247,
   "businessPctEnd": 0.2919,
-  "businessDegreesLatest": 155
+  "businessDegreesLatest": 155,
+  "convertedToPermanent": false
  },
  {
   "id": 1752,
@@ -81048,7 +81797,8 @@
   "enrollmentEnd": 2247,
   "enrollmentAvg": 2247,
   "businessPctEnd": 0.2448,
-  "businessDegreesLatest": 155
+  "businessDegreesLatest": 155,
+  "convertedToPermanent": false
  },
  {
   "id": 1753,
@@ -81078,7 +81828,8 @@
   "enrollmentEnd": 2247,
   "enrollmentAvg": 2247,
   "businessPctEnd": 0.2919,
-  "businessDegreesLatest": 155
+  "businessDegreesLatest": 155,
+  "convertedToPermanent": false
  },
  {
   "id": 1754,
@@ -81105,7 +81856,8 @@
   "hadDeptChairRole": false,
   "enrollmentEnd": 1644,
   "enrollmentAvg": 1644,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1755,
@@ -81134,7 +81886,8 @@
   "isFemale": false,
   "enrollmentEnd": 1644,
   "enrollmentAvg": 1644,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1756,
@@ -81163,7 +81916,8 @@
   "isFemale": true,
   "enrollmentEnd": 1644,
   "enrollmentAvg": 1644,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1757,
@@ -81180,7 +81934,8 @@
   "isFemale": false,
   "enrollmentEnd": 1644,
   "enrollmentAvg": 1644,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1758,
@@ -81208,7 +81963,8 @@
   "enrollmentEnd": 2942,
   "enrollmentAvg": 2942,
   "businessPctEnd": 0.1782,
-  "businessDegreesLatest": 103
+  "businessDegreesLatest": 103,
+  "convertedToPermanent": false
  },
  {
   "id": 1759,
@@ -81236,7 +81992,8 @@
   "enrollmentEnd": 2942,
   "enrollmentAvg": 2942,
   "businessPctEnd": 0.1782,
-  "businessDegreesLatest": 103
+  "businessDegreesLatest": 103,
+  "convertedToPermanent": false
  },
  {
   "id": 1760,
@@ -81266,7 +82023,8 @@
   "enrollmentEnd": 464,
   "enrollmentAvg": 464,
   "businessPctEnd": 0.1034,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1761,
@@ -81296,7 +82054,8 @@
   "enrollmentEnd": 464,
   "enrollmentAvg": 464,
   "businessPctEnd": 0.1034,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1762,
@@ -81326,7 +82085,8 @@
   "enrollmentEnd": 464,
   "enrollmentAvg": 464,
   "businessPctEnd": 0.1034,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1763,
@@ -81356,7 +82116,8 @@
   "enrollmentEnd": 464,
   "enrollmentAvg": 464,
   "businessPctEnd": 0.1034,
-  "businessDegreesLatest": 9
+  "businessDegreesLatest": 9,
+  "convertedToPermanent": false
  },
  {
   "id": 1764,
@@ -81386,7 +82147,8 @@
   "enrollmentEnd": 1876,
   "enrollmentAvg": 1876,
   "businessPctEnd": 0.0543,
-  "businessDegreesLatest": 22
+  "businessDegreesLatest": 22,
+  "convertedToPermanent": false
  },
  {
   "id": 1765,
@@ -81416,7 +82178,8 @@
   "enrollmentEnd": 1876,
   "enrollmentAvg": 1876,
   "businessPctEnd": 0.0543,
-  "businessDegreesLatest": 22
+  "businessDegreesLatest": 22,
+  "convertedToPermanent": false
  },
  {
   "id": 1766,
@@ -81446,7 +82209,8 @@
   "enrollmentEnd": 1876,
   "enrollmentAvg": 1876,
   "businessPctEnd": 0.0543,
-  "businessDegreesLatest": 22
+  "businessDegreesLatest": 22,
+  "convertedToPermanent": false
  },
  {
   "id": 1767,
@@ -81476,7 +82240,8 @@
   "enrollmentEnd": 1876,
   "enrollmentAvg": 1876,
   "businessPctEnd": 0.0543,
-  "businessDegreesLatest": 22
+  "businessDegreesLatest": 22,
+  "convertedToPermanent": false
  },
  {
   "id": 1768,
@@ -81506,7 +82271,8 @@
   "enrollmentEnd": 2320,
   "enrollmentAvg": 2320,
   "businessPctEnd": 0.0393,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1769,
@@ -81536,7 +82302,8 @@
   "enrollmentEnd": 2320,
   "enrollmentAvg": 2320,
   "businessPctEnd": 0.0393,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1770,
@@ -81566,7 +82333,8 @@
   "enrollmentEnd": 2320,
   "enrollmentAvg": 2320,
   "businessPctEnd": 0.0393,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1771,
@@ -81596,7 +82364,8 @@
   "enrollmentEnd": 2320,
   "enrollmentAvg": 2320,
   "businessPctEnd": 0.0393,
-  "businessDegreesLatest": 27
+  "businessDegreesLatest": 27,
+  "convertedToPermanent": false
  },
  {
   "id": 1772,
@@ -81626,7 +82395,8 @@
   "enrollmentEnd": 1022,
   "enrollmentAvg": 1022,
   "businessPctEnd": 0.2367,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1773,
@@ -81656,7 +82426,8 @@
   "enrollmentEnd": 1022,
   "enrollmentAvg": 1022,
   "businessPctEnd": 0.2367,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1774,
@@ -81686,7 +82457,8 @@
   "enrollmentEnd": 1022,
   "enrollmentAvg": 1022,
   "businessPctEnd": 0.2367,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1775,
@@ -81704,7 +82476,8 @@
   "enrollmentEnd": 1022,
   "enrollmentAvg": 1022,
   "businessPctEnd": 0.2367,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1776,
@@ -81733,7 +82506,8 @@
   "isFemale": true,
   "enrollmentEnd": 2276,
   "enrollmentAvg": 2276,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1777,
@@ -81762,7 +82536,8 @@
   "isFemale": false,
   "enrollmentEnd": 2276,
   "enrollmentAvg": 2276,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1778,
@@ -81792,7 +82567,8 @@
   "startLabel": "2025",
   "enrollmentEnd": 2276,
   "enrollmentAvg": 2276,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1779,
@@ -81821,7 +82597,8 @@
   "isFemale": false,
   "enrollmentEnd": 2276,
   "enrollmentAvg": 2276,
-  "businessPctEnd": 0
+  "businessPctEnd": 0,
+  "convertedToPermanent": false
  },
  {
   "id": 1780,
@@ -81851,7 +82628,8 @@
   "enrollmentEnd": 2694,
   "enrollmentAvg": 2694,
   "businessPctEnd": 0.2617,
-  "businessDegreesLatest": 179
+  "businessDegreesLatest": 179,
+  "convertedToPermanent": false
  },
  {
   "id": 1781,
@@ -81881,7 +82659,8 @@
   "enrollmentEnd": 2694,
   "enrollmentAvg": 2694,
   "businessPctEnd": 0.2617,
-  "businessDegreesLatest": 179
+  "businessDegreesLatest": 179,
+  "convertedToPermanent": false
  },
  {
   "id": 1782,
@@ -81911,7 +82690,8 @@
   "enrollmentEnd": 2694,
   "enrollmentAvg": 2694,
   "businessPctEnd": 0.2617,
-  "businessDegreesLatest": 179
+  "businessDegreesLatest": 179,
+  "convertedToPermanent": false
  },
  {
   "id": 1783,
@@ -81941,7 +82721,8 @@
   "enrollmentEnd": 2694,
   "enrollmentAvg": 2694,
   "businessPctEnd": 0.2617,
-  "businessDegreesLatest": 179
+  "businessDegreesLatest": 179,
+  "convertedToPermanent": false
  },
  {
   "id": 1784,
@@ -81971,7 +82752,8 @@
   "enrollmentEnd": 2925,
   "enrollmentAvg": 2925,
   "businessPctEnd": 0.0863,
-  "businessDegreesLatest": 59
+  "businessDegreesLatest": 59,
+  "convertedToPermanent": false
  },
  {
   "id": 1785,
@@ -82001,7 +82783,8 @@
   "enrollmentEnd": 2925,
   "enrollmentAvg": 2925,
   "businessPctEnd": 0.0863,
-  "businessDegreesLatest": 59
+  "businessDegreesLatest": 59,
+  "convertedToPermanent": false
  },
  {
   "id": 1786,
@@ -82029,7 +82812,8 @@
   "enrollmentEnd": 2925,
   "enrollmentAvg": 2925,
   "businessPctEnd": 0.0863,
-  "businessDegreesLatest": 59
+  "businessDegreesLatest": 59,
+  "convertedToPermanent": false
  },
  {
   "id": 1787,
@@ -82059,7 +82843,8 @@
   "enrollmentEnd": 2925,
   "enrollmentAvg": 2925,
   "businessPctEnd": 0.0863,
-  "businessDegreesLatest": 59
+  "businessDegreesLatest": 59,
+  "convertedToPermanent": false
  },
  {
   "id": 1788,
@@ -82087,7 +82872,8 @@
   "enrollmentEnd": 1203,
   "enrollmentAvg": 1203,
   "businessPctEnd": 0.2112,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1789,
@@ -82115,7 +82901,8 @@
   "enrollmentEnd": 1203,
   "enrollmentAvg": 1203,
   "businessPctEnd": 0.2112,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1790,
@@ -82147,7 +82934,8 @@
   "businessDegreesLatest": 49,
   "enrollmentStart": 1203,
   "businessPctStart": 0.2512,
-  "businessDegreesStart": 52
+  "businessDegreesStart": 52,
+  "convertedToPermanent": false
  },
  {
   "id": 1791,
@@ -82177,7 +82965,8 @@
   "enrollmentEnd": 1203,
   "enrollmentAvg": 1203,
   "businessPctEnd": 0.2112,
-  "businessDegreesLatest": 49
+  "businessDegreesLatest": 49,
+  "convertedToPermanent": false
  },
  {
   "id": 1792,
@@ -82209,7 +82998,8 @@
   "businessDegreesLatest": 51,
   "enrollmentStart": 1284,
   "businessPctStart": 0.1434,
-  "businessDegreesStart": 37
+  "businessDegreesStart": 37,
+  "convertedToPermanent": false
  },
  {
   "id": 1793,
@@ -82239,7 +83029,8 @@
   "enrollmentEnd": 1310,
   "enrollmentAvg": 1310,
   "businessPctEnd": 0.1522,
-  "businessDegreesLatest": 51
+  "businessDegreesLatest": 51,
+  "convertedToPermanent": false
  },
  {
   "id": 1794,
@@ -82273,7 +83064,8 @@
   "businessDegreesLatest": 51,
   "enrollmentStart": 1300,
   "businessPctStart": 0.1574,
-  "businessDegreesStart": 51
+  "businessDegreesStart": 51,
+  "convertedToPermanent": false
  },
  {
   "id": 1795,
@@ -82303,7 +83095,8 @@
   "enrollmentEnd": 1310,
   "enrollmentAvg": 1310,
   "businessPctEnd": 0.1522,
-  "businessDegreesLatest": 51
+  "businessDegreesLatest": 51,
+  "convertedToPermanent": false
  },
  {
   "id": 1796,
@@ -82331,7 +83124,8 @@
   "enrollmentEnd": 2799,
   "enrollmentAvg": 2799,
   "businessPctEnd": 0.0673,
-  "businessDegreesLatest": 53
+  "businessDegreesLatest": 53,
+  "convertedToPermanent": false
  },
  {
   "id": 1797,
@@ -82359,7 +83153,8 @@
   "enrollmentEnd": 2799,
   "enrollmentAvg": 2799,
   "businessPctEnd": 0.0673,
-  "businessDegreesLatest": 53
+  "businessDegreesLatest": 53,
+  "convertedToPermanent": false
  },
  {
   "id": 1798,
@@ -82387,7 +83182,8 @@
   "enrollmentEnd": 2799,
   "enrollmentAvg": 2799,
   "businessPctEnd": 0.0673,
-  "businessDegreesLatest": 53
+  "businessDegreesLatest": 53,
+  "convertedToPermanent": false
  },
  {
   "id": 1799,
@@ -82417,7 +83213,8 @@
   "enrollmentEnd": 2799,
   "enrollmentAvg": 2799,
   "businessPctEnd": 0.0673,
-  "businessDegreesLatest": 53
+  "businessDegreesLatest": 53,
+  "convertedToPermanent": false
  },
  {
   "id": 1800,
@@ -82447,7 +83244,8 @@
   "enrollmentEnd": 1778,
   "enrollmentAvg": 1778,
   "businessPctEnd": 0.1685,
-  "businessDegreesLatest": 61
+  "businessDegreesLatest": 61,
+  "convertedToPermanent": false
  },
  {
   "id": 1801,
@@ -82477,7 +83275,8 @@
   "enrollmentEnd": 1778,
   "enrollmentAvg": 1778,
   "businessPctEnd": 0.1685,
-  "businessDegreesLatest": 61
+  "businessDegreesLatest": 61,
+  "convertedToPermanent": false
  },
  {
   "id": 1802,
@@ -82507,7 +83306,8 @@
   "enrollmentEnd": 1778,
   "enrollmentAvg": 1778,
   "businessPctEnd": 0.1685,
-  "businessDegreesLatest": 61
+  "businessDegreesLatest": 61,
+  "convertedToPermanent": false
  },
  {
   "id": 1803,
@@ -82537,6 +83337,7 @@
   "enrollmentEnd": 1778,
   "enrollmentAvg": 1778,
   "businessPctEnd": 0.1685,
-  "businessDegreesLatest": 61
+  "businessDegreesLatest": 61,
+  "convertedToPermanent": false
  }
 ]

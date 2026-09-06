@@ -7,19 +7,18 @@ import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid,
   BarChart, Bar, PieChart, Pie, Cell, Legend,
 } from "recharts";
-import { CHART_COLORS, NEXT_ROLE_LABELS, ORIGIN_LABELS } from "@/data/types";
+import { CHART_COLORS, ORIGIN_LABELS } from "@/data/types";
+import { completedTenure, completedTenures } from "@/data/tenure";
+import { departureBreakdown, departureCategory, DEPARTURE_CATEGORIES } from "@/data/departure";
 import { useDataset } from "@/data/DatasetContext";
 
 export default function AggregateTrends() {
   const { noun, nounPlural, nounLower, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
   const [interimOnly, setInterimOnly] = useState(false);
-  // Conversion lookups need to see permanent appointments even when the view is
-  // filtered to interims, so they search the full pool rather than `data`.
-  const convPool = allDeans;
   const data = useMemo(
-    () => (interimOnly ? convPool.filter((d) => d.isInterim) : convPool),
-    [convPool, interimOnly]
+    () => (interimOnly ? allDeans.filter((d) => d.isInterim) : allDeans),
+    [allDeans, interimOnly]
   );
 
   const appointmentsByDecade = useMemo(() => {
@@ -61,12 +60,16 @@ export default function AggregateTrends() {
       .map(([year, v]) => ({ year: Number(year), ...v }));
   }, [data]);
 
+  // Completed spells only, via the shared guard (src/data/tenure.ts). Reading
+  // `tenureLength` directly mixed in sitting leaders -- four indices freeze a
+  // tenure onto people who never left -- and let impossible spans through.
   const tenureByEra = useMemo(() => {
     const eras: Record<string, number[]> = {};
     for (const d of data) {
-      if (!d.era || !d.tenureLength) continue;
+      const t = completedTenure(d);
+      if (!d.era || !t) continue;
       if (!eras[d.era]) eras[d.era] = [];
-      eras[d.era].push(d.tenureLength);
+      eras[d.era].push(t);
     }
     return Object.entries(eras)
       .sort(([a], [b]) => a.localeCompare(b))
@@ -100,15 +103,21 @@ export default function AggregateTrends() {
       .map(([name, value]) => ({ name: ORIGIN_LABELS[name] || name, value }));
   }, [data]);
 
-  const nextRoleDist = useMemo(() => {
-    const counts: Record<string, number> = {};
-    for (const d of data) {
-      if (!d.nextRole) continue;
-      counts[d.nextRole] = (counts[d.nextRole] || 0) + 1;
-    }
-    return Object.entries(counts)
-      .sort(([, a], [, b]) => b - a)
-      .map(([name, value]) => ({ name: NEXT_ROLE_LABELS[name] || name, value }));
+  // One closed set of destinations, not the raw `nextRole` strings: those are ten
+  // canonical codes (two of which overlap) plus 58 free-text job titles, so the
+  // chart used to end in a tail of singleton bars and a label-less
+  // "Retired_or_emeritus". See src/data/departure.ts for the categories and the
+  // coverage caveat -- 62% of completed spells record no destination at all, and
+  // that bar is shown rather than dropped, because a distribution over the
+  // recorded third would read as a distribution over everyone.
+  const nextRoleDist = useMemo(
+    () => departureBreakdown(data).map((b) => ({ name: b.label, value: b.value })),
+    [data],
+  );
+  const departureRecorded = useMemo(() => {
+    const completed = data.filter((d) => d.endYear != null);
+    const known = completed.filter((d) => departureCategory(d) !== "unknown").length;
+    return { completed: completed.length, known };
   }, [data]);
 
   const genderByTier = useMemo(() => {
@@ -131,7 +140,7 @@ export default function AggregateTrends() {
   }, [data]);
 
   const kpis = useMemo(() => {
-    const tenures = data.filter((d) => d.tenureLength).map((d) => d.tenureLength!);
+    const tenures = completedTenures(data, { includeInterims: true });
     const avgTenure = tenures.length ? Math.round((tenures.reduce((s, v) => s + v, 0) / tenures.length) * 10) / 10 : 0;
     const femalePct = data.length ? Math.round((data.filter((d) => d.isFemale).length / data.length) * 100) : 0;
     const internalPct = data.length ? Math.round((data.filter((d) => d.isInternal && !d.isInterim).length / data.length) * 100) : 0;
@@ -140,20 +149,15 @@ export default function AggregateTrends() {
     return { total: data.length, avgTenure, femalePct, internalPct, interimPct, firstTimePct };
   }, [data]);
 
+  // Conversions come off the stored flag now (scripts/derive-departures.mjs), not
+  // a lookup rebuilt here. The old lookup matched on dean + SCHOOL with no
+  // university, counted any later permanent spell as a conversion (a return years
+  // after somebody else held the seat is a re-appointment, not a conversion), and
+  // could not see the 33 conversions recorded only in a spell's own notes. One
+  // definition, derived once, is also what makes the number quotable.
   const interimConversion = useMemo(() => {
     const interims = data.filter((d) => d.isInterim);
-    const converted = interims.filter((interim) =>
-      convPool.some(
-        (d) =>
-          !d.isInterim &&
-          d.dean === interim.dean &&
-          d.school === interim.school &&
-          d.id !== interim.id &&
-          d.startYear != null &&
-          interim.startYear != null &&
-          d.startYear >= interim.startYear
-      )
-    );
+    const converted = interims.filter((interim) => interim.convertedToPermanent);
     const total = interims.length;
     const convertedCount = converted.length;
     const rate = total ? Math.round((convertedCount / total) * 1000) / 10 : 0;
@@ -163,18 +167,7 @@ export default function AggregateTrends() {
       const era = interim.era || "Unknown";
       if (!byEra[era]) byEra[era] = { interims: 0, converted: 0 };
       byEra[era].interims++;
-      if (
-        convPool.some(
-          (d) =>
-            !d.isInterim &&
-            d.dean === interim.dean &&
-            d.school === interim.school &&
-            d.id !== interim.id &&
-            d.startYear != null &&
-            interim.startYear != null &&
-            d.startYear >= interim.startYear
-        )
-      ) {
+      if (interim.convertedToPermanent) {
         byEra[era].converted++;
       }
     }
@@ -193,18 +186,7 @@ export default function AggregateTrends() {
       const tier = interim.tier || "Unknown";
       if (!byTier[tier]) byTier[tier] = { interims: 0, converted: 0 };
       byTier[tier].interims++;
-      if (
-        convPool.some(
-          (d) =>
-            !d.isInterim &&
-            d.dean === interim.dean &&
-            d.school === interim.school &&
-            d.id !== interim.id &&
-            d.startYear != null &&
-            interim.startYear != null &&
-            d.startYear >= interim.startYear
-        )
-      ) {
+      if (interim.convertedToPermanent) {
         byTier[tier].converted++;
       }
     }
@@ -223,18 +205,7 @@ export default function AggregateTrends() {
       const g = interim.gender || "Unknown";
       if (!byGender[g]) byGender[g] = { interims: 0, converted: 0 };
       byGender[g].interims++;
-      if (
-        convPool.some(
-          (d) =>
-            !d.isInterim &&
-            d.dean === interim.dean &&
-            d.school === interim.school &&
-            d.id !== interim.id &&
-            d.startYear != null &&
-            interim.startYear != null &&
-            d.startYear >= interim.startYear
-        )
-      ) {
+      if (interim.convertedToPermanent) {
         byGender[g].converted++;
       }
     }
@@ -250,7 +221,7 @@ export default function AggregateTrends() {
       }));
 
     return { total, convertedCount, rate, byEraData, byTierData, byGenderData };
-  }, [data, convPool]);
+  }, [data]);
 
   return (
     <div className="space-y-6">
@@ -267,7 +238,7 @@ export default function AggregateTrends() {
 
       <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         <KPICard label={`Total ${nounPlural}`} value={String(kpis.total)} />
-        <KPICard label="Avg Tenure" value={`${kpis.avgTenure} yrs`} />
+        <KPICard label="Avg Completed Tenure" value={`${kpis.avgTenure} yrs`} hint="Finished appointments only. Leaders still in the seat have no completed tenure and are excluded." />
         <KPICard label="Female" value={`${kpis.femalePct}%`} />
         <KPICard label="Internal Hire" value={`${kpis.internalPct}%`} />
         <KPICard label="Interim" value={`${kpis.interimPct}%`} />
@@ -293,7 +264,7 @@ export default function AggregateTrends() {
         </Card>
 
         <Card>
-          <CardHeader><CardTitle className="text-base">Average Tenure by Era</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="text-base">Average completed tenure by era</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={tenureByEra} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
@@ -380,7 +351,14 @@ export default function AggregateTrends() {
         </Card>
 
         <Card>
-          <CardHeader><CardTitle className="text-base">Next-Role Career Paths</CardTitle></CardHeader>
+          <CardHeader>
+            <CardTitle className="text-base">Where they went next</CardTitle>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              {departureRecorded.completed
+                ? <>Destination recorded for {departureRecorded.known.toLocaleString()} of {departureRecorded.completed.toLocaleString()} completed appointments ({Math.round((departureRecorded.known / departureRecorded.completed) * 100)}%). “{DEPARTURE_CATEGORIES.unknown.label}” is a gap in the record, not a voluntary exit.</>
+                : <>No completed appointments in this view yet.</>}
+            </p>
+          </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={nextRoleDist} layout="vertical" margin={{ top: 10, right: 30, bottom: 0, left: 10 }}>
@@ -493,10 +471,10 @@ export default function AggregateTrends() {
   );
 }
 
-function KPICard({ label, value }: { label: string; value: string }) {
+function KPICard({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <Card>
-      <CardContent className="pt-4 pb-3 px-4 text-center">
+      <CardContent className="pt-4 pb-3 px-4 text-center" title={hint}>
         <p className="text-2xl font-bold">{value}</p>
         <p className="text-xs text-muted-foreground mt-0.5">{label}</p>
       </CardContent>

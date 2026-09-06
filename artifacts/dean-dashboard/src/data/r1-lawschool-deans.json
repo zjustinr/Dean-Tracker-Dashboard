@@ -11374,7 +11374,7 @@
     "enrollmentAvg": 33971,
     "businessPctEnd": null,
     "businessDegreesLatest": 2508,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -11432,7 +11432,8 @@
     "businessDegreesLatest": 2508,
     "convertedToPermanent": false,
     "connectionType": "",
-    "enrollmentStart": 33971
+    "enrollmentStart": 33971,
+    "fromInterim": true
   },
   {
     "id": 202,
@@ -25289,7 +25290,7 @@
     "enrollmentAvg": 53001,
     "businessPctEnd": 0.1369,
     "businessDegreesLatest": 1574,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -25346,7 +25347,8 @@
     "businessPctEnd": 0.1369,
     "businessDegreesLatest": 1574,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 444,
@@ -32881,7 +32883,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -32938,7 +32940,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 577,
@@ -38616,7 +38619,7 @@
     "enrollmentAvg": 20674,
     "businessPctEnd": 0.188,
     "businessDegreesLatest": 858,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Iowa",
     "phdYear": 1994,
@@ -38683,7 +38686,8 @@
     "phdYear": 1994,
     "enrollmentStart": 21424,
     "businessPctStart": 0.188,
-    "businessDegreesStart": 707
+    "businessDegreesStart": 707,
+    "fromInterim": true
   },
   {
     "id": 677,
@@ -41368,7 +41372,7 @@
     "enrollmentAvg": 54890,
     "businessPctEnd": 0.1243,
     "businessDegreesLatest": 1505,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 54890,
     "businessPctStart": 0.1294,
@@ -41430,7 +41434,8 @@
     "convertedToPermanent": false,
     "connectionType": "",
     "businessPctStart": 0.1243,
-    "businessDegreesStart": 1505
+    "businessDegreesStart": 1505,
+    "fromInterim": true
   },
   {
     "id": 725,
@@ -42526,7 +42531,7 @@
     "enrollmentAvg": 25988,
     "businessPctEnd": 0.1905,
     "businessDegreesLatest": 1129,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 25897,
     "businessPctStart": 0.1899,
@@ -42589,7 +42594,8 @@
     "connectionType": "",
     "enrollmentStart": 26079,
     "businessPctStart": 0.1905,
-    "businessDegreesStart": 1016
+    "businessDegreesStart": 1016,
+    "fromInterim": true
   },
   {
     "id": 745,
@@ -50767,9 +50773,9 @@
     "school": "University of Tennessee Winston College of Law",
     "dean": "Thomas J. Freeman",
     "startYear": 1890,
-    "endYear": 2026,
+    "endYear": null,
     "startLabel": "1890",
-    "endLabel": "2026",
+    "endLabel": "unknown",
     "priorTitle": "Justice, Tennessee Supreme Court",
     "priorInstitution": "",
     "origin": "Unknown",
@@ -50798,7 +50804,7 @@
     "inTop100": false,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 136,
+    "tenureLength": null,
     "era": "Pre-1980",
     "notes": "Founding dean when the school began as the Department of Law in 1890; end year not reliably documented.",
     "nextRole": "Unknown",
@@ -56132,7 +56138,7 @@
     "enrollmentAvg": 28138,
     "businessPctEnd": 0.1225,
     "businessDegreesLatest": 1208,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 28938,
     "businessPctStart": 0.1294,
@@ -56195,7 +56201,8 @@
     "connectionType": "",
     "enrollmentStart": 27578,
     "businessPctStart": 0.1225,
-    "businessDegreesStart": 742
+    "businessDegreesStart": 742,
+    "fromInterim": true
   },
   {
     "id": 983,

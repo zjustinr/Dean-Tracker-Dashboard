@@ -1050,7 +1050,7 @@
     "enrollmentAvg": 25302,
     "businessPctEnd": 0.1972,
     "businessDegreesLatest": 2127,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Purdue University",
     "enrollmentStart": 25469,
@@ -1115,7 +1115,8 @@
     "phdInstitution": "Purdue University",
     "enrollmentStart": 25134,
     "businessPctStart": 0.1972,
-    "businessDegreesStart": 1171
+    "businessDegreesStart": 1171,
+    "fromInterim": true
   },
   {
     "id": 20,
@@ -1230,7 +1231,7 @@
     "enrollmentAvg": 32390,
     "businessPctEnd": 0.2464,
     "businessDegreesLatest": 2127,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Michigan",
     "enrollmentStart": 31764,
@@ -1295,7 +1296,8 @@
     "phdInstitution": "University of Michigan",
     "enrollmentStart": 33015,
     "businessPctStart": 0.2464,
-    "businessDegreesStart": 2003
+    "businessDegreesStart": 2003,
+    "fromInterim": true
   },
   {
     "id": 23,
@@ -1639,7 +1641,7 @@
     "enrollmentAvg": 14685,
     "businessPctEnd": 0.2237,
     "businessDegreesLatest": 1333,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Duke University",
     "enrollmentStart": 14541,
@@ -1705,7 +1707,8 @@
     "phdYear": 1992,
     "enrollmentStart": 14900,
     "businessPctStart": 0.2237,
-    "businessDegreesStart": 823
+    "businessDegreesStart": 823,
+    "fromInterim": true
   },
   {
     "id": 30,
@@ -3221,7 +3224,7 @@
     "enrollmentAvg": 30277,
     "businessPctEnd": 0.1688,
     "businessDegreesLatest": 2781,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Cambridge",
     "enrollmentStart": 29596,
@@ -3286,7 +3289,8 @@
     "phdInstitution": "University of Cambridge",
     "enrollmentStart": 30957,
     "businessPctStart": 0.1688,
-    "businessDegreesStart": 1308
+    "businessDegreesStart": 1308,
+    "fromInterim": true
   },
   {
     "id": 57,
@@ -7010,7 +7014,7 @@
     "enrollmentAvg": 12266,
     "businessPctEnd": 0.1551,
     "businessDegreesLatest": 514,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Duke University",
     "enrollmentStart": 12266,
@@ -7074,7 +7078,8 @@
     "connectionType": "",
     "phdInstitution": "Duke University",
     "businessPctStart": 0.146,
-    "businessDegreesStart": 514
+    "businessDegreesStart": 514,
+    "fromInterim": true
   },
   {
     "id": 122,
@@ -8622,7 +8627,7 @@
     "enrollmentAvg": 11494,
     "businessPctEnd": 0.225,
     "businessDegreesLatest": 564,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Ohio State University",
     "enrollmentStart": 11456,
@@ -8687,7 +8692,8 @@
     "phdInstitution": "Ohio State University",
     "enrollmentStart": 11531,
     "businessPctStart": 0.225,
-    "businessDegreesStart": 577
+    "businessDegreesStart": 577,
+    "fromInterim": true
   },
   {
     "id": 150,
@@ -12043,7 +12049,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -12100,7 +12106,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 209,
@@ -12324,7 +12331,7 @@
     "enrollmentAvg": 5987,
     "businessPctEnd": 0.1486,
     "businessDegreesLatest": 283,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of California",
     "enrollmentStart": 5987,
@@ -12389,7 +12396,8 @@
     "phdInstitution": "University of California, Davis",
     "enrollmentStart": 6141,
     "businessPctStart": 0.1465,
-    "businessDegreesStart": 253
+    "businessDegreesStart": 253,
+    "fromInterim": true
   },
   {
     "id": 214,
@@ -12684,7 +12692,7 @@
     "enrollmentAvg": 6753,
     "businessPctEnd": 0.1452,
     "businessDegreesLatest": 283,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Duke University",
     "enrollmentStart": 6761,
@@ -12749,7 +12757,8 @@
     "phdInstitution": "Duke University",
     "enrollmentStart": 6744,
     "businessPctStart": 0.1452,
-    "businessDegreesStart": 277
+    "businessDegreesStart": 277,
+    "fromInterim": true
   },
   {
     "id": 220,
@@ -14649,7 +14658,7 @@
     "enrollmentAvg": 54781,
     "businessPctEnd": 0.2559,
     "businessDegreesLatest": 4107,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Boston College",
     "enrollmentStart": 55609,
@@ -14714,7 +14723,8 @@
     "phdInstitution": "Boston College",
     "enrollmentStart": 53953,
     "businessPctStart": 0.2559,
-    "businessDegreesStart": 4198
+    "businessDegreesStart": 4198,
+    "fromInterim": true
   },
   {
     "id": 254,
@@ -14997,7 +15007,7 @@
     "enrollmentAvg": 41028,
     "businessPctEnd": 0.1523,
     "businessDegreesLatest": 2508,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Kansas",
     "enrollmentStart": 41226,
@@ -15062,7 +15072,8 @@
     "phdInstitution": "University of Kansas",
     "enrollmentStart": 40830,
     "businessPctStart": 0.1523,
-    "businessDegreesStart": 1769
+    "businessDegreesStart": 1769,
+    "fromInterim": true
   },
   {
     "id": 260,
@@ -21698,7 +21709,7 @@
     "enrollmentAvg": 11310,
     "businessPctEnd": 0.2458,
     "businessDegreesLatest": 813,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Massachusetts Institute of Technology",
     "enrollmentStart": 11301,
@@ -21763,7 +21774,8 @@
     "phdInstitution": "Massachusetts Institute of Technology",
     "enrollmentStart": 11319,
     "businessPctStart": 0.2458,
-    "businessDegreesStart": 855
+    "businessDegreesStart": 855,
+    "fromInterim": true
   },
   {
     "id": 375,
@@ -22287,7 +22299,7 @@
     "enrollmentAvg": 19402,
     "businessPctEnd": 0.1985,
     "businessDegreesLatest": 1172,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Illinois at Urbana-Champaign",
     "enrollmentStart": 19402,
@@ -22352,7 +22364,8 @@
     "phdInstitution": "University of Illinois at Urbana-Champaign",
     "enrollmentStart": 19593,
     "businessPctStart": 0.1969,
-    "businessDegreesStart": 1090
+    "businessDegreesStart": 1090,
+    "fromInterim": true
   },
   {
     "id": 385,
@@ -23273,7 +23286,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Alabama",
     "phdYear": 1963
@@ -23334,7 +23347,8 @@
     "convertedToPermanent": false,
     "connectionType": "",
     "phdInstitution": "University of Alabama",
-    "phdYear": 1963
+    "phdYear": 1963,
+    "fromInterim": true
   },
   {
     "id": 402,
@@ -24041,7 +24055,7 @@
     "enrollmentAvg": 11668,
     "businessPctEnd": null,
     "businessDegreesLatest": 452,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "California Institute of Technology"
   },
@@ -24100,7 +24114,8 @@
     "businessDegreesLatest": 452,
     "convertedToPermanent": false,
     "connectionType": "",
-    "enrollmentStart": 11670
+    "enrollmentStart": 11670,
+    "fromInterim": true
   },
   {
     "id": 415,
@@ -24274,7 +24289,7 @@
     "enrollmentAvg": 16486,
     "businessPctEnd": 0.0915,
     "businessDegreesLatest": 452,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Purdue University",
     "enrollmentStart": 16359,
@@ -24339,7 +24354,8 @@
     "phdInstitution": "Purdue University",
     "enrollmentStart": 16613,
     "businessPctStart": 0.0915,
-    "businessDegreesStart": 291
+    "businessDegreesStart": 291,
+    "fromInterim": true
   },
   {
     "id": 419,
@@ -24570,7 +24586,7 @@
     "enrollmentAvg": 10037,
     "businessPctEnd": 0.0928,
     "businessDegreesLatest": 317,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "New Jersey Institute of Technology",
     "phdYear": 1997,
@@ -24637,7 +24653,8 @@
     "phdYear": 1997,
     "enrollmentStart": 10130,
     "businessPctStart": 0.0928,
-    "businessDegreesStart": 202
+    "businessDegreesStart": 202,
+    "fromInterim": true
   },
   {
     "id": 424,
@@ -29920,7 +29937,7 @@
     "enrollmentAvg": 24975,
     "businessPctEnd": 0.2489,
     "businessDegreesLatest": 1852,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Indiana University",
     "enrollmentStart": 24577,
@@ -29985,7 +30002,8 @@
     "phdInstitution": "Indiana University",
     "enrollmentStart": 25372,
     "businessPctStart": 0.2489,
-    "businessDegreesStart": 1586
+    "businessDegreesStart": 1586,
+    "fromInterim": true
   },
   {
     "id": 516,
@@ -31664,7 +31682,7 @@
     "enrollmentAvg": 50214,
     "businessPctEnd": 0.1798,
     "businessDegreesLatest": 2643,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Massachusetts Institute of Technology",
     "enrollmentStart": 50028,
@@ -31729,7 +31747,8 @@
     "phdInstitution": "Massachusetts Institute of Technology",
     "enrollmentStart": 50399,
     "businessPctStart": 0.1798,
-    "businessDegreesStart": 2565
+    "businessDegreesStart": 2565,
+    "fromInterim": true
   },
   {
     "id": 546,
@@ -35819,7 +35838,7 @@
     "enrollmentAvg": 7362,
     "businessPctEnd": null,
     "businessDegreesLatest": 679,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 7356
   },
@@ -35878,7 +35897,8 @@
     "businessDegreesLatest": 679,
     "convertedToPermanent": false,
     "connectionType": "",
-    "enrollmentStart": 7368
+    "enrollmentStart": 7368,
+    "fromInterim": true
   },
   {
     "id": 618,
@@ -36111,7 +36131,7 @@
     "enrollmentAvg": 8643,
     "businessPctEnd": 0.2686,
     "businessDegreesLatest": 679,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 8669,
     "businessPctStart": 0.2662,
@@ -36174,7 +36194,8 @@
     "connectionType": "",
     "enrollmentStart": 8616,
     "businessPctStart": 0.2686,
-    "businessDegreesStart": 712
+    "businessDegreesStart": 712,
+    "fromInterim": true
   },
   {
     "id": 623,
@@ -39079,7 +39100,7 @@
     "enrollmentAvg": 22948,
     "businessPctEnd": 0.1367,
     "businessDegreesLatest": 917,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Texas Christian University",
     "businessPctStart": 0.1367,
@@ -39140,7 +39161,8 @@
     "businessDegreesLatest": 917,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "Texas Christian University"
+    "phdInstitution": "Texas Christian University",
+    "fromInterim": true
   },
   {
     "id": 674,
@@ -40227,7 +40249,7 @@
     "enrollmentAvg": 49354,
     "businessPctEnd": 0.1749,
     "businessDegreesLatest": 2954,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Texas Tech University",
     "enrollmentStart": 48702,
@@ -40292,7 +40314,8 @@
     "phdInstitution": "Texas Tech University",
     "enrollmentStart": 50230,
     "businessPctStart": 0.1749,
-    "businessDegreesStart": 2050
+    "businessDegreesStart": 2050,
+    "fromInterim": true
   },
   {
     "id": 694,
@@ -40527,7 +40550,7 @@
     "enrollmentAvg": 75324,
     "businessPctEnd": 0.1459,
     "businessDegreesLatest": 2954,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Florida",
     "phdYear": 1987,
@@ -40594,7 +40617,8 @@
     "phdYear": 1987,
     "enrollmentStart": 76633,
     "businessPctStart": 0.1459,
-    "businessDegreesStart": 3034
+    "businessDegreesStart": 3034,
+    "fromInterim": true
   },
   {
     "id": 699,
@@ -40993,7 +41017,7 @@
     "enrollmentAvg": 12785,
     "businessPctEnd": 0.2722,
     "businessDegreesLatest": 877,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Louisiana State University",
     "businessPctStart": 0.2722,
@@ -41054,7 +41078,8 @@
     "businessDegreesLatest": 877,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "Louisiana State University"
+    "phdInstitution": "Louisiana State University",
+    "fromInterim": true
   },
   {
     "id": 707,
@@ -41109,7 +41134,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -41166,7 +41191,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 709,
@@ -41575,7 +41601,7 @@
     "enrollmentAvg": 36774,
     "businessPctEnd": 0.1984,
     "businessDegreesLatest": 2128,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Oklahoma State University",
     "enrollmentStart": 36551,
@@ -41640,7 +41666,8 @@
     "phdInstitution": "Oklahoma State University",
     "enrollmentStart": 36996,
     "businessPctStart": 0.1984,
-    "businessDegreesStart": 1526
+    "businessDegreesStart": 1526,
+    "fromInterim": true
   },
   {
     "id": 717,
@@ -43449,7 +43476,7 @@
     "enrollmentAvg": 32135,
     "businessPctEnd": 0.1356,
     "businessDegreesLatest": 1074,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of California, Davis",
     "enrollmentStart": 31923,
@@ -43514,7 +43541,8 @@
     "phdInstitution": "University of California, Davis",
     "enrollmentStart": 32347,
     "businessPctStart": 0.1356,
-    "businessDegreesStart": 1181
+    "businessDegreesStart": 1181,
+    "fromInterim": true
   },
   {
     "id": 749,
@@ -43689,7 +43717,7 @@
     "enrollmentAvg": 37775,
     "businessPctEnd": 0.2743,
     "businessDegreesLatest": 2475,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Texas A&M University",
     "enrollmentStart": 37098,
@@ -43754,7 +43782,8 @@
     "phdInstitution": "Texas A&M University",
     "enrollmentStart": 38563,
     "businessPctStart": 0.2743,
-    "businessDegreesStart": 2349
+    "businessDegreesStart": 2349,
+    "fromInterim": true
   },
   {
     "id": 753,
@@ -43869,7 +43898,7 @@
     "enrollmentAvg": 39622,
     "businessPctEnd": 0.2696,
     "businessDegreesLatest": 2475,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Tulane University"
   },
@@ -43928,7 +43957,8 @@
     "businessDegreesLatest": 2475,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "Tulane University"
+    "phdInstitution": "Tulane University",
+    "fromInterim": true
   },
   {
     "id": 756,
@@ -44042,7 +44072,7 @@
     "enrollmentAvg": 17787,
     "businessPctEnd": 0.1265,
     "businessDegreesLatest": 1061,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Alabama at Birmingham",
     "enrollmentStart": 17575,
@@ -44107,7 +44137,8 @@
     "phdInstitution": "University of Alabama at Birmingham",
     "enrollmentStart": 17999,
     "businessPctStart": 0.1265,
-    "businessDegreesStart": 524
+    "businessDegreesStart": 524,
+    "fromInterim": true
   },
   {
     "id": 759,
@@ -53044,7 +53075,7 @@
     "enrollmentAvg": 27364,
     "businessPctEnd": 0.1422,
     "businessDegreesLatest": 1284,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Maryland"
   },
@@ -53103,7 +53134,8 @@
     "businessDegreesLatest": 1284,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "University of Maryland"
+    "phdInstitution": "University of Maryland",
+    "fromInterim": true
   },
   {
     "id": 913,
@@ -54191,7 +54223,7 @@
     "enrollmentAvg": 45114,
     "businessPctEnd": null,
     "businessDegreesLatest": 2456,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of North Carolina",
     "phdYear": 1971
@@ -54252,7 +54284,8 @@
     "convertedToPermanent": false,
     "connectionType": "",
     "phdYear": 1971,
-    "enrollmentStart": 45114
+    "enrollmentStart": 45114,
+    "fromInterim": true
   },
   {
     "id": 933,
@@ -54487,7 +54520,7 @@
     "enrollmentAvg": 54814,
     "businessPctEnd": 0.1311,
     "businessDegreesLatest": 2456,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Missouri",
     "enrollmentStart": 54814,
@@ -54551,7 +54584,8 @@
     "connectionType": "",
     "phdInstitution": "University of Missouri",
     "businessPctStart": 0.1311,
-    "businessDegreesStart": 2456
+    "businessDegreesStart": 2456,
+    "fromInterim": true
   },
   {
     "id": 938,
@@ -66794,7 +66828,7 @@
     "enrollmentAvg": 25947,
     "businessPctEnd": 0.1381,
     "businessDegreesLatest": 710,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 26172,
     "businessPctStart": 0.1449,
@@ -66857,7 +66891,8 @@
     "connectionType": "",
     "enrollmentStart": 25721,
     "businessPctStart": 0.1381,
-    "businessDegreesStart": 634
+    "businessDegreesStart": 634,
+    "fromInterim": true
   },
   {
     "id": 1148,
@@ -67212,7 +67247,7 @@
     "enrollmentAvg": 22700,
     "businessPctEnd": 0.1441,
     "businessDegreesLatest": 710,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Washington"
   },
@@ -67271,7 +67306,8 @@
     "businessDegreesLatest": 710,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "University of Washington"
+    "phdInstitution": "University of Washington",
+    "fromInterim": true
   },
   {
     "id": 1155,
@@ -67718,7 +67754,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -67775,7 +67811,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": 1479,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 1164,
@@ -68003,7 +68040,7 @@
     "enrollmentAvg": 29153,
     "businessPctEnd": 0.1269,
     "businessDegreesLatest": 1479,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Harvard University",
     "enrollmentStart": 28916,
@@ -68068,7 +68105,8 @@
     "phdInstitution": "Harvard University",
     "enrollmentStart": 29390,
     "businessPctStart": 0.1269,
-    "businessDegreesStart": 938
+    "businessDegreesStart": 938,
+    "fromInterim": true
   },
   {
     "id": 1169,
@@ -69182,7 +69220,7 @@
     "enrollmentAvg": 27345,
     "businessPctEnd": 0.2098,
     "businessDegreesLatest": 1822,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Harvard University",
     "enrollmentStart": 27261,
@@ -69247,7 +69285,8 @@
     "phdInstitution": "Harvard University",
     "enrollmentStart": 27428,
     "businessPctStart": 0.2098,
-    "businessDegreesStart": 1318
+    "businessDegreesStart": 1318,
+    "fromInterim": true
   },
   {
     "id": 1189,
@@ -69598,7 +69637,7 @@
     "enrollmentAvg": 24285,
     "businessPctEnd": 0.1301,
     "businessDegreesLatest": 910,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of California, Santa Cruz",
     "enrollmentStart": 24473,
@@ -69664,7 +69703,8 @@
     "phdYear": 1988,
     "enrollmentStart": 24096,
     "businessPctStart": 0.1301,
-    "businessDegreesStart": 806
+    "businessDegreesStart": 806,
+    "fromInterim": true
   },
   {
     "id": 1196,
@@ -74753,7 +74793,7 @@
     "enrollmentAvg": 30172,
     "businessPctEnd": 0.1602,
     "businessDegreesLatest": 2227,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Michigan",
     "enrollmentStart": 30410,
@@ -74818,7 +74858,8 @@
     "phdInstitution": "University of Michigan",
     "enrollmentStart": 29934,
     "businessPctStart": 0.1602,
-    "businessDegreesStart": 1123
+    "businessDegreesStart": 1123,
+    "fromInterim": true
   },
   {
     "id": 1285,
@@ -75942,7 +75983,7 @@
     "enrollmentAvg": 53082,
     "businessPctEnd": 0.1051,
     "businessDegreesLatest": 1894,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of North Carolina at Chapel Hill",
     "businessPctStart": 0.1051,
@@ -76003,7 +76044,8 @@
     "businessDegreesLatest": 1894,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "University of North Carolina at Chapel Hill"
+    "phdInstitution": "University of North Carolina at Chapel Hill",
+    "fromInterim": true
   },
   {
     "id": 1305,
@@ -76697,7 +76739,7 @@
     "enrollmentAvg": 25028,
     "businessPctEnd": 0.1499,
     "businessDegreesLatest": 742,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Iowa",
     "phdYear": 1998,
@@ -76763,7 +76805,8 @@
     "phdInstitution": "University of Iowa",
     "enrollmentStart": 24879,
     "businessPctStart": 0.1499,
-    "businessDegreesStart": 770
+    "businessDegreesStart": 770,
+    "fromInterim": true
   },
   {
     "id": 1318,
@@ -76998,7 +77041,7 @@
     "enrollmentAvg": 34864,
     "businessPctEnd": 0.1875,
     "businessDegreesLatest": 1437,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Rice University",
     "enrollmentStart": 34864,
@@ -77062,7 +77105,8 @@
     "connectionType": "",
     "phdInstitution": "Rice University",
     "businessPctStart": 0.1875,
-    "businessDegreesStart": 1437
+    "businessDegreesStart": 1437,
+    "fromInterim": true
   },
   {
     "id": 1323,
@@ -77532,7 +77576,7 @@
     "enrollmentAvg": 13473,
     "businessPctEnd": 0.0876,
     "businessDegreesLatest": 291,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Stanford University",
     "phdYear": 1984,
@@ -77599,7 +77643,8 @@
     "phdYear": 1984,
     "enrollmentStart": 13554,
     "businessPctStart": 0.0876,
-    "businessDegreesStart": 259
+    "businessDegreesStart": 259,
+    "fromInterim": true
   },
   {
     "id": 1332,
@@ -78660,7 +78705,7 @@
     "enrollmentAvg": 45500,
     "businessPctEnd": 0.094,
     "businessDegreesLatest": 1322,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Washington",
     "phdYear": 1978,
@@ -78727,7 +78772,8 @@
     "phdYear": 1978,
     "enrollmentStart": 45591,
     "businessPctStart": 0.094,
-    "businessDegreesStart": 1190
+    "businessDegreesStart": 1190,
+    "fromInterim": true
   },
   {
     "id": 1351,
@@ -79320,7 +79366,7 @@
     "enrollmentAvg": 49605,
     "businessPctEnd": 0.1446,
     "businessDegreesLatest": 2465,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Minnesota"
   },
@@ -79379,7 +79425,8 @@
     "businessDegreesLatest": 2465,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "University of Minnesota"
+    "phdInstitution": "University of Minnesota",
+    "fromInterim": true
   },
   {
     "id": 1362,
@@ -80261,7 +80308,7 @@
     "enrollmentAvg": 28736,
     "businessPctEnd": 0.1242,
     "businessDegreesLatest": 831,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Johns Hopkins University",
     "enrollmentStart": 28303,
@@ -80326,7 +80373,8 @@
     "phdInstitution": "Johns Hopkins University",
     "enrollmentStart": 29168,
     "businessPctStart": 0.1242,
-    "businessDegreesStart": 589
+    "businessDegreesStart": 589,
+    "fromInterim": true
   },
   {
     "id": 1378,
@@ -80381,7 +80429,7 @@
     "enrollmentAvg": 31827,
     "businessPctEnd": 0.1301,
     "businessDegreesLatest": 831,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Auburn University",
     "enrollmentStart": 32027,
@@ -80446,7 +80494,8 @@
     "phdInstitution": "Auburn University",
     "enrollmentStart": 31627,
     "businessPctStart": 0.1301,
-    "businessDegreesStart": 930
+    "businessDegreesStart": 930,
+    "fromInterim": true
   },
   {
     "id": 1380,
@@ -80738,7 +80787,7 @@
     "enrollmentAvg": 28238,
     "businessPctEnd": 0.1148,
     "businessDegreesLatest": 831,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -80795,7 +80844,8 @@
     "businessPctEnd": 0.1148,
     "businessDegreesLatest": 831,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 1386,
@@ -81419,7 +81469,7 @@
     "enrollmentAvg": 35169,
     "businessPctEnd": 0.1736,
     "businessDegreesLatest": 1992,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "Louisiana State University",
     "enrollmentStart": 34440,
@@ -81484,7 +81534,8 @@
     "phdInstitution": "Louisiana State University",
     "enrollmentStart": 36383,
     "businessPctStart": 0.1736,
-    "businessDegreesStart": 1604
+    "businessDegreesStart": 1604,
+    "fromInterim": true
   },
   {
     "id": 1398,
@@ -84391,7 +84442,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -84448,7 +84499,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 1449,
