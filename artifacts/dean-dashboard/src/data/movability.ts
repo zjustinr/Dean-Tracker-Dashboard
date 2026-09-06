@@ -184,6 +184,16 @@ export function movabilityBand(t: TenureInfo | undefined): MovabilityRating | nu
  * tenure), and this person's own completed appointments for their average.
  */
 export function tenureInfoFor(dean: Dean, cohort: Dean[], pastPositions?: { startYear: number | null; endYear: number | null; tenureLength: number | null }[]): TenureInfo {
+  // The feeder bench gets no reading. Two reasons, and either alone is enough.
+  // The cohort median is built from completed DEAN appointments, so banding an
+  // associate dean against it compares them to a different job. And the bench is
+  // a current-roster snapshot: 37 of 11,930 rows carry a start date at all, so
+  // for almost all of them there is no years-in-seat to band in the first place.
+  // Until F14's pipeline changes that, a movability claim about the bench is
+  // unsupported and the product should not make one.
+  if ((dean as { roleType?: string }).roleType === "subdean") {
+    return { sitting: isSitting(dean), currentTenure: null, median: null, personalAvg: null, cohortN: 0 };
+  }
   const stats = tenureStats(cohort);
   const own = (pastPositions ?? cohort.filter((x) => x.dean === dean.dean && x.id !== dean.id))
     .map((p) => completedTenure(p))

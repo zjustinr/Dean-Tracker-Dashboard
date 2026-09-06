@@ -274,6 +274,21 @@ arithmetic** — 31 records with negative spans, a start year of zero (one read 
 2,004-year tenure), and 80-to-136-year spells whose end year was a placeholder for
 "not documented".
 
+### Feeder-bench start dates (`scripts/bench-start-dates.mjs`)
+
+A resumable pipeline that brackets when an associate/vice dean first appeared on their school's
+archived leadership page, because nobody announces those appointments and 37 of 11,930 bench records
+carry a start date. ~43h of archive fetching for the full corpus, ordered so the first hours deliver
+the most records; `apply-bench-start-dates.mjs` merges only tight brackets, and only with
+`startPrecision: "bracketed"` and a label naming the window. Full write-up:
+`docs/bench-start-dates.md`.
+
+**Until it lands, the product makes no tenure or movability claim about the bench** — `tenureInfoFor`
+returns no reading for a `roleType: "subdean"` row, both because the cohort median is a *dean* norm
+and because almost no bench row has a start date to band. Two related facts a future change should
+address: bench rows have no usable ids (they are addressed by a natural key, see `lib/bench.mjs`), and
+a `startPrecision` marker exists only on rows this pipeline wrote — generalising it is F15.
+
 ### Out-of-sample validation (`scripts/scout-holdout.mjs`)
 
 `pnpm scout-holdout` trains the Scout ranking on appointments before a cutoff and tests it on every
