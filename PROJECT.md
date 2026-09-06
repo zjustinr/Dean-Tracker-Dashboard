@@ -274,6 +274,38 @@ arithmetic** — 31 records with negative spans, a start year of zero (one read 
 2,004-year tenure), and 80-to-136-year spells whose end year was a placeholder for
 "not documented".
 
+### Departure outcomes (`src/data/departure.ts` + `scripts/lib/departure.mjs`)
+
+One closed, mutually exclusive set of destinations — promotion, another deanship,
+other senior administration, faculty, retirement, external, death, continued,
+other, not recorded — derived from `nextRole` rather than collected afresh.
+Competing risks needs this: leaving for a provostship, retiring, and being pushed
+out are different events with different predictors, and one "departed" outcome
+hides that.
+
+**Read the coverage before the distribution.** `nextRole` is populated on 94.5% of
+completed spells, but 62.2% of them say "Unknown" or nothing at all — the
+destination is genuinely recorded for **37.8%**. Both charts that use these
+categories say so on the card. `unknown` means unknown and must never be read as
+"voluntary": involuntary exit carries 32 rows in the entire corpus and no re-coding
+of what is already written down will recover it.
+
+The category is NOT stored. It is a pure function of `nextRole`, so every consumer
+derives it — the frontend through `departure.ts`, scripts through `departure.mjs`,
+and the two must stay in step (same categories, same rules, same precedence, and
+precedence *is* the logic). Storing it would add a second copy to keep in step for
+no reader that could not call the function.
+
+**Conversions are stored**, because a conversion is a property of a *pair* of
+spells and a consumer holding one record cannot compute it:
+`convertedToPermanent` on the interim spell, `fromInterim` on the permanent one
+(present only where true). `scripts/derive-departures.mjs` writes them,
+`scripts/validate-departures.mjs` fails CI when they drift. Two rules matter:
+the derivation only ever ADDS — a conversion recorded by hand in a spell's notes,
+with no second row to rebuild it from, is carried forward, never overwritten —
+and it reads `fromInterim` as well as `convertedToPermanent` so it is a fixed
+point under its own output rather than a one-way trip.
+
 ### The movability definition is versioned (`src/data/movability.ts`)
 
 `MOVABILITY_VERSION` plus `MOVABILITY_CHANGELOG` stamp the definition, and the

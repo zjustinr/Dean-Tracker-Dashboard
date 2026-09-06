@@ -1911,7 +1911,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of California, Irvine"
   },
@@ -1970,7 +1970,8 @@
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "University of California, Irvine"
+    "phdInstitution": "University of California, Irvine",
+    "fromInterim": true
   },
   {
     "id": 36,
@@ -4505,7 +4506,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Texas at Austin"
   },
@@ -4564,7 +4565,8 @@
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "University of Texas at Austin"
+    "phdInstitution": "University of Texas at Austin",
+    "fromInterim": true
   },
   {
     "id": 82,
@@ -7770,7 +7772,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -7827,7 +7829,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 140,
@@ -13454,7 +13457,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -13511,7 +13514,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 241,
@@ -20491,7 +20495,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -20548,7 +20552,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 366,
@@ -28199,7 +28204,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -28256,7 +28261,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 503,
@@ -32699,7 +32705,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -32756,7 +32762,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 583,

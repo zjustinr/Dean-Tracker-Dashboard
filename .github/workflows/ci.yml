@@ -6,6 +6,7 @@ on:
       - "artifacts/dean-dashboard/src/data/**.json"
       - "artifacts/dean-dashboard/scripts/lib/tenure.mjs"
       - "artifacts/dean-dashboard/scripts/validate-*.mjs"
+      - "artifacts/dean-dashboard/scripts/lib/departure.mjs"
 
 jobs:
   validate-source-urls:
@@ -36,3 +37,18 @@ jobs:
       # spell longer than a career -- is a regression wherever it appears.
       - name: Check no record carries impossible tenure arithmetic
         run: node artifacts/dean-dashboard/scripts/validate-tenure.mjs
+
+  validate-departures:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The interim-to-permanent flags are stored (a conversion is a property of a
+      # pair of spells, so one record cannot compute it), which means they need a
+      # check that they still match the derivation that produced them.
+      - name: Check stored conversion flags match the derivation
+        run: node artifacts/dean-dashboard/scripts/validate-departures.mjs

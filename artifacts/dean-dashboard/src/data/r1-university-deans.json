@@ -332,7 +332,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "Johns Hopkins University"
  },
@@ -391,7 +391,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "Johns Hopkins University"
+  "phdInstitution": "Johns Hopkins University",
+  "fromInterim": true
  },
  {
   "id": 8,
@@ -2867,7 +2868,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -2924,7 +2925,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 53,
@@ -3599,7 +3601,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -3656,7 +3658,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 66,
@@ -5566,7 +5569,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of Texas at Austin"
  },
@@ -5625,7 +5628,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of Texas at Austin"
+  "phdInstitution": "University of Texas at Austin",
+  "fromInterim": true
  },
  {
   "id": 101,
@@ -8037,7 +8041,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -8094,7 +8098,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 145,
@@ -9670,7 +9675,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of California, Davis"
  },
@@ -9729,7 +9734,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of California, Davis"
+  "phdInstitution": "University of California, Davis",
+  "fromInterim": true
  },
  {
   "id": 174,
@@ -19712,7 +19718,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -19769,7 +19775,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 353,
@@ -20951,7 +20958,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -21008,7 +21015,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 375,
@@ -26300,7 +26308,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -26357,7 +26365,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 471,
@@ -30246,7 +30255,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "Rice University"
  },
@@ -30305,7 +30314,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "Rice University"
+  "phdInstitution": "Rice University",
+  "fromInterim": true
  },
  {
   "id": 542,
@@ -32448,7 +32458,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -32505,7 +32515,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 582,
@@ -32728,7 +32739,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -32785,7 +32796,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 587,
@@ -33800,7 +33812,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -33857,7 +33869,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 606,
@@ -35657,7 +35670,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of Houston"
  },
@@ -35716,7 +35729,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of Houston"
+  "phdInstitution": "University of Houston",
+  "fromInterim": true
  },
  {
   "id": 640,
@@ -47421,7 +47435,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of California, Berkeley"
  },
@@ -47480,7 +47494,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of California, Berkeley"
+  "phdInstitution": "University of California, Berkeley",
+  "fromInterim": true
  },
  {
   "id": 855,
@@ -48043,7 +48058,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -48100,7 +48115,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 866,
@@ -51420,7 +51436,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -51477,7 +51493,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 926,
@@ -53336,7 +53353,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "Michigan State University"
  },
@@ -53395,7 +53412,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "Michigan State University"
+  "phdInstitution": "Michigan State University",
+  "fromInterim": true
  },
  {
   "id": 960,
@@ -56376,7 +56394,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -56433,7 +56451,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1014,
@@ -57505,7 +57524,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of North Carolina at Chapel Hill"
  },
@@ -57564,7 +57583,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of North Carolina at Chapel Hill"
+  "phdInstitution": "University of North Carolina at Chapel Hill",
+  "fromInterim": true
  },
  {
   "id": 1034,
@@ -59421,7 +59441,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -59478,7 +59498,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1068,
@@ -59873,7 +59894,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -59930,7 +59951,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1076,
@@ -61901,7 +61923,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of Texas at Austin"
  },
@@ -61960,7 +61982,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of Texas at Austin"
+  "phdInstitution": "University of Texas at Austin",
+  "fromInterim": true
  },
  {
   "id": 1112,
@@ -64101,7 +64124,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -64158,7 +64181,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1151,
@@ -65741,7 +65765,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -65798,7 +65822,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1180,
@@ -67548,7 +67573,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -67605,7 +67630,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1213,
@@ -68165,7 +68191,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -68222,7 +68248,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1224,

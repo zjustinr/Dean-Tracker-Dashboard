@@ -11204,7 +11204,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -11261,7 +11261,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 202,
@@ -24772,7 +24773,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -24829,7 +24830,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 444,
@@ -32226,7 +32228,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -32283,7 +32285,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 577,
@@ -37829,7 +37832,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Iowa"
   },
@@ -37888,7 +37891,8 @@
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "University of Iowa"
+    "phdInstitution": "University of Iowa",
+    "fromInterim": true
   },
   {
     "id": 677,
@@ -40520,7 +40524,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -40577,7 +40581,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 725,
@@ -41642,7 +41647,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -41699,7 +41704,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 745,
@@ -54980,7 +54986,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -55037,7 +55043,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 983,

@@ -6,9 +6,10 @@ import {
   PieChart, Pie, Cell, Legend,
 } from "recharts";
 import type { Dean } from "@/data/types";
-import { CHART_COLORS, NEXT_ROLE_LABELS, genderNorm } from "@/data/types";
+import { CHART_COLORS, genderNorm } from "@/data/types";
 import { useSchoolsInfo, makeSchoolKey } from "@/data/useData";
 import { completedTenure, completedTenures } from "@/data/tenure";
+import { departureBreakdown } from "@/data/departure";
 import { useDataset } from "@/data/DatasetContext";
 import PRESIDENTS from "@/data/university-presidents.json";
 
@@ -73,17 +74,12 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
       .map(([name, value]) => ({ name, value }));
   }, [deans]);
 
-  const nextRoleData = useMemo(() => {
-    const counts: Record<string, number> = {};
-    for (const d of deans) {
-      if (!d.nextRole) continue;
-      const label = NEXT_ROLE_LABELS[d.nextRole] || d.nextRole;
-      counts[label] = (counts[label] || 0) + 1;
-    }
-    return Object.entries(counts)
-      .sort(([, a], [, b]) => b - a)
-      .map(([name, value]) => ({ name, value }));
-  }, [deans]);
+  // The shared destination categories (src/data/departure.ts), same as the
+  // corpus-wide chart in Aggregate Trends.
+  const nextRoleData = useMemo(
+    () => departureBreakdown(deans).map((b) => ({ name: b.label, value: b.value })),
+    [deans],
+  );
 
   // Completed spells only. Filtering on "has a tenureLength" used to let sitting
   // leaders in -- four indices freeze a tenure onto people who never left -- which
@@ -223,7 +219,7 @@ export default function SchoolAnalytics({ deans }: { deans: Dean[] }) {
         </Card>
 
         <Card>
-          <CardHeader className="pb-2"><CardTitle className="text-sm">Next Roles</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm">Where they went next</CardTitle></CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={nextRoleData} layout="vertical" margin={{ top: 5, right: 10, bottom: 5, left: 5 }}>

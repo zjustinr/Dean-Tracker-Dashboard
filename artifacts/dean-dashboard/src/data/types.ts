@@ -55,7 +55,14 @@ export interface Dean {
   enrollmentAvg: number | null;
   businessPctEnd: number | null;
   businessDegreesLatest: number | null;
+  // Interim-to-permanent conversion, as two halves of one fact (see
+  // scripts/lib/departure.mjs). On an INTERIM spell, convertedToPermanent means
+  // this person went on to hold this seat permanently. On a PERMANENT spell,
+  // fromInterim means they held it on an interim basis first -- present only
+  // where true, and the only place the fact lives for the 47 permanent spells
+  // whose interim predecessor was never entered as its own row.
   convertedToPermanent: boolean;
+  fromInterim?: boolean;
   connectionType: string;
 }
 

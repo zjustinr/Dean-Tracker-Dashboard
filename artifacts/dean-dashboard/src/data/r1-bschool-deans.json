@@ -392,7 +392,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Georgia"
  },
@@ -451,7 +451,8 @@
   "businessDegreesLatest": 4804,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Georgia"
+  "phdInstitution": "University of Georgia",
+  "fromInterim": true
  },
  {
   "id": 9,
@@ -1189,7 +1190,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty"
  },
  {
@@ -1246,7 +1247,8 @@
   "businessPctEnd": 0.2359,
   "businessDegreesLatest": 1517,
   "convertedToPermanent": false,
-  "connectionType": "Alumni-and-former-faculty"
+  "connectionType": "Alumni-and-former-faculty",
+  "fromInterim": true
  },
  {
   "id": 23,
@@ -3292,7 +3294,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": "Alumni"
+  "connectionType": "Alumni",
+  "fromInterim": true
  },
  {
   "id": 59,
@@ -3516,7 +3519,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of California, Irvine"
  },
@@ -3575,7 +3578,8 @@
   "businessDegreesLatest": 791,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of California, Irvine"
+  "phdInstitution": "University of California, Irvine",
+  "fromInterim": true
  },
  {
   "id": 64,
@@ -4312,7 +4316,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty",
   "phdInstitution": "University of Virginia"
  },
@@ -4371,7 +4375,8 @@
   "businessDegreesLatest": 713,
   "convertedToPermanent": false,
   "connectionType": "Alumni-and-former-faculty",
-  "phdInstitution": "University of Virginia"
+  "phdInstitution": "University of Virginia",
+  "fromInterim": true
  },
  {
   "id": 78,
@@ -4994,7 +4999,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "Yale University"
  },
@@ -5053,7 +5058,8 @@
   "businessDegreesLatest": 1724,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "Yale University"
+  "phdInstitution": "Yale University",
+  "fromInterim": true
  },
  {
   "id": 90,
@@ -5677,7 +5683,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Pennsylvania"
  },
@@ -5736,7 +5742,8 @@
   "businessDegreesLatest": 1528,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Pennsylvania"
+  "phdInstitution": "University of Pennsylvania",
+  "fromInterim": true
  },
  {
   "id": 102,
@@ -5791,7 +5798,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty",
   "phdInstitution": "Duke University Fuqua School of Business"
  },
@@ -5850,7 +5857,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Current faculty",
-  "phdInstitution": "Duke University Fuqua School of Business"
+  "phdInstitution": "Duke University Fuqua School of Business",
+  "fromInterim": true
  },
  {
   "id": 104,
@@ -8234,7 +8242,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty"
  },
  {
@@ -8291,7 +8299,8 @@
   "businessPctEnd": 0,
   "businessDegreesLatest": 2106,
   "convertedToPermanent": false,
-  "connectionType": "Alumni-and-former-faculty"
+  "connectionType": "Alumni-and-former-faculty",
+  "fromInterim": true
  },
  {
   "id": 147,
@@ -8573,7 +8582,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Pittsburgh"
  },
@@ -8632,7 +8641,8 @@
   "businessDegreesLatest": 3452,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Pittsburgh"
+  "phdInstitution": "University of Pittsburgh",
+  "fromInterim": true
  },
  {
   "id": 153,
@@ -8687,7 +8697,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty",
   "phdInstitution": "Indiana University"
  },
@@ -8746,7 +8756,8 @@
   "businessDegreesLatest": 3452,
   "convertedToPermanent": false,
   "connectionType": "Alumni-and-former-faculty",
-  "phdInstitution": "Indiana University"
+  "phdInstitution": "Indiana University",
+  "fromInterim": true
  },
  {
   "id": 155,
@@ -8801,7 +8812,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty"
  },
  {
@@ -8858,7 +8869,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": 3452,
   "convertedToPermanent": false,
-  "connectionType": "Alumni-and-former-faculty"
+  "connectionType": "Alumni-and-former-faculty",
+  "fromInterim": true
  },
  {
   "id": 157,
@@ -8970,7 +8982,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Illinois at Urbana-Champaign"
  },
@@ -9029,7 +9041,8 @@
   "businessDegreesLatest": 1437,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Illinois at Urbana-Champaign"
+  "phdInstitution": "University of Illinois at Urbana-Champaign",
+  "fromInterim": true
  },
  {
   "id": 160,
@@ -9084,7 +9097,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Missouri"
  },
@@ -9143,7 +9156,8 @@
   "businessDegreesLatest": 1437,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Missouri"
+  "phdInstitution": "University of Missouri",
+  "fromInterim": true
  },
  {
   "id": 162,
@@ -9651,7 +9665,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Current faculty",
   "phdInstitution": "Indiana University"
  },
@@ -9710,7 +9724,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Current faculty",
-  "phdInstitution": "Indiana University"
+  "phdInstitution": "Indiana University",
+  "fromInterim": true
  },
  {
   "id": 172,
@@ -9821,7 +9836,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Current faculty",
   "phdInstitution": "Arizona State University"
  },
@@ -9880,7 +9895,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Current faculty",
-  "phdInstitution": "Arizona State University"
+  "phdInstitution": "Arizona State University",
+  "fromInterim": true
  },
  {
   "id": 175,
@@ -11747,7 +11763,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Texas at Austin"
  },
@@ -11806,7 +11822,8 @@
   "businessDegreesLatest": 1178,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Texas at Austin"
+  "phdInstitution": "University of Texas at Austin",
+  "fromInterim": true
  },
  {
   "id": 209,
@@ -12203,7 +12220,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "Michigan State University"
  },
@@ -12262,7 +12279,8 @@
   "businessDegreesLatest": 2291,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "Michigan State University"
+  "phdInstitution": "Michigan State University",
+  "fromInterim": true
  },
  {
   "id": 217,
@@ -13677,7 +13695,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Prior-institutional-role",
   "phdInstitution": "University of Tennessee, Knoxville"
  },
@@ -13736,7 +13754,8 @@
   "businessDegreesLatest": 54,
   "convertedToPermanent": false,
   "connectionType": "Prior-institutional-role",
-  "phdInstitution": "University of Tennessee, Knoxville"
+  "phdInstitution": "University of Tennessee, Knoxville",
+  "fromInterim": true
  },
  {
   "id": 243,
@@ -13905,7 +13924,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni"
  },
  {
@@ -13962,7 +13981,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": "Alumni"
+  "connectionType": "Alumni",
+  "fromInterim": true
  },
  {
   "id": 247,
@@ -16338,7 +16358,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Nebraska-Lincoln"
  },
@@ -16397,7 +16417,8 @@
   "businessDegreesLatest": 1586,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Nebraska-Lincoln"
+  "phdInstitution": "University of Nebraska-Lincoln",
+  "fromInterim": true
  },
  {
   "id": 290,
@@ -18436,7 +18457,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Michigan"
  },
@@ -18495,7 +18516,8 @@
   "businessDegreesLatest": 2561,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Michigan"
+  "phdInstitution": "University of Michigan",
+  "fromInterim": true
  },
  {
   "id": 327,
@@ -20197,7 +20219,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty"
  },
  {
@@ -20254,7 +20276,8 @@
   "businessPctEnd": 0.1169,
   "businessDegreesLatest": 471,
   "convertedToPermanent": false,
-  "connectionType": "Former-faculty"
+  "connectionType": "Former-faculty",
+  "fromInterim": true
  },
  {
   "id": 358,
@@ -22127,7 +22150,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty"
  },
  {
@@ -22184,7 +22207,8 @@
   "businessPctEnd": 0.3268,
   "businessDegreesLatest": 2126,
   "convertedToPermanent": false,
-  "connectionType": "Former-faculty"
+  "connectionType": "Former-faculty",
+  "fromInterim": true
  },
  {
   "id": 392,
@@ -23996,7 +24020,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "Pennsylvania State University"
  },
@@ -24055,7 +24079,8 @@
   "businessDegreesLatest": 1242,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "Pennsylvania State University"
+  "phdInstitution": "Pennsylvania State University",
+  "fromInterim": true
  },
  {
   "id": 425,
@@ -25475,7 +25500,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "Pennsylvania State University"
  },
@@ -25534,7 +25559,8 @@
   "businessDegreesLatest": 1809,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "Pennsylvania State University"
+  "phdInstitution": "Pennsylvania State University",
+  "fromInterim": true
  },
  {
   "id": 451,
@@ -25589,7 +25615,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty",
   "phdInstitution": "University of Arkansas"
  },
@@ -25648,7 +25674,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Current faculty",
-  "phdInstitution": "University of Arkansas"
+  "phdInstitution": "University of Arkansas",
+  "fromInterim": true
  },
  {
   "id": 453,
@@ -26272,7 +26299,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty",
   "phdInstitution": "University of California, Berkeley"
  },
@@ -26331,7 +26358,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Current faculty",
-  "phdInstitution": "University of California, Berkeley"
+  "phdInstitution": "University of California, Berkeley",
+  "fromInterim": true
  },
  {
   "id": 465,
@@ -33379,7 +33407,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty"
  },
  {
@@ -33436,7 +33464,8 @@
   "businessPctEnd": 0.0564,
   "businessDegreesLatest": 1599,
   "convertedToPermanent": false,
-  "connectionType": "Former-faculty"
+  "connectionType": "Former-faculty",
+  "fromInterim": true
  },
  {
   "id": 590,
@@ -33945,7 +33974,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty",
   "phdInstitution": "Massachusetts Institute of Technology"
  },
@@ -34004,7 +34033,8 @@
   "businessDegreesLatest": 1812,
   "convertedToPermanent": false,
   "connectionType": "Alumni-and-former-faculty",
-  "phdInstitution": "Massachusetts Institute of Technology"
+  "phdInstitution": "Massachusetts Institute of Technology",
+  "fromInterim": true
  },
  {
   "id": 600,
@@ -36662,7 +36692,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Pennsylvania"
  },
@@ -36721,7 +36751,8 @@
   "businessDegreesLatest": 1325,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Pennsylvania"
+  "phdInstitution": "University of Pennsylvania",
+  "fromInterim": true
  },
  {
   "id": 648,
@@ -36776,7 +36807,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "New York University Stern School of Business"
  },
@@ -36835,7 +36866,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Current faculty",
-  "phdInstitution": "New York University Stern School of Business"
+  "phdInstitution": "New York University Stern School of Business",
+  "fromInterim": true
  },
  {
   "id": 650,
@@ -37171,7 +37203,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty"
  },
  {
@@ -37228,7 +37260,8 @@
   "businessPctEnd": 0.1965,
   "businessDegreesLatest": 1836,
   "convertedToPermanent": false,
-  "connectionType": "Current faculty"
+  "connectionType": "Current faculty",
+  "fromInterim": true
  },
  {
   "id": 657,
@@ -37397,7 +37430,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty"
  },
  {
@@ -37454,7 +37487,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": "Current faculty"
+  "connectionType": "Current faculty",
+  "fromInterim": true
  },
  {
   "id": 661,
@@ -38076,7 +38110,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty"
  },
  {
@@ -38133,7 +38167,8 @@
   "businessPctEnd": 0.2074,
   "businessDegreesLatest": 2167,
   "convertedToPermanent": false,
-  "connectionType": "Alumni-and-former-faculty"
+  "connectionType": "Alumni-and-former-faculty",
+  "fromInterim": true
  },
  {
   "id": 673,
@@ -38982,7 +39017,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Chicago"
  },
@@ -39041,7 +39076,8 @@
   "businessDegreesLatest": 755,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Chicago"
+  "phdInstitution": "University of Chicago",
+  "fromInterim": true
  },
  {
   "id": 689,
@@ -40627,7 +40663,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Arkansas"
  },
@@ -40686,7 +40722,8 @@
   "businessDegreesLatest": 1841,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Arkansas"
+  "phdInstitution": "University of Arkansas",
+  "fromInterim": true
  },
  {
   "id": 718,
@@ -41310,7 +41347,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "University of Michigan"
  },
@@ -41369,7 +41406,8 @@
   "businessDegreesLatest": 2420,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "University of Michigan"
+  "phdInstitution": "University of Michigan",
+  "fromInterim": true
  },
  {
   "id": 730,
@@ -42220,7 +42258,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Former-faculty",
   "phdInstitution": "Stanford University Graduate School of Business"
  },
@@ -42279,7 +42317,8 @@
   "businessDegreesLatest": 1474,
   "convertedToPermanent": false,
   "connectionType": "Former-faculty",
-  "phdInstitution": "Stanford University Graduate School of Business"
+  "phdInstitution": "Stanford University Graduate School of Business",
+  "fromInterim": true
  },
  {
   "id": 746,
@@ -43920,7 +43959,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "Alumni-and-former-faculty"
  },
  {
@@ -43977,7 +44016,8 @@
   "businessPctEnd": 0,
   "businessDegreesLatest": 531,
   "convertedToPermanent": false,
-  "connectionType": "Alumni-and-former-faculty"
+  "connectionType": "Alumni-and-former-faculty",
+  "fromInterim": true
  },
  {
   "id": 776,
@@ -46360,7 +46400,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -76334,8 +76374,9 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": true,
-  "connectionType": ""
+  "convertedToPermanent": false,
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1336,

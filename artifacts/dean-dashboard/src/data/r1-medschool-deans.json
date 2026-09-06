@@ -2743,7 +2743,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -2800,7 +2800,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 51,
@@ -8073,7 +8074,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -8130,7 +8131,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 146,
@@ -16703,7 +16705,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -16760,7 +16762,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 300,
@@ -19394,7 +19397,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -19451,7 +19454,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 348,
@@ -34138,7 +34142,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -34195,7 +34199,8 @@
     "businessPctEnd": null,
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 611,

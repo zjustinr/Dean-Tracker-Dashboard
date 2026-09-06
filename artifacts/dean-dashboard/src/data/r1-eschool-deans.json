@@ -9568,9 +9568,10 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": true,
+    "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "University of Notre Dame"
+    "phdInstitution": "University of Notre Dame",
+    "fromInterim": true
   },
   {
     "id": 172,
@@ -9738,9 +9739,10 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": true,
+    "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "Iowa State University"
+    "phdInstitution": "Iowa State University",
+    "fromInterim": true
   },
   {
     "id": 175,
@@ -10587,9 +10589,10 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": true,
+    "convertedToPermanent": false,
     "connectionType": "",
-    "phdInstitution": "University of Iowa"
+    "phdInstitution": "University of Iowa",
+    "fromInterim": true
   },
   {
     "id": 190,

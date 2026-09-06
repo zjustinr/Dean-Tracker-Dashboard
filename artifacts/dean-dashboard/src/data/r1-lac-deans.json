@@ -1020,7 +1020,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "University of Vermont"
+  "phdInstitution": "University of Vermont",
+  "fromInterim": true
  },
  {
   "id": 19,
@@ -10705,7 +10706,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "Vanderbilt University"
+  "phdInstitution": "Vanderbilt University",
+  "fromInterim": true
  },
  {
   "id": 190,
@@ -14680,7 +14682,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "Drew University"
+  "phdInstitution": "Drew University",
+  "fromInterim": true
  },
  {
   "id": 260,
@@ -14907,7 +14910,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "Regis College"
+  "phdInstitution": "Regis College",
+  "fromInterim": true
  },
  {
   "id": 264,
@@ -17404,7 +17408,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "Princeton University"
+  "phdInstitution": "Princeton University",
+  "fromInterim": true
  },
  {
   "id": 308,
@@ -27675,7 +27680,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "University of Virginia"
+  "phdInstitution": "University of Virginia",
+  "fromInterim": true
  },
  {
   "id": 489,
@@ -30332,7 +30338,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "University of Cambridge"
+  "phdInstitution": "University of Cambridge",
+  "fromInterim": true
  },
  {
   "id": 536,
@@ -30784,7 +30791,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "University of North Carolina at Chapel Hill"
+  "phdInstitution": "University of North Carolina at Chapel Hill",
+  "fromInterim": true
  },
  {
   "id": 544,
@@ -31124,7 +31132,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": "Same institution"
+  "connectionType": "Same institution",
+  "fromInterim": true
  },
  {
   "id": 550,
@@ -34689,7 +34698,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": "Same institution"
+  "connectionType": "Same institution",
+  "fromInterim": true
  },
  {
   "id": 613,
@@ -55812,7 +55822,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "phdInstitution": "Claremont Graduate University"
+  "phdInstitution": "Claremont Graduate University",
+  "fromInterim": true
  },
  {
   "id": 986,
@@ -57428,7 +57439,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1015,
@@ -57454,7 +57466,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1016,
@@ -57478,7 +57491,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1017,
@@ -57504,7 +57518,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1018,
@@ -57530,7 +57545,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1019,
@@ -57556,7 +57572,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1020,
@@ -57582,7 +57599,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1021,
@@ -57606,7 +57624,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1022,
@@ -57632,7 +57651,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1023,
@@ -57646,7 +57666,8 @@
   "sourceUrl": "https://www.avemaria.edu/about/university-leadership",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1024,
@@ -57672,7 +57693,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1025,
@@ -57698,7 +57720,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1026,
@@ -57724,7 +57747,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1027,
@@ -57750,7 +57774,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1028,
@@ -57774,7 +57799,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1029,
@@ -57800,7 +57826,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1030,
@@ -57826,7 +57853,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1031,
@@ -57852,7 +57880,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1032,
@@ -57878,7 +57907,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1033,
@@ -57902,7 +57932,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1034,
@@ -57928,7 +57959,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1035,
@@ -57954,7 +57986,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1036,
@@ -57980,7 +58013,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1037,
@@ -57994,7 +58028,8 @@
   "sourceUrl": "https://www.bard.edu/about/administration/",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1038,
@@ -58020,7 +58055,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1039,
@@ -58046,7 +58082,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1040,
@@ -58070,7 +58107,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1041,
@@ -58094,7 +58132,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1042,
@@ -58108,7 +58147,8 @@
   "sourceUrl": "https://www.bard.edu/about/administration/",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1043,
@@ -58134,7 +58174,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1044,
@@ -58160,7 +58201,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1045,
@@ -58186,7 +58228,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1046,
@@ -58212,7 +58255,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1047,
@@ -58238,7 +58282,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1048,
@@ -58262,7 +58307,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1049,
@@ -58286,7 +58332,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1050,
@@ -58312,7 +58359,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1051,
@@ -58338,7 +58386,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1052,
@@ -58364,7 +58413,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1053,
@@ -58390,7 +58440,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1054,
@@ -58416,7 +58467,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1055,
@@ -58442,7 +58494,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1056,
@@ -58468,7 +58521,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1057,
@@ -58494,7 +58548,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1058,
@@ -58520,7 +58575,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1059,
@@ -58544,7 +58600,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": true,
   "hadAssocDeanRole": true,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1060,
@@ -58570,7 +58627,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1061,
@@ -58596,7 +58654,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1062,
@@ -58622,7 +58681,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1063,
@@ -58646,7 +58706,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1064,
@@ -58670,7 +58731,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1065,
@@ -58694,7 +58756,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1066,
@@ -58720,7 +58783,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1067,
@@ -58744,7 +58808,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": true
+  "hadDeptChairRole": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1068,
@@ -58770,7 +58835,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1069,
@@ -58796,7 +58862,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1070,
@@ -58822,7 +58889,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1071,
@@ -58848,7 +58916,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1072,
@@ -58874,7 +58943,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1073,
@@ -58900,7 +58970,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1074,
@@ -58926,7 +58997,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1075,
@@ -58952,7 +59024,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1076,
@@ -58978,7 +59051,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1077,
@@ -59004,7 +59078,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1078,
@@ -59030,7 +59105,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1079,
@@ -59056,7 +59132,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1080,
@@ -59082,7 +59159,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1081,
@@ -59106,7 +59184,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1082,
@@ -59130,7 +59209,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1083,
@@ -59156,7 +59236,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1084,
@@ -59182,7 +59263,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1085,
@@ -59206,7 +59288,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1086,
@@ -59232,7 +59315,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1087,
@@ -59258,7 +59342,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1088,
@@ -59284,7 +59369,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1089,
@@ -59308,7 +59394,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1090,
@@ -59334,7 +59421,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1091,
@@ -59360,7 +59448,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1092,
@@ -59374,7 +59463,8 @@
   "sourceUrl": "https://www.albright.edu/about/college-leadership",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1093,
@@ -59400,7 +59490,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1094,
@@ -59426,7 +59517,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1095,
@@ -59452,7 +59544,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1096,
@@ -59478,7 +59571,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1097,
@@ -59504,7 +59598,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1098,
@@ -59530,7 +59625,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1099,
@@ -59556,7 +59652,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1100,
@@ -59582,7 +59679,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1101,
@@ -59608,7 +59706,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1102,
@@ -59634,7 +59733,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1103,
@@ -59658,7 +59758,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": true,
   "hadAssocDeanRole": true,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1104,
@@ -59684,7 +59785,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1105,
@@ -59710,7 +59812,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1106,
@@ -59736,7 +59839,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1107,
@@ -59762,7 +59866,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1108,
@@ -59788,7 +59893,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1109,
@@ -59802,7 +59908,8 @@
   "sourceUrl": "https://www.berea.edu/president/organizational-structure/administrative-committee/",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1110,
@@ -59816,7 +59923,8 @@
   "sourceUrl": "https://www.berea.edu/president/organizational-structure/administrative-committee/",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1111,
@@ -59842,7 +59950,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1112,
@@ -59868,7 +59977,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1113,
@@ -59894,7 +60004,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1114,
@@ -59920,7 +60031,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1115,
@@ -59946,7 +60058,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1116,
@@ -59972,7 +60085,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1117,
@@ -59998,7 +60112,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1118,
@@ -60022,7 +60137,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1119,
@@ -60048,7 +60164,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1120,
@@ -60072,7 +60189,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1121,
@@ -60096,7 +60214,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1122,
@@ -60122,7 +60241,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1123,
@@ -60134,7 +60254,8 @@
   "discipline": "Vice President for Student Success",
   "hasPhd": false,
   "sourceUrl": "https://www.cookman.edu/admin/presidents-cabinet.html",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "convertedToPermanent": false
  },
  {
   "id": 1124,
@@ -60160,7 +60281,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1125,
@@ -60186,7 +60308,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1126,
@@ -60212,7 +60335,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1127,
@@ -60238,7 +60362,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1128,
@@ -60264,7 +60389,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1129,
@@ -60290,7 +60416,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1130,
@@ -60314,7 +60441,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1131,
@@ -60338,7 +60466,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1132,
@@ -60362,7 +60491,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1133,
@@ -60388,7 +60518,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1134,
@@ -60414,7 +60545,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1135,
@@ -60440,7 +60572,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1136,
@@ -60466,7 +60599,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1137,
@@ -60492,7 +60626,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1138,
@@ -60518,7 +60653,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1139,
@@ -60544,7 +60680,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1140,
@@ -60570,7 +60707,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1141,
@@ -60596,7 +60734,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1142,
@@ -60622,7 +60761,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1143,
@@ -60648,7 +60788,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1144,
@@ -60674,7 +60815,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1145,
@@ -60700,7 +60842,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1146,
@@ -60726,7 +60869,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1147,
@@ -60752,7 +60896,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1148,
@@ -60776,7 +60921,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": true
+  "hadDeptChairRole": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1149,
@@ -60802,7 +60948,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1150,
@@ -60828,7 +60975,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1151,
@@ -60854,7 +61002,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1152,
@@ -60880,7 +61029,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1153,
@@ -60906,7 +61056,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1154,
@@ -60932,7 +61083,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1155,
@@ -60956,7 +61108,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1156,
@@ -60982,7 +61135,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1157,
@@ -61008,7 +61162,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1158,
@@ -61022,7 +61177,8 @@
   "sourceUrl": "https://www.bucknell.edu/meet-bucknell/bucknell-leadership/operations-management-group",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1159,
@@ -61048,7 +61204,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1160,
@@ -61074,7 +61231,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1161,
@@ -61100,7 +61258,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1162,
@@ -61126,7 +61285,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1163,
@@ -61152,7 +61312,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1164,
@@ -61178,7 +61339,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1165,
@@ -61204,7 +61366,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1166,
@@ -61230,7 +61393,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1167,
@@ -61256,7 +61420,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1168,
@@ -61282,7 +61447,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1169,
@@ -61308,7 +61474,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1170,
@@ -61334,7 +61501,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1171,
@@ -61360,7 +61528,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1172,
@@ -61386,7 +61555,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1173,
@@ -61412,7 +61582,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1174,
@@ -61438,7 +61609,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1175,
@@ -61464,7 +61636,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1176,
@@ -61490,7 +61663,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1177,
@@ -61516,7 +61690,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1178,
@@ -61542,7 +61717,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1179,
@@ -61556,7 +61732,8 @@
   "sourceUrl": "https://central.edu/about/senior-leadership-team/",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1180,
@@ -61580,7 +61757,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1181,
@@ -61604,7 +61782,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1182,
@@ -61630,7 +61809,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1183,
@@ -61656,7 +61836,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1184,
@@ -61682,7 +61863,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1185,
@@ -61708,7 +61890,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1186,
@@ -61734,7 +61917,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1187,
@@ -61760,7 +61944,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1188,
@@ -61786,7 +61971,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1189,
@@ -61812,7 +61998,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1190,
@@ -61838,7 +62025,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1191,
@@ -61864,7 +62052,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1192,
@@ -61888,7 +62077,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1193,
@@ -61902,7 +62092,8 @@
   "sourceUrl": "https://www.claflin.edu/about/leadership/president%27s-cabinet",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1194,
@@ -61926,7 +62117,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1195,
@@ -61952,7 +62144,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1196,
@@ -61978,7 +62171,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1197,
@@ -62004,7 +62198,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1198,
@@ -62030,7 +62225,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1199,
@@ -62056,7 +62252,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1200,
@@ -62080,7 +62277,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": true,
   "hadAssocDeanRole": true,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1201,
@@ -62104,7 +62302,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1202,
@@ -62130,7 +62329,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1203,
@@ -62156,7 +62356,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1204,
@@ -62182,7 +62383,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1205,
@@ -62208,7 +62410,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1206,
@@ -62232,7 +62435,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": true,
   "hadAssocDeanRole": true,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1207,
@@ -62258,7 +62462,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1208,
@@ -62284,7 +62489,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1209,
@@ -62310,7 +62516,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1210,
@@ -62336,7 +62543,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1211,
@@ -62362,7 +62570,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1212,
@@ -62388,7 +62597,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1213,
@@ -62414,7 +62624,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1214,
@@ -62440,7 +62651,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1215,
@@ -62466,7 +62678,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1216,
@@ -62492,7 +62705,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1217,
@@ -62518,7 +62732,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1218,
@@ -62544,7 +62759,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1219,
@@ -62568,7 +62784,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1220,
@@ -62592,7 +62809,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1221,
@@ -62618,7 +62836,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1222,
@@ -62642,7 +62861,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1223,
@@ -62668,7 +62888,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1224,
@@ -62694,7 +62915,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1225,
@@ -62720,7 +62942,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1226,
@@ -62746,7 +62969,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1227,
@@ -62772,7 +62996,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1228,
@@ -62798,7 +63023,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1229,
@@ -62824,7 +63050,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1230,
@@ -62848,7 +63075,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": true
+  "hadDeptChairRole": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1231,
@@ -62874,7 +63102,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1232,
@@ -62898,7 +63127,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1233,
@@ -62924,7 +63154,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1234,
@@ -62950,7 +63181,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1235,
@@ -62976,7 +63208,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1236,
@@ -63002,7 +63235,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1237,
@@ -63028,7 +63262,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1238,
@@ -63054,7 +63289,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1239,
@@ -63080,7 +63316,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1240,
@@ -63106,7 +63343,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1241,
@@ -63132,7 +63370,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1242,
@@ -63158,7 +63397,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1243,
@@ -63184,7 +63424,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1244,
@@ -63210,7 +63451,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1245,
@@ -63234,7 +63476,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1246,
@@ -63260,7 +63503,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1247,
@@ -63286,7 +63530,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1248,
@@ -63312,7 +63557,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1249,
@@ -63338,7 +63584,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1250,
@@ -63364,7 +63611,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1251,
@@ -63388,7 +63636,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1252,
@@ -63414,7 +63663,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1253,
@@ -63438,7 +63688,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1254,
@@ -63464,7 +63715,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1255,
@@ -63490,7 +63742,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1256,
@@ -63516,7 +63769,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1257,
@@ -63540,7 +63794,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1258,
@@ -63566,7 +63821,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1259,
@@ -63592,7 +63848,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1260,
@@ -63618,7 +63875,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1261,
@@ -63642,7 +63900,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1262,
@@ -63668,7 +63927,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1263,
@@ -63694,7 +63954,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1264,
@@ -63718,7 +63979,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": true,
   "hadAssocDeanRole": true,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1265,
@@ -63730,7 +63992,8 @@
   "discipline": "Interim Provost, Academic Affairs & Student Support",
   "hasPhd": false,
   "sourceUrl": "https://www.dillard.edu/about/presidents-biography/org-chart/",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "convertedToPermanent": false
  },
  {
   "id": 1266,
@@ -63754,7 +64017,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1267,
@@ -63780,7 +64044,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1268,
@@ -63806,7 +64071,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1269,
@@ -63832,7 +64098,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1270,
@@ -63858,7 +64125,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1271,
@@ -63884,7 +64152,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1272,
@@ -63910,7 +64179,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1273,
@@ -63936,7 +64206,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1274,
@@ -63962,7 +64233,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1275,
@@ -63988,7 +64260,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1276,
@@ -64014,7 +64287,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1277,
@@ -64040,7 +64314,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1278,
@@ -64066,7 +64341,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1279,
@@ -64090,7 +64366,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1280,
@@ -64104,7 +64381,8 @@
   "sourceUrl": "https://denison.edu/campus/about/senior-staff",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1281,
@@ -64130,7 +64408,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1282,
@@ -64156,7 +64435,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1283,
@@ -64182,7 +64462,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1284,
@@ -64208,7 +64489,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1285,
@@ -64234,7 +64516,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1286,
@@ -64258,7 +64541,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1287,
@@ -64284,7 +64568,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1288,
@@ -64298,7 +64583,8 @@
   "sourceUrl": "https://www.davidson.edu/about/college-leadership/senior-leadership",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1289,
@@ -64324,7 +64610,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1290,
@@ -64350,7 +64637,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1291,
@@ -64376,7 +64664,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1292,
@@ -64402,7 +64691,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1293,
@@ -64428,7 +64718,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1294,
@@ -64454,7 +64745,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1295,
@@ -64480,7 +64772,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1296,
@@ -64506,7 +64799,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1297,
@@ -64532,7 +64826,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1298,
@@ -64558,7 +64853,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1299,
@@ -64584,7 +64880,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1300,
@@ -64610,7 +64907,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1301,
@@ -64636,7 +64934,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1302,
@@ -64662,7 +64961,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1303,
@@ -64688,7 +64988,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1304,
@@ -64714,7 +65015,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1305,
@@ -64738,7 +65040,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1306,
@@ -64762,7 +65065,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1307,
@@ -64788,7 +65092,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1308,
@@ -64814,7 +65119,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1309,
@@ -64840,7 +65146,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1310,
@@ -64866,7 +65173,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1311,
@@ -64892,7 +65200,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1312,
@@ -64918,7 +65227,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1313,
@@ -64944,7 +65254,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1314,
@@ -64970,7 +65281,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1315,
@@ -64996,7 +65308,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1316,
@@ -65022,7 +65335,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1317,
@@ -65048,7 +65362,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1318,
@@ -65074,7 +65389,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1319,
@@ -65100,7 +65416,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1320,
@@ -65126,7 +65443,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1321,
@@ -65152,7 +65470,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1322,
@@ -65178,7 +65497,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1323,
@@ -65204,7 +65524,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1324,
@@ -65230,7 +65551,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1325,
@@ -65256,7 +65578,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1326,
@@ -65270,7 +65593,8 @@
   "sourceUrl": "https://www.lyon.edu/presidents-executive-cabinet",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1327,
@@ -65294,7 +65618,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1328,
@@ -65308,7 +65633,8 @@
   "sourceUrl": "https://www.lyon.edu/presidents-executive-cabinet",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1329,
@@ -65322,7 +65648,8 @@
   "sourceUrl": "https://www.lyon.edu/presidents-executive-cabinet",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1330,
@@ -65348,7 +65675,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1331,
@@ -65374,7 +65702,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1332,
@@ -65400,7 +65729,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1333,
@@ -65426,7 +65756,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1334,
@@ -65452,7 +65783,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1335,
@@ -65478,7 +65810,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1336,
@@ -65504,7 +65837,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1337,
@@ -65528,7 +65862,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1338,
@@ -65554,7 +65889,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1339,
@@ -65580,7 +65916,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1340,
@@ -65606,7 +65943,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1341,
@@ -65632,7 +65970,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1342,
@@ -65658,7 +65997,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1343,
@@ -65684,7 +66024,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1344,
@@ -65710,7 +66051,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1345,
@@ -65736,7 +66078,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1346,
@@ -65762,7 +66105,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1347,
@@ -65788,7 +66132,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1348,
@@ -65812,7 +66157,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1349,
@@ -65838,7 +66184,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1350,
@@ -65864,7 +66211,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1351,
@@ -65890,7 +66238,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1352,
@@ -65916,7 +66265,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1353,
@@ -65942,7 +66292,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1354,
@@ -65968,7 +66319,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1355,
@@ -65992,7 +66344,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1356,
@@ -66016,7 +66369,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1357,
@@ -66040,7 +66394,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1358,
@@ -66066,7 +66421,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1359,
@@ -66092,7 +66448,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1360,
@@ -66118,7 +66475,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1361,
@@ -66144,7 +66502,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1362,
@@ -66170,7 +66529,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1363,
@@ -66196,7 +66556,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1364,
@@ -66220,7 +66581,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1365,
@@ -66234,7 +66596,8 @@
   "sourceUrl": "https://catalog.earlham.edu/academic-catalog-2025-26/president-and-college-council",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1366,
@@ -66260,7 +66623,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1367,
@@ -66284,7 +66648,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1368,
@@ -66310,7 +66675,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1369,
@@ -66322,7 +66688,8 @@
   "discipline": "Provost",
   "hasPhd": false,
   "sourceUrl": "https://www.eastwest.edu/directory/",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "convertedToPermanent": false
  },
  {
   "id": 1370,
@@ -66348,7 +66715,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1371,
@@ -66362,7 +66730,8 @@
   "sourceUrl": "https://www.eckerd.edu/president/staff/",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1372,
@@ -66388,7 +66757,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1373,
@@ -66414,7 +66784,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1374,
@@ -66440,7 +66811,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1375,
@@ -66466,7 +66838,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1376,
@@ -66492,7 +66865,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1377,
@@ -66518,7 +66892,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1378,
@@ -66544,7 +66919,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1379,
@@ -66570,7 +66946,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1380,
@@ -66596,7 +66973,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1381,
@@ -66622,7 +67000,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1382,
@@ -66648,7 +67027,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1383,
@@ -66674,7 +67054,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1384,
@@ -66700,7 +67081,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1385,
@@ -66724,7 +67106,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1386,
@@ -66750,7 +67133,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1387,
@@ -66774,7 +67158,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1388,
@@ -66800,7 +67185,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1389,
@@ -66826,7 +67212,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1390,
@@ -66850,7 +67237,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1391,
@@ -66876,7 +67264,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1392,
@@ -66902,7 +67291,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1393,
@@ -66928,7 +67318,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1394,
@@ -66954,7 +67345,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1395,
@@ -66980,7 +67372,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1396,
@@ -67006,7 +67399,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1397,
@@ -67030,7 +67424,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1398,
@@ -67056,7 +67451,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1399,
@@ -67080,7 +67476,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1400,
@@ -67106,7 +67503,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1401,
@@ -67132,7 +67530,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1402,
@@ -67158,7 +67557,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1403,
@@ -67184,7 +67584,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1404,
@@ -67210,7 +67611,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1405,
@@ -67236,7 +67638,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1406,
@@ -67262,7 +67665,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1407,
@@ -67288,7 +67692,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1408,
@@ -67312,7 +67717,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1409,
@@ -67326,7 +67732,8 @@
   "sourceUrl": "https://rustcollege.edu/leadership/",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1410,
@@ -67352,7 +67759,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1411,
@@ -67376,7 +67784,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": true
+  "hadDeptChairRole": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1412,
@@ -67402,7 +67811,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1413,
@@ -67428,7 +67838,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1414,
@@ -67454,7 +67865,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1415,
@@ -67480,7 +67892,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1416,
@@ -67506,7 +67919,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1417,
@@ -67532,7 +67946,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1418,
@@ -67558,7 +67973,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1419,
@@ -67584,7 +68000,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1420,
@@ -67610,7 +68027,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1421,
@@ -67624,7 +68042,8 @@
   "sourceUrl": "https://drew.edu/about/our-leadership/",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1422,
@@ -67650,7 +68069,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1423,
@@ -67664,7 +68084,8 @@
   "sourceUrl": "https://drew.edu/about/our-leadership/",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1424,
@@ -67690,7 +68111,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1425,
@@ -67716,7 +68138,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1426,
@@ -67742,7 +68165,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1427,
@@ -67768,7 +68192,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1428,
@@ -67782,7 +68207,8 @@
   "sourceUrl": "https://www.emmanuel.edu/about/who-we-are/leadership-planning/administration",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1429,
@@ -67808,7 +68234,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1430,
@@ -67834,7 +68261,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1431,
@@ -67848,7 +68276,8 @@
   "sourceUrl": "https://www.oxy.edu/about-oxy/college-leadership/senior-staff",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1432,
@@ -67874,7 +68303,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1433,
@@ -67900,7 +68330,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1434,
@@ -67926,7 +68357,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1435,
@@ -67952,7 +68384,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1436,
@@ -67978,7 +68411,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1437,
@@ -68004,7 +68438,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1438,
@@ -68030,7 +68465,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1439,
@@ -68056,7 +68492,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1440,
@@ -68082,7 +68519,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1441,
@@ -68108,7 +68546,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1442,
@@ -68132,7 +68571,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1443,
@@ -68158,7 +68598,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1444,
@@ -68184,7 +68625,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1445,
@@ -68198,7 +68640,8 @@
   "sourceUrl": "https://www.phc.edu/administration",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1446,
@@ -68224,7 +68667,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1447,
@@ -68250,7 +68694,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1448,
@@ -68274,7 +68719,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1449,
@@ -68298,7 +68744,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1450,
@@ -68324,7 +68771,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1451,
@@ -68350,7 +68798,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1452,
@@ -68376,7 +68825,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1453,
@@ -68402,7 +68852,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1454,
@@ -68428,7 +68879,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1455,
@@ -68454,7 +68906,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1456,
@@ -68480,7 +68933,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1457,
@@ -68506,7 +68960,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1458,
@@ -68532,7 +68987,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1459,
@@ -68558,7 +69014,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1460,
@@ -68584,7 +69041,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1461,
@@ -68610,7 +69068,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1462,
@@ -68636,7 +69095,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1463,
@@ -68662,7 +69122,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1464,
@@ -68688,7 +69149,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1465,
@@ -68714,7 +69176,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1466,
@@ -68740,7 +69203,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1467,
@@ -68766,7 +69230,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1468,
@@ -68792,7 +69257,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1469,
@@ -68818,7 +69284,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1470,
@@ -68844,7 +69311,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1471,
@@ -68870,7 +69338,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1472,
@@ -68896,7 +69365,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1473,
@@ -68922,7 +69392,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1474,
@@ -68948,7 +69419,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1475,
@@ -68974,7 +69446,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1476,
@@ -69000,7 +69473,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1477,
@@ -69026,7 +69500,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1478,
@@ -69052,7 +69527,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1479,
@@ -69078,7 +69554,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1480,
@@ -69104,7 +69581,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1481,
@@ -69130,7 +69608,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1482,
@@ -69156,7 +69635,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1483,
@@ -69182,7 +69662,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1484,
@@ -69208,7 +69689,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1485,
@@ -69234,7 +69716,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1486,
@@ -69260,7 +69743,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1487,
@@ -69286,7 +69770,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1488,
@@ -69312,7 +69797,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1489,
@@ -69338,7 +69824,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1490,
@@ -69364,7 +69851,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1491,
@@ -69390,7 +69878,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1492,
@@ -69416,7 +69905,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1493,
@@ -69442,7 +69932,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1494,
@@ -69468,7 +69959,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1495,
@@ -69494,7 +69986,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1496,
@@ -69520,7 +70013,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1497,
@@ -69546,7 +70040,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1498,
@@ -69570,7 +70065,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1499,
@@ -69594,7 +70090,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1500,
@@ -69620,7 +70117,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1501,
@@ -69646,7 +70144,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1502,
@@ -69672,7 +70171,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1503,
@@ -69698,7 +70198,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1504,
@@ -69724,7 +70225,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1505,
@@ -69748,7 +70250,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1506,
@@ -69774,7 +70277,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1507,
@@ -69800,7 +70304,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1508,
@@ -69826,7 +70331,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1509,
@@ -69852,7 +70358,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1510,
@@ -69878,7 +70385,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1511,
@@ -69904,7 +70412,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1512,
@@ -69928,7 +70437,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1513,
@@ -69954,7 +70464,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1514,
@@ -69980,7 +70491,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1515,
@@ -70006,7 +70518,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1516,
@@ -70032,7 +70545,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1517,
@@ -70058,7 +70572,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1518,
@@ -70084,7 +70599,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1519,
@@ -70110,7 +70626,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1520,
@@ -70136,7 +70653,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1521,
@@ -70162,7 +70680,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1522,
@@ -70188,7 +70707,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1523,
@@ -70214,7 +70734,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1524,
@@ -70240,7 +70761,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1525,
@@ -70266,7 +70788,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1526,
@@ -70290,7 +70813,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1527,
@@ -70316,7 +70840,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1528,
@@ -70342,7 +70867,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1529,
@@ -70368,7 +70894,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1530,
@@ -70392,7 +70919,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1531,
@@ -70416,7 +70944,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1532,
@@ -70440,7 +70969,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1533,
@@ -70466,7 +70996,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1534,
@@ -70492,7 +71023,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1535,
@@ -70518,7 +71050,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1536,
@@ -70544,7 +71077,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1537,
@@ -70558,7 +71092,8 @@
   "sourceUrl": "https://www.hartwick.edu/about-us/office-of-the-president/senior-staff-board-trustees/",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1538,
@@ -70584,7 +71119,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1539,
@@ -70610,7 +71146,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1540,
@@ -70636,7 +71173,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1541,
@@ -70662,7 +71200,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1542,
@@ -70688,7 +71227,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1543,
@@ -70714,7 +71254,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1544,
@@ -70740,7 +71281,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1545,
@@ -70766,7 +71308,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1546,
@@ -70792,7 +71335,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1547,
@@ -70818,7 +71362,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1548,
@@ -70844,7 +71389,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1549,
@@ -70870,7 +71416,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1550,
@@ -70896,7 +71443,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1551,
@@ -70922,7 +71470,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1552,
@@ -70948,7 +71497,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1553,
@@ -70974,7 +71524,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1554,
@@ -71000,7 +71551,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1555,
@@ -71026,7 +71578,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1556,
@@ -71052,7 +71605,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1557,
@@ -71078,7 +71632,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1558,
@@ -71104,7 +71659,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1559,
@@ -71128,7 +71684,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1560,
@@ -71154,7 +71711,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1561,
@@ -71180,7 +71738,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1562,
@@ -71206,7 +71765,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1563,
@@ -71232,7 +71792,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1564,
@@ -71258,7 +71819,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1565,
@@ -71284,7 +71846,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1566,
@@ -71310,7 +71873,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1567,
@@ -71336,7 +71900,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1568,
@@ -71362,7 +71927,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1569,
@@ -71388,7 +71954,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1570,
@@ -71414,7 +71981,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1571,
@@ -71440,7 +72008,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1572,
@@ -71464,7 +72033,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1573,
@@ -71490,7 +72060,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1574,
@@ -71516,7 +72087,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1575,
@@ -71542,7 +72114,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1576,
@@ -71568,7 +72141,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1577,
@@ -71594,7 +72168,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1578,
@@ -71620,7 +72195,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1579,
@@ -71646,7 +72222,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1580,
@@ -71672,7 +72249,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1581,
@@ -71698,7 +72276,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1582,
@@ -71724,7 +72303,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1583,
@@ -71750,7 +72330,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1584,
@@ -71776,7 +72357,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1585,
@@ -71802,7 +72384,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1586,
@@ -71828,7 +72411,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1587,
@@ -71854,7 +72438,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1588,
@@ -71880,7 +72465,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1589,
@@ -71906,7 +72492,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1590,
@@ -71932,7 +72519,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1591,
@@ -71958,7 +72546,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1592,
@@ -71984,7 +72573,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1593,
@@ -72010,7 +72600,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1594,
@@ -72036,7 +72627,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1595,
@@ -72062,7 +72654,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1596,
@@ -72088,7 +72681,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1597,
@@ -72114,7 +72708,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1598,
@@ -72140,7 +72735,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1599,
@@ -72166,7 +72762,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1600,
@@ -72190,7 +72787,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1601,
@@ -72216,7 +72814,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1602,
@@ -72242,7 +72841,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1603,
@@ -72268,7 +72868,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1604,
@@ -72294,7 +72895,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1605,
@@ -72320,7 +72922,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1606,
@@ -72346,7 +72949,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1607,
@@ -72372,7 +72976,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1608,
@@ -72398,7 +73003,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1609,
@@ -72424,7 +73030,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1610,
@@ -72450,7 +73057,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1611,
@@ -72476,7 +73084,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1612,
@@ -72502,7 +73111,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1613,
@@ -72528,7 +73138,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1614,
@@ -72554,7 +73165,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1615,
@@ -72580,7 +73192,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1616,
@@ -72606,7 +73219,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1617,
@@ -72632,7 +73246,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1618,
@@ -72658,7 +73273,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1619,
@@ -72684,7 +73300,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1620,
@@ -72710,7 +73327,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1621,
@@ -72736,7 +73354,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1622,
@@ -72762,7 +73381,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1623,
@@ -72788,7 +73408,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1624,
@@ -72814,7 +73435,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1625,
@@ -72840,7 +73462,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1626,
@@ -72866,7 +73489,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1627,
@@ -72892,7 +73516,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1628,
@@ -72918,7 +73543,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1629,
@@ -72942,7 +73568,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1630,
@@ -72968,7 +73595,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1631,
@@ -72992,7 +73620,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1632,
@@ -73018,7 +73647,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1633,
@@ -73044,7 +73674,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1634,
@@ -73070,7 +73701,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1635,
@@ -73096,7 +73728,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1636,
@@ -73122,7 +73755,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1637,
@@ -73148,7 +73782,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1638,
@@ -73162,7 +73797,8 @@
   "sourceUrl": "https://cayey.upr.edu/decanato-academico/",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1639,
@@ -73176,7 +73812,8 @@
   "sourceUrl": "https://www.cayey.upr.edu/directorio-telefonico/",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1640,
@@ -73188,7 +73825,8 @@
   "discipline": "Decano de Estudiantes (Dean of Students)",
   "hasPhd": false,
   "sourceUrl": "https://www.cayey.upr.edu/directorio-telefonico/",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "convertedToPermanent": false
  },
  {
   "id": 1641,
@@ -73214,7 +73852,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1642,
@@ -73240,7 +73879,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1643,
@@ -73266,7 +73906,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1644,
@@ -73280,7 +73921,8 @@
   "sourceUrl": "https://catalog.uwsuper.edu/graduate/faculty-staff-administration/system-administrators/",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1645,
@@ -73304,7 +73946,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1646,
@@ -73318,7 +73961,8 @@
   "sourceUrl": "https://www.ursinus.edu/live/news/8283-veteran-financial-executive-terri-albertson",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1647,
@@ -73344,7 +73988,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1648,
@@ -73370,7 +74015,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1649,
@@ -73396,7 +74042,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1650,
@@ -73422,7 +74069,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1651,
@@ -73448,7 +74096,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1652,
@@ -73474,7 +74123,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1653,
@@ -73498,7 +74148,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": true
+  "hadDeptChairRole": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1654,
@@ -73522,7 +74173,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1655,
@@ -73546,7 +74198,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1656,
@@ -73570,7 +74223,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1657,
@@ -73596,7 +74250,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1658,
@@ -73610,7 +74265,8 @@
   "sourceUrl": "https://theorg.com/org/virginia-union-university/org-chart/hakim-j-lucas",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1659,
@@ -73636,7 +74292,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1660,
@@ -73662,7 +74319,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1661,
@@ -73688,7 +74346,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1662,
@@ -73714,7 +74373,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1663,
@@ -73740,7 +74400,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1664,
@@ -73766,7 +74427,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1665,
@@ -73792,7 +74454,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1666,
@@ -73818,7 +74481,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1667,
@@ -73844,7 +74508,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1668,
@@ -73870,7 +74535,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1669,
@@ -73894,7 +74560,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1670,
@@ -73920,7 +74587,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1671,
@@ -73946,7 +74614,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1672,
@@ -73972,7 +74641,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1673,
@@ -73998,7 +74668,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1674,
@@ -74024,7 +74695,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1675,
@@ -74050,7 +74722,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1676,
@@ -74076,7 +74749,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1677,
@@ -74102,7 +74776,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1678,
@@ -74128,7 +74803,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1679,
@@ -74154,7 +74830,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1680,
@@ -74180,7 +74857,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1681,
@@ -74206,7 +74884,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1682,
@@ -74232,7 +74911,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1683,
@@ -74246,7 +74926,8 @@
   "sourceUrl": "https://www.tougaloo.edu/about-tougaloo-college/office-president/presidents-cabinet",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1684,
@@ -74272,7 +74953,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1685,
@@ -74286,7 +74968,8 @@
   "sourceUrl": "https://www.tougaloo.edu/about-tougaloo-college/office-president/presidents-cabinet",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1686,
@@ -74312,7 +74995,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1687,
@@ -74336,7 +75020,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1688,
@@ -74362,7 +75047,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1689,
@@ -74388,7 +75074,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1690,
@@ -74414,7 +75101,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1691,
@@ -74440,7 +75128,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1692,
@@ -74466,7 +75155,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1693,
@@ -74492,7 +75182,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1694,
@@ -74518,7 +75209,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1695,
@@ -74544,7 +75236,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1696,
@@ -74570,7 +75263,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1697,
@@ -74584,7 +75278,8 @@
   "sourceUrl": "https://www.wlu.edu/about-w-l/leadership",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1698,
@@ -74610,7 +75305,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1699,
@@ -74636,7 +75332,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1700,
@@ -74662,7 +75359,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1701,
@@ -74686,7 +75384,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": true,
   "hadAssocDeanRole": true,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1702,
@@ -74712,7 +75411,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1703,
@@ -74738,7 +75438,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1704,
@@ -74764,7 +75465,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1705,
@@ -74790,7 +75492,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1706,
@@ -74814,7 +75517,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1707,
@@ -74838,7 +75542,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": true
+  "hadDeptChairRole": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1708,
@@ -74864,7 +75569,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1709,
@@ -74890,7 +75596,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1710,
@@ -74916,7 +75623,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1711,
@@ -74942,7 +75650,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1712,
@@ -74966,7 +75675,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1713,
@@ -74990,7 +75700,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": true
+  "hadDeptChairRole": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1714,
@@ -75016,7 +75727,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1715,
@@ -75042,7 +75754,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1716,
@@ -75068,7 +75781,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1717,
@@ -75094,7 +75808,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1718,
@@ -75120,7 +75835,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1719,
@@ -75146,7 +75862,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1720,
@@ -75170,7 +75887,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": true
+  "hadDeptChairRole": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1721,
@@ -75196,7 +75914,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1722,
@@ -75222,7 +75941,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1723,
@@ -75248,7 +75968,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": true,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1724,
@@ -75274,7 +75995,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1725,
@@ -75300,7 +76022,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1726,
@@ -75324,7 +76047,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1727,
@@ -75348,7 +76072,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1728,
@@ -75374,7 +76099,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1729,
@@ -75400,7 +76126,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1730,
@@ -75424,7 +76151,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": true,
   "hadAssocDeanRole": true,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1731,
@@ -75450,7 +76178,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1732,
@@ -75476,7 +76205,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1733,
@@ -75502,7 +76232,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1734,
@@ -75528,7 +76259,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1735,
@@ -75554,7 +76286,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1736,
@@ -75580,7 +76313,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1737,
@@ -75606,7 +76340,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1738,
@@ -75632,7 +76367,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1739,
@@ -75658,7 +76394,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1740,
@@ -75684,7 +76421,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1741,
@@ -75708,7 +76446,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1742,
@@ -75734,7 +76473,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1743,
@@ -75760,7 +76500,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1744,
@@ -75786,7 +76527,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1745,
@@ -75812,7 +76554,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1746,
@@ -75838,7 +76581,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1747,
@@ -75864,7 +76608,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1748,
@@ -75890,7 +76635,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1749,
@@ -75916,7 +76662,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1750,
@@ -75942,7 +76689,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1751,
@@ -75968,7 +76716,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1752,
@@ -75982,7 +76731,8 @@
   "sourceUrl": "https://theorg.com/org/susquehanna-university",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1753,
@@ -76008,7 +76758,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1754,
@@ -76032,7 +76783,8 @@
   "hasPriorDeanExp": true,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1755,
@@ -76058,7 +76810,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1756,
@@ -76084,7 +76837,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1757,
@@ -76098,7 +76852,8 @@
   "sourceUrl": "https://theorg.com/org/swarthmore-college",
   "roleType": "subdean",
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1758,
@@ -76122,7 +76877,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": true,
   "hadAssocDeanRole": true,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1759,
@@ -76146,7 +76902,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1760,
@@ -76172,7 +76929,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1761,
@@ -76198,7 +76956,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1762,
@@ -76224,7 +76983,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1763,
@@ -76250,7 +77010,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1764,
@@ -76276,7 +77037,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1765,
@@ -76302,7 +77064,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1766,
@@ -76328,7 +77091,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1767,
@@ -76354,7 +77118,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1768,
@@ -76380,7 +77145,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1769,
@@ -76406,7 +77172,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1770,
@@ -76432,7 +77199,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1771,
@@ -76458,7 +77226,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1772,
@@ -76484,7 +77253,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1773,
@@ -76510,7 +77280,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1774,
@@ -76536,7 +77307,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1775,
@@ -76550,7 +77322,8 @@
   "sourceUrl": "https://www.transy.edu/about/office-of-the-president/administration/",
   "roleType": "subdean",
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1776,
@@ -76576,7 +77349,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1777,
@@ -76602,7 +77376,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1778,
@@ -76628,7 +77403,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1779,
@@ -76654,7 +77430,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1780,
@@ -76680,7 +77457,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1781,
@@ -76706,7 +77484,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1782,
@@ -76732,7 +77511,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1783,
@@ -76758,7 +77538,8 @@
   "hadAssocDeanRole": true,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1784,
@@ -76784,7 +77565,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1785,
@@ -76810,7 +77592,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1786,
@@ -76834,7 +77617,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1787,
@@ -76860,7 +77644,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1788,
@@ -76884,7 +77669,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1789,
@@ -76908,7 +77694,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1790,
@@ -76932,7 +77719,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1791,
@@ -76958,7 +77746,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1792,
@@ -76982,7 +77771,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1793,
@@ -77008,7 +77798,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1794,
@@ -77034,7 +77825,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "F",
-  "isFemale": true
+  "isFemale": true,
+  "convertedToPermanent": false
  },
  {
   "id": 1795,
@@ -77060,7 +77852,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1796,
@@ -77084,7 +77877,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": true,
   "hadAssocDeanRole": true,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1797,
@@ -77108,7 +77902,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1798,
@@ -77132,7 +77927,8 @@
   "hasPriorDeanExp": false,
   "priorAssocOrAsstDean": false,
   "hadAssocDeanRole": false,
-  "hadDeptChairRole": false
+  "hadDeptChairRole": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1799,
@@ -77158,7 +77954,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1800,
@@ -77184,7 +77981,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1801,
@@ -77210,7 +78008,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1802,
@@ -77236,7 +78035,8 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  },
  {
   "id": 1803,
@@ -77262,6 +78062,7 @@
   "hadAssocDeanRole": false,
   "hadDeptChairRole": false,
   "gender": "M",
-  "isFemale": false
+  "isFemale": false,
+  "convertedToPermanent": false
  }
 ]
