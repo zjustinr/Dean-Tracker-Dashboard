@@ -4059,7 +4059,7 @@
    "indices": [
     "r1university"
    ],
-   "score": 40,
+   "score": 50,
    "seniority": "senior",
    "categories": [
     "Law (private practice)"
@@ -4075,8 +4075,9 @@
      "firm": "Hogan Lovells",
      "role": "Partner, higher-education practice",
      "seniority": "senior",
+     "endYear": 2015,
      "source": "priorInstitution",
-     "score": 40
+     "score": 50
     }
    ]
   },
@@ -5923,7 +5924,7 @@
    "indices": [
     "r1bschool"
    ],
-   "score": 53,
+   "score": 63,
    "seniority": "executive",
    "categories": [
     "Media & Entertainment"
@@ -5939,8 +5940,9 @@
      "firm": "Conde Nast",
      "role": "Chief Marketing Officer",
      "seniority": "executive",
+     "endYear": 2019,
      "source": "priorInstitution",
-     "score": 53
+     "score": 63
     }
    ]
   },
@@ -11394,7 +11396,7 @@
    "indices": [
     "r1university"
    ],
-   "score": 53,
+   "score": 55,
    "seniority": "executive",
    "categories": [
     "Energy & Industrials"
@@ -11410,8 +11412,9 @@
      "firm": "The Boeing Company",
      "role": "Vice President and Chief Investment Officer",
      "seniority": "executive",
+     "endYear": 2009,
      "source": "priorInstitution",
-     "score": 53
+     "score": 55
     }
    ]
   },
@@ -15331,7 +15334,7 @@
    "indices": [
     "r1law"
    ],
-   "score": 40,
+   "score": 57,
    "seniority": "senior",
    "categories": [
     "Government & Public Sector"
@@ -15347,8 +15350,9 @@
      "firm": "U.S. Department of Justice",
      "role": "Senior Counsel for National Security",
      "seniority": "senior",
+     "endYear": 2021,
      "source": "priorInstitution",
-     "score": 40
+     "score": 57
     }
    ]
   },
@@ -15437,7 +15441,7 @@
    "indices": [
     "usr2"
    ],
-   "score": 22,
+   "score": 39,
    "seniority": "professional",
    "categories": [
     "Consulting"
@@ -15453,8 +15457,9 @@
      "firm": "Accenture, Deloitte, EY, The Hackett Group",
      "role": "Management Consultant",
      "seniority": "professional",
+     "endYear": 2022,
      "source": "priorInstitution",
-     "score": 22
+     "score": 39
     }
    ]
   },
@@ -18311,7 +18316,7 @@
    "indices": [
     "r1provost"
    ],
-   "score": 22,
+   "score": 32,
    "seniority": "professional",
    "categories": [
     "Government & Public Sector"
@@ -18327,8 +18332,9 @@
      "firm": "U.S. Department of State",
      "role": "Career U.S. Foreign Service Officer -- U.S. Ambassador to Panama, Deputy/Acting Ambassador to the UK, Dean of the Leadership & Management School, Foreign Service Institute",
      "seniority": "professional",
+     "endYear": 2019,
      "source": "priorInstitution",
-     "score": 22
+     "score": 32
     }
    ]
   },
@@ -30019,7 +30025,7 @@
    "indices": [
     "r1law"
    ],
-   "score": 30,
+   "score": 32,
    "seniority": "professional",
    "categories": [
     "Government & Public Sector"
@@ -30035,8 +30041,9 @@
      "firm": "U.S. Department of Justice",
      "role": "Attorney-Advisor (victims' rights policy)",
      "seniority": "professional",
+     "endYear": 2012,
      "source": "priorInstitution",
-     "score": 30
+     "score": 32
     }
    ]
   },
@@ -52629,7 +52636,7 @@
     "usadminleaders",
     "r1university"
    ],
-   "score": 53,
+   "score": 63,
    "seniority": "executive",
    "categories": [
     "Other industry"
@@ -52645,8 +52652,9 @@
      "firm": "Emeriti Retirement Health Solutions",
      "role": "Chief Executive Officer",
      "seniority": "executive",
+     "endYear": 2014,
      "source": "priorInstitution",
-     "score": 53
+     "score": 63
     }
    ]
   },
@@ -60226,7 +60234,7 @@
    "indices": [
     "r1university"
    ],
-   "score": 53,
+   "score": 70,
    "seniority": "executive",
    "categories": [
     "Other industry"
@@ -60242,8 +60250,9 @@
      "firm": "President of Magnolia, Chip and Joanna Gaines' company",
      "role": "President",
      "seniority": "executive",
+     "endYear": 2025,
      "source": "priorInstitution",
-     "score": 53
+     "score": 70
     }
    ]
   },
@@ -60376,7 +60385,7 @@
     "usadminleaders",
     "uslac"
    ],
-   "score": 53,
+   "score": 49,
    "seniority": "executive",
    "categories": [
     "Nonprofit & Foundations"
@@ -60392,8 +60401,9 @@
      "firm": "Claremont Institute for the Study of Statesmanship and Political Philosophy",
      "role": "Senior Fellow (formerly Executive Vice President and Director of Scholarship)",
      "seniority": "executive",
+     "endYear": 2000,
      "source": "priorInstitution",
-     "score": 53
+     "score": 49
     }
    ]
   },
@@ -69904,7 +69914,7 @@
    "indices": [
     "uspublichealth"
    ],
-   "score": 40,
+   "score": 32,
    "seniority": "senior",
    "categories": [
     "Government & Public Sector"
@@ -69920,8 +69930,9 @@
      "firm": "U.S. Public Health Service",
      "role": "PHS Commissioned Corps Officer / Director of Immigration Health Services",
      "seniority": "senior",
+     "endYear": 1995,
      "source": "priorInstitution",
-     "score": 40
+     "score": 32
     }
    ]
   },
@@ -77595,7 +77606,7 @@
    "indices": [
     "r1law"
    ],
-   "score": 22,
+   "score": 32,
    "seniority": "professional",
    "categories": [
     "Law (private practice)"
@@ -77611,8 +77622,9 @@
      "firm": "Mayer Brown LLP and Latham & Watkins LLP",
      "role": "Litigation Associate",
      "seniority": "professional",
+     "endYear": 2016,
      "source": "priorInstitution",
-     "score": 22
+     "score": 32
     }
    ]
   },
@@ -77946,7 +77958,7 @@
    "indices": [
     "r1bschool"
    ],
-   "score": 22,
+   "score": 24,
    "seniority": "professional",
    "categories": [
     "Technology"
@@ -77962,8 +77974,9 @@
      "firm": "Verizon",
      "role": "Associate Dean, Executive MBA Global Network",
      "seniority": "professional",
+     "endYear": 2013,
      "source": "priorInstitution",
-     "score": 22
+     "score": 24
     }
    ]
   },
@@ -81261,7 +81274,7 @@
    "indices": [
     "usr2"
    ],
-   "score": 40,
+   "score": 32,
    "seniority": "senior",
    "categories": [
     "Technology"
@@ -81277,8 +81290,9 @@
      "firm": "AT&T",
      "role": "Regional Director of External Affairs",
      "seniority": "senior",
+     "endYear": 1994,
      "source": "priorInstitution",
-     "score": 40
+     "score": 32
     }
    ]
   },
@@ -92109,7 +92123,7 @@
    "indices": [
     "r1university"
    ],
-   "score": 53,
+   "score": 70,
    "seniority": "executive",
    "categories": [
     "Government & Public Sector"
@@ -92125,8 +92139,9 @@
      "firm": "City and County of Denver",
      "role": "Chief Operating Officer",
      "seniority": "executive",
+     "endYear": 2025,
      "source": "priorInstitution",
-     "score": 53
+     "score": 70
     }
    ]
   },
@@ -96076,7 +96091,7 @@
     "usadminleaders",
     "usr2"
    ],
-   "score": 26,
+   "score": 36,
    "seniority": "unknown",
    "categories": [
     "Consumer & Retail"
@@ -96092,8 +96107,9 @@
      "firm": "Procter & Gamble",
      "role": "Executive",
      "seniority": "unknown",
+     "endYear": 2020,
      "source": "priorInstitution",
-     "score": 26
+     "score": 36
     }
    ]
   },
@@ -100683,8 +100699,9 @@
    "university": "Texas A&M University",
    "status": "no",
    "confidence": "medium",
-   "sitting": false,
+   "sitting": true,
    "indices": [
+    "r1provost",
     "r1bschool"
    ],
    "stops": 2,
@@ -102908,7 +102925,7 @@
    "indices": [
     "usr2"
    ],
-   "score": 53,
+   "score": 70,
    "seniority": "executive",
    "categories": [
     "Nonprofit & Foundations"
@@ -102924,8 +102941,9 @@
      "firm": "The Heritage Foundation",
      "role": "Senior Assistant to President for Donor Relations",
      "seniority": "executive",
+     "endYear": 2026,
      "source": "priorInstitution",
-     "score": 53
+     "score": 70
     }
    ]
   },
@@ -104537,7 +104555,7 @@
    "indices": [
     "usr2"
    ],
-   "score": 26,
+   "score": 22,
    "seniority": "unknown",
    "categories": [
     "Other industry"
@@ -104553,8 +104571,9 @@
      "firm": "Georgia Power Co.",
      "role": "Corporate Communications",
      "seniority": "unknown",
+     "endYear": 2001,
      "source": "priorInstitution",
-     "score": 26
+     "score": 22
     }
    ]
   },
@@ -106762,8 +106781,9 @@
      "firm": "Albany International Corp",
      "role": "CFO/Treasurer",
      "seniority": "executive",
+     "endYear": 2026,
      "source": "priorInstitution",
-     "score": 53
+     "score": 70
     }
    ],
    "flags": [
@@ -126693,7 +126713,7 @@
    "indices": [
     "usgrad"
    ],
-   "score": 22,
+   "score": 32,
    "seniority": "professional",
    "categories": [
     "Other industry"
@@ -126709,8 +126729,9 @@
      "firm": "Eastman Chemical Company",
      "role": "Professor, Department of Sustainable Biomaterials; earlier industrial scientist",
      "seniority": "professional",
+     "endYear": 2018,
      "source": "priorInstitution",
-     "score": 22
+     "score": 32
     }
    ]
   },
@@ -136921,7 +136942,7 @@
    "indices": [
     "usnursing"
    ],
-   "score": 26,
+   "score": 43,
    "seniority": "unknown",
    "categories": [
     "Government & Public Sector"
@@ -136937,8 +136958,9 @@
      "firm": "National Institutes of Health",
      "role": "Tenured Senior Investigator, National Institute of Nursing Research (NINR), Division of Intramural Research",
      "seniority": "unknown",
+     "endYear": 2026,
      "source": "priorInstitution",
-     "score": 26
+     "score": 43
     }
    ]
   },
@@ -140402,7 +140424,7 @@
    "indices": [
     "usadvancement"
    ],
-   "score": 53,
+   "score": 63,
    "seniority": "executive",
    "categories": [
     "Other industry"
@@ -140418,8 +140440,9 @@
      "firm": "The Pacific Group",
      "role": "Assistant Vice President",
      "seniority": "executive",
+     "endYear": 2017,
      "source": "priorInstitution",
-     "score": 53
+     "score": 63
     }
    ]
   },
@@ -148841,7 +148864,7 @@
    "indices": [
     "usr2"
    ],
-   "score": 40,
+   "score": 36,
    "seniority": "senior",
    "categories": [
     "Nonprofit & Foundations"
@@ -148857,8 +148880,9 @@
      "firm": "Amate House, Archdiocese of Chicago",
      "role": "Executive Director",
      "seniority": "senior",
+     "endYear": 2005,
      "source": "priorInstitution",
-     "score": 40
+     "score": 36
     }
    ]
   },
@@ -149146,7 +149170,7 @@
    "indices": [
     "r1bschool"
    ],
-   "score": 53,
+   "score": 70,
    "seniority": "executive",
    "categories": [
     "Healthcare Providers"
@@ -149162,8 +149186,9 @@
      "firm": "Texas Children's Hospital",
      "role": "Vice President for Philanthropy",
      "seniority": "executive",
+     "endYear": 2023,
      "source": "priorInstitution",
-     "score": 53
+     "score": 70
     }
    ]
   },
@@ -151973,7 +151998,7 @@
     "usadminleaders",
     "r1university"
    ],
-   "score": 40,
+   "score": 36,
    "seniority": "senior",
    "categories": [
     "Law (private practice)"
@@ -151989,8 +152014,9 @@
      "firm": "Reed Smith LLP",
      "role": "Partner, Head of Technology, Media and Communications Group",
      "seniority": "senior",
+     "endYear": 2002,
      "source": "priorInstitution",
-     "score": 40
+     "score": 36
     }
    ]
   },
@@ -159754,7 +159780,7 @@
    "indices": [
     "r1university"
    ],
-   "score": 22,
+   "score": 32,
    "seniority": "professional",
    "categories": [
     "Government & Public Sector"
@@ -159770,8 +159796,9 @@
      "firm": "City of Pasadena, CA",
      "role": "City Manager",
      "seniority": "professional",
+     "endYear": 2016,
      "source": "priorInstitution",
-     "score": 22
+     "score": 32
     }
    ]
   },
@@ -163629,7 +163656,7 @@
    "indices": [
     "r1university"
    ],
-   "score": 40,
+   "score": 57,
    "seniority": "senior",
    "categories": [
     "Nonprofit & Foundations"
@@ -163645,8 +163672,9 @@
      "firm": "Kaiser Foundation Health Plan of the Mid-Atlantic States",
      "role": "Executive Director for Facilities Services",
      "seniority": "senior",
+     "endYear": 2022,
      "source": "priorInstitution",
-     "score": 40
+     "score": 57
     }
    ]
   },
@@ -189463,7 +189491,7 @@
     "usadminleaders",
     "uslac"
    ],
-   "score": 53,
+   "score": 63,
    "seniority": "executive",
    "categories": [
     "Nonprofit & Foundations"
@@ -189479,8 +189507,9 @@
      "firm": "Lynde and Harry Bradley Foundation",
      "role": "Vice President and Officer",
      "seniority": "executive",
+     "endYear": 2014,
      "source": "priorInstitution",
-     "score": 53
+     "score": 63
     }
    ]
   },
@@ -193560,7 +193589,7 @@
    "indices": [
     "r1university"
    ],
-   "score": 40,
+   "score": 50,
    "seniority": "senior",
    "categories": [
     "Nonprofit & Foundations"
@@ -193576,8 +193605,9 @@
      "firm": "National Science Foundation",
      "role": "Assistant Director, Directorate for Geosciences",
      "seniority": "senior",
+     "endYear": 2017,
      "source": "priorInstitution",
-     "score": 40
+     "score": 50
     }
    ]
   },
@@ -202320,7 +202350,7 @@
    "indices": [
     "uspublichealth"
    ],
-   "score": 26,
+   "score": 43,
    "seniority": "unknown",
    "categories": [
     "Government & Public Sector"
@@ -202336,8 +202366,9 @@
      "firm": "State of Florida",
      "role": "Florida Surgeon General / Secretary of Health",
      "seniority": "unknown",
+     "endYear": 2025,
      "source": "priorInstitution",
-     "score": 26
+     "score": 43
     }
    ]
   },
@@ -204644,7 +204675,7 @@
    "indices": [
     "ussystem"
    ],
-   "score": 26,
+   "score": 36,
    "seniority": "unknown",
    "categories": [
     "Government & Public Sector"
@@ -204660,8 +204691,9 @@
      "firm": "Pennsylvania Governor's Office of Administration",
      "role": "Secretary",
      "seniority": "unknown",
+     "endYear": 2019,
      "source": "priorInstitution",
-     "score": 26
+     "score": 36
     }
    ]
   },
@@ -230448,7 +230480,7 @@
    "indices": [
     "r1university"
    ],
-   "score": 40,
+   "score": 36,
    "seniority": "senior",
    "categories": [
     "Law (private practice)"
@@ -230464,8 +230496,9 @@
      "firm": "Shea & Gardner",
      "role": "Partner",
      "seniority": "senior",
+     "endYear": 2003,
      "source": "priorInstitution",
-     "score": 40
+     "score": 36
     }
    ]
   },

@@ -1,0 +1,308 @@
+{
+  "generatedAt": "2026-09-06T00:40:19.671Z",
+  "source": "IPEDS Data Center complete data files (nces.ed.gov/ipeds/datacenter)",
+  "crosswalkBase": "HD2023 (institutional directory), EF2023A (enrolment, for campus tie-breaks)",
+  "surveys": {
+    "enrolment": "EF<year>A, EFALEVEL=1 (\"all students total\"), field EFTOTLT",
+    "completions": "C<year>_A, MAJORNUM=1; CIPCODE 99 = all programs, CIPCODE 52.* = business"
+  },
+  "yearsCovered": "2000-2024",
+  "files": [
+    {
+      "year": 2000,
+      "survey": "EF2000A",
+      "file": "ef2000a.csv",
+      "institutions": 1856
+    },
+    {
+      "year": 2000,
+      "survey": "C2000_A",
+      "file": "c2000_a.csv",
+      "institutions": 0,
+      "skipped": "pre-2002 schema: no MAJORNUM, or 16-column crace layout"
+    },
+    {
+      "year": 2001,
+      "survey": "EF2001A",
+      "file": "ef2001a.csv",
+      "institutions": 1860
+    },
+    {
+      "year": 2001,
+      "survey": "C2001_A",
+      "file": "c2001_a.csv",
+      "institutions": 0,
+      "skipped": "pre-2002 schema: no MAJORNUM, or 16-column crace layout"
+    },
+    {
+      "year": 2002,
+      "survey": "EF2002A",
+      "file": "ef2002a.csv",
+      "institutions": 1866
+    },
+    {
+      "year": 2002,
+      "survey": "C2002_A",
+      "file": "c2002_a.csv",
+      "institutions": 1859
+    },
+    {
+      "year": 2003,
+      "survey": "EF2003A",
+      "file": "ef2003a.csv",
+      "institutions": 1871
+    },
+    {
+      "year": 2003,
+      "survey": "C2003_A",
+      "file": "c2003_a.csv",
+      "institutions": 1859
+    },
+    {
+      "year": 2004,
+      "survey": "EF2004A",
+      "file": "ef2004a_rv.csv",
+      "institutions": 1875
+    },
+    {
+      "year": 2004,
+      "survey": "C2004_A",
+      "file": "c2004_a_rv.csv",
+      "institutions": 1872
+    },
+    {
+      "year": 2005,
+      "survey": "EF2005A",
+      "file": "ef2005a_rv.csv",
+      "institutions": 1874
+    },
+    {
+      "year": 2005,
+      "survey": "C2005_A",
+      "file": "c2005_a_rv.csv",
+      "institutions": 1876
+    },
+    {
+      "year": 2006,
+      "survey": "EF2006A",
+      "file": "ef2006a_RV.csv",
+      "institutions": 1882
+    },
+    {
+      "year": 2006,
+      "survey": "C2006_A",
+      "file": "c2006_a_rv.csv",
+      "institutions": 1875
+    },
+    {
+      "year": 2007,
+      "survey": "EF2007A",
+      "file": "ef2007a_rv.csv",
+      "institutions": 1884
+    },
+    {
+      "year": 2007,
+      "survey": "C2007_A",
+      "file": "c2007_a_rv.csv",
+      "institutions": 1882
+    },
+    {
+      "year": 2008,
+      "survey": "EF2008A",
+      "file": "ef2008a_rv.csv",
+      "institutions": 1886
+    },
+    {
+      "year": 2008,
+      "survey": "C2008_A",
+      "file": "c2008_a_rv.csv",
+      "institutions": 1882
+    },
+    {
+      "year": 2009,
+      "survey": "EF2009A",
+      "file": "ef2009a_rv.csv",
+      "institutions": 1888
+    },
+    {
+      "year": 2009,
+      "survey": "C2009_A",
+      "file": "c2009_a_rv.csv",
+      "institutions": 1884
+    },
+    {
+      "year": 2010,
+      "survey": "EF2010A",
+      "file": "ef2010a_rv.csv",
+      "institutions": 1894
+    },
+    {
+      "year": 2010,
+      "survey": "C2010_A",
+      "file": "c2010_a_rv.csv",
+      "institutions": 1890
+    },
+    {
+      "year": 2011,
+      "survey": "EF2011A",
+      "file": "ef2011a_rv.csv",
+      "institutions": 1896
+    },
+    {
+      "year": 2011,
+      "survey": "C2011_A",
+      "file": "c2011_a_rv.csv",
+      "institutions": 1893
+    },
+    {
+      "year": 2012,
+      "survey": "EF2012A",
+      "file": "ef2012a_rv.csv",
+      "institutions": 1899
+    },
+    {
+      "year": 2012,
+      "survey": "C2012_A",
+      "file": "c2012_a_rv.csv",
+      "institutions": 1895
+    },
+    {
+      "year": 2013,
+      "survey": "EF2013A",
+      "file": "ef2013a_rv.csv",
+      "institutions": 1907
+    },
+    {
+      "year": 2013,
+      "survey": "C2013_A",
+      "file": "c2013_a_rv.csv",
+      "institutions": 1903
+    },
+    {
+      "year": 2014,
+      "survey": "EF2014A",
+      "file": "ef2014a_rv.csv",
+      "institutions": 1911
+    },
+    {
+      "year": 2014,
+      "survey": "C2014_A",
+      "file": "c2014_a_rv.csv",
+      "institutions": 1908
+    },
+    {
+      "year": 2015,
+      "survey": "EF2015A",
+      "file": "ef2015a_rv.csv",
+      "institutions": 1919
+    },
+    {
+      "year": 2015,
+      "survey": "C2015_A",
+      "file": "c2015_a_rv.csv",
+      "institutions": 1916
+    },
+    {
+      "year": 2016,
+      "survey": "EF2016A",
+      "file": "ef2016a_rv.csv",
+      "institutions": 1924
+    },
+    {
+      "year": 2016,
+      "survey": "C2016_A",
+      "file": "c2016_a_rv.csv",
+      "institutions": 1921
+    },
+    {
+      "year": 2017,
+      "survey": "EF2017A",
+      "file": "ef2017a_rv.csv",
+      "institutions": 1929
+    },
+    {
+      "year": 2017,
+      "survey": "C2017_A",
+      "file": "c2017_a_rv.csv",
+      "institutions": 1925
+    },
+    {
+      "year": 2018,
+      "survey": "EF2018A",
+      "file": "ef2018a_rv.csv",
+      "institutions": 1930
+    },
+    {
+      "year": 2018,
+      "survey": "C2018_A",
+      "file": "c2018_a_rv.csv",
+      "institutions": 1926
+    },
+    {
+      "year": 2019,
+      "survey": "EF2019A",
+      "file": "ef2019a_rv.csv",
+      "institutions": 1931
+    },
+    {
+      "year": 2019,
+      "survey": "C2019_A",
+      "file": "c2019_a_rv.csv",
+      "institutions": 1928
+    },
+    {
+      "year": 2020,
+      "survey": "EF2020A",
+      "file": "ef2020a_rv.csv",
+      "institutions": 1932
+    },
+    {
+      "year": 2020,
+      "survey": "C2020_A",
+      "file": "c2020_a_rv.csv",
+      "institutions": 1929
+    },
+    {
+      "year": 2021,
+      "survey": "EF2021A",
+      "file": "ef2021a_rv.csv",
+      "institutions": 1935
+    },
+    {
+      "year": 2021,
+      "survey": "C2021_A",
+      "file": "c2021_a_rv.csv",
+      "institutions": 1931
+    },
+    {
+      "year": 2022,
+      "survey": "EF2022A",
+      "file": "ef2022a_rv.csv",
+      "institutions": 1940
+    },
+    {
+      "year": 2022,
+      "survey": "C2022_A",
+      "file": "c2022_a_rv.csv",
+      "institutions": 1936
+    },
+    {
+      "year": 2023,
+      "survey": "EF2023A",
+      "file": "ef2023a.csv",
+      "institutions": 1938
+    },
+    {
+      "year": 2023,
+      "survey": "C2023_A",
+      "file": "C2023_a_RV.csv",
+      "institutions": 1935
+    },
+    {
+      "year": 2024,
+      "survey": "C2024_A",
+      "file": "C2024_a.csv",
+      "institutions": 1934
+    }
+  ]
+}

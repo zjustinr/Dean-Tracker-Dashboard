@@ -27,8 +27,13 @@ function extOf(url) {
   return e === 'jpeg' ? 'jpg' : e;
 }
 
+const slugOwners = new Map();
+for (const [k, v] of Object.entries(photos)) {
+  if (v && v.photo) slugOwners.set(v.photo, k);
+}
+
 let seen = new Set();
-let added = 0, skippedExisting = 0, dupes = 0, dlFailed = 0;
+let added = 0, skippedExisting = 0, dupes = 0, dlFailed = 0, slugCollisions = 0;
 
 for (const rf of resultFiles) {
   if (!fs.existsSync(rf)) { console.log(`(missing: ${rf})`); continue; }
@@ -42,7 +47,17 @@ for (const rf of resultFiles) {
 
     const slug = slugify(`${r.dean}-${r.university}`);
     const ext = extOf(r.photoUrl);
+    const publicPath = `/deans/${slug}.${ext}`;
     const outFile = path.join(PUB, `${slug}.${ext}`);
+
+    // a different, already-registered key can slugify to the same filename
+    // (formatting differences the exact-key check above won't catch) — never
+    // overwrite another person's photo file in that case.
+    const owner = slugOwners.get(publicPath);
+    if (owner && owner !== key) {
+      slugCollisions++;
+      continue;
+    }
 
     try {
       execSync(`curl -sL --max-time 10 -A "${UA}" -o ${JSON.stringify(outFile)} ${JSON.stringify(r.photoUrl)}`, { timeout: 15000 });
@@ -57,7 +72,8 @@ for (const rf of resultFiles) {
         dlFailed++;
         continue;
       }
-      photos[key] = { photo: `/deans/${slug}.${ext}`, page: r.sourceUrl, source: r.photoUrl };
+      photos[key] = { photo: publicPath, page: r.sourceUrl, source: r.photoUrl };
+      slugOwners.set(publicPath, key);
       added++;
     } catch {
       try { fs.unlinkSync(outFile); } catch {}
@@ -76,5 +92,6 @@ console.log(`\nMerge complete:`);
 console.log(`  Added to registry (downloaded): ${added}`);
 console.log(`  Already in registry: ${skippedExisting}`);
 console.log(`  Duplicate results: ${dupes}`);
+console.log(`  Skipped (filename collision with a different registered key): ${slugCollisions}`);
 console.log(`  Download/validation failures: ${dlFailed}`);
 console.log(`  Registry total: ${Object.keys(photos).length}`);

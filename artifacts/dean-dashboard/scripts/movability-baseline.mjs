@@ -27,7 +27,7 @@
 //      Accuracy, precision, recall, and precision lift over the base rate.
 //   3. THE SHIPPED CHIP'S OWN BANDS -- below median / median-to-p75 / past p75.
 //      The chip does NOT predict monotonically increasing risk: it calls the
-//      middle band "Could move" and the top band "Entrenched", i.e. it asserts
+//      middle band "Could move" and the top band "Overdue", i.e. it asserts
 //      departure risk RISES then FALLS. That is a testable claim about the
 //      hazard and this reports whether the data supports it.
 //
@@ -148,7 +148,7 @@ console.log(`  Majority-class rule ("nobody moves")   ${pct(ps.majority)}   <- t
 console.log(`  Trivial rule ("past the median")       ${pct(ps.acc)}   accuracy`);
 console.log(`     precision ${pct(ps.prec)}   recall ${pct(ps.rec)}   precision lift x${ps.lift?.toFixed(2) ?? "n/a"}`);
 console.log(`\n  Departure rate by the shipped chip's own bands:`);
-const BAND_LABELS = ['below median  ("Not up to move")', 'median..p75   ("Could move")   ', 'past p75      ("Entrenched")  '];
+const BAND_LABELS = ['below median  ("Not up to move")', 'median..p75   ("Could move")   ', 'past p75      ("Overdue")     '];
 for (let b = 0; b < 3; b++) {
   const [dep, tot] = pooled.bands[b];
   console.log(`    ${BAND_LABELS[b]}  ${pct(tot ? dep / tot : null)}  (n=${tot})`);
