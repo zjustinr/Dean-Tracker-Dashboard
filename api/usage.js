@@ -92,6 +92,74 @@ function describeEvent(e) {
   return e.f || "";
 }
 
+// --- engagement windows -----------------------------------------------------
+// The Clients table below answers "has this link ever been used" -- `hits` is an
+// all-time counter and `last` a single timestamp, so neither can answer "who is
+// still using their link this month", which is the question that decides
+// whether a trial gets a follow-up or an expiry. These roll the raw bi:events
+// log into 30- and 7-day windows per client tag.
+//
+// Two kinds of event are deliberately NOT engagement:
+//   * "mint" -- an owner action, logged for audit only. Counting it would make
+//     every freshly-minted link look like it had been opened by its recipient.
+//   * the reserved "public" tag -- the free open link, which is a crowd rather
+//     than a recipient, so it gets its own summary instead of a table row.
+// "expired-open"/"blocked-open" DO count: someone still trying a dead link is
+// engaged, and is the clearest re-sell signal on the page -- but they are also
+// counted separately so a row of nothing but bounces can't read as live usage.
+const DAY_MS = 86400000;
+const PUBLIC_TAG = "public";
+const EVENT_CAP = 2000;          // bi:events LTRIM depth -- the log horizon
+const SHARED_LINK_IPS = 4;       // distinct IPs in 30d before a link looks forwarded
+const isOwnerAction = (e) => e.ev === "mint";
+const isRejected = (e) => e.ev === "expired-open" || e.ev === "blocked-open";
+const dayKey = (t) => new Date(Number(t)).toISOString().slice(0, 10);
+const blankWin = () => ({ events: 0, rejected: 0, days: new Set(), ips: new Set() });
+
+function rollupClients(events, now) {
+  const per = new Map();
+  for (const e of events) {
+    if (!e || !e.t || isOwnerAction(e)) continue;
+    const age = now - Number(e.t);
+    if (age < 0) continue;
+    const c = e.c || PUBLIC_TAG;
+    if (!per.has(c)) per.set(c, { c, w30: blankWin(), w7: blankWin(), last: 0 });
+    const s = per.get(c);
+    if (Number(e.t) > s.last) s.last = Number(e.t);
+    for (const [days, w] of [[30, s.w30], [7, s.w7]]) {
+      if (age > days * DAY_MS) continue;
+      w.events++;
+      if (isRejected(e)) w.rejected++;
+      w.days.add(dayKey(e.t));
+      if (e.ip) w.ips.add(e.ip);
+    }
+  }
+  return per;
+}
+
+function rollupIps(events, now, windowDays) {
+  const per = new Map();
+  for (const e of events) {
+    if (!e || !e.ip || !e.t || isOwnerAction(e)) continue;
+    if (now - Number(e.t) > windowDays * DAY_MS) continue;
+    if (!per.has(e.ip)) per.set(e.ip, { ip: e.ip, hits: 0, rejected: 0, clients: new Set(), days: new Set(), last: 0 });
+    const s = per.get(e.ip);
+    s.hits++;
+    if (isRejected(e)) s.rejected++;
+    s.clients.add(e.c || PUBLIC_TAG);
+    s.days.add(dayKey(e.t));
+    if (Number(e.t) > s.last) s.last = Number(e.t);
+  }
+  return per;
+}
+
+function engagementStatus(s) {
+  if (!s || !s.w30.events) return { label: "Dormant", color: "#98A2AF" };
+  if (!s.w7.events) return { label: "Fading", color: "#C77700" };
+  if (s.w7.events === s.w7.rejected) return { label: "Locked out", color: "#A31F34" };
+  return { label: "Active", color: "#1A7F4B" };
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader("cache-control", "no-store");
   const secret = process.env.APPROVE_SECRET;
@@ -166,7 +234,7 @@ module.exports = async function handler(req, res) {
 
   let events = [], clients = [], hashes = [], blockedFlags = [], slateBlobs = [];
   try {
-    const [ev, cl] = await kv([["LRANGE", "bi:events", "0", "300"], ["SMEMBERS", "bi:clients"]]);
+    const [ev, cl] = await kv([["LRANGE", "bi:events", "0", "-1"], ["SMEMBERS", "bi:clients"]]);
     events = (ev || []).map((s) => { try { return JSON.parse(s); } catch { return null; } }).filter(Boolean);
     clients = cl || [];
     if (clients.length) {
@@ -194,6 +262,88 @@ module.exports = async function handler(req, res) {
       consentedAt: Number(h.consentedAt || 0), blocked: !!blockedFlags[i], slate,
     };
   }).sort((a, b) => b.last - a.last);
+
+  // Engagement windows. `events` is now the whole retained log, so these are
+  // real 30/7-day counts -- subject to the horizon note below.
+  const now = Date.now();
+  const perClient = rollupClients(events, now);
+  const free = perClient.get(PUBLIC_TAG) || { c: PUBLIC_TAG, w30: blankWin(), w7: blankWin(), last: 0 };
+  const byTag = new Map(rows.map((r) => [r.c, r]));
+  const engagement = Array.from(new Set([...clients, ...perClient.keys()]))
+    .filter((c) => c !== PUBLIC_TAG)
+    .map((c) => {
+      const s = perClient.get(c) || { w30: blankWin(), w7: blankWin(), last: 0 };
+      const r = byTag.get(c) || {};
+      return { c, s, hits: r.hits || 0, last: r.last || s.last || 0, blocked: !!r.blocked, consentedAt: r.consentedAt || 0, status: engagementStatus(s) };
+    })
+    .sort((a, b) => b.s.w7.events - a.s.w7.events || b.s.w30.events - a.s.w30.events || b.last - a.last);
+
+  // The log is a capped list, so a 30-day window is only honest if the oldest
+  // retained event is actually 30+ days old. Say so rather than quietly
+  // under-reporting a busy month.
+  const stamps = events.map((e) => Number(e && e.t)).filter((t) => t > 0);
+  const oldest = stamps.length ? Math.min(...stamps) : 0;
+  const horizonDays = oldest ? (now - oldest) / DAY_MS : 0;
+  const truncated = events.length >= EVENT_CAP && horizonDays < 30;
+
+  // IPs. Two things are worth an owner's attention: one link tag arriving from
+  // many addresses (forwarded link), and one address arriving under several tags
+  // (one person holding several links, or a tag being passed around). Neither is
+  // proof on its own -- mobile and corporate networks re-address constantly.
+  const ipRows = Array.from(rollupIps(events, now, 30).values()).sort((a, b) => b.hits - a.hits);
+  const ipFlags = ipRows.map((s) => {
+    const reasons = [];
+    if (s.clients.size > 1) reasons.push(`${s.clients.size} link tags: ${Array.from(s.clients).slice(0, 5).join(", ")}`);
+    if (s.rejected) reasons.push(`${s.rejected} expired/blocked attempt(s)`);
+    return { s, reasons };
+  }).filter((x) => x.reasons.length);
+
+  // Machine-readable twin of this page (?key=...&json=1), so the rollup can be
+  // charted or diffed without scraping the HTML.
+  if (req.query && (req.query.json === "1" || req.query.format === "json")) {
+    const win = (w) => ({ events: w.events, rejected: w.rejected, activeDays: w.days.size, distinctIps: w.ips.size });
+    res.setHeader("content-type", "application/json; charset=utf-8");
+    res.status(200).json({
+      generatedAt: new Date(now).toISOString(),
+      log: { retained: events.length, cap: EVENT_CAP, oldestEvent: oldest ? new Date(oldest).toISOString() : null, horizonDays: Number(horizonDays.toFixed(1)), truncated },
+      clients: engagement.map((r) => ({
+        client: r.c, status: r.status.label, blocked: r.blocked,
+        last30d: win(r.s.w30), last7d: win(r.s.w7),
+        allTimeHits: r.hits, lastSeen: r.last ? new Date(r.last).toISOString() : null,
+        consentedAt: r.consentedAt ? new Date(r.consentedAt).toISOString() : null,
+        possiblyShared: r.s.w30.ips.size >= SHARED_LINK_IPS,
+      })),
+      freeOpenLink: { last30d: win(free.w30), last7d: win(free.w7), lastSeen: free.last ? new Date(free.last).toISOString() : null },
+      ips: ipRows.slice(0, 50).map((s) => ({ ip: s.ip, hits30d: s.hits, activeDays30d: s.days.size, rejected30d: s.rejected, clients: Array.from(s.clients), lastSeen: new Date(s.last).toISOString() })),
+    });
+    return;
+  }
+
+  const engagementTable = engagement.map((r) => {
+    const shared = r.s.w30.ips.size >= SHARED_LINK_IPS;
+    return `<tr>
+    <td><b>${esc(r.c)}</b>${r.blocked ? ' <span style="color:#A31F34;font-weight:700">· blocked</span>' : ""}</td>
+    <td style="color:${r.status.color};font-weight:600">${r.status.label}</td>
+    <td style="text-align:right">${r.s.w30.events}${r.s.w30.rejected ? ` <span style="color:#A31F34" title="expired or blocked link attempts">(${r.s.w30.rejected}✕)</span>` : ""}</td>
+    <td style="text-align:right">${r.s.w30.days.size}</td>
+    <td style="text-align:right${shared ? ';color:#C77700;font-weight:600' : ''}">${r.s.w30.ips.size}${shared ? " ⚑" : ""}</td>
+    <td style="text-align:right">${r.s.w7.events}${r.s.w7.rejected ? ` <span style="color:#A31F34">(${r.s.w7.rejected}✕)</span>` : ""}</td>
+    <td style="text-align:right">${r.s.w7.days.size}</td>
+    <td>${r.last ? ago(r.last) : "—"}</td>
+    <td style="text-align:right;color:#5B6B7B">${r.hits}</td>
+  </tr>`;
+  }).join("") || `<tr><td colspan="9" style="color:#98A2AF">No client links have been used yet.</td></tr>`;
+
+  const ipTable = ipRows.slice(0, 15).map((s) => `<tr>
+    <td>${esc(s.ip)}</td><td style="text-align:right">${s.hits}</td><td style="text-align:right">${s.days.size}</td>
+    <td>${esc(Array.from(s.clients).join(", "))}</td>
+    <td style="text-align:right;color:${s.rejected ? "#A31F34" : "#98A2AF"}">${s.rejected}</td>
+    <td>${ago(s.last)}</td>
+  </tr>`).join("") || `<tr><td colspan="6" style="color:#98A2AF">No IPs recorded in the last 30 days.</td></tr>`;
+
+  const ipFlagList = ipFlags.length
+    ? `<ul style="margin:6px 0 0;padding-left:18px;font-size:13px">${ipFlags.slice(0, 15).map((x) => `<li><b>${esc(x.s.ip)}</b> — ${esc(x.reasons.join("; "))} · ${x.s.hits} hit(s), last ${ago(x.s.last)}</li>`).join("")}</ul>`
+    : `<div style="font-size:13px;color:#5B6B7B">Nothing flagged: no address is arriving under more than one link tag, and no expired or blocked links are being retried.</div>`;
 
   const summary = rows.map((r) => `<tr>
     <td><b>${esc(r.c)}</b>${r.blocked ? ' <span style="color:#A31F34;font-weight:700">· blocked</span>' : ""}</td>
@@ -228,7 +378,24 @@ module.exports = async function handler(req, res) {
   table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;font-size:13px}
   th,td{padding:8px 12px;border-bottom:1px solid #E6E9EE;text-align:left}th{background:#fafbfc;color:#5B6B7B;font-size:11px;text-transform:uppercase}</style></head>
   <body><div class="wrap">
-    <h1>Baton Index — usage</h1><div style="font-size:13px;color:#5B6B7B">${rows.length} client(s) · ${events.length} recent events</div>
+    <h1>Baton Index — usage</h1><div style="font-size:13px;color:#5B6B7B">${rows.length} client(s) · ${events.length} event(s) retained${oldest ? ` · log reaches back ${horizonDays.toFixed(1)} day(s)` : ""} · <a href="/api/usage?key=${encodeURIComponent(key)}&json=1" style="color:#011F5B">JSON</a></div>
+    ${truncated ? `<div style="margin-top:10px;padding:10px 12px;background:#FFF4E5;border:1px solid #F0D9B5;border-radius:8px;font-size:13px;color:#7A5200">The event log is full (${EVENT_CAP} events) and only reaches back ${horizonDays.toFixed(1)} days, so the 30-day column is cut short — real 30-day totals are higher than shown. The 7-day column is unaffected.</div>` : ""}
+
+    <h2>Engagement — customised links</h2>
+    <div style="font-size:12px;color:#5B6B7B;margin-bottom:6px">One row per link tag. <b>Active</b> = used in the last 7 days, <b>Fading</b> = used in the last 30 but not 7, <b>Dormant</b> = nothing in 30 days, <b>Locked out</b> = only expired/blocked attempts. ✕ marks those attempts; ⚑ marks ${SHARED_LINK_IPS}+ distinct addresses on one link.</div>
+    <table><tr><th>Client</th><th>Status</th><th style="text-align:right">30d events</th><th style="text-align:right">30d days</th><th style="text-align:right">30d IPs</th><th style="text-align:right">7d events</th><th style="text-align:right">7d days</th><th>Last seen</th><th style="text-align:right">All-time</th></tr>${engagementTable}</table>
+
+    <h2>Free open link (public tier)</h2>
+    <table><tr><th>Window</th><th style="text-align:right">Events</th><th style="text-align:right">Active days</th><th style="text-align:right">Distinct IPs</th></tr>
+      <tr><td>Last 30 days</td><td style="text-align:right">${free.w30.events}</td><td style="text-align:right">${free.w30.days.size}</td><td style="text-align:right">${free.w30.ips.size}</td></tr>
+      <tr><td>Last 7 days</td><td style="text-align:right">${free.w7.events}</td><td style="text-align:right">${free.w7.days.size}</td><td style="text-align:right">${free.w7.ips.size}</td></tr></table>
+    <div style="font-size:12px;color:#5B6B7B;margin-top:4px">Anyone with no token — or an expired one — lands here, so distinct IPs is the closest thing to a visitor count. It is a floor, not a census: the free meter is per-browser, and one office shares one address.</div>
+
+    <h2>IPs worth attention (last 30 days)</h2>
+    ${ipFlagList}
+    <table style="margin-top:10px"><tr><th>IP</th><th style="text-align:right">30d hits</th><th style="text-align:right">Days</th><th>Link tag(s)</th><th style="text-align:right">Rejected</th><th>Last seen</th></tr>${ipTable}</table>
+    <div style="font-size:12px;color:#5B6B7B;margin-top:4px">Addresses are a weak identifier — mobile and corporate networks re-address constantly, and a VPN moves a person between them — so treat a flag as a prompt to look, never as proof a link was shared.</div>
+
     <h2>Clients</h2>
     <table><tr><th>Client</th><th style="text-align:right">Hits</th><th>Last seen</th><th>Last event</th><th>Detail</th><th>Consented</th><th>Slate</th><th>Access</th></tr>${summary}</table>
     <h2>Recent activity</h2>
