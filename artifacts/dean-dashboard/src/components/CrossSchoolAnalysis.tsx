@@ -8,6 +8,7 @@ import {
   BarChart, Bar, Legend, PieChart, Pie,
 } from "recharts";
 import type { Dean, CategoricalField, NumericField } from "@/data/types";
+import { completedTenure } from "@/data/tenure";
 import { CATEGORICAL_LABELS, NUMERIC_LABELS, CHART_COLORS, NEXT_ROLE_LABELS, ORIGIN_LABELS } from "@/data/types";
 import CompareSchools from "./CompareSchools";
 
@@ -42,6 +43,12 @@ export default function CrossSchoolAnalysis() {
   );
 }
 
+// Tenure is never read off the record directly: a sitting leader has no completed
+// tenure, and several indices still store one on people who never left (see
+// src/data/tenure.ts).
+const numValue = (d: Dean, f: NumericField): number | null =>
+  f === "tenureLength" ? completedTenure(d) : (d[f] as number | null);
+
 function ScatterView({ data }: { data: Dean[] }) {
   const [xField, setXField] = useState<NumericField>("rank");
   const [yField, setYField] = useState<NumericField>("tenureLength");
@@ -49,10 +56,10 @@ function ScatterView({ data }: { data: Dean[] }) {
 
   const scatterData = useMemo(() => {
     return data
-      .filter((d) => d[xField] != null && d[yField] != null)
+      .filter((d) => numValue(d, xField) != null && numValue(d, yField) != null)
       .map((d) => ({
-        x: d[xField] as number,
-        y: d[yField] as number,
+        x: numValue(d, xField) as number,
+        y: numValue(d, yField) as number,
         color: String(d[colorField] ?? "Unknown"),
         name: d.dean,
         school: d.school,

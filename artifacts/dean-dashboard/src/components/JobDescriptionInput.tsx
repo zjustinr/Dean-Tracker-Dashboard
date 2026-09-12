@@ -144,7 +144,9 @@ export default function JobDescriptionInput({
             JavaScript and won't yield anything; paste is the reliable option), then click Match Candidates. We pull
             the distinctive terms out of the posting itself (not just this index's known expertise tags), then
             re-score candidates by overlap — it's a heuristic boost, not a validated statistical signal like the rest
-            of the model.
+            of the model. It re-orders the ranked list and never filters it: a candidate who matches nothing in the
+            posting moves down, not out, because a thin match is as often a gap in what we have on file as a fact
+            about the person.
           </p>
           <textarea
             value={text}

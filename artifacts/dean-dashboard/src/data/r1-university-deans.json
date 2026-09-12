@@ -333,7 +333,7 @@
   "enrollmentAvg": 11369,
   "businessPctEnd": 0.1182,
   "businessDegreesLatest": 566,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "Johns Hopkins University",
   "phdYear": 1978,
@@ -400,7 +400,8 @@
   "phdYear": 1978,
   "enrollmentStart": 11449,
   "businessPctStart": 0.1182,
-  "businessDegreesStart": 414
+  "businessDegreesStart": 414,
+  "fromInterim": true
  },
  {
   "id": 8,
@@ -2942,7 +2943,7 @@
   "enrollmentAvg": 29867,
   "businessPctEnd": 0.1688,
   "businessDegreesLatest": 2781,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "enrollmentStart": 29049,
   "businessPctStart": 0.1814,
@@ -3005,7 +3006,8 @@
   "connectionType": "",
   "enrollmentStart": 30957,
   "businessPctStart": 0.1688,
-  "businessDegreesStart": 1308
+  "businessDegreesStart": 1308,
+  "fromInterim": true
  },
  {
   "id": 53,
@@ -3701,7 +3703,7 @@
   "enrollmentAvg": 5302,
   "businessPctEnd": 0.1405,
   "businessDegreesLatest": 203,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "businessPctStart": 0.1405,
   "businessDegreesStart": 203
@@ -3760,7 +3762,8 @@
   "businessPctEnd": 0.1405,
   "businessDegreesLatest": 203,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 66,
@@ -5730,7 +5733,7 @@
   "enrollmentAvg": 13949,
   "businessPctEnd": 0.11,
   "businessDegreesLatest": 495,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of Texas at Austin",
   "phdYear": 1989,
@@ -5797,7 +5800,8 @@
   "phdYear": 1989,
   "enrollmentStart": 14029,
   "businessPctStart": 0.11,
-  "businessDegreesStart": 569
+  "businessDegreesStart": 569,
+  "fromInterim": true
  },
  {
   "id": 101,
@@ -8259,7 +8263,7 @@
   "enrollmentAvg": 3722,
   "businessPctEnd": null,
   "businessDegreesLatest": 5,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "enrollmentStart": 3738
  },
@@ -8318,7 +8322,8 @@
   "businessDegreesLatest": 5,
   "convertedToPermanent": false,
   "connectionType": "",
-  "enrollmentStart": 3705
+  "enrollmentStart": 3705,
+  "fromInterim": true
  },
  {
   "id": 145,
@@ -9948,7 +9953,7 @@
   "enrollmentAvg": 26264,
   "businessPctEnd": 0.2059,
   "businessDegreesLatest": 1736,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of California, Davis",
   "phdYear": 1984,
@@ -10011,7 +10016,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "phdInstitution": "University of California, Davis",
-  "phdYear": 1984
+  "phdYear": 1984,
+  "fromInterim": true
  },
  {
   "id": 174,
@@ -20326,7 +20332,7 @@
   "enrollmentAvg": 9751,
   "businessPctEnd": 0.1017,
   "businessDegreesLatest": 317,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdYear": 2014,
   "enrollmentStart": 9558,
@@ -20391,7 +20397,8 @@
   "phdYear": 2014,
   "enrollmentStart": 9944,
   "businessPctStart": 0.1017,
-  "businessDegreesStart": 216
+  "businessDegreesStart": 216,
+  "fromInterim": true
  },
  {
   "id": 353,
@@ -21613,7 +21620,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -21670,7 +21677,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 375,
@@ -27135,7 +27143,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdYear": 1951
  },
@@ -27194,7 +27202,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdYear": 1951
+  "phdYear": 1951,
+  "fromInterim": true
  },
  {
   "id": 471,
@@ -31185,7 +31194,7 @@
   "enrollmentAvg": 48916,
   "businessPctEnd": 0.1909,
   "businessDegreesLatest": 2954,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "Rice University",
   "phdYear": 1975,
@@ -31252,7 +31261,8 @@
   "phdYear": 1975,
   "enrollmentStart": 49129,
   "businessPctStart": 0.1909,
-  "businessDegreesStart": 2139
+  "businessDegreesStart": 2139,
+  "fromInterim": true
  },
  {
   "id": 542,
@@ -33469,7 +33479,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -33526,7 +33536,8 @@
   "businessPctEnd": 0.117,
   "businessDegreesLatest": 610,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 582,
@@ -33758,7 +33769,7 @@
   "enrollmentAvg": 17969,
   "businessPctEnd": 0.1453,
   "businessDegreesLatest": 610,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "enrollmentStart": 17684,
   "businessPctStart": 0.1279,
@@ -33821,7 +33832,8 @@
   "connectionType": "",
   "enrollmentStart": 18020,
   "businessPctStart": 0.1453,
-  "businessDegreesStart": 627
+  "businessDegreesStart": 627,
+  "fromInterim": true
  },
  {
   "id": 587,
@@ -34867,7 +34879,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -34924,7 +34936,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 606,
@@ -36778,7 +36791,7 @@
   "enrollmentAvg": 30002,
   "businessPctEnd": 0.2426,
   "businessDegreesLatest": 1836,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of Houston",
   "enrollmentStart": 29068,
@@ -36843,7 +36856,8 @@
   "phdInstitution": "University of Houston",
   "enrollmentStart": 30936,
   "businessPctStart": 0.2426,
-  "businessDegreesStart": 1695
+  "businessDegreesStart": 1695,
+  "fromInterim": true
  },
  {
   "id": 640,
@@ -48898,7 +48912,7 @@
   "enrollmentAvg": 11397,
   "businessPctEnd": 0.1041,
   "businessDegreesLatest": 416,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of California, Berkeley",
   "enrollmentStart": 11358,
@@ -48963,7 +48977,8 @@
   "phdInstitution": "University of California, Berkeley",
   "enrollmentStart": 11435,
   "businessPctStart": 0.1041,
-  "businessDegreesStart": 215
+  "businessDegreesStart": 215,
+  "fromInterim": true
  },
  {
   "id": 855,
@@ -49543,7 +49558,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdYear": 1964
  },
@@ -49602,7 +49617,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdYear": 1964
+  "phdYear": 1964,
+  "fromInterim": true
  },
  {
   "id": 866,
@@ -53018,7 +53034,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "Vanderbilt University"
  },
@@ -53077,7 +53093,8 @@
   "businessDegreesLatest": 2034,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "Vanderbilt University"
+  "phdInstitution": "Vanderbilt University",
+  "fromInterim": true
  },
  {
   "id": 926,
@@ -55004,7 +55021,7 @@
   "enrollmentAvg": 18116,
   "businessPctEnd": 0.1428,
   "businessDegreesLatest": 728,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "Michigan State University",
   "enrollmentStart": 18004,
@@ -55069,7 +55086,8 @@
   "phdInstitution": "Michigan State University",
   "enrollmentStart": 18227,
   "businessPctStart": 0.1428,
-  "businessDegreesStart": 493
+  "businessDegreesStart": 493,
+  "fromInterim": true
  },
  {
   "id": 960,
@@ -58136,7 +58154,7 @@
   "enrollmentAvg": 27926,
   "businessPctEnd": 0.2102,
   "businessDegreesLatest": 1822,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "enrollmentStart": 28079,
   "businessPctStart": 0.2053,
@@ -58199,7 +58217,8 @@
   "connectionType": "",
   "enrollmentStart": 27772,
   "businessPctStart": 0.2102,
-  "businessDegreesStart": 1507
+  "businessDegreesStart": 1507,
+  "fromInterim": true
  },
  {
   "id": 1014,
@@ -59313,7 +59332,7 @@
   "enrollmentAvg": 28711,
   "businessPctEnd": 0.1106,
   "businessDegreesLatest": 1149,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of North Carolina at Chapel Hill",
   "phdYear": 1981,
@@ -59377,7 +59396,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "phdInstitution": "University of North Carolina at Chapel Hill",
-  "phdYear": 1981
+  "phdYear": 1981,
+  "fromInterim": true
  },
  {
   "id": 1034,
@@ -61284,7 +61304,7 @@
   "enrollmentAvg": 49654,
   "businessPctEnd": 0.1675,
   "businessDegreesLatest": 2236,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "enrollmentStart": 49708,
   "businessPctStart": 0.1718,
@@ -61347,7 +61367,8 @@
   "connectionType": "",
   "enrollmentStart": 49600,
   "businessPctStart": 0.1675,
-  "businessDegreesStart": 2373
+  "businessDegreesStart": 2373,
+  "fromInterim": true
  },
  {
   "id": 1068,
@@ -61753,7 +61774,7 @@
   "enrollmentAvg": 47147,
   "businessPctEnd": 0.18,
   "businessDegreesLatest": 3291,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -61810,7 +61831,8 @@
   "businessPctEnd": 0.18,
   "businessDegreesLatest": 3291,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1076,
@@ -63845,7 +63867,7 @@
   "enrollmentAvg": null,
   "businessPctEnd": null,
   "businessDegreesLatest": null,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "phdInstitution": "University of Texas at Austin"
  },
@@ -63904,7 +63926,8 @@
   "businessDegreesLatest": 742,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of Texas at Austin"
+  "phdInstitution": "University of Texas at Austin",
+  "fromInterim": true
  },
  {
   "id": 1112,
@@ -66110,7 +66133,7 @@
   "enrollmentAvg": 39509,
   "businessPctEnd": 0.1167,
   "businessDegreesLatest": 1322,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "enrollmentStart": 39882,
   "businessPctStart": 0.1179,
@@ -66173,7 +66196,8 @@
   "connectionType": "",
   "enrollmentStart": 39135,
   "businessPctStart": 0.1167,
-  "businessDegreesStart": 1204
+  "businessDegreesStart": 1204,
+  "fromInterim": true
  },
  {
   "id": 1151,
@@ -67808,7 +67832,7 @@
   "enrollmentAvg": 11970,
   "businessPctEnd": 0.0856,
   "businessDegreesLatest": 397,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "enrollmentStart": 11847,
   "businessPctStart": 0.0904,
@@ -67871,7 +67895,8 @@
   "connectionType": "",
   "enrollmentStart": 12093,
   "businessPctStart": 0.0856,
-  "businessDegreesStart": 277
+  "businessDegreesStart": 277,
+  "fromInterim": true
  },
  {
   "id": 1180,
@@ -69681,7 +69706,7 @@
   "enrollmentAvg": 23553,
   "businessPctEnd": 0.1894,
   "businessDegreesLatest": 1208,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": ""
  },
  {
@@ -69738,7 +69763,8 @@
   "businessPctEnd": 0.1894,
   "businessDegreesLatest": 1208,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "fromInterim": true
  },
  {
   "id": 1213,
@@ -70309,7 +70335,7 @@
   "enrollmentAvg": 29321,
   "businessPctEnd": 0.1118,
   "businessDegreesLatest": 958,
-  "convertedToPermanent": false,
+  "convertedToPermanent": true,
   "connectionType": "",
   "enrollmentStart": 29466,
   "businessPctStart": 0.1141,
@@ -70372,7 +70398,8 @@
   "connectionType": "",
   "enrollmentStart": 29175,
   "businessPctStart": 0.1118,
-  "businessDegreesStart": 712
+  "businessDegreesStart": 712,
+  "fromInterim": true
  },
  {
   "id": 1224,
@@ -102659,9 +102686,9 @@
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Stephanie Akunvabey, EdD",
-  "startYear": null,
+  "startYear": 2023,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jun 2023 and Aug 2023",
   "endLabel": "",
   "priorTitle": "Chief Diversity Officer, Roger Williams University",
   "priorInstitution": "",
@@ -102709,16 +102736,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 1789,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Jeffrey A. Barnett, PhD",
-  "startYear": null,
+  "startYear": 2022,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jul 2022 and Dec 2022",
   "endLabel": "",
   "priorTitle": "Interim Associate Dean of Students, Stony Brook University",
   "priorInstitution": "",
@@ -102766,16 +102794,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 1790,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Nila Bhaumik",
-  "startYear": null,
+  "startYear": 2023,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jun 2023 and Aug 2023",
   "endLabel": "",
   "priorTitle": "Human resources roles at LaGuardia Community College and Guttman Community College, CUNY",
   "priorInstitution": "",
@@ -102823,16 +102852,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 1791,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "David Brown, JD",
-  "startYear": null,
+  "startYear": 2025,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Apr 2025 and Aug 2025",
   "endLabel": "",
   "priorTitle": "",
   "priorInstitution": "",
@@ -102880,7 +102910,8 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 1792,
@@ -103001,9 +103032,9 @@
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Beth Gordon, PhD",
-  "startYear": null,
+  "startYear": 2022,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jul 2022 and Dec 2022",
   "endLabel": "",
   "priorTitle": "Executive Director for Academic Technology, Pace University",
   "priorInstitution": "",
@@ -103051,7 +103082,8 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 1795,
@@ -103172,9 +103204,9 @@
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Shawn O'Riley, EdD",
-  "startYear": null,
+  "startYear": 2025,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jan 2025 and Apr 2025",
   "endLabel": "",
   "priorTitle": "Dean, College of Professional and Continuing Studies, Adelphi University",
   "priorInstitution": "",
@@ -103222,16 +103254,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 1798,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Nicole Thompson Williams, MBA",
-  "startYear": null,
+  "startYear": 2022,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jul 2022 and Dec 2022",
   "endLabel": "",
   "priorTitle": "Associate Vice President, Administrative Operations/Technology",
   "priorInstitution": "Pace University",
@@ -103279,7 +103312,8 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 1799,

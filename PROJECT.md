@@ -229,50 +229,156 @@ this many" without reconstructing it from the controls.
 marks a non-academic tie, maroon marks affinity to the target school. Do not
 introduce a fourth for variety.
 
-### Feature flags (`src/config/flags.ts`)
+**No control selects candidates on a protected characteristic.** An
+"Include: All / Women / Men" segmented filter used to sit in the Person group of
+BOTH Slate Builder and Scout Assistant. Framed as widening the pool, it was still
+a selection filter on gender, and screening people in or out that way is the
+practice our buyers consult against. It is gone from both.
+`PoolComposition.tsx` replaces it with a read-only audit — slate, results and
+eligible pool side by side, unrecorded gender counted rather than dropped — so
+composition stays visible and unfilterable. Do not reintroduce the control in
+another form.
 
-Two capabilities ship **hidden behind flags that are off by default**. Nothing is
-deleted: the code behind each flag is intact, and flipping the flag on restores
-the old behaviour exactly, so a later decision is cheap to implement. The flags
-are not there so the features can be switched back on for a demo.
+**A filter says what it can see.** Coverage belongs on the control, not in a
+support reply: a screen that silently returns nothing because the underlying
+field is empty reads as "no such people". The years-in-seat range reports how
+much of the current pool has a start date at all (`SeatCoverageNote`), and names
+the feeder bench as the gap where it is one — 37 of 11,930 associate/vice-dean
+records corpus-wide carry a start date, so any range over that cohort returns
+almost nothing however the sliders are set.
 
-| flag | env var | what it hides | goes back on when |
-|---|---|---|---|
-| `ENABLE_GENDER_SELECTION_FILTER` | `VITE_ENABLE_GENDER_SELECTION_FILTER` | The **Include: All / Women / Men** control (and its "Widen the pool…" caption) in Slate Builder and Scout Assistant | it is redesigned as a pool-composition readout, **or** counsel signs off on the current behaviour |
-| `ENABLE_TENURE_STAYING_PUT_COPY` | `VITE_ENABLE_TENURE_STAYING_PUT_COPY` | The Movability Index sentence claiming a very long tenure usually means a leader is staying put | a later measurement supports the claim |
+**The job-description keyword match re-ranks; it never filters.** At the
+strictest Scout tier a zero-keyword candidate used to be excluded outright. No
+other tier excludes anyone, so it contradicted the interface's own claim that the
+tiers are one ranked list truncated at different depths; it rested on the one
+input here that is not validated (a fuzzy text overlap on a flat 0.5 per match,
+not the log-lift scale everything else uses); and it dropped people whose brief
+is thin, which is a coverage artefact rather than a fact about them. It is a soft
+additive score at every tier now, labelled as exploratory where it is offered.
 
-**Why each is off.** The Include control filtered candidates on a protected
-characteristic — selecting Women removed men from the result set, whatever the
-control was called — which sits on the selection side of the
-recruitment/selection line. The movability sentence asserted the opposite of the
-D4 backtest: over a five-year horizon across 2,711 sitting leaders, those past
-the 75th percentile departed at **69.6%** against a **57.8%** base rate and
-**55.4%** for leaders below the median. Neither has a softened replacement — a
-gentler label makes the filter harder to spot rather than less exposed, and a
-hedged "may mean they're staying put" is still the wrong direction.
+**Every row carries its source.** `SourceLink.tsx` renders the domain behind a
+record on the row itself in both result lists — the domain rather than the word
+"source", because which domain it is *is* the signal — and says "no source" out
+loud for the 2.5% of records that have none rather than rendering nothing.
 
-**Three constraints on how a flag is read, and all three matter:**
+### The tenure contract (`src/data/tenure.ts` + `scripts/lib/tenure.mjs`)
 
-1. **Build-time config only.** Values come from `import.meta.env`, resolved when
-   the bundle is built. Never from user settings, a query string, a cookie or
-   `localStorage` — if a customer can turn it on, the capability still ships.
-2. **Never exposed in any UI.** No admin panel, no keyboard shortcut, no debug
-   menu in production.
-3. **Documented here, beside the values**, and in the comment next to each flag,
-   so the switch and its reason stay in the same place.
+No screen reads `tenureLength` off a record. It asks `completedTenure()`, which
+returns a number only for a spell that actually finished and whose arithmetic can
+be true, and null otherwise. Two errors motivated this and both are the same
+mistake: treating a stored length as a completed spell. **Right-censoring** — a
+sitting leader has no completed tenure, and four indices carried a frozen one on
+359 people who never left, so every screen filtering on "has a tenure length"
+averaged still-serving snapshots in with finished appointments. **Impossible
+arithmetic** — 31 records with negative spans, a start year of zero (one read as a
+2,004-year tenure), and 80-to-136-year spells whose end year was a placeholder for
+"not documented".
 
-The gender flag is enforced in three layers, because the failure mode is silent:
-the control is not rendered; `resolveGenderInclude()` clamps the state value to
-`"all"` on init and on every set, so an inbound value from a persisted slate, URL
-parameter or trial scope link cannot filter invisibly; and
-`passesGenderInclude()` returns true for every candidate, so a code path nobody
-thought of cannot reintroduce the filtering.
+### Feeder-bench start dates (`scripts/bench-start-dates.mjs`)
 
-To flip one on in a **local** build only:
+A resumable pipeline that brackets when an associate/vice dean first appeared on their school's
+archived leadership page, because nobody announces those appointments and 37 of 11,930 bench records
+carry a start date. ~43h of archive fetching for the full corpus, ordered so the first hours deliver
+the most records; `apply-bench-start-dates.mjs` merges only tight brackets, and only with
+`startPrecision: "bracketed"` and a label naming the window. Full write-up:
+`docs/bench-start-dates.md`.
 
-```
-VITE_ENABLE_GENDER_SELECTION_FILTER=true pnpm --dir artifacts/dean-dashboard build
-```
+**Until it lands, the product makes no tenure or movability claim about the bench** — `tenureInfoFor`
+returns no reading for a `roleType: "subdean"` row, both because the cohort median is a *dean* norm
+and because almost no bench row has a start date to band. Two related facts a future change should
+address: bench rows have no usable ids (they are addressed by a natural key, see `lib/bench.mjs`), and
+a `startPrecision` marker exists only on rows this pipeline wrote — generalising it is F15.
+
+### Out-of-sample validation (`scripts/scout-holdout.mjs`)
+
+`pnpm scout-holdout` trains the Scout ranking on appointments before a cutoff and tests it on every
+appointment since — a split by TIME, not by row, which is the only split that supports a claim about
+the future. `scout-backtest.mjs` answers a different question (leave-one-out over a sample from any
+year) and both now share one scorer in `scripts/lib/scout-model.mjs`, so they cannot drift into
+testing two different models.
+
+Current result, and the way to state it: of the last three years' appointments the model would have
+shown the actual hire in its top ten **15.8%** of the time, about twice a shuffled list — with the
+ceiling set by coverage, since only **27.5%** of those hires were in the candidate pool at all, and
+among those it ranked them top ten **57.5%** of the time. Full report, per-index table and
+approximations: `docs/out-of-sample-validation.md`. Two rules when quoting it: the per-index spread is
+wide (R1 medical 11.6× chance, community college at chance — check the table before quoting the
+corpus figure for one index), and the shipped tie/employer components make the ranking *worse*
+out-of-sample, which is a finding to investigate rather than a number to publish.
+
+### Departure outcomes (`src/data/departure.ts` + `scripts/lib/departure.mjs`)
+
+One closed, mutually exclusive set of destinations — promotion, another deanship,
+other senior administration, faculty, retirement, external, death, continued,
+other, not recorded — derived from `nextRole` rather than collected afresh.
+Competing risks needs this: leaving for a provostship, retiring, and being pushed
+out are different events with different predictors, and one "departed" outcome
+hides that.
+
+**Read the coverage before the distribution.** `nextRole` is populated on 94.5% of
+completed spells, but 62.2% of them say "Unknown" or nothing at all — the
+destination is genuinely recorded for **37.8%**. Both charts that use these
+categories say so on the card. `unknown` means unknown and must never be read as
+"voluntary": involuntary exit carries 32 rows in the entire corpus and no re-coding
+of what is already written down will recover it.
+
+The category is NOT stored. It is a pure function of `nextRole`, so every consumer
+derives it — the frontend through `departure.ts`, scripts through `departure.mjs`,
+and the two must stay in step (same categories, same rules, same precedence, and
+precedence *is* the logic). Storing it would add a second copy to keep in step for
+no reader that could not call the function.
+
+**Conversions are stored**, because a conversion is a property of a *pair* of
+spells and a consumer holding one record cannot compute it:
+`convertedToPermanent` on the interim spell, `fromInterim` on the permanent one
+(present only where true). `scripts/derive-departures.mjs` writes them,
+`scripts/validate-departures.mjs` fails CI when they drift. Two rules matter:
+the derivation only ever ADDS — a conversion recorded by hand in a spell's notes,
+with no second row to rebuild it from, is carried forward, never overwritten —
+and it reads `fromInterim` as well as `convertedToPermanent` so it is a fixed
+point under its own output rather than a one-way trip.
+
+### The movability definition is versioned (`src/data/movability.ts`)
+
+`MOVABILITY_VERSION` plus `MOVABILITY_CHANGELOG` stamp the definition, and the
+stamp renders beside every reading. The definition has already moved twice — D1
+recomputed every cohort median on a censoring-aware basis, moving them by one to
+three and a half years, and v2.0 collapsed three bands to two — so a reading
+quoted last month is not necessarily the reading today, and until the stamp
+existed there was nothing in the product to explain the difference. Bump the
+version and add an entry for any change to the bands, the boundary, or the cohort
+the median is taken from. Changelog dates carry a `dateNote` wherever the date is
+not the date of the change itself; do not quietly invent a precise one.
+
+The storage invariant is the same rule at write time: generators call
+`normalizeTenureFields()` before writing, `scripts/validate-tenure.mjs` fails CI on
+any violation anywhere in the corpus (not diff-based — the corpus is clean, so any
+violation is a regression), and `scripts/fix-tenure-invariants.mjs` re-applies the
+rule to existing files. An undocumented boundary is `null` plus an `"unknown"`
+label; `isSitting()` distinguishes that from a leader still in the seat, so a
+19th-century founding dean never counts as sitting.
+
+### Feature flags (`src/config/flags.ts`) — superseded, now unreferenced
+
+`src/config/flags.ts` shipped two off-by-default flags,
+`ENABLE_GENDER_SELECTION_FILTER` and `ENABLE_TENURE_STAYING_PUT_COPY`, which
+*hid* the gender selection control and the "staying put" movability sentence
+while leaving the code behind them intact.
+
+Both problems are now fixed at the source rather than hidden, so the module has
+no call sites left:
+
+- The gender control is **removed** from Slate Builder and Scout Assistant and
+  replaced by the read-only `<PoolComposition>` audit — which is the condition
+  `ENABLE_GENDER_SELECTION_FILTER`'s own note named for turning it back on.
+- The contradicted sentence is gone with the whole three-band scheme it lived
+  in: the Movability Index is now the two evidence-backed bands described above
+  (`src/data/movability.ts`), so there is no longer a claim for
+  `ENABLE_TENURE_STAYING_PUT_COPY` to gate.
+
+The file is left in place rather than deleted — that is the author's call, not
+this change's. Delete it once nobody wants the old behaviour recoverable from
+git history alone.
 
 ### Non-academic experience contract (research/enrichment waves)
 

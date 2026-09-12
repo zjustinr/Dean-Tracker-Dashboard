@@ -3,6 +3,7 @@ import XLSX from "xlsx";
 import { writeFileSync, readFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { normalizeTenureFields } from "./lib/tenure.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SRC = resolve(__dirname, "../../../attached_assets/Dean_Data_Collection_R1_v8_userverified.xlsx");
@@ -659,6 +660,11 @@ function buildESchool() {
 
 const bs = buildBSchool();
 const es = buildESchool();
+
+// The source workbook carries a tenure_length on sitting leaders too, so applying
+// the storage invariant here is what keeps a right-censored spell out of the file
+// (see scripts/lib/tenure.mjs).
+for (const d of [...bs.deans, ...es.deans]) normalizeTenureFields(d);
 
 writeFileSync(resolve(OUT_DIR, "r1-bschool-deans.json"), JSON.stringify(bs.deans, null, 2));
 writeFileSync(resolve(OUT_DIR, "r1-bschool-bsq.json"), JSON.stringify(bs.bsq, null, 2));

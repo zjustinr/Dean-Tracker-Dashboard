@@ -2,8 +2,9 @@ import { useMemo, useState } from "react";
 import * as RSM from "react-simple-maps";
 import type { CareerStep } from "@/data/enrichment";
 import careerGeo from "@/data/career-geo.json";
+import { MOVABILITY_BANDS, MOVABILITY_CHANGELOG, MOVABILITY_COPY, MOVABILITY_EVIDENCE, MOVABILITY_VERSION, movabilityBand } from "@/data/movability";
+import type { TenureInfo } from "@/data/movability";
 import { MovabilityGaugeIcon } from "./MovabilityGaugeIcon";
-import { FLAGS } from "@/config/flags";
 
 const { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } = RSM;
 type Hover = { kind: "career"; num: number; role: string; org: string; place: string; years: string } | { kind: "alma"; school: string; level: string; state: string | null };
@@ -43,14 +44,9 @@ const projectableUS = (country: string | null | undefined, state: string | null 
 
 interface Located { num: number; role: string; org: string; years: string; geo: Geo; isCurrent: boolean; lat: number; lng: number; x: number; y: number }
 
-export interface TenureInfo {
-  sitting: boolean;
-  currentTenure: number | null;
-  median: number | null;
-  p75: number | null;
-  personalAvg: number | null;
-  cohortN: number;
-}
+// The movability inputs and band definition live in src/data/movability.ts, so
+// every surface that shows the chip reads the same bands off the same numbers.
+export type { TenureInfo };
 
 // state is null for derived roots whose alma mater has no US state (foreign or
 // unresolved institutions) -- career-roots.json started carrying those in Aug 2026,
@@ -121,25 +117,7 @@ export function useCareerAnalysis(steps: CareerStep[], tenure: TenureInfo | unde
     return { metros: metros.size, relocations, states: stateCount.size, maxDist: Math.round(maxDist), move, reach, anchor };
   }, [worldLocated]);
 
-  const rating = useMemo(() => {
-    const t = tenure;
-    if (!t || !t.sitting || t.currentTenure == null || t.median == null) return null;
-    const ct = t.currentTenure;
-    const own = t.personalAvg != null ? ` · usually stays ~${Math.round(t.personalAvg)} yr${Math.round(t.personalAvg) === 1 ? "" : "s"}` : "";
-    if (t.p75 != null && ct >= t.p75) {
-      // The band's factual lines stay; the claim that a very long tenure means
-      // the leader is staying put sits behind ENABLE_TENURE_STAYING_PUT_COPY,
-      // off because the D4 backtest measured the opposite direction. There is
-      // deliberately no hedged replacement -- see src/config/flags.ts.
-      const claim = FLAGS.ENABLE_TENURE_STAYING_PUT_COPY
-        ? " -- this far past the typical window usually means they're staying put, not about to leave"
-        : "";
-      return { label: "Overdue", tone: "lightgreen" as const, cls: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300", reason: `${ct} yrs in role, past the 75th-pct (${t.p75} yrs) for this cohort${claim}${own}` };
-    }
-    if (ct >= t.median || (t.personalAvg != null && ct >= t.personalAvg))
-      return { label: "Could move", tone: "green" as const, cls: "bg-green-200 text-green-900 dark:bg-green-800 dark:text-green-100", reason: `${ct} yrs in role, near the typical ${t.median} yrs${own}` };
-    return { label: "Not up to move", tone: "yellow" as const, cls: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200", reason: `${ct} yrs in role, below the typical ${t.median} yrs${own}` };
-  }, [tenure]);
+  const rating = useMemo(() => movabilityBand(tenure), [tenure]);
 
   const ties = useMemo(() => {
     if (!roots || !roots.length || !worldLocated.length) return null;
@@ -236,6 +214,76 @@ export default function CareerMap({ steps, roots }: { steps: CareerStep[]; roots
   );
 }
 
+/** "2026-09-06" -> "6 Sep 2026". Dates are stamps, not prose, so they stay short. */
+function formatStampDate(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${d} ${MONTHS[m - 1]} ${y}`;
+}
+
+/**
+ * The band definitions and the departure rate measured for each, one click from
+ * any chip. A reader who wants to know what "at or past median" is worth should
+ * never have to ask us for the number.
+ */
+function MovabilityBandTable() {
+  return (
+    <details className="mt-2 group">
+      <summary className="text-xs font-semibold cursor-pointer text-primary hover:underline list-none">
+        How the bands are measured
+      </summary>
+      <div className="mt-1.5 overflow-x-auto">
+        <table className="w-full text-[11px] border-collapse">
+          <thead>
+            <tr className="text-left text-muted-foreground">
+              <th className="font-semibold pr-2 pb-1">Band</th>
+              <th className="font-semibold pr-2 pb-1">Definition</th>
+              <th className="font-semibold pb-1 whitespace-nowrap">Departed in 5 yrs</th>
+            </tr>
+          </thead>
+          <tbody>
+            {MOVABILITY_BANDS.map((b) => (
+              <tr key={b.key} className="align-top border-t border-border">
+                <td className="pr-2 py-1 font-medium whitespace-nowrap">{b.longLabel}</td>
+                <td className="pr-2 py-1 text-muted-foreground">{b.definition}</td>
+                <td className="py-1 tabular-nums whitespace-nowrap">{b.departedPct}</td>
+              </tr>
+            ))}
+            <tr className="align-top border-t border-border">
+              <td className="pr-2 py-1 font-medium whitespace-nowrap">All sitting leaders</td>
+              <td className="pr-2 py-1 text-muted-foreground">Base rate across the measured cohort.</td>
+              <td className="py-1 tabular-nums whitespace-nowrap">{MOVABILITY_EVIDENCE.baseRatePct}%</td>
+            </tr>
+          </tbody>
+        </table>
+        <p className="text-[11px] font-semibold mt-2.5 mb-1">Definition history</p>
+        <ul className="text-[11px] text-muted-foreground space-y-1">
+          {MOVABILITY_CHANGELOG.map((c) => (
+            <li key={c.version}>
+              <span className="font-medium text-foreground">v{c.version}</span>{" "}
+              <span className="tabular-nums" title={c.dateNote}>
+                {formatStampDate(c.date)}{c.dateNote ? "*" : ""}
+              </span>{" "}
+              — {c.summary}
+            </li>
+          ))}
+        </ul>
+        {MOVABILITY_CHANGELOG.some((c) => c.dateNote) && (
+          <p className="text-[10px] text-muted-foreground mt-1 leading-snug">
+            * {MOVABILITY_CHANGELOG.filter((c) => c.dateNote).map((c) => `v${c.version}: ${c.dateNote}`).join("; ")}.
+          </p>
+        )}
+        <p className="text-[11px] text-muted-foreground mt-2 leading-snug">
+          {MOVABILITY_EVIDENCE.study}: {MOVABILITY_EVIDENCE.cohortN.toLocaleString()} sitting leaders followed for{" "}
+          {MOVABILITY_EVIDENCE.horizonYears} years. The one boundary is the cohort median, because that is the only one the
+          measurement supports: the product used to split the upper half again at the 75th percentile, and the two halves
+          it made departed at {MOVABILITY_BANDS[1].departedPct} — too close to tell apart.
+        </p>
+      </div>
+    </details>
+  );
+}
+
 /**
  * The qualitative read: movability rating, mobility, center of gravity, and
  * alma-mater ties. Rendered next to the map for immediate feedback.
@@ -250,9 +298,26 @@ export function CareerAssessment({ steps, tenure, roots }: { steps: CareerStep[]
           <div className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1.5">Movability Index</div>
           <div className="flex items-center gap-2.5">
             <MovabilityGaugeIcon tone={rating.tone} size={40} className="shrink-0" />
-            <span className={`inline-block text-sm font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
+            <div className="min-w-0">
+              <span className={`inline-block text-sm font-semibold px-2 py-0.5 rounded ${rating.cls}`}>{rating.label}</span>
+              {/* The definition has moved twice, and a reading quoted last month may
+                  not be the reading today. The stamp travels with the reading so the
+                  difference is visible without having to ask us. */}
+              <p className="text-[10px] text-muted-foreground mt-0.5 tabular-nums">
+                Definition v{MOVABILITY_VERSION} · {formatStampDate(MOVABILITY_CHANGELOG[0].date)}
+              </p>
+            </div>
           </div>
           <p className="text-sm text-foreground mt-1.5 leading-snug">{rating.reason}</p>
+          {/* What the band is, what it is not, and what it is worth -- in that
+              order, because the second line is the one a reader most often
+              supplies wrongly for themselves. */}
+          <dl className="mt-2 text-xs leading-snug space-y-0.5">
+            <div><dt className="inline font-semibold">What this is: </dt><dd className="inline text-muted-foreground">{MOVABILITY_COPY.whatItIs}</dd></div>
+            <div><dt className="inline font-semibold">What it is not: </dt><dd className="inline text-muted-foreground">{MOVABILITY_COPY.whatItIsNot}</dd></div>
+            <div><dt className="inline font-semibold">What it is worth: </dt><dd className="inline text-muted-foreground">{MOVABILITY_COPY.whatItIsWorth}</dd></div>
+          </dl>
+          <MovabilityBandTable />
         </div>
       )}
       {stats && (

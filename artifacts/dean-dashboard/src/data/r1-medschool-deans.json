@@ -2787,7 +2787,7 @@
     "enrollmentAvg": 22668,
     "businessPctEnd": 0.1907,
     "businessDegreesLatest": 1736,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 22319,
     "businessPctStart": 0.1888,
@@ -2850,7 +2850,8 @@
     "connectionType": "",
     "enrollmentStart": 23016,
     "businessPctStart": 0.1907,
-    "businessDegreesStart": 1367
+    "businessDegreesStart": 1367,
+    "fromInterim": true
   },
   {
     "id": 51,
@@ -7441,9 +7442,9 @@
     "school": "LSU Health New Orleans School of Medicine",
     "dean": "George W. McCoy",
     "startYear": 1945,
-    "endYear": 2026,
+    "endYear": null,
     "startLabel": "1945",
-    "endLabel": "2026",
+    "endLabel": "unknown",
     "priorTitle": "Faculty, LSU School of Medicine",
     "priorInstitution": "",
     "origin": "Interim-Internal",
@@ -7472,7 +7473,7 @@
     "inTop100": false,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 81,
+    "tenureLength": null,
     "era": "Pre-1980",
     "notes": "Acting dean from 1945; documented succession has a gap for the mid-20th century.",
     "nextRole": "Unknown",
@@ -8236,7 +8237,7 @@
     "enrollmentAvg": 49797,
     "businessPctEnd": 0.1802,
     "businessDegreesLatest": 2158,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 49809,
     "businessPctStart": 0.1858,
@@ -8299,7 +8300,8 @@
     "connectionType": "",
     "enrollmentStart": 50023,
     "businessPctStart": 0.1802,
-    "businessDegreesStart": 2282
+    "businessDegreesStart": 2282,
+    "fromInterim": true
   },
   {
     "id": 146,
@@ -17064,7 +17066,7 @@
     "enrollmentAvg": 46408,
     "businessPctEnd": 0.078,
     "businessDegreesLatest": 989,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 46116,
     "businessPctStart": 0.0643,
@@ -17127,7 +17129,8 @@
     "connectionType": "",
     "enrollmentStart": 46678,
     "businessPctStart": 0.078,
-    "businessDegreesStart": 1147
+    "businessDegreesStart": 1147,
+    "fromInterim": true
   },
   {
     "id": 300,
@@ -19824,7 +19827,7 @@
     "enrollmentAvg": 26792,
     "businessPctEnd": 0.1427,
     "businessDegreesLatest": 1284,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 26541,
     "businessPctStart": 0.1365,
@@ -19887,7 +19890,8 @@
     "connectionType": "",
     "enrollmentStart": 27043,
     "businessPctStart": 0.1427,
-    "businessDegreesStart": 1153
+    "businessDegreesStart": 1153,
+    "fromInterim": true
   },
   {
     "id": 348,
@@ -34959,7 +34963,7 @@
     "enrollmentAvg": 27015,
     "businessPctEnd": 0.2287,
     "businessDegreesLatest": 1994,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 27539,
     "businessPctStart": 0.2404,
@@ -35022,7 +35026,8 @@
     "connectionType": "",
     "enrollmentStart": 26490,
     "businessPctStart": 0.2287,
-    "businessDegreesStart": 1954
+    "businessDegreesStart": 1954,
+    "fromInterim": true
   },
   {
     "id": 611,
@@ -60894,9 +60899,9 @@
     "university": "Stony Brook University",
     "school": "Renaissance School of Medicine at Stony Brook University",
     "dean": "Raymond Bergan",
-    "startYear": null,
+    "startYear": 2026,
     "endYear": null,
-    "startLabel": "",
+    "startLabel": "between Aug 2025 and Jun 2026",
     "endLabel": "",
     "priorTitle": "",
     "priorInstitution": "",
@@ -60945,7 +60950,8 @@
     "businessPctEnd": 0.1096,
     "businessDegreesLatest": 798,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "startPrecision": "bracketed"
   },
   {
     "university": "Stony Brook University",
@@ -61920,9 +61926,9 @@
     "university": "Stony Brook University",
     "school": "Renaissance School of Medicine at Stony Brook University",
     "dean": "Tara Brown",
-    "startYear": null,
+    "startYear": 2026,
     "endYear": null,
-    "startLabel": "",
+    "startLabel": "between Aug 2025 and Jun 2026",
     "endLabel": "",
     "priorTitle": "",
     "priorInstitution": "",
@@ -61971,7 +61977,8 @@
     "businessPctEnd": 0.1096,
     "businessDegreesLatest": 798,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "startPrecision": "bracketed"
   },
   {
     "university": "Stony Brook University",
@@ -62034,9 +62041,9 @@
     "university": "Stony Brook University",
     "school": "Renaissance School of Medicine at Stony Brook University",
     "dean": "Janice T. John",
-    "startYear": null,
+    "startYear": 2026,
     "endYear": null,
-    "startLabel": "",
+    "startLabel": "between Aug 2025 and Jun 2026",
     "endLabel": "",
     "priorTitle": "",
     "priorInstitution": "",
@@ -62085,7 +62092,8 @@
     "businessPctEnd": 0.1096,
     "businessDegreesLatest": 798,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "startPrecision": "bracketed"
   },
   {
     "university": "Stony Brook University",

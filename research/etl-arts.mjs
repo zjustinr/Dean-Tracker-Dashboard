@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { normalizeTenureFields } from "../artifacts/dean-dashboard/scripts/lib/tenure.mjs";
 
 // Additive merge: never remove or overwrite existing records.
 // Only add newly-researched records whose person doesn't already appear
@@ -118,7 +119,10 @@ researchedSeats.forEach(seat => {
       inTop100: false,
       fromEliteInstitution: false,
       priorInstitutionElite: false,
-      tenureLength: (record.endYear || 2026) - (record.startYear || 2026),
+      // Never (endYear || NOW) - (startYear || NOW): a record with a known end and
+      // no start used to come out NEGATIVE -- 20 such rows shipped. No start year
+      // means no span, full stop.
+      tenureLength: record.startYear != null && record.endYear != null ? record.endYear - record.startYear : null,
       era: '2020s',
       notes: record.notes || `Researched via ${record.sourceUrl}`,
       nextRole: null,
@@ -152,5 +156,6 @@ console.log(`  Researched records skipped (already known): ${skippedExisting}`);
 console.log(`  New records added: ${newDeans.length}`);
 console.log(`  Final total: ${merged.length}`);
 
+for (const d of merged) normalizeTenureFields(d);
 fs.writeFileSync(artsDeansPath, JSON.stringify(merged, null, 1));
 console.log(`\nWrote ${merged.length} records to ${artsDeansPath}`);

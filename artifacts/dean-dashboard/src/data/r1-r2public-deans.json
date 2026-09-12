@@ -690,7 +690,8 @@
   "businessPctEnd": 0.2192,
   "businessDegreesLatest": 1155,
   "convertedToPermanent": false,
-  "connectionType": "Same institution"
+  "connectionType": "Same institution",
+  "fromInterim": true
  },
  {
   "id": 13,
@@ -4263,7 +4264,8 @@
   "connectionType": "Same institution",
   "enrollmentStart": 25047,
   "businessPctStart": 0.1501,
-  "businessDegreesStart": 896
+  "businessDegreesStart": 896,
+  "fromInterim": true
  },
  {
   "id": 75,
@@ -4557,7 +4559,8 @@
   "connectionType": "Same institution",
   "enrollmentStart": 40445,
   "businessPctStart": 0.2253,
-  "businessDegreesStart": 2644
+  "businessDegreesStart": 2644,
+  "fromInterim": true
  },
  {
   "id": 80,
@@ -23413,7 +23416,8 @@
   "connectionType": "Same institution",
   "enrollmentStart": 7201,
   "businessPctStart": 0.3914,
-  "businessDegreesStart": 1161
+  "businessDegreesStart": 1161,
+  "fromInterim": true
  },
  {
   "id": 404,
@@ -70304,7 +70308,8 @@
   "connectionType": "",
   "enrollmentStart": 6407,
   "businessPctStart": 0.2373,
-  "businessDegreesStart": 375
+  "businessDegreesStart": 375,
+  "fromInterim": true
  },
  {
   "id": 1217,
@@ -72740,7 +72745,8 @@
   "businessPctEnd": 0.091,
   "businessDegreesLatest": 23,
   "convertedToPermanent": false,
-  "connectionType": "Same institution"
+  "connectionType": "Same institution",
+  "fromInterim": true
  },
  {
   "id": 1259,
@@ -80776,7 +80782,8 @@
   "connectionType": "Same institution",
   "enrollmentStart": 8562,
   "businessPctStart": 0.2703,
-  "businessDegreesStart": 637
+  "businessDegreesStart": 637,
+  "fromInterim": true
  },
  {
   "id": 1399,
@@ -89621,7 +89628,8 @@
   "businessPctEnd": 0.1513,
   "businessDegreesLatest": 52,
   "convertedToPermanent": false,
-  "connectionType": "Same institution"
+  "connectionType": "Same institution",
+  "fromInterim": true
  },
  {
   "id": 1552,
@@ -194178,9 +194186,9 @@
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Alison Carr-Chellman",
-  "startYear": null,
+  "startYear": 2026,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Dec 2025 and Feb 2026",
   "endLabel": "",
   "priorTitle": "Dean, College of Education, Health and Human Sciences",
   "priorInstitution": "University of Idaho",
@@ -194228,16 +194236,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3451,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "David Brown",
-  "startYear": null,
+  "startYear": 2025,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Apr 2025 and Aug 2025",
   "endLabel": "",
   "priorTitle": "",
   "priorInstitution": "",
@@ -194285,16 +194294,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3452,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Nila Bhaumik",
-  "startYear": null,
+  "startYear": 2023,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jun 2023 and Aug 2023",
   "endLabel": "",
   "priorTitle": "Vice President, Human Resources",
   "priorInstitution": "LaGuardia Community College, CUNY",
@@ -194342,16 +194352,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3453,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Vincent Clark",
-  "startYear": null,
+  "startYear": 2025,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jan 2025 and Apr 2025",
   "endLabel": "",
   "priorTitle": "Vice President of Development and Alumni Relations",
   "priorInstitution": "St. Francis College / Stony Brook University",
@@ -194399,7 +194410,8 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3454,
@@ -194520,9 +194532,9 @@
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Beth Gordon",
-  "startYear": null,
+  "startYear": 2022,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jul 2022 and Dec 2022",
   "endLabel": "",
   "priorTitle": "Director of Campus Technology Services",
   "priorInstitution": "Pace University",
@@ -194570,7 +194582,8 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3457,
@@ -194691,9 +194704,9 @@
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Zachariah Hosseini",
-  "startYear": null,
+  "startYear": 2024,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Feb 2024 and Jun 2024",
   "endLabel": "",
   "priorTitle": "Associate Vice Chancellor",
   "priorInstitution": "Rutgers University",
@@ -194741,16 +194754,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3460,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Jeffrey A. Barnett",
-  "startYear": null,
+  "startYear": 2022,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jul 2022 and Dec 2022",
   "endLabel": "",
   "priorTitle": "Interim Associate Dean of Students",
   "priorInstitution": "Stony Brook University",
@@ -194798,16 +194812,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3461,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Shawn O'Riley",
-  "startYear": null,
+  "startYear": 2025,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jan 2025 and Apr 2025",
   "endLabel": "",
   "priorTitle": "Dean, College of Professional and Continuing Studies",
   "priorInstitution": "Adelphi University",
@@ -194855,16 +194870,17 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3462,
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Nicole Thompson Williams",
-  "startYear": null,
+  "startYear": 2022,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jul 2022 and Dec 2022",
   "endLabel": "",
   "priorTitle": "",
   "priorInstitution": "",
@@ -194912,7 +194928,8 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3463,
@@ -194976,9 +194993,9 @@
   "university": "Pace University",
   "school": "Office of the President",
   "dean": "Stephanie Akunvabey",
-  "startYear": null,
+  "startYear": 2023,
   "endYear": null,
-  "startLabel": "",
+  "startLabel": "between Jun 2023 and Aug 2023",
   "endLabel": "",
   "priorTitle": "Director of Diversity and Inclusion",
   "priorInstitution": "Roger Williams University",
@@ -195026,7 +195043,8 @@
   "businessDegreesLatest": 665,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "startPrecision": "bracketed"
  },
  {
   "id": 3465,
