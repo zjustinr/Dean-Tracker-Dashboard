@@ -11,7 +11,8 @@
     "build": "vite build --config vite.config.ts",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "scout-backtest": "node scripts/scout-backtest.mjs"
+    "scout-backtest": "node scripts/scout-backtest.mjs",
+    "movability-baseline": "node scripts/movability-baseline.mjs"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",

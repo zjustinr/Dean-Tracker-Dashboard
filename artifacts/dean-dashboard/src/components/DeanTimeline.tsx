@@ -9,6 +9,9 @@ import CareerMap, { CareerAssessment, type Root } from "@/components/CareerMap";
 import careerRoots from "@/data/career-roots.json";
 import careerGeo from "@/data/career-geo.json";
 import { useResearchMap, enrichKey, syntheticCareerSteps } from "@/data/enrichment";
+import { useTenureNorms } from "@/data/survival";
+
+const NOW = 2026;
 
 interface Props {
   deans: Dean[];
@@ -68,14 +71,9 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
     return g && g.lat != null;
   }).length >= 2;
   const allDeans = useAllDeans();
+  const norms = useTenureNorms(allDeans, NOW);
   const tenure = useMemo(() => {
     if (!clickedDean) return undefined;
-    const NOW = 2026;
-    const lens = allDeans
-      .filter((d) => d.endYear != null && !d.isInterim && (d.tenureLength ?? 0) > 0)
-      .map((d) => d.tenureLength as number)
-      .sort((a, b) => a - b);
-    const pct = (p: number) => (lens.length ? lens[Math.min(lens.length - 1, Math.floor(p * lens.length))] : null);
     const pastLens = careerPositions
       .filter((p) => p.endYear != null && (p.tenureLength ?? 0) > 0)
       .map((p) => p.tenureLength as number);
@@ -83,12 +81,10 @@ export default function DeanTimeline({ deans, selectedIdx, onSelect }: Props) {
     return {
       sitting: clickedDean.endYear == null,
       currentTenure: clickedDean.endYear == null && clickedDean.startYear ? NOW - clickedDean.startYear : clickedDean.tenureLength ?? null,
-      median: pct(0.5),
-      p75: pct(0.75),
+      ...norms,
       personalAvg,
-      cohortN: lens.length,
     };
-  }, [allDeans, careerPositions, clickedDean]);
+  }, [norms, careerPositions, clickedDean]);
 
   if (deans.length === 0) {
     return <p className="text-muted-foreground text-sm py-8 text-center">No data available for this school.</p>;
