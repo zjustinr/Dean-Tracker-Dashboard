@@ -2,7 +2,23 @@
 //
 // Reads the client-tagged usage events that api/trial.js + api/data.js write to
 // Vercel KV / Upstash, and renders a simple per-client summary + recent feed.
-// Gated by ?key=<APPROVE_SECRET> (reuses an existing owner secret — no new env).
+// Gated by ?key=<USAGE_SECRET>, falling back to ?key=<APPROVE_SECRET>.
+//
+// APPROVE_SECRET was reused here to avoid inventing a new env var, but it is not
+// only a password: news-digest.mjs signs the digest's Approve/Dismiss links with
+// it and api/news-approve.js verifies them, so rotating it invalidates every
+// link already sitting in an inbox and has to happen in Vercel and in the GitHub
+// Actions secret at the same moment. That makes it a bad thing to be unable to
+// read -- Vercel's "Sensitive" flag is write-only, so an owner who loses the
+// value is locked out of this page with no cheap way back in.
+//
+// It is also the wrong shape for this job. The key here travels in a query
+// string, so it lands in server logs, browser history and any Referer a linked
+// page sends; an HMAC signing key should not be taking that trip.
+//
+// So: set USAGE_SECRET to a value you choose and this page accepts it.
+// APPROVE_SECRET keeps working, so existing bookmarks and the news pipeline are
+// untouched, and nothing needs rotating.
 // Self-contained CommonJS, mirroring the other api/* functions.
 //
 // Enable by provisioning a Vercel KV store (Storage tab) — it auto-injects
@@ -162,9 +178,11 @@ function engagementStatus(s) {
 
 module.exports = async function handler(req, res) {
   res.setHeader("cache-control", "no-store");
-  const secret = process.env.APPROVE_SECRET;
+  // Either owner secret opens the page. eq() is length-checked before the
+  // timing-safe compare, so a wrong-length key is a plain false, not a throw.
+  const secrets = [process.env.USAGE_SECRET, process.env.APPROVE_SECRET].filter(Boolean);
   const key = (req.query && (req.query.key || req.query.k)) || "";
-  if (!secret || !eq(key, secret)) { res.status(403).send("Forbidden"); return; }
+  if (!secrets.length || !secrets.some((s) => eq(key, s))) { res.status(403).send("Forbidden"); return; }
 
   // Owner reset: ?key=...&reset=1 wipes the usage log (destructive, owner-only).
   if (req.query && req.query.reset === "1") {
