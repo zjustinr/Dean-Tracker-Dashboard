@@ -123,7 +123,8 @@ async function handleSearch(req, res, client, body) {
 
   const c = client || "public";
   const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
-  const rec = JSON.stringify({ c, ev: "search", src: source, q, t: Date.now(), ip });
+  const ua = String(req.headers["user-agent"] || "").slice(0, 200);
+  const rec = JSON.stringify({ c, ev: "search", src: source, q, t: Date.now(), ip, ua });
   await kv([
     ["LPUSH", "bi:events", rec],
     ["LTRIM", "bi:events", "0", "1999"],
@@ -137,8 +138,9 @@ async function handleSearch(req, res, client, body) {
 async function handleConsent(req, res, client) {
   if (!client) { res.status(200).json({ ok: true, recorded: false }); return; }
   const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  const ua = String(req.headers["user-agent"] || "").slice(0, 200);
   const t = Date.now();
-  const rec = JSON.stringify({ c: client, ev: "consent", v: CONSENT_VERSION, t, ip });
+  const rec = JSON.stringify({ c: client, ev: "consent", v: CONSENT_VERSION, t, ip, ua });
   await kv([
     ["LPUSH", "bi:events", rec],
     ["LTRIM", "bi:events", "0", "1999"],
@@ -156,6 +158,7 @@ async function handleSlate(req, res, client, body) {
   const items = sanitizeItems(body.items);
   const mode = body.mode === "export" ? "export" : "sync";
   const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  const ua = String(req.headers["user-agent"] || "").slice(0, 200);
   const t = Date.now();
 
   const cmds = [
@@ -167,7 +170,7 @@ async function handleSlate(req, res, client, body) {
     // Embed the exact exported items in the event itself -- bi:slate:<c> above
     // is a live mirror a later sync will overwrite, so it can't reconstruct
     // what a specific past export actually contained.
-    const rec = JSON.stringify({ c: client, ev: "export", n: items.length, items, t, ip });
+    const rec = JSON.stringify({ c: client, ev: "export", n: items.length, items, t, ip, ua });
     cmds.push(["LPUSH", "bi:events", rec], ["LTRIM", "bi:events", "0", "1999"], ["HINCRBY", `bi:client:${client}`, "hits", "1"]);
   }
   await kv(cmds);
@@ -179,8 +182,9 @@ async function handleFilter(req, res, client, body) {
   if (!Object.keys(filters).length) { res.status(200).json({ ok: true, logged: false }); return; }
   const c = client || "public";
   const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  const ua = String(req.headers["user-agent"] || "").slice(0, 200);
   const t = Date.now();
-  const rec = JSON.stringify({ c, ev: "filter", filters, t, ip });
+  const rec = JSON.stringify({ c, ev: "filter", filters, t, ip, ua });
   await kv([
     ["LPUSH", "bi:events", rec],
     ["LTRIM", "bi:events", "0", "1999"],
@@ -196,8 +200,9 @@ async function handleDetail(req, res, client, body) {
   if (!name) { res.status(200).json({ ok: true, logged: false }); return; }
   const c = client || "public";
   const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  const ua = String(req.headers["user-agent"] || "").slice(0, 200);
   const t = Date.now();
-  const rec = JSON.stringify({ c, ev: "detail", name, university, t, ip });
+  const rec = JSON.stringify({ c, ev: "detail", name, university, t, ip, ua });
   await kv([
     ["LPUSH", "bi:events", rec],
     ["LTRIM", "bi:events", "0", "1999"],
