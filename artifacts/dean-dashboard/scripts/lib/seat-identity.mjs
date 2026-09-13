@@ -153,8 +153,14 @@ export const titleHidesInterimSpell = (record) => {
  */
 const SOURCE_NOTE =
   /\b(not documented|undocumented|not resolved|sources? (consulted|found)|no [a-z]+ (information|record|source)|omitted|not verified|not established|could not be|unconfirmed|not confirmed|not sourced|not explain|year ranges only|no named|no interim|for context)\b/i;
+/**
+ * Hedged or not-yet-real. The anticipatory verbs were added after an audit caught a
+ * false positive: "(An earlier step-down notice had anticipated a one-year interim for
+ * 2026-27" was allocated as a recorded interim spell. An interim that was planned,
+ * expected or anticipated is not one that happened.
+ */
 const HEDGE =
-  /\b(likely|probabl[ye]|appears? to|presumabl[ye]|may have|might have|if any|unidentified|unnamed|roughly|unclear|believed|possibl[ye]|assumed to)\b/i;
+  /\b(likely|probabl[ye]|appears? to|presumabl[ye]|may have|might have|if any|unidentified|unnamed|roughly|unclear|believed|possibl[ye]|assumed to|anticipated?|expected|planned|proposed|was to|would (?:be|serve))\b/i;
 /** Wording that puts the interim episode on somebody else. */
 const OTHER_PERSON = /\b(succeed(ing|ed)?|preced(ing|ed)|predecessor|successor|between [A-Z]|after [A-Z][a-z]+'s|during [A-Z][a-z]+'s)\b/;
 /** Wording that says this one row collapses an interim spell and a permanent one. */

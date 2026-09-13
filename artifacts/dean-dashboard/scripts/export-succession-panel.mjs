@@ -474,11 +474,30 @@ for (const [seatId] of seatRows) {
 /**
  * Exits, in the spec's Layer 0 / Layer 1 shape.
  *
- * `exit_circumstance` is populated only from evidence the corpus actually holds:
- * `nextRole = Deceased` supports `death_in_office`, and `involuntary` supports
- * `dismissal_by_board`. Everything else is left NULL -- not `cannot_determine`,
- * which the spec reserves for a coder who searched and found nothing. No row here
- * has been searched, so no row may claim that value.
+ * `exit_circumstance` is populated only from evidence the corpus actually holds.
+ * `involuntary` supports `dismissal_by_board`. Everything else is left NULL -- not
+ * `cannot_determine`, which the spec reserves for a coder who searched and found
+ * nothing. No row here has been searched, so no row may claim that value.
+ *
+ * WHY `nextRole = Deceased` NO LONGER SUPPORTS `death_in_office`
+ * -------------------------------------------------------------
+ * It was read that way, and it produced 76 `death_in_office` rows. An external audit
+ * sampled ten of them and found five wrong -- not wrong about the death, wrong about
+ * WHEN: David Topel left in 2000 and died in 2022; E. Jane Martin left the deanship in
+ * 2007 and died in 2023; Arnett C. Mace Jr. left in 2003 for a provostship and died in
+ * 2021.
+ *
+ * The field means "where this person ended up", which for anyone who has since died is
+ * "deceased" whether they died in office or twenty years after retiring. It records a
+ * fate, not a departure, and it carries no date, so nothing can align it to the end of
+ * the spell. Coding a departure circumstance from it conflates "reason for leaving"
+ * with "reason the record closed".
+ *
+ * This is the same error as reading a silent title as evidence of permanence: a field
+ * asked to support a claim it does not make. `destination_raw` still carries the
+ * `Deceased` value verbatim, which is what the corpus actually asserts, so nothing is
+ * lost -- only the unwarranted inference. Coding real deaths in office needs
+ * obituaries, and is research.
  */
 const exitRows = [];
 for (const a of appts) {
@@ -487,8 +506,7 @@ for (const a of appts) {
   const r = a._row;
   let circumstance = "";
   let evidence = "";
-  if (r.nextRole === "Deceased") { circumstance = "death_in_office"; evidence = "contemporaneous_reporting"; }
-  else if (r.involuntary === true) { circumstance = "dismissal_by_board"; evidence = "contemporaneous_reporting"; }
+  if (r.involuntary === true) { circumstance = "dismissal_by_board"; evidence = "contemporaneous_reporting"; }
   exitRows.push({
     appointment_id: a.appointment_id,
     seat_id: a.seat_id,

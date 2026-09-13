@@ -24,7 +24,7 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
       rows needing re-verification (current, interim, start <= 2024): 31
 8.  is_interim derivable from appointment-scoped evidence ..... PARTIAL
       derived from a title: 1052 interim + 0 permanent
-      allocated from narrative: 340 interim + 0 permanent
+      allocated from narrative: 339 interim + 0 permanent
       NOT independently derivable: 923 of 2283 interim flags (40.4%) rest on
       the legacy ETL alone. That is UNALLOCATED evidence, not absent evidence: the
       word is in a real text field on most of these rows, but `notes` is stored at
@@ -45,8 +45,8 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
         compound_title                   4
         narrative_source_note            3
         narrative_conversion             2
-      allocation check -- agreement with the legacy flag: 311 of 340 (91.5%)
-        of the 29 divergences, 25 start 2023 or later and 23 are still sitting --
+      allocation check -- agreement with the legacy flag: 311 of 339 (91.7%)
+        of the 28 divergences, 24 start 2023 or later and 22 are still sitting --
         current interim leaders the ETL never flagged. Closed-tenure profiles say
         which side is right, using a measure the allocation never consults:
           title says interim              n= 926  median  1y  <=2y 93.1%
@@ -57,7 +57,7 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
 9.  cannot_determine only after a recorded search ............. PASS (no row claims it; uncoded rows are null)
 10. circumstance_confidence is not a defaulted constant ....... empty on all rows, by design (never assessed)
 11. No field is a deterministic function of its parent ........ PASS: unplanned_basis removed; exit_circumstance now
-      populated only from independent corpus evidence (92 of 9654 rows)
+      populated only from independent corpus evidence (16 of 9654 rows)
 
 12. Precision counts
       president  2706 appts   year:2706
@@ -90,8 +90,8 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
       R1       741   27.8% (206)              28.1% (208)       27.8%
       R2       556   27.9% (155)              27.9% (155)       27.9%
       R3       632   19.9% (126)              19.9% (126)       19.9%
-      rows where the derivation disagrees with the legacy ETL flag: 32
-        dean: legacy permanent -> derived interim      23
+      rows where the derivation disagrees with the legacy ETL flag: 31
+        dean: legacy permanent -> derived interim      22
         provost: legacy permanent -> derived interim   6
         president: legacy permanent -> derived interim 3
       EVERY divergence now runs one way: the derivation finds an interim spell the
@@ -178,5 +178,5 @@ Still requires human research - columns present and empty
   successor_status_at_announcement  0 of 9654
   person_birth_year              0 of 10065 people
   last_verified_date             0 of 11775 appointments
-  exit_circumstance              92 of 9654 from corpus evidence; the rest need coding
+  exit_circumstance              16 of 9654 from corpus evidence; the rest need coding
   month-precision starts         589 of 11775
