@@ -8,7 +8,7 @@ export type MovabilityTone = "yellow" | "green" | "lightgreen";
 const TONE_FILL: Record<MovabilityTone, string> = {
   yellow: "#CA8A04", // not up to move — early, hasn't reached typical tenure yet
   green: "#16A34A", // could move — in the cohort's normal window
-  lightgreen: "#86EFAC", // overdue — past the window, but that long a stay usually means they're staying
+  lightgreen: "#86EFAC", // entrenched — past the window, but that long a stay usually means they're staying
 };
 
 // Needle angle in degrees off vertical, sweeping low (left) to high (right)
