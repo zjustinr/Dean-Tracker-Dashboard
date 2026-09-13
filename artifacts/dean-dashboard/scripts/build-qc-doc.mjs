@@ -100,8 +100,8 @@ const [ALLOC_RECENT, ALLOC_SITTING] = pull(/of the \d+ divergences, (\d+) start 
 const EVIDENCE_LABEL = {
   title: ["Title names an interim role", "yes — interim"],
   narrative_allocated: ["Narrative allocated to this spell", "yes — interim"],
-  title_plain: ["Title plain, notes silent", "yes — permanent"],
-  title_plain_narrative_elsewhere: ["Title plain, mention is elsewhere", "yes — permanent"],
+  title_silent: ["Title silent on interim status", "no — not evidence of permanence"],
+  title_silent_narrative_elsewhere: ["Title silent, mention is elsewhere", "no — not evidence of permanence"],
   narrative_unanchored: ["Mention names no year of this spell", "no — unallocated"],
   narrative_two_appointments: ["Sentence describes two appointments", "no — needs splitting"],
   narrative_outruns: ["Row outruns the narrated interim", "no — needs splitting"],
@@ -126,9 +126,9 @@ const TENURE_LABEL = {
   "title says interim": "Title says interim",
   "allocated, agrees with legacy": "Allocated, agrees with the ETL",
   "allocated, diverges from legacy": "Allocated, diverges from the ETL",
-  "title says permanent": "Title says permanent",
+  "titled, ETL says permanent": "Titled, ETL says permanent",
 };
-const TENURE_ROWS = [...REPORT.matchAll(/^ {10}(title says \w+|allocated, \w+ \w+ legacy) +n= *(\d+) {2}median +(\d+)y {2}<=2y ([\d.]+)%$/gm)]
+const TENURE_ROWS = [...REPORT.matchAll(/^ {10}(title says interim|allocated, \w+ \w+ legacy|titled, ETL says permanent) +n= *(\d+) {2}median +(\d+)y {2}<=2y ([\d.]+)%$/gm)]
   .map((m) => [TENURE_LABEL[m[1]] || m[1], fmt(m[2]), `${m[3]}y`, `${m[4]}%`]);
 if (TENURE_ROWS.length !== 4) throw new Error("build-qc-doc: test 8 tenure profile block not found");
 
@@ -141,7 +141,8 @@ const T14_DIRECTIONS = [...REPORT.matchAll(/^ {8}((?:dean|president|provost): le
   .map((m) => `${m[1].replace(" -> ", " → ")} ${m[2]}`);
 
 // Collapsed spells, from both detectors.
-const COMPOUND_N = +pull(/titles that collapse several spells into one row: (\d+)/, "compound titles")[0];
+const COMPOUND_N = +pull(/titles naming more than one role: (\d+)/, "compound titles")[0];
+const SEQUENTIAL_N = +pull(/dating their own parts \(a real sequence of appointments\): (\d+)/, "sequential titles")[0];
 const NARR_COLLAPSE = ["narrative_outruns", "narrative_conversion", "narrative_two_appointments"].reduce((n, k) => n + evidence(k), 0);
 
 const EXIT_CIRC = +pull(/exit_circumstance +(\d+) of \d+ from corpus evidence/, "exit_circumstance")[0];
@@ -303,7 +304,7 @@ const children = [
   body([t("The sentence carrying the interim word is classified rather than matched. It is allocated to "), b("this"), t(" appointment only when nothing in it points elsewhere: it is not a remark about the source, not hedged, does not name a different seat level or a non-academic office, does not name another person, does not describe a second appointment alongside the interim one, names this appointment’s start year, and does not describe an interim period that the row then outruns. Each rejecting test returns a "), b("named reason"), t(", so a row the panel cannot derive carries a recorded explanation rather than a shrug.")]),
   table([4200, 1560, 3600], ["Evidence", "Rows", "Can it derive?"], EVIDENCE_ROWS,
     { align: [AlignmentType.LEFT, AlignmentType.RIGHT, AlignmentType.LEFT] }),
-  caption(`Counted over the ${fmt(LEGACY_INTERIM)} appointments the legacy ETL flags interim. The override bucket is now ${fmt(OVERRIDE_N)} rows (${OVERRIDE_PCT}%), each carrying a recorded reason, against ${fmt(OLD_OVERRIDE_N)} (${OLD_OVERRIDE_PCT}%) before allocation.`),
+  caption(`Counted over the ${fmt(LEGACY_INTERIM)} appointments the legacy ETL flags interim. The override bucket is ${fmt(OVERRIDE_N)} rows (${OVERRIDE_PCT}%), each carrying a recorded reason, against ${fmt(OLD_OVERRIDE_N)} (${OLD_OVERRIDE_PCT}%) before the narrative triage. It rose slightly when silent titles stopped being read as evidence of permanence — an honest bucket is larger than a wrong one.`),
 
   h2("Why the allocation should be believed"),
   body([t(`The rule was written by reading the narrative text; the legacy flag is then an out-of-sample check rather than a target. ${fmt(ALLOC_N)} appointments allocate and ${ALLOC_AGREE_PCT}% of them agree with the flag. The divergences are not noise: ${ALLOC_RECENT} of the ${ALLOC_N - ALLOC_AGREE} start in 2023 or later and ${ALLOC_SITTING} are still sitting — current interim leaders the ETL never flagged.`)]),
@@ -316,7 +317,7 @@ const children = [
   body([b("The audit’s §4.1 is also wrong on cause. "), t("It reads the empty "), t("title_verbatim", { font: "Consolas", size: 20 }), t(" in law, medicine, veterinary, business and engineering as a wiring problem. It is not: those indexes never recorded a seat title. Their "), t("discipline", { font: "Consolas", size: 20 }), t(" field holds the academic field (“Law”), and "), t("priorTitle", { font: "Consolas", size: 20 }), t(" holds the person’s "), b("previous"), t(" job at a "), b("different"), t(" institution — “Dean, Suffolk University Law School” on an American University appointment. Piping that through would attribute another school’s deanship to this seat. It is a collection gap, not a pipe.")]),
 
   h1("Collapsed-spell detector"),
-  body([t(`${COMPOUND_N} titles collapse several appointments into one row, most of them provost rows — e.g. “Dean of Faculty (1962-67); Provost (1967-71); Provost and Vice Chancellor” at NC State. Each deletes a conversion and biases the interim rate downward, which is the failure the two-row rule exists to prevent. They need splitting at source, and this is now a standing check. The narrative triage finds the same defect a second way: ${NARR_COLLAPSE} further rows whose notes describe an interim spell that the row then outruns, or an interim-to-permanent conversion recorded as a single appointment.`)]),
+  body([t(`${COMPOUND_N} titles name more than one role. Only ${SEQUENTIAL_N} date their own parts and so describe a real sequence of appointments — e.g. “Dean of Faculty (1962-67); Provost (1967-71); Provost and Vice Chancellor” at NC State. The rest are one person holding two roles at once (“Vice President for Student Life/Dean of Students”), and splitting those would invent a departure that never happened. Of the sequential ones, the two that hid an interim spell — the only variant that biases an interim rate — were split from the title itself, which states and dates both spells. ${NARR_COLLAPSE} further rows show the same defect in their notes rather than their title.`)]),
 
   h1("Still requires human research"),
   body([t("These columns exist in the export and are empty. Nothing is inferred to fill them.")]),

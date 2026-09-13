@@ -63,12 +63,18 @@ const SWAP_VINTAGE = process.argv.includes("--swap-vintage");
  * number while the panel asserts another. `--derived` swaps which one drives the rest
  * of the analysis.
  *
- * The default stays legacy because the divergences are disagreements, not proven ETL
- * errors: most are a bare "President" title with silent notes against an ETL interim
- * flag, where the origin coding may well have known something the title does not say.
- * Publishing the derived column as the headline would assert a re-derivation the
- * corpus cannot yet adjudicate. The gap is stated instead, and it is small everywhere
- * except R3.
+ * The default stays legacy, and after a correction the two now agree on R2 and R3
+ * exactly. An earlier build of the derivation read a bare "President" title with
+ * silent notes as evidence of PERMANENCE and demoted 29 legacy-interim rows, 16 of
+ * them R3 presidents, dragging R3 from 19.9% to 17.5%. The duration test settles it:
+ * the derivation never consults duration, and those 29 ran a median of 1 year with
+ * 96.6% at two years or less -- indistinguishable from titles that SAY interim (1y,
+ * 93.1%) and nothing like permanent spells (7y, 9.4%). A bare title is the default
+ * string in a field holding the generic seat name; its silence is not a finding.
+ *
+ * So the derivation is one-directional: it can find an interim spell the ETL missed,
+ * never rule one out. Every remaining divergence runs that way, and they are still
+ * disagreements rather than proven errors, which is why legacy stays the headline.
  */
 const USE_DERIVED = process.argv.includes("--derived");
 const EMIT_JSON = process.argv.includes("--json");
@@ -288,25 +294,25 @@ const divergent = presidents.filter(
 );
 console.log();
 console.log(
-  `${divergent.length} in-window president spells carry different values under the two flags,`,
+  `${divergent.length} in-window president spells carry different values under the two flags, and`,
 );
 console.log(
-  "so the re-derivation is NOT confined to rows outside this analysis. R1 and R2 move by",
+  "every one runs the same way: the derivation finds an interim spell the ETL missed. It",
 );
 console.log(
-  "a tenth of a point either way; R3 is where it matters, and it moves in the direction",
+  "cannot run the other way, because the corpus holds no positive evidence of permanence",
 );
 console.log(
-  "the coverage check already warned about -- the tier with the thinnest research is the",
+  "-- of 13,499 dated rows whose title field holds a title, zero state it explicitly. So",
 );
 console.log(
-  "tier whose interim flags rest most heavily on the ETL alone. The R1-R3 gap is the",
+  "R2 and R3 are identical under both flags and R1 moves up slightly. An earlier build",
 );
 console.log(
-  "finding, and it survives the swap; the R3 LEVEL does not, and should be read as the",
+  "read a bare title as permanence and pulled R3 to 17.5%; see the header for why the",
 );
 console.log(
-  "floor the coverage note says it is. Evidence behind the divergent spells:",
+  "duration test rules that out. Evidence behind the divergent spells:",
 );
 const evTally = new Map();
 for (const x of divergent) evTally.set(x.interimEvidence, (evTally.get(x.interimEvidence) || 0) + 1);

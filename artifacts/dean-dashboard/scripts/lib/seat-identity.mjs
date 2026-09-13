@@ -46,14 +46,28 @@ export const titleVerbatim = (r) => {
 };
 
 /**
- * A title that has had several spells collapsed into it.
+ * A title that names more than one role.
  *
- * The corpus sometimes records a person's whole run in one row:
- * "Acting Provost (1977-1978); Senior Vice President for Academic Affairs and
- * Provost (1978-1983)". That is two appointments, and the two-row rule exists
- * precisely to keep them apart -- collapsed, it deletes a conversion and biases the
- * interim rate downward. Such a title must never be allowed to flip `is_interim`,
- * because neither value is right for the row as it stands; it needs splitting first.
+ * NOTE ON WHAT THIS DOES AND DOES NOT MEAN. This was originally described as
+ * detecting "several spells collapsed into one row", and the corpus pass shipped a
+ * `titleIsCompound` field and a CI check under that name. Reading all 65 matches
+ * shows the description was wrong for most of them:
+ *
+ *   16  genuinely sequential -- explicit date ranges or "then":
+ *       "Acting Provost (1977-1978); Senior Vice President ... and Provost (1978-1983)"
+ *   27  slash-joined with no dates -- ONE person, TWO concurrent hats:
+ *       "Vice President for Student Life/Dean of Students"
+ *   22  semicolon-joined with no dates -- also concurrent:
+ *       "Provost; Vice President", "Dean ...; Vice Chancellor for Nursing Affairs"
+ *
+ * So three quarters of the matches are dual-role titles, not collapsed spells, and
+ * splitting them would invent a departure and a re-appointment that never happened.
+ * The name stays (a shipped field), the claim does not: this detects "the title names
+ * more than one role", which is all the string can support. `titleSpansSeveralSpells`
+ * below is the narrow test, and it is the one the integrity check counts.
+ *
+ * It still gates `deriveInterim`: when a title names two roles, an interim word in it
+ * may attach to either, so no derivation is safe from it whichever kind it is.
  */
 export const isCompoundTitle = (title) => {
   const s = String(title || "");
@@ -65,6 +79,43 @@ export const isCompoundTitle = (title) => {
     return parts.length > 1;
   }
   return false;
+};
+
+/**
+ * A title that describes a SEQUENCE of appointments, which is the defect the two-row
+ * rule exists to prevent: collapsed, it deletes a conversion and biases every interim
+ * rate downward.
+ *
+ * Narrow on purpose. It requires the title to date its own parts, or to say "then" --
+ * evidence inside the string that one role ended and another began. A title merely
+ * listing two roles is a person wearing two hats, and is not this.
+ *
+ * Even among the 16 that match, only some are two APPOINTMENTS. Most are a title
+ * growing inside one continuous tenure ("Vice President for Academic Affairs
+ * (1996-2003); Executive Vice President for Academic Affairs (2003-2010)" is one
+ * person who never left the seat). The two that matter are the ones where an acting
+ * spell precedes a permanent one, because only those hide an interim appointment --
+ * `titleHidesInterimSpell` is that test.
+ */
+export const titleSpansSeveralSpells = (title) => {
+  const s = String(title || "");
+  if (!s || !isCompoundTitle(s)) return false;
+  return /\(\s*\d{4}\s*[-\u2013]\s*\d{2,4}\s*\)/.test(s) || /\b(then|later|subsequently)\b/i.test(s);
+};
+
+/**
+ * A row recorded as PERMANENT whose own title says it began as an acting spell.
+ *
+ * This is the only compound-title case that biases an interim rate, and it is the
+ * only one that can be split without a new source: the title states both spells and
+ * dates them, so splitting is transcription rather than invention.
+ */
+export const titleHidesInterimSpell = (record) => {
+  const t = titleVerbatim(record);
+  if (!titleSpansSeveralSpells(t)) return false;
+  if (record.isInterim) return false;
+  const first = t.split(/[;,]/)[0];
+  return INTERIM_WORD.test(first);
 };
 
 /**
@@ -102,8 +153,14 @@ export const isCompoundTitle = (title) => {
  */
 const SOURCE_NOTE =
   /\b(not documented|undocumented|not resolved|sources? (consulted|found)|no [a-z]+ (information|record|source)|omitted|not verified|not established|could not be|unconfirmed|not confirmed|not sourced|not explain|year ranges only|no named|no interim|for context)\b/i;
+/**
+ * Hedged or not-yet-real. The anticipatory verbs were added after an audit caught a
+ * false positive: "(An earlier step-down notice had anticipated a one-year interim for
+ * 2026-27" was allocated as a recorded interim spell. An interim that was planned,
+ * expected or anticipated is not one that happened.
+ */
 const HEDGE =
-  /\b(likely|probabl[ye]|appears? to|presumabl[ye]|may have|might have|if any|unidentified|unnamed|roughly|unclear|believed|possibl[ye]|assumed to)\b/i;
+  /\b(likely|probabl[ye]|appears? to|presumabl[ye]|may have|might have|if any|unidentified|unnamed|roughly|unclear|believed|possibl[ye]|assumed to|anticipated?|expected|planned|proposed|was to|would (?:be|serve))\b/i;
 /** Wording that puts the interim episode on somebody else. */
 const OTHER_PERSON = /\b(succeed(ing|ed)?|preced(ing|ed)|predecessor|successor|between [A-Z]|after [A-Z][a-z]+'s|during [A-Z][a-z]+'s)\b/;
 /** Wording that says this one row collapses an interim spell and a permanent one. */
@@ -169,12 +226,31 @@ function classifyNarrative(sentence, ctx) {
  * `is_interim_legacy`, so "zero rows disagree" was guaranteed by construction. This
  * derives honestly, from two kinds of appointment-scoped evidence:
  *
- * 1. **The title**, where the corpus records one. A first attempt also treated a title
- *    that OMITS the word as evidence of permanence regardless of context, and flipped
- *    494 president rows on the strength of a `discipline` reading "President" -- that
- *    field holds the generic seat name, not the appointment-specific title. It
- *    reversed R1 from 28% to 8% on an artefact. So a plain title derives permanence
- *    only when nothing in the narrative raises the question.
+ * 1. **The title**, where the corpus records one -- but ONLY POSITIVELY. A title
+ *    naming an interim role derives TRUE. A title that merely omits the word derives
+ *    NOTHING, because `discipline` holds the generic seat name: the string is
+ *    "President" whether the appointment was interim or not, so its silence is the
+ *    default, not a finding.
+ *
+ *    This took two attempts to get right and the second was still wrong. The first
+ *    read any bare title as permanence and flipped 494 president rows, reversing R1
+ *    from 28% to 8%. The fix was to require the narrative to be silent too -- which
+ *    cut the damage to 29 rows but kept the same broken inference. Review caught it,
+ *    and the duration test settles it, because the derivation never consults duration:
+ *
+ *      the 29 demoted rows          median 1y,  96.6% at two years or less
+ *      titles that SAY interim      median 1y,  93.1%
+ *      titles the ETL calls permanent  median 7y,   9.4%
+ *
+ *    The demoted rows are indistinguishable from real interim spells. Their titles are
+ *    "President", "Chancellor", "Rector", "Dean". 16 were R3 presidents, which dragged
+ *    the published R3 rate from 20.1% to 17.5% on nothing at all.
+ *
+ *    A search settles the general case: of 13,499 dated rows whose `discipline` holds
+ *    a title, ZERO state permanence explicitly -- no "permanent", "confirmed",
+ *    "installed", "inaugurated", "full term". The corpus holds no positive evidence of
+ *    permanence anywhere in the field. So there is nothing to derive FALSE from, and
+ *    the honest `derived` value for a silent title is null.
  *
  * 2. **The narrative, allocated to a spell** -- see `classifyNarrative` above. Where
  *    the sentence points at another seat, another person, another period, or at the
@@ -182,6 +258,13 @@ function classifyNarrative(sentence, ctx) {
  *
  * Everything else is left underivable, `derived: null`, with the legacy flag carrying
  * the row and `interim_evidence` naming the reason the source could not settle it.
+ *
+ * CONSEQUENCE WORTH STATING: the derivation is now ONE-DIRECTIONAL. It can find an
+ * interim spell the ETL missed; it can never rule one out, because the corpus holds no
+ * positive evidence of permanence. That is a real limit on what test 14 can audit, and
+ * it is the limit the source actually imposes -- the alternative is manufacturing
+ * permanence out of a default string, which is what produced the 494-row and then the
+ * 29-row error.
  */
 export function deriveInterim(r, ctx = {}) {
   const title = titleVerbatim(r);
@@ -195,10 +278,10 @@ export function deriveInterim(r, ctx = {}) {
   if (title && INTERIM_WORD.test(title))
     return { derived: true, evidence: "title", quote: title.slice(0, 300), compound: false };
 
-  // Conclusive permanent: a title is recorded, it names the seat plainly, and nothing
-  // anywhere in the row's narrative raises the question.
+  // A title that does not name an interim role. NOT a derivation of permanence -- see
+  // the header. The legacy flag carries the row, and the evidence name says why.
   if (title && !notesMention)
-    return { derived: false, evidence: "title_plain", quote: title.slice(0, 300), compound: false };
+    return { derived: null, evidence: "title_silent", quote: title.slice(0, 300), compound: false };
 
   if (notesMention) {
     const sentence = (notes.split(/(?<=[.;])\s+/).find((x) => INTERIM_WORD.test(x)) || "").trim();
@@ -212,15 +295,14 @@ export function deriveInterim(r, ctx = {}) {
     if (klass === "narrative_allocated")
       return { derived: true, evidence: "narrative_allocated", quote, compound: false };
 
-    // The symmetric case, and the reason the triage is worth doing in both directions:
-    // where the sentence is provably about a DIFFERENT seat, or is a remark about the
+    // Where the sentence is provably about a DIFFERENT seat, or is a remark about the
     // source rather than about anyone's appointment, the narrative is silent on this
-    // row -- so a plain title is once again the best evidence there is. Restricted to
-    // those two classes; "another person" is not safe (48% of those rows are interim
-    // by the legacy flag, because a sentence naming a predecessor is just as often
-    // attached to a genuine interim spell).
+    // row. That leaves the title, which derives nothing on its own -- so this class is
+    // recorded (it says the mention was allocated away, not ignored) and derives
+    // nothing either. It used to derive permanence, and five of the 29 wrongly demoted
+    // rows came through here.
     if (title && (klass === "narrative_source_note" || klass === "narrative_other_seat"))
-      return { derived: false, evidence: "title_plain_narrative_elsewhere", quote, compound: false };
+      return { derived: null, evidence: "title_silent_narrative_elsewhere", quote, compound: false };
 
     return { derived: null, evidence: klass, quote, compound: false };
   }

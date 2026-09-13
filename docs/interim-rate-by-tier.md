@@ -100,34 +100,46 @@ merges rows.
 
 **Which interim flag these numbers use.** The corpus's own `isInterim`, set by the
 original ETL. The succession-panel export re-derives interim status from source
-evidence without ever consulting that flag (`scripts/lib/seat-identity.mjs`), and the
-two do not agree everywhere: 61 of 11,775 appointments differ, **20 of them R1–R3
-president spells inside this window**. They do not miss this analysis, so the script
-prints both columns rather than publishing one number while the panel asserts another:
+evidence without ever consulting that flag (`scripts/lib/seat-identity.mjs`), and after
+a correction described below the two now agree on R2 and R3 **exactly**:
 
 | Tier | Legacy ETL flag (published) | Re-derived from evidence | Gap |
 |---|---|---|---|
-| R1 | 27.8% (206/741) | 27.9% (207/741) | +0.1pp |
-| R2 | 27.9% (155/556) | 27.5% (153/556) | −0.4pp |
-| R3 | 19.9% (126/632) | 17.5% (111/633) | **−2.4pp** |
+| R1 | 27.8% (206/741) | 28.1% (208/741) | +0.3pp |
+| R2 | 27.9% (155/556) | 27.9% (155/556) | 0.0pp |
+| R3 | 19.9% (126/632) | 19.9% (126/632) | 0.0pp |
 
-(Each panel is deduplicated on its own flag, because interim status is part of the
-dedupe key — an interim-to-permanent conversion is two appointments and must not
-collapse into one. The R3 appointment count therefore differs by one between columns.)
+**The derivation is one-directional, and that is a property of the source.** It can
+find an interim spell the ETL missed — the two R1 divergences are exactly that — and it
+can never rule one out. Of 13,499 dated rows whose `discipline` field holds a title,
+**zero** state permanence explicitly: no "permanent", "confirmed", "installed",
+"inaugurated", "full term". There is nothing to derive a permanent value *from*.
 
-The legacy flag stays the published headline, for a stated reason: the divergences are
-disagreements awaiting adjudication, not proven ETL errors. Sixteen of the twenty are a
-bare "President" or "Chancellor" title with silent notes against an ETL interim flag,
-and the ETL's origin coding may well have known something the title does not say.
-Publishing the derived column would assert a re-derivation the corpus cannot yet settle.
-`--derived` swaps which flag drives the entire analysis, so either reading is one flag
-away.
+**The error this replaces, since it reached a draft of this document.** An earlier
+build read a bare title with silent notes as evidence of permanence and demoted 29
+legacy-interim rows, 16 of them R3 presidents. That pulled the published R3 rate from
+19.9% to 17.5% and this document reported the 2.4pp gap as a real sensitivity. It was
+not. The duration test settles it, and it is the right arbiter because the derivation
+never consults duration:
 
-**What moves, and what does not.** R1 and R2 move by a tenth of a point either way. R3
-moves 2.4 points — and in the direction the coverage check below already warns about.
-The R1-to-R3 gap is the finding here, and it survives the swap (7.9pp legacy, 10.4pp
-derived, both far outside their confidence intervals). The **R3 level** does not survive
-it, and should be read as the floor the next caveat calls it.
+| Rows | n | Median closed tenure | ≤ 2 years |
+|---|---|---|---|
+| The 29 demoted rows | 29 | **1y** | **96.6%** |
+| Titles that *say* interim | 926 | 1y | 93.1% |
+| Titles the ETL calls permanent | 4,376 | 7y | 9.4% |
+
+The demoted rows are indistinguishable from real interim spells. Their titles were
+`President`, `Chancellor`, `Rector`, `Dean` — the generic seat name, which is the
+string the field holds whether an appointment was interim or not. Its silence was never
+a finding, and reading it as one is the same mistake that flipped 494 rows on the first
+attempt and reversed R1 from 28% to 8%.
+
+The rule now is: a title derives interim status **positively or not at all**.
+
+**What this does not change.** The within-university cascade is the same under either
+flag — 14.9pp (p = 0.010) on legacy against 14.8pp (p = 0.011) on derived — so the
+cascade estimate is not what distinguishes them. The R3 *level* is, and it is now
+stable across both.
 
 **The R3 rate is a floor.** R3 records 3.53 appointments per institution over the
 window against 4.63 for R1 and R2. That is either longer R3 tenures or thinner

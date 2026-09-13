@@ -1,221 +1,56 @@
 school,indexes,spells,shared_people,contradictions,status
-Pace University / Office of the President,r2public + university,r2public:4 university:6,4,1,vintage_overlap_but_contradicts
-Union College / Office of the President,adminleaders + lac,adminleaders:4 lac:8,1,1,needs_review_contradiction
-University of Alabama in Huntsville / Office of the President,r2public + university,r2public:7 university:8,3,1,vintage_overlap_but_contradicts
-Agnes Scott College / Office of the President,adminleaders + lac,adminleaders:6 lac:4,0,0,needs_review
-Albion College / Office of the President,adminleaders + lac,adminleaders:6 lac:8,0,0,needs_review
-Albright College / Office of the President,adminleaders + lac,adminleaders:1 lac:7,0,0,needs_review
-Allegheny College / Office of the President,adminleaders + lac,adminleaders:2 lac:4,0,0,needs_review
-Allen University / Office of the President,adminleaders + lac,adminleaders:1 lac:3,0,0,needs_review
-Amherst College / Office of the President,adminleaders + lac,adminleaders:8 lac:5,0,0,needs_review
-Antioch University / Office of the President,adminleaders + lac,adminleaders:4 lac:8,1,0,needs_review
-Augustana College / Office of the President,adminleaders + lac,adminleaders:5 lac:4,1,0,needs_review
-Austin College / Office of the President,adminleaders + lac,adminleaders:2 lac:5,0,0,needs_review
-Ave Maria University / Office of the President,adminleaders + lac,adminleaders:1 lac:4,0,0,needs_review
-Bard College / Office of the President,adminleaders + lac,adminleaders:1 lac:2,0,0,needs_review
-Barnard College / Office of the President,adminleaders + lac,adminleaders:4 lac:4,0,0,needs_review
-Bates College / Office of the President,adminleaders + lac,adminleaders:4 lac:6,1,0,needs_review
-Beloit College / Office of the President,adminleaders + lac,adminleaders:5 lac:6,0,0,needs_review
-Bennett College / Office of the President,adminleaders + lac,adminleaders:2 lac:8,0,0,needs_review
-Bennington College / Office of the President,adminleaders + lac,adminleaders:1 lac:5,0,0,needs_review
-Berea College / Office of the President,adminleaders + lac,adminleaders:5 lac:3,0,0,needs_review
-Bethany College / Office of the President,adminleaders + lac,adminleaders:1 lac:7,0,0,needs_review
-Boise State University / Office of the President,r2public + university,r2public:7 university:6,3,0,known_carnegie_vintage_overlap
-Bowdoin College / Office of the President,adminleaders + lac,adminleaders:1 lac:4,0,0,needs_review
-Bridgewater College / Office of the President,adminleaders + lac,adminleaders:1 lac:4,0,0,needs_review
-Brigham Young University / Office of the Academic Vice President,adminleaders + provost,adminleaders:1 provost:10,0,0,needs_review
-Bryn Mawr College / Office of the President,adminleaders + lac,adminleaders:4 lac:5,0,0,needs_review
-Bucknell University / Office of the President,adminleaders + lac,adminleaders:4 lac:4,0,0,needs_review
-Carleton College / Office of the President,adminleaders + lac,adminleaders:4 lac:4,0,0,needs_review
-Centenary College of Louisiana / Office of the President,adminleaders + lac,adminleaders:1 lac:3,0,0,needs_review
-Central College / Office of the President,adminleaders + lac,adminleaders:6 lac:3,0,0,needs_review
-Centre College / Office of the President,adminleaders + lac,adminleaders:7 lac:4,0,0,needs_review
-Chapman University / Office of the President,r2public + university,r2public:5 university:8,4,0,known_carnegie_vintage_overlap
-Colby College / Office of the President,adminleaders + lac,adminleaders:3 lac:3,0,0,needs_review
-Colgate University / Office of the President,adminleaders + lac,adminleaders:5 lac:5,0,0,needs_review
-College of Saint Benedict / Office of the President,adminleaders + lac,adminleaders:2 lac:6,0,0,needs_review
-College of the Holy Cross / Office of the President,adminleaders + lac,adminleaders:4 lac:5,0,0,needs_review
-Colorado College / Office of the President,adminleaders + lac,adminleaders:6 lac:8,0,0,needs_review
-Columbia University / School of the Arts,arts + camd,arts:4 camd:3,2,0,needs_review
-Concordia College at Moorhead / Office of the President,adminleaders + lac,adminleaders:3 lac:6,0,0,needs_review
-Connecticut College / Office of the President,adminleaders + lac,adminleaders:1 lac:8,0,0,needs_review
-Cornell College / Office of the President,adminleaders + lac,adminleaders:1 lac:3,0,0,needs_review
-Covenant College / Office of the President,adminleaders + lac,adminleaders:5 lac:4,0,0,needs_review
-CUNY Medgar Evers College / Office of the President,adminleaders + lac,adminleaders:1 lac:4,0,0,needs_review
-Davidson College / Office of the President,adminleaders + lac,adminleaders:4 lac:6,0,0,needs_review
-Denison University / Office of the President,adminleaders + lac,adminleaders:5 lac:4,0,0,needs_review
-DePauw University / Office of the President,adminleaders + lac,adminleaders:3 lac:4,0,0,needs_review
-Dickinson College / Office of the President,adminleaders + lac,adminleaders:7 lac:11,3,0,needs_review
-Dillard University / Office of the President,adminleaders + lac,adminleaders:2 lac:8,0,0,needs_review
-Fisk University / Office of the President,adminleaders + lac,adminleaders:1 lac:10,0,0,needs_review
-Fort Lewis College / Office of the President,adminleaders + lac,adminleaders:2 lac:9,0,0,needs_review
-Franklin College / Office of the President,adminleaders + lac,adminleaders:3 lac:4,0,0,needs_review
-Georgetown College / Office of the President,adminleaders + lac,adminleaders:2 lac:4,0,0,needs_review
-Gettysburg College / Office of the President,adminleaders + lac,adminleaders:1 lac:5,0,0,needs_review
-Gordon College / Office of the President,adminleaders + lac,adminleaders:2 lac:3,0,0,needs_review
-Goucher College / Office of the President,adminleaders + lac,adminleaders:2 lac:6,0,0,needs_review
-Grinnell College / Office of the President,adminleaders + lac,adminleaders:2 lac:5,0,0,needs_review
-Guilford College / Office of the President,adminleaders + lac,adminleaders:3 lac:7,0,0,needs_review
-Gustavus Adolphus College / Office of the President,adminleaders + lac,adminleaders:2 lac:6,0,0,needs_review
-Hamilton College / Office of the President,adminleaders + lac,adminleaders:1 lac:4,0,0,needs_review
-Hampden-Sydney College / Office of the President,adminleaders + lac,adminleaders:1 lac:4,0,0,needs_review
-Harvey Mudd College / Office of the President,adminleaders + lac,adminleaders:2 lac:6,0,0,needs_review
-Haverford College / Office of the President,adminleaders + lac,adminleaders:5 lac:7,0,0,needs_review
-Hendrix College / Office of the President,adminleaders + lac,adminleaders:1 lac:6,0,0,needs_review
-Hillsdale College / Office of the President,adminleaders + lac,adminleaders:4 lac:8,3,0,needs_review
-Hobart William Smith Colleges / Office of the President,adminleaders + lac,adminleaders:7 lac:8,1,0,needs_review
-Holy Cross College / Office of the President,adminleaders + lac,adminleaders:4 lac:4,0,0,needs_review
-Hope College / Office of the President,adminleaders + lac,adminleaders:3 lac:5,0,0,needs_review
-Houghton University / Office of the President,adminleaders + lac,adminleaders:1 lac:3,0,0,needs_review
-Illinois College / Office of the President,adminleaders + lac,adminleaders:1 lac:4,0,0,needs_review
-Juniata College / Office of the President,adminleaders + lac,adminleaders:5 lac:3,0,0,needs_review
-Keene State College / Office of the President,adminleaders + lac,adminleaders:3 lac:6,0,0,needs_review
-Kenyon College / Office of the President,adminleaders + lac,adminleaders:4 lac:7,0,0,needs_review
-Knox College / Office of the President,adminleaders + lac,adminleaders:4 lac:7,0,0,needs_review
-Lafayette College / Office of the President,adminleaders + lac,adminleaders:8 lac:4,0,0,needs_review
-Lake Forest College / Office of the President,adminleaders + lac,adminleaders:3 lac:5,0,0,needs_review
-Lane College / Office of the President,adminleaders + lac,adminleaders:2 lac:3,0,0,needs_review
-Linfield University / Office of the President,adminleaders + lac,adminleaders:1 lac:8,0,0,needs_review
-Luther College / Office of the President,adminleaders + lac,adminleaders:1 lac:5,0,0,needs_review
-Lycoming College / Office of the President,adminleaders + lac,adminleaders:2 lac:4,1,0,needs_review
-Maryville College / Office of the President,adminleaders + lac,adminleaders:5 lac:4,1,0,needs_review
-Massachusetts College of Liberal Arts / Office of the President,adminleaders + lac,adminleaders:2 lac:5,0,0,needs_review
-Meredith College / Office of the President,adminleaders + lac,adminleaders:2 lac:4,0,0,needs_review
-Miami University / Office of the President,r2public + university,r2public:3 university:6,2,0,known_carnegie_vintage_overlap
-Middlebury College / Office of the President,adminleaders + lac,adminleaders:9 lac:5,0,0,needs_review
-Millsaps College / Office of the President,adminleaders + lac,adminleaders:6 lac:6,0,0,needs_review
-Monmouth College / Office of the President,adminleaders + lac,adminleaders:1 lac:6,0,0,needs_review
-Morehouse College / Office of the President,adminleaders + lac,adminleaders:2 lac:8,0,0,needs_review
-Mount Holyoke College / Office of the President,adminleaders + lac,adminleaders:3 lac:6,0,0,needs_review
-Muhlenberg College / Office of the President,adminleaders + lac,adminleaders:5 lac:6,0,0,needs_review
-New Saint Andrews College / Office of the President,adminleaders + lac,adminleaders:4 lac:2,0,0,needs_review
-New York University / Steinhardt School of Culture Education and Human Development,camd + education,camd:4 education:5,2,0,needs_review
-New York University / Tisch School of the Arts,arts + camd,arts:3 camd:4,1,0,needs_review
-North Carolina Agricultural and Technical State University / Office of the Chancellor,r2public + university,r2public:6 university:8,6,0,known_carnegie_vintage_overlap
-"Northeastern University / College of Arts, Media and Design",arts + camd,arts:3 camd:4,2,0,needs_review
-Northwestern University / School of Communication,arts + camd,arts:2 camd:2,1,0,needs_review
-Oakwood University / Office of the President,adminleaders + lac,adminleaders:1 lac:4,0,0,needs_review
-Oberlin College / Office of the President,adminleaders + lac,adminleaders:7 lac:9,0,0,needs_review
-Occidental College / Office of the President,adminleaders + lac,adminleaders:4 lac:8,0,0,needs_review
-Oglethorpe University / Office of the President,adminleaders + lac,adminleaders:2 lac:5,0,0,needs_review
-Ouachita Baptist University / Office of the President,adminleaders + lac,adminleaders:4 lac:5,0,0,needs_review
-Patrick Henry College / Office of the President,adminleaders + lac,adminleaders:3 lac:4,0,0,needs_review
-Pennsylvania State University-Penn State Brandywine / Office of the President,adminleaders + lac,adminleaders:1 lac:5,0,0,needs_review
-Pepperdine University / Office of the President,r2public + university,r2public:8 university:5,4,0,known_carnegie_vintage_overlap
-Presbyterian College / Office of the President,adminleaders + lac,adminleaders:3 lac:7,0,0,needs_review
-Randolph College / Office of the President,adminleaders + lac,adminleaders:1 lac:5,0,0,needs_review
-Randolph-Macon College / Office of the President,adminleaders + lac,adminleaders:3 lac:4,0,0,needs_review
-Reed College / Office of the President,adminleaders + lac,adminleaders:4 lac:6,0,0,needs_review
-Rhodes College / Office of the President,adminleaders + lac,adminleaders:2 lac:6,0,0,needs_review
-Ripon College / Office of the President,adminleaders + lac,adminleaders:2 lac:4,0,0,needs_review
-Roanoke College / Office of the President,adminleaders + lac,adminleaders:3 lac:5,0,0,needs_review
-Saint Johns University / Office of the President,adminleaders + lac,adminleaders:1 lac:6,0,0,needs_review
-Saint Mary's College / Office of the President,adminleaders + lac,adminleaders:3 lac:6,0,0,needs_review
-Saint Michael's College / Office of the President,adminleaders + lac,adminleaders:2 lac:5,0,0,needs_review
-Saint Vincent College / Office of the President,adminleaders + lac,adminleaders:3 lac:5,0,0,needs_review
-Santa Clara University / Office of the President,r2public + university,r2public:5 university:10,3,0,known_carnegie_vintage_overlap
-Sarah Lawrence College / Office of the President,adminleaders + lac,adminleaders:5 lac:4,0,0,needs_review
-Seattle Pacific University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:4,0,0,needs_review
-Seattle University / Office of the President,adminleaders + r2public,adminleaders:6 r2public:4,0,0,needs_review
-Seton Hall University / Office of the President,adminleaders + r2public,adminleaders:2 r2public:8,0,0,needs_review
-Shenandoah University / Office of the President,adminleaders + r2public,adminleaders:5 r2public:2,0,0,needs_review
-Simpson University / Office of the President,adminleaders + lac,adminleaders:6 lac:1,0,0,needs_review
-Smith College / Office of the President,adminleaders + lac,adminleaders:7 lac:5,0,0,needs_review
-Soka University of America / Office of the President,adminleaders + lac,adminleaders:1 lac:2,0,0,needs_review
-South Carolina State University / Office of the President,adminleaders + r2public,adminleaders:3 r2public:12,0,0,needs_review
-South Dakota State University / Office of the President,adminleaders + r2public,adminleaders:7 r2public:4,0,0,needs_review
-Southeastern Baptist Theological Seminary / Office of the President,adminleaders + r2public,adminleaders:1 r2public:4,0,0,needs_review
-Southeastern University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:2,0,0,needs_review
-Southern Connecticut State University / Office of the President,adminleaders + r2public,adminleaders:5 r2public:8,0,0,needs_review
-Southern Illinois University Edwardsville / Office of the President,adminleaders + r2public,adminleaders:3 r2public:7,0,0,needs_review
-Southern Virginia University / Office of the President,adminleaders + lac,adminleaders:4 lac:2,0,0,needs_review
-Southwestern University / Office of the President,adminleaders + lac,adminleaders:4 lac:5,0,0,needs_review
-Spelman College / Office of the President,adminleaders + lac,adminleaders:5 lac:7,0,0,needs_review
-Springfield College / Office of the President,adminleaders + r2public,adminleaders:3 r2public:4,0,0,needs_review
-St Lawrence University / Office of the President,adminleaders + lac,adminleaders:4 lac:3,0,0,needs_review
-St Olaf College / Office of the President,adminleaders + lac,adminleaders:5 lac:7,0,0,needs_review
-St. Catherine University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:4,0,0,needs_review
-St. John's College / Office of the President,adminleaders + lac,adminleaders:3 lac:8,0,0,needs_review
-St. John's University-New York / Office of the President,adminleaders + r2public,adminleaders:3 r2public:4,0,0,needs_review
-St. Mary's College of Maryland / Office of the President,adminleaders + lac,adminleaders:6 lac:6,1,0,needs_review
-State University of New York at Geneseo / Office of the President,adminleaders + lac,adminleaders:3 lac:6,0,0,needs_review
-State University of New York Upstate Medical University / Office of the President,adminleaders + r2public,adminleaders:5 r2public:6,0,0,needs_review
-Stevens Institute of Technology / Office of the President,r2public + university,r2public:6 university:6,2,0,known_carnegie_vintage_overlap
-Stockton University / Office of the President,adminleaders + r2public,adminleaders:3 r2public:4,0,0,needs_review
-Stonehill College / Office of the President,adminleaders + lac,adminleaders:5 lac:4,1,0,needs_review
-Susquehanna University / Office of the President,adminleaders + lac,adminleaders:6 lac:3,0,0,needs_review
-Sweet Briar College / Office of the President,adminleaders + lac,adminleaders:8 lac:6,0,0,needs_review
-"Teachers College, Columbia University / Office of the President",adminleaders + r2public,adminleaders:7 r2public:7,1,0,needs_review
-Tennessee State University / Office of the President,adminleaders + r2public,adminleaders:3 r2public:6,0,0,needs_review
-Tennessee Technological University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:3,0,0,needs_review
-Texas Christian University / Office of the Chancellor,r2public + university,r2public:4 university:3,3,0,known_carnegie_vintage_overlap
-Texas Southern University / Office of the President,adminleaders + r2public,adminleaders:5 r2public:9,0,0,needs_review
-Texas State University / Office of the President,adminleaders + r2public,adminleaders:2 r2public:3,0,0,needs_review
-Texas Woman's University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:3,0,0,needs_review
-The City College of New York / Office of the President,adminleaders + r2public,adminleaders:1 r2public:6,0,0,needs_review
-The College of Saint Scholastica / Office of the President,adminleaders + r2public,adminleaders:1 r2public:5,0,0,needs_review
-The College of Wooster / Office of the President,adminleaders + lac,adminleaders:3 lac:6,0,0,needs_review
-The Master's University and Seminary / Office of the President,adminleaders + r2public,adminleaders:1 r2public:4,0,0,needs_review
-The New School / Office of the President,adminleaders + r2public,adminleaders:3 r2public:6,0,0,needs_review
-The Rockefeller University / Office of the President,adminleaders + r2public,adminleaders:2 r2public:6,0,0,needs_review
-The University of Texas Medical Branch at Galveston / Office of the President,adminleaders + r2public,adminleaders:5 r2public:6,0,0,needs_review
-The University of Texas Rio Grande Valley / Office of the President,adminleaders + r2public,adminleaders:4 r2public:1,0,0,needs_review
-The University of the South / Office of the President,adminleaders + lac,adminleaders:2 lac:6,0,0,needs_review
-Thomas Aquinas College / Office of the President,adminleaders + lac,adminleaders:1 lac:5,0,0,needs_review
-Thomas Jefferson University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:6,0,0,needs_review
-Touro University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:2,0,0,needs_review
-Trevecca Nazarene University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:2,0,0,needs_review
-Trinity College / Office of the President,adminleaders + lac,adminleaders:7 lac:8,1,0,needs_review
-Union University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:3,0,0,needs_review
-United States Air Force Academy / Office of the President,adminleaders + lac,adminleaders:1 lac:10,0,0,needs_review
-United States Military Academy / Office of the President,adminleaders + lac,adminleaders:1 lac:9,0,0,needs_review
-University of Akron / Office of the President,adminleaders + r2public,adminleaders:5 r2public:8,0,0,needs_review
-University of Bridgeport / Office of the President,adminleaders + r2public,adminleaders:1 r2public:5,0,0,needs_review
-"University of California, Riverside / College of Natural and Agricultural Sciences",agschool + arts,agschool:15 arts:13,4,0,needs_review
-University of Hartford / Office of the President,adminleaders + r2public,adminleaders:2 r2public:5,0,0,needs_review
-University of Houston-Clear Lake / Office of the President,adminleaders + r2public,adminleaders:2 r2public:4,0,0,needs_review
-University of Indianapolis / Office of the President,adminleaders + r2public,adminleaders:1 r2public:6,0,0,needs_review
-University of La Verne / Office of the President,adminleaders + r2public,adminleaders:1 r2public:5,0,0,needs_review
-University of Louisiana at Monroe / Office of the President,adminleaders + r2public,adminleaders:1 r2public:6,0,0,needs_review
-University of Mary Hardin-Baylor / Office of the President,adminleaders + r2public,adminleaders:2 r2public:2,0,0,needs_review
-University of Mary Washington / Office of the President,adminleaders + lac,adminleaders:2 lac:5,0,0,needs_review
-University of Minnesota-Morris / Office of the President,adminleaders + lac,adminleaders:3 lac:5,0,0,needs_review
-University of New Orleans / Office of the President,adminleaders + r2public,adminleaders:2 r2public:8,1,0,needs_review
-University of North Florida / Office of the President,adminleaders + r2public,adminleaders:3 r2public:12,0,0,needs_review
-University of Northern Colorado / Office of the President,adminleaders + r2public,adminleaders:3 r2public:10,0,0,needs_review
-University of Phoenix-Arizona / Office of the President,adminleaders + r2public,adminleaders:1 r2public:7,0,0,needs_review
-University of San Diego / Office of the President,adminleaders + r2public,adminleaders:1 r2public:3,0,0,needs_review
-University of South Alabama / Office of the President,adminleaders + r2public,adminleaders:3 r2public:6,0,0,needs_review
-University of South Dakota / Office of the President,adminleaders + r2public,adminleaders:5 r2public:3,0,0,needs_review
-University of St. Francis / Office of the President,adminleaders + r2public,adminleaders:1 r2public:4,0,0,needs_review
-University of St. Thomas (Minnesota) / Office of the President,adminleaders + r2public,adminleaders:4 r2public:3,0,0,needs_review
-University of the Cumberlands / Office of the President,adminleaders + r2public,adminleaders:3 r2public:3,0,0,needs_review
-University of the Incarnate Word / Office of the President,adminleaders + r2public,adminleaders:1 r2public:3,0,0,needs_review
-University of the Pacific / Office of the President,adminleaders + r2public,adminleaders:5 r2public:4,0,0,needs_review
-University of Tulsa / Office of the President,adminleaders + r2public,adminleaders:4 r2public:10,0,0,needs_review
-University of West Florida / Office of the President,adminleaders + r2public,adminleaders:3 r2public:6,0,0,needs_review
-Valdosta State University / Office of the President,adminleaders + r2public,adminleaders:2 r2public:9,0,0,needs_review
-Valparaiso University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:5,0,0,needs_review
-Villanova University / Office of the President,adminleaders + r2public,adminleaders:7 r2public:2,0,0,needs_review
-Wake Forest University / Office of the President,r2public + university,r2public:5 university:3,3,0,known_carnegie_vintage_overlap
-Walsh University / Office of the President,adminleaders + r2public,adminleaders:4 r2public:4,0,0,needs_review
-Wartburg College / Office of the President,adminleaders + lac,adminleaders:1 lac:5,0,0,needs_review
-Washington and Lee University / Office of the President,adminleaders + lac,adminleaders:1 lac:5,0,0,needs_review
-Wellesley College / Office of the President,adminleaders + lac,adminleaders:1 lac:3,0,0,needs_review
-Wesleyan University / Office of the President,adminleaders + lac,adminleaders:1 lac:2,0,0,needs_review
-Western Michigan University / Office of the President,adminleaders + r2public,adminleaders:3 r2public:9,0,0,needs_review
-Western New England University / Office of the President,adminleaders + r2public,adminleaders:3 r2public:4,0,0,needs_review
-Westminster College (Missouri) / Office of the President,adminleaders + lac,adminleaders:3 lac:6,0,0,needs_review
-Whittier College / Office of the President,adminleaders + lac,adminleaders:1 lac:6,0,0,needs_review
-Wichita State University / Office of the President,adminleaders + r2public,adminleaders:2 r2public:6,0,0,needs_review
-Widener University / Office of the President,adminleaders + r2public,adminleaders:3 r2public:5,0,0,needs_review
-Wilkes University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:6,0,0,needs_review
-William Carey University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:5,0,0,needs_review
-William Woods University / Office of the President,adminleaders + r2public,adminleaders:3 r2public:3,0,0,needs_review
-Williams College / Office of the President,adminleaders + lac,adminleaders:5 lac:7,0,0,needs_review
-Wilmington University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:3,0,0,needs_review
-Wingate University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:2,0,0,needs_review
-Wittenberg University / Office of the President,adminleaders + lac,adminleaders:1 lac:7,0,0,needs_review
-Wright State University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:6,0,0,needs_review
-Xavier University / Office of the President,adminleaders + r2public,adminleaders:1 r2public:3,0,0,needs_review
-Yeshiva University / Office of the President,adminleaders + r2public,adminleaders:2 r2public:6,0,0,needs_review
+Pace University / Office of the President [chief_executive],r2public + university,r2public:4 university:6,4,1,vintage_overlap_but_contradicts
+Union College / Office of the President [subordinate],adminleaders + lac,adminleaders:3 lac:2,1,1,needs_review_contradiction
+University of Alabama in Huntsville / Office of the President [chief_executive],r2public + university,r2public:7 university:8,3,1,vintage_overlap_but_contradicts
+Agnes Scott College / Office of the President [subordinate],adminleaders + lac,adminleaders:6 lac:1,0,0,distinct_people_shared_school_value
+Amherst College / Office of the President [subordinate],adminleaders + lac,adminleaders:8 lac:1,0,0,distinct_people_shared_school_value
+Antioch University / Office of the President [subordinate],adminleaders + lac,adminleaders:3 lac:1,1,0,needs_review
+Augustana College / Office of the President [subordinate],adminleaders + lac,adminleaders:3 lac:1,1,0,needs_review
+Bates College / Office of the President [subordinate],adminleaders + lac,adminleaders:4 lac:1,1,0,needs_review
+Beloit College / Office of the President [subordinate],adminleaders + lac,adminleaders:5 lac:1,0,0,distinct_people_shared_school_value
+Bennington College / Office of the President [subordinate],adminleaders + lac,adminleaders:1 lac:1,0,0,distinct_people_shared_school_value
+Boise State University / Office of the President [chief_executive],r2public + university,r2public:7 university:6,3,0,known_carnegie_vintage_overlap
+Chapman University / Office of the President [chief_executive],r2public + university,r2public:3 university:6,2,0,known_carnegie_vintage_overlap
+Chapman University / Office of the President [subordinate],r2public + university,r2public:2 university:2,2,0,known_carnegie_vintage_overlap
+Columbia University / School of the Arts [dean],arts + camd,arts:4 camd:3,2,0,needs_review
+Connecticut College / Office of the President [subordinate],adminleaders + lac,adminleaders:1 lac:1,0,0,distinct_people_shared_school_value
+Denison University / Office of the President [subordinate],adminleaders + lac,adminleaders:4 lac:1,0,0,distinct_people_shared_school_value
+Dickinson College / Office of the President [subordinate],adminleaders + lac,adminleaders:6 lac:6,2,0,needs_review
+Hillsdale College / Office of the President [subordinate],adminleaders + lac,adminleaders:3 lac:5,3,0,needs_review
+Hobart William Smith Colleges / Office of the President [subordinate],adminleaders + lac,adminleaders:7 lac:2,1,0,needs_review
+Kenyon College / Office of the President [subordinate],adminleaders + lac,adminleaders:2 lac:2,0,0,distinct_people_shared_school_value
+Lycoming College / Office of the President [subordinate],adminleaders + lac,adminleaders:2 lac:1,1,0,needs_review
+Maryville College / Office of the President [subordinate],adminleaders + lac,adminleaders:1 lac:1,1,0,needs_review
+Miami University / Office of the President [chief_executive],r2public + university,r2public:3 university:6,2,0,known_carnegie_vintage_overlap
+New York University / Steinhardt School of Culture Education and Human Development [dean],camd + education,camd:4 education:5,2,0,needs_review
+New York University / Tisch School of the Arts [dean],arts + camd,arts:3 camd:4,1,0,needs_review
+North Carolina Agricultural and Technical State University / Office of the Chancellor [chief_executive],r2public + university,r2public:6 university:8,6,0,known_carnegie_vintage_overlap
+"Northeastern University / College of Arts, Media and Design [dean]",arts + camd,arts:3 camd:4,2,0,needs_review
+Northwestern University / School of Communication [dean],arts + camd,arts:2 camd:2,1,0,needs_review
+Oberlin College / Office of the President [subordinate],adminleaders + lac,adminleaders:4 lac:4,0,0,distinct_people_shared_school_value
+Pepperdine University / Office of the President [chief_executive],r2public + university,r2public:6 university:3,2,0,known_carnegie_vintage_overlap
+Pepperdine University / Office of the President [subordinate],r2public + university,r2public:2 university:2,2,0,known_carnegie_vintage_overlap
+Rhodes College / Office of the President [subordinate],adminleaders + lac,adminleaders:2 lac:1,0,0,distinct_people_shared_school_value
+Roanoke College / Office of the President [subordinate],adminleaders + lac,adminleaders:2 lac:1,0,0,distinct_people_shared_school_value
+Santa Clara University / Office of the President [chief_executive],r2public + university,r2public:5 university:6,3,0,known_carnegie_vintage_overlap
+Seton Hall University / Office of the President [subordinate],adminleaders + r2public,adminleaders:1 r2public:2,0,0,distinct_people_shared_school_value
+Southwestern University / Office of the President [subordinate],adminleaders + lac,adminleaders:2 lac:1,0,0,distinct_people_shared_school_value
+St Olaf College / Office of the President [subordinate],adminleaders + lac,adminleaders:1 lac:2,0,0,distinct_people_shared_school_value
+St. Mary's College of Maryland / Office of the President [subordinate],adminleaders + lac,adminleaders:5 lac:1,1,0,needs_review
+State University of New York at Geneseo / Office of the President [subordinate],adminleaders + lac,adminleaders:2 lac:2,0,0,distinct_people_shared_school_value
+State University of New York Upstate Medical University / Office of the President [subordinate],adminleaders + r2public,adminleaders:1 r2public:1,0,0,distinct_people_shared_school_value
+Stevens Institute of Technology / Office of the President [chief_executive],r2public + university,r2public:2 university:2,1,0,known_carnegie_vintage_overlap
+Stevens Institute of Technology / Office of the President [subordinate],r2public + university,r2public:4 university:4,1,0,known_carnegie_vintage_overlap
+Stonehill College / Office of the President [subordinate],adminleaders + lac,adminleaders:5 lac:4,1,0,needs_review
+"Teachers College, Columbia University / Office of the President [subordinate]",adminleaders + r2public,adminleaders:6 r2public:4,1,0,needs_review
+Texas Christian University / Office of the Chancellor [chief_executive],r2public + university,r2public:4 university:3,3,0,known_carnegie_vintage_overlap
+Trinity College / Office of the President [subordinate],adminleaders + lac,adminleaders:5 lac:1,1,0,needs_review
+University of Akron / Office of the President [subordinate],adminleaders + r2public,adminleaders:5 r2public:1,0,0,distinct_people_shared_school_value
+"University of California, Riverside / College of Natural and Agricultural Sciences [dean]",agschool + arts,agschool:15 arts:13,4,0,needs_review
+University of New Orleans / Office of the President [chief_executive],adminleaders + r2public,adminleaders:1 r2public:8,1,0,needs_review
+University of North Florida / Office of the President [subordinate],adminleaders + r2public,adminleaders:2 r2public:3,0,0,distinct_people_shared_school_value
+University of West Florida / Office of the President [subordinate],adminleaders + r2public,adminleaders:2 r2public:1,0,0,distinct_people_shared_school_value
+Wake Forest University / Office of the President [chief_executive],r2public + university,r2public:4 university:3,3,0,known_carnegie_vintage_overlap
+Western Michigan University / Office of the President [subordinate],adminleaders + r2public,adminleaders:1 r2public:2,0,0,distinct_people_shared_school_value
+Westminster College (Missouri) / Office of the President [subordinate],adminleaders + lac,adminleaders:2 lac:1,0,0,distinct_people_shared_school_value
+Wittenberg University / Office of the President [subordinate],adminleaders + lac,adminleaders:1 lac:1,0,0,distinct_people_shared_school_value
