@@ -19,3 +19,19 @@ jobs:
 
       - name: Check every new/changed record has a sourceUrl
         run: node artifacts/dean-dashboard/scripts/validate-source-urls.mjs --base "origin/${{ github.base_ref }}"
+
+  corpus-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the check counts defects at the base ref as well as at HEAD
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Fails only when a defect count goes UP, so it is safe to run against a corpus
+      # that still carries the backlog it measures. See docs/corpus-pass-scope.md.
+      - name: Check corpus integrity has not regressed
+        run: node artifacts/dean-dashboard/scripts/check-corpus-integrity.mjs --base "origin/${{ github.base_ref }}"
