@@ -67,7 +67,8 @@ async function logUsage(req, ev, client, file) {
   if (!url || !tok) return;
   const c = client || "public";
   const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
-  const rec = JSON.stringify({ c, ev, f: file || null, t: Date.now(), ip });
+  const ua = String(req.headers["user-agent"] || "").slice(0, 200);
+  const rec = JSON.stringify({ c, ev, f: file || null, t: Date.now(), ip, ua });
   try {
     await fetch(`${url}/pipeline`, {
       method: "POST",
