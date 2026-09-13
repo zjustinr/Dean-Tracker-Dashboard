@@ -53,7 +53,8 @@
   "businessPctEnd": 0.2073,
   "businessDegreesLatest": 4659,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 900001,
@@ -113,7 +114,8 @@
   "nextRoleDetail": "Senior Vice President and Provost, Temple University (2026)",
   "enrollmentStart": 74795,
   "businessPctStart": 0.2176,
-  "businessDegreesStart": 4571
+  "businessDegreesStart": 4571,
+  "seatRole": "subordinate"
  },
  {
   "id": 900002,
@@ -174,7 +176,8 @@
   "phdYear": 1984,
   "enrollmentStart": 51605,
   "businessPctStart": 0.1524,
-  "businessDegreesStart": 2044
+  "businessDegreesStart": 2044,
+  "seatRole": "subordinate"
  },
  {
   "id": 900003,
@@ -230,7 +233,8 @@
   "businessPctEnd": 0.3108,
   "businessDegreesLatest": 2800,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 900004,
@@ -289,7 +293,8 @@
   "connectionType": "",
   "enrollmentStart": 55781,
   "businessPctStart": 0.1242,
-  "businessDegreesStart": 2106
+  "businessDegreesStart": 2106,
+  "seatRole": "subordinate"
  },
  {
   "id": 900005,
@@ -349,7 +354,8 @@
   "phdInstitution": "Oregon State University",
   "enrollmentStart": 60540,
   "businessPctStart": 0.1556,
-  "businessDegreesStart": 2539
+  "businessDegreesStart": 2539,
+  "seatRole": "subordinate"
  },
  {
   "id": 900006,
@@ -408,7 +414,8 @@
   "connectionType": "",
   "enrollmentStart": 50399,
   "businessPctStart": 0.1798,
-  "businessDegreesStart": 2565
+  "businessDegreesStart": 2565,
+  "seatRole": "subordinate"
  },
  {
   "id": 900007,
@@ -467,7 +474,8 @@
   "connectionType": "",
   "enrollmentStart": 46716,
   "businessPctStart": 0.1098,
-  "businessDegreesStart": 1528
+  "businessDegreesStart": 1528,
+  "seatRole": "dean"
  },
  {
   "id": 900008,
@@ -523,7 +531,8 @@
   "businessPctEnd": 0.1243,
   "businessDegreesLatest": 1505,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 900009,
@@ -581,7 +590,9 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "businessPctStart": 0.1451,
-  "businessDegreesStart": 2147
+  "businessDegreesStart": 2147,
+  "seatRole": "dean",
+  "titleIsCompound": true
  },
  {
   "id": 900010,
@@ -641,7 +652,8 @@
   "phdInstitution": "University of Illinois",
   "enrollmentStart": 47576,
   "businessPctStart": 0.0863,
-  "businessDegreesStart": 1199
+  "businessDegreesStart": 1199,
+  "seatRole": "dean"
  },
  {
   "id": 900011,
@@ -702,7 +714,8 @@
   "phdYear": 2006,
   "enrollmentStart": 74014,
   "businessPctStart": 0.1546,
-  "businessDegreesStart": 3076
+  "businessDegreesStart": 3076,
+  "seatRole": "subordinate"
  },
  {
   "id": 900012,
@@ -761,7 +774,8 @@
   "connectionType": "",
   "enrollmentStart": 50023,
   "businessPctStart": 0.1802,
-  "businessDegreesStart": 2282
+  "businessDegreesStart": 2282,
+  "seatRole": "subordinate"
  },
  {
   "id": 900013,
@@ -820,7 +834,8 @@
   "connectionType": "",
   "enrollmentStart": 40813,
   "businessPctStart": 0.1633,
-  "businessDegreesStart": 1981
+  "businessDegreesStart": 1981,
+  "seatRole": "subordinate"
  },
  {
   "id": 901000,
@@ -877,7 +892,8 @@
   "businessDegreesLatest": 2127,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "Western Michigan University"
+  "phdInstitution": "Western Michigan University",
+  "seatRole": "dean"
  },
  {
   "id": 901001,
@@ -936,7 +952,8 @@
   "connectionType": "",
   "phdInstitution": "University of Colorado",
   "businessPctStart": 0.1581,
-  "businessDegreesStart": 830
+  "businessDegreesStart": 830,
+  "seatRole": "subordinate"
  },
  {
   "id": 901002,
@@ -995,7 +1012,8 @@
   "connectionType": "",
   "enrollmentStart": 26670,
   "businessPctStart": 0.216,
-  "businessDegreesStart": 1301
+  "businessDegreesStart": 1301,
+  "seatRole": "dean"
  },
  {
   "id": 901003,
@@ -1055,7 +1073,8 @@
   "phdInstitution": "University of South Carolina",
   "enrollmentStart": 26406,
   "businessPctStart": 0.2136,
-  "businessDegreesStart": 1525
+  "businessDegreesStart": 1525,
+  "seatRole": "subordinate"
  },
  {
   "id": 901004,
@@ -1111,7 +1130,8 @@
   "businessPctEnd": 0.2413,
   "businessDegreesLatest": 564,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901005,
@@ -1169,7 +1189,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "businessPctStart": 0.0025,
-  "businessDegreesStart": 5
+  "businessDegreesStart": 5,
+  "seatRole": "dean"
  },
  {
   "id": 901006,
@@ -1225,7 +1246,8 @@
   "businessPctEnd": 0.166,
   "businessDegreesLatest": 1312,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 901007,
@@ -1337,7 +1359,8 @@
   "businessPctEnd": 0.1853,
   "businessDegreesLatest": 2508,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901009,
@@ -1452,7 +1475,8 @@
   "connectionType": "",
   "enrollmentStart": 47946,
   "businessPctStart": 0.1656,
-  "businessDegreesStart": 1891
+  "businessDegreesStart": 1891,
+  "seatRole": "subordinate"
  },
  {
   "id": 901011,
@@ -1512,7 +1536,8 @@
   "phdInstitution": "Stanford University",
   "enrollmentStart": 47527,
   "businessPctStart": 0.3341,
-  "businessDegreesStart": 4011
+  "businessDegreesStart": 4011,
+  "seatRole": "dean"
  },
  {
   "id": 901012,
@@ -1568,7 +1593,8 @@
   "businessPctEnd": 0.1285,
   "businessDegreesLatest": 989,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 901013,
@@ -1624,7 +1650,8 @@
   "businessPctEnd": 0.1617,
   "businessDegreesLatest": 1185,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901014,
@@ -1681,7 +1708,8 @@
   "businessDegreesLatest": 1207,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of Oklahoma"
+  "phdInstitution": "University of Oklahoma",
+  "seatRole": "dean"
  },
  {
   "id": 901015,
@@ -1737,7 +1765,8 @@
   "businessPctEnd": 0.1682,
   "businessDegreesLatest": 1104,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901016,
@@ -1794,7 +1823,8 @@
   "businessDegreesLatest": 1835,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of California"
+  "phdInstitution": "University of California",
+  "seatRole": "subordinate"
  },
  {
   "id": 901017,
@@ -1908,7 +1938,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "businessPctStart": 0.1994,
-  "businessDegreesStart": 1166
+  "businessDegreesStart": 1166,
+  "seatRole": "dean"
  },
  {
   "id": 901019,
@@ -1965,7 +1996,8 @@
   "businessDegreesLatest": 94,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "Massachusetts Institute of Technology"
+  "phdInstitution": "Massachusetts Institute of Technology",
+  "seatRole": "dean"
  },
  {
   "id": 901020,
@@ -2021,7 +2053,8 @@
   "businessPctEnd": 0.1244,
   "businessDegreesLatest": 452,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 901021,
@@ -2136,7 +2169,8 @@
   "connectionType": "",
   "enrollmentStart": 12753,
   "businessPctStart": 0.1026,
-  "businessDegreesStart": 247
+  "businessDegreesStart": 247,
+  "seatRole": "subordinate"
  },
  {
   "id": 901023,
@@ -2197,7 +2231,8 @@
   "phdYear": 1993,
   "enrollmentStart": 36304,
   "businessPctStart": 0.1342,
-  "businessDegreesStart": 1277
+  "businessDegreesStart": 1277,
+  "seatRole": "dean"
  },
  {
   "id": 901024,
@@ -2313,7 +2348,8 @@
   "phdInstitution": "Louisiana State University",
   "enrollmentStart": 24937,
   "businessPctStart": 0.1526,
-  "businessDegreesStart": 1307
+  "businessDegreesStart": 1307,
+  "seatRole": "subordinate"
  },
  {
   "id": 901027,
@@ -2371,7 +2407,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "businessPctStart": 0.2704,
-  "businessDegreesStart": 1852
+  "businessDegreesStart": 1852,
+  "seatRole": "dean"
  },
  {
   "id": 901028,
@@ -2427,7 +2464,8 @@
   "businessPctEnd": 0.1207,
   "businessDegreesLatest": 1016,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901029,
@@ -2486,7 +2524,8 @@
   "connectionType": "",
   "enrollmentStart": 50617,
   "businessPctStart": 0.1436,
-  "businessDegreesStart": 1953
+  "businessDegreesStart": 1953,
+  "seatRole": "subordinate"
  },
  {
   "id": 901030,
@@ -2545,7 +2584,8 @@
   "connectionType": "",
   "enrollmentStart": 25865,
   "businessPctStart": 0.1143,
-  "businessDegreesStart": 864
+  "businessDegreesStart": 864,
+  "seatRole": "dean"
  },
  {
   "id": 901031,
@@ -2603,7 +2643,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "businessPctStart": 0.1817,
-  "businessDegreesStart": 1572
+  "businessDegreesStart": 1572,
+  "seatRole": "dean"
  },
  {
   "id": 901032,
@@ -2663,7 +2704,8 @@
   "phdInstitution": "University of California--Berkeley",
   "enrollmentStart": 33111,
   "businessPctStart": 0.1891,
-  "businessDegreesStart": 1352
+  "businessDegreesStart": 1352,
+  "seatRole": "subordinate"
  },
  {
   "id": 901033,
@@ -2719,7 +2761,8 @@
   "businessPctEnd": 0.0664,
   "businessDegreesLatest": 989,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901034,
@@ -2778,7 +2821,8 @@
   "connectionType": "",
   "enrollmentStart": 17075,
   "businessPctStart": 0.124,
-  "businessDegreesStart": 602
+  "businessDegreesStart": 602,
+  "seatRole": "subordinate"
  },
  {
   "id": 901035,
@@ -2838,7 +2882,8 @@
   "phdInstitution": "Duke University",
   "enrollmentStart": 29796,
   "businessPctStart": 0.1498,
-  "businessDegreesStart": 1246
+  "businessDegreesStart": 1246,
+  "seatRole": "dean"
  },
  {
   "id": 901036,
@@ -2895,7 +2940,8 @@
   "businessDegreesLatest": 2475,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "Arizona State University"
+  "phdInstitution": "Arizona State University",
+  "seatRole": "subordinate"
  },
  {
   "id": 901037,
@@ -2951,7 +2997,8 @@
   "businessPctEnd": 0.1579,
   "businessDegreesLatest": 1061,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901038,
@@ -3010,7 +3057,8 @@
   "connectionType": "",
   "enrollmentStart": 9636,
   "businessPctStart": 0.19,
-  "businessDegreesStart": 434
+  "businessDegreesStart": 434,
+  "seatRole": "subordinate"
  },
  {
   "id": 901039,
@@ -3070,7 +3118,8 @@
   "phdInstitution": "Colorado State University",
   "enrollmentStart": 53001,
   "businessPctStart": 0.1356,
-  "businessDegreesStart": 1567
+  "businessDegreesStart": 1567,
+  "seatRole": "subordinate"
  },
  {
   "id": 901040,
@@ -3130,7 +3179,8 @@
   "phdInstitution": "University of Arizona",
   "enrollmentStart": 32140,
   "businessPctStart": 0.2636,
-  "businessDegreesStart": 1750
+  "businessDegreesStart": 1750,
+  "seatRole": "dean"
  },
  {
   "id": 901041,
@@ -3189,7 +3239,8 @@
   "connectionType": "",
   "enrollmentStart": 43185,
   "businessPctStart": 0.0705,
-  "businessDegreesStart": 947
+  "businessDegreesStart": 947,
+  "seatRole": "subordinate"
  },
  {
   "id": 901042,
@@ -3248,7 +3299,8 @@
   "connectionType": "",
   "enrollmentStart": 38634,
   "businessPctStart": 0.0733,
-  "businessDegreesStart": 750
+  "businessDegreesStart": 750,
+  "seatRole": "subordinate"
  },
  {
   "id": 901043,
@@ -3304,7 +3356,8 @@
   "businessPctEnd": 0.1299,
   "businessDegreesLatest": 1452,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 901044,
@@ -3363,7 +3416,8 @@
   "connectionType": "",
   "enrollmentStart": 46116,
   "businessPctStart": 0.0643,
-  "businessDegreesStart": 912
+  "businessDegreesStart": 912,
+  "seatRole": "dean"
  },
  {
   "id": 901045,
@@ -3422,7 +3476,8 @@
   "connectionType": "",
   "enrollmentStart": 26426,
   "businessPctStart": 0.1586,
-  "businessDegreesStart": 1132
+  "businessDegreesStart": 1132,
+  "seatRole": "subordinate"
  },
  {
   "id": 901046,
@@ -3478,7 +3533,8 @@
   "businessPctEnd": 0.0592,
   "businessDegreesLatest": 721,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901047,
@@ -3534,7 +3590,8 @@
   "businessPctEnd": 0.0118,
   "businessDegreesLatest": 88,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 901048,
@@ -3590,7 +3647,8 @@
   "businessPctEnd": 0.0579,
   "businessDegreesLatest": 304,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 901049,
@@ -3649,7 +3707,8 @@
   "connectionType": "",
   "phdInstitution": "University of Virginia",
   "businessPctStart": 0.1465,
-  "businessDegreesStart": 2755
+  "businessDegreesStart": 2755,
+  "seatRole": "dean"
  },
  {
   "id": 901050,
@@ -3764,7 +3823,8 @@
   "connectionType": "",
   "enrollmentStart": 37883,
   "businessPctStart": 0.1624,
-  "businessDegreesStart": 1379
+  "businessDegreesStart": 1379,
+  "seatRole": "subordinate"
  },
  {
   "id": 901052,
@@ -3823,7 +3883,8 @@
   "connectionType": "",
   "enrollmentStart": 23409,
   "businessPctStart": 0.1655,
-  "businessDegreesStart": 933
+  "businessDegreesStart": 933,
+  "seatRole": "dean"
  },
  {
   "id": 901053,
@@ -3937,7 +3998,8 @@
   "businessDegreesLatest": 1134,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of Georgia"
+  "phdInstitution": "University of Georgia",
+  "seatRole": "subordinate"
  },
  {
   "id": 901055,
@@ -3996,7 +4058,8 @@
   "connectionType": "",
   "enrollmentStart": 39147,
   "businessPctStart": 0.24,
-  "businessDegreesStart": 2935
+  "businessDegreesStart": 2935,
+  "seatRole": "subordinate"
  },
  {
   "id": 901056,
@@ -4169,7 +4232,8 @@
   "phdInstitution": "Colorado State University",
   "enrollmentStart": 12072,
   "businessPctStart": 0.1202,
-  "businessDegreesStart": 306
+  "businessDegreesStart": 306,
+  "seatRole": "dean"
  },
  {
   "id": 901059,
@@ -4227,7 +4291,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "businessPctStart": 0.1596,
-  "businessDegreesStart": 1387
+  "businessDegreesStart": 1387,
+  "seatRole": "dean"
  },
  {
   "id": 901060,
@@ -4285,7 +4350,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "businessPctStart": 0.1801,
-  "businessDegreesStart": 1339
+  "businessDegreesStart": 1339,
+  "seatRole": "subordinate"
  },
  {
   "id": 901061,
@@ -4345,7 +4411,8 @@
   "phdInstitution": "University of Michigan",
   "enrollmentStart": 32703,
   "businessPctStart": 0.1464,
-  "businessDegreesStart": 1384
+  "businessDegreesStart": 1384,
+  "seatRole": "dean"
  },
  {
   "id": 901062,
@@ -4401,7 +4468,8 @@
   "businessPctEnd": 0.1851,
   "businessDegreesLatest": 1039,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901063,
@@ -4457,7 +4525,8 @@
   "businessPctEnd": 0.1574,
   "businessDegreesLatest": 416,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901064,
@@ -4513,7 +4582,8 @@
   "businessPctEnd": 0.0087,
   "businessDegreesLatest": 35,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 901066,
@@ -4569,7 +4639,8 @@
   "businessPctEnd": 0.1861,
   "businessDegreesLatest": 1850,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901067,
@@ -4629,7 +4700,8 @@
   "phdInstitution": "Ohio State University",
   "enrollmentStart": 21917,
   "businessPctStart": 0.1778,
-  "businessDegreesStart": 847
+  "businessDegreesStart": 847,
+  "seatRole": "subordinate"
  },
  {
   "id": 901069,
@@ -4688,7 +4760,8 @@
   "connectionType": "",
   "enrollmentStart": 21617,
   "businessPctStart": 0.2336,
-  "businessDegreesStart": 1448
+  "businessDegreesStart": 1448,
+  "seatRole": "dean"
  },
  {
   "id": 901070,
@@ -4747,7 +4820,8 @@
   "connectionType": "",
   "enrollmentStart": 30014,
   "businessPctStart": 0.1444,
-  "businessDegreesStart": 1556
+  "businessDegreesStart": 1556,
+  "seatRole": "dean"
  },
  {
   "id": 901071,
@@ -4807,7 +4881,8 @@
   "phdInstitution": "University at Albany-State University",
   "enrollmentStart": 24431,
   "businessPctStart": 0.2123,
-  "businessDegreesStart": 1246
+  "businessDegreesStart": 1246,
+  "seatRole": "subordinate"
  },
  {
   "id": 901072,
@@ -4867,7 +4942,8 @@
   "phdInstitution": "University of California",
   "enrollmentStart": 30660,
   "businessPctStart": 0.2046,
-  "businessDegreesStart": 1287
+  "businessDegreesStart": 1287,
+  "seatRole": "subordinate"
  },
  {
   "id": 901073,
@@ -4928,7 +5004,8 @@
   "phdYear": 2001,
   "enrollmentStart": 20945,
   "businessPctStart": 0.1472,
-  "businessDegreesStart": 747
+  "businessDegreesStart": 747,
+  "seatRole": "subordinate"
  },
  {
   "id": 901074,
@@ -4986,7 +5063,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "businessPctStart": 0.1859,
-  "businessDegreesStart": 629
+  "businessDegreesStart": 629,
+  "seatRole": "subordinate"
  },
  {
   "id": 901075,
@@ -5047,7 +5125,8 @@
   "phdYear": 2006,
   "enrollmentStart": 22700,
   "businessPctStart": 0.1726,
-  "businessDegreesStart": 858
+  "businessDegreesStart": 858,
+  "seatRole": "dean"
  },
  {
   "id": 901076,
@@ -5107,7 +5186,8 @@
   "phdInstitution": "University of California",
   "enrollmentStart": 31705,
   "businessPctStart": 0.1625,
-  "businessDegreesStart": 1370
+  "businessDegreesStart": 1370,
+  "seatRole": "dean"
  },
  {
   "id": 901077,
@@ -5163,7 +5243,8 @@
   "businessPctEnd": 0.1049,
   "businessDegreesLatest": 360,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901078,
@@ -5222,7 +5303,8 @@
   "connectionType": "",
   "enrollmentStart": 28527,
   "businessPctStart": 0.2135,
-  "businessDegreesStart": 1358
+  "businessDegreesStart": 1358,
+  "seatRole": "dean"
  },
  {
   "id": 901079,
@@ -5282,7 +5364,8 @@
   "phdInstitution": "University of Oregon",
   "enrollmentStart": 22257,
   "businessPctStart": 0.1382,
-  "businessDegreesStart": 828
+  "businessDegreesStart": 828,
+  "seatRole": "subordinate"
  },
  {
   "id": 901080,
@@ -5341,7 +5424,8 @@
   "connectionType": "",
   "enrollmentStart": 32277,
   "businessPctStart": 0.1195,
-  "businessDegreesStart": 1120
+  "businessDegreesStart": 1120,
+  "seatRole": "subordinate"
  },
  {
   "id": 901081,
@@ -5398,7 +5482,8 @@
   "businessDegreesLatest": 681,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "Medical College of Wisconsin"
+  "phdInstitution": "Medical College of Wisconsin",
+  "seatRole": "subordinate"
  },
  {
   "id": 901082,
@@ -5514,7 +5599,8 @@
   "connectionType": "",
   "enrollmentStart": 49600,
   "businessPctStart": 0.1675,
-  "businessDegreesStart": 2373
+  "businessDegreesStart": 2373,
+  "seatRole": "dean"
  },
  {
   "id": 901084,
@@ -5570,7 +5656,8 @@
   "businessPctEnd": 0.2532,
   "businessDegreesLatest": 2227,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "subordinate"
  },
  {
   "id": 901085,
@@ -5630,7 +5717,8 @@
   "phdInstitution": "University of Minnesota",
   "enrollmentStart": 48635,
   "businessPctStart": 0.1369,
-  "businessDegreesStart": 1921
+  "businessDegreesStart": 1921,
+  "seatRole": "dean"
  },
  {
   "id": 901087,
@@ -5859,7 +5947,8 @@
   "connectionType": "",
   "enrollmentStart": 35260,
   "businessPctStart": 0.1514,
-  "businessDegreesStart": 1437
+  "businessDegreesStart": 1437,
+  "seatRole": "dean"
  },
  {
   "id": 901091,
@@ -5916,7 +6005,8 @@
   "businessDegreesLatest": 291,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of Minnesota"
+  "phdInstitution": "University of Minnesota",
+  "seatRole": "dean"
  },
  {
   "id": 901092,
@@ -6087,7 +6177,8 @@
   "connectionType": "",
   "phdInstitution": "Texas A&M University",
   "businessPctStart": 0.1148,
-  "businessDegreesStart": 831
+  "businessDegreesStart": 831,
+  "seatRole": "subordinate"
  },
  {
   "id": 901095,
@@ -6146,7 +6237,8 @@
   "connectionType": "",
   "enrollmentStart": 37279,
   "businessPctStart": 0.1768,
-  "businessDegreesStart": 1748
+  "businessDegreesStart": 1748,
+  "seatRole": "dean"
  },
  {
   "id": 901096,
@@ -6206,7 +6298,8 @@
   "phdInstitution": "University of Alabama",
   "enrollmentStart": 27539,
   "businessPctStart": 0.2404,
-  "businessDegreesStart": 2174
+  "businessDegreesStart": 2174,
+  "seatRole": "dean"
  },
  {
   "id": 901097,
@@ -6265,7 +6358,8 @@
   "connectionType": "",
   "enrollmentStart": 26241,
   "businessPctStart": 0.1789,
-  "businessDegreesStart": 1205
+  "businessDegreesStart": 1205,
+  "seatRole": "dean"
  },
  {
   "id": 901098,
@@ -6322,7 +6416,8 @@
   "businessDegreesLatest": 457,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of Pennsylvania"
+  "phdInstitution": "University of Pennsylvania",
+  "seatRole": "dean"
  },
  {
   "id": 901099,
@@ -6602,7 +6697,8 @@
   "businessPctEnd": 0.1373,
   "businessDegreesLatest": 1212,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901104,
@@ -6719,7 +6815,8 @@
   "phdYear": 2004,
   "enrollmentStart": 14117,
   "businessPctStart": 0.159,
-  "businessDegreesStart": 626
+  "businessDegreesStart": 626,
+  "seatRole": "dean"
  },
  {
   "id": 901106,
@@ -6775,7 +6872,8 @@
   "businessPctEnd": 0.1638,
   "businessDegreesLatest": 869,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901107,
@@ -6832,7 +6930,8 @@
   "businessDegreesLatest": 281,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University"
+  "phdInstitution": "University",
+  "seatRole": "dean"
  },
  {
   "id": 901108,
@@ -6889,7 +6988,8 @@
   "businessDegreesLatest": 1132,
   "convertedToPermanent": false,
   "connectionType": "",
-  "phdInstitution": "University of Pittsburgh"
+  "phdInstitution": "University of Pittsburgh",
+  "seatRole": "subordinate"
  },
  {
   "id": 901109,
@@ -7002,7 +7102,8 @@
   "businessPctEnd": 0.1339,
   "businessDegreesLatest": 179,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901111,
@@ -7061,7 +7162,8 @@
   "connectionType": "",
   "enrollmentStart": 22166,
   "businessPctStart": 0.1439,
-  "businessDegreesStart": 810
+  "businessDegreesStart": 810,
+  "seatRole": "dean"
  },
  {
   "id": 901112,
@@ -7176,7 +7278,8 @@
   "connectionType": "",
   "enrollmentStart": 43190,
   "businessPctStart": 0.185,
-  "businessDegreesStart": 1421
+  "businessDegreesStart": 1421,
+  "seatRole": "dean"
  },
  {
   "id": 901114,
@@ -7232,7 +7335,8 @@
   "businessPctEnd": 0.1373,
   "businessDegreesLatest": 820,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901115,
@@ -7291,7 +7395,8 @@
   "connectionType": "",
   "enrollmentStart": 2835,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "seatRole": "dean"
  },
  {
   "id": 901116,
@@ -7347,7 +7452,8 @@
   "businessPctEnd": 0.3093,
   "businessDegreesLatest": 730,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901117,
@@ -7406,7 +7512,8 @@
   "connectionType": "",
   "phdYear": 2005,
   "businessPctStart": 0.123,
-  "businessDegreesStart": 309
+  "businessDegreesStart": 309,
+  "seatRole": "subordinate"
  },
  {
   "id": 901118,
@@ -7574,7 +7681,8 @@
   "businessPctEnd": 0.1849,
   "businessDegreesLatest": 744,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 901122,
@@ -8704,7 +8812,8 @@
   "connectionType": "",
   "enrollmentStart": 10014,
   "businessPctStart": 0.2516,
-  "businessDegreesStart": 746
+  "businessDegreesStart": 746,
+  "seatRole": "subordinate"
  },
  {
   "id": 901142,
@@ -8820,7 +8929,8 @@
   "roleType": "subdean",
   "phdInstitution": "Carnegie Mellon University",
   "businessPctStart": 0.2073,
-  "businessDegreesStart": 4659
+  "businessDegreesStart": 4659,
+  "seatRole": "subordinate"
  },
  {
   "id": 902001,
@@ -10818,7 +10928,8 @@
   "businessDegreesLatest": 1322,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "seatRole": "subordinate"
  },
  {
   "id": 902036,
@@ -10875,7 +10986,8 @@
   "businessDegreesLatest": 1322,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "seatRole": "subordinate"
  },
  {
   "id": 902037,
@@ -11787,7 +11899,8 @@
   "businessDegreesLatest": 3292,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "seatRole": "subordinate"
  },
  {
   "id": 902200,
@@ -13101,7 +13214,8 @@
   "roleType": "subdean",
   "enrollmentStart": 23136,
   "businessPctStart": 0.2175,
-  "businessDegreesStart": 1243
+  "businessDegreesStart": 1243,
+  "seatRole": "subordinate"
  },
  {
   "id": 902430,
@@ -15783,7 +15897,8 @@
   "roleType": "subdean",
   "enrollmentStart": 34683,
   "businessPctStart": 0.172,
-  "businessDegreesStart": 1464
+  "businessDegreesStart": 1464,
+  "seatRole": "subordinate"
  },
  {
   "id": 902900,
@@ -16182,7 +16297,8 @@
   "businessDegreesLatest": 1574,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "seatRole": "subordinate"
  },
  {
   "id": 902970,
@@ -16413,7 +16529,8 @@
   "roleType": "subdean",
   "enrollmentStart": 45036,
   "businessPctStart": 0.0749,
-  "businessDegreesStart": 1010
+  "businessDegreesStart": 1010,
+  "seatRole": "subordinate"
  },
  {
   "id": 903040,
@@ -16473,7 +16590,8 @@
   "roleType": "subdean",
   "enrollmentStart": 42501,
   "businessPctStart": 0.0781,
-  "businessDegreesStart": 985
+  "businessDegreesStart": 985,
+  "seatRole": "subordinate"
  },
  {
   "id": 903050,
@@ -16533,7 +16651,8 @@
   "roleType": "subdean",
   "enrollmentStart": 37565,
   "businessPctStart": 0.0801,
-  "businessDegreesStart": 899
+  "businessDegreesStart": 899,
+  "seatRole": "subordinate"
  },
  {
   "id": 903060,
@@ -16706,7 +16825,8 @@
   "connectionType": "",
   "roleType": "subdean",
   "businessPctStart": 0.1299,
-  "businessDegreesStart": 1452
+  "businessDegreesStart": 1452,
+  "seatRole": "subordinate"
  },
  {
   "id": 903090,
@@ -16820,7 +16940,8 @@
   "businessDegreesLatest": 1027,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "seatRole": "subordinate"
  },
  {
   "id": 903110,
@@ -16934,7 +17055,8 @@
   "businessDegreesLatest": 1027,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "seatRole": "subordinate"
  },
  {
   "id": 903130,
@@ -16993,7 +17115,8 @@
   "connectionType": "",
   "roleType": "subdean",
   "businessPctStart": 0.0592,
-  "businessDegreesStart": 721
+  "businessDegreesStart": 721,
+  "seatRole": "subordinate"
  },
  {
   "id": 903140,
@@ -17053,7 +17176,8 @@
   "roleType": "subdean",
   "enrollmentStart": 42006,
   "businessPctStart": 0.0397,
-  "businessDegreesStart": 459
+  "businessDegreesStart": 459,
+  "seatRole": "subordinate"
  },
  {
   "id": 903150,
@@ -17113,7 +17237,8 @@
   "roleType": "subdean",
   "enrollmentStart": 41885,
   "businessPctStart": 0.0203,
-  "businessDegreesStart": 232
+  "businessDegreesStart": 232,
+  "seatRole": "subordinate"
  },
  {
   "id": 903160,
@@ -17170,7 +17295,8 @@
   "businessDegreesLatest": 721,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "seatRole": "subordinate"
  },
  {
   "id": 903170,
@@ -17287,7 +17413,8 @@
   "roleType": "subdean",
   "enrollmentStart": 26124,
   "businessPctStart": 0.0138,
-  "businessDegreesStart": 102
+  "businessDegreesStart": 102,
+  "seatRole": "subordinate"
  },
  {
   "id": 903190,
@@ -17458,7 +17585,8 @@
   "businessDegreesLatest": 304,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "seatRole": "subordinate"
  },
  {
   "id": 903220,
@@ -17632,7 +17760,8 @@
   "roleType": "subdean",
   "enrollmentStart": 6744,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "seatRole": "subordinate"
  },
  {
   "id": 903250,
@@ -17692,7 +17821,8 @@
   "roleType": "subdean",
   "enrollmentStart": 33500,
   "businessPctStart": 0.1523,
-  "businessDegreesStart": 1146
+  "businessDegreesStart": 1146,
+  "seatRole": "subordinate"
  },
  {
   "id": 903260,
@@ -17751,7 +17881,8 @@
   "connectionType": "",
   "roleType": "subdean",
   "businessPctStart": 0.166,
-  "businessDegreesStart": 1312
+  "businessDegreesStart": 1312,
+  "seatRole": "subordinate"
  },
  {
   "id": 903270,
@@ -17810,7 +17941,8 @@
   "connectionType": "",
   "roleType": "subdean",
   "businessPctStart": 0.1789,
-  "businessDegreesStart": 805
+  "businessDegreesStart": 805,
+  "seatRole": "subordinate"
  },
  {
   "id": 903280,
@@ -17869,7 +18001,8 @@
   "connectionType": "",
   "roleType": "subdean",
   "businessPctStart": 0.2185,
-  "businessDegreesStart": 1407
+  "businessDegreesStart": 1407,
+  "seatRole": "subordinate"
  },
  {
   "id": 903290,
@@ -17929,7 +18062,8 @@
   "roleType": "subdean",
   "enrollmentStart": 13429,
   "businessPctStart": 0.1122,
-  "businessDegreesStart": 265
+  "businessDegreesStart": 265,
+  "seatRole": "subordinate"
  },
  {
   "id": 903300,
@@ -18102,7 +18236,8 @@
   "connectionType": "",
   "roleType": "subdean",
   "businessPctStart": 0.1519,
-  "businessDegreesStart": 728
+  "businessDegreesStart": 728,
+  "seatRole": "subordinate"
  },
  {
   "id": 903330,
@@ -18162,7 +18297,8 @@
   "roleType": "subdean",
   "enrollmentStart": 35260,
   "businessPctStart": 0.1514,
-  "businessDegreesStart": 1437
+  "businessDegreesStart": 1437,
+  "seatRole": "subordinate"
  },
  {
   "id": 903340,
@@ -18222,7 +18358,8 @@
   "roleType": "subdean",
   "enrollmentStart": 32852,
   "businessPctStart": 0.1549,
-  "businessDegreesStart": 1354
+  "businessDegreesStart": 1354,
+  "seatRole": "subordinate"
  },
  {
   "id": 903350,
@@ -18279,7 +18416,8 @@
   "businessDegreesLatest": 1381,
   "convertedToPermanent": false,
   "connectionType": "",
-  "roleType": "subdean"
+  "roleType": "subdean",
+  "seatRole": "subordinate"
  },
  {
   "id": 903360,
@@ -18393,7 +18531,8 @@
   "businessPctEnd": 0.2088,
   "businessDegreesLatest": 4659,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903380,
@@ -18453,7 +18592,8 @@
   "connectionType": "",
   "enrollmentStart": 48901,
   "businessPctStart": 0.2088,
-  "businessDegreesStart": 2007
+  "businessDegreesStart": 2007,
+  "seatRole": "dean"
  },
  {
   "id": 903390,
@@ -18513,7 +18653,8 @@
   "connectionType": "",
   "enrollmentStart": 48702,
   "businessPctStart": 0.2446,
-  "businessDegreesStart": 3334
+  "businessDegreesStart": 3334,
+  "seatRole": "dean"
  },
  {
   "id": 903400,
@@ -18573,7 +18714,8 @@
   "connectionType": "",
   "enrollmentStart": 51869,
   "businessPctStart": 0.2488,
-  "businessDegreesStart": 3428
+  "businessDegreesStart": 3428,
+  "seatRole": "dean"
  },
  {
   "id": 903410,
@@ -18630,7 +18772,8 @@
   "businessPctEnd": 0.1149,
   "businessDegreesLatest": 1322,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903420,
@@ -18690,7 +18833,8 @@
   "connectionType": "",
   "enrollmentStart": 39199,
   "businessPctStart": 0.1149,
-  "businessDegreesStart": 1234
+  "businessDegreesStart": 1234,
+  "seatRole": "dean"
  },
  {
   "id": 903430,
@@ -18750,7 +18894,8 @@
   "connectionType": "",
   "enrollmentStart": 39251,
   "businessPctStart": 0.1127,
-  "businessDegreesStart": 1223
+  "businessDegreesStart": 1223,
+  "seatRole": "dean"
  },
  {
   "id": 903440,
@@ -18810,7 +18955,8 @@
   "connectionType": "",
   "enrollmentStart": 39675,
   "businessPctStart": 0.1164,
-  "businessDegreesStart": 1246
+  "businessDegreesStart": 1246,
+  "seatRole": "dean"
  },
  {
   "id": 903450,
@@ -18870,7 +19016,8 @@
   "connectionType": "",
   "enrollmentStart": 43762,
   "businessPctStart": 0.0978,
-  "businessDegreesStart": 1216
+  "businessDegreesStart": 1216,
+  "seatRole": "dean"
  },
  {
   "id": 903460,
@@ -18927,7 +19074,8 @@
   "businessPctEnd": 0.2185,
   "businessDegreesLatest": 1407,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903470,
@@ -19044,7 +19192,8 @@
   "connectionType": "",
   "enrollmentStart": 23854,
   "businessPctStart": 0.1641,
-  "businessDegreesStart": 686
+  "businessDegreesStart": 686,
+  "seatRole": "dean"
  },
  {
   "id": 903490,
@@ -19161,7 +19310,8 @@
   "connectionType": "",
   "enrollmentStart": 6209,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "seatRole": "dean"
  },
  {
   "id": 903510,
@@ -19221,7 +19371,8 @@
   "connectionType": "",
   "enrollmentStart": 6744,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "seatRole": "dean"
  },
  {
   "id": 903520,
@@ -19335,7 +19486,8 @@
   "businessPctEnd": 0.1676,
   "businessDegreesLatest": 1312,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903540,
@@ -19395,7 +19547,8 @@
   "connectionType": "",
   "enrollmentStart": 27780,
   "businessPctStart": 0.1676,
-  "businessDegreesStart": 947
+  "businessDegreesStart": 947,
+  "seatRole": "dean"
  },
  {
   "id": 903550,
@@ -19455,7 +19608,8 @@
   "connectionType": "",
   "enrollmentStart": 30467,
   "businessPctStart": 0.1753,
-  "businessDegreesStart": 1064
+  "businessDegreesStart": 1064,
+  "seatRole": "dean"
  },
  {
   "id": 903560,
@@ -19515,7 +19669,8 @@
   "connectionType": "",
   "enrollmentStart": 33426,
   "businessPctStart": 0.1505,
-  "businessDegreesStart": 1119
+  "businessDegreesStart": 1119,
+  "seatRole": "dean"
  },
  {
   "id": 903570,
@@ -19575,7 +19730,8 @@
   "connectionType": "",
   "enrollmentStart": 33403,
   "businessPctStart": 0.1568,
-  "businessDegreesStart": 1201
+  "businessDegreesStart": 1201,
+  "seatRole": "dean"
  },
  {
   "id": 903580,
@@ -19635,7 +19791,8 @@
   "connectionType": "",
   "enrollmentStart": 33500,
   "businessPctStart": 0.1523,
-  "businessDegreesStart": 1146
+  "businessDegreesStart": 1146,
+  "seatRole": "dean"
  },
  {
   "id": 903600,
@@ -19695,7 +19852,8 @@
   "connectionType": "",
   "enrollmentStart": 12052,
   "businessPctStart": 0.1135,
-  "businessDegreesStart": 261
+  "businessDegreesStart": 261,
+  "seatRole": "dean"
  },
  {
   "id": 903610,
@@ -19755,7 +19913,8 @@
   "connectionType": "",
   "enrollmentStart": 14982,
   "businessPctStart": 0.0871,
-  "businessDegreesStart": 249
+  "businessDegreesStart": 249,
+  "seatRole": "dean"
  },
  {
   "id": 903620,
@@ -19815,7 +19974,8 @@
   "connectionType": "",
   "enrollmentStart": 16814,
   "businessPctStart": 0.1039,
-  "businessDegreesStart": 336
+  "businessDegreesStart": 336,
+  "seatRole": "dean"
  },
  {
   "id": 903630,
@@ -19875,7 +20035,8 @@
   "connectionType": "",
   "enrollmentStart": 16692,
   "businessPctStart": 0.0949,
-  "businessDegreesStart": 319
+  "businessDegreesStart": 319,
+  "seatRole": "dean"
  },
  {
   "id": 903640,
@@ -19932,7 +20093,8 @@
   "businessPctEnd": 0.1244,
   "businessDegreesLatest": 452,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903650,
@@ -19989,7 +20151,8 @@
   "businessPctEnd": 0.1207,
   "businessDegreesLatest": 1016,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903660,
@@ -20049,7 +20212,8 @@
   "connectionType": "",
   "enrollmentStart": 30354,
   "businessPctStart": 0.0996,
-  "businessDegreesStart": 675
+  "businessDegreesStart": 675,
+  "seatRole": "dean"
  },
  {
   "id": 903670,
@@ -20109,7 +20273,8 @@
   "connectionType": "",
   "enrollmentStart": 30986,
   "businessPctStart": 0.1214,
-  "businessDegreesStart": 921
+  "businessDegreesStart": 921,
+  "seatRole": "dean"
  },
  {
   "id": 903680,
@@ -20166,7 +20331,8 @@
   "businessPctEnd": 0.0847,
   "businessDegreesLatest": 989,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903690,
@@ -20226,7 +20392,8 @@
   "connectionType": "",
   "enrollmentStart": 39271,
   "businessPctStart": 0.0825,
-  "businessDegreesStart": 985
+  "businessDegreesStart": 985,
+  "seatRole": "dean"
  },
  {
   "id": 903700,
@@ -20286,7 +20453,8 @@
   "connectionType": "",
   "enrollmentStart": 39271,
   "businessPctStart": 0.0825,
-  "businessDegreesStart": 985
+  "businessDegreesStart": 985,
+  "seatRole": "dean"
  },
  {
   "id": 903720,
@@ -20343,7 +20511,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903730,
@@ -20400,7 +20569,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903740,
@@ -20457,7 +20627,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903750,
@@ -20514,7 +20685,8 @@
   "businessPctEnd": 0.1531,
   "businessDegreesLatest": 1574,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903760,
@@ -20574,7 +20746,8 @@
   "connectionType": "",
   "enrollmentStart": 37036,
   "businessPctStart": 0.1369,
-  "businessDegreesStart": 1083
+  "businessDegreesStart": 1083,
+  "seatRole": "dean"
  },
  {
   "id": 903770,
@@ -20635,7 +20808,8 @@
   "phdInstitution": "Pennsylvania State University",
   "enrollmentStart": 36805,
   "businessPctStart": 0.1318,
-  "businessDegreesStart": 1022
+  "businessDegreesStart": 1022,
+  "seatRole": "dean"
  },
  {
   "id": 903780,
@@ -20695,7 +20869,8 @@
   "connectionType": "",
   "enrollmentStart": 40223,
   "businessPctStart": 0.1479,
-  "businessDegreesStart": 1314
+  "businessDegreesStart": 1314,
+  "seatRole": "dean"
  },
  {
   "id": 903790,
@@ -20752,7 +20927,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": 1026,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903800,
@@ -20810,7 +20986,8 @@
   "businessDegreesLatest": 1026,
   "convertedToPermanent": false,
   "connectionType": "",
-  "enrollmentStart": 31277
+  "enrollmentStart": 31277,
+  "seatRole": "dean"
  },
  {
   "id": 903810,
@@ -20870,7 +21047,8 @@
   "connectionType": "",
   "enrollmentStart": 34940,
   "businessPctStart": 0.0914,
-  "businessDegreesStart": 922
+  "businessDegreesStart": 922,
+  "seatRole": "dean"
  },
  {
   "id": 903820,
@@ -20930,7 +21108,8 @@
   "connectionType": "",
   "enrollmentStart": 38189,
   "businessPctStart": 0.0894,
-  "businessDegreesStart": 1011
+  "businessDegreesStart": 1011,
+  "seatRole": "dean"
  },
  {
   "id": 903830,
@@ -20987,7 +21166,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903840,
@@ -21048,7 +21228,8 @@
   "phdInstitution": "Stanford University",
   "enrollmentStart": 29087,
   "businessPctStart": 0.0238,
-  "businessDegreesStart": 146
+  "businessDegreesStart": 146,
+  "seatRole": "dean"
  },
  {
   "id": 903850,
@@ -21108,7 +21289,8 @@
   "connectionType": "",
   "enrollmentStart": 36460,
   "businessPctStart": 0.0746,
-  "businessDegreesStart": 723
+  "businessDegreesStart": 723,
+  "seatRole": "dean"
  },
  {
   "id": 903860,
@@ -21166,7 +21348,8 @@
   "businessDegreesLatest": 1452,
   "convertedToPermanent": false,
   "connectionType": "",
-  "enrollmentStart": 20211
+  "enrollmentStart": 20211,
+  "seatRole": "dean"
  },
  {
   "id": 903870,
@@ -21226,7 +21409,8 @@
   "connectionType": "",
   "enrollmentStart": 25230,
   "businessPctStart": 0.0548,
-  "businessDegreesStart": 365
+  "businessDegreesStart": 365,
+  "seatRole": "dean"
  },
  {
   "id": 903880,
@@ -21286,7 +21470,8 @@
   "connectionType": "",
   "enrollmentStart": 27142,
   "businessPctStart": 0.0925,
-  "businessDegreesStart": 689
+  "businessDegreesStart": 689,
+  "seatRole": "dean"
  },
  {
   "id": 903890,
@@ -21346,7 +21531,8 @@
   "connectionType": "",
   "enrollmentStart": 36908,
   "businessPctStart": 0.1367,
-  "businessDegreesStart": 1430
+  "businessDegreesStart": 1430,
+  "seatRole": "dean"
  },
  {
   "id": 903900,
@@ -21405,7 +21591,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "businessPctStart": 0.1299,
-  "businessDegreesStart": 1452
+  "businessDegreesStart": 1452,
+  "seatRole": "dean"
  },
  {
   "id": 903910,
@@ -21465,7 +21652,8 @@
   "connectionType": "",
   "enrollmentStart": 18079,
   "businessPctStart": 0.1924,
-  "businessDegreesStart": 814
+  "businessDegreesStart": 814,
+  "seatRole": "dean"
  },
  {
   "id": 903920,
@@ -21525,7 +21713,8 @@
   "connectionType": "",
   "enrollmentStart": 23279,
   "businessPctStart": 0.1715,
-  "businessDegreesStart": 938
+  "businessDegreesStart": 938,
+  "seatRole": "dean"
  },
  {
   "id": 903930,
@@ -21582,7 +21771,8 @@
   "businessPctEnd": 0.0473,
   "businessDegreesLatest": 721,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903940,
@@ -21642,7 +21832,8 @@
   "connectionType": "",
   "enrollmentStart": 26247,
   "businessPctStart": 0.0473,
-  "businessDegreesStart": 322
+  "businessDegreesStart": 322,
+  "seatRole": "dean"
  },
  {
   "id": 903950,
@@ -21702,7 +21893,8 @@
   "connectionType": "",
   "enrollmentStart": 35772,
   "businessPctStart": 0.045,
-  "businessDegreesStart": 429
+  "businessDegreesStart": 429,
+  "seatRole": "dean"
  },
  {
   "id": 903960,
@@ -21762,7 +21954,8 @@
   "connectionType": "",
   "enrollmentStart": 37887,
   "businessPctStart": 0.0424,
-  "businessDegreesStart": 420
+  "businessDegreesStart": 420,
+  "seatRole": "dean"
  },
  {
   "id": 903970,
@@ -21822,7 +22015,8 @@
   "connectionType": "",
   "enrollmentStart": 38736,
   "businessPctStart": 0.0365,
-  "businessDegreesStart": 375
+  "businessDegreesStart": 375,
+  "seatRole": "dean"
  },
  {
   "id": 903980,
@@ -21879,7 +22073,8 @@
   "businessPctEnd": 0.0945,
   "businessDegreesLatest": 88,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 903990,
@@ -21939,7 +22134,8 @@
   "connectionType": "",
   "enrollmentStart": 21410,
   "businessPctStart": 0.0997,
-  "businessDegreesStart": 576
+  "businessDegreesStart": 576,
+  "seatRole": "dean"
  },
  {
   "id": 904000,
@@ -21999,7 +22195,8 @@
   "connectionType": "",
   "enrollmentStart": 21927,
   "businessPctStart": 0.0828,
-  "businessDegreesStart": 532
+  "businessDegreesStart": 532,
+  "seatRole": "dean"
  },
  {
   "id": 904010,
@@ -22059,7 +22256,8 @@
   "connectionType": "",
   "enrollmentStart": 26179,
   "businessPctStart": 0.0181,
-  "businessDegreesStart": 136
+  "businessDegreesStart": 136,
+  "seatRole": "dean"
  },
  {
   "id": 904020,
@@ -22117,7 +22315,8 @@
   "businessDegreesLatest": 304,
   "convertedToPermanent": false,
   "connectionType": "",
-  "enrollmentStart": 12144
+  "enrollmentStart": 12144,
+  "seatRole": "dean"
  },
  {
   "id": 904030,
@@ -22177,7 +22376,8 @@
   "connectionType": "",
   "enrollmentStart": 15012,
   "businessPctStart": 0.0799,
-  "businessDegreesStart": 270
+  "businessDegreesStart": 270,
+  "seatRole": "dean"
  },
  {
   "id": 904040,
@@ -22237,7 +22437,8 @@
   "connectionType": "",
   "enrollmentStart": 16775,
   "businessPctStart": 0.0784,
-  "businessDegreesStart": 290
+  "businessDegreesStart": 290,
+  "seatRole": "dean"
  },
  {
   "id": 904050,
@@ -22297,7 +22498,8 @@
   "connectionType": "",
   "enrollmentStart": 19700,
   "businessPctStart": 0.0585,
-  "businessDegreesStart": 288
+  "businessDegreesStart": 288,
+  "seatRole": "dean"
  },
  {
   "id": 904060,
@@ -22357,7 +22559,8 @@
   "connectionType": "",
   "enrollmentStart": 19494,
   "businessPctStart": 0.0666,
-  "businessDegreesStart": 335
+  "businessDegreesStart": 335,
+  "seatRole": "dean"
  },
  {
   "id": 904070,
@@ -22417,7 +22620,8 @@
   "connectionType": "",
   "enrollmentStart": 19841,
   "businessPctStart": 0.0517,
-  "businessDegreesStart": 289
+  "businessDegreesStart": 289,
+  "seatRole": "dean"
  },
  {
   "id": 904080,
@@ -22474,7 +22678,8 @@
   "businessPctEnd": 0.1388,
   "businessDegreesLatest": 1595,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 904090,
@@ -22534,7 +22739,8 @@
   "connectionType": "",
   "enrollmentStart": 31589,
   "businessPctStart": 0.136,
-  "businessDegreesStart": 961
+  "businessDegreesStart": 961,
+  "seatRole": "dean"
  },
  {
   "id": 904100,
@@ -22594,7 +22800,8 @@
   "connectionType": "",
   "enrollmentStart": 33010,
   "businessPctStart": 0.1248,
-  "businessDegreesStart": 875
+  "businessDegreesStart": 875,
+  "seatRole": "dean"
  },
  {
   "id": 904110,
@@ -22654,7 +22861,8 @@
   "connectionType": "",
   "enrollmentStart": 33977,
   "businessPctStart": 0.1376,
-  "businessDegreesStart": 998
+  "businessDegreesStart": 998,
+  "seatRole": "dean"
  },
  {
   "id": 904120,
@@ -22714,7 +22922,8 @@
   "connectionType": "",
   "enrollmentStart": 23715,
   "businessPctStart": 0.2018,
-  "businessDegreesStart": 812
+  "businessDegreesStart": 812,
+  "seatRole": "dean"
  },
  {
   "id": 904130,
@@ -22774,7 +22983,8 @@
   "connectionType": "",
   "enrollmentStart": 23671,
   "businessPctStart": 0.1809,
-  "businessDegreesStart": 892
+  "businessDegreesStart": 892,
+  "seatRole": "dean"
  },
  {
   "id": 904140,
@@ -22891,7 +23101,8 @@
   "connectionType": "",
   "enrollmentStart": 20337,
   "businessPctStart": 0.1871,
-  "businessDegreesStart": 826
+  "businessDegreesStart": 826,
+  "seatRole": "dean"
  },
  {
   "id": 904160,
@@ -22951,7 +23162,8 @@
   "connectionType": "",
   "enrollmentStart": 19507,
   "businessPctStart": 0.1861,
-  "businessDegreesStart": 921
+  "businessDegreesStart": 921,
+  "seatRole": "dean"
  },
  {
   "id": 904170,
@@ -23008,7 +23220,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": 277,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 904180,
@@ -23066,7 +23279,8 @@
   "businessDegreesLatest": 277,
   "convertedToPermanent": false,
   "connectionType": "",
-  "enrollmentStart": 11635
+  "enrollmentStart": 11635,
+  "seatRole": "dean"
  },
  {
   "id": 904190,
@@ -23126,7 +23340,8 @@
   "connectionType": "",
   "enrollmentStart": 12895,
   "businessPctStart": 0.086,
-  "businessDegreesStart": 213
+  "businessDegreesStart": 213,
+  "seatRole": "dean"
  },
  {
   "id": 904200,
@@ -23186,7 +23401,8 @@
   "connectionType": "",
   "enrollmentStart": 12302,
   "businessPctStart": 0.1032,
-  "businessDegreesStart": 251
+  "businessDegreesStart": 251,
+  "seatRole": "dean"
  },
  {
   "id": 904210,
@@ -23246,7 +23462,8 @@
   "connectionType": "",
   "enrollmentStart": 12312,
   "businessPctStart": 0.0859,
-  "businessDegreesStart": 218
+  "businessDegreesStart": 218,
+  "seatRole": "dean"
  },
  {
   "id": 904220,
@@ -23303,7 +23520,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 904230,
@@ -23360,7 +23578,8 @@
   "businessPctEnd": null,
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 904240,
@@ -23417,7 +23636,8 @@
   "businessPctEnd": 0.269,
   "businessDegreesLatest": 1311,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 904250,
@@ -23477,7 +23697,8 @@
   "connectionType": "",
   "enrollmentStart": 26161,
   "businessPctStart": 0.269,
-  "businessDegreesStart": 1045
+  "businessDegreesStart": 1045,
+  "seatRole": "dean"
  },
  {
   "id": 904260,
@@ -23537,7 +23758,8 @@
   "connectionType": "",
   "enrollmentStart": 27912,
   "businessPctStart": 0.2295,
-  "businessDegreesStart": 1184
+  "businessDegreesStart": 1184,
+  "seatRole": "dean"
  },
  {
   "id": 904270,
@@ -23597,7 +23819,8 @@
   "connectionType": "",
   "enrollmentStart": 27389,
   "businessPctStart": 0.2774,
-  "businessDegreesStart": 1479
+  "businessDegreesStart": 1479,
+  "seatRole": "dean"
  },
  {
   "id": 904280,
@@ -23657,7 +23880,8 @@
   "connectionType": "",
   "enrollmentStart": 27848,
   "businessPctStart": 0.3014,
-  "businessDegreesStart": 1587
+  "businessDegreesStart": 1587,
+  "seatRole": "dean"
  },
  {
   "id": 904290,
@@ -23717,7 +23941,8 @@
   "connectionType": "",
   "enrollmentStart": 16336,
   "businessPctStart": 0.1203,
-  "businessDegreesStart": 317
+  "businessDegreesStart": 317,
+  "seatRole": "dean"
  },
  {
   "id": 904300,
@@ -23777,7 +24002,8 @@
   "connectionType": "",
   "enrollmentStart": 16867,
   "businessPctStart": 0.1474,
-  "businessDegreesStart": 422
+  "businessDegreesStart": 422,
+  "seatRole": "dean"
  },
  {
   "id": 904310,
@@ -23837,7 +24063,8 @@
   "connectionType": "",
   "enrollmentStart": 19934,
   "businessPctStart": 0.1479,
-  "businessDegreesStart": 525
+  "businessDegreesStart": 525,
+  "seatRole": "dean"
  },
  {
   "id": 904320,
@@ -23897,7 +24124,8 @@
   "connectionType": "",
   "enrollmentStart": 25721,
   "businessPctStart": 0.1381,
-  "businessDegreesStart": 634
+  "businessDegreesStart": 634,
+  "seatRole": "dean"
  },
  {
   "id": 904330,
@@ -23958,7 +24186,8 @@
   "phdInstitution": "University of Texas at Austin",
   "enrollmentStart": 28592,
   "businessPctStart": 0.1433,
-  "businessDegreesStart": 752
+  "businessDegreesStart": 752,
+  "seatRole": "dean"
  },
  {
   "id": 904340,
@@ -24018,7 +24247,8 @@
   "connectionType": "",
   "enrollmentStart": 21488,
   "businessPctStart": 0.1447,
-  "businessDegreesStart": 741
+  "businessDegreesStart": 741,
+  "seatRole": "dean"
  },
  {
   "id": 904350,
@@ -24078,7 +24308,8 @@
   "connectionType": "",
   "enrollmentStart": 24396,
   "businessPctStart": 0.1343,
-  "businessDegreesStart": 743
+  "businessDegreesStart": 743,
+  "seatRole": "dean"
  },
  {
   "id": 904360,
@@ -24138,7 +24369,8 @@
   "connectionType": "",
   "enrollmentStart": 24032,
   "businessPctStart": 0.1319,
-  "businessDegreesStart": 833
+  "businessDegreesStart": 833,
+  "seatRole": "dean"
  },
  {
   "id": 904370,
@@ -24198,7 +24430,8 @@
   "connectionType": "",
   "enrollmentStart": 22887,
   "businessPctStart": 0.1555,
-  "businessDegreesStart": 977
+  "businessDegreesStart": 977,
+  "seatRole": "dean"
  },
  {
   "id": 904380,
@@ -24259,7 +24492,8 @@
   "phdInstitution": "Virginia Polytechnic Institute and State University",
   "enrollmentStart": 22644,
   "businessPctStart": 0.152,
-  "businessDegreesStart": 936
+  "businessDegreesStart": 936,
+  "seatRole": "dean"
  },
  {
   "id": 904390,
@@ -24319,7 +24553,8 @@
   "connectionType": "",
   "enrollmentStart": 22517,
   "businessPctStart": 0.1479,
-  "businessDegreesStart": 909
+  "businessDegreesStart": 909,
+  "seatRole": "dean"
  },
  {
   "id": 904400,
@@ -24376,7 +24611,8 @@
   "businessPctEnd": 0.1338,
   "businessDegreesLatest": 1381,
   "convertedToPermanent": false,
-  "connectionType": ""
+  "connectionType": "",
+  "seatRole": "dean"
  },
  {
   "id": 904410,
@@ -24436,7 +24672,8 @@
   "connectionType": "",
   "enrollmentStart": 29284,
   "businessPctStart": 0.1338,
-  "businessDegreesStart": 951
+  "businessDegreesStart": 951,
+  "seatRole": "dean"
  },
  {
   "id": 904420,
@@ -24496,7 +24733,8 @@
   "connectionType": "",
   "enrollmentStart": 32077,
   "businessPctStart": 0.1451,
-  "businessDegreesStart": 1183
+  "businessDegreesStart": 1183,
+  "seatRole": "dean"
  },
  {
   "id": 904430,
@@ -24613,7 +24851,8 @@
   "connectionType": "",
   "enrollmentStart": 14444,
   "businessPctStart": 0.1591,
-  "businessDegreesStart": 669
+  "businessDegreesStart": 669,
+  "seatRole": "dean"
  },
  {
   "id": 904450,
@@ -24673,7 +24912,8 @@
   "connectionType": "",
   "enrollmentStart": 26757,
   "businessPctStart": 0.155,
-  "businessDegreesStart": 734
+  "businessDegreesStart": 734,
+  "seatRole": "dean"
  },
  {
   "id": 904460,
@@ -24733,7 +24973,8 @@
   "connectionType": "",
   "enrollmentStart": 27932,
   "businessPctStart": 0.1211,
-  "businessDegreesStart": 783
+  "businessDegreesStart": 783,
+  "seatRole": "dean"
  },
  {
   "id": 904470,
@@ -24793,7 +25034,8 @@
   "connectionType": "",
   "enrollmentStart": 27810,
   "businessPctStart": 0.1239,
-  "businessDegreesStart": 838
+  "businessDegreesStart": 838,
+  "seatRole": "dean"
  },
  {
   "id": 904480,
@@ -24910,7 +25152,8 @@
   "connectionType": "",
   "enrollmentStart": 21880,
   "businessPctStart": 0.1914,
-  "businessDegreesStart": 1003
+  "businessDegreesStart": 1003,
+  "seatRole": "dean"
  },
  {
   "id": 904500,
@@ -24970,7 +25213,8 @@
   "connectionType": "",
   "enrollmentStart": 27642,
   "businessPctStart": 0.1524,
-  "businessDegreesStart": 1043
+  "businessDegreesStart": 1043,
+  "seatRole": "dean"
  },
  {
   "id": 904510,
@@ -25030,7 +25274,8 @@
   "connectionType": "",
   "enrollmentStart": 30614,
   "businessPctStart": 0.2043,
-  "businessDegreesStart": 1595
+  "businessDegreesStart": 1595,
+  "seatRole": "dean"
  },
  {
   "id": 904520,
@@ -25090,7 +25335,8 @@
   "connectionType": "",
   "enrollmentStart": 29011,
   "businessPctStart": 0.206,
-  "businessDegreesStart": 1147
+  "businessDegreesStart": 1147,
+  "seatRole": "dean"
  },
  {
   "id": 904530,
@@ -25150,7 +25396,8 @@
   "connectionType": "",
   "enrollmentStart": 13802,
   "businessPctStart": 0.1414,
-  "businessDegreesStart": 316
+  "businessDegreesStart": 316,
+  "seatRole": "dean"
  },
  {
   "id": 904540,
@@ -25210,7 +25457,8 @@
   "connectionType": "",
   "enrollmentStart": 12418,
   "businessPctStart": 0.1064,
-  "businessDegreesStart": 230
+  "businessDegreesStart": 230,
+  "seatRole": "dean"
  },
  {
   "id": 904550,
@@ -25270,7 +25518,8 @@
   "connectionType": "",
   "enrollmentStart": 13326,
   "businessPctStart": 0.0952,
-  "businessDegreesStart": 223
+  "businessDegreesStart": 223,
+  "seatRole": "dean"
  },
  {
   "id": 904560,
@@ -25330,7 +25579,8 @@
   "connectionType": "",
   "enrollmentStart": 11766,
   "businessPctStart": 0.1243,
-  "businessDegreesStart": 306
+  "businessDegreesStart": 306,
+  "seatRole": "dean"
  },
  {
   "id": 904570,
@@ -25390,7 +25640,8 @@
   "connectionType": "",
   "enrollmentStart": 12614,
   "businessPctStart": 0.1016,
-  "businessDegreesStart": 285
+  "businessDegreesStart": 285,
+  "seatRole": "dean"
  },
  {
   "id": 904580,
@@ -25450,7 +25701,8 @@
   "connectionType": "",
   "enrollmentStart": 9850,
   "businessPctStart": 0.2405,
-  "businessDegreesStart": 619
+  "businessDegreesStart": 619,
+  "seatRole": "dean"
  },
  {
   "id": 904590,
@@ -25510,7 +25762,8 @@
   "connectionType": "",
   "enrollmentStart": 37083,
   "businessPctStart": 0.1531,
-  "businessDegreesStart": 1131
+  "businessDegreesStart": 1131,
+  "seatRole": "dean"
  },
  {
   "id": 904591,
@@ -31612,7 +31865,8 @@
   "roleType": "subdean",
   "enrollmentStart": 25313,
   "businessPctStart": 0.2133,
-  "businessDegreesStart": 1179
+  "businessDegreesStart": 1179,
+  "seatRole": "subordinate"
  },
  {
   "id": 904706,
@@ -32356,7 +32610,8 @@
   "roleType": "subdean",
   "enrollmentStart": 9884,
   "businessPctStart": 0.1779,
-  "businessDegreesStart": 476
+  "businessDegreesStart": 476,
+  "seatRole": "subordinate"
  },
  {
   "id": 904720,
