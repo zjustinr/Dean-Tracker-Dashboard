@@ -23,14 +23,14 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
 7.  Current-and-interim rows verified within 18 months ........ FAIL by design: last_verified_date is empty corpus-wide
       rows needing re-verification (current, interim, start <= 2024): 31
 8.  is_interim derivable from appointment-scoped evidence ..... PARTIAL
-      derived from a title: 1050 interim + 5536 permanent
+      derived from a title: 1052 interim + 5536 permanent
       allocated from narrative: 340 interim + 231 permanent
-      NOT independently derivable: 896 of 2283 interim flags (39.2%) rest on
+      NOT independently derivable: 896 of 2285 interim flags (39.2%) rest on
       the legacy ETL alone. That is UNALLOCATED evidence, not absent evidence: the
       word is in a real text field on most of these rows, but `notes` is stored at
       seat level, so a blob-level match cannot say which spell it belongs to. Each
       row below carries the reason its sentence could not be allocated.
-        title                            1047
+        title                            1049
         narrative_unanchored             317
         narrative_allocated              311
         etl_only                         195
@@ -49,18 +49,18 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
         of the 29 divergences, 25 start 2023 or later and 23 are still sitting --
         current interim leaders the ETL never flagged. Closed-tenure profiles say
         which side is right, using a measure the allocation never consults:
-          title says interim              n= 924  median  1y  <=2y 93.1%
+          title says interim              n= 926  median  1y  <=2y 93.1%
           allocated, agrees with legacy   n= 278  median  1y  <=2y 98.2%
           allocated, diverges from legacy n=   5  median  1y  <=2y 60.0%
           title says permanent            n=4400  median  7y  <=2y 9.9%
 9.  cannot_determine only after a recorded search ............. PASS (no row claims it; uncoded rows are null)
 10. circumstance_confidence is not a defaulted constant ....... empty on all rows, by design (never assessed)
 11. No field is a deterministic function of its parent ........ PASS: unplanned_basis removed; exit_circumstance now
-      populated only from independent corpus evidence (92 of 9654 rows)
+      populated only from independent corpus evidence (92 of 9656 rows)
 
 12. Precision counts
       president  2707 appts   year:2707
-      provost    1500 appts   year:1497  month:3
+      provost    1502 appts   year:1499  month:3
       dean       7568 appts   year:6982  month:585  day:1
 
 13. Seat coverage by decade (H5 diagnostic)
@@ -77,9 +77,9 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
       1940                       0                   6                 137
       1950                       5                  13                 169
       1960                       7                  17                 288
-      1970                      41                  46                 552
+      1970                      41                  46                 553
       1980                      70                  96                 783
-      1990                     163                 190                1147
+      1990                     163                 190                1148
       2000                     209                 303                1625
       2010                     311                 529                2159
       2020                     293                 470                1760
@@ -112,8 +112,10 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
 
 Collapsed-spell detector
 --------------------------------------------------------------------------
-  titles that collapse several spells into one row: 33
-    provost      29
+  titles naming more than one role: 31
+    ...of those, dating their own parts (a real sequence of appointments): 11
+    the rest are one person holding two roles at once, and must NOT be split.
+    provost      27
     dean         4
     UNIVERSITY-OF-CALIFORNIA-RIVER   Director of the Citrus Experiment Station (1952-1960); Dean (1960-1968
     RICE-UNIVERSITY                  Provost; Acting President; Chancellor
@@ -137,7 +139,7 @@ What the rebuild newly revealed
   the previous export meant no check ever ran across them. They are reported here
   rather than resolved, per the spec: closing a spell needs a source, not a guess.
 
-  Cross-index seat merging recovered 199 interim-to-permanent conversions,
+  Cross-index seat merging recovered 201 interim-to-permanent conversions,
   against 144 in the previous export. Sarah Cole's Columbia conversion is among
   the newly visible ones: her interim spell came from the arts index and her
   permanent spell from creative-arts, so no check could see them as one seat.
@@ -153,14 +155,14 @@ Cross-index merges performed by the new seat key
   classification conflicts flagged for review in merge_decisions.csv: 5
 
 Row counts
-  appointments.csv             11775
+  appointments.csv             11777
   seats.csv                     2110
   seat_name_variants.csv        2120
   seat_coverage.csv             2169
   merge_decisions.csv              5
   institutions.csv               459
   people.csv                   10066
-  exits.csv                     9654
+  exits.csv                     9656
   institution_year.csv         11262
   seats 2110   institutions 459   people 10066
   source rows dropped: roster 10071, sub-dean 297, not-chief-exec 191, out-of-scope 1089
@@ -169,9 +171,9 @@ Row counts
 Still requires human research - columns present and empty
 --------------------------------------------------------------------------
   reports_to                     0 of 2110 seats
-  exit_announcement_date         0 of 9654 exits   <- the spec's P0 and highest-return item
-  successor_status_at_announcement  0 of 9654
+  exit_announcement_date         0 of 9656 exits   <- the spec's P0 and highest-return item
+  successor_status_at_announcement  0 of 9656
   person_birth_year              0 of 10066 people
-  last_verified_date             0 of 11775 appointments
-  exit_circumstance              92 of 9654 from corpus evidence; the rest need coding
-  month-precision starts         589 of 11775
+  last_verified_date             0 of 11777 appointments
+  exit_circumstance              92 of 9656 from corpus evidence; the rest need coding
+  month-precision starts         589 of 11777

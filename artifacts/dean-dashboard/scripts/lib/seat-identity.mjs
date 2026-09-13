@@ -46,14 +46,28 @@ export const titleVerbatim = (r) => {
 };
 
 /**
- * A title that has had several spells collapsed into it.
+ * A title that names more than one role.
  *
- * The corpus sometimes records a person's whole run in one row:
- * "Acting Provost (1977-1978); Senior Vice President for Academic Affairs and
- * Provost (1978-1983)". That is two appointments, and the two-row rule exists
- * precisely to keep them apart -- collapsed, it deletes a conversion and biases the
- * interim rate downward. Such a title must never be allowed to flip `is_interim`,
- * because neither value is right for the row as it stands; it needs splitting first.
+ * NOTE ON WHAT THIS DOES AND DOES NOT MEAN. This was originally described as
+ * detecting "several spells collapsed into one row", and the corpus pass shipped a
+ * `titleIsCompound` field and a CI check under that name. Reading all 65 matches
+ * shows the description was wrong for most of them:
+ *
+ *   16  genuinely sequential -- explicit date ranges or "then":
+ *       "Acting Provost (1977-1978); Senior Vice President ... and Provost (1978-1983)"
+ *   27  slash-joined with no dates -- ONE person, TWO concurrent hats:
+ *       "Vice President for Student Life/Dean of Students"
+ *   22  semicolon-joined with no dates -- also concurrent:
+ *       "Provost; Vice President", "Dean ...; Vice Chancellor for Nursing Affairs"
+ *
+ * So three quarters of the matches are dual-role titles, not collapsed spells, and
+ * splitting them would invent a departure and a re-appointment that never happened.
+ * The name stays (a shipped field), the claim does not: this detects "the title names
+ * more than one role", which is all the string can support. `titleSpansSeveralSpells`
+ * below is the narrow test, and it is the one the integrity check counts.
+ *
+ * It still gates `deriveInterim`: when a title names two roles, an interim word in it
+ * may attach to either, so no derivation is safe from it whichever kind it is.
  */
 export const isCompoundTitle = (title) => {
   const s = String(title || "");
@@ -65,6 +79,43 @@ export const isCompoundTitle = (title) => {
     return parts.length > 1;
   }
   return false;
+};
+
+/**
+ * A title that describes a SEQUENCE of appointments, which is the defect the two-row
+ * rule exists to prevent: collapsed, it deletes a conversion and biases every interim
+ * rate downward.
+ *
+ * Narrow on purpose. It requires the title to date its own parts, or to say "then" --
+ * evidence inside the string that one role ended and another began. A title merely
+ * listing two roles is a person wearing two hats, and is not this.
+ *
+ * Even among the 16 that match, only some are two APPOINTMENTS. Most are a title
+ * growing inside one continuous tenure ("Vice President for Academic Affairs
+ * (1996-2003); Executive Vice President for Academic Affairs (2003-2010)" is one
+ * person who never left the seat). The two that matter are the ones where an acting
+ * spell precedes a permanent one, because only those hide an interim appointment --
+ * `titleHidesInterimSpell` is that test.
+ */
+export const titleSpansSeveralSpells = (title) => {
+  const s = String(title || "");
+  if (!s || !isCompoundTitle(s)) return false;
+  return /\(\s*\d{4}\s*[-\u2013]\s*\d{2,4}\s*\)/.test(s) || /\b(then|later|subsequently)\b/i.test(s);
+};
+
+/**
+ * A row recorded as PERMANENT whose own title says it began as an acting spell.
+ *
+ * This is the only compound-title case that biases an interim rate, and it is the
+ * only one that can be split without a new source: the title states both spells and
+ * dates them, so splitting is transcription rather than invention.
+ */
+export const titleHidesInterimSpell = (record) => {
+  const t = titleVerbatim(record);
+  if (!titleSpansSeveralSpells(t)) return false;
+  if (record.isInterim) return false;
+  const first = t.split(/[;,]/)[0];
+  return INTERIM_WORD.test(first);
 };
 
 /**

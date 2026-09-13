@@ -41,7 +41,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { keyOf, idOf } from "./lib/institution-key.mjs";
 import { isChiefExecutiveSeat, surnameKey } from "./lib/interim-panel.mjs";
-import { normSchool, slug, titleVerbatim, deriveInterim, isPlaceholderEnd } from "./lib/seat-identity.mjs";
+import { normSchool, slug, titleVerbatim, deriveInterim, isPlaceholderEnd, titleSpansSeveralSpells } from "./lib/seat-identity.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SRC = join(HERE, "..", "src", "data");
@@ -764,15 +764,19 @@ function dualInstAcross() {
 }
 say();
 
-// Standing detector: a title naming an interim role on a row the corpus flags
-// permanent is a reliable signal that several spells were collapsed into one row.
+// Standing detector. NOTE the distinction the first version of this got wrong: a
+// title naming two roles is usually one person wearing two hats ("Vice President for
+// Student Life/Dean of Students"), not two appointments. Only a title that DATES its
+// own parts is a sequence, and only that subset is splittable.
 const compounds = appts.filter((a) => a.title_is_compound);
 const contradictions = appts.filter(
   (a) => a.title_verbatim && !a.title_is_compound && /\b(interim|acting)\b|pro\s*tem/i.test(a.title_verbatim) && !a.is_interim_legacy,
 );
 say("Collapsed-spell detector");
 say("-".repeat(74));
-say(`  titles that collapse several spells into one row: ${compounds.length}`);
+say(`  titles naming more than one role: ${compounds.length}`);
+say(`    ...of those, dating their own parts (a real sequence of appointments): ${compounds.filter((a) => titleSpansSeveralSpells(a.title_verbatim)).length}`);
+say(`    the rest are one person holding two roles at once, and must NOT be split.`);
 tally(compounds, (a) => a.seat_level).forEach(([k, v]) => say(`    ${k.padEnd(12)} ${v}`));
 compounds.slice(0, 6).forEach((a) => say(`    ${a.institution_id.replace("US-", "").slice(0, 30).padEnd(32)} ${a.title_verbatim.slice(0, 70)}`));
 say(`  interim-worded titles the ETL flagged permanent, not compound: ${contradictions.length}`);
