@@ -75,6 +75,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { normalizeTenureFields } from "../artifacts/dean-dashboard/scripts/lib/tenure.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const DATA = join(HERE, "..", "artifacts", "dean-dashboard", "src", "data");
@@ -342,6 +343,7 @@ if (missingSchool.length) {
 }
 
 if (!DRY) {
+  for (const d of out) normalizeTenureFields(d);
   writeFileSync(join(DATA, "r1-communitycollege-deans.json"), JSON.stringify(out, null, 1) + "\n");
   writeFileSync(join(DATA, "r1-communitycollege-schools.json"), JSON.stringify(schools, null, 1) + "\n");
 }

@@ -268,7 +268,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 5,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "14th dean per sources; current as of March 2026.",
     "nextRole": "Still_serving",
@@ -786,7 +786,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 0,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Appointed Jan 2026 announcement",
     "nextRole": "Still_serving",
@@ -1101,7 +1101,8 @@
     "phdInstitution": "University of California",
     "enrollmentStart": 9608,
     "businessPctStart": 0.2586,
-    "businessDegreesStart": 643
+    "businessDegreesStart": 643,
+    "fromInterim": true
   },
   {
     "id": 20,
@@ -1199,7 +1200,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "",
     "nextRole": "Retired_or_emeritus (interim ended, successor named)",
@@ -1488,7 +1489,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 9,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Reappointed 2022",
     "nextRole": "Still_serving",
@@ -1916,7 +1917,8 @@
     "connectionType": "Former-faculty",
     "enrollmentStart": 50538,
     "businessPctStart": 0.1708,
-    "businessDegreesStart": 2036
+    "businessDegreesStart": 2036,
+    "fromInterim": true
   },
   {
     "id": 34,
@@ -2014,7 +2016,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 2,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Started July 8, 2024",
     "nextRole": "Still_serving",
@@ -2424,7 +2426,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "First female dean; reappointed 2023; current as of 2026",
     "nextRole": "Still_serving",
@@ -2734,7 +2736,8 @@
     "connectionType": "Alumni-and-former-faculty",
     "enrollmentStart": 51853,
     "businessPctStart": 0.1254,
-    "businessDegreesStart": 1653
+    "businessDegreesStart": 1653,
+    "fromInterim": true
   },
   {
     "id": 48,
@@ -2773,7 +2776,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Started July 3, 2023; JD Harvard",
     "nextRole": "Still_serving",
@@ -3002,7 +3005,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": false,
-    "tenureLength": 21,
+    "tenureLength": null,
     "era": "2000s",
     "notes": "John and Linda Powers Family Dean; one of the longest-serving active deans in the sample; still serving as of March 2026 per BC website.",
     "nextRole": "Still_serving",
@@ -3645,7 +3648,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "11th Dean; confirmed official site",
     "nextRole": "Still_serving",
@@ -3704,7 +3707,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 2,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Professor at Univ of South Carolina prior; external hire.",
     "nextRole": "Still_serving",
@@ -3877,7 +3880,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": true,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Electrical Engineering PhD; pioneered analytics curriculum.",
     "nextRole": "Still_serving",
@@ -4052,7 +4055,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "10th Dean; PhD Indiana University",
     "nextRole": "Still_serving",
@@ -4287,7 +4290,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 10,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "9th Dean; first female dean; still serving March 2026",
     "nextRole": "Still_serving",
@@ -5788,7 +5791,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 0,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Current interim per leadership page",
     "nextRole": "Still_serving",
@@ -6098,7 +6101,8 @@
     "phdInstitution": "Stanford University",
     "enrollmentStart": 34734,
     "businessPctStart": 0.1598,
-    "businessDegreesStart": 1474
+    "businessDegreesStart": 1474,
+    "fromInterim": true
   },
   {
     "id": 107,
@@ -6137,7 +6141,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 2,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Started July 1, 2024",
     "nextRole": "Still_serving",
@@ -6662,7 +6666,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Effective July 28, 2025",
     "nextRole": "Still_serving",
@@ -7193,7 +7197,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Permanent, current as of 2026",
     "nextRole": "Still_serving",
@@ -7511,7 +7515,8 @@
     "phdInstitution": "University of Texas",
     "enrollmentStart": 17331,
     "businessPctStart": 0.2337,
-    "businessDegreesStart": 1232
+    "businessDegreesStart": 1232,
+    "fromInterim": true
   },
   {
     "id": 131,
@@ -7550,7 +7555,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 6,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "First female dean; PhD Marketing, University of Otago; confirmed permanent succeeding Rubin.",
     "nextRole": "Still_serving",
@@ -7902,7 +7907,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Two-year term.",
     "nextRole": "Still_serving",
@@ -8190,7 +8195,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "14th dean; Orin & Janet Smith Dean",
     "nextRole": "Still_serving",
@@ -8560,7 +8565,8 @@
     "phdInstitution": "University of Pennsylvania",
     "enrollmentStart": 15467,
     "businessPctStart": 0.174,
-    "businessDegreesStart": 858
+    "businessDegreesStart": 858,
+    "fromInterim": true
   },
   {
     "id": 149,
@@ -8658,7 +8664,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 0,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Permanent appointment announced March 3, 2026, effective April 1, 2026",
     "nextRole": "Still_serving",
@@ -8676,7 +8682,8 @@
     "businessDegreesLatest": 1528,
     "convertedToPermanent": false,
     "connectionType": "Alumni-and-former-faculty",
-    "phdYear": 1994
+    "phdYear": 1994,
+    "fromInterim": true
   },
   {
     "id": 151,
@@ -9007,7 +9014,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 8,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Exact start July 1, 2018; still serving as of 2026",
     "nextRole": "Still_serving",
@@ -9707,7 +9714,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "First female dean; started June 16, 2025",
     "nextRole": "Still_serving",
@@ -10000,7 +10007,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 10,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Stepping down June 2026; Poets&Quants Dean of the Year 2024",
     "nextRole": "Still_serving",
@@ -11166,7 +11173,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 2,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Permanent ongoing.",
     "nextRole": "Still_serving",
@@ -11183,7 +11190,8 @@
     "businessPctEnd": 0.071,
     "businessDegreesLatest": 1102,
     "convertedToPermanent": false,
-    "connectionType": "Alumni-and-former-faculty"
+    "connectionType": "Alumni-and-former-faculty",
+    "fromInterim": true
   },
   {
     "id": 194,
@@ -11295,7 +11303,8 @@
     "businessPctEnd": 0.2359,
     "businessDegreesLatest": 1517,
     "convertedToPermanent": false,
-    "connectionType": "Alumni-and-former-faculty"
+    "connectionType": "Alumni-and-former-faculty",
+    "fromInterim": true
   },
   {
     "id": 196,
@@ -11394,7 +11403,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "William E. Crenshaw Endowed Dean; overlap with Mazumder May-June 2025 likely transition",
     "nextRole": "Still_serving",
@@ -11860,7 +11869,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "First female permanent dean of Harbert College of Business; Internal promotion; named 2023",
     "nextRole": "Still_serving",
@@ -12054,7 +12063,8 @@
     "connectionType": "Alumni-and-former-faculty",
     "enrollmentStart": 25778,
     "businessPctStart": 0.155,
-    "businessDegreesStart": 1075
+    "businessDegreesStart": 1075,
+    "fromInterim": true
   },
   {
     "id": 209,
@@ -12154,7 +12164,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": true,
-    "tenureLength": 5,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Serving as of March 2026",
     "nextRole": "Still_serving",
@@ -12344,7 +12354,8 @@
     "businessDegreesLatest": 1841,
     "convertedToPermanent": false,
     "connectionType": "Former-faculty",
-    "enrollmentStart": 26033
+    "enrollmentStart": 26033,
+    "fromInterim": true
   },
   {
     "id": 214,
@@ -12383,7 +12394,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 13,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Stokely Foundation Leadership Chair; confirmed current as of 2026 profiles",
     "nextRole": "Still_serving",
@@ -12734,7 +12745,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "First female dean; current as of March 2026.",
     "nextRole": "Still_serving",
@@ -12867,7 +12878,8 @@
     "businessPctEnd": 0.1888,
     "businessDegreesLatest": 1437,
     "convertedToPermanent": false,
-    "connectionType": "Former-faculty"
+    "connectionType": "Former-faculty",
+    "fromInterim": true
   },
   {
     "id": 223,
@@ -12985,7 +12997,8 @@
     "phdInstitution": "University of Missouri",
     "enrollmentStart": 27898,
     "businessPctStart": 0.1799,
-    "businessDegreesStart": 954
+    "businessDegreesStart": 954,
+    "fromInterim": true
   },
   {
     "id": 225,
@@ -13142,7 +13155,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Raisbeck Endowed Dean",
     "nextRole": "Still_serving",
@@ -13327,7 +13340,8 @@
     "businessPctEnd": 0.3268,
     "businessDegreesLatest": 2126,
     "convertedToPermanent": false,
-    "connectionType": "Former-faculty"
+    "connectionType": "Former-faculty",
+    "fromInterim": true
   },
   {
     "id": 231,
@@ -13600,7 +13614,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 9,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Named 2017 per [Dean's Gallery](https://www.depts.ttu.edu/rawlsbusiness/about/deans/history/), assumed April 2017 per sources; current as of Mar 2026 [UND announcement](https://test-blogs.und.edu/uletter/2017/02/dean-margaret-williams-accepts-position-at-texas-tech-university/?print=print)",
     "nextRole": "Still_serving",
@@ -13852,7 +13866,8 @@
     "connectionType": "Former-faculty",
     "enrollmentStart": 20273,
     "businessPctStart": 0.1756,
-    "businessDegreesStart": 1046
+    "businessDegreesStart": 1046,
+    "fromInterim": true
   },
   {
     "id": 240,
@@ -14010,7 +14025,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Current as of March 2026; official announcement May 2023.",
     "nextRole": "Still_serving",
@@ -14707,7 +14722,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Prior Miami, Michigan [Pitt annc](https://www.business.pitt.edu/gene-anderson-named-new-dean-of-pitt-business/)",
     "nextRole": "Still_serving",
@@ -14958,7 +14973,8 @@
     "connectionType": "Former-faculty",
     "enrollmentStart": 37958,
     "businessPctStart": 0.1972,
-    "businessDegreesStart": 1742
+    "businessDegreesStart": 1742,
+    "fromInterim": true
   },
   {
     "id": 259,
@@ -15076,7 +15092,8 @@
     "connectionType": "Alumni-and-former-faculty",
     "enrollmentStart": 46817,
     "businessPctStart": 0.2324,
-    "businessDegreesStart": 2559
+    "businessDegreesStart": 2559,
+    "fromInterim": true
   },
   {
     "id": 261,
@@ -15195,7 +15212,8 @@
     "connectionType": "Alumni-and-former-faculty",
     "enrollmentStart": 47527,
     "businessPctStart": 0.3341,
-    "businessDegreesStart": 4011
+    "businessDegreesStart": 4011,
+    "fromInterim": true
   },
   {
     "id": 263,
@@ -15234,7 +15252,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Effective March 17, 2025 - present (March 2026).",
     "nextRole": "Still_serving",
@@ -15583,7 +15601,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Second consecutive female permanent dean. Still serving as of March 2026.",
     "nextRole": "Still_serving",
@@ -16166,7 +16184,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "First permanent female dean",
     "nextRole": "Still_serving",
@@ -16518,7 +16536,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Prior MD Carlyle Group; JD GWU Law",
     "nextRole": "Still_serving",
@@ -16886,7 +16904,8 @@
     "connectionType": "Former-faculty",
     "enrollmentStart": 40472,
     "businessPctStart": 0.1945,
-    "businessDegreesStart": 2058
+    "businessDegreesStart": 2058,
+    "fromInterim": true
   },
   {
     "id": 292,
@@ -16925,7 +16944,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Inaugural Dean of Daniels School of Business (rebranded from Krannert in 2022). Previously: President and CEO of Federal Reserve Bank of St. Louis. PhD Economics Indiana University.",
     "nextRole": "Still_serving",
@@ -17389,7 +17408,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 0,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Second interim stint",
     "nextRole": "Still_serving",
@@ -17915,7 +17934,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Rustandy Endowed Dean",
     "nextRole": "Still_serving",
@@ -18207,7 +18226,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "PhD Finance UNC",
     "nextRole": "Still_serving",
@@ -18614,7 +18633,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 2,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Announced Mar 2024, start June 30; current",
     "nextRole": "Still_serving",
@@ -18962,7 +18981,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Jan 1, 2019 [Church News](https://www.thechurchnews.com/2018/5/24/23221533/harvard-professor-announced-as-new-dean-for-byu-marriotts-school-of-business/)",
     "nextRole": "Still_serving",
@@ -19787,7 +19806,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Nelson D. Durst Endowed Chair",
     "nextRole": "Still_serving",
@@ -20223,7 +20242,8 @@
     "phdInstitution": "University of Michigan",
     "enrollmentStart": 51991,
     "businessPctStart": 0.1455,
-    "businessDegreesStart": 2562
+    "businessDegreesStart": 2562,
+    "fromInterim": true
   },
   {
     "id": 349,
@@ -20672,7 +20692,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 9,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Permanent; still serving March 2026. [President announcement](https://president.georgetown.edu/messages-archive/announcing-paul-almeida/) [MSB History](https://msb.georgetown.edu/about/history/)",
     "nextRole": "Still_serving",
@@ -20924,7 +20944,8 @@
     "connectionType": "Former-faculty",
     "enrollmentStart": 12124,
     "businessPctStart": 0.2989,
-    "businessDegreesStart": 1049
+    "businessDegreesStart": 1049,
+    "fromInterim": true
   },
   {
     "id": 361,
@@ -21023,7 +21044,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": false,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Interim July 2018-July 2019, permanent since July 2019, reappointed through 2029",
     "nextRole": "Still_serving",
@@ -21044,7 +21065,8 @@
     "phdInstitution": "New York University",
     "enrollmentStart": 12683,
     "businessPctStart": 0.2794,
-    "businessDegreesStart": 1018
+    "businessDegreesStart": 1018,
+    "fromInterim": true
   },
   {
     "id": 363,
@@ -21083,7 +21105,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 30,
+    "tenureLength": null,
     "era": "pre-2000",
     "notes": "",
     "nextRole": "Still_serving",
@@ -21489,7 +21511,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Start date Sept 1, 2023 per updated Source and Olin leadership page.",
     "nextRole": "Still_serving",
@@ -21740,7 +21762,8 @@
     "connectionType": "Alumni-and-former-faculty",
     "enrollmentStart": 11479,
     "businessPctStart": 0.0949,
-    "businessDegreesStart": 288
+    "businessDegreesStart": 288,
+    "fromInterim": true
   },
   {
     "id": 375,
@@ -21839,7 +21862,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Was senior assoc dean at Darden leading full-time MBA; 8th Owen dean; began July 1 2023; PhD from Yale",
     "nextRole": "Still_serving",
@@ -22073,7 +22096,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "",
     "nextRole": "Still_serving",
@@ -22425,7 +22448,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 5,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Permanent dean; reappointed for second term 2025-2030. Incorrectly flagged as interim.",
     "nextRole": "Still_serving",
@@ -22852,7 +22875,8 @@
     "connectionType": "Alumni-and-former-faculty",
     "enrollmentStart": 27261,
     "businessPctStart": 0.2104,
-    "businessDegreesStart": 1279
+    "businessDegreesStart": 1279,
+    "fromInterim": true
   },
   {
     "id": 394,
@@ -23067,7 +23091,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Interim Jul13 2024-May30 2025, permanent May31 2025",
     "nextRole": "Still_serving",
@@ -23084,7 +23108,8 @@
     "businessPctEnd": 0.2445,
     "businessDegreesLatest": 1836,
     "convertedToPermanent": false,
-    "connectionType": "Former-faculty"
+    "connectionType": "Former-faculty",
+    "fromInterim": true
   },
   {
     "id": 398,
@@ -23358,7 +23383,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Second dean; first woman dean",
     "nextRole": "Still_serving",
@@ -23492,7 +23517,8 @@
     "businessDegreesLatest": 713,
     "convertedToPermanent": false,
     "connectionType": "Alumni-and-former-faculty",
-    "phdInstitution": "University of Virginia"
+    "phdInstitution": "University of Virginia",
+    "fromInterim": true
   },
   {
     "id": 405,
@@ -23531,7 +23557,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Returned to W&M after national search; T.C. and Elizabeth Clarke Professor",
     "nextRole": "Still_serving",
@@ -23881,7 +23907,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": false,
-    "tenureLength": 5,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "PhD from U Arizona",
     "nextRole": "Still_serving",
@@ -24014,7 +24040,8 @@
     "businessPctEnd": 0.0564,
     "businessDegreesLatest": 1599,
     "convertedToPermanent": false,
-    "connectionType": "Former-faculty"
+    "connectionType": "Former-faculty",
+    "fromInterim": true
   },
   {
     "id": 414,
@@ -24288,7 +24315,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "5-year term to July 2027; [Michigan Ross](https://michiganross.umich.edu/news/leeds-school-business-dean-sharon-matusik-appointed-lead-michigan-ross), [Wikipedia](https://en.wikipedia.org/wiki/Ross_School_of_Business)",
     "nextRole": "Still_serving",
@@ -24606,7 +24633,8 @@
     "phdInstitution": "Pennsylvania State University",
     "enrollmentStart": 27194,
     "businessPctStart": 0.2056,
-    "businessDegreesStart": 1264
+    "businessDegreesStart": 1264,
+    "fromInterim": true
   },
   {
     "id": 424,
@@ -24705,7 +24733,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 2,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Interim August 2023 - January 2024; permanent from Feb 1 2024",
     "nextRole": "Still_serving",
@@ -24725,7 +24753,8 @@
     "connectionType": "Alumni-and-former-faculty",
     "phdInstitution": "Texas Christian University",
     "businessPctStart": 0.2609,
-    "businessDegreesStart": 1836
+    "businessDegreesStart": 1836,
+    "fromInterim": true
   },
   {
     "id": 426,
@@ -25000,7 +25029,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 2,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Stephen P. Zelnak Jr. Dean's Chair",
     "nextRole": "Still_serving",
@@ -25933,7 +25962,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Current as of 2026",
     "nextRole": "Still_serving",
@@ -26111,7 +26140,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "",
     "nextRole": "Still_serving",
@@ -26167,7 +26196,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Named May 2025, start July 1 2025 per Poets&Quants and LJWorld.",
     "nextRole": "Still_serving",
@@ -26418,7 +26447,8 @@
     "phdInstitution": "University of Texas",
     "enrollmentStart": 4829,
     "businessPctStart": 0.3989,
-    "businessDegreesStart": 625
+    "businessDegreesStart": 625,
+    "fromInterim": true
   },
   {
     "id": 455,
@@ -26634,7 +26664,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 2,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Current as of March 2026.",
     "nextRole": "Still_serving",
@@ -27865,7 +27895,8 @@
     "connectionType": "Former-faculty",
     "enrollmentStart": 30184,
     "businessPctStart": 0.1566,
-    "businessDegreesStart": 1341
+    "businessDegreesStart": 1341,
+    "fromInterim": true
   },
   {
     "id": 480,
@@ -27963,7 +27994,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "PhD Economics Cornell; reappointed 2024 ([Yale News](https://news.yale.edu/2019/03/05/economist-kerwin-charles-named-yale-som-dean))",
     "nextRole": "Still_serving",
@@ -28022,7 +28053,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Permanent; announced May 2022, began June 9",
     "nextRole": "Still_serving",
@@ -28081,7 +28112,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Named dean August 2022; External-School hire from Purdue Krannert",
     "nextRole": "Still_serving",
@@ -28494,7 +28525,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "July 1 2022 start; still serving March 2026.",
     "nextRole": "Still_serving",
@@ -28628,7 +28659,8 @@
     "businessDegreesLatest": 755,
     "convertedToPermanent": false,
     "connectionType": "Former-faculty",
-    "phdInstitution": "University of Chicago"
+    "phdInstitution": "University of Chicago",
+    "fromInterim": true
   },
   {
     "id": 493,
@@ -28846,7 +28878,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "",
     "nextRole": "Still_serving",
@@ -29193,7 +29225,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Returned to MIT",
     "nextRole": "Still_serving",
@@ -29542,7 +29574,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 2,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "",
     "nextRole": "Still_serving",
@@ -29970,7 +30002,8 @@
     "connectionType": "Former-faculty",
     "enrollmentStart": 25962,
     "businessPctStart": 0.25,
-    "businessDegreesStart": 1431
+    "businessDegreesStart": 1431,
+    "fromInterim": true
   },
   {
     "id": 516,
@@ -30009,7 +30042,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "PhD/MA Economics Florida State U; BA Economics Berea College",
     "nextRole": "Still_serving",
@@ -30362,7 +30395,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Richard R. West Dean",
     "nextRole": "Still_serving",
@@ -31133,7 +31166,7 @@
     "enrollmentAvg": 41615,
     "businessPctEnd": 0.2471,
     "businessDegreesLatest": 3476,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "Former-faculty",
     "phdInstitution": "University of Washington"
   },
@@ -31466,7 +31499,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Announced April 26, 2023; started July 5, 2023; still serving as of March 2026 per recent LinkedIn/FB.",
     "nextRole": "Still_serving",
@@ -31638,7 +31671,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": true,
-    "tenureLength": 11,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "10th dean; reappointed for 3rd term through June 2027.",
     "nextRole": "Still_serving",
@@ -31776,7 +31809,8 @@
     "convertedToPermanent": false,
     "connectionType": "Former-faculty",
     "phdInstitution": "University of Georgia",
-    "phdYear": 1976
+    "phdYear": 1976,
+    "fromInterim": true
   },
   {
     "id": 547,
@@ -31994,7 +32028,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Appointed November 2021",
     "nextRole": "Still_serving",
@@ -32111,7 +32145,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 6,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Continues as dean through March 2026 per current listings",
     "nextRole": "Still_serving",
@@ -32302,7 +32336,8 @@
     "businessDegreesLatest": 2167,
     "convertedToPermanent": false,
     "connectionType": "Alumni-and-former-faculty",
-    "enrollmentStart": 21853
+    "enrollmentStart": 21853,
+    "fromInterim": true
   },
   {
     "id": 556,
@@ -32460,7 +32495,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": false,
-    "tenureLength": 6,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "First woman/Black dean; serving March 2026",
     "nextRole": "Still_serving",
@@ -32815,7 +32850,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 4,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Interim Dean continuing under new structure with Haynie as Executive Dean (July 2023); search planned late 2024, no permanent dean by March 2026 | Confirmed interim: serving since July 2022 with no permanent appointment. Haynie became Executive Dean July 2023, then Chancellor March 2026.",
     "nextRole": "Still_serving",
@@ -33071,7 +33106,8 @@
     "phdInstitution": "University of Tennessee",
     "enrollmentStart": 12556,
     "businessPctStart": 0.086,
-    "businessDegreesStart": 184
+    "businessDegreesStart": 184,
+    "fromInterim": true
   },
   {
     "id": 569,
@@ -33286,7 +33322,7 @@
     "inTop100": true,
     "fromEliteInstitution": true,
     "priorInstitutionElite": false,
-    "tenureLength": 0,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Interim July 23 2025 - Jan 2026; first alumna permanent dean, second woman",
     "nextRole": "Still_serving",
@@ -33304,7 +33340,8 @@
     "businessDegreesLatest": 54,
     "convertedToPermanent": false,
     "connectionType": "Alumni",
-    "phdInstitution": "Texas A&M University"
+    "phdInstitution": "Texas A&M University",
+    "fromInterim": true
   },
   {
     "id": 573,
@@ -33754,7 +33791,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": true,
-    "tenureLength": 7,
+    "tenureLength": null,
     "era": "2010s",
     "notes": "Albert O. Nicholas Dean; still serving March 2026",
     "nextRole": "Still_serving",
@@ -34106,7 +34143,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 3,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Started July 17, 2023; prior Zicklin experience",
     "nextRole": "Still_serving",
@@ -35067,7 +35104,8 @@
     "enrollmentEnd": 31159,
     "enrollmentAvg": 31159,
     "businessPctEnd": 0.1374,
-    "businessDegreesLatest": 1593
+    "businessDegreesLatest": 1593,
+    "convertedToPermanent": false
   },
   {
     "id": 604,
@@ -35106,7 +35144,7 @@
     "inTop100": true,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 1,
+    "tenureLength": null,
     "era": "2020s",
     "notes": "Permanent dean effective Apr 1 2026 after serving as interim",
     "nextRole": "Still_serving",
@@ -35123,7 +35161,8 @@
     "businessPctEnd": 0.2471,
     "businessDegreesLatest": 3476,
     "convertedToPermanent": false,
-    "connectionType": "Former-faculty"
+    "connectionType": "Former-faculty",
+    "fromInterim": true
   },
   {
     "id": 605,

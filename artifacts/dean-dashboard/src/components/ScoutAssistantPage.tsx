@@ -2,13 +2,12 @@ import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { useAllDeans, isAlbersUsaMappable } from "@/data/useData";
 import { useDataset } from "@/data/DatasetContext";
 import type { Dean } from "@/data/types";
-import { genderNorm } from "@/data/types";
-import { FLAGS, resolveGenderInclude, passesGenderInclude, type GenderInclude } from "@/config/flags";
 import { usePhotoMap, useResearchMap, enrichKey, useNonAcademicExperience } from "@/data/enrichment";
 import { useScoutCandidateEngine, affKey } from "@/data/useScoutCandidates";
 import { matchKeywords, type Keyword } from "@/data/keywordMatch";
 import { Methodology } from "@/components/ScoutAssistant";
 import ScoutCandidateList from "@/components/ScoutCandidateList";
+import PoolComposition from "@/components/PoolComposition";
 import StringencyToggle, { STRINGENCY_LEVELS } from "@/components/StringencyToggle";
 import JobDescriptionInput from "@/components/JobDescriptionInput";
 import ResultsMap from "@/components/ResultsMap";
@@ -48,19 +47,18 @@ const PAGE_SIZE = 50;
  * filters Slate Builder offers, and see the candidate pool on a map.
  */
 export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (university: string, school: string) => void }) {
-  const { datasetId, bundle, meta } = useDataset();
+  const { datasetId, bundle, meta, nounPluralLower } = useDataset();
   const allDeans = useAllDeans();
   const researchMap = useResearchMap();
   const PHOTOS = usePhotoMap();
 
   const [university, setUniversity] = useState("");
   const [stringency, setStringency] = useState(1);
-  // Include: All / Women / Men. Clamped through resolveGenderInclude on the way
-  // in AND on every set, so with ENABLE_GENDER_SELECTION_FILTER off the value is
-  // "all" no matter what any caller supplies -- see src/config/flags.ts.
-  const [includeGenderRaw, setIncludeGenderRaw] = useState<GenderInclude>(() => resolveGenderInclude("all"));
-  const includeGender = resolveGenderInclude(includeGenderRaw);
-  const setIncludeGender = useCallback((v: GenderInclude) => setIncludeGenderRaw(resolveGenderInclude(v)), []);
+  // There is deliberately no gender control here, and none in Slate Builder
+  // either: an "Include: All / Women / Men" segmented filter used to sit in both
+  // Person groups, and framed as widening the pool it was still a selection
+  // filter on a protected characteristic. <PoolComposition> shows the same
+  // numbers read-only instead.
   const [requirePhd, setRequirePhd] = useState(false);
   const [requireProf, setRequireProf] = useState(false);
   // Named-firm industry tie (nonacademic-experience.json), not the legacy
@@ -83,7 +81,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const handleMatch = useCallback((n: number) => {
-    setMatchNotice(n > 0 ? `Matched ${n} keyword${n === 1 ? "" : "s"} from the posting -- candidates below are re-scored.` : "No distinctive keywords found in that text -- try pasting more of the posting.");
+    setMatchNotice(n > 0 ? `Matched ${n} keyword${n === 1 ? "" : "s"} from the posting -- candidates below are re-ranked, none excluded.` : "No distinctive keywords found in that text -- try pasting more of the posting.");
     resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     window.setTimeout(() => setMatchNotice(null), 5000);
   }, []);
@@ -91,7 +89,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   // Reset everything when the active dataset (index) changes -- a school,
   // state, or JD match chosen for one index doesn't carry meaning in another.
   useEffect(() => {
-    setUniversity(""); setStringency(1); setIncludeGender("all"); setRequirePhd(false); setRequireProf(false);
+    setUniversity(""); setStringency(1); setRequirePhd(false); setRequireProf(false);
     setApptType("all"); setRegions(new Set()); setStates(new Set()); setFunctions(new Set()); setTiers(new Set()); setRequireIndustryTie(false);
     setJdKeywords([]); setVisibleCount(PAGE_SIZE);
   }, [datasetId]);
@@ -197,7 +195,6 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
     if (requirePhd && !hasDoctorate(d)) return false;
     if (requireProf && !wasProfessor(d)) return false;
     if (requireIndustryTie && !hasIndustryTie(d)) return false;
-    if (!passesGenderInclude(includeGender, genderNorm(d.gender))) return false;
     const isSub = (d as { roleType?: string }).roleType === "subdean";
     if (apptType === "perm" && (isSub || d.isInterim)) return false;
     if (apptType === "interim" && !isSub && !d.isInterim) return false;
@@ -211,7 +208,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
       if (!st || !effectiveStates.has(st)) return false;
     }
     return true;
-  }, [requirePhd, requireProf, requireIndustryTie, hasIndustryTie, includeGender, apptType, functions, tiers, tierOf, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
+  }, [requirePhd, requireProf, requireIndustryTie, hasIndustryTie, apptType, functions, tiers, tierOf, effectiveStates, stateOf, hasDoctorate, wasProfessor]);
 
   // Job-description keyword boost: a heuristic overlap score against a broad
   // text surface for each candidate -- discipline, career background, prior
@@ -220,12 +217,22 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   // model. Matching is fuzzy (stemmed word roots for single-word keywords,
   // substring for phrases/tags), so posting language doesn't have to appear
   // verbatim to connect: a candidate's brief saying "innovative" still
-  // matches a posting that said "innovation." The intent at this stage is a
-  // broad net -- ANY of the many extracted keywords is enough to surface a
-  // candidate -- with the stringency dial doing the real narrowing. Kept as
-  // a soft additive score at every tier, and promoted to a HARD requirement
-  // (>=1 match) only at the strictest tier, matching "mine the posting for
-  // the tightest fit."
+  // matches a posting that said "innovation." The intent is a broad net --
+  // ANY of the many extracted keywords is enough to surface a candidate --
+  // with the stringency dial doing the real narrowing.
+  //
+  // A soft additive score at EVERY tier, including the strictest. It used to
+  // become a hard requirement at "Best fit": a candidate with no keyword hit
+  // was excluded outright rather than down-ranked. Three things were wrong
+  // with that. No other tier excludes anyone, so it contradicted the
+  // interface's own claim that the tiers are one ranked list truncated at
+  // different depths. The exclusion rested on the one input here that is not
+  // validated -- a fuzzy text overlap, on a flat 0.5 per match rather than
+  // the log-lift scale the trait and tie scores use, so it is not even
+  // commensurate with what it was overriding. And it silently dropped the
+  // candidate whose brief happens to be thin, which is a coverage artefact
+  // and not a fact about the person. Down-ranking says the same thing
+  // honestly and keeps them in view.
   const candidateMatchText = useCallback((dean: Dean | undefined, name: string, subtitle: string): string => {
     const research = dean ? researchMap[enrichKey(dean.dean, dean.university)] : undefined;
     const careerText = research?.career?.flatMap((c) => [c.role, c.org]) || [];
@@ -244,11 +251,9 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
     return { score: hits.length * 0.5, matched: hits.map((k) => k.display) };
   }, [jdKeywords, candidateMatchText]);
 
-  const combinedFilter = useCallback((d: Dean): boolean => {
-    if (!rosterFilter(d)) return false;
-    if (jdKeywords.length > 0 && stringency === 1 && keywordMatch(d, d.dean, d.priorTitle || "").matched.length === 0) return false;
-    return true;
-  }, [rosterFilter, jdKeywords, stringency, keywordMatch]);
+  // No keyword exclusion at any tier -- see the note above keywordMatch. The
+  // posting re-ranks the list; it never removes anyone from it.
+  const combinedFilter = rosterFilter;
 
   const level = STRINGENCY_LEVELS[stringency - 1];
   const engine = useScoutCandidateEngine({
@@ -258,6 +263,23 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   });
 
   const shown = engine.candidates.slice(0, visibleCount);
+
+  // Composition inputs. `eligiblePool` is every record the ranking may draw from
+  // once the roster filters are applied -- the honest baseline for reading the
+  // shown candidates against. `candidateDeans` is the resolved subset of the
+  // shown list: affinity and weak-link rows arrive as names and stream their
+  // full record in on expand, so the row reports how many records it could
+  // actually read rather than quietly counting only the easy ones.
+  const eligiblePool = useMemo(() => allDeans.filter(rosterFilter), [allDeans, rosterFilter]);
+  const candidateDeans = useMemo(() => {
+    const out: Dean[] = [];
+    for (const c of shown) {
+      const resolved = c.dean ?? (c.resolvable ? engine.resolvedProfiles[affKey(c.resolvable)] : undefined);
+      if (resolved && resolved !== "not-found") out.push(resolved);
+    }
+    return out;
+  }, [shown, engine.resolvedProfiles]);
+
   const mapDeans = useMemo(() => {
     const out: Dean[] = [];
     for (const c of shown) {
@@ -276,12 +298,10 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   // Collapsed groups must still say what they are doing, so each one gets a
   // one-line summary. A group whose summary is its default reads as "nothing to
   // see here" and stays shut; anything else opens itself.
-  const GENDER_LABEL = { all: "All", women: "Women", men: "Men" } as const;
   const APPT_LABEL = { all: "All", perm: "Permanent", interim: "Assoc/Vice/Interim" } as const;
   const roleSummary = [functions.size ? [...functions].join(", ") : null,
                        apptType !== "all" ? APPT_LABEL[apptType] : null].filter(Boolean).join(" · ") || "Any function";
-  const personSummary = [includeGender !== "all" ? GENDER_LABEL[includeGender] : null,
-                         requirePhd ? "Ph.D." : null, requireProf ? "Professor" : null,
+  const personSummary = [requirePhd ? "Ph.D." : null, requireProf ? "Professor" : null,
                          requireIndustryTie ? "Non-academic tie" : null].filter(Boolean).join(" · ") || "Anyone";
   const locationSummary = regions.size || states.size
     ? [...regions, ...states].join(", ")
@@ -292,7 +312,6 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
   const activeChips: ActiveChip[] = [
     ...[...functions].map((f) => ({ id: `fn:${f}`, label: f, onRemove: () => toggleSet(setFunctions, f) })),
     ...(apptType !== "all" ? [{ id: "appt", label: APPT_LABEL[apptType], onRemove: () => setApptType("all") }] : []),
-    ...(includeGender !== "all" ? [{ id: "gender", label: GENDER_LABEL[includeGender], onRemove: () => setIncludeGender("all") }] : []),
     ...(requirePhd ? [{ id: "phd", label: "Ph.D.", onRemove: () => setRequirePhd(false) }] : []),
     ...(requireProf ? [{ id: "prof", label: "Professor", onRemove: () => setRequireProf(false) }] : []),
     ...(requireIndustryTie ? [{ id: "na", label: "Non-academic tie", accent: "teal" as const, onRemove: () => setRequireIndustryTie(false) }] : []),
@@ -303,7 +322,7 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
 
   const clearAllFilters = () => {
     setFunctions(new Set()); setTiers(new Set()); setRegions(new Set()); setStates(new Set());
-    setApptType("all"); setIncludeGender("all");
+    setApptType("all");
     setRequirePhd(false); setRequireProf(false); setRequireIndustryTie(false);
   };
 
@@ -371,12 +390,16 @@ export default function ScoutAssistantPage({ onOpenSchool }: { onOpenSchool?: (u
               </FilterGroup>
 
               <FilterGroup title="Person" summary={personSummary} defaultOpen>
-                {FLAGS.ENABLE_GENDER_SELECTION_FILTER && (
-                  <FilterRow label="Include" hint="Widen the pool for a defensible diverse slate.">
-                    <SegGroup ariaLabel="Include" value={includeGender} onChange={setIncludeGender}
-                      options={[["all", "All"], ["women", "Women"], ["men", "Men"]]} />
-                  </FilterRow>
-                )}
+                <FilterRow label="Composition" hint="An audit of the pool you are looking at, not a filter on it.">
+                  <PoolComposition
+                    results={candidateDeans}
+                    eligible={eligiblePool}
+                    nounPluralLower={nounPluralLower}
+                    resultsLabel="Candidates shown"
+                    resultsHint="The ranked candidates on screen whose full record has been read."
+                    eligibleHint="Every record the ranking can draw from once these filters are applied."
+                  />
+                </FilterRow>
                 <FilterRow label="Credentials" hint="Held a doctorate · faculty rank · a named organisation outside the academy.">
                   <PillToggles items={[
                     { key: "phd", label: "Ph.D.", on: requirePhd, onToggle: () => setRequirePhd(!requirePhd) },

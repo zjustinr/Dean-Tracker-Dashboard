@@ -1968,7 +1968,7 @@
     "enrollmentAvg": 9988,
     "businessPctEnd": 0.2393,
     "businessDegreesLatest": 649,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of California, Irvine",
     "enrollmentStart": 10014,
@@ -2032,7 +2032,8 @@
     "connectionType": "",
     "phdInstitution": "University of California, Irvine",
     "businessPctStart": 0.2393,
-    "businessDegreesStart": 649
+    "businessDegreesStart": 649,
+    "fromInterim": true
   },
   {
     "id": 36,
@@ -4663,7 +4664,7 @@
     "enrollmentAvg": 5474,
     "businessPctEnd": 0.3255,
     "businessDegreesLatest": 459,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "phdInstitution": "University of Texas at Austin",
     "enrollmentStart": 5330,
@@ -4728,7 +4729,8 @@
     "phdInstitution": "University of Texas at Austin",
     "enrollmentStart": 5617,
     "businessPctStart": 0.3255,
-    "businessDegreesStart": 414
+    "businessDegreesStart": 414,
+    "fromInterim": true
   },
   {
     "id": 82,
@@ -8040,7 +8042,7 @@
     "enrollmentAvg": 2346,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -8098,7 +8100,8 @@
     "businessDegreesLatest": null,
     "convertedToPermanent": false,
     "connectionType": "",
-    "enrollmentStart": 2346
+    "enrollmentStart": 2346,
+    "fromInterim": true
   },
   {
     "id": 140,
@@ -13929,7 +13932,7 @@
     "enrollmentAvg": null,
     "businessPctEnd": null,
     "businessDegreesLatest": null,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": ""
   },
   {
@@ -13986,7 +13989,8 @@
     "businessPctEnd": 0.2306,
     "businessDegreesLatest": 821,
     "convertedToPermanent": false,
-    "connectionType": ""
+    "connectionType": "",
+    "fromInterim": true
   },
   {
     "id": 241,
@@ -21154,7 +21158,7 @@
     "enrollmentAvg": 25196,
     "businessPctEnd": 0.1603,
     "businessDegreesLatest": 1387,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 24644,
     "businessPctStart": 0.1666,
@@ -21217,7 +21221,8 @@
     "connectionType": "",
     "enrollmentStart": 25747,
     "businessPctStart": 0.1603,
-    "businessDegreesStart": 949
+    "businessDegreesStart": 949,
+    "fromInterim": true
   },
   {
     "id": 366,
@@ -29038,7 +29043,7 @@
     "enrollmentAvg": 15981,
     "businessPctEnd": 0.1506,
     "businessDegreesLatest": 681,
-    "convertedToPermanent": false,
+    "convertedToPermanent": true,
     "connectionType": "",
     "enrollmentStart": 15650,
     "businessPctStart": 0.1795,
@@ -29101,7 +29106,8 @@
     "connectionType": "",
     "enrollmentStart": 16389,
     "businessPctStart": 0.1506,
-    "businessDegreesStart": 447
+    "businessDegreesStart": 447,
+    "fromInterim": true
   },
   {
     "id": 503,
@@ -35974,9 +35980,9 @@
     "school": "School of Pharmacy",
     "dean": "J. Lester Hayman",
     "startYear": 1936,
-    "endYear": 2006,
+    "endYear": null,
     "startLabel": "1936",
-    "endLabel": "2006",
+    "endLabel": "unknown",
     "priorTitle": "pharmacy faculty",
     "priorInstitution": "",
     "origin": "Unknown",
@@ -36005,7 +36011,7 @@
     "inTop100": false,
     "fromEliteInstitution": false,
     "priorInstitutionElite": false,
-    "tenureLength": 70,
+    "tenureLength": null,
     "era": "Pre-1980",
     "notes": "Founding dean when a separate WVU College of Pharmacy was established in 1936 (pharmacy education began 1914 within the School of Medicine). End year undocumented; DOCUMENTED GAP for deans between 1936 and Spratto.",
     "nextRole": "Unknown",

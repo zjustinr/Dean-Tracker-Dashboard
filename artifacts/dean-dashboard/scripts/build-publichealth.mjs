@@ -4,6 +4,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { normalizeTenureFields } from "./lib/tenure.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SRC = join(HERE, "..", "src", "data");
@@ -94,6 +95,7 @@ const deans = raw.map((d) => {
   };
 });
 
+for (const d of deans) normalizeTenureFields(d);
 writeFileSync(join(SRC, "r1-publichealth-deans.json"), JSON.stringify(deans, null, 1));
 
 // Fold education into leader-research.json (keyed by dean|university, lowercased).
