@@ -54,7 +54,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 2,
@@ -111,7 +112,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 3,
@@ -168,7 +170,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 4,
@@ -225,7 +228,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 5,
@@ -285,7 +289,8 @@
   "seatType": "standalone",
   "enrollmentStart": 2395,
   "businessPctStart": 0.1011,
-  "businessDegreesStart": 27
+  "businessDegreesStart": 27,
+  "seatRole": "chief_executive"
  },
  {
   "id": 6,
@@ -342,7 +347,8 @@
   "businessDegreesLatest": 978,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 7,
@@ -399,7 +405,8 @@
   "businessDegreesLatest": 978,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 8,
@@ -456,7 +463,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 9,
@@ -513,7 +521,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 10,
@@ -570,7 +579,8 @@
   "businessDegreesLatest": 507,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 11,
@@ -630,7 +640,8 @@
   "seatType": "standalone",
   "enrollmentStart": 27955,
   "businessPctStart": 0.0243,
-  "businessDegreesStart": 96
+  "businessDegreesStart": 96,
+  "seatRole": "chief_executive"
  },
  {
   "id": 12,
@@ -690,7 +701,8 @@
   "seatType": "campus",
   "enrollmentStart": 9706,
   "businessPctStart": 0.1135,
-  "businessDegreesStart": 112
+  "businessDegreesStart": 112,
+  "seatRole": "chief_executive"
  },
  {
   "id": 13,
@@ -750,7 +762,8 @@
   "seatType": "campus",
   "enrollmentStart": 14127,
   "businessPctStart": 0.1095,
-  "businessDegreesStart": 226
+  "businessDegreesStart": 226,
+  "seatRole": "chief_executive"
  },
  {
   "id": 14,
@@ -810,7 +823,8 @@
   "seatType": "campus",
   "enrollmentStart": 13408,
   "businessPctStart": 0.1375,
-  "businessDegreesStart": 195
+  "businessDegreesStart": 195,
+  "seatRole": "chief_executive"
  },
  {
   "id": 15,
@@ -867,7 +881,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 16,
@@ -924,7 +939,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 17,
@@ -981,7 +997,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 18,
@@ -1038,7 +1055,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 19,
@@ -1095,7 +1113,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 20,
@@ -1152,7 +1171,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 21,
@@ -1212,7 +1232,8 @@
   "seatType": "campus",
   "enrollmentStart": 36606,
   "businessPctStart": 0.1041,
-  "businessDegreesStart": 403
+  "businessDegreesStart": 403,
+  "seatRole": "chief_executive"
  },
  {
   "id": 22,
@@ -1272,7 +1293,8 @@
   "seatType": "campus",
   "enrollmentStart": 36885,
   "businessPctStart": 0.1605,
-  "businessDegreesStart": 1111
+  "businessDegreesStart": 1111,
+  "seatRole": "chief_executive"
  },
  {
   "id": 23,
@@ -1332,7 +1354,8 @@
   "seatType": "campus",
   "enrollmentStart": 33397,
   "businessPctStart": 0.1495,
-  "businessDegreesStart": 971
+  "businessDegreesStart": 971,
+  "seatRole": "chief_executive"
  },
  {
   "id": 24,
@@ -1392,7 +1415,8 @@
   "seatType": "campus",
   "enrollmentStart": 29506,
   "businessPctStart": 0.1266,
-  "businessDegreesStart": 920
+  "businessDegreesStart": 920,
+  "seatRole": "chief_executive"
  },
  {
   "id": 25,
@@ -1451,7 +1475,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0852,
-  "businessDegreesStart": 535
+  "businessDegreesStart": 535,
+  "seatRole": "chief_executive"
  },
  {
   "id": 26,
@@ -1508,7 +1533,8 @@
   "businessDegreesLatest": 535,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 27,
@@ -1568,7 +1594,8 @@
   "seatType": "standalone",
   "enrollmentStart": 23482,
   "businessPctStart": 0.0726,
-  "businessDegreesStart": 282
+  "businessDegreesStart": 282,
+  "seatRole": "chief_executive"
  },
  {
   "id": 28,
@@ -1628,7 +1655,8 @@
   "seatType": "standalone",
   "enrollmentStart": 23923,
   "businessPctStart": 0.073,
-  "businessDegreesStart": 309
+  "businessDegreesStart": 309,
+  "seatRole": "chief_executive"
  },
  {
   "id": 29,
@@ -1688,7 +1716,8 @@
   "seatType": "standalone",
   "enrollmentStart": 23874,
   "businessPctStart": 0.0738,
-  "businessDegreesStart": 344
+  "businessDegreesStart": 344,
+  "seatRole": "chief_executive"
  },
  {
   "id": 30,
@@ -1748,7 +1777,8 @@
   "seatType": "standalone",
   "enrollmentStart": 17566,
   "businessPctStart": 0.0773,
-  "businessDegreesStart": 347
+  "businessDegreesStart": 347,
+  "seatRole": "chief_executive"
  },
  {
   "id": 31,
@@ -1805,7 +1835,8 @@
   "businessDegreesLatest": 856,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 32,
@@ -1865,7 +1896,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9154,
   "businessPctStart": 0.0422,
-  "businessDegreesStart": 77
+  "businessDegreesStart": 77,
+  "seatRole": "chief_executive"
  },
  {
   "id": 33,
@@ -1925,7 +1957,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8851,
   "businessPctStart": 0.0361,
-  "businessDegreesStart": 69
+  "businessDegreesStart": 69,
+  "seatRole": "chief_executive"
  },
  {
   "id": 34,
@@ -1985,7 +2018,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8851,
   "businessPctStart": 0.0361,
-  "businessDegreesStart": 69
+  "businessDegreesStart": 69,
+  "seatRole": "chief_executive"
  },
  {
   "id": 35,
@@ -2045,7 +2079,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8378,
   "businessPctStart": 0.0344,
-  "businessDegreesStart": 72
+  "businessDegreesStart": 72,
+  "seatRole": "chief_executive"
  },
  {
   "id": 36,
@@ -2105,7 +2140,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8378,
   "businessPctStart": 0.0344,
-  "businessDegreesStart": 72
+  "businessDegreesStart": 72,
+  "seatRole": "chief_executive"
  },
  {
   "id": 37,
@@ -2162,7 +2198,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 38,
@@ -2219,7 +2256,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 39,
@@ -2276,7 +2314,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 40,
@@ -2333,7 +2372,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 41,
@@ -2390,7 +2430,8 @@
   "businessDegreesLatest": 677,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 42,
@@ -2450,7 +2491,8 @@
   "seatType": "standalone",
   "enrollmentStart": 28962,
   "businessPctStart": 0.1207,
-  "businessDegreesStart": 684
+  "businessDegreesStart": 684,
+  "seatRole": "chief_executive"
  },
  {
   "id": 43,
@@ -2510,7 +2552,8 @@
   "seatType": "standalone",
   "enrollmentStart": 28962,
   "businessPctStart": 0.1207,
-  "businessDegreesStart": 684
+  "businessDegreesStart": 684,
+  "seatRole": "chief_executive"
  },
  {
   "id": 44,
@@ -2570,7 +2613,8 @@
   "seatType": "campus",
   "enrollmentStart": 22562,
   "businessPctStart": 0.1407,
-  "businessDegreesStart": 195
+  "businessDegreesStart": 195,
+  "seatRole": "chief_executive"
  },
  {
   "id": 45,
@@ -2630,7 +2674,8 @@
   "seatType": "campus",
   "enrollmentStart": 24613,
   "businessPctStart": 0.1351,
-  "businessDegreesStart": 281
+  "businessDegreesStart": 281,
+  "seatRole": "chief_executive"
  },
  {
   "id": 46,
@@ -2690,7 +2735,8 @@
   "seatType": "campus",
   "enrollmentStart": 24073,
   "businessPctStart": 0.1334,
-  "businessDegreesStart": 281
+  "businessDegreesStart": 281,
+  "seatRole": "chief_executive"
  },
  {
   "id": 47,
@@ -2750,7 +2796,8 @@
   "seatType": "campus",
   "enrollmentStart": 17813,
   "businessPctStart": 0.0654,
-  "businessDegreesStart": 363
+  "businessDegreesStart": 363,
+  "seatRole": "chief_executive"
  },
  {
   "id": 48,
@@ -2810,7 +2857,8 @@
   "seatType": "campus",
   "enrollmentStart": 18569,
   "businessPctStart": 0.0827,
-  "businessDegreesStart": 412
+  "businessDegreesStart": 412,
+  "seatRole": "chief_executive"
  },
  {
   "id": 49,
@@ -2867,7 +2915,8 @@
   "businessDegreesLatest": 265,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 50,
@@ -2927,7 +2976,8 @@
   "seatType": "standalone",
   "enrollmentStart": 23210,
   "businessPctStart": 0.2187,
-  "businessDegreesStart": 446
+  "businessDegreesStart": 446,
+  "seatRole": "chief_executive"
  },
  {
   "id": 51,
@@ -2987,7 +3037,8 @@
   "seatType": "standalone",
   "enrollmentStart": 22595,
   "businessPctStart": 0.2068,
-  "businessDegreesStart": 454
+  "businessDegreesStart": 454,
+  "seatRole": "chief_executive"
  },
  {
   "id": 52,
@@ -3044,7 +3095,8 @@
   "businessDegreesLatest": 265,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 53,
@@ -3101,7 +3153,8 @@
   "businessDegreesLatest": 5012,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 54,
@@ -3161,7 +3214,8 @@
   "seatType": "standalone",
   "enrollmentStart": 13439,
   "businessPctStart": 0.1756,
-  "businessDegreesStart": 167
+  "businessDegreesStart": 167,
+  "seatRole": "chief_executive"
  },
  {
   "id": 55,
@@ -3221,7 +3275,8 @@
   "seatType": "standalone",
   "enrollmentStart": 78910,
   "businessPctStart": 0.1796,
-  "businessDegreesStart": 3482
+  "businessDegreesStart": 3482,
+  "seatRole": "chief_executive"
  },
  {
   "id": 56,
@@ -3278,7 +3333,8 @@
   "businessDegreesLatest": 5012,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 57,
@@ -3338,7 +3394,8 @@
   "seatType": "standalone",
   "enrollmentStart": 24704,
   "businessPctStart": 0.2098,
-  "businessDegreesStart": 386
+  "businessDegreesStart": 386,
+  "seatRole": "chief_executive"
  },
  {
   "id": 58,
@@ -3398,7 +3455,8 @@
   "seatType": "standalone",
   "enrollmentStart": 24658,
   "businessPctStart": 0.1874,
-  "businessDegreesStart": 394
+  "businessDegreesStart": 394,
+  "seatRole": "chief_executive"
  },
  {
   "id": 59,
@@ -3458,7 +3516,8 @@
   "seatType": "standalone",
   "enrollmentStart": 23147,
   "businessPctStart": 0.1558,
-  "businessDegreesStart": 722
+  "businessDegreesStart": 722,
+  "seatRole": "chief_executive"
  },
  {
   "id": 60,
@@ -3518,7 +3577,8 @@
   "seatType": "standalone",
   "enrollmentStart": 21761,
   "businessPctStart": 0.147,
-  "businessDegreesStart": 752
+  "businessDegreesStart": 752,
+  "seatRole": "chief_executive"
  },
  {
   "id": 61,
@@ -3578,7 +3638,8 @@
   "seatType": "standalone",
   "enrollmentStart": 22402,
   "businessPctStart": 0.1441,
-  "businessDegreesStart": 746
+  "businessDegreesStart": 746,
+  "seatRole": "chief_executive"
  },
  {
   "id": 62,
@@ -3638,7 +3699,8 @@
   "seatType": "campus",
   "enrollmentStart": 16948,
   "businessPctStart": 0.1195,
-  "businessDegreesStart": 521
+  "businessDegreesStart": 521,
+  "seatRole": "chief_executive"
  },
  {
   "id": 63,
@@ -3698,7 +3760,8 @@
   "seatType": "campus",
   "enrollmentStart": 15772,
   "businessPctStart": 0.1235,
-  "businessDegreesStart": 468
+  "businessDegreesStart": 468,
+  "seatRole": "chief_executive"
  },
  {
   "id": 64,
@@ -3757,7 +3820,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.1394,
-  "businessDegreesStart": 897
+  "businessDegreesStart": 897,
+  "seatRole": "chief_executive"
  },
  {
   "id": 65,
@@ -3816,7 +3880,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.1394,
-  "businessDegreesStart": 897
+  "businessDegreesStart": 897,
+  "seatRole": "chief_executive"
  },
  {
   "id": 66,
@@ -3876,7 +3941,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10526,
   "businessPctStart": 0.0479,
-  "businessDegreesStart": 83
+  "businessDegreesStart": 83,
+  "seatRole": "chief_executive"
  },
  {
   "id": 67,
@@ -3936,7 +4002,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11407,
   "businessPctStart": 0.0264,
-  "businessDegreesStart": 43
+  "businessDegreesStart": 43,
+  "seatRole": "chief_executive"
  },
  {
   "id": 68,
@@ -3996,7 +4063,8 @@
   "seatType": "standalone",
   "enrollmentStart": 15299,
   "businessPctStart": 0.0426,
-  "businessDegreesStart": 75
+  "businessDegreesStart": 75,
+  "seatRole": "chief_executive"
  },
  {
   "id": 69,
@@ -4056,7 +4124,8 @@
   "seatType": "standalone",
   "enrollmentStart": 14725,
   "businessPctStart": 0.0411,
-  "businessDegreesStart": 88
+  "businessDegreesStart": 88,
+  "seatRole": "chief_executive"
  },
  {
   "id": 70,
@@ -4116,7 +4185,8 @@
   "seatType": "standalone",
   "enrollmentStart": 57978,
   "businessPctStart": 0.1217,
-  "businessDegreesStart": 722
+  "businessDegreesStart": 722,
+  "seatRole": "chief_executive"
  },
  {
   "id": 71,
@@ -4176,7 +4246,8 @@
   "seatType": "standalone",
   "enrollmentStart": 58276,
   "businessPctStart": 0.0919,
-  "businessDegreesStart": 543
+  "businessDegreesStart": 543,
+  "seatRole": "chief_executive"
  },
  {
   "id": 72,
@@ -4236,7 +4307,8 @@
   "seatType": "standalone",
   "enrollmentStart": 49749,
   "businessPctStart": 0.1958,
-  "businessDegreesStart": 1286
+  "businessDegreesStart": 1286,
+  "seatRole": "chief_executive"
  },
  {
   "id": 73,
@@ -4295,7 +4367,8 @@
   "connectionType": "Same institution",
   "seatType": "standalone",
   "businessPctStart": 0.1882,
-  "businessDegreesStart": 1266
+  "businessDegreesStart": 1266,
+  "seatRole": "chief_executive"
  },
  {
   "id": 74,
@@ -4355,7 +4428,8 @@
   "seatType": "standalone",
   "enrollmentStart": 28908,
   "businessPctStart": 0.1036,
-  "businessDegreesStart": 169
+  "businessDegreesStart": 169,
+  "seatRole": "chief_executive"
  },
  {
   "id": 75,
@@ -4415,7 +4489,8 @@
   "seatType": "standalone",
   "enrollmentStart": 28337,
   "businessPctStart": 0.1244,
-  "businessDegreesStart": 194
+  "businessDegreesStart": 194,
+  "seatRole": "chief_executive"
  },
  {
   "id": 76,
@@ -4475,7 +4550,8 @@
   "seatType": "standalone",
   "enrollmentStart": 30615,
   "businessPctStart": 0.0996,
-  "businessDegreesStart": 372
+  "businessDegreesStart": 372,
+  "seatRole": "chief_executive"
  },
  {
   "id": 77,
@@ -4535,7 +4611,8 @@
   "seatType": "standalone",
   "enrollmentStart": 30828,
   "businessPctStart": 0.1154,
-  "businessDegreesStart": 561
+  "businessDegreesStart": 561,
+  "seatRole": "chief_executive"
  },
  {
   "id": 78,
@@ -4595,7 +4672,8 @@
   "seatType": "standalone",
   "enrollmentStart": 30134,
   "businessPctStart": 0.1581,
-  "businessDegreesStart": 619
+  "businessDegreesStart": 619,
+  "seatRole": "chief_executive"
  },
  {
   "id": 79,
@@ -4655,7 +4733,8 @@
   "seatType": "standalone",
   "enrollmentStart": 30134,
   "businessPctStart": 0.1581,
-  "businessDegreesStart": 619
+  "businessDegreesStart": 619,
+  "seatRole": "chief_executive"
  },
  {
   "id": 80,
@@ -4715,7 +4794,8 @@
   "seatType": "standalone",
   "enrollmentStart": 20941,
   "businessPctStart": 0.119,
-  "businessDegreesStart": 519
+  "businessDegreesStart": 519,
+  "seatRole": "chief_executive"
  },
  {
   "id": 81,
@@ -4775,7 +4855,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16769,
   "businessPctStart": 0.1279,
-  "businessDegreesStart": 466
+  "businessDegreesStart": 466,
+  "seatRole": "chief_executive"
  },
  {
   "id": 82,
@@ -4835,7 +4916,8 @@
   "seatType": "campus",
   "enrollmentStart": 10959,
   "businessPctStart": 0.172,
-  "businessDegreesStart": 373
+  "businessDegreesStart": 373,
+  "seatRole": "chief_executive"
  },
  {
   "id": 83,
@@ -4895,7 +4977,8 @@
   "seatType": "campus",
   "enrollmentStart": 9050,
   "businessPctStart": 0.1642,
-  "businessDegreesStart": 319
+  "businessDegreesStart": 319,
+  "seatRole": "chief_executive"
  },
  {
   "id": 84,
@@ -4955,7 +5038,8 @@
   "seatType": "campus",
   "enrollmentStart": 9649,
   "businessPctStart": 0.1467,
-  "businessDegreesStart": 305
+  "businessDegreesStart": 305,
+  "seatRole": "chief_executive"
  },
  {
   "id": 85,
@@ -5012,7 +5096,8 @@
   "businessDegreesLatest": 353,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 86,
@@ -5069,7 +5154,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 87,
@@ -5126,7 +5212,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 88,
@@ -5186,7 +5273,8 @@
   "seatType": "standalone",
   "enrollmentStart": 31730,
   "businessPctStart": 0.0491,
-  "businessDegreesStart": 171
+  "businessDegreesStart": 171,
+  "seatRole": "chief_executive"
  },
  {
   "id": 89,
@@ -5246,7 +5334,8 @@
   "seatType": "standalone",
   "enrollmentStart": 40784,
   "businessPctStart": 0.3201,
-  "businessDegreesStart": 3822
+  "businessDegreesStart": 3822,
+  "seatRole": "chief_executive"
  },
  {
   "id": 90,
@@ -5303,7 +5392,8 @@
   "businessDegreesLatest": 2130,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 91,
@@ -5363,7 +5453,8 @@
   "seatType": "standalone",
   "enrollmentStart": 32127,
   "businessPctStart": 0.0693,
-  "businessDegreesStart": 307
+  "businessDegreesStart": 307,
+  "seatRole": "chief_executive"
  },
  {
   "id": 92,
@@ -5420,7 +5511,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 93,
@@ -5480,7 +5572,8 @@
   "seatType": "campus",
   "enrollmentStart": 18975,
   "businessPctStart": 0.07,
-  "businessDegreesStart": 192
+  "businessDegreesStart": 192,
+  "seatRole": "chief_executive"
  },
  {
   "id": 94,
@@ -5539,7 +5632,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0826,
-  "businessDegreesStart": 252
+  "businessDegreesStart": 252,
+  "seatRole": "chief_executive"
  },
  {
   "id": 95,
@@ -5598,7 +5692,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.1173,
-  "businessDegreesStart": 345
+  "businessDegreesStart": 345,
+  "seatRole": "chief_executive"
  },
  {
   "id": 96,
@@ -5658,7 +5753,8 @@
   "seatType": "campus",
   "enrollmentStart": 20271,
   "businessPctStart": 0.1107,
-  "businessDegreesStart": 422
+  "businessDegreesStart": 422,
+  "seatRole": "chief_executive"
  },
  {
   "id": 97,
@@ -5715,7 +5811,8 @@
   "businessDegreesLatest": 419,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 98,
@@ -5775,7 +5872,8 @@
   "seatType": "standalone",
   "enrollmentStart": 17861,
   "businessPctStart": 0.1856,
-  "businessDegreesStart": 488
+  "businessDegreesStart": 488,
+  "seatRole": "chief_executive"
  },
  {
   "id": 99,
@@ -5835,7 +5933,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16971,
   "businessPctStart": 0.2317,
-  "businessDegreesStart": 735
+  "businessDegreesStart": 735,
+  "seatRole": "chief_executive"
  },
  {
   "id": 100,
@@ -5951,7 +6050,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1458,
-  "businessDegreesStart": 426
+  "businessDegreesStart": 426,
+  "seatRole": "chief_executive"
  },
  {
   "id": 102,
@@ -6011,7 +6111,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10764,
   "businessPctStart": 0.0796,
-  "businessDegreesStart": 191
+  "businessDegreesStart": 191,
+  "seatRole": "chief_executive"
  },
  {
   "id": 103,
@@ -6070,7 +6171,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.068,
-  "businessDegreesStart": 288
+  "businessDegreesStart": 288,
+  "seatRole": "chief_executive"
  },
  {
   "id": 104,
@@ -6130,7 +6232,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12142,
   "businessPctStart": 0.137,
-  "businessDegreesStart": 252
+  "businessDegreesStart": 252,
+  "seatRole": "chief_executive"
  },
  {
   "id": 105,
@@ -6187,7 +6290,8 @@
   "businessDegreesLatest": 285,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 106,
@@ -6244,7 +6348,8 @@
   "businessDegreesLatest": 285,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 107,
@@ -6304,7 +6409,8 @@
   "seatType": "standalone",
   "enrollmentStart": 14414,
   "businessPctStart": 0.1129,
-  "businessDegreesStart": 308
+  "businessDegreesStart": 308,
+  "seatRole": "chief_executive"
  },
  {
   "id": 108,
@@ -6361,7 +6467,8 @@
   "businessDegreesLatest": 407,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 109,
@@ -6421,7 +6528,8 @@
   "seatType": "standalone",
   "enrollmentStart": 17650,
   "businessPctStart": 0.2072,
-  "businessDegreesStart": 465
+  "businessDegreesStart": 465,
+  "seatRole": "chief_executive"
  },
  {
   "id": 110,
@@ -6478,7 +6586,8 @@
   "businessDegreesLatest": 415,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 111,
@@ -6538,7 +6647,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8892,
   "businessPctStart": 0.044,
-  "businessDegreesStart": 103
+  "businessDegreesStart": 103,
+  "seatRole": "chief_executive"
  },
  {
   "id": 112,
@@ -6598,7 +6708,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10873,
   "businessPctStart": 0.074,
-  "businessDegreesStart": 180
+  "businessDegreesStart": 180,
+  "seatRole": "chief_executive"
  },
  {
   "id": 113,
@@ -6655,7 +6766,8 @@
   "businessDegreesLatest": 230,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 114,
@@ -6715,7 +6827,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11310,
   "businessPctStart": 0.1502,
-  "businessDegreesStart": 201
+  "businessDegreesStart": 201,
+  "seatRole": "chief_executive"
  },
  {
   "id": 115,
@@ -6775,7 +6888,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11684,
   "businessPctStart": 0.0462,
-  "businessDegreesStart": 53
+  "businessDegreesStart": 53,
+  "seatRole": "chief_executive"
  },
  {
   "id": 116,
@@ -6834,7 +6948,8 @@
   "connectionType": "Same institution",
   "seatType": "standalone",
   "businessPctStart": 0.0819,
-  "businessDegreesStart": 126
+  "businessDegreesStart": 126,
+  "seatRole": "chief_executive"
  },
  {
   "id": 117,
@@ -6894,7 +7009,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10024,
   "businessPctStart": 0.1197,
-  "businessDegreesStart": 178
+  "businessDegreesStart": 178,
+  "seatRole": "chief_executive"
  },
  {
   "id": 118,
@@ -6954,7 +7070,8 @@
   "seatType": "standalone",
   "enrollmentStart": 64156,
   "businessPctStart": 0.1516,
-  "businessDegreesStart": 1654
+  "businessDegreesStart": 1654,
+  "seatRole": "chief_executive"
  },
  {
   "id": 119,
@@ -7071,7 +7188,8 @@
   "seatType": "campus",
   "enrollmentStart": 29133,
   "businessPctStart": 0.0411,
-  "businessDegreesStart": 286
+  "businessDegreesStart": 286,
+  "seatRole": "chief_executive"
  },
  {
   "id": 121,
@@ -7131,7 +7249,8 @@
   "seatType": "campus",
   "enrollmentStart": 29908,
   "businessPctStart": 0.1037,
-  "businessDegreesStart": 393
+  "businessDegreesStart": 393,
+  "seatRole": "chief_executive"
  },
  {
   "id": 122,
@@ -7191,7 +7310,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11095,
   "businessPctStart": 0.1323,
-  "businessDegreesStart": 172
+  "businessDegreesStart": 172,
+  "seatRole": "chief_executive"
  },
  {
   "id": 123,
@@ -7251,7 +7371,8 @@
   "seatType": "standalone",
   "enrollmentStart": 22003,
   "businessPctStart": 0.2297,
-  "businessDegreesStart": 1671
+  "businessDegreesStart": 1671,
+  "seatRole": "chief_executive"
  },
  {
   "id": 124,
@@ -7368,7 +7489,8 @@
   "seatType": "standalone",
   "enrollmentStart": 15985,
   "businessPctStart": 0.1308,
-  "businessDegreesStart": 401
+  "businessDegreesStart": 401,
+  "seatRole": "chief_executive"
  },
  {
   "id": 126,
@@ -7485,7 +7607,8 @@
   "seatType": "standalone",
   "enrollmentStart": 18711,
   "businessPctStart": 0.0535,
-  "businessDegreesStart": 139
+  "businessDegreesStart": 139,
+  "seatRole": "chief_executive"
  },
  {
   "id": 128,
@@ -7601,7 +7724,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1526,
-  "businessDegreesStart": 240
+  "businessDegreesStart": 240,
+  "seatRole": "chief_executive"
  },
  {
   "id": 130,
@@ -7718,7 +7842,8 @@
   "seatType": "campus",
   "enrollmentStart": 20042,
   "businessPctStart": 0.1237,
-  "businessDegreesStart": 649
+  "businessDegreesStart": 649,
+  "seatRole": "chief_executive"
  },
  {
   "id": 132,
@@ -7778,7 +7903,8 @@
   "seatType": "standalone",
   "enrollmentStart": 18902,
   "businessPctStart": 0.0349,
-  "businessDegreesStart": 88
+  "businessDegreesStart": 88,
+  "seatRole": "chief_executive"
  },
  {
   "id": 133,
@@ -7895,7 +8021,8 @@
   "seatType": "campus",
   "enrollmentStart": 15426,
   "businessPctStart": 0.0956,
-  "businessDegreesStart": 398
+  "businessDegreesStart": 398,
+  "seatRole": "chief_executive"
  },
  {
   "id": 135,
@@ -7955,7 +8082,8 @@
   "seatType": "campus",
   "enrollmentStart": 13023,
   "businessPctStart": 0.108,
-  "businessDegreesStart": 380
+  "businessDegreesStart": 380,
+  "seatRole": "chief_executive"
  },
  {
   "id": 136,
@@ -8012,7 +8140,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 137,
@@ -8069,7 +8198,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 138,
@@ -8129,7 +8259,8 @@
   "seatType": "campus",
   "enrollmentStart": 13112,
   "businessPctStart": 0.2171,
-  "businessDegreesStart": 195
+  "businessDegreesStart": 195,
+  "seatRole": "chief_executive"
  },
  {
   "id": 139,
@@ -8189,7 +8320,8 @@
   "seatType": "campus",
   "enrollmentStart": 12218,
   "businessPctStart": 0.138,
-  "businessDegreesStart": 347
+  "businessDegreesStart": 347,
+  "seatRole": "chief_executive"
  },
  {
   "id": 140,
@@ -8246,7 +8378,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 141,
@@ -8303,7 +8436,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 142,
@@ -8362,7 +8496,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0532,
-  "businessDegreesStart": 116
+  "businessDegreesStart": 116,
+  "seatRole": "chief_executive"
  },
  {
   "id": 143,
@@ -8419,7 +8554,8 @@
   "businessDegreesLatest": 116,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 144,
@@ -8479,7 +8615,8 @@
   "seatType": "standalone",
   "enrollmentStart": 15062,
   "businessPctStart": 0.1222,
-  "businessDegreesStart": 322
+  "businessDegreesStart": 322,
+  "seatRole": "chief_executive"
  },
  {
   "id": 145,
@@ -8536,7 +8673,8 @@
   "businessDegreesLatest": 532,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 146,
@@ -8596,7 +8734,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7376,
   "businessPctStart": 0.0759,
-  "businessDegreesStart": 189
+  "businessDegreesStart": 189,
+  "seatRole": "chief_executive"
  },
  {
   "id": 147,
@@ -8656,7 +8795,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9392,
   "businessPctStart": 0.1348,
-  "businessDegreesStart": 228
+  "businessDegreesStart": 228,
+  "seatRole": "chief_executive"
  },
  {
   "id": 148,
@@ -8772,7 +8912,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.0177,
-  "businessDegreesStart": 55
+  "businessDegreesStart": 55,
+  "seatRole": "chief_executive"
  },
  {
   "id": 150,
@@ -8832,7 +8973,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10306,
   "businessPctStart": 0.0559,
-  "businessDegreesStart": 137
+  "businessDegreesStart": 137,
+  "seatRole": "chief_executive"
  },
  {
   "id": 151,
@@ -8892,7 +9034,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9021,
   "businessPctStart": 0.1518,
-  "businessDegreesStart": 235
+  "businessDegreesStart": 235,
+  "seatRole": "chief_executive"
  },
  {
   "id": 152,
@@ -8952,7 +9095,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7134,
   "businessPctStart": 0.1764,
-  "businessDegreesStart": 193
+  "businessDegreesStart": 193,
+  "seatRole": "chief_executive"
  },
  {
   "id": 153,
@@ -9012,7 +9156,8 @@
   "seatType": "standalone",
   "enrollmentStart": 51679,
   "businessPctStart": 0.2479,
-  "businessDegreesStart": 4140
+  "businessDegreesStart": 4140,
+  "seatRole": "chief_executive"
  },
  {
   "id": 154,
@@ -9072,7 +9217,8 @@
   "seatType": "standalone",
   "enrollmentStart": 44002,
   "businessPctStart": 0.2426,
-  "businessDegreesStart": 4250
+  "businessDegreesStart": 4250,
+  "seatRole": "chief_executive"
  },
  {
   "id": 155,
@@ -9132,7 +9278,8 @@
   "seatType": "standalone",
   "enrollmentStart": 28742,
   "businessPctStart": 0.2014,
-  "businessDegreesStart": 1001
+  "businessDegreesStart": 1001,
+  "seatRole": "chief_executive"
  },
  {
   "id": 156,
@@ -9192,7 +9339,8 @@
   "seatType": "standalone",
   "enrollmentStart": 23592,
   "businessPctStart": 0.1738,
-  "businessDegreesStart": 930
+  "businessDegreesStart": 930,
+  "seatRole": "chief_executive"
  },
  {
   "id": 157,
@@ -9252,7 +9400,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16168,
   "businessPctStart": 0.1144,
-  "businessDegreesStart": 478
+  "businessDegreesStart": 478,
+  "seatRole": "chief_executive"
  },
  {
   "id": 158,
@@ -9312,7 +9461,8 @@
   "seatType": "standalone",
   "enrollmentStart": 19860,
   "businessPctStart": 0.1622,
-  "businessDegreesStart": 242
+  "businessDegreesStart": 242,
+  "seatRole": "chief_executive"
  },
  {
   "id": 159,
@@ -9372,7 +9522,8 @@
   "seatType": "standalone",
   "enrollmentStart": 19780,
   "businessPctStart": 0.1876,
-  "businessDegreesStart": 323
+  "businessDegreesStart": 323,
+  "seatRole": "chief_executive"
  },
  {
   "id": 160,
@@ -9432,7 +9583,8 @@
   "seatType": "campus",
   "enrollmentStart": 15372,
   "businessPctStart": 0.0573,
-  "businessDegreesStart": 252
+  "businessDegreesStart": 252,
+  "seatRole": "chief_executive"
  },
  {
   "id": 161,
@@ -9492,7 +9644,8 @@
   "seatType": "standalone",
   "enrollmentStart": 15236,
   "businessPctStart": 0.1481,
-  "businessDegreesStart": 669
+  "businessDegreesStart": 669,
+  "seatRole": "chief_executive"
  },
  {
   "id": 162,
@@ -9552,7 +9705,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10212,
   "businessPctStart": 0.1467,
-  "businessDegreesStart": 432
+  "businessDegreesStart": 432,
+  "seatRole": "chief_executive"
  },
  {
   "id": 163,
@@ -9612,7 +9766,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16788,
   "businessPctStart": 0.0166,
-  "businessDegreesStart": 57
+  "businessDegreesStart": 57,
+  "seatRole": "chief_executive"
  },
  {
   "id": 164,
@@ -9672,7 +9827,8 @@
   "seatType": "standalone",
   "enrollmentStart": 14292,
   "businessPctStart": 0.1408,
-  "businessDegreesStart": 600
+  "businessDegreesStart": 600,
+  "seatRole": "chief_executive"
  },
  {
   "id": 165,
@@ -9732,7 +9888,8 @@
   "seatType": "campus",
   "enrollmentStart": 9852,
   "businessPctStart": 0.156,
-  "businessDegreesStart": 271
+  "businessDegreesStart": 271,
+  "seatRole": "chief_executive"
  },
  {
   "id": 166,
@@ -9792,7 +9949,8 @@
   "seatType": "campus",
   "enrollmentStart": 11979,
   "businessPctStart": 0.1725,
-  "businessDegreesStart": 655
+  "businessDegreesStart": 655,
+  "seatRole": "chief_executive"
  },
  {
   "id": 167,
@@ -9852,7 +10010,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11353,
   "businessPctStart": 0.1146,
-  "businessDegreesStart": 232
+  "businessDegreesStart": 232,
+  "seatRole": "chief_executive"
  },
  {
   "id": 168,
@@ -9912,7 +10071,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7234,
   "businessPctStart": 0.2684,
-  "businessDegreesStart": 815
+  "businessDegreesStart": 815,
+  "seatRole": "chief_executive"
  },
  {
   "id": 169,
@@ -9972,7 +10132,8 @@
   "seatType": "campus",
   "enrollmentStart": 10433,
   "businessPctStart": 0.0402,
-  "businessDegreesStart": 220
+  "businessDegreesStart": 220,
+  "seatRole": "chief_executive"
  },
  {
   "id": 170,
@@ -10032,7 +10193,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7321,
   "businessPctStart": 0.0734,
-  "businessDegreesStart": 91
+  "businessDegreesStart": 91,
+  "seatRole": "chief_executive"
  },
  {
   "id": 171,
@@ -10092,7 +10254,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9056,
   "businessPctStart": 0.1504,
-  "businessDegreesStart": 211
+  "businessDegreesStart": 211,
+  "seatRole": "chief_executive"
  },
  {
   "id": 172,
@@ -10149,7 +10312,8 @@
   "businessDegreesLatest": 257,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 173,
@@ -10209,7 +10373,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12966,
   "businessPctStart": 0.1687,
-  "businessDegreesStart": 286
+  "businessDegreesStart": 286,
+  "seatRole": "chief_executive"
  },
  {
   "id": 174,
@@ -10269,7 +10434,8 @@
   "seatType": "standalone",
   "enrollmentStart": 52873,
   "businessPctStart": 0.1507,
-  "businessDegreesStart": 1175
+  "businessDegreesStart": 1175,
+  "seatRole": "chief_executive"
  },
  {
   "id": 175,
@@ -10329,7 +10495,8 @@
   "seatType": "standalone",
   "enrollmentStart": 34169,
   "businessPctStart": 0.1347,
-  "businessDegreesStart": 673
+  "businessDegreesStart": 673,
+  "seatRole": "chief_executive"
  },
  {
   "id": 176,
@@ -10388,7 +10555,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1281,
-  "businessDegreesStart": 645
+  "businessDegreesStart": 645,
+  "seatRole": "chief_executive"
  },
  {
   "id": 177,
@@ -10445,7 +10613,8 @@
   "businessDegreesLatest": 645,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 178,
@@ -10505,7 +10674,8 @@
   "seatType": "standalone",
   "enrollmentStart": 29548,
   "businessPctStart": 0.0779,
-  "businessDegreesStart": 573
+  "businessDegreesStart": 573,
+  "seatRole": "chief_executive"
  },
  {
   "id": 179,
@@ -10565,7 +10735,8 @@
   "seatType": "standalone",
   "enrollmentStart": 28494,
   "businessPctStart": 0.1715,
-  "businessDegreesStart": 912
+  "businessDegreesStart": 912,
+  "seatRole": "chief_executive"
  },
  {
   "id": 180,
@@ -10625,7 +10796,8 @@
   "seatType": "standalone",
   "enrollmentStart": 19400,
   "businessPctStart": 0.0707,
-  "businessDegreesStart": 335
+  "businessDegreesStart": 335,
+  "seatRole": "chief_executive"
  },
  {
   "id": 181,
@@ -10685,7 +10857,8 @@
   "seatType": "standalone",
   "enrollmentStart": 21398,
   "businessPctStart": 0.0802,
-  "businessDegreesStart": 846
+  "businessDegreesStart": 846,
+  "seatRole": "chief_executive"
  },
  {
   "id": 182,
@@ -10742,7 +10915,8 @@
   "businessDegreesLatest": 656,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 183,
@@ -10801,7 +10975,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1392,
-  "businessDegreesStart": 656
+  "businessDegreesStart": 656,
+  "seatRole": "chief_executive"
  },
  {
   "id": 184,
@@ -10858,7 +11033,8 @@
   "businessDegreesLatest": 656,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 185,
@@ -10918,7 +11094,8 @@
   "seatType": "standalone",
   "enrollmentStart": 17003,
   "businessPctStart": 0.1476,
-  "businessDegreesStart": 188
+  "businessDegreesStart": 188,
+  "seatRole": "chief_executive"
  },
  {
   "id": 186,
@@ -10978,7 +11155,8 @@
   "seatType": "standalone",
   "enrollmentStart": 18104,
   "businessPctStart": 0.1989,
-  "businessDegreesStart": 1129
+  "businessDegreesStart": 1129,
+  "seatRole": "chief_executive"
  },
  {
   "id": 187,
@@ -11038,7 +11216,8 @@
   "seatType": "standalone",
   "enrollmentStart": 15731,
   "businessPctStart": 0.0551,
-  "businessDegreesStart": 164
+  "businessDegreesStart": 164,
+  "seatRole": "chief_executive"
  },
  {
   "id": 188,
@@ -11098,7 +11277,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11902,
   "businessPctStart": 0.0843,
-  "businessDegreesStart": 302
+  "businessDegreesStart": 302,
+  "seatRole": "chief_executive"
  },
  {
   "id": 189,
@@ -11158,7 +11338,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12660,
   "businessPctStart": 0.137,
-  "businessDegreesStart": 360
+  "businessDegreesStart": 360,
+  "seatRole": "chief_executive"
  },
  {
   "id": 190,
@@ -11218,7 +11399,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12345,
   "businessPctStart": 0.0593,
-  "businessDegreesStart": 222
+  "businessDegreesStart": 222,
+  "seatRole": "chief_executive"
  },
  {
   "id": 191,
@@ -11275,7 +11457,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 192,
@@ -11335,7 +11518,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11357,
   "businessPctStart": 0.1569,
-  "businessDegreesStart": 185
+  "businessDegreesStart": 185,
+  "seatRole": "chief_executive"
  },
  {
   "id": 193,
@@ -11451,7 +11635,8 @@
   "connectionType": "Same institution",
   "seatType": "standalone",
   "businessPctStart": 0.0784,
-  "businessDegreesStart": 562
+  "businessDegreesStart": 562,
+  "seatRole": "chief_executive"
  },
  {
   "id": 195,
@@ -11511,7 +11696,8 @@
   "seatType": "campus",
   "enrollmentStart": 8840,
   "businessPctStart": 0.0531,
-  "businessDegreesStart": 112
+  "businessDegreesStart": 112,
+  "seatRole": "chief_executive"
  },
  {
   "id": 196,
@@ -11571,7 +11757,8 @@
   "seatType": "standalone",
   "enrollmentStart": 15653,
   "businessPctStart": 0.1943,
-  "businessDegreesStart": 261
+  "businessDegreesStart": 261,
+  "seatRole": "chief_executive"
  },
  {
   "id": 197,
@@ -11685,7 +11872,8 @@
   "businessDegreesLatest": 123,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 199,
@@ -11743,7 +11931,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 27565
+  "enrollmentStart": 27565,
+  "seatRole": "chief_executive"
  },
  {
   "id": 200,
@@ -11803,7 +11992,8 @@
   "seatType": "standalone",
   "enrollmentStart": 43599,
   "businessPctStart": 0.3425,
-  "businessDegreesStart": 6233
+  "businessDegreesStart": 6233,
+  "seatRole": "chief_executive"
  },
  {
   "id": 201,
@@ -11863,7 +12053,8 @@
   "seatType": "standalone",
   "enrollmentStart": 30513,
   "businessPctStart": 0.1487,
-  "businessDegreesStart": 373
+  "businessDegreesStart": 373,
+  "seatRole": "chief_executive"
  },
  {
   "id": 202,
@@ -11923,7 +12114,8 @@
   "seatType": "standalone",
   "enrollmentStart": 13719,
   "businessPctStart": 0.2238,
-  "businessDegreesStart": 318
+  "businessDegreesStart": 318,
+  "seatRole": "chief_executive"
  },
  {
   "id": 203,
@@ -11980,7 +12172,8 @@
   "businessDegreesLatest": 353,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 204,
@@ -12040,7 +12233,8 @@
   "seatType": "campus",
   "enrollmentStart": 19709,
   "businessPctStart": 0.0804,
-  "businessDegreesStart": 552
+  "businessDegreesStart": 552,
+  "seatRole": "chief_executive"
  },
  {
   "id": 205,
@@ -12097,7 +12291,8 @@
   "businessDegreesLatest": 736,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 206,
@@ -12156,7 +12351,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.0532,
-  "businessDegreesStart": 245
+  "businessDegreesStart": 245,
+  "seatRole": "chief_executive"
  },
  {
   "id": 207,
@@ -12213,7 +12409,8 @@
   "businessDegreesLatest": 245,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 208,
@@ -12270,7 +12467,8 @@
   "businessDegreesLatest": 447,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 209,
@@ -12330,7 +12528,8 @@
   "seatType": "standalone",
   "enrollmentStart": 22823,
   "businessPctStart": 0.0507,
-  "businessDegreesStart": 237
+  "businessDegreesStart": 237,
+  "seatRole": "chief_executive"
  },
  {
   "id": 210,
@@ -12390,7 +12589,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16803,
   "businessPctStart": 0.0699,
-  "businessDegreesStart": 388
+  "businessDegreesStart": 388,
+  "seatRole": "chief_executive"
  },
  {
   "id": 211,
@@ -12450,7 +12650,8 @@
   "seatType": "standalone",
   "enrollmentStart": 19622,
   "businessPctStart": 0.1154,
-  "businessDegreesStart": 210
+  "businessDegreesStart": 210,
+  "seatRole": "chief_executive"
  },
  {
   "id": 212,
@@ -12510,7 +12711,8 @@
   "seatType": "standalone",
   "enrollmentStart": 15411,
   "businessPctStart": 0.1288,
-  "businessDegreesStart": 351
+  "businessDegreesStart": 351,
+  "seatRole": "chief_executive"
  },
  {
   "id": 213,
@@ -12569,7 +12771,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0956,
-  "businessDegreesStart": 245
+  "businessDegreesStart": 245,
+  "seatRole": "chief_executive"
  },
  {
   "id": 214,
@@ -12629,7 +12832,8 @@
   "seatType": "standalone",
   "enrollmentStart": 2939,
   "businessPctStart": 0.0913,
-  "businessDegreesStart": 41
+  "businessDegreesStart": 41,
+  "seatRole": "chief_executive"
  },
  {
   "id": 215,
@@ -12689,7 +12893,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12607,
   "businessPctStart": 0.0291,
-  "businessDegreesStart": 98
+  "businessDegreesStart": 98,
+  "seatRole": "chief_executive"
  },
  {
   "id": 216,
@@ -12749,7 +12954,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11996,
   "businessPctStart": 0.1315,
-  "businessDegreesStart": 307
+  "businessDegreesStart": 307,
+  "seatRole": "cabinet"
  },
  {
   "id": 217,
@@ -12809,7 +13015,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12323,
   "businessPctStart": 0.0619,
-  "businessDegreesStart": 175
+  "businessDegreesStart": 175,
+  "seatRole": "chief_executive"
  },
  {
   "id": 218,
@@ -12869,7 +13076,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10885,
   "businessPctStart": 0.0546,
-  "businessDegreesStart": 87
+  "businessDegreesStart": 87,
+  "seatRole": "chief_executive"
  },
  {
   "id": 219,
@@ -12929,7 +13137,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12932,
   "businessPctStart": 0.085,
-  "businessDegreesStart": 303
+  "businessDegreesStart": 303,
+  "seatRole": "chief_executive"
  },
  {
   "id": 220,
@@ -12989,7 +13198,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11664,
   "businessPctStart": 0.1493,
-  "businessDegreesStart": 523
+  "businessDegreesStart": 523,
+  "seatRole": "chief_executive"
  },
  {
   "id": 221,
@@ -13049,7 +13259,8 @@
   "seatType": "campus",
   "enrollmentStart": 10120,
   "businessPctStart": 0.114,
-  "businessDegreesStart": 266
+  "businessDegreesStart": 266,
+  "seatRole": "chief_executive"
  },
  {
   "id": 222,
@@ -13109,7 +13320,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10665,
   "businessPctStart": 0.0365,
-  "businessDegreesStart": 72
+  "businessDegreesStart": 72,
+  "seatRole": "chief_executive"
  },
  {
   "id": 223,
@@ -13169,7 +13381,8 @@
   "seatType": "standalone",
   "enrollmentStart": 40131,
   "businessPctStart": 0.0906,
-  "businessDegreesStart": 681
+  "businessDegreesStart": 681,
+  "seatRole": "chief_executive"
  },
  {
   "id": 224,
@@ -13228,7 +13441,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0766,
-  "businessDegreesStart": 392
+  "businessDegreesStart": 392,
+  "seatRole": "chief_executive"
  },
  {
   "id": 225,
@@ -13285,7 +13499,8 @@
   "businessDegreesLatest": 392,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 226,
@@ -13345,7 +13560,8 @@
   "seatType": "standalone",
   "enrollmentStart": 24605,
   "businessPctStart": 0.2382,
-  "businessDegreesStart": 1799
+  "businessDegreesStart": 1799,
+  "seatRole": "chief_executive"
  },
  {
   "id": 227,
@@ -13405,7 +13621,8 @@
   "seatType": "standalone",
   "enrollmentStart": 19100,
   "businessPctStart": 0.1044,
-  "businessDegreesStart": 313
+  "businessDegreesStart": 313,
+  "seatRole": "chief_executive"
  },
  {
   "id": 228,
@@ -13465,7 +13682,8 @@
   "seatType": "campus",
   "enrollmentStart": 18076,
   "businessPctStart": 0.2016,
-  "businessDegreesStart": 374
+  "businessDegreesStart": 374,
+  "seatRole": "chief_executive"
  },
  {
   "id": 229,
@@ -13522,7 +13740,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 230,
@@ -13582,7 +13801,8 @@
   "seatType": "standalone",
   "enrollmentStart": 21014,
   "businessPctStart": 0.1335,
-  "businessDegreesStart": 398
+  "businessDegreesStart": 398,
+  "seatRole": "chief_executive"
  },
  {
   "id": 231,
@@ -13639,7 +13859,8 @@
   "businessDegreesLatest": 300,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 232,
@@ -13698,7 +13919,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.241,
-  "businessDegreesStart": 756
+  "businessDegreesStart": 756,
+  "seatRole": "chief_executive"
  },
  {
   "id": 233,
@@ -13758,7 +13980,8 @@
   "seatType": "standalone",
   "enrollmentStart": 17202,
   "businessPctStart": 0.0334,
-  "businessDegreesStart": 142
+  "businessDegreesStart": 142,
+  "seatRole": "chief_executive"
  },
  {
   "id": 234,
@@ -13818,7 +14041,8 @@
   "seatType": "campus",
   "enrollmentStart": 15569,
   "businessPctStart": 0.134,
-  "businessDegreesStart": 223
+  "businessDegreesStart": 223,
+  "seatRole": "chief_executive"
  },
  {
   "id": 235,
@@ -13878,7 +14102,8 @@
   "seatType": "standalone",
   "enrollmentStart": 14140,
   "businessPctStart": 0.1335,
-  "businessDegreesStart": 426
+  "businessDegreesStart": 426,
+  "seatRole": "chief_executive"
  },
  {
   "id": 236,
@@ -13938,7 +14163,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12518,
   "businessPctStart": 0.1079,
-  "businessDegreesStart": 221
+  "businessDegreesStart": 221,
+  "seatRole": "chief_executive"
  },
  {
   "id": 237,
@@ -13998,7 +14224,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10815,
   "businessPctStart": 0.1551,
-  "businessDegreesStart": 440
+  "businessDegreesStart": 440,
+  "seatRole": "chief_executive"
  },
  {
   "id": 238,
@@ -14058,7 +14285,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12219,
   "businessPctStart": 0.1629,
-  "businessDegreesStart": 254
+  "businessDegreesStart": 254,
+  "seatRole": "chief_executive"
  },
  {
   "id": 239,
@@ -14115,7 +14343,8 @@
   "businessDegreesLatest": 347,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 240,
@@ -14172,7 +14401,8 @@
   "businessDegreesLatest": 347,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 241,
@@ -14232,7 +14462,8 @@
   "seatType": "campus",
   "enrollmentStart": 8796,
   "businessPctStart": 0.1106,
-  "businessDegreesStart": 226
+  "businessDegreesStart": 226,
+  "seatRole": "chief_executive"
  },
  {
   "id": 242,
@@ -14292,7 +14523,8 @@
   "seatType": "standalone",
   "enrollmentStart": 17153,
   "businessPctStart": 0.1379,
-  "businessDegreesStart": 384
+  "businessDegreesStart": 384,
+  "seatRole": "chief_executive"
  },
  {
   "id": 243,
@@ -14463,7 +14695,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 246,
@@ -14520,7 +14753,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 247,
@@ -14580,7 +14814,8 @@
   "seatType": "standalone",
   "enrollmentStart": 30248,
   "businessPctStart": 0.0653,
-  "businessDegreesStart": 289
+  "businessDegreesStart": 289,
+  "seatRole": "chief_executive"
  },
  {
   "id": 248,
@@ -14639,7 +14874,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.072,
-  "businessDegreesStart": 337
+  "businessDegreesStart": 337,
+  "seatRole": "chief_executive"
  },
  {
   "id": 249,
@@ -14699,7 +14935,8 @@
   "seatType": "standalone",
   "enrollmentStart": 18736,
   "businessPctStart": 0.1112,
-  "businessDegreesStart": 222
+  "businessDegreesStart": 222,
+  "seatRole": "chief_executive"
  },
  {
   "id": 250,
@@ -14759,7 +14996,8 @@
   "seatType": "standalone",
   "enrollmentStart": 22496,
   "businessPctStart": 0.1807,
-  "businessDegreesStart": 860
+  "businessDegreesStart": 860,
+  "seatRole": "chief_executive"
  },
  {
   "id": 251,
@@ -14819,7 +15057,8 @@
   "seatType": "standalone",
   "enrollmentStart": 18339,
   "businessPctStart": 0.1062,
-  "businessDegreesStart": 289
+  "businessDegreesStart": 289,
+  "seatRole": "chief_executive"
  },
  {
   "id": 252,
@@ -14879,7 +15118,8 @@
   "seatType": "standalone",
   "enrollmentStart": 18831,
   "businessPctStart": 0.1725,
-  "businessDegreesStart": 390
+  "businessDegreesStart": 390,
+  "seatRole": "chief_executive"
  },
  {
   "id": 253,
@@ -14936,7 +15176,9 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive",
+  "endYearUnverified": true
  },
  {
   "id": 254,
@@ -14993,7 +15235,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 255,
@@ -15053,7 +15296,8 @@
   "seatType": "standalone",
   "enrollmentStart": 30082,
   "businessPctStart": 0.0766,
-  "businessDegreesStart": 427
+  "businessDegreesStart": 427,
+  "seatRole": "chief_executive"
  },
  {
   "id": 256,
@@ -15112,7 +15356,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.0615,
-  "businessDegreesStart": 346
+  "businessDegreesStart": 346,
+  "seatRole": "chief_executive"
  },
  {
   "id": 257,
@@ -15172,7 +15417,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11897,
   "businessPctStart": 0.0322,
-  "businessDegreesStart": 21
+  "businessDegreesStart": 21,
+  "seatRole": "chief_executive"
  },
  {
   "id": 258,
@@ -15232,7 +15478,8 @@
   "seatType": "standalone",
   "enrollmentStart": 13477,
   "businessPctStart": 0.129,
-  "businessDegreesStart": 531
+  "businessDegreesStart": 531,
+  "seatRole": "chief_executive"
  },
  {
   "id": 259,
@@ -15292,7 +15539,8 @@
   "seatType": "campus",
   "enrollmentStart": 12199,
   "businessPctStart": 0.1511,
-  "businessDegreesStart": 853
+  "businessDegreesStart": 853,
+  "seatRole": "chief_executive"
  },
  {
   "id": 260,
@@ -15352,7 +15600,8 @@
   "seatType": "standalone",
   "enrollmentStart": 14193,
   "businessPctStart": 0.0286,
-  "businessDegreesStart": 91
+  "businessDegreesStart": 91,
+  "seatRole": "chief_executive"
  },
  {
   "id": 261,
@@ -15409,7 +15658,8 @@
   "businessDegreesLatest": 154,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 262,
@@ -15469,7 +15719,8 @@
   "seatType": "campus",
   "enrollmentStart": 12908,
   "businessPctStart": 0.0389,
-  "businessDegreesStart": 65
+  "businessDegreesStart": 65,
+  "seatRole": "chief_executive"
  },
  {
   "id": 263,
@@ -15528,7 +15779,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0744,
-  "businessDegreesStart": 371
+  "businessDegreesStart": 371,
+  "seatRole": "chief_executive"
  },
  {
   "id": 264,
@@ -15585,7 +15837,8 @@
   "businessDegreesLatest": 371,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 265,
@@ -15645,7 +15898,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10877,
   "businessPctStart": 0.1235,
-  "businessDegreesStart": 312
+  "businessDegreesStart": 312,
+  "seatRole": "chief_executive"
  },
  {
   "id": 266,
@@ -15705,7 +15959,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9667,
   "businessPctStart": 0.0901,
-  "businessDegreesStart": 85
+  "businessDegreesStart": 85,
+  "seatRole": "chief_executive"
  },
  {
   "id": 267,
@@ -15765,7 +16020,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9317,
   "businessPctStart": 0.0614,
-  "businessDegreesStart": 126
+  "businessDegreesStart": 126,
+  "seatRole": "chief_executive"
  },
  {
   "id": 268,
@@ -15825,7 +16081,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9982,
   "businessPctStart": 0.0923,
-  "businessDegreesStart": 436
+  "businessDegreesStart": 436,
+  "seatRole": "chief_executive"
  },
  {
   "id": 269,
@@ -15885,7 +16142,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4580,
   "businessPctStart": 0.0801,
-  "businessDegreesStart": 46
+  "businessDegreesStart": 46,
+  "seatRole": "chief_executive"
  },
  {
   "id": 270,
@@ -15945,7 +16203,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11321,
   "businessPctStart": 0.0898,
-  "businessDegreesStart": 163
+  "businessDegreesStart": 163,
+  "seatRole": "chief_executive"
  },
  {
   "id": 271,
@@ -16002,7 +16261,8 @@
   "businessDegreesLatest": 242,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 272,
@@ -16059,7 +16319,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 273,
@@ -16119,7 +16380,8 @@
   "seatType": "campus",
   "enrollmentStart": 20118,
   "businessPctStart": 0.1076,
-  "businessDegreesStart": 624
+  "businessDegreesStart": 624,
+  "seatRole": "chief_executive"
  },
  {
   "id": 274,
@@ -16179,7 +16441,8 @@
   "seatType": "campus",
   "enrollmentStart": 23852,
   "businessPctStart": 0.081,
-  "businessDegreesStart": 455
+  "businessDegreesStart": 455,
+  "seatRole": "chief_executive"
  },
  {
   "id": 275,
@@ -16239,7 +16502,8 @@
   "seatType": "standalone",
   "enrollmentStart": 19449,
   "businessPctStart": 0.1715,
-  "businessDegreesStart": 973
+  "businessDegreesStart": 973,
+  "seatRole": "chief_executive"
  },
  {
   "id": 276,
@@ -16299,7 +16563,8 @@
   "seatType": "campus",
   "enrollmentStart": 18808,
   "businessPctStart": 0.0008,
-  "businessDegreesStart": 2
+  "businessDegreesStart": 2,
+  "seatRole": "chief_executive"
  },
  {
   "id": 277,
@@ -16359,7 +16624,8 @@
   "seatType": "campus",
   "enrollmentStart": 18304,
   "businessPctStart": 0.2522,
-  "businessDegreesStart": 1097
+  "businessDegreesStart": 1097,
+  "seatRole": "chief_executive"
  },
  {
   "id": 278,
@@ -16419,7 +16685,8 @@
   "seatType": "campus",
   "enrollmentStart": 15682,
   "businessPctStart": 0.2644,
-  "businessDegreesStart": 1100
+  "businessDegreesStart": 1100,
+  "seatRole": "chief_executive"
  },
  {
   "id": 279,
@@ -16479,7 +16746,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16139,
   "businessPctStart": 0.083,
-  "businessDegreesStart": 320
+  "businessDegreesStart": 320,
+  "seatRole": "chief_executive"
  },
  {
   "id": 280,
@@ -16536,7 +16804,8 @@
   "businessDegreesLatest": 309,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 281,
@@ -16593,7 +16862,8 @@
   "businessDegreesLatest": 309,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 282,
@@ -16653,7 +16923,8 @@
   "seatType": "campus",
   "enrollmentStart": 16982,
   "businessPctStart": 0.1116,
-  "businessDegreesStart": 321
+  "businessDegreesStart": 321,
+  "seatRole": "chief_executive"
  },
  {
   "id": 283,
@@ -16713,7 +16984,8 @@
   "seatType": "campus",
   "enrollmentStart": 15865,
   "businessPctStart": 0.1068,
-  "businessDegreesStart": 266
+  "businessDegreesStart": 266,
+  "seatRole": "chief_executive"
  },
  {
   "id": 284,
@@ -16773,7 +17045,8 @@
   "seatType": "campus",
   "enrollmentStart": 14076,
   "businessPctStart": 0.0875,
-  "businessDegreesStart": 252
+  "businessDegreesStart": 252,
+  "seatRole": "chief_executive"
  },
  {
   "id": 285,
@@ -16833,7 +17106,8 @@
   "seatType": "campus",
   "enrollmentStart": 13480,
   "businessPctStart": 0.0976,
-  "businessDegreesStart": 330
+  "businessDegreesStart": 330,
+  "seatRole": "chief_executive"
  },
  {
   "id": 286,
@@ -16893,7 +17167,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11619,
   "businessPctStart": 0.0678,
-  "businessDegreesStart": 326
+  "businessDegreesStart": 326,
+  "seatRole": "chief_executive"
  },
  {
   "id": 287,
@@ -16953,7 +17228,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12655,
   "businessPctStart": 0.0363,
-  "businessDegreesStart": 89
+  "businessDegreesStart": 89,
+  "seatRole": "chief_executive"
  },
  {
   "id": 288,
@@ -17010,7 +17286,8 @@
   "businessDegreesLatest": 41,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 289,
@@ -17070,7 +17347,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10800,
   "businessPctStart": 0.0086,
-  "businessDegreesStart": 20
+  "businessDegreesStart": 20,
+  "seatRole": "chief_executive"
  },
  {
   "id": 290,
@@ -17130,7 +17408,8 @@
   "seatType": "campus",
   "enrollmentStart": 11715,
   "businessPctStart": 0.1277,
-  "businessDegreesStart": 279
+  "businessDegreesStart": 279,
+  "seatRole": "chief_executive"
  },
  {
   "id": 291,
@@ -17190,7 +17469,8 @@
   "seatType": "campus",
   "enrollmentStart": 10261,
   "businessPctStart": 0.172,
-  "businessDegreesStart": 395
+  "businessDegreesStart": 395,
+  "seatRole": "chief_executive"
  },
  {
   "id": 292,
@@ -17250,7 +17530,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9539,
   "businessPctStart": 0.0476,
-  "businessDegreesStart": 64
+  "businessDegreesStart": 64,
+  "seatRole": "chief_executive"
  },
  {
   "id": 293,
@@ -17307,7 +17588,8 @@
   "businessDegreesLatest": 229,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 294,
@@ -17364,7 +17646,8 @@
   "businessDegreesLatest": 229,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 295,
@@ -17424,7 +17707,8 @@
   "seatType": "campus",
   "enrollmentStart": 9053,
   "businessPctStart": 0.064,
-  "businessDegreesStart": 150
+  "businessDegreesStart": 150,
+  "seatRole": "chief_executive"
  },
  {
   "id": 296,
@@ -17483,7 +17767,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0689,
-  "businessDegreesStart": 176
+  "businessDegreesStart": 176,
+  "seatRole": "chief_executive"
  },
  {
   "id": 297,
@@ -17543,7 +17828,8 @@
   "seatType": "campus",
   "enrollmentStart": 6894,
   "businessPctStart": 0.1993,
-  "businessDegreesStart": 224
+  "businessDegreesStart": 224,
+  "seatRole": "chief_executive"
  },
  {
   "id": 298,
@@ -17603,7 +17889,8 @@
   "seatType": "campus",
   "enrollmentStart": 9208,
   "businessPctStart": 0.1673,
-  "businessDegreesStart": 179
+  "businessDegreesStart": 179,
+  "seatRole": "chief_executive"
  },
  {
   "id": 299,
@@ -17662,7 +17949,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.1346,
-  "businessDegreesStart": 173
+  "businessDegreesStart": 173,
+  "seatRole": "chief_executive"
  },
  {
   "id": 300,
@@ -17776,7 +18064,8 @@
   "businessDegreesLatest": 218,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 302,
@@ -17836,7 +18125,8 @@
   "seatType": "standalone",
   "enrollmentStart": 27011,
   "businessPctStart": 0.1138,
-  "businessDegreesStart": 484
+  "businessDegreesStart": 484,
+  "seatRole": "chief_executive"
  },
  {
   "id": 303,
@@ -17895,7 +18185,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.0958,
-  "businessDegreesStart": 329
+  "businessDegreesStart": 329,
+  "seatRole": "chief_executive"
  },
  {
   "id": 304,
@@ -17952,7 +18243,8 @@
   "businessDegreesLatest": 329,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 305,
@@ -18012,7 +18304,8 @@
   "seatType": "standalone",
   "enrollmentStart": 22043,
   "businessPctStart": 0.2237,
-  "businessDegreesStart": 469
+  "businessDegreesStart": 469,
+  "seatRole": "chief_executive"
  },
  {
   "id": 306,
@@ -18072,7 +18365,8 @@
   "seatType": "standalone",
   "enrollmentStart": 20549,
   "businessPctStart": 0.1314,
-  "businessDegreesStart": 467
+  "businessDegreesStart": 467,
+  "seatRole": "chief_executive"
  },
  {
   "id": 307,
@@ -18132,7 +18426,8 @@
   "seatType": "standalone",
   "enrollmentStart": 17137,
   "businessPctStart": 0.1648,
-  "businessDegreesStart": 491
+  "businessDegreesStart": 491,
+  "seatRole": "chief_executive"
  },
  {
   "id": 308,
@@ -18189,7 +18484,8 @@
   "businessDegreesLatest": 510,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 309,
@@ -18246,7 +18542,8 @@
   "businessDegreesLatest": 510,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 310,
@@ -18306,7 +18603,8 @@
   "seatType": "campus",
   "enrollmentStart": 15673,
   "businessPctStart": 0.1301,
-  "businessDegreesStart": 273
+  "businessDegreesStart": 273,
+  "seatRole": "chief_executive"
  },
  {
   "id": 311,
@@ -18365,7 +18663,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0732,
-  "businessDegreesStart": 259
+  "businessDegreesStart": 259,
+  "seatRole": "chief_executive"
  },
  {
   "id": 312,
@@ -18425,7 +18724,8 @@
   "seatType": "campus",
   "enrollmentStart": 14275,
   "businessPctStart": 0.0559,
-  "businessDegreesStart": 277
+  "businessDegreesStart": 277,
+  "seatRole": "chief_executive"
  },
  {
   "id": 313,
@@ -18485,7 +18785,8 @@
   "seatType": "campus",
   "enrollmentStart": 12709,
   "businessPctStart": 0.07,
-  "businessDegreesStart": 371
+  "businessDegreesStart": 371,
+  "seatRole": "chief_executive"
  },
  {
   "id": 314,
@@ -18545,7 +18846,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16712,
   "businessPctStart": 0.1185,
-  "businessDegreesStart": 331
+  "businessDegreesStart": 331,
+  "seatRole": "chief_executive"
  },
  {
   "id": 315,
@@ -18604,7 +18906,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1919,
-  "businessDegreesStart": 664
+  "businessDegreesStart": 664,
+  "seatRole": "chief_executive"
  },
  {
   "id": 316,
@@ -18664,7 +18967,8 @@
   "seatType": "campus",
   "enrollmentStart": 12438,
   "businessPctStart": 0.0773,
-  "businessDegreesStart": 182
+  "businessDegreesStart": 182,
+  "seatRole": "chief_executive"
  },
  {
   "id": 317,
@@ -18724,7 +19028,8 @@
   "seatType": "campus",
   "enrollmentStart": 12931,
   "businessPctStart": 0.0946,
-  "businessDegreesStart": 167
+  "businessDegreesStart": 167,
+  "seatRole": "chief_executive"
  },
  {
   "id": 318,
@@ -18841,7 +19146,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12286,
   "businessPctStart": 0.1308,
-  "businessDegreesStart": 325
+  "businessDegreesStart": 325,
+  "seatRole": "chief_executive"
  },
  {
   "id": 320,
@@ -18901,7 +19207,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11472,
   "businessPctStart": 0.1313,
-  "businessDegreesStart": 254
+  "businessDegreesStart": 254,
+  "seatRole": "chief_executive"
  },
  {
   "id": 321,
@@ -18961,7 +19268,8 @@
   "seatType": "standalone",
   "enrollmentStart": 13342,
   "businessPctStart": 0.0919,
-  "businessDegreesStart": 308
+  "businessDegreesStart": 308,
+  "seatRole": "chief_executive"
  },
  {
   "id": 322,
@@ -19078,7 +19386,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16650,
   "businessPctStart": 0.0581,
-  "businessDegreesStart": 148
+  "businessDegreesStart": 148,
+  "seatRole": "chief_executive"
  },
  {
   "id": 324,
@@ -19138,7 +19447,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11144,
   "businessPctStart": 0.0293,
-  "businessDegreesStart": 104
+  "businessDegreesStart": 104,
+  "seatRole": "chief_executive"
  },
  {
   "id": 325,
@@ -19195,7 +19505,8 @@
   "businessDegreesLatest": 136,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 326,
@@ -19253,7 +19564,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 3683
+  "enrollmentStart": 3683,
+  "seatRole": "chief_executive"
  },
  {
   "id": 327,
@@ -19313,7 +19625,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9920,
   "businessPctStart": 0.0885,
-  "businessDegreesStart": 139
+  "businessDegreesStart": 139,
+  "seatRole": "chief_executive"
  },
  {
   "id": 328,
@@ -19373,7 +19686,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12405,
   "businessPctStart": 0.1669,
-  "businessDegreesStart": 409
+  "businessDegreesStart": 409,
+  "seatRole": "chief_executive"
  },
  {
   "id": 329,
@@ -19490,7 +19804,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11856,
   "businessPctStart": 0.1806,
-  "businessDegreesStart": 370
+  "businessDegreesStart": 370,
+  "seatRole": "chief_executive"
  },
  {
   "id": 331,
@@ -19606,7 +19921,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0404,
-  "businessDegreesStart": 288
+  "businessDegreesStart": 288,
+  "seatRole": "chief_executive"
  },
  {
   "id": 333,
@@ -19663,7 +19979,8 @@
   "businessDegreesLatest": 288,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 334,
@@ -19723,7 +20040,8 @@
   "seatType": "standalone",
   "enrollmentStart": 29616,
   "businessPctStart": 0.0993,
-  "businessDegreesStart": 658
+  "businessDegreesStart": 658,
+  "seatRole": "chief_executive"
  },
  {
   "id": 335,
@@ -19783,7 +20101,8 @@
   "seatType": "campus",
   "enrollmentStart": 20437,
   "businessPctStart": 0.1218,
-  "businessDegreesStart": 573
+  "businessDegreesStart": 573,
+  "seatRole": "chief_executive"
  },
  {
   "id": 336,
@@ -19843,7 +20162,8 @@
   "seatType": "campus",
   "enrollmentStart": 17719,
   "businessPctStart": 0.1317,
-  "businessDegreesStart": 294
+  "businessDegreesStart": 294,
+  "seatRole": "chief_executive"
  },
  {
   "id": 337,
@@ -19902,7 +20222,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.0498,
-  "businessDegreesStart": 161
+  "businessDegreesStart": 161,
+  "seatRole": "chief_executive"
  },
  {
   "id": 338,
@@ -19959,7 +20280,8 @@
   "businessDegreesLatest": 161,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 339,
@@ -20019,7 +20341,8 @@
   "seatType": "campus",
   "enrollmentStart": 9844,
   "businessPctStart": 0.0701,
-  "businessDegreesStart": 88
+  "businessDegreesStart": 88,
+  "seatRole": "chief_executive"
  },
  {
   "id": 340,
@@ -20079,7 +20402,8 @@
   "seatType": "campus",
   "enrollmentStart": 15946,
   "businessPctStart": 0.0877,
-  "businessDegreesStart": 90
+  "businessDegreesStart": 90,
+  "seatRole": "chief_executive"
  },
  {
   "id": 341,
@@ -20139,7 +20463,8 @@
   "seatType": "campus",
   "enrollmentStart": 14398,
   "businessPctStart": 0.1584,
-  "businessDegreesStart": 181
+  "businessDegreesStart": 181,
+  "seatRole": "chief_executive"
  },
  {
   "id": 342,
@@ -20199,7 +20524,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11625,
   "businessPctStart": 0.0368,
-  "businessDegreesStart": 59
+  "businessDegreesStart": 59,
+  "seatRole": "chief_executive"
  },
  {
   "id": 343,
@@ -20259,7 +20585,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12557,
   "businessPctStart": 0.0492,
-  "businessDegreesStart": 118
+  "businessDegreesStart": 118,
+  "seatRole": "chief_executive"
  },
  {
   "id": 344,
@@ -20373,7 +20700,8 @@
   "businessDegreesLatest": 517,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 346,
@@ -20490,7 +20818,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10645,
   "businessPctStart": 0.116,
-  "businessDegreesStart": 362
+  "businessDegreesStart": 362,
+  "seatRole": "chief_executive"
  },
  {
   "id": 348,
@@ -20607,7 +20936,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11142,
   "businessPctStart": 0.1509,
-  "businessDegreesStart": 221
+  "businessDegreesStart": 221,
+  "seatRole": "chief_executive"
  },
  {
   "id": 350,
@@ -20667,7 +20997,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11070,
   "businessPctStart": 0.1185,
-  "businessDegreesStart": 308
+  "businessDegreesStart": 308,
+  "seatRole": "chief_executive"
  },
  {
   "id": 351,
@@ -20784,7 +21115,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11024,
   "businessPctStart": 0.0708,
-  "businessDegreesStart": 100
+  "businessDegreesStart": 100,
+  "seatRole": "chief_executive"
  },
  {
   "id": 353,
@@ -20844,7 +21176,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9335,
   "businessPctStart": 0.0918,
-  "businessDegreesStart": 246
+  "businessDegreesStart": 246,
+  "seatRole": "chief_executive"
  },
  {
   "id": 354,
@@ -20904,7 +21237,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11529,
   "businessPctStart": 0.0304,
-  "businessDegreesStart": 56
+  "businessDegreesStart": 56,
+  "seatRole": "chief_executive"
  },
  {
   "id": 355,
@@ -20961,7 +21295,8 @@
   "businessDegreesLatest": 147,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 356,
@@ -21021,7 +21356,8 @@
   "seatType": "standalone",
   "enrollmentStart": 14023,
   "businessPctStart": 0.217,
-  "businessDegreesStart": 281
+  "businessDegreesStart": 281,
+  "seatRole": "chief_executive"
  },
  {
   "id": 357,
@@ -21081,7 +21417,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10704,
   "businessPctStart": 0.159,
-  "businessDegreesStart": 349
+  "businessDegreesStart": 349,
+  "seatRole": "chief_executive"
  },
  {
   "id": 358,
@@ -21141,7 +21478,8 @@
   "seatType": "campus",
   "enrollmentStart": 3860,
   "businessPctStart": 0.1591,
-  "businessDegreesStart": 21
+  "businessDegreesStart": 21,
+  "seatRole": "chief_executive"
  },
  {
   "id": 359,
@@ -21198,7 +21536,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 360,
@@ -21255,7 +21594,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 361,
@@ -21312,7 +21652,8 @@
   "businessDegreesLatest": 464,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 362,
@@ -21372,7 +21713,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11482,
   "businessPctStart": 0.151,
-  "businessDegreesStart": 264
+  "businessDegreesStart": 264,
+  "seatRole": "chief_executive"
  },
  {
   "id": 363,
@@ -21432,7 +21774,8 @@
   "seatType": "campus",
   "enrollmentStart": 8989,
   "businessPctStart": 0.1143,
-  "businessDegreesStart": 144
+  "businessDegreesStart": 144,
+  "seatRole": "chief_executive"
  },
  {
   "id": 364,
@@ -21491,7 +21834,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.1417,
-  "businessDegreesStart": 124
+  "businessDegreesStart": 124,
+  "seatRole": "chief_executive"
  },
  {
   "id": 365,
@@ -21605,7 +21949,8 @@
   "businessDegreesLatest": 200,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 367,
@@ -21662,7 +22007,8 @@
   "businessDegreesLatest": 1,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 368,
@@ -21722,7 +22068,8 @@
   "seatType": "campus",
   "enrollmentStart": 5550,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "seatRole": "chief_executive"
  },
  {
   "id": 369,
@@ -21839,7 +22186,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9827,
   "businessPctStart": 0.1538,
-  "businessDegreesStart": 220
+  "businessDegreesStart": 220,
+  "seatRole": "chief_executive"
  },
  {
   "id": 371,
@@ -21896,7 +22244,8 @@
   "businessDegreesLatest": 254,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 372,
@@ -22010,7 +22359,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 374,
@@ -22067,7 +22417,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 375,
@@ -22124,7 +22475,8 @@
   "businessDegreesLatest": 140,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 376,
@@ -22184,7 +22536,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9078,
   "businessPctStart": 0.1806,
-  "businessDegreesStart": 247
+  "businessDegreesStart": 247,
+  "seatRole": "chief_executive"
  },
  {
   "id": 377,
@@ -22244,7 +22597,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12143,
   "businessPctStart": 0.1625,
-  "businessDegreesStart": 269
+  "businessDegreesStart": 269,
+  "seatRole": "chief_executive"
  },
  {
   "id": 378,
@@ -22304,7 +22658,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10896,
   "businessPctStart": 0.1649,
-  "businessDegreesStart": 311
+  "businessDegreesStart": 311,
+  "seatRole": "chief_executive"
  },
  {
   "id": 379,
@@ -22363,7 +22718,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1289,
-  "businessDegreesStart": 184
+  "businessDegreesStart": 184,
+  "seatRole": "chief_executive"
  },
  {
   "id": 380,
@@ -22420,7 +22776,8 @@
   "businessDegreesLatest": 184,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 381,
@@ -22765,7 +23122,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9060,
   "businessPctStart": 0.2251,
-  "businessDegreesStart": 415
+  "businessDegreesStart": 415,
+  "seatRole": "chief_executive"
  },
  {
   "id": 387,
@@ -22825,7 +23183,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8375,
   "businessPctStart": 0.2087,
-  "businessDegreesStart": 283
+  "businessDegreesStart": 283,
+  "seatRole": "chief_executive"
  },
  {
   "id": 388,
@@ -22885,7 +23244,8 @@
   "seatType": "campus",
   "enrollmentStart": 6792,
   "businessPctStart": 0.4246,
-  "businessDegreesStart": 974
+  "businessDegreesStart": 974,
+  "seatRole": "chief_executive"
  },
  {
   "id": 389,
@@ -22945,7 +23305,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7569,
   "businessPctStart": 0.0409,
-  "businessDegreesStart": 91
+  "businessDegreesStart": 91,
+  "seatRole": "chief_executive"
  },
  {
   "id": 390,
@@ -23002,7 +23363,8 @@
   "businessDegreesLatest": 91,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 391,
@@ -23119,7 +23481,8 @@
   "seatType": "campus",
   "enrollmentStart": 8043,
   "businessPctStart": 0.1377,
-  "businessDegreesStart": 172
+  "businessDegreesStart": 172,
+  "seatRole": "chief_executive"
  },
  {
   "id": 393,
@@ -23179,7 +23542,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8340,
   "businessPctStart": 0.0401,
-  "businessDegreesStart": 83
+  "businessDegreesStart": 83,
+  "seatRole": "chief_executive"
  },
  {
   "id": 394,
@@ -23238,7 +23602,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.0436,
-  "businessDegreesStart": 128
+  "businessDegreesStart": 128,
+  "seatRole": "chief_executive"
  },
  {
   "id": 395,
@@ -23295,7 +23660,8 @@
   "businessDegreesLatest": 128,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 396,
@@ -23352,7 +23718,8 @@
   "businessDegreesLatest": 173,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 397,
@@ -23412,7 +23779,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10723,
   "businessPctStart": 0.0592,
-  "businessDegreesStart": 245
+  "businessDegreesStart": 245,
+  "seatRole": "chief_executive"
  },
  {
   "id": 398,
@@ -23472,7 +23840,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7839,
   "businessPctStart": 0.0561,
-  "businessDegreesStart": 47
+  "businessDegreesStart": 47,
+  "seatRole": "chief_executive"
  },
  {
   "id": 399,
@@ -23532,7 +23901,8 @@
   "seatType": "standalone",
   "enrollmentStart": 14918,
   "businessPctStart": 0.1192,
-  "businessDegreesStart": 283
+  "businessDegreesStart": 283,
+  "seatRole": "chief_executive"
  },
  {
   "id": 400,
@@ -23592,7 +23962,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5062,
   "businessPctStart": 0.0763,
-  "businessDegreesStart": 44
+  "businessDegreesStart": 44,
+  "seatRole": "chief_executive"
  },
  {
   "id": 401,
@@ -23652,7 +24023,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6216,
   "businessPctStart": 0.1009,
-  "businessDegreesStart": 54
+  "businessDegreesStart": 54,
+  "seatRole": "chief_executive"
  },
  {
   "id": 402,
@@ -23709,7 +24081,8 @@
   "businessDegreesLatest": 181,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 403,
@@ -23769,7 +24142,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6132,
   "businessPctStart": 0.1412,
-  "businessDegreesStart": 130
+  "businessDegreesStart": 130,
+  "seatRole": "chief_executive"
  },
  {
   "id": 404,
@@ -23829,7 +24203,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11018,
   "businessPctStart": 0.1386,
-  "businessDegreesStart": 228
+  "businessDegreesStart": 228,
+  "seatRole": "chief_executive"
  },
  {
   "id": 405,
@@ -23889,7 +24264,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8484,
   "businessPctStart": 0.1229,
-  "businessDegreesStart": 173
+  "businessDegreesStart": 173,
+  "seatRole": "chief_executive"
  },
  {
   "id": 406,
@@ -24006,7 +24382,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10533,
   "businessPctStart": 0.0183,
-  "businessDegreesStart": 32
+  "businessDegreesStart": 32,
+  "seatRole": "chief_executive"
  },
  {
   "id": 408,
@@ -24065,7 +24442,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.0638,
-  "businessDegreesStart": 113
+  "businessDegreesStart": 113,
+  "seatRole": "chief_executive"
  },
  {
   "id": 409,
@@ -24182,7 +24560,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8996,
   "businessPctStart": 0.0886,
-  "businessDegreesStart": 169
+  "businessDegreesStart": 169,
+  "seatRole": "chief_executive"
  },
  {
   "id": 411,
@@ -24242,7 +24621,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8745,
   "businessPctStart": 0.1068,
-  "businessDegreesStart": 208
+  "businessDegreesStart": 208,
+  "seatRole": "chief_executive"
  },
  {
   "id": 412,
@@ -24302,7 +24682,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9972,
   "businessPctStart": 0.1093,
-  "businessDegreesStart": 250
+  "businessDegreesStart": 250,
+  "seatRole": "chief_executive"
  },
  {
   "id": 413,
@@ -24362,7 +24743,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10789,
   "businessPctStart": 0.1864,
-  "businessDegreesStart": 165
+  "businessDegreesStart": 165,
+  "seatRole": "chief_executive"
  },
  {
   "id": 414,
@@ -24422,7 +24804,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8737,
   "businessPctStart": 0.1339,
-  "businessDegreesStart": 220
+  "businessDegreesStart": 220,
+  "seatRole": "chief_executive"
  },
  {
   "id": 415,
@@ -24479,7 +24862,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 416,
@@ -24536,7 +24920,8 @@
   "businessDegreesLatest": 130,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 417,
@@ -24596,7 +24981,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7523,
   "businessPctStart": 0.1285,
-  "businessDegreesStart": 69
+  "businessDegreesStart": 69,
+  "seatRole": "chief_executive"
  },
  {
   "id": 418,
@@ -24656,7 +25042,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8177,
   "businessPctStart": 0.1362,
-  "businessDegreesStart": 183
+  "businessDegreesStart": 183,
+  "seatRole": "chief_executive"
  },
  {
   "id": 419,
@@ -24716,7 +25103,8 @@
   "seatType": "standalone",
   "enrollmentStart": 18976,
   "businessPctStart": 0.1656,
-  "businessDegreesStart": 444
+  "businessDegreesStart": 444,
+  "seatRole": "chief_executive"
  },
  {
   "id": 420,
@@ -24776,7 +25164,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10161,
   "businessPctStart": 0.116,
-  "businessDegreesStart": 220
+  "businessDegreesStart": 220,
+  "seatRole": "chief_executive"
  },
  {
   "id": 421,
@@ -24836,7 +25225,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8721,
   "businessPctStart": 0.1137,
-  "businessDegreesStart": 204
+  "businessDegreesStart": 204,
+  "seatRole": "chief_executive"
  },
  {
   "id": 422,
@@ -24896,7 +25286,8 @@
   "seatType": "campus",
   "enrollmentStart": 9446,
   "businessPctStart": 0.149,
-  "businessDegreesStart": 131
+  "businessDegreesStart": 131,
+  "seatRole": "chief_executive"
  },
  {
   "id": 423,
@@ -24956,7 +25347,8 @@
   "seatType": "campus",
   "enrollmentStart": 8378,
   "businessPctStart": 0.075,
-  "businessDegreesStart": 104
+  "businessDegreesStart": 104,
+  "seatRole": "chief_executive"
  },
  {
   "id": 424,
@@ -25013,7 +25405,8 @@
   "businessDegreesLatest": 115,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 425,
@@ -25070,7 +25463,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 426,
@@ -25127,7 +25521,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 427,
@@ -25184,7 +25579,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 428,
@@ -25301,7 +25697,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6688,
   "businessPctStart": 0.0367,
-  "businessDegreesStart": 74
+  "businessDegreesStart": 74,
+  "seatRole": "chief_executive"
  },
  {
   "id": 430,
@@ -25358,7 +25755,8 @@
   "businessDegreesLatest": 114,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 431,
@@ -25415,7 +25813,8 @@
   "businessDegreesLatest": 114,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 432,
@@ -25475,7 +25874,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5168,
   "businessPctStart": 0.2467,
-  "businessDegreesStart": 295
+  "businessDegreesStart": 295,
+  "seatRole": "chief_executive"
  },
  {
   "id": 433,
@@ -25535,7 +25935,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5298,
   "businessPctStart": 0.0381,
-  "businessDegreesStart": 54
+  "businessDegreesStart": 54,
+  "seatRole": "chief_executive"
  },
  {
   "id": 434,
@@ -25595,7 +25996,8 @@
   "seatType": "standalone",
   "enrollmentStart": 12834,
   "businessPctStart": 0.139,
-  "businessDegreesStart": 180
+  "businessDegreesStart": 180,
+  "seatRole": "chief_executive"
  },
  {
   "id": 435,
@@ -25655,7 +26057,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7320,
   "businessPctStart": 0.0891,
-  "businessDegreesStart": 82
+  "businessDegreesStart": 82,
+  "seatRole": "chief_executive"
  },
  {
   "id": 436,
@@ -25715,7 +26118,8 @@
   "seatType": "standalone",
   "enrollmentStart": 14308,
   "businessPctStart": 0.0697,
-  "businessDegreesStart": 194
+  "businessDegreesStart": 194,
+  "seatRole": "chief_executive"
  },
  {
   "id": 437,
@@ -25775,7 +26179,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8841,
   "businessPctStart": 0.0227,
-  "businessDegreesStart": 58
+  "businessDegreesStart": 58,
+  "seatRole": "chief_executive"
  },
  {
   "id": 438,
@@ -25835,7 +26240,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9234,
   "businessPctStart": 0.112,
-  "businessDegreesStart": 118
+  "businessDegreesStart": 118,
+  "seatRole": "chief_executive"
  },
  {
   "id": 439,
@@ -25895,7 +26301,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9320,
   "businessPctStart": 0.1325,
-  "businessDegreesStart": 144
+  "businessDegreesStart": 144,
+  "seatRole": "chief_executive"
  },
  {
   "id": 440,
@@ -26012,7 +26419,8 @@
   "seatType": "campus",
   "enrollmentStart": 8230,
   "businessPctStart": 0.0754,
-  "businessDegreesStart": 153
+  "businessDegreesStart": 153,
+  "seatRole": "chief_executive"
  },
  {
   "id": 442,
@@ -26072,7 +26480,8 @@
   "seatType": "standalone",
   "enrollmentStart": 13126,
   "businessPctStart": 0.078,
-  "businessDegreesStart": 160
+  "businessDegreesStart": 160,
+  "seatRole": "chief_executive"
  },
  {
   "id": 443,
@@ -26129,7 +26538,8 @@
   "businessDegreesLatest": 132,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 444,
@@ -26189,7 +26599,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8020,
   "businessPctStart": 0.0867,
-  "businessDegreesStart": 108
+  "businessDegreesStart": 108,
+  "seatRole": "chief_executive"
  },
  {
   "id": 445,
@@ -26249,7 +26660,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7593,
   "businessPctStart": 0.0856,
-  "businessDegreesStart": 175
+  "businessDegreesStart": 175,
+  "seatRole": "chief_executive"
  },
  {
   "id": 446,
@@ -26309,7 +26721,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16949,
   "businessPctStart": 0.1078,
-  "businessDegreesStart": 204
+  "businessDegreesStart": 204,
+  "seatRole": "chief_executive"
  },
  {
   "id": 447,
@@ -26369,7 +26782,8 @@
   "seatType": "standalone",
   "enrollmentStart": 16640,
   "businessPctStart": 0.1365,
-  "businessDegreesStart": 420
+  "businessDegreesStart": 420,
+  "seatRole": "chief_executive"
  },
  {
   "id": 448,
@@ -26426,7 +26840,8 @@
   "businessDegreesLatest": 534,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 449,
@@ -26486,7 +26901,8 @@
   "seatType": "standalone",
   "enrollmentStart": 19562,
   "businessPctStart": 0.1089,
-  "businessDegreesStart": 435
+  "businessDegreesStart": 435,
+  "seatRole": "chief_executive"
  },
  {
   "id": 450,
@@ -26546,7 +26962,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8192,
   "businessPctStart": 0.188,
-  "businessDegreesStart": 391
+  "businessDegreesStart": 391,
+  "seatRole": "chief_executive"
  },
  {
   "id": 451,
@@ -26720,7 +27137,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7357,
   "businessPctStart": 0.1053,
-  "businessDegreesStart": 212
+  "businessDegreesStart": 212,
+  "seatRole": "chief_executive"
  },
  {
   "id": 454,
@@ -26777,7 +27195,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 455,
@@ -26834,7 +27253,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 456,
@@ -26891,7 +27311,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 457,
@@ -26948,7 +27369,8 @@
   "businessDegreesLatest": 570,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 458,
@@ -27008,7 +27430,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5634,
   "businessPctStart": 0.1088,
-  "businessDegreesStart": 157
+  "businessDegreesStart": 157,
+  "seatRole": "chief_executive"
  },
  {
   "id": 459,
@@ -27068,7 +27491,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6998,
   "businessPctStart": 0.1889,
-  "businessDegreesStart": 465
+  "businessDegreesStart": 465,
+  "seatRole": "chief_executive"
  },
  {
   "id": 460,
@@ -27185,7 +27609,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9864,
   "businessPctStart": 0.0855,
-  "businessDegreesStart": 127
+  "businessDegreesStart": 127,
+  "seatRole": "chief_executive"
  },
  {
   "id": 462,
@@ -27299,7 +27724,8 @@
   "businessDegreesLatest": 1609,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 464,
@@ -27358,7 +27784,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1213,
-  "businessDegreesStart": 282
+  "businessDegreesStart": 282,
+  "seatRole": "chief_executive"
  },
  {
   "id": 465,
@@ -27415,7 +27842,8 @@
   "businessDegreesLatest": 63,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 466,
@@ -27473,7 +27901,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 7890
+  "enrollmentStart": 7890,
+  "seatRole": "chief_executive"
  },
  {
   "id": 467,
@@ -27533,7 +27962,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8324,
   "businessPctStart": 0.0368,
-  "businessDegreesStart": 57
+  "businessDegreesStart": 57,
+  "seatRole": "chief_executive"
  },
  {
   "id": 468,
@@ -27593,7 +28023,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7427,
   "businessPctStart": 0.1228,
-  "businessDegreesStart": 229
+  "businessDegreesStart": 229,
+  "seatRole": "chief_executive"
  },
  {
   "id": 469,
@@ -27653,7 +28084,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10169,
   "businessPctStart": 0.0296,
-  "businessDegreesStart": 31
+  "businessDegreesStart": 31,
+  "seatRole": "chief_executive"
  },
  {
   "id": 470,
@@ -27713,7 +28145,8 @@
   "seatType": "campus",
   "enrollmentStart": 8631,
   "businessPctStart": 0.0912,
-  "businessDegreesStart": 62
+  "businessDegreesStart": 62,
+  "seatRole": "chief_executive"
  },
  {
   "id": 471,
@@ -27773,7 +28206,8 @@
   "seatType": "campus",
   "enrollmentStart": 7448,
   "businessPctStart": 0.1415,
-  "businessDegreesStart": 195
+  "businessDegreesStart": 195,
+  "seatRole": "chief_executive"
  },
  {
   "id": 472,
@@ -27890,7 +28324,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9347,
   "businessPctStart": 0.0885,
-  "businessDegreesStart": 167
+  "businessDegreesStart": 167,
+  "seatRole": "chief_executive"
  },
  {
   "id": 475,
@@ -27950,7 +28385,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7843,
   "businessPctStart": 0.1113,
-  "businessDegreesStart": 189
+  "businessDegreesStart": 189,
+  "seatRole": "chief_executive"
  },
  {
   "id": 476,
@@ -28010,7 +28446,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7618,
   "businessPctStart": 0.1069,
-  "businessDegreesStart": 125
+  "businessDegreesStart": 125,
+  "seatRole": "chief_executive"
  },
  {
   "id": 477,
@@ -28070,7 +28507,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8048,
   "businessPctStart": 0.1636,
-  "businessDegreesStart": 470
+  "businessDegreesStart": 470,
+  "seatRole": "chief_executive"
  },
  {
   "id": 478,
@@ -28127,7 +28565,8 @@
   "businessDegreesLatest": 227,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 479,
@@ -28187,7 +28626,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7091,
   "businessPctStart": 0.077,
-  "businessDegreesStart": 87
+  "businessDegreesStart": 87,
+  "seatRole": "chief_executive"
  },
  {
   "id": 480,
@@ -28244,7 +28684,8 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 481,
@@ -28301,7 +28742,8 @@
   "businessDegreesLatest": 117,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 482,
@@ -28361,7 +28803,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5826,
   "businessPctStart": 0.0616,
-  "businessDegreesStart": 52
+  "businessDegreesStart": 52,
+  "seatRole": "chief_executive"
  },
  {
   "id": 483,
@@ -28421,7 +28864,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4562,
   "businessPctStart": 0.1719,
-  "businessDegreesStart": 115
+  "businessDegreesStart": 115,
+  "seatRole": "chief_executive"
  },
  {
   "id": 484,
@@ -28481,7 +28925,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7079,
   "businessPctStart": 0.087,
-  "businessDegreesStart": 135
+  "businessDegreesStart": 135,
+  "seatRole": "chief_executive"
  },
  {
   "id": 485,
@@ -28538,7 +28983,8 @@
   "businessDegreesLatest": 323,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 486,
@@ -28652,7 +29098,8 @@
   "businessDegreesLatest": 27,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 488,
@@ -28709,7 +29156,8 @@
   "businessDegreesLatest": 27,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 489,
@@ -28826,7 +29274,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7205,
   "businessPctStart": 0.1505,
-  "businessDegreesStart": 118
+  "businessDegreesStart": 118,
+  "seatRole": "chief_executive"
  },
  {
   "id": 491,
@@ -28885,7 +29334,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1148,
-  "businessDegreesStart": 99
+  "businessDegreesStart": 99,
+  "seatRole": "chief_executive"
  },
  {
   "id": 492,
@@ -29002,7 +29452,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9460,
   "businessPctStart": 0.1833,
-  "businessDegreesStart": 253
+  "businessDegreesStart": 253,
+  "seatRole": "chief_executive"
  },
  {
   "id": 494,
@@ -29062,7 +29513,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7516,
   "businessPctStart": 0.1224,
-  "businessDegreesStart": 226
+  "businessDegreesStart": 226,
+  "seatRole": "chief_executive"
  },
  {
   "id": 495,
@@ -29122,7 +29574,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9128,
   "businessPctStart": 0.0977,
-  "businessDegreesStart": 76
+  "businessDegreesStart": 76,
+  "seatRole": "chief_executive"
  },
  {
   "id": 496,
@@ -29182,7 +29635,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7368,
   "businessPctStart": 0.1784,
-  "businessDegreesStart": 239
+  "businessDegreesStart": 239,
+  "seatRole": "chief_executive"
  },
  {
   "id": 497,
@@ -29299,7 +29753,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6776,
   "businessPctStart": 0.1489,
-  "businessDegreesStart": 162
+  "businessDegreesStart": 162,
+  "seatRole": "chief_executive"
  },
  {
   "id": 499,
@@ -29356,7 +29811,8 @@
   "businessDegreesLatest": 196,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 500,
@@ -29416,7 +29872,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8303,
   "businessPctStart": 0.1141,
-  "businessDegreesStart": 85
+  "businessDegreesStart": 85,
+  "seatRole": "chief_executive"
  },
  {
   "id": 501,
@@ -29476,7 +29933,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7193,
   "businessPctStart": 0.1028,
-  "businessDegreesStart": 102
+  "businessDegreesStart": 102,
+  "seatRole": "chief_executive"
  },
  {
   "id": 502,
@@ -29533,7 +29991,8 @@
   "businessDegreesLatest": 136,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 503,
@@ -29593,7 +30052,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5920,
   "businessPctStart": 0.088,
-  "businessDegreesStart": 53
+  "businessDegreesStart": 53,
+  "seatRole": "chief_executive"
  },
  {
   "id": 504,
@@ -29653,7 +30113,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8185,
   "businessPctStart": 0.1452,
-  "businessDegreesStart": 394
+  "businessDegreesStart": 394,
+  "seatRole": "chief_executive"
  },
  {
   "id": 505,
@@ -29712,7 +30173,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1323,
-  "businessDegreesStart": 275
+  "businessDegreesStart": 275,
+  "seatRole": "chief_executive"
  },
  {
   "id": 506,
@@ -29826,7 +30288,8 @@
   "businessDegreesLatest": 78,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 508,
@@ -29886,7 +30349,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9374,
   "businessPctStart": 0.0475,
-  "businessDegreesStart": 60
+  "businessDegreesStart": 60,
+  "seatRole": "chief_executive"
  },
  {
   "id": 509,
@@ -29946,7 +30410,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8152,
   "businessPctStart": 0.0525,
-  "businessDegreesStart": 74
+  "businessDegreesStart": 74,
+  "seatRole": "chief_executive"
  },
  {
   "id": 510,
@@ -30003,7 +30468,8 @@
   "businessDegreesLatest": 143,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 511,
@@ -30063,7 +30529,8 @@
   "seatType": "standalone",
   "enrollmentStart": 14587,
   "businessPctStart": 0.0391,
-  "businessDegreesStart": 57
+  "businessDegreesStart": 57,
+  "seatRole": "chief_executive"
  },
  {
   "id": 512,
@@ -30123,7 +30590,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10997,
   "businessPctStart": 0.0448,
-  "businessDegreesStart": 79
+  "businessDegreesStart": 79,
+  "seatRole": "chief_executive"
  },
  {
   "id": 513,
@@ -30183,7 +30651,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7770,
   "businessPctStart": 0.1174,
-  "businessDegreesStart": 164
+  "businessDegreesStart": 164,
+  "seatRole": "chief_executive"
  },
  {
   "id": 514,
@@ -30243,7 +30712,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7535,
   "businessPctStart": 0.0392,
-  "businessDegreesStart": 48
+  "businessDegreesStart": 48,
+  "seatRole": "chief_executive"
  },
  {
   "id": 515,
@@ -30303,7 +30773,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6791,
   "businessPctStart": 0.069,
-  "businessDegreesStart": 111
+  "businessDegreesStart": 111,
+  "seatRole": "chief_executive"
  },
  {
   "id": 516,
@@ -30362,7 +30833,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.063,
-  "businessDegreesStart": 95
+  "businessDegreesStart": 95,
+  "seatRole": "chief_executive"
  },
  {
   "id": 517,
@@ -30419,7 +30891,8 @@
   "businessDegreesLatest": 90,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 518,
@@ -30479,7 +30952,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8197,
   "businessPctStart": 0.0447,
-  "businessDegreesStart": 77
+  "businessDegreesStart": 77,
+  "seatRole": "chief_executive"
  },
  {
   "id": 519,
@@ -30539,7 +31013,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8284,
   "businessPctStart": 0.079,
-  "businessDegreesStart": 105
+  "businessDegreesStart": 105,
+  "seatRole": "chief_executive"
  },
  {
   "id": 520,
@@ -30599,7 +31074,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6856,
   "businessPctStart": 0.0592,
-  "businessDegreesStart": 53
+  "businessDegreesStart": 53,
+  "seatRole": "chief_executive"
  },
  {
   "id": 521,
@@ -30659,7 +31135,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6708,
   "businessPctStart": 0.1274,
-  "businessDegreesStart": 211
+  "businessDegreesStart": 211,
+  "seatRole": "chief_executive"
  },
  {
   "id": 522,
@@ -30719,7 +31196,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9705,
   "businessPctStart": 0.1262,
-  "businessDegreesStart": 170
+  "businessDegreesStart": 170,
+  "seatRole": "chief_executive"
  },
  {
   "id": 523,
@@ -30779,7 +31257,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7665,
   "businessPctStart": 0.1494,
-  "businessDegreesStart": 287
+  "businessDegreesStart": 287,
+  "seatRole": "chief_executive"
  },
  {
   "id": 524,
@@ -30839,7 +31318,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7837,
   "businessPctStart": 0.0877,
-  "businessDegreesStart": 71
+  "businessDegreesStart": 71,
+  "seatRole": "chief_executive"
  },
  {
   "id": 525,
@@ -30899,7 +31379,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7428,
   "businessPctStart": 0.0941,
-  "businessDegreesStart": 162
+  "businessDegreesStart": 162,
+  "seatRole": "chief_executive"
  },
  {
   "id": 526,
@@ -30956,7 +31437,8 @@
   "businessDegreesLatest": 172,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 527,
@@ -31013,7 +31495,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 528,
@@ -31070,7 +31553,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 529,
@@ -31127,7 +31611,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 530,
@@ -31184,7 +31669,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 531,
@@ -31244,7 +31730,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10608,
   "businessPctStart": 0.1526,
-  "businessDegreesStart": 163
+  "businessDegreesStart": 163,
+  "seatRole": "chief_executive"
  },
  {
   "id": 532,
@@ -31304,7 +31791,8 @@
   "seatType": "standalone",
   "enrollmentStart": 11030,
   "businessPctStart": 0.1549,
-  "businessDegreesStart": 225
+  "businessDegreesStart": 225,
+  "seatRole": "chief_executive"
  },
  {
   "id": 533,
@@ -31364,7 +31852,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7638,
   "businessPctStart": 0.1331,
-  "businessDegreesStart": 180
+  "businessDegreesStart": 180,
+  "seatRole": "chief_executive"
  },
  {
   "id": 534,
@@ -31424,7 +31913,8 @@
   "seatType": "campus",
   "enrollmentStart": 7115,
   "businessPctStart": 0.0636,
-  "businessDegreesStart": 82
+  "businessDegreesStart": 82,
+  "seatRole": "chief_executive"
  },
  {
   "id": 535,
@@ -31484,7 +31974,8 @@
   "seatType": "campus",
   "enrollmentStart": 6911,
   "businessPctStart": 0.0435,
-  "businessDegreesStart": 122
+  "businessDegreesStart": 122,
+  "seatRole": "chief_executive"
  },
  {
   "id": 536,
@@ -31543,7 +32034,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0277,
-  "businessDegreesStart": 84
+  "businessDegreesStart": 84,
+  "seatRole": "chief_executive"
  },
  {
   "id": 537,
@@ -31600,7 +32092,8 @@
   "businessDegreesLatest": 84,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 538,
@@ -31660,7 +32153,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6031,
   "businessPctStart": 0.1652,
-  "businessDegreesStart": 169
+  "businessDegreesStart": 169,
+  "seatRole": "chief_executive"
  },
  {
   "id": 539,
@@ -31720,7 +32214,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5389,
   "businessPctStart": 0.1857,
-  "businessDegreesStart": 195
+  "businessDegreesStart": 195,
+  "seatRole": "chief_executive"
  },
  {
   "id": 540,
@@ -31780,7 +32275,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5811,
   "businessPctStart": 0.1643,
-  "businessDegreesStart": 153
+  "businessDegreesStart": 153,
+  "seatRole": "chief_executive"
  },
  {
   "id": 541,
@@ -31840,7 +32336,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7943,
   "businessPctStart": 0.102,
-  "businessDegreesStart": 132
+  "businessDegreesStart": 132,
+  "seatRole": "chief_executive"
  },
  {
   "id": 542,
@@ -31899,7 +32396,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1628,
-  "businessDegreesStart": 420
+  "businessDegreesStart": 420,
+  "seatRole": "chief_executive"
  },
  {
   "id": 543,
@@ -31959,7 +32457,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5994,
   "businessPctStart": 0.1949,
-  "businessDegreesStart": 509
+  "businessDegreesStart": 509,
+  "seatRole": "chief_executive"
  },
  {
   "id": 544,
@@ -32019,7 +32518,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6616,
   "businessPctStart": 0.2465,
-  "businessDegreesStart": 743
+  "businessDegreesStart": 743,
+  "seatRole": "chief_executive"
  },
  {
   "id": 545,
@@ -32136,7 +32636,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7876,
   "businessPctStart": 0.1054,
-  "businessDegreesStart": 150
+  "businessDegreesStart": 150,
+  "seatRole": "chief_executive"
  },
  {
   "id": 547,
@@ -32193,7 +32694,8 @@
   "businessDegreesLatest": 25,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 548,
@@ -32253,7 +32755,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5915,
   "businessPctStart": 0.0615,
-  "businessDegreesStart": 73
+  "businessDegreesStart": 73,
+  "seatRole": "chief_executive"
  },
  {
   "id": 549,
@@ -32310,7 +32813,8 @@
   "businessDegreesLatest": 25,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 550,
@@ -32370,7 +32874,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7351,
   "businessPctStart": 0.1036,
-  "businessDegreesStart": 116
+  "businessDegreesStart": 116,
+  "seatRole": "chief_executive"
  },
  {
   "id": 551,
@@ -32428,7 +32933,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 7143
+  "enrollmentStart": 7143,
+  "seatRole": "chief_executive"
  },
  {
   "id": 552,
@@ -32488,7 +32994,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7429,
   "businessPctStart": 0.159,
-  "businessDegreesStart": 220
+  "businessDegreesStart": 220,
+  "seatRole": "chief_executive"
  },
  {
   "id": 553,
@@ -32605,7 +33112,8 @@
   "seatType": "campus",
   "enrollmentStart": 7065,
   "businessPctStart": 0.2278,
-  "businessDegreesStart": 313
+  "businessDegreesStart": 313,
+  "seatRole": "chief_executive"
  },
  {
   "id": 555,
@@ -32722,7 +33230,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5392,
   "businessPctStart": 0.1308,
-  "businessDegreesStart": 118
+  "businessDegreesStart": 118,
+  "seatRole": "chief_executive"
  },
  {
   "id": 557,
@@ -32782,7 +33291,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10954,
   "businessPctStart": 0.1532,
-  "businessDegreesStart": 207
+  "businessDegreesStart": 207,
+  "seatRole": "chief_executive"
  },
  {
   "id": 558,
@@ -32842,7 +33352,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6360,
   "businessPctStart": 0.1975,
-  "businessDegreesStart": 188
+  "businessDegreesStart": 188,
+  "seatRole": "chief_executive"
  },
  {
   "id": 559,
@@ -32902,7 +33413,8 @@
   "seatType": "campus",
   "enrollmentStart": 6952,
   "businessPctStart": 0.0551,
-  "businessDegreesStart": 53
+  "businessDegreesStart": 53,
+  "seatRole": "chief_executive"
  },
  {
   "id": 560,
@@ -32962,7 +33474,8 @@
   "seatType": "campus",
   "enrollmentStart": 6261,
   "businessPctStart": 0.0605,
-  "businessDegreesStart": 77
+  "businessDegreesStart": 77,
+  "seatRole": "chief_executive"
  },
  {
   "id": 561,
@@ -33079,7 +33592,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9135,
   "businessPctStart": 0.1457,
-  "businessDegreesStart": 163
+  "businessDegreesStart": 163,
+  "seatRole": "chief_executive"
  },
  {
   "id": 563,
@@ -33139,7 +33653,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6991,
   "businessPctStart": 0.1356,
-  "businessDegreesStart": 83
+  "businessDegreesStart": 83,
+  "seatRole": "chief_executive"
  },
  {
   "id": 564,
@@ -33199,7 +33714,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8177,
   "businessPctStart": 0.0614,
-  "businessDegreesStart": 135
+  "businessDegreesStart": 135,
+  "seatRole": "chief_executive"
  },
  {
   "id": 565,
@@ -33259,7 +33775,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7417,
   "businessPctStart": 0.0605,
-  "businessDegreesStart": 100
+  "businessDegreesStart": 100,
+  "seatRole": "chief_executive"
  },
  {
   "id": 566,
@@ -33318,7 +33835,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1106,
-  "businessDegreesStart": 162
+  "businessDegreesStart": 162,
+  "seatRole": "chief_executive"
  },
  {
   "id": 567,
@@ -33376,7 +33894,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 6054
+  "enrollmentStart": 6054,
+  "seatRole": "chief_executive"
  },
  {
   "id": 568,
@@ -33436,7 +33955,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7637,
   "businessPctStart": 0.1005,
-  "businessDegreesStart": 172
+  "businessDegreesStart": 172,
+  "seatRole": "chief_executive"
  },
  {
   "id": 569,
@@ -33493,7 +34013,8 @@
   "businessDegreesLatest": 86,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 570,
@@ -33553,7 +34074,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6536,
   "businessPctStart": 0.107,
-  "businessDegreesStart": 238
+  "businessDegreesStart": 238,
+  "seatRole": "chief_executive"
  },
  {
   "id": 571,
@@ -33613,7 +34135,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6200,
   "businessPctStart": 0.1466,
-  "businessDegreesStart": 314
+  "businessDegreesStart": 314,
+  "seatRole": "chief_executive"
  },
  {
   "id": 572,
@@ -33673,7 +34196,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6354,
   "businessPctStart": 0.1585,
-  "businessDegreesStart": 329
+  "businessDegreesStart": 329,
+  "seatRole": "chief_executive"
  },
  {
   "id": 573,
@@ -33733,7 +34257,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9130,
   "businessPctStart": 0.127,
-  "businessDegreesStart": 103
+  "businessDegreesStart": 103,
+  "seatRole": "chief_executive"
  },
  {
   "id": 574,
@@ -33793,7 +34318,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5747,
   "businessPctStart": 0.0819,
-  "businessDegreesStart": 154
+  "businessDegreesStart": 154,
+  "seatRole": "chief_executive"
  },
  {
   "id": 575,
@@ -33853,7 +34379,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5068,
   "businessPctStart": 0.2001,
-  "businessDegreesStart": 400
+  "businessDegreesStart": 400,
+  "seatRole": "chief_executive"
  },
  {
   "id": 576,
@@ -33910,7 +34437,8 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 577,
@@ -33970,7 +34498,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9142,
   "businessPctStart": 0.0616,
-  "businessDegreesStart": 77
+  "businessDegreesStart": 77,
+  "seatRole": "chief_executive"
  },
  {
   "id": 578,
@@ -34027,7 +34556,8 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 579,
@@ -34144,7 +34674,8 @@
   "seatType": "standalone",
   "enrollmentStart": 2702,
   "businessPctStart": 0.0952,
-  "businessDegreesStart": 30
+  "businessDegreesStart": 30,
+  "seatRole": "chief_executive"
  },
  {
   "id": 581,
@@ -34204,7 +34735,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3381,
   "businessPctStart": 0.1481,
-  "businessDegreesStart": 80
+  "businessDegreesStart": 80,
+  "seatRole": "chief_executive"
  },
  {
   "id": 582,
@@ -34261,7 +34793,8 @@
   "businessDegreesLatest": 184,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 583,
@@ -34320,7 +34853,8 @@
   "connectionType": "Same institution",
   "seatType": "standalone",
   "businessPctStart": 0.0847,
-  "businessDegreesStart": 148
+  "businessDegreesStart": 148,
+  "seatRole": "chief_executive"
  },
  {
   "id": 584,
@@ -34491,7 +35025,8 @@
   "businessDegreesLatest": 74,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 587,
@@ -34551,7 +35086,8 @@
   "seatType": "campus",
   "enrollmentStart": 6749,
   "businessPctStart": 0.0457,
-  "businessDegreesStart": 61
+  "businessDegreesStart": 61,
+  "seatRole": "chief_executive"
  },
  {
   "id": 588,
@@ -34611,7 +35147,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8214,
   "businessPctStart": 0.0942,
-  "businessDegreesStart": 103
+  "businessDegreesStart": 103,
+  "seatRole": "chief_executive"
  },
  {
   "id": 589,
@@ -34728,7 +35265,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7982,
   "businessPctStart": 0.0725,
-  "businessDegreesStart": 118
+  "businessDegreesStart": 118,
+  "seatRole": "chief_executive"
  },
  {
   "id": 591,
@@ -34788,7 +35326,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8937,
   "businessPctStart": 0.0405,
-  "businessDegreesStart": 112
+  "businessDegreesStart": 112,
+  "seatRole": "chief_executive"
  },
  {
   "id": 592,
@@ -34845,7 +35384,8 @@
   "businessDegreesLatest": 139,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 593,
@@ -34905,7 +35445,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7977,
   "businessPctStart": 0.1116,
-  "businessDegreesStart": 242
+  "businessDegreesStart": 242,
+  "seatRole": "chief_executive"
  },
  {
   "id": 594,
@@ -34965,7 +35506,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6211,
   "businessPctStart": 0.0811,
-  "businessDegreesStart": 138
+  "businessDegreesStart": 138,
+  "seatRole": "chief_executive"
  },
  {
   "id": 595,
@@ -35025,7 +35567,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5713,
   "businessPctStart": 0.1588,
-  "businessDegreesStart": 101
+  "businessDegreesStart": 101,
+  "seatRole": "chief_executive"
  },
  {
   "id": 596,
@@ -35085,7 +35628,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6036,
   "businessPctStart": 0.1582,
-  "businessDegreesStart": 128
+  "businessDegreesStart": 128,
+  "seatRole": "chief_executive"
  },
  {
   "id": 597,
@@ -35145,7 +35689,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4108,
   "businessPctStart": 0.0838,
-  "businessDegreesStart": 64
+  "businessDegreesStart": 64,
+  "seatRole": "chief_executive"
  },
  {
   "id": 598,
@@ -35202,7 +35747,8 @@
   "businessDegreesLatest": 117,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 599,
@@ -35262,7 +35808,8 @@
   "seatType": "campus",
   "enrollmentStart": 6513,
   "businessPctStart": 0.0913,
-  "businessDegreesStart": 66
+  "businessDegreesStart": 66,
+  "seatRole": "chief_executive"
  },
  {
   "id": 600,
@@ -35322,7 +35869,8 @@
   "seatType": "campus",
   "enrollmentStart": 5388,
   "businessPctStart": 0.1385,
-  "businessDegreesStart": 86
+  "businessDegreesStart": 86,
+  "seatRole": "chief_executive"
  },
  {
   "id": 601,
@@ -35382,7 +35930,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10071,
   "businessPctStart": 0.0248,
-  "businessDegreesStart": 33
+  "businessDegreesStart": 33,
+  "seatRole": "chief_executive"
  },
  {
   "id": 602,
@@ -35442,7 +35991,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8762,
   "businessPctStart": 0.0182,
-  "businessDegreesStart": 25
+  "businessDegreesStart": 25,
+  "seatRole": "chief_executive"
  },
  {
   "id": 603,
@@ -35502,7 +36052,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8890,
   "businessPctStart": 0.0245,
-  "businessDegreesStart": 34
+  "businessDegreesStart": 34,
+  "seatRole": "chief_executive"
  },
  {
   "id": 604,
@@ -35562,7 +36113,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9905,
   "businessPctStart": 0.137,
-  "businessDegreesStart": 164
+  "businessDegreesStart": 164,
+  "seatRole": "chief_executive"
  },
  {
   "id": 605,
@@ -35622,7 +36174,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7222,
   "businessPctStart": 0.1295,
-  "businessDegreesStart": 129
+  "businessDegreesStart": 129,
+  "seatRole": "chief_executive"
  },
  {
   "id": 606,
@@ -35679,7 +36232,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 607,
@@ -35736,7 +36290,8 @@
   "businessDegreesLatest": 290,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 608,
@@ -35793,7 +36348,8 @@
   "businessDegreesLatest": 290,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 609,
@@ -35850,7 +36406,8 @@
   "businessDegreesLatest": 97,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 610,
@@ -35910,7 +36467,8 @@
   "seatType": "standalone",
   "enrollmentStart": 10256,
   "businessPctStart": 0.0948,
-  "businessDegreesStart": 152
+  "businessDegreesStart": 152,
+  "seatRole": "chief_executive"
  },
  {
   "id": 611,
@@ -35970,7 +36528,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8601,
   "businessPctStart": 0.0667,
-  "businessDegreesStart": 103
+  "businessDegreesStart": 103,
+  "seatRole": "chief_executive"
  },
  {
   "id": 612,
@@ -36027,7 +36586,8 @@
   "businessDegreesLatest": 245,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 613,
@@ -36087,7 +36647,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9798,
   "businessPctStart": 0.1709,
-  "businessDegreesStart": 473
+  "businessDegreesStart": 473,
+  "seatRole": "chief_executive"
  },
  {
   "id": 614,
@@ -36147,7 +36708,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8041,
   "businessPctStart": 0.2235,
-  "businessDegreesStart": 553
+  "businessDegreesStart": 553,
+  "seatRole": "chief_executive"
  },
  {
   "id": 615,
@@ -36264,7 +36826,8 @@
   "seatType": "campus",
   "enrollmentStart": 7193,
   "businessPctStart": 0.0859,
-  "businessDegreesStart": 124
+  "businessDegreesStart": 124,
+  "seatRole": "chief_executive"
  },
  {
   "id": 617,
@@ -36324,7 +36887,8 @@
   "seatType": "campus",
   "enrollmentStart": 5832,
   "businessPctStart": 0.0887,
-  "businessDegreesStart": 123
+  "businessDegreesStart": 123,
+  "seatRole": "chief_executive"
  },
  {
   "id": 618,
@@ -36438,7 +37002,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 621,
@@ -36498,7 +37063,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6389,
   "businessPctStart": 0.0407,
-  "businessDegreesStart": 41
+  "businessDegreesStart": 41,
+  "seatRole": "chief_executive"
  },
  {
   "id": 623,
@@ -36555,7 +37121,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 624,
@@ -36615,7 +37182,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6601,
   "businessPctStart": 0.0778,
-  "businessDegreesStart": 111
+  "businessDegreesStart": 111,
+  "seatRole": "chief_executive"
  },
  {
   "id": 625,
@@ -36675,7 +37243,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9905,
   "businessPctStart": 0.119,
-  "businessDegreesStart": 124
+  "businessDegreesStart": 124,
+  "seatRole": "chief_executive"
  },
  {
   "id": 626,
@@ -36735,7 +37304,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9393,
   "businessPctStart": 0.0972,
-  "businessDegreesStart": 143
+  "businessDegreesStart": 143,
+  "seatRole": "chief_executive"
  },
  {
   "id": 627,
@@ -36795,7 +37365,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8612,
   "businessPctStart": 0.1398,
-  "businessDegreesStart": 274
+  "businessDegreesStart": 274,
+  "seatRole": "chief_executive"
  },
  {
   "id": 628,
@@ -36855,7 +37426,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6771,
   "businessPctStart": 0.0758,
-  "businessDegreesStart": 36
+  "businessDegreesStart": 36,
+  "seatRole": "chief_executive"
  },
  {
   "id": 629,
@@ -36915,7 +37487,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6568,
   "businessPctStart": 0.1163,
-  "businessDegreesStart": 132
+  "businessDegreesStart": 132,
+  "seatRole": "chief_executive"
  },
  {
   "id": 630,
@@ -36975,7 +37548,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9463,
   "businessPctStart": 0.0623,
-  "businessDegreesStart": 69
+  "businessDegreesStart": 69,
+  "seatRole": "chief_executive"
  },
  {
   "id": 631,
@@ -37089,7 +37663,8 @@
   "businessDegreesLatest": 255,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 633,
@@ -37149,7 +37724,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4909,
   "businessPctStart": 0.171,
-  "businessDegreesStart": 246
+  "businessDegreesStart": 246,
+  "seatRole": "chief_executive"
  },
  {
   "id": 634,
@@ -37206,7 +37782,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 635,
@@ -37263,7 +37840,8 @@
   "businessDegreesLatest": 132,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 636,
@@ -37323,7 +37901,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5338,
   "businessPctStart": 0.0745,
-  "businessDegreesStart": 60
+  "businessDegreesStart": 60,
+  "seatRole": "chief_executive"
  },
  {
   "id": 637,
@@ -37383,7 +37962,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7115,
   "businessPctStart": 0.1609,
-  "businessDegreesStart": 499
+  "businessDegreesStart": 499,
+  "seatRole": "chief_executive"
  },
  {
   "id": 638,
@@ -37443,7 +38023,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5832,
   "businessPctStart": 0.129,
-  "businessDegreesStart": 142
+  "businessDegreesStart": 142,
+  "seatRole": "chief_executive"
  },
  {
   "id": 639,
@@ -37503,7 +38084,8 @@
   "seatType": "standalone",
   "enrollmentStart": 9182,
   "businessPctStart": 0.2022,
-  "businessDegreesStart": 182
+  "businessDegreesStart": 182,
+  "seatRole": "chief_executive"
  },
  {
   "id": 640,
@@ -37563,7 +38145,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7560,
   "businessPctStart": 0.1387,
-  "businessDegreesStart": 138
+  "businessDegreesStart": 138,
+  "seatRole": "chief_executive"
  },
  {
   "id": 641,
@@ -37623,7 +38206,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5821,
   "businessPctStart": 0.1287,
-  "businessDegreesStart": 118
+  "businessDegreesStart": 118,
+  "seatRole": "chief_executive"
  },
  {
   "id": 642,
@@ -37680,7 +38264,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 643,
@@ -37737,7 +38322,8 @@
   "businessDegreesLatest": 76,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 644,
@@ -37797,7 +38383,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8069,
   "businessPctStart": 0.0721,
-  "businessDegreesStart": 83
+  "businessDegreesStart": 83,
+  "seatRole": "chief_executive"
  },
  {
   "id": 645,
@@ -37854,7 +38441,8 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 646,
@@ -37912,7 +38500,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 7904
+  "enrollmentStart": 7904,
+  "seatRole": "chief_executive"
  },
  {
   "id": 647,
@@ -37969,7 +38558,8 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 648,
@@ -38029,7 +38619,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6869,
   "businessPctStart": 0.1824,
-  "businessDegreesStart": 160
+  "businessDegreesStart": 160,
+  "seatRole": "chief_executive"
  },
  {
   "id": 649,
@@ -38089,7 +38680,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5175,
   "businessPctStart": 0.1221,
-  "businessDegreesStart": 119
+  "businessDegreesStart": 119,
+  "seatRole": "chief_executive"
  },
  {
   "id": 650,
@@ -38146,7 +38738,8 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 651,
@@ -38263,7 +38856,9 @@
   "seatType": "campus",
   "enrollmentStart": 9991,
   "businessPctStart": 0.1118,
-  "businessDegreesStart": 72
+  "businessDegreesStart": 72,
+  "seatRole": "chief_executive",
+  "endYearUnverified": true
  },
  {
   "id": 653,
@@ -38320,7 +38915,8 @@
   "businessDegreesLatest": 18,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 654,
@@ -38437,7 +39033,8 @@
   "seatType": "campus",
   "enrollmentStart": 6547,
   "businessPctStart": 0.078,
-  "businessDegreesStart": 51
+  "businessDegreesStart": 51,
+  "seatRole": "chief_executive"
  },
  {
   "id": 656,
@@ -38497,7 +39094,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4015,
   "businessPctStart": 0.0342,
-  "businessDegreesStart": 30
+  "businessDegreesStart": 30,
+  "seatRole": "chief_executive"
  },
  {
   "id": 657,
@@ -38557,7 +39155,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5996,
   "businessPctStart": 0.0828,
-  "businessDegreesStart": 166
+  "businessDegreesStart": 166,
+  "seatRole": "chief_executive"
  },
  {
   "id": 659,
@@ -38617,7 +39216,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6223,
   "businessPctStart": 0.2221,
-  "businessDegreesStart": 227
+  "businessDegreesStart": 227,
+  "seatRole": "chief_executive"
  },
  {
   "id": 660,
@@ -38676,7 +39276,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.2161,
-  "businessDegreesStart": 201
+  "businessDegreesStart": 201,
+  "seatRole": "chief_executive"
  },
  {
   "id": 661,
@@ -38734,7 +39335,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 3768
+  "enrollmentStart": 3768,
+  "seatRole": "chief_executive"
  },
  {
   "id": 662,
@@ -38794,7 +39396,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6779,
   "businessPctStart": 0.1457,
-  "businessDegreesStart": 116
+  "businessDegreesStart": 116,
+  "seatRole": "chief_executive"
  },
  {
   "id": 663,
@@ -38851,7 +39454,8 @@
   "businessDegreesLatest": 502,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 664,
@@ -38911,7 +39515,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7189,
   "businessPctStart": 0.2464,
-  "businessDegreesStart": 519
+  "businessDegreesStart": 519,
+  "seatRole": "chief_executive"
  },
  {
   "id": 665,
@@ -38971,7 +39576,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6242,
   "businessPctStart": 0.2496,
-  "businessDegreesStart": 486
+  "businessDegreesStart": 486,
+  "seatRole": "chief_executive"
  },
  {
   "id": 666,
@@ -39031,7 +39637,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4703,
   "businessPctStart": 0.155,
-  "businessDegreesStart": 295
+  "businessDegreesStart": 295,
+  "seatRole": "chief_executive"
  },
  {
   "id": 667,
@@ -39091,7 +39698,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5018,
   "businessPctStart": 0.1406,
-  "businessDegreesStart": 549
+  "businessDegreesStart": 549,
+  "seatRole": "chief_executive"
  },
  {
   "id": 668,
@@ -39322,7 +39930,8 @@
   "seatType": "campus",
   "enrollmentStart": 5833,
   "businessPctStart": 0.0708,
-  "businessDegreesStart": 34
+  "businessDegreesStart": 34,
+  "seatRole": "chief_executive"
  },
  {
   "id": 672,
@@ -39381,7 +39990,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0585,
-  "businessDegreesStart": 37
+  "businessDegreesStart": 37,
+  "seatRole": "chief_executive"
  },
  {
   "id": 673,
@@ -39495,7 +40105,8 @@
   "businessDegreesLatest": 242,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 675,
@@ -39555,7 +40166,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8067,
   "businessPctStart": 0.2063,
-  "businessDegreesStart": 263
+  "businessDegreesStart": 263,
+  "seatRole": "chief_executive"
  },
  {
   "id": 676,
@@ -39672,7 +40284,8 @@
   "seatType": "campus",
   "enrollmentStart": 7276,
   "businessPctStart": 0.0838,
-  "businessDegreesStart": 113
+  "businessDegreesStart": 113,
+  "seatRole": "chief_executive"
  },
  {
   "id": 678,
@@ -39732,7 +40345,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3318,
   "businessPctStart": 0.0112,
-  "businessDegreesStart": 15
+  "businessDegreesStart": 15,
+  "seatRole": "chief_executive"
  },
  {
   "id": 679,
@@ -39792,7 +40406,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4561,
   "businessPctStart": 0.0776,
-  "businessDegreesStart": 93
+  "businessDegreesStart": 93,
+  "seatRole": "chief_executive"
  },
  {
   "id": 680,
@@ -39909,7 +40524,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6018,
   "businessPctStart": 0.056,
-  "businessDegreesStart": 85
+  "businessDegreesStart": 85,
+  "seatRole": "chief_executive"
  },
  {
   "id": 682,
@@ -39966,7 +40582,8 @@
   "businessDegreesLatest": 66,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 683,
@@ -40024,7 +40641,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 2800
+  "enrollmentStart": 2800,
+  "seatRole": "chief_executive"
  },
  {
   "id": 684,
@@ -40084,7 +40702,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4829,
   "businessPctStart": 0.0366,
-  "businessDegreesStart": 36
+  "businessDegreesStart": 36,
+  "seatRole": "chief_executive"
  },
  {
   "id": 685,
@@ -40141,7 +40760,8 @@
   "businessDegreesLatest": 77,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 686,
@@ -40201,7 +40821,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5351,
   "businessPctStart": 0.1375,
-  "businessDegreesStart": 102
+  "businessDegreesStart": 102,
+  "seatRole": "chief_executive"
  },
  {
   "id": 687,
@@ -40261,7 +40882,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6520,
   "businessPctStart": 0.1703,
-  "businessDegreesStart": 148
+  "businessDegreesStart": 148,
+  "seatRole": "chief_executive"
  },
  {
   "id": 688,
@@ -40321,7 +40943,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3833,
   "businessPctStart": 0.0734,
-  "businessDegreesStart": 29
+  "businessDegreesStart": 29,
+  "seatRole": "chief_executive"
  },
  {
   "id": 689,
@@ -40381,7 +41004,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5256,
   "businessPctStart": 0.0268,
-  "businessDegreesStart": 19
+  "businessDegreesStart": 19,
+  "seatRole": "chief_executive"
  },
  {
   "id": 690,
@@ -40441,7 +41065,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6886,
   "businessPctStart": 0.0141,
-  "businessDegreesStart": 16
+  "businessDegreesStart": 16,
+  "seatRole": "chief_executive"
  },
  {
   "id": 691,
@@ -40498,7 +41123,8 @@
   "businessDegreesLatest": 29,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 692,
@@ -40558,7 +41184,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5480,
   "businessPctStart": 0.0139,
-  "businessDegreesStart": 19
+  "businessDegreesStart": 19,
+  "seatRole": "chief_executive"
  },
  {
   "id": 693,
@@ -40732,7 +41359,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7151,
   "businessPctStart": 0.1537,
-  "businessDegreesStart": 144
+  "businessDegreesStart": 144,
+  "seatRole": "chief_executive"
  },
  {
   "id": 696,
@@ -40906,7 +41534,8 @@
   "seatType": "standalone",
   "enrollmentStart": 8449,
   "businessPctStart": 0.0389,
-  "businessDegreesStart": 65
+  "businessDegreesStart": 65,
+  "seatRole": "chief_executive"
  },
  {
   "id": 699,
@@ -41023,7 +41652,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5822,
   "businessPctStart": 0.1245,
-  "businessDegreesStart": 94
+  "businessDegreesStart": 94,
+  "seatRole": "chief_executive"
  },
  {
   "id": 701,
@@ -41083,7 +41713,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5070,
   "businessPctStart": 0.1515,
-  "businessDegreesStart": 85
+  "businessDegreesStart": 85,
+  "seatRole": "chief_executive"
  },
  {
   "id": 702,
@@ -41143,7 +41774,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6644,
   "businessPctStart": 0.0778,
-  "businessDegreesStart": 47
+  "businessDegreesStart": 47,
+  "seatRole": "chief_executive"
  },
  {
   "id": 703,
@@ -41203,7 +41835,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6716,
   "businessPctStart": 0.0503,
-  "businessDegreesStart": 87
+  "businessDegreesStart": 87,
+  "seatRole": "chief_executive"
  },
  {
   "id": 704,
@@ -41263,7 +41896,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5891,
   "businessPctStart": 0.0907,
-  "businessDegreesStart": 80
+  "businessDegreesStart": 80,
+  "seatRole": "chief_executive"
  },
  {
   "id": 705,
@@ -41323,7 +41957,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5951,
   "businessPctStart": 0.0245,
-  "businessDegreesStart": 49
+  "businessDegreesStart": 49,
+  "seatRole": "chief_executive"
  },
  {
   "id": 706,
@@ -41380,7 +42015,8 @@
   "businessDegreesLatest": 45,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 707,
@@ -41497,7 +42133,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4714,
   "businessPctStart": 0.1163,
-  "businessDegreesStart": 94
+  "businessDegreesStart": 94,
+  "seatRole": "chief_executive"
  },
  {
   "id": 709,
@@ -41557,7 +42194,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3866,
   "businessPctStart": 0.1579,
-  "businessDegreesStart": 177
+  "businessDegreesStart": 177,
+  "seatRole": "chief_executive"
  },
  {
   "id": 710,
@@ -41617,7 +42255,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5714,
   "businessPctStart": 0.0933,
-  "businessDegreesStart": 117
+  "businessDegreesStart": 117,
+  "seatRole": "chief_executive"
  },
  {
   "id": 711,
@@ -41674,7 +42313,8 @@
   "businessDegreesLatest": 193,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 712,
@@ -41734,7 +42374,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4837,
   "businessPctStart": 0.0903,
-  "businessDegreesStart": 98
+  "businessDegreesStart": 98,
+  "seatRole": "chief_executive"
  },
  {
   "id": 713,
@@ -41794,7 +42435,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4973,
   "businessPctStart": 0.1027,
-  "businessDegreesStart": 121
+  "businessDegreesStart": 121,
+  "seatRole": "chief_executive"
  },
  {
   "id": 714,
@@ -41854,7 +42496,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4758,
   "businessPctStart": 0.1538,
-  "businessDegreesStart": 237
+  "businessDegreesStart": 237,
+  "seatRole": "chief_executive"
  },
  {
   "id": 715,
@@ -41913,7 +42556,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1518,
-  "businessDegreesStart": 554
+  "businessDegreesStart": 554,
+  "seatRole": "chief_executive"
  },
  {
   "id": 716,
@@ -41973,7 +42617,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4641,
   "businessPctStart": 0.0335,
-  "businessDegreesStart": 24
+  "businessDegreesStart": 24,
+  "seatRole": "chief_executive"
  },
  {
   "id": 717,
@@ -42033,7 +42678,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4460,
   "businessPctStart": 0.0943,
-  "businessDegreesStart": 84
+  "businessDegreesStart": 84,
+  "seatRole": "chief_executive"
  },
  {
   "id": 718,
@@ -42092,7 +42738,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1355,
-  "businessDegreesStart": 164
+  "businessDegreesStart": 164,
+  "seatRole": "chief_executive"
  },
  {
   "id": 719,
@@ -42149,7 +42796,8 @@
   "businessDegreesLatest": 164,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 720,
@@ -42209,7 +42857,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6151,
   "businessPctStart": 0.0658,
-  "businessDegreesStart": 75
+  "businessDegreesStart": 75,
+  "seatRole": "chief_executive"
  },
  {
   "id": 721,
@@ -42269,7 +42918,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6476,
   "businessPctStart": 0.0977,
-  "businessDegreesStart": 236
+  "businessDegreesStart": 236,
+  "seatRole": "chief_executive"
  },
  {
   "id": 722,
@@ -42326,7 +42976,8 @@
   "businessDegreesLatest": 127,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 723,
@@ -42383,7 +43034,8 @@
   "businessDegreesLatest": 127,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 724,
@@ -42443,7 +43095,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6124,
   "businessPctStart": 0.076,
-  "businessDegreesStart": 90
+  "businessDegreesStart": 90,
+  "seatRole": "chief_executive"
  },
  {
   "id": 725,
@@ -42503,7 +43156,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6085,
   "businessPctStart": 0.0571,
-  "businessDegreesStart": 80
+  "businessDegreesStart": 80,
+  "seatRole": "chief_executive"
  },
  {
   "id": 726,
@@ -42563,7 +43217,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5100,
   "businessPctStart": 0.0878,
-  "businessDegreesStart": 107
+  "businessDegreesStart": 107,
+  "seatRole": "chief_executive"
  },
  {
   "id": 727,
@@ -42623,7 +43278,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4573,
   "businessPctStart": 0.0393,
-  "businessDegreesStart": 34
+  "businessDegreesStart": 34,
+  "seatRole": "chief_executive"
  },
  {
   "id": 728,
@@ -42681,7 +43337,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 4600
+  "enrollmentStart": 4600,
+  "seatRole": "chief_executive"
  },
  {
   "id": 729,
@@ -42741,7 +43398,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5251,
   "businessPctStart": 0.1038,
-  "businessDegreesStart": 79
+  "businessDegreesStart": 79,
+  "seatRole": "chief_executive"
  },
  {
   "id": 730,
@@ -42801,7 +43459,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5258,
   "businessPctStart": 0.1021,
-  "businessDegreesStart": 102
+  "businessDegreesStart": 102,
+  "seatRole": "chief_executive"
  },
  {
   "id": 731,
@@ -42858,7 +43517,8 @@
   "businessDegreesLatest": 58,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 732,
@@ -42918,7 +43578,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4770,
   "businessPctStart": 0.1113,
-  "businessDegreesStart": 56
+  "businessDegreesStart": 56,
+  "seatRole": "chief_executive"
  },
  {
   "id": 733,
@@ -42975,7 +43636,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 734,
@@ -43035,7 +43697,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6120,
   "businessPctStart": 0.1976,
-  "businessDegreesStart": 130
+  "businessDegreesStart": 130,
+  "seatRole": "chief_executive"
  },
  {
   "id": 735,
@@ -43095,7 +43758,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6982,
   "businessPctStart": 0.1378,
-  "businessDegreesStart": 117
+  "businessDegreesStart": 117,
+  "seatRole": "chief_executive"
  },
  {
   "id": 736,
@@ -43152,7 +43816,8 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 737,
@@ -43212,7 +43877,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5795,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "seatRole": "chief_executive"
  },
  {
   "id": 738,
@@ -43272,7 +43938,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5219,
   "businessPctStart": 0.0877,
-  "businessDegreesStart": 101
+  "businessDegreesStart": 101,
+  "seatRole": "chief_executive"
  },
  {
   "id": 739,
@@ -43332,7 +43999,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4808,
   "businessPctStart": 0.062,
-  "businessDegreesStart": 60
+  "businessDegreesStart": 60,
+  "seatRole": "chief_executive"
  },
  {
   "id": 740,
@@ -43392,7 +44060,9 @@
   "seatType": "standalone",
   "enrollmentStart": 6532,
   "businessPctStart": 0.0301,
-  "businessDegreesStart": 44
+  "businessDegreesStart": 44,
+  "seatRole": "chief_executive",
+  "endYearUnverified": true
  },
  {
   "id": 741,
@@ -43449,7 +44119,8 @@
   "businessDegreesLatest": 10,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 742,
@@ -43566,7 +44237,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6786,
   "businessPctStart": 0.1207,
-  "businessDegreesStart": 195
+  "businessDegreesStart": 195,
+  "seatRole": "chief_executive"
  },
  {
   "id": 744,
@@ -43626,7 +44298,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6222,
   "businessPctStart": 0.129,
-  "businessDegreesStart": 163
+  "businessDegreesStart": 163,
+  "seatRole": "chief_executive"
  },
  {
   "id": 745,
@@ -43686,7 +44359,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5576,
   "businessPctStart": 0.1182,
-  "businessDegreesStart": 115
+  "businessDegreesStart": 115,
+  "seatRole": "chief_executive"
  },
  {
   "id": 746,
@@ -43746,7 +44420,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6530,
   "businessPctStart": 0.172,
-  "businessDegreesStart": 282
+  "businessDegreesStart": 282,
+  "seatRole": "chief_executive"
  },
  {
   "id": 747,
@@ -43803,7 +44478,8 @@
   "businessDegreesLatest": 141,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 748,
@@ -43863,7 +44539,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3745,
   "businessPctStart": 0.1307,
-  "businessDegreesStart": 97
+  "businessDegreesStart": 97,
+  "seatRole": "chief_executive"
  },
  {
   "id": 749,
@@ -43923,7 +44600,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5383,
   "businessPctStart": 0.0604,
-  "businessDegreesStart": 69
+  "businessDegreesStart": 69,
+  "seatRole": "chief_executive"
  },
  {
   "id": 750,
@@ -43983,7 +44661,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5997,
   "businessPctStart": 0.0947,
-  "businessDegreesStart": 131
+  "businessDegreesStart": 131,
+  "seatRole": "chief_executive"
  },
  {
   "id": 751,
@@ -44042,7 +44721,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1561,
-  "businessDegreesStart": 106
+  "businessDegreesStart": 106,
+  "seatRole": "chief_executive"
  },
  {
   "id": 752,
@@ -44102,7 +44782,8 @@
   "seatType": "campus",
   "enrollmentStart": 5017,
   "businessPctStart": 0.1295,
-  "businessDegreesStart": 118
+  "businessDegreesStart": 118,
+  "seatRole": "chief_executive"
  },
  {
   "id": 753,
@@ -44219,7 +44900,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6198,
   "businessPctStart": 0.3636,
-  "businessDegreesStart": 413
+  "businessDegreesStart": 413,
+  "seatRole": "chief_executive"
  },
  {
   "id": 755,
@@ -44279,7 +44961,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5756,
   "businessPctStart": 0.4969,
-  "businessDegreesStart": 641
+  "businessDegreesStart": 641,
+  "seatRole": "chief_executive"
  },
  {
   "id": 756,
@@ -44396,7 +45079,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5430,
   "businessPctStart": 0.1438,
-  "businessDegreesStart": 83
+  "businessDegreesStart": 83,
+  "seatRole": "chief_executive"
  },
  {
   "id": 758,
@@ -44456,7 +45140,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7839,
   "businessPctStart": 0.13,
-  "businessDegreesStart": 182
+  "businessDegreesStart": 182,
+  "seatRole": "chief_executive"
  },
  {
   "id": 759,
@@ -44573,7 +45258,8 @@
   "seatType": "campus",
   "enrollmentStart": 4673,
   "businessPctStart": 0.0556,
-  "businessDegreesStart": 73
+  "businessDegreesStart": 73,
+  "seatRole": "chief_executive"
  },
  {
   "id": 762,
@@ -44633,7 +45319,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5159,
   "businessPctStart": 0.0871,
-  "businessDegreesStart": 74
+  "businessDegreesStart": 74,
+  "seatRole": "chief_executive"
  },
  {
   "id": 763,
@@ -44690,7 +45377,8 @@
   "businessDegreesLatest": 54,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 764,
@@ -44807,7 +45495,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5684,
   "businessPctStart": 0.0446,
-  "businessDegreesStart": 56
+  "businessDegreesStart": 56,
+  "seatRole": "chief_executive"
  },
  {
   "id": 766,
@@ -44864,7 +45553,8 @@
   "businessDegreesLatest": 178,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 767,
@@ -44924,7 +45614,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5893,
   "businessPctStart": 0.1444,
-  "businessDegreesStart": 162
+  "businessDegreesStart": 162,
+  "seatRole": "chief_executive"
  },
  {
   "id": 768,
@@ -44983,7 +45674,8 @@
   "connectionType": "Same institution",
   "seatType": "standalone",
   "businessPctStart": 0.1394,
-  "businessDegreesStart": 229
+  "businessDegreesStart": 229,
+  "seatRole": "chief_executive"
  },
  {
   "id": 769,
@@ -45040,7 +45732,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 770,
@@ -45097,7 +45790,8 @@
   "businessDegreesLatest": 95,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 771,
@@ -45157,7 +45851,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6789,
   "businessPctStart": 0.1058,
-  "businessDegreesStart": 108
+  "businessDegreesStart": 108,
+  "seatRole": "chief_executive"
  },
  {
   "id": 772,
@@ -45214,7 +45909,8 @@
   "businessDegreesLatest": 95,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 773,
@@ -45274,7 +45970,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6136,
   "businessPctStart": 0.1122,
-  "businessDegreesStart": 141
+  "businessDegreesStart": 141,
+  "seatRole": "chief_executive"
  },
  {
   "id": 774,
@@ -45334,7 +46031,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5622,
   "businessPctStart": 0.1208,
-  "businessDegreesStart": 127
+  "businessDegreesStart": 127,
+  "seatRole": "chief_executive"
  },
  {
   "id": 775,
@@ -45391,7 +46089,8 @@
   "businessDegreesLatest": 67,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 776,
@@ -45451,7 +46150,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5926,
   "businessPctStart": 0.022,
-  "businessDegreesStart": 31
+  "businessDegreesStart": 31,
+  "seatRole": "chief_executive"
  },
  {
   "id": 777,
@@ -45511,7 +46211,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4959,
   "businessPctStart": 0.0283,
-  "businessDegreesStart": 27
+  "businessDegreesStart": 27,
+  "seatRole": "chief_executive"
  },
  {
   "id": 778,
@@ -45571,7 +46272,8 @@
   "seatType": "campus",
   "enrollmentStart": 6574,
   "businessPctStart": 0.052,
-  "businessDegreesStart": 73
+  "businessDegreesStart": 73,
+  "seatRole": "chief_executive"
  },
  {
   "id": 779,
@@ -45630,7 +46332,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0545,
-  "businessDegreesStart": 70
+  "businessDegreesStart": 70,
+  "seatRole": "chief_executive"
  },
  {
   "id": 780,
@@ -45689,7 +46392,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0545,
-  "businessDegreesStart": 70
+  "businessDegreesStart": 70,
+  "seatRole": "chief_executive"
  },
  {
   "id": 781,
@@ -45746,7 +46450,8 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "campus"
+  "seatType": "campus",
+  "seatRole": "chief_executive"
  },
  {
   "id": 782,
@@ -45863,7 +46568,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5710,
   "businessPctStart": 0.0256,
-  "businessDegreesStart": 19
+  "businessDegreesStart": 19,
+  "seatRole": "chief_executive"
  },
  {
   "id": 784,
@@ -45922,7 +46628,8 @@
   "connectionType": "Same institution",
   "seatType": "standalone",
   "businessPctStart": 0.0337,
-  "businessDegreesStart": 30
+  "businessDegreesStart": 30,
+  "seatRole": "chief_executive"
  },
  {
   "id": 785,
@@ -46153,7 +46860,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4446,
   "businessPctStart": 0.0884,
-  "businessDegreesStart": 82
+  "businessDegreesStart": 82,
+  "seatRole": "chief_executive"
  },
  {
   "id": 789,
@@ -46213,7 +46921,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4282,
   "businessPctStart": 0.06,
-  "businessDegreesStart": 71
+  "businessDegreesStart": 71,
+  "seatRole": "chief_executive"
  },
  {
   "id": 790,
@@ -46273,7 +46982,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4680,
   "businessPctStart": 0.0588,
-  "businessDegreesStart": 72
+  "businessDegreesStart": 72,
+  "seatRole": "chief_executive"
  },
  {
   "id": 791,
@@ -46390,7 +47100,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4199,
   "businessPctStart": 0.2222,
-  "businessDegreesStart": 106
+  "businessDegreesStart": 106,
+  "seatRole": "chief_executive"
  },
  {
   "id": 793,
@@ -46450,7 +47161,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6950,
   "businessPctStart": 0.1189,
-  "businessDegreesStart": 116
+  "businessDegreesStart": 116,
+  "seatRole": "chief_executive"
  },
  {
   "id": 794,
@@ -46510,7 +47222,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5763,
   "businessPctStart": 0.1372,
-  "businessDegreesStart": 100
+  "businessDegreesStart": 100,
+  "seatRole": "chief_executive"
  },
  {
   "id": 795,
@@ -46567,7 +47280,8 @@
   "businessDegreesLatest": 113,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 796,
@@ -46627,7 +47341,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6877,
   "businessPctStart": 0.1624,
-  "businessDegreesStart": 176
+  "businessDegreesStart": 176,
+  "seatRole": "chief_executive"
  },
  {
   "id": 797,
@@ -46687,7 +47402,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5429,
   "businessPctStart": 0.0974,
-  "businessDegreesStart": 71
+  "businessDegreesStart": 71,
+  "seatRole": "chief_executive"
  },
  {
   "id": 798,
@@ -46745,7 +47461,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 2084
+  "enrollmentStart": 2084,
+  "seatRole": "chief_executive"
  },
  {
   "id": 799,
@@ -46805,7 +47522,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4449,
   "businessPctStart": 0.0947,
-  "businessDegreesStart": 184
+  "businessDegreesStart": 184,
+  "seatRole": "chief_executive"
  },
  {
   "id": 800,
@@ -46865,7 +47583,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3108,
   "businessPctStart": 0.0927,
-  "businessDegreesStart": 33
+  "businessDegreesStart": 33,
+  "seatRole": "chief_executive"
  },
  {
   "id": 801,
@@ -46925,7 +47644,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6065,
   "businessPctStart": 0.1462,
-  "businessDegreesStart": 410
+  "businessDegreesStart": 410,
+  "seatRole": "chief_executive"
  },
  {
   "id": 802,
@@ -46985,7 +47705,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4887,
   "businessPctStart": 0.0975,
-  "businessDegreesStart": 79
+  "businessDegreesStart": 79,
+  "seatRole": "chief_executive"
  },
  {
   "id": 803,
@@ -47045,7 +47766,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5022,
   "businessPctStart": 0.0669,
-  "businessDegreesStart": 71
+  "businessDegreesStart": 71,
+  "seatRole": "chief_executive"
  },
  {
   "id": 804,
@@ -47105,7 +47827,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6880,
   "businessPctStart": 0.0865,
-  "businessDegreesStart": 63
+  "businessDegreesStart": 63,
+  "seatRole": "chief_executive"
  },
  {
   "id": 805,
@@ -47165,7 +47888,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4956,
   "businessPctStart": 0.0549,
-  "businessDegreesStart": 44
+  "businessDegreesStart": 44,
+  "seatRole": "chief_executive"
  },
  {
   "id": 806,
@@ -47225,7 +47949,8 @@
   "seatType": "standalone",
   "enrollmentStart": 2750,
   "businessPctStart": 0.0072,
-  "businessDegreesStart": 3
+  "businessDegreesStart": 3,
+  "seatRole": "chief_executive"
  },
  {
   "id": 807,
@@ -47285,7 +48010,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7492,
   "businessPctStart": 0.0708,
-  "businessDegreesStart": 40
+  "businessDegreesStart": 40,
+  "seatRole": "chief_executive"
  },
  {
   "id": 808,
@@ -47345,7 +48071,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6135,
   "businessPctStart": 0.1395,
-  "businessDegreesStart": 94
+  "businessDegreesStart": 94,
+  "seatRole": "chief_executive"
  },
  {
   "id": 809,
@@ -47405,7 +48132,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6762,
   "businessPctStart": 0.1391,
-  "businessDegreesStart": 123
+  "businessDegreesStart": 123,
+  "seatRole": "chief_executive"
  },
  {
   "id": 810,
@@ -47462,7 +48190,8 @@
   "businessDegreesLatest": 174,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 811,
@@ -47519,7 +48248,8 @@
   "businessDegreesLatest": 137,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 812,
@@ -47579,7 +48309,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3696,
   "businessPctStart": 0.2321,
-  "businessDegreesStart": 143
+  "businessDegreesStart": 143,
+  "seatRole": "chief_executive"
  },
  {
   "id": 813,
@@ -47639,7 +48370,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6040,
   "businessPctStart": 0.2364,
-  "businessDegreesStart": 417
+  "businessDegreesStart": 417,
+  "seatRole": "chief_executive"
  },
  {
   "id": 814,
@@ -47698,7 +48430,8 @@
   "connectionType": "",
   "seatType": "campus",
   "businessPctStart": 0.0791,
-  "businessDegreesStart": 60
+  "businessDegreesStart": 60,
+  "seatRole": "chief_executive"
  },
  {
   "id": 815,
@@ -47758,7 +48491,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5894,
   "businessPctStart": 0.0553,
-  "businessDegreesStart": 74
+  "businessDegreesStart": 74,
+  "seatRole": "chief_executive"
  },
  {
   "id": 816,
@@ -47818,7 +48552,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5280,
   "businessPctStart": 0.0572,
-  "businessDegreesStart": 68
+  "businessDegreesStart": 68,
+  "seatRole": "chief_executive"
  },
  {
   "id": 817,
@@ -47878,7 +48613,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5129,
   "businessPctStart": 0.0594,
-  "businessDegreesStart": 63
+  "businessDegreesStart": 63,
+  "seatRole": "chief_executive"
  },
  {
   "id": 818,
@@ -47995,7 +48731,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5083,
   "businessPctStart": 0.0954,
-  "businessDegreesStart": 134
+  "businessDegreesStart": 134,
+  "seatRole": "chief_executive"
  },
  {
   "id": 820,
@@ -48052,7 +48789,8 @@
   "businessDegreesLatest": 70,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 821,
@@ -48112,7 +48850,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5417,
   "businessPctStart": 0.0324,
-  "businessDegreesStart": 15
+  "businessDegreesStart": 15,
+  "seatRole": "chief_executive"
  },
  {
   "id": 822,
@@ -48172,7 +48911,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4672,
   "businessPctStart": 0.0554,
-  "businessDegreesStart": 73
+  "businessDegreesStart": 73,
+  "seatRole": "chief_executive"
  },
  {
   "id": 823,
@@ -48232,7 +48972,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4491,
   "businessPctStart": 0.1339,
-  "businessDegreesStart": 272
+  "businessDegreesStart": 272,
+  "seatRole": "chief_executive"
  },
  {
   "id": 824,
@@ -48292,7 +49033,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5019,
   "businessPctStart": 0.0929,
-  "businessDegreesStart": 129
+  "businessDegreesStart": 129,
+  "seatRole": "chief_executive"
  },
  {
   "id": 825,
@@ -48352,7 +49094,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5722,
   "businessPctStart": 0.1828,
-  "businessDegreesStart": 106
+  "businessDegreesStart": 106,
+  "seatRole": "chief_executive"
  },
  {
   "id": 826,
@@ -48412,7 +49155,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5044,
   "businessPctStart": 0.183,
-  "businessDegreesStart": 136
+  "businessDegreesStart": 136,
+  "seatRole": "chief_executive"
  },
  {
   "id": 827,
@@ -48472,7 +49216,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4902,
   "businessPctStart": 0.2006,
-  "businessDegreesStart": 143
+  "businessDegreesStart": 143,
+  "seatRole": "chief_executive"
  },
  {
   "id": 828,
@@ -48532,7 +49277,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4328,
   "businessPctStart": 0.0438,
-  "businessDegreesStart": 31
+  "businessDegreesStart": 31,
+  "seatRole": "chief_executive"
  },
  {
   "id": 829,
@@ -48589,7 +49335,8 @@
   "businessDegreesLatest": 84,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 830,
@@ -48649,7 +49396,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5272,
   "businessPctStart": 0.0453,
-  "businessDegreesStart": 67
+  "businessDegreesStart": 67,
+  "seatRole": "chief_executive"
  },
  {
   "id": 831,
@@ -48709,7 +49457,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6290,
   "businessPctStart": 0.041,
-  "businessDegreesStart": 58
+  "businessDegreesStart": 58,
+  "seatRole": "chief_executive"
  },
  {
   "id": 832,
@@ -48769,7 +49518,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5112,
   "businessPctStart": 0.0656,
-  "businessDegreesStart": 67
+  "businessDegreesStart": 67,
+  "seatRole": "chief_executive"
  },
  {
   "id": 833,
@@ -48885,7 +49635,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.0468,
-  "businessDegreesStart": 44
+  "businessDegreesStart": 44,
+  "seatRole": "chief_executive"
  },
  {
   "id": 835,
@@ -48942,7 +49693,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 836,
@@ -48999,7 +49751,8 @@
   "businessDegreesLatest": 167,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 837,
@@ -49057,7 +49810,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 5285
+  "enrollmentStart": 5285,
+  "seatRole": "chief_executive"
  },
  {
   "id": 838,
@@ -49114,7 +49868,8 @@
   "businessDegreesLatest": 118,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 839,
@@ -49174,7 +49929,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3207,
   "businessPctStart": 0.1948,
-  "businessDegreesStart": 67
+  "businessDegreesStart": 67,
+  "seatRole": "chief_executive"
  },
  {
   "id": 840,
@@ -49234,7 +49990,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4156,
   "businessPctStart": 0.1669,
-  "businessDegreesStart": 132
+  "businessDegreesStart": 132,
+  "seatRole": "chief_executive"
  },
  {
   "id": 841,
@@ -49294,7 +50051,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5653,
   "businessPctStart": 0.1525,
-  "businessDegreesStart": 84
+  "businessDegreesStart": 84,
+  "seatRole": "chief_executive"
  },
  {
   "id": 842,
@@ -49351,7 +50109,8 @@
   "businessDegreesLatest": 128,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 843,
@@ -49411,7 +50170,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5289,
   "businessPctStart": 0.0708,
-  "businessDegreesStart": 62
+  "businessDegreesStart": 62,
+  "seatRole": "chief_executive"
  },
  {
   "id": 844,
@@ -49471,7 +50231,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4308,
   "businessPctStart": 0.0429,
-  "businessDegreesStart": 48
+  "businessDegreesStart": 48,
+  "seatRole": "chief_executive"
  },
  {
   "id": 845,
@@ -49528,7 +50289,8 @@
   "businessDegreesLatest": 62,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 846,
@@ -49588,7 +50350,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4596,
   "businessPctStart": 0.1704,
-  "businessDegreesStart": 154
+  "businessDegreesStart": 154,
+  "seatRole": "chief_executive"
  },
  {
   "id": 847,
@@ -49705,7 +50468,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4984,
   "businessPctStart": 0.1607,
-  "businessDegreesStart": 257
+  "businessDegreesStart": 257,
+  "seatRole": "chief_executive"
  },
  {
   "id": 849,
@@ -49765,7 +50529,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5585,
   "businessPctStart": 0.0412,
-  "businessDegreesStart": 47
+  "businessDegreesStart": 47,
+  "seatRole": "chief_executive"
  },
  {
   "id": 850,
@@ -49822,7 +50587,8 @@
   "businessDegreesLatest": 42,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 851,
@@ -49939,7 +50705,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6299,
   "businessPctStart": 0.2203,
-  "businessDegreesStart": 113
+  "businessDegreesStart": 113,
+  "seatRole": "chief_executive"
  },
  {
   "id": 853,
@@ -50056,7 +50823,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5825,
   "businessPctStart": 0.0225,
-  "businessDegreesStart": 28
+  "businessDegreesStart": 28,
+  "seatRole": "chief_executive"
  },
  {
   "id": 855,
@@ -50116,7 +50884,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5885,
   "businessPctStart": 0.0315,
-  "businessDegreesStart": 40
+  "businessDegreesStart": 40,
+  "seatRole": "chief_executive"
  },
  {
   "id": 856,
@@ -50174,7 +50943,8 @@
   "convertedToPermanent": false,
   "connectionType": "",
   "seatType": "standalone",
-  "enrollmentStart": 5233
+  "enrollmentStart": 5233,
+  "seatRole": "chief_executive"
  },
  {
   "id": 857,
@@ -50234,7 +51004,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5155,
   "businessPctStart": 0.1009,
-  "businessDegreesStart": 77
+  "businessDegreesStart": 77,
+  "seatRole": "chief_executive"
  },
  {
   "id": 858,
@@ -50294,7 +51065,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6508,
   "businessPctStart": 0.0687,
-  "businessDegreesStart": 63
+  "businessDegreesStart": 63,
+  "seatRole": "chief_executive"
  },
  {
   "id": 859,
@@ -50354,7 +51126,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3888,
   "businessPctStart": 0.0449,
-  "businessDegreesStart": 42
+  "businessDegreesStart": 42,
+  "seatRole": "chief_executive"
  },
  {
   "id": 860,
@@ -50411,7 +51184,8 @@
   "businessDegreesLatest": 34,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 861,
@@ -50468,7 +51242,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 862,
@@ -50525,7 +51300,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 863,
@@ -50582,7 +51358,8 @@
   "businessDegreesLatest": 55,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 864,
@@ -50642,7 +51419,8 @@
   "seatType": "standalone",
   "enrollmentStart": 2632,
   "businessPctStart": 0.2264,
-  "businessDegreesStart": 156
+  "businessDegreesStart": 156,
+  "seatRole": "chief_executive"
  },
  {
   "id": 865,
@@ -50702,7 +51480,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4442,
   "businessPctStart": 0.15,
-  "businessDegreesStart": 63
+  "businessDegreesStart": 63,
+  "seatRole": "chief_executive"
  },
  {
   "id": 866,
@@ -50873,7 +51652,8 @@
   "businessDegreesLatest": 129,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 869,
@@ -50933,7 +51713,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4869,
   "businessPctStart": 0.1117,
-  "businessDegreesStart": 68
+  "businessDegreesStart": 68,
+  "seatRole": "chief_executive"
  },
  {
   "id": 870,
@@ -51161,7 +51942,8 @@
   "businessDegreesLatest": 58,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 875,
@@ -51221,7 +52003,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5063,
   "businessPctStart": 0.0182,
-  "businessDegreesStart": 20
+  "businessDegreesStart": 20,
+  "seatRole": "chief_executive"
  },
  {
   "id": 876,
@@ -51335,7 +52118,8 @@
   "businessDegreesLatest": 94,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 878,
@@ -51452,7 +52236,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4213,
   "businessPctStart": 0.1124,
-  "businessDegreesStart": 48
+  "businessDegreesStart": 48,
+  "seatRole": "chief_executive"
  },
  {
   "id": 880,
@@ -51737,7 +52522,8 @@
   "businessDegreesLatest": 87,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 885,
@@ -52082,7 +52868,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4514,
   "businessPctStart": 0.0856,
-  "businessDegreesStart": 56
+  "businessDegreesStart": 56,
+  "seatRole": "chief_executive"
  },
  {
   "id": 891,
@@ -52196,7 +52983,8 @@
   "businessDegreesLatest": 34,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 893,
@@ -52313,7 +53101,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4548,
   "businessPctStart": 0.2326,
-  "businessDegreesStart": 230
+  "businessDegreesStart": 230,
+  "seatRole": "chief_executive"
  },
  {
   "id": 895,
@@ -52430,7 +53219,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4683,
   "businessPctStart": 0.0716,
-  "businessDegreesStart": 123
+  "businessDegreesStart": 123,
+  "seatRole": "chief_executive"
  },
  {
   "id": 898,
@@ -52604,7 +53394,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4579,
   "businessPctStart": 0.0742,
-  "businessDegreesStart": 109
+  "businessDegreesStart": 109,
+  "seatRole": "chief_executive"
  },
  {
   "id": 901,
@@ -52664,7 +53455,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4296,
   "businessPctStart": 0.0942,
-  "businessDegreesStart": 130
+  "businessDegreesStart": 130,
+  "seatRole": "chief_executive"
  },
  {
   "id": 902,
@@ -52835,7 +53627,8 @@
   "businessDegreesLatest": 162,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 905,
@@ -52895,7 +53688,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5081,
   "businessPctStart": 0.1337,
-  "businessDegreesStart": 111
+  "businessDegreesStart": 111,
+  "seatRole": "chief_executive"
  },
  {
   "id": 906,
@@ -52955,7 +53749,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5439,
   "businessPctStart": 0.1506,
-  "businessDegreesStart": 150
+  "businessDegreesStart": 150,
+  "seatRole": "chief_executive"
  },
  {
   "id": 907,
@@ -53014,7 +53809,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1849,
-  "businessDegreesStart": 162
+  "businessDegreesStart": 162,
+  "seatRole": "chief_executive"
  },
  {
   "id": 908,
@@ -53245,7 +54041,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4175,
   "businessPctStart": 0.0748,
-  "businessDegreesStart": 136
+  "businessDegreesStart": 136,
+  "seatRole": "chief_executive"
  },
  {
   "id": 912,
@@ -53305,7 +54102,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4418,
   "businessPctStart": 0.1876,
-  "businessDegreesStart": 223
+  "businessDegreesStart": 223,
+  "seatRole": "chief_executive"
  },
  {
   "id": 913,
@@ -53365,7 +54163,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4110,
   "businessPctStart": 0.0953,
-  "businessDegreesStart": 91
+  "businessDegreesStart": 91,
+  "seatRole": "chief_executive"
  },
  {
   "id": 914,
@@ -53539,7 +54338,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4315,
   "businessPctStart": 0.0926,
-  "businessDegreesStart": 51
+  "businessDegreesStart": 51,
+  "seatRole": "chief_executive"
  },
  {
   "id": 917,
@@ -53710,7 +54510,8 @@
   "businessDegreesLatest": 105,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 920,
@@ -53884,7 +54685,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3204,
   "businessPctStart": 0.0161,
-  "businessDegreesStart": 20
+  "businessDegreesStart": 20,
+  "seatRole": "chief_executive"
  },
  {
   "id": 923,
@@ -54058,7 +54860,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5474,
   "businessPctStart": 0.1595,
-  "businessDegreesStart": 96
+  "businessDegreesStart": 96,
+  "seatRole": "chief_executive"
  },
  {
   "id": 927,
@@ -54403,7 +55206,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3895,
   "businessPctStart": 0.1823,
-  "businessDegreesStart": 105
+  "businessDegreesStart": 105,
+  "seatRole": "chief_executive"
  },
  {
   "id": 935,
@@ -54463,7 +55267,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5018,
   "businessPctStart": 0.0775,
-  "businessDegreesStart": 87
+  "businessDegreesStart": 87,
+  "seatRole": "chief_executive"
  },
  {
   "id": 936,
@@ -54523,7 +55328,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4663,
   "businessPctStart": 0.0626,
-  "businessDegreesStart": 56
+  "businessDegreesStart": 56,
+  "seatRole": "chief_executive"
  },
  {
   "id": 937,
@@ -54583,7 +55389,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4092,
   "businessPctStart": 0.1005,
-  "businessDegreesStart": 84
+  "businessDegreesStart": 84,
+  "seatRole": "chief_executive"
  },
  {
   "id": 938,
@@ -54757,7 +55564,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4626,
   "businessPctStart": 0.1353,
-  "businessDegreesStart": 87
+  "businessDegreesStart": 87,
+  "seatRole": "chief_executive"
  },
  {
   "id": 942,
@@ -54871,7 +55679,8 @@
   "businessDegreesLatest": 30,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 944,
@@ -54931,7 +55740,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3391,
   "businessPctStart": 0.1332,
-  "businessDegreesStart": 65
+  "businessDegreesStart": 65,
+  "seatRole": "chief_executive"
  },
  {
   "id": 945,
@@ -54991,7 +55801,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5185,
   "businessPctStart": 0.0698,
-  "businessDegreesStart": 56
+  "businessDegreesStart": 56,
+  "seatRole": "chief_executive"
  },
  {
   "id": 946,
@@ -55048,7 +55859,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 947,
@@ -55105,7 +55917,8 @@
   "businessDegreesLatest": 80,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 948,
@@ -55165,7 +55978,8 @@
   "seatType": "standalone",
   "enrollmentStart": 7200,
   "businessPctStart": 0.1346,
-  "businessDegreesStart": 116
+  "businessDegreesStart": 116,
+  "seatRole": "chief_executive"
  },
  {
   "id": 949,
@@ -55224,7 +56038,8 @@
   "connectionType": "",
   "seatType": "standalone",
   "businessPctStart": 0.1663,
-  "businessDegreesStart": 80
+  "businessDegreesStart": 80,
+  "seatRole": "chief_executive"
  },
  {
   "id": 950,
@@ -55281,7 +56096,8 @@
   "businessDegreesLatest": 117,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 951,
@@ -55341,7 +56157,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3338,
   "businessPctStart": 0.2142,
-  "businessDegreesStart": 136
+  "businessDegreesStart": 136,
+  "seatRole": "chief_executive"
  },
  {
   "id": 952,
@@ -55401,7 +56218,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3716,
   "businessPctStart": 0.0848,
-  "businessDegreesStart": 78
+  "businessDegreesStart": 78,
+  "seatRole": "chief_executive"
  },
  {
   "id": 953,
@@ -55458,7 +56276,8 @@
   "businessDegreesLatest": 74,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 954,
@@ -55515,7 +56334,8 @@
   "businessDegreesLatest": 74,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 955,
@@ -55572,7 +56392,8 @@
   "businessDegreesLatest": 74,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 956,
@@ -55686,7 +56507,8 @@
   "businessDegreesLatest": 82,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 958,
@@ -55746,7 +56568,8 @@
   "seatType": "standalone",
   "enrollmentStart": 6298,
   "businessPctStart": 0.2037,
-  "businessDegreesStart": 187
+  "businessDegreesStart": 187,
+  "seatRole": "chief_executive"
  },
  {
   "id": 959,
@@ -55806,7 +56629,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5565,
   "businessPctStart": 0.1557,
-  "businessDegreesStart": 154
+  "businessDegreesStart": 154,
+  "seatRole": "chief_executive"
  },
  {
   "id": 960,
@@ -55866,7 +56690,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3706,
   "businessPctStart": 0.1463,
-  "businessDegreesStart": 96
+  "businessDegreesStart": 96,
+  "seatRole": "chief_executive"
  },
  {
   "id": 961,
@@ -55923,7 +56748,8 @@
   "businessDegreesLatest": 80,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 962,
@@ -55983,7 +56809,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4426,
   "businessPctStart": 0.1083,
-  "businessDegreesStart": 61
+  "businessDegreesStart": 61,
+  "seatRole": "chief_executive"
  },
  {
   "id": 963,
@@ -56043,7 +56870,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5177,
   "businessPctStart": 0.049,
-  "businessDegreesStart": 33
+  "businessDegreesStart": 33,
+  "seatRole": "chief_executive"
  },
  {
   "id": 964,
@@ -56103,7 +56931,8 @@
   "seatType": "standalone",
   "enrollmentStart": 5007,
   "businessPctStart": 0.0718,
-  "businessDegreesStart": 49
+  "businessDegreesStart": 49,
+  "seatRole": "chief_executive"
  },
  {
   "id": 965,
@@ -56331,7 +57160,8 @@
   "businessDegreesLatest": 92,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "standalone"
+  "seatType": "standalone",
+  "seatRole": "chief_executive"
  },
  {
   "id": 969,
@@ -56391,7 +57221,8 @@
   "seatType": "standalone",
   "enrollmentStart": 4021,
   "businessPctStart": 0.0666,
-  "businessDegreesStart": 129
+  "businessDegreesStart": 129,
+  "seatRole": "chief_executive"
  },
  {
   "id": 970,
@@ -56508,7 +57339,8 @@
   "seatType": "standalone",
   "enrollmentStart": 3664,
   "businessPctStart": 0.0446,
-  "businessDegreesStart": 102
+  "businessDegreesStart": 102,
+  "seatRole": "chief_executive"
  },
  {
   "id": 972,
@@ -56622,7 +57454,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 974,
@@ -56679,7 +57512,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 975,
@@ -56736,7 +57570,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 976,
@@ -56793,7 +57628,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 977,
@@ -56850,7 +57686,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 978,
@@ -56907,7 +57744,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 979,
@@ -56964,7 +57802,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 980,
@@ -57021,7 +57860,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 981,
@@ -57081,7 +57921,8 @@
   "seatType": "district",
   "enrollmentStart": 8366,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "seatRole": "chief_executive"
  },
  {
   "id": 982,
@@ -57141,7 +57982,8 @@
   "seatType": "district",
   "enrollmentStart": 6713,
   "businessPctStart": 0,
-  "businessDegreesStart": 0
+  "businessDegreesStart": 0,
+  "seatRole": "chief_executive"
  },
  {
   "id": 984,
@@ -57198,7 +58040,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 985,
@@ -57255,7 +58098,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 986,
@@ -57312,7 +58156,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 987,
@@ -57369,7 +58214,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 988,
@@ -57426,7 +58272,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 989,
@@ -57483,7 +58330,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 990,
@@ -57540,7 +58388,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 991,
@@ -57597,7 +58446,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 992,
@@ -57654,7 +58504,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 993,
@@ -57711,7 +58562,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 994,
@@ -57768,7 +58620,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 995,
@@ -57825,7 +58678,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 996,
@@ -57882,7 +58736,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 997,
@@ -57939,7 +58794,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 998,
@@ -57996,7 +58852,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 999,
@@ -58053,7 +58910,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1000,
@@ -58110,7 +58968,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1001,
@@ -58167,7 +59026,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1002,
@@ -58224,7 +59084,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1003,
@@ -58281,7 +59142,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1004,
@@ -58338,7 +59200,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1005,
@@ -58395,7 +59258,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": true,
   "connectionType": "Same institution",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1006,
@@ -58509,7 +59373,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1008,
@@ -58623,7 +59488,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "Same institution",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1010,
@@ -58737,7 +59603,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1012,
@@ -58794,7 +59661,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1013,
@@ -58851,7 +59719,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": false,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1014,
@@ -58908,7 +59777,8 @@
   "businessDegreesLatest": null,
   "convertedToPermanent": true,
   "connectionType": "",
-  "seatType": "district"
+  "seatType": "district",
+  "seatRole": "chief_executive"
  },
  {
   "id": 1015,
