@@ -41,7 +41,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { keyOf, idOf } from "./lib/institution-key.mjs";
 import { isChiefExecutiveSeat, surnameKey } from "./lib/interim-panel.mjs";
-import { normSchool, slug, titleVerbatim, interimEvidence, isPlaceholderEnd } from "./lib/seat-identity.mjs";
+import { normSchool, slug, titleVerbatim, deriveInterim, isPlaceholderEnd } from "./lib/seat-identity.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SRC = join(HERE, "..", "src", "data");
@@ -189,8 +189,13 @@ for (const [file, seatLevel, unitType] of SEATS) {
     const placeholder = isPlaceholderEnd(r.startYear, r.endYear, EXTRACT_YEAR);
     if (placeholder) stats.placeholderEnds++;
     const end = placeholder ? { date: "", precision: "" } : isoDate(r.endYear, r.endLabel);
-    const ev = interimEvidence(r);
+    const ev = deriveInterim(r);
     const title = titleVerbatim(r);
+    // The derivation never saw the legacy flag. Where it reached a conclusion, that
+    // conclusion stands even when it contradicts the ETL; where it could not, the
+    // legacy value carries the row and `interim_evidence` says the basis is weak.
+    const derivedKnown = ev.derived !== null;
+    const isInterim = derivedKnown ? ev.derived : Boolean(r.isInterim);
 
     raw.push({
       _file: file, _instKey: instKey, _row: r, _school: r.school || "",
@@ -210,10 +215,16 @@ for (const [file, seatLevel, unitType] of SEATS) {
       is_current: placeholder ? false : r.endYear === null || r.endYear === undefined,
       end_date_suppressed: placeholder,
       is_interim_legacy: Boolean(r.isInterim),
-      is_interim: Boolean(r.isInterim),
+      is_interim: isInterim,
       interim_evidence: ev.evidence,
-      interim_override: Boolean(r.isInterim) && ev.evidence !== "title",
-      interim_override_reason: ev.quote,
+      interim_evidence_quote: ev.quote,
+      // An override is now only what the spec meant by one: a row the source cannot
+      // decide, where the legacy assertion is all there is. Narrative evidence is a
+      // derivation, not an exception.
+      interim_override: !derivedKnown && Boolean(r.isInterim),
+      interim_override_reason: !derivedKnown && Boolean(r.isInterim) ? ev.quote || "legacy ETL flag only; no source evidence" : "",
+      interim_diverges_from_legacy: derivedKnown && ev.derived !== Boolean(r.isInterim),
+      title_is_compound: ev.compound,
       // Never collected by this corpus. Present so the schema matches and so a later
       // pass has somewhere to write; never defaulted to the extract date, which would
       // assert a verification that did not happen.
@@ -427,19 +438,30 @@ for (const [pid, row] of peopleRows) {
  * gap inside a `researched_complete` window may later become a VACANT row.
  */
 const coverageRows = [];
-for (const [seatId, seat] of seatRows) {
+for (const [seatId] of seatRows) {
   const list = bySeat.get(seatId) || [];
   const meta = schoolMeta.get(list[0]?._instKey) || {};
   const known = typeof meta.truncated === "boolean";
-  coverageRows.push({
-    seat_id: seatId,
-    year_from: known && meta.historyFrom ? meta.historyFrom : (list.length ? +list[0].start_date.slice(0, 4) : ""),
-    year_to: EXTRACT_YEAR,
-    coverage: known ? (meta.truncated ? "researched_partial" : "researched_complete") : "not_researched",
-    method: known ? "web_search" : "none",
-    researcher_id: "",
-    researched_date: "",
-  });
+  const floor = known && meta.historyFrom ? meta.historyFrom : null;
+  const earliest = list.length ? +list[0].start_date.slice(0, 4) : null;
+  // Where the build recorded how far back it reached, the seat splits into two real
+  // windows: everything before that floor was never looked at, and everything from it
+  // forward was. One window per seat had no "inside", so a gap could never be told
+  // from an unresearched stretch -- which was the whole purpose of this table.
+  if (floor) {
+    if (earliest !== null && earliest < floor)
+      coverageRows.push({ seat_id: seatId, year_from: earliest, year_to: floor - 1, coverage: "not_researched", method: "none", researcher_id: "", researched_date: "" });
+    coverageRows.push({
+      seat_id: seatId, year_from: floor, year_to: EXTRACT_YEAR,
+      coverage: meta.truncated ? "researched_partial" : "researched_complete",
+      method: "web_search", researcher_id: "", researched_date: "",
+    });
+  } else {
+    coverageRows.push({
+      seat_id: seatId, year_from: earliest ?? "", year_to: EXTRACT_YEAR,
+      coverage: "not_researched", method: "none", researcher_id: "", researched_date: "",
+    });
+  }
 }
 
 /**
@@ -504,7 +526,8 @@ if (!existsSync(OUT)) mkdirSync(OUT, { recursive: true });
 writeCsv("appointments.csv", [
   "appointment_id", "institution_id", "seat_id", "seat_level", "source_index", "title_verbatim", "unit_name",
   "person_id", "start_date", "start_precision", "end_date", "end_precision", "end_date_suppressed", "is_current",
-  "is_interim", "is_interim_legacy", "interim_evidence", "interim_override", "interim_override_reason",
+  "is_interim", "is_interim_legacy", "interim_evidence", "interim_evidence_quote", "interim_override",
+  "interim_override_reason", "interim_diverges_from_legacy", "title_is_compound",
   "converted_to_permanent", "linked_permanent_id", "predecessor_appointment_id", "appointment_seq",
   "is_left_censored", "last_verified_date", "announcement_date", "search_start_date", "search_firm",
   "is_internal_hire", "source_url",
@@ -614,11 +637,20 @@ say(`6.  No end date at the extract year without documentation ..... ${endsAtExt
 const staleInterim = appts.filter((a) => a.is_current && a.is_interim && +a.start_date.slice(0, 4) <= EXTRACT_YEAR - 2);
 say(`7.  Current-and-interim rows verified within 18 months ........ FAIL by design: last_verified_date is empty corpus-wide`);
 say(`      rows needing re-verification (current, interim, start <= ${EXTRACT_YEAR - 2}): ${staleInterim.length}`);
-const derivable = appts.filter((a) => a.is_interim && a.interim_evidence === "title").length;
+// Test 8 now counts derivations and overrides as the spec meant them: narrative
+// evidence is a derivation from source text, not a manual exception.
+const fromTitle = appts.filter((a) => a.interim_evidence === "title").length;
+const fromNarrative = appts.filter((a) => a.interim_evidence === "narrative").length;
 const overridden = appts.filter((a) => a.interim_override).length;
-const noEvidence = appts.filter((a) => a.is_interim && a.interim_evidence === "none").length;
-say(`8.  is_interim reproducible from title_verbatim ............... ${yn(appts.every((a) => !a.is_interim || a.interim_evidence === "title" || a.interim_override))}`);
-say(`      from the title: ${derivable}   overridden with recorded evidence: ${overridden - noEvidence}   override with no evidence: ${noEvidence}`);
+const legacyInterim = appts.filter((a) => a.is_interim_legacy).length;
+const unverifiable = appts.filter((a) => a.is_interim_legacy && a.interim_override).length;
+say(`8.  is_interim derivable from appointment-scoped evidence ..... PARTIAL`);
+say(`      derived from a title: ${fromTitle} interim + ${appts.filter((a) => a.interim_evidence === "title_plain").length} permanent`);
+say(`      NOT independently verifiable: ${unverifiable} of ${legacyInterim} interim flags (${((100 * unverifiable) / legacyInterim).toFixed(1)}%) rest on`);
+say(`      the legacy ETL alone. The corpus records no appointment-scoped title for most`);
+say(`      dean seats, and \`notes\` is not appointment-scoped -- see seat-identity.mjs.`);
+tally(appts.filter((a) => a.is_interim_legacy), (a) => a.interim_evidence).forEach(([k, v]) => say(`        ${k.padEnd(20)} ${v}`));
+void fromNarrative;
 say(`9.  cannot_determine only after a recorded search ............. PASS (no row claims it; uncoded rows are null)`);
 const confDist = tally(exitRows, (e) => e.circumstance_confidence || "(empty)");
 say(`10. circumstance_confidence is not a defaulted constant ....... empty on all rows, by design (never assessed)`);
@@ -649,7 +681,7 @@ const tierOf = (a) => {
   const k = a._instKey;
   return r1Keys.has(k) ? "R1" : c2021.get(k) || "?";
 };
-say("14. Tier table reconciliation (test 8 wins; legacy flag preserved)");
+say("14. Tier table reconciliation -- derivation never consulted the legacy flag");
 say("      tier   appts   legacy interim   derived interim   published");
 const published = { R1: "27.8%", R2: "27.9%", R3: "19.9%" };
 for (const t of ["R1", "R2", "R3"]) {
@@ -659,18 +691,36 @@ for (const t of ["R1", "R2", "R3"]) {
   say(`      ${t.padEnd(6)} ${String(rows.length).padStart(5)}   ${(100 * lg / rows.length).toFixed(1)}% (${lg})`.padEnd(46)
     + `${(100 * dv / rows.length).toFixed(1)}% (${dv})`.padEnd(18) + published[t]);
 }
-const diverge = appts.filter((a) => a.is_interim !== a.is_interim_legacy);
-say(`      rows where derived and legacy disagree: ${diverge.length}`);
+const diverge = appts.filter((a) => a.interim_diverges_from_legacy);
+say(`      rows where the derivation disagrees with the legacy ETL flag: ${diverge.length}`);
+tally(diverge, (a) => `${a.seat_level}: legacy ${a.is_interim_legacy ? "interim" : "permanent"} -> derived ${a.is_interim ? "interim" : "permanent"}`)
+  .forEach(([k, v]) => say(`        ${k.padEnd(46)} ${v}`));
+say(`      These are disagreements needing adjudication, not proven ETL errors: most are a`);
+say(`      bare "President"/"Chancellor" title with silent notes against an ETL interim`);
+say(`      flag, where the ETL's origin coding may well have known something the title`);
+say(`      does not say. Arizona pharmacy's "Acting Dean" flagged permanent is a plain`);
+say(`      error. Exhibit: interim_diverges_from_legacy in appointments.csv.`);
 say();
 
 say(`15. Every appointment has a source_index ...................... ${yn(appts.every((a) => a.source_index))}`);
-const groups = new Map();
+// Grouping by institution plus normalised name cannot fail while seat_id is BUILT
+// from institution plus normalised name -- the previous version of this test was a
+// tautology. The question worth asking is whether one real school still draws from
+// more than one index without a recorded merge decision, computed from source fields
+// rather than from the key.
+const srcGroups = new Map();
 for (const a of appts) {
-  const k = `${a.institution_id}|${normSchool(a.unit_name)}`;
-  (groups.get(k) || groups.set(k, new Set()).get(k)).add(a.seat_id);
+  if (a.seat_level !== "dean") continue;
+  const k = `${a.institution_id}|${normSchool(a._school)}`;
+  (srcGroups.get(k) || srcGroups.set(k, new Map()).get(k)).set(a.source_index, true);
 }
-const split = [...groups.values()].filter((s) => s.size > 1).length;
-say(`16. No institution+school group spans two seat_ids ............ ${yn(!split)}  (${split})`);
+const multiIndex = [...srcGroups.entries()].filter(([, m]) => m.size > 1);
+const undecided = multiIndex.filter(([k]) => !mergeDecisions.some((d) => `${d.institution_id}|${normSchool(d.canonical_name)}` === k));
+say(`16. Each real school draws from one index, or has a merge decision ${yn(!undecided.length)}  (${undecided.length} undecided)`);
+say(`      schools drawing from more than one index: ${multiIndex.length}, all recorded in merge_decisions.csv`);
+say(`      NOTE: scope is this panel's 16 indexes. adminleaders and LAC are excluded here`);
+say(`      and carry the bulk of the corpus-wide duplication (~202 of 220 pairs); that is`);
+say(`      a BatonIndex defect this export does not touch.`);
 say(`17. No person_id holds overlapping spells at two institutions .. ${dualInstAcross()} `);
 function dualInstAcross() {
   let n = 0;
@@ -686,6 +736,22 @@ function dualInstAcross() {
 }
 say();
 
+// Standing detector: a title naming an interim role on a row the corpus flags
+// permanent is a reliable signal that several spells were collapsed into one row.
+const compounds = appts.filter((a) => a.title_is_compound);
+const contradictions = appts.filter(
+  (a) => a.title_verbatim && !a.title_is_compound && /\b(interim|acting)\b|pro\s*tem/i.test(a.title_verbatim) && !a.is_interim_legacy,
+);
+say("Collapsed-spell detector");
+say("-".repeat(74));
+say(`  titles that collapse several spells into one row: ${compounds.length}`);
+tally(compounds, (a) => a.seat_level).forEach(([k, v]) => say(`    ${k.padEnd(12)} ${v}`));
+compounds.slice(0, 6).forEach((a) => say(`    ${a.institution_id.replace("US-", "").slice(0, 30).padEnd(32)} ${a.title_verbatim.slice(0, 70)}`));
+say(`  interim-worded titles the ETL flagged permanent, not compound: ${contradictions.length}`);
+contradictions.slice(0, 6).forEach((a) => say(`    ${a.institution_id.replace("US-", "").slice(0, 30).padEnd(32)} ${a.title_verbatim.slice(0, 60)}`));
+say(`  Each collapsed row deletes a conversion and biases the interim rate down; they`);
+say(`  need splitting at source, not here.`);
+say();
 say("What the rebuild newly revealed");
 say("-".repeat(74));
 const provostSeats = [...seatRows.values()].filter((s) => s.seat_level === "provost").length;

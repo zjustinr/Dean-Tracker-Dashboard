@@ -46,39 +46,86 @@ export const titleVerbatim = (r) => {
 };
 
 /**
- * How `is_interim` is evidenced on a row, as a four-state value.
+ * A title that has had several spells collapsed into it.
  *
- * The rebuild spec asks for `is_interim` to be reproducible from `title_verbatim`,
- * with an override for the exceptions. Measured against the corpus that is not a
- * small exception set: of 2,958 interim spells, the word sits in a title on 1,347,
- * in narrative `notes` on a further 1,215, in `priorTitle` only on 48, and nowhere at
- * all on 348. Treating 1,611 rows as manual overrides would be wrong -- the evidence
- * exists and is machine-readable, it is simply prose rather than a title.
- *
- * So the override is split by where the evidence lives:
- *   `title`     the title says interim/acting. Derivable; no override needed.
- *   `narrative` a sentence in the source notes says so. Override, reason auto-filled
- *               with that sentence verbatim, so a reader can audit it.
- *   `etl_only`  only the ETL's own origin coding says so. Override, reason records
- *               the origin code. This is an assertion by a previous pass, not source
- *               evidence, and the analysis should be able to discount it.
- *   `none`      the flag is set and nothing supports it. Override with no reason;
- *               these are the rows that genuinely need a human.
+ * The corpus sometimes records a person's whole run in one row:
+ * "Acting Provost (1977-1978); Senior Vice President for Academic Affairs and
+ * Provost (1978-1983)". That is two appointments, and the two-row rule exists
+ * precisely to keep them apart -- collapsed, it deletes a conversion and biases the
+ * interim rate downward. Such a title must never be allowed to flip `is_interim`,
+ * because neither value is right for the row as it stands; it needs splitting first.
  */
-export function interimEvidence(r) {
-  if (!r.isInterim) return { evidence: "", quote: "" };
+export const isCompoundTitle = (title) => {
+  const s = String(title || "");
+  if (!s) return false;
+  // Two role phrases separated by ; or /, or a parenthetical year range.
+  if (/\(\s*\d{4}\s*[-–]\s*\d{2,4}\s*\)/.test(s)) return true;
+  if (/[;\/]/.test(s) && /\b(dean|president|provost|chancellor|rector)\b/i.test(s)) {
+    const parts = s.split(/[;\/]/).filter((x) => /\b(dean|president|provost|chancellor|rector)\b/i.test(x));
+    return parts.length > 1;
+  }
+  return false;
+};
+
+/**
+ * Derive `is_interim` from source evidence, WITHOUT consulting the legacy ETL flag.
+ *
+ * Acceptance test 14 asks for an independent derivation so the legacy ETL flag can be
+ * audited. The previous build failed it silently -- `is_interim` was copied from
+ * `is_interim_legacy`, so "zero rows disagree" was guaranteed by construction. This
+ * derives honestly, and the honest answer is that **most rows cannot be derived at
+ * all**. Two measurements establish why, and both are worth keeping in view:
+ *
+ * 1. **A title that omits the word is not evidence of permanence.** A first attempt
+ *    treated it as such and flipped 494 president rows to permanent on the strength of
+ *    a `discipline` reading "President" -- that field holds the generic seat name, not
+ *    the appointment-specific title. It reversed R1 from 28% to 8% on an artefact.
+ *
+ * 2. **`notes` is not appointment-scoped, so keyword matching on it is unusable.** A
+ *    second attempt derived TRUE from any interim word in the narrative and flipped
+ *    1,292 permanent rows. Reading them: "Also served as Baylor's acting president for
+ *    a year", "afterward served as interim president in 1948-49", "Acting dean 1925,
+ *    permanent dean from 1926" (this row being the permanent spell), and notes
+ *    describing the SOURCE -- "year ranges only, no [interim] information". The word
+ *    is present; the claim is about another seat, another period, or nothing at all.
+ *
+ * So derivation is restricted to what is genuinely appointment-scoped: the title.
+ * Everything else is left underivable, `derived: null`, with the legacy flag carrying
+ * the row and `interim_evidence` recording that its basis is weak. That is a smaller
+ * claim than the spec hoped for, and it is the one the corpus supports.
+ */
+export function deriveInterim(r) {
   const title = titleVerbatim(r);
-  if (INTERIM_WORD.test(title)) return { evidence: "title", quote: "" };
-  const notes = String(r.notes || "");
-  const sentence = notes
-    .split(/(?<=[.;])\s+/)
-    .find((s) => INTERIM_WORD.test(s));
-  if (sentence) return { evidence: "narrative", quote: sentence.trim().slice(0, 300) };
-  const prior = String(r.priorTitle || "");
-  if (INTERIM_WORD.test(prior)) return { evidence: "narrative", quote: prior.slice(0, 300) };
+  const notesMention = INTERIM_WORD.test(String(r.notes || ""));
+
+  if (isCompoundTitle(title))
+    return { derived: null, evidence: "compound_title", quote: title.slice(0, 300), compound: true };
+
+  // Conclusive interim: the title of this seat names an interim role.
+  if (title && INTERIM_WORD.test(title))
+    return { derived: true, evidence: "title", quote: title.slice(0, 300), compound: false };
+
+  // Conclusive permanent: a title is recorded, it names the seat plainly, and nothing
+  // anywhere in the row's narrative raises the question. Requiring the narrative to be
+  // silent is what keeps this from repeating failure mode 1 above.
+  if (title && !notesMention)
+    return { derived: false, evidence: "title_plain", quote: title.slice(0, 300), compound: false };
+
+  // A narrative mention with no confirming title: the word is there, but it may belong
+  // to another seat or another decade. Recorded for a human, never derived from.
+  if (notesMention) {
+    const sentence = String(r.notes || "").split(/(?<=[.;])\s+/).find((x) => INTERIM_WORD.test(x)) || "";
+    return { derived: null, evidence: "narrative_unscoped", quote: sentence.trim().slice(0, 300), compound: false };
+  }
+
+  // `priorTitle` names the PREVIOUS post, often at another institution -- "Dean,
+  // Suffolk University Law School" on an American University appointment -- so it can
+  // never describe this seat and is deliberately not consulted.
   const origin = `${r.origin || ""} ${r.originV2 || ""}`.trim();
-  if (INTERIM_WORD.test(origin)) return { evidence: "etl_only", quote: `origin coding: ${origin}` };
-  return { evidence: "none", quote: "" };
+  if (INTERIM_WORD.test(origin))
+    return { derived: null, evidence: "etl_only", quote: `origin coding: ${origin}`, compound: false };
+
+  return { derived: null, evidence: "none", quote: "", compound: false };
 }
 
 /**

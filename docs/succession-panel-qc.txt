@@ -21,17 +21,26 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
       seats where the two current rows come from different indexes: 1
 6.  No end date at the extract year without documentation ..... 223 remain; 23 long-run placeholders suppressed
 7.  Current-and-interim rows verified within 18 months ........ FAIL by design: last_verified_date is empty corpus-wide
-      rows needing re-verification (current, interim, start <= 2024): 29
-8.  is_interim reproducible from title_verbatim ............... PASS
-      from the title: 1051   overridden with recorded evidence: 1144   override with no evidence: 86
+      rows needing re-verification (current, interim, start <= 2024): 31
+8.  is_interim derivable from appointment-scoped evidence ..... PARTIAL
+      derived from a title: 1050 interim + 5536 permanent
+      NOT independently verifiable: 1212 of 2283 interim flags (53.1%) rest on
+      the legacy ETL alone. The corpus records no appointment-scoped title for most
+      dean seats, and `notes` is not appointment-scoped -- see seat-identity.mjs.
+        title                1047
+        narrative_unscoped   929
+        etl_only             195
+        none                 84
+        title_plain          24
+        compound_title       4
 9.  cannot_determine only after a recorded search ............. PASS (no row claims it; uncoded rows are null)
 10. circumstance_confidence is not a defaulted constant ....... empty on all rows, by design (never assessed)
 11. No field is a deterministic function of its parent ........ PASS: unplanned_basis removed; exit_circumstance now
-      populated only from independent corpus evidence (92 of 9653 rows)
+      populated only from independent corpus evidence (92 of 9655 rows)
 
 12. Precision counts
-      president  2706 appts   year:2706
-      provost    1500 appts   year:1497  month:3
+      president  2707 appts   year:2707
+      provost    1501 appts   year:1498  month:3
       dean       7570 appts   year:6983  month:586  day:1
 
 13. Seat coverage by decade (H5 diagnostic)
@@ -50,21 +59,52 @@ generated 2026-09-13 from artifacts/dean-dashboard/src/data
       1960                       7                  17                 288
       1970                      41                  46                 552
       1980                      70                  96                 783
-      1990                     162                 190                1147
+      1990                     163                 190                1147
       2000                     209                 303                1626
       2010                     311                 529                2159
-      2020                     293                 471                1760
+      2020                     293                 471                1761
 
-14. Tier table reconciliation (test 8 wins; legacy flag preserved)
+14. Tier table reconciliation -- derivation never consulted the legacy flag
       tier   appts   legacy interim   derived interim   published
-      R1       741   27.8% (206)              27.8% (206)       27.8%
-      R2       556   27.9% (155)              27.9% (155)       27.9%
-      R3       632   19.9% (126)              19.9% (126)       19.9%
-      rows where derived and legacy disagree: 0
+      R1       741   27.8% (206)              27.7% (205)       27.8%
+      R2       556   27.9% (155)              27.7% (154)       27.9%
+      R3       633   20.1% (127)              17.7% (112)       19.9%
+      rows where the derivation disagrees with the legacy ETL flag: 27
+        president: legacy interim -> derived permanent 21
+        provost: legacy interim -> derived permanent   3
+        dean: legacy permanent -> derived interim      2
+        provost: legacy permanent -> derived interim   1
+      These are disagreements needing adjudication, not proven ETL errors: most are a
+      bare "President"/"Chancellor" title with silent notes against an ETL interim
+      flag, where the ETL's origin coding may well have known something the title
+      does not say. Arizona pharmacy's "Acting Dean" flagged permanent is a plain
+      error. Exhibit: interim_diverges_from_legacy in appointments.csv.
 
 15. Every appointment has a source_index ...................... PASS
-16. No institution+school group spans two seat_ids ............ PASS  (0)
+16. Each real school draws from one index, or has a merge decision PASS  (0 undecided)
+      schools drawing from more than one index: 5, all recorded in merge_decisions.csv
+      NOTE: scope is this panel's 16 indexes. adminleaders and LAC are excluded here
+      and carry the bulk of the corpus-wide duplication (~202 of 220 pairs); that is
+      a BatonIndex defect this export does not touch.
 17. No person_id holds overlapping spells at two institutions .. FAIL  (42) 
+
+Collapsed-spell detector
+--------------------------------------------------------------------------
+  titles that collapse several spells into one row: 33
+    provost      29
+    dean         4
+    UNIVERSITY-OF-CALIFORNIA-RIVER   Director of the Citrus Experiment Station (1952-1960); Dean (1960-1968
+    RICE-UNIVERSITY                  Provost; Acting President; Chancellor
+    UNIVERSITY-OF-CINCINNATI         Dean of Academic Administration (1956-1960); Vice President and Dean o
+    NORTH-CAROLINA-STATE-UNIVERSIT   Dean of Faculty (1962-67); Provost (1967-71); Provost and Vice Chancel
+    UNIVERSITY-OF-MISSOURI           Dean of Faculty/Provost
+    UNIVERSITY-OF-MISSOURI           Acting Dean of Faculty/Provost
+  interim-worded titles the ETL flagged permanent, not compound: 3
+    UNIVERSITY-OF-ARIZONA            Acting Dean
+    TEXAS-CHRISTIAN-UNIVERSITY       Interim Associate Provost and Dean of Graduate Studies
+    FLORIDA-INTERNATIONAL-UNIVERSI   Acting Dean
+  Each collapsed row deletes a conversion and biases the interim rate down; they
+  need splitting at source, not here.
 
 What the rebuild newly revealed
 --------------------------------------------------------------------------
@@ -75,7 +115,7 @@ What the rebuild newly revealed
   the previous export meant no check ever ran across them. They are reported here
   rather than resolved, per the spec: closing a spell needs a source, not a guess.
 
-  Cross-index seat merging recovered 201 interim-to-permanent conversions,
+  Cross-index seat merging recovered 202 interim-to-permanent conversions,
   against 144 in the previous export. Sarah Cole's Columbia conversion is among
   the newly visible ones: her interim spell came from the arts index and her
   permanent spell from creative-arts, so no check could see them as one seat.
@@ -91,25 +131,25 @@ Cross-index merges performed by the new seat key
   classification conflicts flagged for review in merge_decisions.csv: 5
 
 Row counts
-  appointments.csv             11776
+  appointments.csv             11778
   seats.csv                     2110
   seat_name_variants.csv        2120
-  seat_coverage.csv             2110
+  seat_coverage.csv             2169
   merge_decisions.csv              5
   institutions.csv               459
-  people.csv                   10065
-  exits.csv                     9653
+  people.csv                   10066
+  exits.csv                     9655
   institution_year.csv         11262
-  seats 2110   institutions 459   people 10065
+  seats 2110   institutions 459   people 10066
   source rows dropped: roster 10071, sub-dean 297, not-chief-exec 191, out-of-scope 1089
-  duplicate rows collapsed: 89   placeholder end dates suppressed: 23
+  duplicate rows collapsed: 87   placeholder end dates suppressed: 23
 
 Still requires human research - columns present and empty
 --------------------------------------------------------------------------
   reports_to                     0 of 2110 seats
-  exit_announcement_date         0 of 9653 exits   <- the spec's P0 and highest-return item
-  successor_status_at_announcement  0 of 9653
-  person_birth_year              0 of 10065 people
-  last_verified_date             0 of 11776 appointments
-  exit_circumstance              92 of 9653 from corpus evidence; the rest need coding
-  month-precision starts         590 of 11776
+  exit_announcement_date         0 of 9655 exits   <- the spec's P0 and highest-return item
+  successor_status_at_announcement  0 of 9655
+  person_birth_year              0 of 10066 people
+  last_verified_date             0 of 11778 appointments
+  exit_circumstance              92 of 9655 from corpus evidence; the rest need coding
+  month-precision starts         590 of 11778
