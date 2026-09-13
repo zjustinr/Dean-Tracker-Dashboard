@@ -678,7 +678,11 @@ say(`        which side is right, using a measure the allocation never consults:
 say(`          title says interim              ${profile(appts.filter((a) => a.interim_evidence === "title"))}`);
 say(`          allocated, agrees with legacy   ${profile(allocated.filter((a) => a.is_interim_legacy))}`);
 say(`          allocated, diverges from legacy ${profile(allocated.filter((a) => !a.is_interim_legacy))}`);
-say(`          title says permanent            ${profile(appts.filter((a) => a.interim_evidence === "title_plain"))}`);
+say(`          titled, ETL says permanent      ${profile(appts.filter((a) => a.interim_evidence === "title_silent" && !a.is_interim_legacy))}`);
+// The demotions an earlier build made on a silent title, kept as a standing exhibit:
+// this row should stay empty, and if it ever refills, the same error is back.
+const demoted = appts.filter((a) => a.is_interim_legacy && !a.is_interim);
+say(`          legacy interim, derived permanent ${profile(demoted)}  (must stay empty: ${demoted.length} rows)`);
 say(`9.  cannot_determine only after a recorded search ............. PASS (no row claims it; uncoded rows are null)`);
 const confDist = tally(exitRows, (e) => e.circumstance_confidence || "(empty)");
 say(`10. circumstance_confidence is not a defaulted constant ....... empty on all rows, by design (never assessed)`);
@@ -723,11 +727,16 @@ const diverge = appts.filter((a) => a.interim_diverges_from_legacy);
 say(`      rows where the derivation disagrees with the legacy ETL flag: ${diverge.length}`);
 tally(diverge, (a) => `${a.seat_level}: legacy ${a.is_interim_legacy ? "interim" : "permanent"} -> derived ${a.is_interim ? "interim" : "permanent"}`)
   .forEach(([k, v]) => say(`        ${k.padEnd(46)} ${v}`));
-say(`      These are disagreements needing adjudication, not proven ETL errors: most are a`);
-say(`      bare "President"/"Chancellor" title with silent notes against an ETL interim`);
-say(`      flag, where the ETL's origin coding may well have known something the title`);
-say(`      does not say. Arizona pharmacy's "Acting Dean" flagged permanent is a plain`);
-say(`      error. Exhibit: interim_diverges_from_legacy in appointments.csv.`);
+say(`      EVERY divergence now runs one way: the derivation finds an interim spell the`);
+say(`      ETL missed, and never the reverse. That is a property of the evidence, not a`);
+say(`      choice -- of 13,499 dated rows whose title field holds a title, zero state`);
+say(`      permanence explicitly, so there is nothing to derive a permanent value FROM.`);
+say(`      An earlier build demoted 29 legacy-interim rows on a bare "President" title`);
+say(`      with silent notes, which dragged R3 from 19.9% to 17.5%; the duration test`);
+say(`      settled it, since the derivation never consults duration. Those 29 ran a`);
+say(`      median of 1 year with 96.6% at two years or less -- the profile of titles`);
+say(`      that SAY interim (1y, 93.1%), not of permanent spells (7y, 9.4%).`);
+say(`      Exhibit: interim_diverges_from_legacy in appointments.csv.`);
 say();
 
 say(`15. Every appointment has a source_index ...................... ${yn(appts.every((a) => a.source_index))}`);

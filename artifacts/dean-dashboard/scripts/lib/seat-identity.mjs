@@ -220,12 +220,31 @@ function classifyNarrative(sentence, ctx) {
  * `is_interim_legacy`, so "zero rows disagree" was guaranteed by construction. This
  * derives honestly, from two kinds of appointment-scoped evidence:
  *
- * 1. **The title**, where the corpus records one. A first attempt also treated a title
- *    that OMITS the word as evidence of permanence regardless of context, and flipped
- *    494 president rows on the strength of a `discipline` reading "President" -- that
- *    field holds the generic seat name, not the appointment-specific title. It
- *    reversed R1 from 28% to 8% on an artefact. So a plain title derives permanence
- *    only when nothing in the narrative raises the question.
+ * 1. **The title**, where the corpus records one -- but ONLY POSITIVELY. A title
+ *    naming an interim role derives TRUE. A title that merely omits the word derives
+ *    NOTHING, because `discipline` holds the generic seat name: the string is
+ *    "President" whether the appointment was interim or not, so its silence is the
+ *    default, not a finding.
+ *
+ *    This took two attempts to get right and the second was still wrong. The first
+ *    read any bare title as permanence and flipped 494 president rows, reversing R1
+ *    from 28% to 8%. The fix was to require the narrative to be silent too -- which
+ *    cut the damage to 29 rows but kept the same broken inference. Review caught it,
+ *    and the duration test settles it, because the derivation never consults duration:
+ *
+ *      the 29 demoted rows          median 1y,  96.6% at two years or less
+ *      titles that SAY interim      median 1y,  93.1%
+ *      titles the ETL calls permanent  median 7y,   9.4%
+ *
+ *    The demoted rows are indistinguishable from real interim spells. Their titles are
+ *    "President", "Chancellor", "Rector", "Dean". 16 were R3 presidents, which dragged
+ *    the published R3 rate from 20.1% to 17.5% on nothing at all.
+ *
+ *    A search settles the general case: of 13,499 dated rows whose `discipline` holds
+ *    a title, ZERO state permanence explicitly -- no "permanent", "confirmed",
+ *    "installed", "inaugurated", "full term". The corpus holds no positive evidence of
+ *    permanence anywhere in the field. So there is nothing to derive FALSE from, and
+ *    the honest `derived` value for a silent title is null.
  *
  * 2. **The narrative, allocated to a spell** -- see `classifyNarrative` above. Where
  *    the sentence points at another seat, another person, another period, or at the
@@ -233,6 +252,13 @@ function classifyNarrative(sentence, ctx) {
  *
  * Everything else is left underivable, `derived: null`, with the legacy flag carrying
  * the row and `interim_evidence` naming the reason the source could not settle it.
+ *
+ * CONSEQUENCE WORTH STATING: the derivation is now ONE-DIRECTIONAL. It can find an
+ * interim spell the ETL missed; it can never rule one out, because the corpus holds no
+ * positive evidence of permanence. That is a real limit on what test 14 can audit, and
+ * it is the limit the source actually imposes -- the alternative is manufacturing
+ * permanence out of a default string, which is what produced the 494-row and then the
+ * 29-row error.
  */
 export function deriveInterim(r, ctx = {}) {
   const title = titleVerbatim(r);
@@ -246,10 +272,10 @@ export function deriveInterim(r, ctx = {}) {
   if (title && INTERIM_WORD.test(title))
     return { derived: true, evidence: "title", quote: title.slice(0, 300), compound: false };
 
-  // Conclusive permanent: a title is recorded, it names the seat plainly, and nothing
-  // anywhere in the row's narrative raises the question.
+  // A title that does not name an interim role. NOT a derivation of permanence -- see
+  // the header. The legacy flag carries the row, and the evidence name says why.
   if (title && !notesMention)
-    return { derived: false, evidence: "title_plain", quote: title.slice(0, 300), compound: false };
+    return { derived: null, evidence: "title_silent", quote: title.slice(0, 300), compound: false };
 
   if (notesMention) {
     const sentence = (notes.split(/(?<=[.;])\s+/).find((x) => INTERIM_WORD.test(x)) || "").trim();
@@ -263,15 +289,14 @@ export function deriveInterim(r, ctx = {}) {
     if (klass === "narrative_allocated")
       return { derived: true, evidence: "narrative_allocated", quote, compound: false };
 
-    // The symmetric case, and the reason the triage is worth doing in both directions:
-    // where the sentence is provably about a DIFFERENT seat, or is a remark about the
+    // Where the sentence is provably about a DIFFERENT seat, or is a remark about the
     // source rather than about anyone's appointment, the narrative is silent on this
-    // row -- so a plain title is once again the best evidence there is. Restricted to
-    // those two classes; "another person" is not safe (48% of those rows are interim
-    // by the legacy flag, because a sentence naming a predecessor is just as often
-    // attached to a genuine interim spell).
+    // row. That leaves the title, which derives nothing on its own -- so this class is
+    // recorded (it says the mention was allocated away, not ignored) and derives
+    // nothing either. It used to derive permanence, and five of the 29 wrongly demoted
+    // rows came through here.
     if (title && (klass === "narrative_source_note" || klass === "narrative_other_seat"))
-      return { derived: false, evidence: "title_plain_narrative_elsewhere", quote, compound: false };
+      return { derived: null, evidence: "title_silent_narrative_elsewhere", quote, compound: false };
 
     return { derived: null, evidence: klass, quote, compound: false };
   }
