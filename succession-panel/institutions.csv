@@ -1,0 +1,460 @@
+institution_id,ipeds_unitid,institution_name,state,control,carnegie_2021,carnegie_2025,is_system_member,system_name,chief_exec_title,has_med_school,has_law_school,has_provost,has_provost_year_observed,religious_affiliation,board_size,board_type,first_year_in_panel
+US-DUKE-UNIVERSITY,198419,Duke University,NC,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1971,,,,1850
+US-UNIVERSITY-OF-PENNSYLVANIA,215062,University of Pennsylvania,PA,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1961,,,,1852
+US-BAYLOR-UNIVERSITY,223232,Baylor University,TX,private_nonprofit,,R1,FALSE,,President,FALSE,TRUE,TRUE,1973,,,,1857
+US-COLUMBIA-UNIVERSITY,190150,Columbia University,NY,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1969,,,,1858
+US-UNIVERSITY-OF-SOUTH-CAROLINA,218663,University of South Carolina,SC,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,2004,,,,1866
+US-UNIVERSITY-OF-MISSOURI,178396,University of Missouri,MO,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1961,,,,1870
+US-BOSTON-UNIVERSITY,164988,Boston University,MA,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1987,,,,1873
+US-UNIVERSITY-OF-MICHIGAN,170976,University of Michigan,MI,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1965,,,,1876
+US-UNIVERSITY-OF-ILLINOIS-URBANA-CHAMPAIGN,145637,University of Illinois Urbana-Champaign,IL,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1967,,,,1878
+US-IOWA-STATE-UNIVERSITY,153603,Iowa State University,IA,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1965,,,,1879
+US-UNIVERSITY-OF-WISCONSIN-MADISON,240444,University of Wisconsin-Madison,WI,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,2000,,,,1880
+US-UNIVERSITY-OF-COLORADO-DENVER,126562,University of Colorado Denver,CO,public,,R1,FALSE,,Chancellor,TRUE,FALSE,TRUE,2003,,,,1883
+US-UNIVERSITY-OF-IOWA,153658,University of Iowa,IA,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1990,,,,1885
+US-UNIVERSITY-OF-KANSAS,155317,University of Kansas,KS,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1993,,,,1885
+US-OHIO-STATE-UNIVERSITY,204796,The Ohio State University,OH,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1978,,,,1885
+US-CORNELL-UNIVERSITY,190415,Cornell University,NY,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1963,,,,1887
+US-UNIVERSITY-OF-MINNESOTA-TWIN-CITIES,174066,"University of Minnesota, Twin Cities",MN,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1991,,,,1888
+US-UNIVERSITY-OF-TENNESSEE-KNOXVILLE,221759,"University of Tennessee, Knoxville",TN,public,,R1,FALSE,,Chancellor,FALSE,TRUE,TRUE,1984,,,,1890
+US-UNIVERSITY-BUFFALO,196088,University at Buffalo,NY,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1995,,,,1890
+US-LONG-ISLAND-UNIVERSITY,192448,Long Island University,NY,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1891
+US-UNIVERSITY-OF-COLORADO-BOULDER,126614,University of Colorado Boulder,CO,public,,R1,FALSE,,Chancellor,FALSE,TRUE,TRUE,2001,,,,1892
+US-JOHNS-HOPKINS-UNIVERSITY,162928,Johns Hopkins University,MD,private_nonprofit,,R1,FALSE,,President,TRUE,FALSE,TRUE,1971,,,,1893
+US-UNIVERSITY-OF-TEXAS-AUSTIN,228778,The University of Texas at Austin,TX,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1985,,,,1893
+US-UNIVERSITY-OF-WASHINGTON,236948,University of Washington,WA,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1994,,,,1894
+US-UNIVERSITY-OF-PITTSBURGH,215293,University of Pittsburgh,PA,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1968,,,,1895
+US-WASHINGTON-STATE-UNIVERSITY,236939,Washington State University,WA,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,1991,,,,1895
+US-AMERICAN-UNIVERSITY,131159,American University,DC,private_nonprofit,,R1,FALSE,,President,FALSE,TRUE,TRUE,1980,,,,1898
+US-VIRGINIA-COMMONWEALTH-UNIVERSITY,234030,Virginia Commonwealth University,VA,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,2004,,,,1898
+US-UNIVERSITY-OF-OKLAHOMA,207500,University of Oklahoma,OK,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1995,,,,1899
+US-UNIVERSITY-OF-GEORGIA,139959,University of Georgia,GA,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1998,,,,1900
+US-UNIVERSITY-OF-SOUTHERN-CALIFORNIA,123961,University of Southern California,CA,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1981,,,,1900
+US-YALE-UNIVERSITY,130794,Yale University,CT,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1963,,,,1900
+US-OHIO-UNIVERSITY,204857,Ohio University,OH,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,2002,,,,1901
+US-UNIVERSITY-OF-HAWAII-MANOA,141574,University of Hawaii at Manoa,HI,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,2009,,,,1901
+US-UNIVERSITY-OF-CHICAGO,144050,University of Chicago,IL,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1962,,,,1902
+US-WEST-VIRGINIA-UNIVERSITY,238032,West Virginia University,WV,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1985,,,,1903
+US-MISSISSIPPI-STATE-UNIVERSITY,176080,Mississippi State University,MS,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1994,,,,1903
+US-MONTANA-STATE-UNIVERSITY,180461,Montana State University,MT,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1999,,,,1903
+US-VIRGINIA-TECH,233921,Virginia Tech,VA,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,1963,,,,1903
+US-WAKE-FOREST-UNIVERSITY,199847,Wake Forest University,NC,private_nonprofit,R2,R1,FALSE,,President,TRUE,TRUE,TRUE,1967,,,,1905
+US-UNIVERSITY-OF-UTAH,230764,University of Utah,UT,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1998,,,,1905
+US-UNIVERSITY-OF-VIRGINIA,234076,University of Virginia,VA,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1994,,,,1905
+US-COLLEGE-OF-WILLIAM-AND-MARY,231624,College of William & Mary,VA,public,,R1,FALSE,,President,FALSE,TRUE,TRUE,1971,,,,1905
+US-UNIVERSITY-OF-MISSISSIPPI,176017,University of Mississippi,MS,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1996,,,,1905
+US-LOUISIANA-STATE-UNIVERSITY,159391,Louisiana State University,LA,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,2004,,,,1906
+US-HARVARD-UNIVERSITY,166027,Harvard University,MA,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1992,,,,1906
+US-SYRACUSE-UNIVERSITY,196413,Syracuse University,NY,private_nonprofit,,R1,FALSE,,Chancellor,FALSE,TRUE,TRUE,1999,,,,1906
+US-PURDUE-UNIVERSITY,243780,Purdue University,IN,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1961,,,,1907
+US-AUBURN-UNIVERSITY,100858,Auburn University,AL,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1999,,,,1907
+US-COLORADO-STATE-UNIVERSITY,126818,Colorado State University,CO,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1991,,,,1907
+US-INDIANA-UNIVERSITY-BLOOMINGTON,151351,Indiana University Bloomington,IN,public,,R1,FALSE,,President,FALSE,TRUE,TRUE,2006,,,,1908
+US-KANSAS-STATE-UNIVERSITY,155399,Kansas State University,KS,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1980,,,,1908
+US-MICHIGAN-STATE-UNIVERSITY,171100,Michigan State University,MI,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1969,,,,1908
+US-OREGON-STATE-UNIVERSITY,209542,Oregon State University,OR,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1985,,,,1908
+US-UNIVERSITY-OF-KENTUCKY,157085,University of Kentucky,KY,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1982,,,,1908
+US-UNIVERSITY-OF-FLORIDA,134130,University of Florida,FL,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1993,,,,1909
+US-UNIVERSITY-OF-IDAHO,142285,University of Idaho,ID,public,,R1,FALSE,,President,FALSE,TRUE,TRUE,1984,,,,1909
+US-UNIVERSITY-OF-NEBRASKA-LINCOLN,181464,University of Nebraska-Lincoln,NE,public,,R1,FALSE,,Chancellor,FALSE,TRUE,TRUE,1997,,,,1909
+US-ARKANSAS-STATE-UNIVERSITY,106458,Arkansas State University,AR,public,R2,,TRUE,Arkansas State University System,Chancellor,FALSE,FALSE,FALSE,,,,,1910
+US-STANFORD-UNIVERSITY,243744,Stanford University,CA,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1967,,,,1910
+US-UNIVERSITY-OF-CALIFORNIA-RIVERSIDE,110671,"University of California, Riverside",CA,public,,R1,FALSE,,Chancellor,TRUE,FALSE,TRUE,1994,,,,1912
+US-CALIFORNIA-STATE-UNIVERSITY-FRESNO,110556,"California State University, Fresno",CA,public,R2,,TRUE,The California State University,President,FALSE,FALSE,FALSE,,,,,1913
+US-UNIVERSITY-OF-ARKANSAS,106397,University of Arkansas,AR,public,,R1,FALSE,,Chancellor,FALSE,TRUE,TRUE,1982,,,,1913
+US-UNIVERSITY-OF-CALIFORNIA-BERKELEY,110635,"University of California, Berkeley",CA,public,,R1,FALSE,,Chancellor,FALSE,TRUE,TRUE,1994,,,,1913
+US-UNIVERSITY-OF-NEW-HAMPSHIRE,183044,University of New Hampshire,NH,public,,R1,FALSE,,President,FALSE,TRUE,TRUE,2003,,,,1915
+US-EMORY-UNIVERSITY,139658,Emory University,GA,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1976,,,,1916
+US-TEXAS-A-AND-M-UNIVERSITY,228723,Texas A&M University,TX,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1983,,,,1916
+US-NORTH-CAROLINA-STATE-UNIVERSITY,199193,North Carolina State University,NC,public,,R1,FALSE,,Chancellor,FALSE,FALSE,TRUE,1955,,,,1917
+US-TEMPLE-UNIVERSITY,216339,Temple University,PA,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1982,,,,1919
+US-UNIVERSITY-OF-CONNECTICUT,129020,University of Connecticut,CT,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1995,,,,1919
+US-UNIVERSITY-OF-NOTRE-DAME,152080,University of Notre Dame,IN,private_nonprofit,,R1,FALSE,,President,FALSE,TRUE,TRUE,1970,,,,1919
+US-WAYNE-STATE-UNIVERSITY,172644,Wayne State University,MI,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,2003,,,,1920
+US-UNIVERSITY-OF-NORTH-CAROLINA-GREENSBORO,199148,University of North Carolina at Greensboro,NC,public,R2,,TRUE,University of North Carolina System,Chancellor,FALSE,FALSE,FALSE,,,,,1922
+US-CASE-WESTERN-RESERVE-UNIVERSITY,201645,Case Western Reserve University,OH,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1988,,,,1923
+US-PENNSYLVANIA-STATE-UNIVERSITY,214777,Pennsylvania State University,PA,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1984,,,,1923
+US-UNIVERSITY-OF-MARYLAND-COLLEGE-PARK,163286,"University of Maryland, College Park",MD,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1997,,,,1925
+US-DUQUESNE-UNIVERSITY,212106,Duquesne University,PA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1925
+US-UNIVERSITY-OF-MIAMI,135726,University of Miami,FL,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1986,,,,1926
+US-NORTHWESTERN-UNIVERSITY,147767,Northwestern University,IL,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1974,,,,1926
+US-UNIVERSITY-OF-ARKANSAS-LITTLE-ROCK,106245,University of Arkansas at Little Rock,AR,public,R2,,TRUE,University of Arkansas System,Chancellor,FALSE,FALSE,FALSE,,,,,1927
+US-BOSTON-COLLEGE,164924,Boston College,MA,private_nonprofit,,R1,FALSE,,President,FALSE,TRUE,TRUE,1968,,,,1929
+US-UNIVERSITY-OF-MAINE,161253,University of Maine,ME,public,,R1,FALSE,,President,FALSE,TRUE,TRUE,2008,,,,1933
+US-UNIVERSITY-OF-CINCINNATI,201885,University of Cincinnati,OH,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1956,,,,1940
+US-UNIVERSITY-OF-NORTH-CAROLINA,199120,University of North Carolina,NC,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1966,,,,1941
+US-CARNEGIE-MELLON-UNIVERSITY,211440,Carnegie Mellon University,PA,private_nonprofit,,R1,FALSE,,President,FALSE,FALSE,TRUE,1945,,,,1945
+US-UNIVERSITY-OF-ALABAMA-BIRMINGHAM,100663,University of Alabama at Birmingham,AL,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,2002,,,,1945
+US-VANDERBILT-UNIVERSITY,221999,Vanderbilt University,TN,private_nonprofit,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1985,,,,1945
+US-UNIVERSITY-OF-LOUISVILLE,157289,University of Louisville,KY,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,2002,,,,1946
+US-NORTHEASTERN-UNIVERSITY,167358,Northeastern University,MA,private_nonprofit,,R1,FALSE,,President,FALSE,TRUE,TRUE,1947,,,,1947
+US-UNIVERSITY-OF-HOUSTON,225511,University of Houston,TX,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,2005,,,,1947
+US-INDIANA-UNIVERSITY-INDIANAPOLIS,151111,Indiana University Indianapolis,IN,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1987,,,,1947
+US-UNIVERSITY-OF-CALIFORNIA-LOS-ANGELES,110662,UCLA,CA,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1970,,,,1947
+US-UNIVERSITY-OF-ARIZONA,104179,University of Arizona,AZ,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1993,,,,1947
+US-OKLAHOMA-STATE-UNIVERSITY,207388,Oklahoma State University,OK,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,1994,,,,1947
+US-UNIVERSITY-OF-CALIFORNIA-DAVIS,110644,"University of California, Davis",CA,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1984,,,,1947
+US-UNIVERSITY-OF-DELAWARE,130943,University of Delaware,DE,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1950,,,,1950
+US-TUFTS-UNIVERSITY,168148,Tufts University,MA,private_nonprofit,,R1,FALSE,,President,TRUE,FALSE,TRUE,1951,,,,1951
+US-UNIVERSITY-OF-ARKANSAS-FOR-MEDICAL-SCIENCES,106263,University of Arkansas for Medical Sciences,AR,public,R2,,TRUE,University of Arkansas System,Chancellor,FALSE,FALSE,FALSE,,,,,1951
+US-PRAIRIE-VIEW-A-AND-M-UNIVERSITY,227526,Prairie View A&M University,TX,public,R2,,TRUE,The Texas A&M University System,President,FALSE,FALSE,FALSE,,,,,1952
+US-UNIVERSITY-OF-MASSACHUSETTS-AMHERST,166629,University of Massachusetts Amherst,MA,public,,R1,FALSE,,Chancellor,FALSE,FALSE,TRUE,1994,,,,1953
+US-RICE-UNIVERSITY,227757,Rice University,TX,private_nonprofit,,R1,FALSE,,President,FALSE,FALSE,TRUE,1954,,,,1954
+US-GEORGETOWN-UNIVERSITY,131496,Georgetown University,DC,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1979,,,,1954
+US-UNIVERSITY-OF-NEVADA-RENO,182290,"University of Nevada, Reno",NV,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,2001,,,,1954
+US-CLEMSON-UNIVERSITY,217882,Clemson University,SC,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1955,,,,1955
+US-UNIVERSITY-OF-NEW-MEXICO,187985,University of New Mexico,NM,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1996,,,,1955
+US-UNIVERSITY-OF-THE-PACIFIC,120883,University of the Pacific,CA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1955
+US-EAST-TENNESSEE-STATE-UNIVERSITY,220075,East Tennessee State University,TN,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1956
+US-UNIVERSITY-OF-ILLINOIS-CHICAGO,145600,University of Illinois at Chicago,IL,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1997,,,,1956
+US-GEORGE-WASHINGTON-UNIVERSITY,131469,The George Washington University,DC,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,1984,,,,1956
+US-LEHIGH-UNIVERSITY,213543,Lehigh University,PA,private_nonprofit,,R1,FALSE,,President,FALSE,FALSE,TRUE,1957,,,,1957
+US-MERCER-UNIVERSITY,140447,Mercer University,GA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1957
+US-RENSSELAER-POLYTECHNIC-INSTITUTE,194824,Rensselaer Polytechnic Institute,NY,private_nonprofit,,R1,FALSE,,President,FALSE,FALSE,TRUE,1959,,,,1959
+US-UNIVERSITY-OF-SOUTH-FLORIDA,137351,University of South Florida,FL,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,1959,,,,1959
+US-BRIGHAM-YOUNG-UNIVERSITY,142522,Brigham Young University,UT,private_nonprofit,,R1,FALSE,,President,FALSE,TRUE,TRUE,1966,,,,1959
+US-PACE-UNIVERSITY,194310,Pace University,NY,private_nonprofit,R3,R1,FALSE,,President,FALSE,TRUE,TRUE,1968,,,,1960
+US-VILLANOVA-UNIVERSITY,216597,Villanova University,PA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1960
+US-UNIVERSITY-OF-ROCHESTER,195030,University of Rochester,NY,private_nonprofit,,R1,FALSE,,President,TRUE,FALSE,TRUE,1961,,,,1961
+US-UNIVERSITY-OF-CALIFORNIA-IRVINE,110653,"University of California, Irvine",CA,public,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,2000,,,,1962
+US-WASHINGTON-UNIVERSITY-ST-LOUIS,179867,Washington University in St. Louis,MO,private_nonprofit,,R1,FALSE,,Chancellor,TRUE,TRUE,TRUE,1962,,,,1962
+US-DEPAUL-UNIVERSITY,144740,DePaul University,IL,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1962
+US-UNIVERSITY-OF-SOUTH-ALABAMA,102094,University of South Alabama,AL,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1963
+US-SOUTHERN-METHODIST-UNIVERSITY,228246,Southern Methodist University,TX,private_nonprofit,,R1,FALSE,,President,FALSE,TRUE,TRUE,1986,,,,1963
+US-TULANE-UNIVERSITY,160755,Tulane University,LA,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,2001,,,,1963
+US-RUTGERS-UNIVERSITY,186380,Rutgers University,NJ,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1978,,,,1963
+US-LOYOLA-UNIVERSITY-MARYLAND,163046,Loyola University Maryland,MD,private_nonprofit,,R1,FALSE,,President,FALSE,FALSE,TRUE,2007,,,,1964
+US-ARIZONA-STATE-UNIVERSITY,104151,Arizona State University,AZ,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1991,,,,1964
+US-MIAMI-UNIVERSITY,135726,Miami University,OH,public,R2,R1,FALSE,,President,FALSE,FALSE,TRUE,1994,,,,1965
+US-STONY-BROOK-UNIVERSITY,196097,Stony Brook University,NY,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,1965,,,,1965
+US-UNIVERSITY-OF-TEXAS-SAN-ANTONIO,229027,The University of Texas at San Antonio,TX,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,2010,,,,1965
+US-MASSACHUSETTS-INSTITUTE-OF-TECHNOLOGY,166683,Massachusetts Institute of Technology,MA,private_nonprofit,,R1,FALSE,,President,FALSE,FALSE,TRUE,1966,,,,1966
+US-PRINCETON-UNIVERSITY,186131,Princeton University,NJ,private_nonprofit,,R1,FALSE,,President,FALSE,FALSE,TRUE,1966,,,,1966
+US-FLORIDA-STATE-UNIVERSITY,134097,Florida State University,FL,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1973,,,,1966
+US-TEXAS-TECH-UNIVERSITY,229115,Texas Tech University,TX,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1985,,,,1966
+US-DARTMOUTH-COLLEGE,182670,Dartmouth College,NH,private_nonprofit,,R1,FALSE,,President,TRUE,FALSE,TRUE,1967,,,,1966
+US-WIDENER-UNIVERSITY,216852,Widener University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1966
+US-UNIVERSITY-OF-NORTH-DAKOTA,200280,University of North Dakota,ND,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,2005,,,,1966
+US-UNIVERSITY-OF-TEXAS-ARLINGTON,228769,The University of Texas at Arlington,TX,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,2007,,,,1966
+US-CAMPBELL-UNIVERSITY,198136,Campbell University,NC,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1967
+US-CHAPMAN-UNIVERSITY,111948,Chapman University,CA,private_nonprofit,R2,R1,FALSE,,President,FALSE,TRUE,TRUE,1967,,,,1967
+US-NORTH-DAKOTA-STATE-UNIVERSITY,200332,North Dakota State University,ND,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1985,,,,1968
+US-SANTA-CLARA-UNIVERSITY,122931,Santa Clara University,CA,private_nonprofit,R3,R1,FALSE,,President,FALSE,TRUE,TRUE,1968,,,,1968
+US-UNIVERSITY-OF-OREGON,209551,University of Oregon,OR,public,,R1,FALSE,,President,FALSE,TRUE,TRUE,2008,,,,1968
+US-BOISE-STATE-UNIVERSITY,142115,Boise State University,ID,public,R2,R1,FALSE,,President,FALSE,FALSE,TRUE,2010,,,,1968
+US-GRAND-VALLEY-STATE-UNIVERSITY,170082,Grand Valley State University,MI,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1969
+US-UNIVERSITY-OF-MASSACHUSETTS-DARTMOUTH,167987,University of Massachusetts Dartmouth,MA,public,R2,,TRUE,University of Massachusetts System,Chancellor,FALSE,FALSE,FALSE,,,,,1969
+US-NEW-YORK-UNIVERSITY,193900,New York University,NY,private_nonprofit,,R1,FALSE,,President,TRUE,TRUE,TRUE,2002,,,,1969
+US-SUNY-COLLEGE-OF-ENVIRONMENTAL-SCIENCE-AND-FORESTRY,196103,SUNY College of Environmental Science and Forestry,NY,public,R2,,TRUE,State University of New York,President,FALSE,FALSE,FALSE,,,,,1969
+US-COLORADO-SCHOOL-OF-MINES,126775,Colorado School of Mines,CO,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,2001,,,,1970
+US-AMERICAN-INTERNATIONAL-COLLEGE,164447,American International College,MA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1970
+US-PEPPERDINE-UNIVERSITY,121150,Pepperdine University,CA,private_nonprofit,R3,R1,FALSE,,President,FALSE,TRUE,TRUE,1986,,,,1970
+US-UNIVERSITY-OF-ALABAMA,100751,University of Alabama,AL,public,,R1,FALSE,,President,FALSE,TRUE,TRUE,2003,,,,1970
+US-FAIRFIELD-UNIVERSITY,129242,Fairfield University,CT,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1970
+US-UNIVERSITY-OF-TEXAS-DALLAS,228787,University of Texas at Dallas,TX,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1971,,,,1971
+US-JAMES-MADISON-UNIVERSITY,232423,James Madison University,VA,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1971
+US-LIBERTY-UNIVERSITY,232557,Liberty University,VA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1971
+US-TOURO-UNIVERSITY,196592,Touro University,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1971
+US-UNIVERSITY-OF-ALABAMA-HUNTSVILLE,100706,University of Alabama in Huntsville,AL,public,R2,R1,TRUE,The University of Alabama System,President,FALSE,FALSE,TRUE,2008,,,,1971
+US-BRANDEIS-UNIVERSITY,165015,Brandeis University,MA,private_nonprofit,,R1,FALSE,,President,FALSE,FALSE,TRUE,2003,,,,1972
+US-GEORGIA-INSTITUTE-OF-TECHNOLOGY,139755,Georgia Institute of Technology,GA,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1981,,,,1972
+US-NORTH-CAROLINA-A-AND-T-STATE-UNIVERSITY,199102,North Carolina Agricultural and Technical State University,NC,public,R2,R1,TRUE,University of North Carolina System,Chancellor,FALSE,FALSE,TRUE,2000,,,,1972
+US-STEVENS-INSTITUTE-OF-TECHNOLOGY,186867,Stevens Institute of Technology,NJ,private_nonprofit,R2,R1,FALSE,,President,FALSE,FALSE,TRUE,2006,,,,1972
+US-TEXAS-CHRISTIAN-UNIVERSITY,228875,Texas Christian University,TX,private_nonprofit,R2,R1,FALSE,,Chancellor,TRUE,FALSE,TRUE,1972,,,,1972
+US-UNIVERSITY-OF-CALIFORNIA-SAN-DIEGO,110680,"University of California, San Diego",CA,public,,R1,FALSE,,Chancellor,TRUE,FALSE,TRUE,1972,,,,1972
+US-GEORGE-MASON-UNIVERSITY,232186,George Mason University,VA,public,,R1,FALSE,,President,FALSE,TRUE,TRUE,1988,,,,1972
+US-RUSH-UNIVERSITY,148511,Rush University,IL,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1972
+US-DAEMEN-UNIVERSITY,190725,Daemen University,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1973
+US-ELON-UNIVERSITY,198516,Elon University,NC,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1973
+US-BROWN-UNIVERSITY,217156,Brown University,RI,private_nonprofit,,R1,FALSE,,President,TRUE,FALSE,TRUE,1978,,,,1973
+US-SAMFORD-UNIVERSITY,102049,Samford University,AL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1973
+US-UNIVERSITY-OF-RHODE-ISLAND,217484,University of Rhode Island,RI,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1991,,,,1974
+US-OAKLAND-CITY-UNIVERSITY,152099,Oakland City University,IN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1974
+US-BARRY-UNIVERSITY,132471,Barry University,FL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1974
+US-OAKLAND-UNIVERSITY,171571,Oakland University,MI,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1974
+US-BINGHAMTON-UNIVERSITY,196079,Binghamton University,NY,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1993,,,,1975
+US-UNIVERSITY-OF-VERMONT,231174,University of Vermont,VT,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,2006,,,,1976
+US-HOFSTRA-UNIVERSITY,191649,Hofstra University,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1976
+US-YESHIVA-UNIVERSITY,197708,Yeshiva University,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1976
+US-SEATTLE-UNIVERSITY,236595,Seattle University,WA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1976
+US-OREGON-HEALTH-AND-SCIENCE-UNIVERSITY,209490,Oregon Health & Science University,OR,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1976
+US-UNIVERSITY-OF-TEXAS-EL-PASO,228796,The University of Texas at El Paso,TX,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,2011,,,,1976
+US-CUNY-BARUCH-COLLEGE,190512,CUNY Baruch College,NY,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,2019,,,,1977
+US-KENT-STATE-UNIVERSITY,203517,Kent State University,OH,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1999,,,,1977
+US-UNIVERSITY-ALBANY-SUNY,196060,"University at Albany, SUNY",NY,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,2009,,,,1977
+US-UNIVERSITY-OF-CALIFORNIA-SANTA-BARBARA,110705,"University of California, Santa Barbara",CA,public,,R1,FALSE,,Chancellor,FALSE,FALSE,TRUE,1984,,,,1977
+US-UNIVERSITY-OF-CALIFORNIA-SANTA-CRUZ,110714,University of California Santa Cruz,CA,public,,R1,FALSE,,Chancellor,FALSE,FALSE,TRUE,1998,,,,1977
+US-UNIVERSITY-OF-MARYLAND-BALTIMORE-COUNTY,163268,University of Maryland Baltimore County,MD,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1994,,,,1977
+US-UNIVERSITY-OF-NEBRASKA-OMAHA,181394,University of Nebraska at Omaha,NE,public,R2,,TRUE,University of Nebraska System,Chancellor,FALSE,FALSE,FALSE,,,,,1977
+US-CAPITOL-TECHNOLOGY-UNIVERSITY,162061,Capitol Technology University,MD,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1977
+US-CARSON-NEWMAN-UNIVERSITY,219806,Carson-Newman University,TN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1977
+US-KEISER-UNIVERSITY-FT-LAUDERDALE,135081,Keiser University-Ft Lauderdale,FL,private_nonprofit,R3,,FALSE,,Chancellor,FALSE,FALSE,FALSE,,,,,1977
+US-NATIONAL-LOUIS-UNIVERSITY,147536,National Louis University,IL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1977
+US-FERRIS-STATE-UNIVERSITY,169910,Ferris State University,MI,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1977
+US-CALIFORNIA-INSTITUTE-OF-TECHNOLOGY,110404,California Institute of Technology,CA,private_nonprofit,,R1,FALSE,,President,FALSE,FALSE,TRUE,1980,,,,1978
+US-COLLEGE-OF-CHARLESTON,217819,College of Charleston,SC,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,1987,,,,1978
+US-MISSOURI-UNIVERSITY-OF-SCIENCE-AND-TECHNOLOGY,178411,Missouri University of Science and Technology,MO,public,,R1,FALSE,,Chancellor,FALSE,FALSE,TRUE,2001,,,,1978
+US-NEW-JERSEY-INSTITUTE-OF-TECHNOLOGY,185828,New Jersey Institute of Technology,NJ,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,2005,,,,1978
+US-UNIVERSITY-OF-CENTRAL-FLORIDA,132903,University of Central Florida,FL,public,,R1,FALSE,,President,TRUE,FALSE,TRUE,1993,,,,1978
+US-HAMPTON-UNIVERSITY,232265,Hampton University,VA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1978
+US-BASTYR-UNIVERSITY,235547,Bastyr University,WA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1978
+US-DESALES-UNIVERSITY,210739,DeSales University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1978
+US-GRAND-CANYON-UNIVERSITY,104717,Grand Canyon University,AZ,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1978
+US-OUR-LADY-OF-THE-LAKE-UNIVERSITY,227331,Our Lady of the Lake University,TX,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1978
+US-UNIVERSITY-OF-MARY,200217,University of Mary,ND,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1978
+US-VALDOSTA-STATE-UNIVERSITY,141264,Valdosta State University,GA,public,R3,,TRUE,University System of Georgia,President,FALSE,FALSE,FALSE,,,,,1978
+US-FLORIDA-INTERNATIONAL-UNIVERSITY,133951,Florida International University,FL,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,1982,,,,1979
+US-UNIVERSITY-OF-NEVADA-LAS-VEGAS,182281,"University of Nevada, Las Vegas",NV,public,,R1,FALSE,,President,TRUE,TRUE,TRUE,2007,,,,1979
+US-UTAH-STATE-UNIVERSITY,230728,Utah State University,UT,public,,R1,FALSE,,President,FALSE,FALSE,TRUE,2001,,,,1979
+US-CALIFORNIA-STATE-UNIVERSITY-LOS-ANGELES,110592,"California State University, Los Angeles",CA,public,R2,,TRUE,California State University,President,FALSE,FALSE,FALSE,,,,,1979
+US-CONCORDIA-UNIVERSITY-WISCONSIN,238616,Concordia University Wisconsin,WI,private_nonprofit,R3,,TRUE,Concordia University System,President,FALSE,FALSE,FALSE,,,,,1979
+US-CONCORDIA-UNIVERSITY-IRVINE,112075,Concordia University Irvine,CA,private_nonprofit,R3,,TRUE,Concordia University System (LCMS),President,FALSE,FALSE,FALSE,,,,,1979
+US-DYOUVILLE-UNIVERSITY,190716,D'Youville University,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1979
+US-OKLAHOMA-CITY-UNIVERSITY,207458,Oklahoma City University,OK,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1979
+US-WILMINGTON-UNIVERSITY,131113,Wilmington University,DE,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1979
+US-HARDING-UNIVERSITY,107044,Harding University,AR,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1979
+US-UNIVERSITY-OF-NORTH-CAROLINA-WILMINGTON,199218,University of North Carolina Wilmington,NC,public,R2,,TRUE,University of North Carolina System,Chancellor,FALSE,FALSE,FALSE,,,,,1979
+US-UNIVERSITY-OF-MEMPHIS,220862,University of Memphis,TN,public,,R1,FALSE,,President,FALSE,TRUE,TRUE,2001,,,,1980
+US-UNIVERSITY-OF-THE-CUMBERLANDS,156541,University of the Cumberlands,KY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1980
+US-MISSOURI-STATE-UNIVERSITY,179566,Missouri State University-Springfield,MO,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1980
+US-CLAREMONT-GRADUATE-UNIVERSITY,112251,Claremont Graduate University,CA,private_nonprofit,R2,,TRUE,Member of The Claremont Colleges consortium (independently governed),President,FALSE,FALSE,FALSE,,,,,1981
+US-CREIGHTON-UNIVERSITY,181002,Creighton University,NE,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1981
+US-KENNESAW-STATE-UNIVERSITY,486840,Kennesaw State University,GA,public,R2,,TRUE,University System of Georgia,President,FALSE,FALSE,FALSE,,,,,1981
+US-RUTGERS-UNIVERSITY-CAMDEN,186371,Rutgers University-Camden,NJ,public,R2,,TRUE,"Rutgers, The State University of New Jersey",Chancellor,FALSE,FALSE,FALSE,,,,,1981
+US-UNIVERSITY-OF-TEXAS-TYLER,228802,The University of Texas at Tyler,TX,public,R2,,TRUE,The University of Texas System,President,FALSE,FALSE,FALSE,,,,,1981
+US-COLLEGE-OF-SAINT-SCHOLASTICA,174899,The College of Saint Scholastica,MN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1981
+US-UNIVERSITY-OF-TENNESSEE-CHATTANOOGA,221740,The University of Tennessee-Chattanooga,TN,public,R3,,TRUE,University of Tennessee System,Chancellor,FALSE,FALSE,FALSE,,,,,1981
+US-RUTGERS-UNIVERSITY-NEWARK,186399,Rutgers University-Newark,NJ,public,R2,,TRUE,"Rutgers, The State University of New Jersey",Chancellor,FALSE,FALSE,FALSE,,,,,1982
+US-NEW-SCHOOL,193654,The New School,NY,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1982
+US-BELMONT-UNIVERSITY,219709,Belmont University,TN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1982
+US-BETHEL-UNIVERSITY,173160,Bethel University,MN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1982
+US-BIOLA-UNIVERSITY,110097,Biola University,CA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1982
+US-SHENANDOAH-UNIVERSITY,233541,Shenandoah University,VA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1982
+US-ILLINOIS-STATE-UNIVERSITY,145813,Illinois State University,IL,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1982
+US-GEORGE-FOX-UNIVERSITY,208822,George Fox University,OR,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1983
+US-NORTHERN-KENTUCKY-UNIVERSITY,157447,Northern Kentucky University,KY,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1983
+US-STOCKTON-UNIVERSITY,186876,Stockton University,NJ,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1983
+US-UNIVERSITY-OF-FINDLAY,202763,The University of Findlay,OH,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1983
+US-ALBERT-EINSTEIN-COLLEGE-OF-MEDICINE,385415,Albert Einstein College of Medicine,NY,private_nonprofit,R2,,TRUE,Affiliated with Yeshiva University; academic partner of Montefiore Health System (Montefiore Einstein),Dean,FALSE,FALSE,FALSE,,,,,1984
+US-BALL-STATE-UNIVERSITY,150136,Ball State University,IN,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-CALIFORNIA-STATE-UNIVERSITY-SACRAMENTO,110617,"California State University, Sacramento",CA,public,R2,,TRUE,California State University,President,FALSE,FALSE,FALSE,,,,,1984
+US-CLARK-UNIVERSITY,165334,Clark University,MA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-FORDHAM-UNIVERSITY,191241,Fordham University,NY,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-MORGAN-STATE-UNIVERSITY,163453,Morgan State University,MD,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-ROWAN-UNIVERSITY,184782,Rowan University,NJ,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-SOUTHERN-CONNECTICUT-STATE-UNIVERSITY,130493,Southern Connecticut State University,CT,public,R2,,TRUE,Connecticut State Colleges and Universities,President,FALSE,FALSE,FALSE,,,,,1984
+US-CLARKE-UNIVERSITY,153126,Clarke University,IA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-EASTERN-KENTUCKY-UNIVERSITY,156620,Eastern Kentucky University,KY,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-PONTIFICAL-CATHOLIC-UNIVERSITY-OF-PUERTO-RICO-PONCE,241410,Pontifical Catholic University of Puerto Rico-Ponce,PR,private_nonprofit,R3,,TRUE,Pontifical Catholic University of Puerto Rico,President,FALSE,FALSE,FALSE,,,,,1984
+US-SAINT-MARYS-UNIVERSITY-OF-MINNESOTA,174817,Saint Mary's University of Minnesota,MN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-ST-CATHERINE-UNIVERSITY,175005,St. Catherine University,MN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-WILKES-UNIVERSITY,216931,Wilkes University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1984
+US-FLORIDA-AGRICULTURAL-AND-MECHANICAL-UNIVERSITY,133650,Florida Agricultural and Mechanical University,FL,public,R2,,TRUE,State University System of Florida,President,FALSE,FALSE,FALSE,,,,,1985
+US-ICAHN-SCHOOL-OF-MEDICINE-MOUNT-SINAI,193405,Icahn School of Medicine at Mount Sinai,NY,private_nonprofit,R2,,TRUE,Mount Sinai Health System,Dean,FALSE,FALSE,FALSE,,,,,1985
+US-IDAHO-STATE-UNIVERSITY,142276,Idaho State University,ID,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-SOUTH-DAKOTA-STATE-UNIVERSITY,219356,South Dakota State University,SD,public,R2,,TRUE,South Dakota Board of Regents,President,FALSE,FALSE,FALSE,,,,,1985
+US-WESTERN-MICHIGAN-UNIVERSITY,172699,Western Michigan University,MI,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-ADELPHI-UNIVERSITY,188429,Adelphi University,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-ALBIZU-UNIVERSITY-MIAMI,132842,Albizu University-Miami,FL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-BRENAU-UNIVERSITY,139199,Brenau University,GA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-DRAKE-UNIVERSITY,153269,Drake University,IA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-LESLEY-UNIVERSITY,166452,Lesley University,MA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-MARY-BALDWIN-UNIVERSITY,232672,Mary Baldwin University,VA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-MASTERS-UNIVERSITY-AND-SEMINARY,117751,The Master's University and Seminary,CA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-UNIVERSITY-OF-LA-VERNE,117140,University of La Verne,CA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-UNIVERSITY-OF-PIKEVILLE,157535,University of Pikeville,KY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1985
+US-SOUTHERN-UNIVERSITY-AND-A-AND-M-COLLEGE,160621,Southern University and A&M College,LA,public,R2,,TRUE,Southern University System,Chancellor,FALSE,FALSE,FALSE,,,,,1985
+US-NORTHERN-ILLINOIS-UNIVERSITY,147703,Northern Illinois University,IL,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1986
+US-SAINT-JOSEPHS-UNIVERSITY,215770,Saint Joseph's University,PA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1986
+US-GARDNER-WEBB-UNIVERSITY,198561,Gardner-Webb University,NC,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1986
+US-LIPSCOMB-UNIVERSITY,219976,Lipscomb University,TN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1986
+US-TEXAS-WOMANS-UNIVERSITY,229179,Texas Woman's University,TX,public,R3,,FALSE,,Chancellor,FALSE,FALSE,FALSE,,,,,1986
+US-UNIVERSITY-OF-THE-INCARNATE-WORD,225627,University of the Incarnate Word,TX,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1986
+US-UNIVERSITY-OF-WESTERN-STATES,210438,University of Western States,OR,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1986
+US-DELAWARE-STATE-UNIVERSITY,130934,Delaware State University,DE,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-EAST-TEXAS-A-AND-M-UNIVERSITY,224554,East Texas A&M University,TX,public,R2,,TRUE,The Texas A&M University System,President,FALSE,FALSE,FALSE,,,,,1987
+US-FLORIDA-INSTITUTE-OF-TECHNOLOGY,133881,Florida Institute of Technology,FL,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-GEORGIA-SOUTHERN-UNIVERSITY,139931,Georgia Southern University,GA,public,R2,,TRUE,University System of Georgia,President,FALSE,FALSE,FALSE,,,,,1987
+US-LOUISIANA-TECH-UNIVERSITY,159647,Louisiana Tech University,LA,public,R2,,TRUE,University of Louisiana System,President,FALSE,FALSE,FALSE,,,,,1987
+US-TENNESSEE-TECHNOLOGICAL-UNIVERSITY,221847,Tennessee Technological University,TN,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-UNIVERSITY-OF-TEXAS-MEDICAL-BRANCH-GALVESTON,228653,The University of Texas Medical Branch at Galveston,TX,public,R2,,TRUE,The University of Texas System,President,FALSE,FALSE,FALSE,,,,,1987
+US-UNIVERSITY-OF-NEW-ORLEANS,159939,University of New Orleans,LA,public,R2,,TRUE,"University of Louisiana System (rejoined the LSU System as 'LSU New Orleans' effective July 1, 2026)",President,FALSE,FALSE,FALSE,,,,,1987
+US-BAKER-UNIVERSITY,154688,Baker University,KS,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-DOMINICAN-UNIVERSITY-NEW-YORK,190761,Dominican University New York,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-EDGEWOOD-COLLEGE,238661,Edgewood College,WI,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-HUSSON-UNIVERSITY,487524,Husson University,ME,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-INDIANA-WESLEYAN-UNIVERSITY-NATIONAL-AND-GLOBAL,488679,Indiana Wesleyan University-National & Global,IN,private_nonprofit,R3,,TRUE,Indiana Wesleyan University,President,FALSE,FALSE,FALSE,,,,,1987
+US-MOUNT-SAINT-JOSEPH-UNIVERSITY,204200,Mount Saint Joseph University,OH,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-QUINNIPIAC-UNIVERSITY,130226,Quinnipiac University,CT,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-SAINT-AMBROSE-UNIVERSITY,154235,Saint Ambrose University,IA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-SAINT-LEO-UNIVERSITY,137032,Saint Leo University,FL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-UNION-UNIVERSITY,221971,Union University,TN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1987
+US-AUGUSTA-UNIVERSITY,482149,Augusta University,GA,public,R2,,TRUE,University System of Georgia,President,FALSE,FALSE,FALSE,,,,,1988
+US-CLARK-ATLANTA-UNIVERSITY,138947,Clark Atlanta University,GA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-EASTERN-VIRGINIA-MEDICAL-SCHOOL,231970,Eastern Virginia Medical School,VA,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-SAN-FRANCISCO-STATE-UNIVERSITY,122597,San Francisco State University,CA,public,R2,,TRUE,The California State University,President,FALSE,FALSE,FALSE,,,,,1988
+US-UNIVERSITY-OF-WEST-FLORIDA,138354,University of West Florida,FL,public,R2,,TRUE,State University System of Florida,President,FALSE,FALSE,FALSE,,,,,1988
+US-AURORA-UNIVERSITY,143118,Aurora University,IL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-DALLAS-BAPTIST-UNIVERSITY,224226,Dallas Baptist University,TX,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-GALLAUDET-UNIVERSITY,131450,Gallaudet University,DC,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-ROOSEVELT-UNIVERSITY,148487,Roosevelt University,IL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-RUSSELL-SAGE-COLLEGE,195128,Russell Sage College,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-SACRED-HEART-UNIVERSITY,130253,Sacred Heart University,CT,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-UNIVERSITY-OF-CENTRAL-ARKANSAS,106704,University of Central Arkansas,AR,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-UNIVERSITY-OF-INDIANAPOLIS,151263,University of Indianapolis,IN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-VALPARAISO-UNIVERSITY,152600,Valparaiso University,IN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-WESTERN-KENTUCKY-UNIVERSITY,157951,Western Kentucky University,KY,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1988
+US-EASTERN-MICHIGAN-UNIVERSITY,169798,Eastern Michigan University,MI,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1989
+US-MONTCLAIR-STATE-UNIVERSITY,185590,Montclair State University,NJ,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1989
+US-TEXAS-A-AND-M-UNIVERSITY-KINGSVILLE,228705,Texas A&M University-Kingsville,TX,public,R2,,TRUE,The Texas A&M University System,President,FALSE,FALSE,FALSE,,,,,1989
+US-TEXAS-STATE-UNIVERSITY,228459,Texas State University,TX,public,R2,,TRUE,The Texas State University System,President,FALSE,FALSE,FALSE,,,,,1989
+US-UNIVERSITY-OF-NORTH-FLORIDA,136172,University of North Florida,FL,public,R2,,TRUE,State University System of Florida,President,FALSE,FALSE,FALSE,,,,,1989
+US-UNIVERSITY-OF-SOUTH-DAKOTA,219471,University of South Dakota,SD,public,R2,,TRUE,South Dakota Board of Regents,President,FALSE,FALSE,FALSE,,,,,1989
+US-MARIAN-UNIVERSITY,151786,Marian University,IN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1989
+US-ROBERT-MORRIS-UNIVERSITY,215655,Robert Morris University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1989
+US-SOUTH-COLLEGE,220552,South College,TN,private_nonprofit,R3,,FALSE,,Chancellor,FALSE,FALSE,FALSE,,,,,1989
+US-ST-JOHNS-UNIVERSITY-NEW-YORK,195809,St. John's University-New York,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1989
+US-SUFFOLK-UNIVERSITY,168005,Suffolk University,MA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1989
+US-UNIVERSITY-OF-CHARLESTON,237312,University of Charleston,WV,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1989
+US-UNIVERSITY-OF-HARTFORD,129525,University of Hartford,CT,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1989
+US-WILLIAM-CAREY-UNIVERSITY,176479,William Carey University,MS,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1989
+US-AZUSA-PACIFIC-UNIVERSITY,109785,Azusa Pacific University,CA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-CALIFORNIA-STATE-UNIVERSITY-FULLERTON,110565,"California State University, Fullerton",CA,public,R2,,TRUE,The California State University,President,FALSE,FALSE,FALSE,,,,,1990
+US-ILLINOIS-INSTITUTE-OF-TECHNOLOGY,145725,Illinois Institute of Technology,IL,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-MEDICAL-COLLEGE-OF-WISCONSIN,239169,Medical College of Wisconsin,WI,private_nonprofit,R2,,FALSE,,President and CEO,FALSE,FALSE,FALSE,,,,,1990
+US-PORTLAND-STATE-UNIVERSITY,209807,Portland State University,OR,public,R2,,FALSE,,President,FALSE,FALSE,TRUE,2023,,,,1990
+US-TEXAS-A-AND-M-UNIVERSITY-CORPUS-CHRISTI,224147,Texas A&M University-Corpus Christi,TX,public,R2,,TRUE,The Texas A&M University System,President,FALSE,FALSE,FALSE,,,,,1990
+US-THOMAS-JEFFERSON-UNIVERSITY,216366,Thomas Jefferson University,PA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-UNIVERSITY-OF-TULSA,207971,University of Tulsa,OK,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-ALVERNIA-UNIVERSITY,210775,Alvernia University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-BELLARMINE-UNIVERSITY,156286,Bellarmine University,KY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-CALIFORNIA-INSTITUTE-OF-INTEGRAL-STUDIES,110316,California Institute of Integral Studies,CA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-ERSKINE-COLLEGE,217998,Erskine College,SC,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-UNIVERSITY-OF-DETROIT-MERCY,169716,University of Detroit Mercy,MI,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-UNIVERSITY-OF-WISCONSIN-OSHKOSH,240365,University of Wisconsin-Oshkosh,WI,public,R3,,TRUE,Universities of Wisconsin (formerly the University of Wisconsin System),Chancellor,FALSE,FALSE,FALSE,,,,,1990
+US-WILLIAM-WOODS-UNIVERSITY,179964,William Woods University,MO,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1990
+US-ABILENE-CHRISTIAN-UNIVERSITY,222178,Abilene Christian University,TX,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-CALIFORNIA-STATE-POLYTECHNIC-UNIVERSITY-POMONA,110529,"California State Polytechnic University, Pomona",CA,public,R2,,TRUE,The California State University,President,FALSE,FALSE,FALSE,,,,,1991
+US-EMBRY-RIDDLE-AERONAUTICAL-UNIVERSITY,426314,Embry-Riddle Aeronautical University,FL,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-LOMA-LINDA-UNIVERSITY,117636,Loma Linda University,CA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-LOYOLA-MARYMOUNT-UNIVERSITY,117946,Loyola Marymount University,CA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-MARSHALL-UNIVERSITY,237525,Marshall University,WV,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-MIDDLE-TENNESSEE-STATE-UNIVERSITY,220978,Middle Tennessee State University,TN,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-OKLAHOMA-STATE-UNIVERSITY-CENTER-FOR-HEALTH-SCIENCES,207315,Oklahoma State University Center for Health Sciences,OK,public,R2,,TRUE,Oklahoma State University System,President,FALSE,FALSE,FALSE,,,,,1991
+US-TARLETON-STATE-UNIVERSITY,228529,Tarleton State University,TX,public,R2,,TRUE,The Texas A&M University System,President,FALSE,FALSE,FALSE,,,,,1991
+US-TENNESSEE-STATE-UNIVERSITY,221838,Tennessee State University,TN,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-ROCKEFELLER-UNIVERSITY,195049,The Rockefeller University,NY,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-UMASS-CHAN-MEDICAL-SCHOOL,166708,UMass Chan Medical School,MA,public,R2,,TRUE,University of Massachusetts System,Chancellor,FALSE,FALSE,FALSE,,,,,1991
+US-UNIVERSITY-OF-ALASKA-FAIRBANKS,102614,University of Alaska Fairbanks,AK,public,R2,,TRUE,University of Alaska System,Chancellor,FALSE,FALSE,FALSE,,,,,1991
+US-UNIVERSITY-OF-MISSOURI-ST-LOUIS,178420,University of Missouri-St. Louis,MO,public,R2,,TRUE,University of Missouri System,Chancellor,FALSE,FALSE,FALSE,,,,,1991
+US-UNIVERSITY-OF-NORTHERN-COLORADO,127741,University of Northern Colorado,CO,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-UNIVERSITY-OF-SAN-FRANCISCO,122612,University of San Francisco,CA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-CARDINAL-STRITCH-UNIVERSITY,238430,Cardinal Stritch University,WI,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-GANNON-UNIVERSITY,212601,Gannon University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-HARDIN-SIMMONS-UNIVERSITY,225247,Hardin-Simmons University,TX,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-LINCOLN-MEMORIAL-UNIVERSITY,220631,Lincoln Memorial University,TN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-PALM-BEACH-ATLANTIC-UNIVERSITY,136330,Palm Beach Atlantic University,FL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-SAYBROOK-UNIVERSITY,123095,Saybrook University,CA,private_nonprofit,R3,,TRUE,The Community Solution Education System (formerly TCS Education System; Saybrook affiliated with it in 2013),President,FALSE,FALSE,FALSE,,,,,1991
+US-TEXAS-WESLEYAN-UNIVERSITY,229160,Texas Wesleyan University,TX,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-TREVECCA-NAZARENE-UNIVERSITY,221892,Trevecca Nazarene University,TN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-UNIVERSITY-OF-ARIZONA-GLOBAL-CAMPUS,,University of Arizona Global Campus,AZ,private_nonprofit,R3,,TRUE,University of Arizona,President,FALSE,FALSE,FALSE,,,,,1991
+US-UNIVERSITY-OF-LOUISIANA-MONROE,159993,University of Louisiana at Monroe,LA,public,R3,,TRUE,University of Louisiana System,President,FALSE,FALSE,FALSE,,,,,1991
+US-UNIVERSITY-OF-MARY-HARDIN-BAYLOR,226471,University of Mary Hardin-Baylor,TX,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-UNIVERSITY-OF-ST-THOMAS-MINNESOTA,174914,University of St. Thomas (Minnesota),MN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-XAVIER-UNIVERSITY,206622,Xavier University,OH,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1991
+US-CENTRAL-MICHIGAN-UNIVERSITY,169248,Central Michigan University,MI,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-INDIANA-UNIVERSITY-OF-PENNSYLVANIA,213020,Indiana University of Pennsylvania,PA,public,R2,,TRUE,Pennsylvania State System of Higher Education,President,FALSE,FALSE,FALSE,,,,,1992
+US-JACKSON-STATE-UNIVERSITY,175856,Jackson State University,MS,public,R2,,TRUE,Mississippi Institutions of Higher Learning (IHL),President,FALSE,FALSE,FALSE,,,,,1992
+US-ROCHESTER-INSTITUTE-OF-TECHNOLOGY,195003,Rochester Institute of Technology,NY,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-WEST-CHESTER-UNIVERSITY-OF-PENNSYLVANIA,216764,West Chester University of Pennsylvania,PA,public,R2,,TRUE,Pennsylvania's State System of Higher Education (PASSHE),President,FALSE,FALSE,FALSE,,,,,1992
+US-BRADLEY-UNIVERSITY,143358,Bradley University,IL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-CHATHAM-UNIVERSITY,211556,Chatham University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-IMMACULATA-UNIVERSITY,213011,Immaculata University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-INDIANA-STATE-UNIVERSITY,151324,Indiana State University,IN,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-LA-SALLE-UNIVERSITY,213367,La Salle University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-MARYVILLE-UNIVERSITY-OF-SAINT-LOUIS,178059,Maryville University of Saint Louis,MO,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-SOUTHEASTERN-BAPTIST-THEOLOGICAL-SEMINARY,199759,Southeastern Baptist Theological Seminary,NC,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-SPRINGFIELD-COLLEGE,167899,Springfield College,MA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-WALSH-UNIVERSITY,206437,Walsh University,OH,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-WINGATE-UNIVERSITY,199962,Wingate University,NC,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1992
+US-APPALACHIAN-STATE-UNIVERSITY,197869,Appalachian State University,NC,public,R2,,TRUE,University of North Carolina System,Chancellor,FALSE,FALSE,FALSE,,,,,1993
+US-CLEVELAND-STATE-UNIVERSITY,202134,Cleveland State University,OH,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1993
+US-LAMAR-UNIVERSITY,226091,Lamar University,TX,public,R3,,TRUE,Texas State University System,President,FALSE,FALSE,FALSE,,,,,1993
+US-STATE-UNIVERSITY-OF-NEW-YORK-UPSTATE-MEDICAL-UNIVERSITY,196307,State University of New York Upstate Medical University,NY,public,R2,,TRUE,State University of New York,President,FALSE,FALSE,FALSE,,,,,1993
+US-CITY-COLLEGE-OF-NEW-YORK,190567,The City College of New York,NY,public,R2,,TRUE,City University of New York,President,FALSE,FALSE,FALSE,,,,,1993
+US-UNIVERSITY-OF-COLORADO-COLORADO-SPRINGS,126580,University of Colorado Colorado Springs,CO,public,R2,,TRUE,University of Colorado System,Chancellor,FALSE,FALSE,FALSE,,,,,1993
+US-UNIVERSITY-OF-MICHIGAN-DEARBORN,171137,University of Michigan-Dearborn,MI,public,R2,,TRUE,University of Michigan,Chancellor,FALSE,FALSE,FALSE,,,,,1993
+US-UNIVERSITY-OF-PUERTO-RICO-RIO-PIEDRAS,243221,University of Puerto Rico at Río Piedras,PR,public,R2,,TRUE,University of Puerto Rico System,Chancellor,FALSE,FALSE,FALSE,,,,,1993
+US-VIRGINIA-STATE-UNIVERSITY,234155,Virginia State University,VA,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1993
+US-WICHITA-STATE-UNIVERSITY,156125,Wichita State University,KS,public,R2,,TRUE,Kansas Board of Regents,President,FALSE,FALSE,FALSE,,,,,1993
+US-FLORIDA-GULF-COAST-UNIVERSITY,433660,Florida Gulf Coast University,FL,public,R3,,TRUE,State University System of Florida,President,FALSE,FALSE,FALSE,,,,,1993
+US-GWYNEDD-MERCY-UNIVERSITY,212832,Gwynedd Mercy University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1993
+US-MARYMOUNT-UNIVERSITY,232706,Marymount University,VA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1993
+US-REGENT-UNIVERSITY,231651,Regent University,VA,private_nonprofit,R3,,FALSE,,Chancellor,FALSE,FALSE,FALSE,,,,,1993
+US-REGIS-UNIVERSITY,127918,Regis University,CO,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1993
+US-UNIVERSIDAD-ANA-G-MENDEZ-GURABO-CAMPUS,243601,Universidad Ana G. Mendez-Gurabo Campus,PR,private_nonprofit,R3,,TRUE,Ana G. Méndez University System (formerly Sistema Universitario Ana G. Méndez / SUAGM),Rector,FALSE,FALSE,FALSE,,,,,1993
+US-UNIVERSITY-OF-HAWAII-HILO,141565,University of Hawaii at Hilo,HI,public,R3,,TRUE,University of Hawaii System,Chancellor,FALSE,FALSE,FALSE,,,,,1993
+US-UNIVERSITY-OF-LYNCHBURG,232609,University of Lynchburg,VA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1993
+US-MARQUETTE-UNIVERSITY,239105,Marquette University,WI,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1993
+US-CALIFORNIA-STATE-UNIVERSITY-LONG-BEACH,110583,"California State University, Long Beach",CA,public,R2,,TRUE,The California State University,President,FALSE,FALSE,FALSE,,,,,1994
+US-LOUISIANA-STATE-UNIVERSITY-HEALTH-SCIENCES-CENTER-NEW-ORLEANS,159373,Louisiana State University Health Sciences Center New Orleans,LA,public,R2,,TRUE,Louisiana State University System,Chancellor,FALSE,FALSE,FALSE,,,,,1994
+US-TEACHERS-COLLEGE-COLUMBIA-UNIVERSITY,196468,"Teachers College, Columbia University",NY,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1994
+US-UNIVERSITY-OF-PUERTO-RICO-MAYAGUEZ,243197,University of Puerto Rico at Mayaguez,PR,public,R2,,TRUE,University of Puerto Rico,Chancellor,FALSE,FALSE,FALSE,,,,,1994
+US-WRIGHT-STATE-UNIVERSITY,206604,Wright State University,OH,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1994
+US-ALABAMA-STATE-UNIVERSITY,100724,Alabama State University,AL,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1994
+US-ANDREWS-UNIVERSITY,168740,Andrews University,MI,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1994
+US-MISSISSIPPI-COLLEGE,176053,Mississippi College,MS,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1994
+US-SOUTHERN-ILLINOIS-UNIVERSITY-EDWARDSVILLE,149231,Southern Illinois University Edwardsville,IL,public,R3,,TRUE,Southern Illinois University System,Chancellor,FALSE,FALSE,FALSE,,,,,1994
+US-ST-THOMAS-UNIVERSITY,174914,St. Thomas University,FL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1994
+US-UNIVERSITY-OF-MICHIGAN-FLINT,171146,University of Michigan-Flint,MI,public,R3,,TRUE,University of Michigan,Chancellor,FALSE,FALSE,FALSE,,,,,1994
+US-UNIVERSITY-OF-WEST-GEORGIA,141334,University of West Georgia,GA,public,R3,,TRUE,University System of Georgia,President,FALSE,FALSE,FALSE,,,,,1994
+US-TEXAS-TECH-UNIVERSITY-HEALTH-SCIENCES-CENTER,229337,Texas Tech University Health Sciences Center,TX,public,R2,,TRUE,Texas Tech University System,President,FALSE,FALSE,FALSE,,,,,1994
+US-BOWLING-GREEN-STATE-UNIVERSITY,201441,Bowling Green State University,OH,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-CLARKSON-UNIVERSITY,190044,Clarkson University,NY,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-HUNTER-COLLEGE,190594,Hunter College,NY,public,R2,,TRUE,The City University of New York,President,FALSE,FALSE,FALSE,,,,,1995
+US-SAM-HOUSTON-STATE-UNIVERSITY,227881,Sam Houston State University,TX,public,R2,,TRUE,The Texas State University System,President,FALSE,FALSE,FALSE,,,,,1995
+US-SAN-JOSE-STATE-UNIVERSITY,122755,San Jose State University,CA,public,R2,,TRUE,The California State University,President,FALSE,FALSE,FALSE,,,,,1995
+US-SETON-HALL-UNIVERSITY,186584,Seton Hall University,NJ,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-SOUTH-CAROLINA-STATE-UNIVERSITY,218733,South Carolina State University,SC,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-TEXAS-SOUTHERN-UNIVERSITY,229063,Texas Southern University,TX,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-UNIVERSITY-OF-NEW-ENGLAND,161457,University of New England,ME,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-UNIVERSITY-OF-OKLAHOMA-HEALTH-SCIENCES-CENTER,207342,University of Oklahoma Health Sciences Center,OK,public,R2,,TRUE,University of Oklahoma,Senior Vice President and Provost,FALSE,FALSE,FALSE,,,,,1995
+US-UNIVERSITY-OF-SAN-DIEGO,122436,University of San Diego,CA,private_nonprofit,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-CAPELLA-UNIVERSITY,413413,Capella University,MN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-LOYOLA-UNIVERSITY-NEW-ORLEANS,159656,Loyola University New Orleans,LA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-MISERICORDIA-UNIVERSITY,214069,Misericordia University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-PACIFIC-UNIVERSITY,120883,Pacific University,OR,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-POINT-PARK-UNIVERSITY,215442,Point Park University,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-RADFORD-UNIVERSITY,233277,Radford University,VA,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-SIMMONS-UNIVERSITY,167783,Simmons University,MA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-TRINITY-INTERNATIONAL-UNIVERSITY-ILLINOIS,149514,Trinity International University-Illinois,IL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-UNIVERSITY-OF-BRIDGEPORT,128744,University of Bridgeport,CT,private_nonprofit,R3,,TRUE,Goodwin University,President,FALSE,FALSE,FALSE,,,,,1995
+US-UNIVERSITY-OF-HOUSTON-CLEAR-LAKE,225414,University of Houston-Clear Lake,TX,public,R3,,TRUE,University of Houston System,President,FALSE,FALSE,FALSE,,,,,1995
+US-UNIVERSITY-OF-ST-FRANCIS,148584,University of St. Francis,IL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-UNIVERSITY-OF-THE-SCIENCES,,University of the Sciences,PA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1995
+US-WESTERN-CAROLINA-UNIVERSITY,200004,Western Carolina University,NC,public,R3,,TRUE,University of North Carolina System,Chancellor,FALSE,FALSE,FALSE,,,,,1995
+US-WINSTON-SALEM-STATE-UNIVERSITY,199999,Winston-Salem State University,NC,public,R3,,TRUE,University of North Carolina System,Chancellor,FALSE,FALSE,FALSE,,,,,1995
+US-KEAN-UNIVERSITY,185262,Kean University,NJ,public,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1996
+US-UNIVERSITY-OF-AKRON,200800,University of Akron,OH,public,R2,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1996
+US-BELHAVEN-UNIVERSITY,175421,Belhaven University,MS,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1996
+US-CITY-UNIVERSITY-OF-SEATTLE,234915,City University of Seattle,WA,private_nonprofit,R3,,TRUE,National University System,President,FALSE,FALSE,FALSE,,,,,1996
+US-COLORADO-TECHNICAL-UNIVERSITY-COLORADO-SPRINGS,126827,Colorado Technical University-Colorado Springs,CO,private_nonprofit,R3,,TRUE,Perdoceo Education Corporation,President,FALSE,FALSE,FALSE,,,,,1996
+US-GONZAGA-UNIVERSITY,235316,Gonzaga University,WA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1996
+US-NORTHCENTRAL-UNIVERSITY,444130,Northcentral University,CA,private_nonprofit,R3,,TRUE,National University System,President,FALSE,FALSE,FALSE,,,,,1996
+US-SEATTLE-PACIFIC-UNIVERSITY,236577,Seattle Pacific University,WA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1996
+US-ST-JOHN-FISHER-UNIVERSITY,195720,St. John Fisher University,NY,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1996
+US-WESTERN-NEW-ENGLAND-UNIVERSITY,168254,Western New England University,MA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1996
+US-ALLIANT-INTERNATIONAL-UNIVERSITY-SAN-DIEGO,110468,Alliant International University-San Diego,CA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1997
+US-UNIVERSITY-OF-ST-THOMAS-HOUSTON,174914,University of St. Thomas (Houston),TX,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1997
+US-UNIVERSITY-OF-MANAGEMENT-AND-TECHNOLOGY,437097,University of Management and Technology,VA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1998
+US-UNIVERSITY-OF-PHOENIX-ARIZONA,484613,University of Phoenix-Arizona,AZ,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1998
+US-FIELDING-GRADUATE-UNIVERSITY,114549,Fielding Graduate University,CA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1999
+US-SOUTHEASTERN-UNIVERSITY,137564,Southeastern University,FL,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1999
+US-WALDEN-UNIVERSITY,125231,Walden University,MN,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,1999
+US-BRIAR-CLIFF-UNIVERSITY,152992,Briar Cliff University,IA,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,2001
+US-UNIVERSITY-OF-MASSACHUSETTS-GLOBAL,262086,University of Massachusetts Global,CA,private_nonprofit,R3,,TRUE,University of Massachusetts,Chancellor,FALSE,FALSE,FALSE,,,,,2007
+US-NATIONAL-AMERICAN-UNIVERSITY-RAPID-CITY,219204,National American University-Rapid City,SD,private_nonprofit,R3,,TRUE,"National American University Holdings, Inc.",President,FALSE,FALSE,FALSE,,,,,2009
+US-UNIVERSITY-OF-TEXAS-RIO-GRANDE-VALLEY,227368,The University of Texas Rio Grande Valley,TX,public,R2,,TRUE,The University of Texas System,President,FALSE,FALSE,FALSE,,,,,2015
+US-PURDUE-UNIVERSITY-GLOBAL,489779,Purdue University Global,IN,public,R3,,TRUE,Purdue University System,Chancellor,FALSE,FALSE,FALSE,,,,,2018
+US-PONTIFICAL-CATHOLIC-UNIVERSITY-OF-PUERTO-RICO-ARECIBO,241395,Pontifical Catholic University of Puerto Rico-Arecibo,PR,private_nonprofit,R3,,TRUE,Pontifical Catholic University of Puerto Rico,Rector,FALSE,FALSE,FALSE,,,,,2021
+US-TAFT-UNIVERSITY-SYSTEM,,Taft University System,CO,private_nonprofit,R3,,FALSE,,President,FALSE,FALSE,FALSE,,,,,2021

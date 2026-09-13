@@ -58,3 +58,9 @@ artifacts/dean-dashboard/public/data/
 
 # raw IPEDS pulls cached by research/build-cc-universe.mjs
 research/.cc-raw/
+
+# succession-panel/ IS committed, as loose CSVs. It was briefly the other way round --
+# the zip in git, the CSVs ignored -- which put an opaque 11MB binary under version
+# control and hid the data it contained. For a research repo the preference runs the
+# other way: CSVs diff, review and blame line by line, and the zip is built from them
+# on demand (.github/workflows/succession-panel.yml uploads it as a CI artifact).

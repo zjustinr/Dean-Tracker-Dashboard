@@ -1,0 +1,56 @@
+name: Succession panel
+
+# Rebuilds the panel from src/data and uploads the bundle as a downloadable
+# artifact. The CSVs themselves are committed (they diff and review line by line);
+# the zip is a convenience for sending to the research team, and is built here
+# rather than checked in so no opaque binary lives in git history.
+#
+# The export is deterministic apart from its generated-on date, so the diff check
+# below is a real check: a pull request that edits src/data without re-running the
+# export fails, which is how the committed CSVs stay in step with the corpus.
+
+on:
+  pull_request:
+    paths:
+      - "artifacts/dean-dashboard/src/data/**.json"
+      - "artifacts/dean-dashboard/scripts/export-succession-panel.mjs"
+      - "artifacts/dean-dashboard/scripts/lib/**.mjs"
+      - "succession-panel/**"
+  workflow_dispatch:
+
+jobs:
+  panel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Rebuild the panel
+        run: node artifacts/dean-dashboard/scripts/export-succession-panel.mjs
+
+      - name: Check the committed CSVs are in step with src/data
+        run: |
+          # qc_report.txt carries a generated-on date, so it is excluded from the
+          # comparison; every CSV must match byte for byte.
+          if ! git diff --quiet -- 'succession-panel/*.csv'; then
+            echo "::error::succession-panel/*.csv is stale. Run:"
+            echo "  node artifacts/dean-dashboard/scripts/export-succession-panel.mjs"
+            git diff --stat -- 'succession-panel/*.csv'
+            exit 1
+          fi
+          echo "committed CSVs match a fresh export."
+
+      - name: Bundle
+        run: |
+          cd succession-panel
+          zip -q -r ../succession-panel.zip . -x '.*'
+          ls -lh ../succession-panel.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: succession-panel
+          path: succession-panel.zip
+          retention-days: 90
