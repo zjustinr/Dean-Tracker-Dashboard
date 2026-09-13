@@ -159,3 +159,79 @@ that distinction was drawn.
 The check is what makes it *stay* easier. Without it, this document describes a
 cleanup that decays; with it, the next collection wave fails loudly instead of
 quietly. Twenty-four files read these JSONs, and none of them would notice.
+
+---
+
+## What was actually built, and who owns what is left
+
+This section was added at review. The three sections above are the *proposal*; this
+one records what shipped, where it departed from the proposal and why, and what the
+outstanding work is tracked under.
+
+### `seatRole`, not `roleTier`
+
+P0 above proposes populating `roleTier`, on the grounds that the field exists with
+the right shape and is 4% filled. Reading its consumers says otherwise.
+`useScoutCandidates.ts` reads `roleTier` for **bench** candidates and maps
+"Department Chair", "Associate Dean", "Vice Dean" and "Assistant Dean" onto scoring
+categories; `datasets.ts` documents it as the mechanism by which "a feeder bench can
+drop in". It is a bench label, not a seat label.
+
+Stamping sitting presidents into it would not break that mapping today — the new
+values simply miss every branch — but it would change what the field means to every
+future reader, which is exactly how `discipline` came to hold an academic field on
+some rows and a job title on others. So the pass added `seatRole`, additive and
+purpose-named, alongside the two existing role fields rather than competing with
+them. Reasoning in full at the head of `scripts/lib/seat-role.mjs`.
+
+### Placeholder end dates are flagged, not nulled
+
+P2 above proposes setting the 29 placeholder end dates to null with
+`is_current = FALSE`. That instruction is safe in the *export*, which carries
+`is_current` as a separate column. It is not safe in the **corpus**, where there is
+no such column and `endYear: null` means "still sitting" — nulling those 29 rows
+would invent 29 currently-serving leaders. They carry `endYearUnverified: true`
+instead, and the export reads that to suppress the fabricated date.
+
+### The downstream check the split asked for
+
+Splitting this pass out of the succession-panel pull request came with a condition:
+confirm that no consumer of `src/data/*-deans.json` does strict schema validation or
+iterates the keys of a row, because "additive is usually safe" and *usually* is doing
+work in that sentence. Audited, and the answer is that it is safe here:
+
+- **No schema validator exists.** No `zod`, `ajv`, `joi` or `superstruct` anywhere in
+  the workspace, and no hand-rolled `additionalProperties`-style check. `Dean` in
+  `src/data/types.ts` is a TypeScript interface, so it is erased at runtime and
+  structural — extra properties on a parsed JSON object are invisible to it.
+- **Nothing iterates a row's keys.** Every `Object.keys`/`Object.entries`/`for…in` in
+  the app, the scripts, `lib/dataset-assembly.mjs` and `api/data.js` runs over a
+  *map* — enrichment keyed by person, affinity keyed by school, datasets keyed by id
+  — never over the fields of a dean record. The one CSV export in the UI
+  (`IndividualSearch.tsx`) writes an explicit column list.
+- **Rows are served through unchanged**, which is the one real cost. Since the
+  hardening step that moved data out of the JS bundle, `assembleDataset()` reads
+  `src/data` on demand and the serverless function returns the rows as they are, so
+  the new fields reach the browser. Measured: **+479 KB across the whole served
+  corpus, 0.84% on 57 MB**, before gzip. Worth knowing; not worth gating on.
+- **The succession-panel export is unaffected.** It never reads `seatRole`,
+  `endYearUnverified` or `titleIsCompound` — it classifies independently — and
+  re-running the export against the corpus with and without this pass produces
+  byte-identical CSVs. That is what makes the two pull requests genuinely separable
+  rather than nominally separable.
+
+### Owners and target dates
+
+Both open-ended items now have a tracking issue. Neither has an owner yet; that is a
+decision for whoever runs the next collection wave, and it should be made before this
+pass is called finished, because a worklist with no owner is a file and a ratchet with
+no owner holds a backlog forever.
+
+| Item | Tracked in | Proposed target | Owner |
+|---|---|---|---|
+| Adjudicate the 220 cross-index schools | [#195](https://github.com/zjustinr/Dean-Tracker-Dashboard/issues/195) | 2026-12-15 | unassigned |
+| Burn down the corpus-integrity backlog (49 + 29 + 65) | [#196](https://github.com/zjustinr/Dean-Tracker-Dashboard/issues/196) | 2026-11-14 | unassigned |
+
+The ratchet can be tightened from "no count may rise" to a plain pass/fail gate once
+#196 closes. Until then it is doing the only job worth doing, which is stopping the
+backlog from growing.

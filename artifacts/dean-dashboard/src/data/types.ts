@@ -45,6 +45,24 @@ export interface Dean {
   nextRoleDetail?: string; // optional free-text specifics of the post-role (e.g. "Professor of Law at Columbia")
   roleType?: string; // "subdean" tags an associate/vice dean feeder-bench row (not a dean); excluded from dean lists + tenure norms
   roleTier?: string; // candidate tier for feeder-pool indices: "Dean" | "Associate Dean" | "School Director" | "Department Chair"
+  // Which seat in the hierarchy this row is, stamped by scripts/backfill-corpus-fields.mjs
+  // on every dated row: "chief_executive" | "provost" | "dean" | "subordinate" | "cabinet",
+  // or "" where the title could not be resolved. Distinct from roleTier, which is a BENCH
+  // label the scout scoring reads -- see the header of scripts/lib/seat-role.mjs for why
+  // this is a separate field rather than a reuse. Declared here for readers; no consumer
+  // selects on it yet (the UI still uses roleType !== "subdean"), and adopting it is a
+  // separate change with its own risk.
+  seatRole?: string;
+  // The end date is the ETL's extract year written where the real one was never found,
+  // on a spell long enough that it cannot be a genuine departure. NOT nulled: in this
+  // corpus endYear === null means "still sitting", so nulling these would invent
+  // currently-serving leaders. Consumers that care about durations should treat the end
+  // date as unknown rather than as recorded.
+  endYearUnverified?: boolean;
+  // The title names several appointments at once ("Acting Provost (1977-78); Provost
+  // (1978-83)"). That is two spells in one row, and neither interim value describes it,
+  // so it is flagged for splitting at source rather than coerced.
+  titleIsCompound?: boolean;
   involuntary: boolean;
   hadPriorConnection: boolean;
   hasInstitutionalLink: boolean;
