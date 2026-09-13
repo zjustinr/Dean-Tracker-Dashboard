@@ -1,7 +1,8 @@
 # Interim rate in the president's chair, by Carnegie tier
 
 Reproduce with `node scripts/analyze-interim-rates.mjs` from `artifacts/dean-dashboard`
-(`--swap-vintage` for the tier-assignment sensitivity, `--json` to dump the numbers).
+(`--swap-vintage` for the tier-assignment sensitivity, `--derived` for the interim-flag
+sensitivity, `--json` to dump the numbers).
 
 ## Headline
 
@@ -96,6 +97,37 @@ Harroz at Oklahoma 2019→2020). Deduplication that folds those into one spell
 deletes a permanent appointment from the denominator while keeping the interim
 one in the numerator; `dedupeSpells` requires interim status to match before it
 merges rows.
+
+**Which interim flag these numbers use.** The corpus's own `isInterim`, set by the
+original ETL. The succession-panel export re-derives interim status from source
+evidence without ever consulting that flag (`scripts/lib/seat-identity.mjs`), and the
+two do not agree everywhere: 61 of 11,775 appointments differ, **20 of them R1–R3
+president spells inside this window**. They do not miss this analysis, so the script
+prints both columns rather than publishing one number while the panel asserts another:
+
+| Tier | Legacy ETL flag (published) | Re-derived from evidence | Gap |
+|---|---|---|---|
+| R1 | 27.8% (206/741) | 27.9% (207/741) | +0.1pp |
+| R2 | 27.9% (155/556) | 27.5% (153/556) | −0.4pp |
+| R3 | 19.9% (126/632) | 17.5% (111/633) | **−2.4pp** |
+
+(Each panel is deduplicated on its own flag, because interim status is part of the
+dedupe key — an interim-to-permanent conversion is two appointments and must not
+collapse into one. The R3 appointment count therefore differs by one between columns.)
+
+The legacy flag stays the published headline, for a stated reason: the divergences are
+disagreements awaiting adjudication, not proven ETL errors. Sixteen of the twenty are a
+bare "President" or "Chancellor" title with silent notes against an ETL interim flag,
+and the ETL's origin coding may well have known something the title does not say.
+Publishing the derived column would assert a re-derivation the corpus cannot yet settle.
+`--derived` swaps which flag drives the entire analysis, so either reading is one flag
+away.
+
+**What moves, and what does not.** R1 and R2 move by a tenth of a point either way. R3
+moves 2.4 points — and in the direction the coverage check below already warns about.
+The R1-to-R3 gap is the finding here, and it survives the swap (7.9pp legacy, 10.4pp
+derived, both far outside their confidence intervals). The **R3 level** does not survive
+it, and should be read as the floor the next caveat calls it.
 
 **The R3 rate is a floor.** R3 records 3.53 appointments per institution over the
 window against 4.63 for R1 and R2. That is either longer R3 tenures or thinner

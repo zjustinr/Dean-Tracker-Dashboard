@@ -68,35 +68,125 @@ export const isCompoundTitle = (title) => {
 };
 
 /**
+ * Narrative triage: what an interim word in `notes` is actually talking about.
+ *
+ * The corpus stores narrative at SEAT level, not appointment level. A first attempt
+ * derived TRUE from any interim word in `notes` and flipped 1,292 permanent rows --
+ * the word was there, but it belonged to another seat, another person, another
+ * decade, or to a remark about the source rather than the appointment.
+ *
+ * The conclusion drawn from that -- that the evidence is absent -- was wrong, and the
+ * research team was right to reject it. 2,610 of 2,958 interim spells carry the word
+ * in a real text field. The evidence EXISTS; a blob-level keyword match simply cannot
+ * say which spell it belongs to. The defect is allocation, not absence.
+ *
+ * So this classifies the sentence instead of matching the field, and allocates the
+ * mention to this appointment only when nothing in the sentence points elsewhere. The
+ * classes below were written by reading the narrative text, not by iterating against
+ * the legacy flag; the flag is then used as an out-of-sample CHECK, and the check is
+ * reported rather than optimised (see `succession-panel/qc_report.txt`, test 8). At the
+ * stopping point every class has a stated linguistic rationale, 340 appointments
+ * allocate, and 91.5% of them agree with the legacy flag.
+ *
+ * The remaining 8.5% are worth being specific about, because they are not noise: 25 of
+ * the 29 are appointments starting 2023 or later and 23 are still sitting -- current
+ * interim leaders the ETL never flagged ("Interim dean from July 2025" on a row the
+ * corpus records as permanent). An independent check says which side is right. The
+ * allocated rows have a median closed tenure of 1 year with 98.2% at two years or
+ * less, which is the profile of the rows whose TITLE says interim (median 1 year,
+ * 93.1%); rows the corpus calls permanent run a median of 7 years. The allocation
+ * lands on spells that look like interim spells by a measure it never consults.
+ *
+ * Each rejecting class is returned by name, so a row the panel cannot derive carries a
+ * recorded reason rather than a shrug.
+ */
+const SOURCE_NOTE =
+  /\b(not documented|undocumented|not resolved|sources? (consulted|found)|no [a-z]+ (information|record|source)|omitted|not verified|not established|could not be|unconfirmed|not confirmed|not sourced|not explain|year ranges only|no named|no interim|for context)\b/i;
+const HEDGE =
+  /\b(likely|probabl[ye]|appears? to|presumabl[ye]|may have|might have|if any|unidentified|unnamed|roughly|unclear|believed|possibl[ye]|assumed to)\b/i;
+/** Wording that puts the interim episode on somebody else. */
+const OTHER_PERSON = /\b(succeed(ing|ed)?|preced(ing|ed)|predecessor|successor|between [A-Z]|after [A-Z][a-z]+'s|during [A-Z][a-z]+'s)\b/;
+/** Wording that says this one row collapses an interim spell and a permanent one. */
+const CONVERSION = /\b(initially|at first|started as|began as|first served as|originally|later confirmed|then confirmed|formally installed)\b/i;
+/** The office the interim word attaches to, where it attaches to one. */
+const ATTACHED =
+  /\b(interim|acting|co)[- ]?((?:[a-z]+\s+){0,3}?)(dean|president|chancellor|provost|rector|vice president|vp|vcaa|director|head|leadership|rectorship|basis|office)\b/i;
+const LEVEL_OF = { dean: "dean", president: "president", chancellor: "president", rector: "president", provost: "provost" };
+/** Remove every "interim <office>" phrase; what survives is a SECOND appointment. */
+const stripInterim = (s) =>
+  s
+    .replace(/\b(interim|acting|co)[- ]?(?:[a-z]+\s+){0,3}?(dean|president|chancellor|provost|rector|head|director)\b/gi, " ")
+    .replace(/\b(interim|acting)\b/gi, " ");
+const BARE_TITLE = /\b(dean|president|chancellor|provost|rector)\b/i;
+const PERMANENCE = /\bpermanent(ly)?\b|\bappointment\b|\bconfirmed\b|\bfull[- ]time\b/i;
+const yearsIn = (s) => [...String(s).matchAll(/\b(1[89]\d\d|20[0-5]\d)\b/g)].map((m) => +m[1]);
+
+/**
+ * Classify the interim sentence. Returns an evidence name; `narrative_allocated` is
+ * the only one that licenses a derivation.
+ *
+ * `ctx` carries what the ROW knows about itself -- which seat it is and how long it
+ * ran -- because two of the tests are comparisons against it: a mention naming a
+ * different seat level is about a different seat, and a row that runs years past the
+ * end of the narrated interim period is a conversion collapsed into one row, where
+ * neither TRUE nor FALSE describes the row as it stands.
+ */
+function classifyNarrative(sentence, ctx) {
+  const q = sentence;
+  if (SOURCE_NOTE.test(q)) return "narrative_source_note";
+  if (HEDGE.test(q)) return "narrative_hedged";
+
+  const m = q.match(ATTACHED);
+  if (m) {
+    const level = LEVEL_OF[m[3].toLowerCase()];
+    if (level && ctx.seatLevel && level !== ctx.seatLevel) return "narrative_other_seat";
+    if (!level) return "narrative_other_office";
+  }
+  if (OTHER_PERSON.test(q)) return "narrative_other_person";
+  if (CONVERSION.test(q)) return "narrative_conversion";
+
+  const residue = stripInterim(q);
+  if (BARE_TITLE.test(residue) || PERMANENCE.test(residue)) return "narrative_two_appointments";
+
+  // Anchoring. The mention must name the year this appointment began, or it is
+  // describing some other stretch of the seat's history.
+  const ys = yearsIn(q);
+  if (!ys.includes(ctx.startYear)) return "narrative_unanchored";
+
+  // And the row must not outrun the interim period the sentence describes. "Interim
+  // dean from July 2024" on a row still sitting in 2026 is a conversion the corpus
+  // never split, not a two-year interim spell.
+  if (ctx.rowEndYear !== null && ctx.rowEndYear - Math.max(...ys) > 1) return "narrative_outruns";
+
+  return "narrative_allocated";
+}
+
+/**
  * Derive `is_interim` from source evidence, WITHOUT consulting the legacy ETL flag.
  *
  * Acceptance test 14 asks for an independent derivation so the legacy ETL flag can be
  * audited. The previous build failed it silently -- `is_interim` was copied from
  * `is_interim_legacy`, so "zero rows disagree" was guaranteed by construction. This
- * derives honestly, and the honest answer is that **most rows cannot be derived at
- * all**. Two measurements establish why, and both are worth keeping in view:
+ * derives honestly, from two kinds of appointment-scoped evidence:
  *
- * 1. **A title that omits the word is not evidence of permanence.** A first attempt
- *    treated it as such and flipped 494 president rows to permanent on the strength of
- *    a `discipline` reading "President" -- that field holds the generic seat name, not
- *    the appointment-specific title. It reversed R1 from 28% to 8% on an artefact.
+ * 1. **The title**, where the corpus records one. A first attempt also treated a title
+ *    that OMITS the word as evidence of permanence regardless of context, and flipped
+ *    494 president rows on the strength of a `discipline` reading "President" -- that
+ *    field holds the generic seat name, not the appointment-specific title. It
+ *    reversed R1 from 28% to 8% on an artefact. So a plain title derives permanence
+ *    only when nothing in the narrative raises the question.
  *
- * 2. **`notes` is not appointment-scoped, so keyword matching on it is unusable.** A
- *    second attempt derived TRUE from any interim word in the narrative and flipped
- *    1,292 permanent rows. Reading them: "Also served as Baylor's acting president for
- *    a year", "afterward served as interim president in 1948-49", "Acting dean 1925,
- *    permanent dean from 1926" (this row being the permanent spell), and notes
- *    describing the SOURCE -- "year ranges only, no [interim] information". The word
- *    is present; the claim is about another seat, another period, or nothing at all.
+ * 2. **The narrative, allocated to a spell** -- see `classifyNarrative` above. Where
+ *    the sentence points at another seat, another person, another period, or at the
+ *    source rather than the appointment, it is recorded by name and derives nothing.
  *
- * So derivation is restricted to what is genuinely appointment-scoped: the title.
  * Everything else is left underivable, `derived: null`, with the legacy flag carrying
- * the row and `interim_evidence` recording that its basis is weak. That is a smaller
- * claim than the spec hoped for, and it is the one the corpus supports.
+ * the row and `interim_evidence` naming the reason the source could not settle it.
  */
-export function deriveInterim(r) {
+export function deriveInterim(r, ctx = {}) {
   const title = titleVerbatim(r);
-  const notesMention = INTERIM_WORD.test(String(r.notes || ""));
+  const notes = String(r.notes || "");
+  const notesMention = INTERIM_WORD.test(notes);
 
   if (isCompoundTitle(title))
     return { derived: null, evidence: "compound_title", quote: title.slice(0, 300), compound: true };
@@ -106,16 +196,33 @@ export function deriveInterim(r) {
     return { derived: true, evidence: "title", quote: title.slice(0, 300), compound: false };
 
   // Conclusive permanent: a title is recorded, it names the seat plainly, and nothing
-  // anywhere in the row's narrative raises the question. Requiring the narrative to be
-  // silent is what keeps this from repeating failure mode 1 above.
+  // anywhere in the row's narrative raises the question.
   if (title && !notesMention)
     return { derived: false, evidence: "title_plain", quote: title.slice(0, 300), compound: false };
 
-  // A narrative mention with no confirming title: the word is there, but it may belong
-  // to another seat or another decade. Recorded for a human, never derived from.
   if (notesMention) {
-    const sentence = String(r.notes || "").split(/(?<=[.;])\s+/).find((x) => INTERIM_WORD.test(x)) || "";
-    return { derived: null, evidence: "narrative_unscoped", quote: sentence.trim().slice(0, 300), compound: false };
+    const sentence = (notes.split(/(?<=[.;])\s+/).find((x) => INTERIM_WORD.test(x)) || "").trim();
+    const klass = classifyNarrative(sentence, {
+      seatLevel: ctx.seatLevel || "",
+      startYear: ctx.startYear ?? r.startYear ?? null,
+      rowEndYear: ctx.rowEndYear ?? null,
+    });
+    const quote = sentence.slice(0, 300);
+
+    if (klass === "narrative_allocated")
+      return { derived: true, evidence: "narrative_allocated", quote, compound: false };
+
+    // The symmetric case, and the reason the triage is worth doing in both directions:
+    // where the sentence is provably about a DIFFERENT seat, or is a remark about the
+    // source rather than about anyone's appointment, the narrative is silent on this
+    // row -- so a plain title is once again the best evidence there is. Restricted to
+    // those two classes; "another person" is not safe (48% of those rows are interim
+    // by the legacy flag, because a sentence naming a predecessor is just as often
+    // attached to a genuine interim spell).
+    if (title && (klass === "narrative_source_note" || klass === "narrative_other_seat"))
+      return { derived: false, evidence: "title_plain_narrative_elsewhere", quote, compound: false };
+
+    return { derived: null, evidence: klass, quote, compound: false };
   }
 
   // `priorTitle` names the PREVIOUS post, often at another institution -- "Dean,

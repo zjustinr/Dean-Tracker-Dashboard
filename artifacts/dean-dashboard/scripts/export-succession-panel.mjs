@@ -189,7 +189,14 @@ for (const [file, seatLevel, unitType] of SEATS) {
     const placeholder = isPlaceholderEnd(r.startYear, r.endYear, EXTRACT_YEAR);
     if (placeholder) stats.placeholderEnds++;
     const end = placeholder ? { date: "", precision: "" } : isoDate(r.endYear, r.endLabel);
-    const ev = deriveInterim(r);
+    // The narrative triage compares the mention against what the ROW knows about
+    // itself -- which seat it is, when it began, how long it ran -- so the derivation
+    // needs those. It still never sees the legacy flag.
+    const ev = deriveInterim(r, {
+      seatLevel,
+      startYear: r.startYear,
+      rowEndYear: placeholder ? null : (r.endYear ?? (EXTRACT_YEAR)),
+    });
     const title = titleVerbatim(r);
     // The derivation never saw the legacy flag. Where it reached a conclusion, that
     // conclusion stands even when it contradicts the ETL; where it could not, the
@@ -637,20 +644,41 @@ say(`6.  No end date at the extract year without documentation ..... ${endsAtExt
 const staleInterim = appts.filter((a) => a.is_current && a.is_interim && +a.start_date.slice(0, 4) <= EXTRACT_YEAR - 2);
 say(`7.  Current-and-interim rows verified within 18 months ........ FAIL by design: last_verified_date is empty corpus-wide`);
 say(`      rows needing re-verification (current, interim, start <= ${EXTRACT_YEAR - 2}): ${staleInterim.length}`);
-// Test 8 now counts derivations and overrides as the spec meant them: narrative
-// evidence is a derivation from source text, not a manual exception.
+// Test 8 counts derivations and overrides as the spec meant them: narrative evidence
+// is a derivation from source text, not a manual exception -- but only once the text
+// has been allocated to a spell, which is what the triage in seat-identity.mjs does.
 const fromTitle = appts.filter((a) => a.interim_evidence === "title").length;
-const fromNarrative = appts.filter((a) => a.interim_evidence === "narrative").length;
+const allocated = appts.filter((a) => a.interim_evidence === "narrative_allocated");
 const overridden = appts.filter((a) => a.interim_override).length;
 const legacyInterim = appts.filter((a) => a.is_interim_legacy).length;
 const unverifiable = appts.filter((a) => a.is_interim_legacy && a.interim_override).length;
 say(`8.  is_interim derivable from appointment-scoped evidence ..... PARTIAL`);
 say(`      derived from a title: ${fromTitle} interim + ${appts.filter((a) => a.interim_evidence === "title_plain").length} permanent`);
-say(`      NOT independently verifiable: ${unverifiable} of ${legacyInterim} interim flags (${((100 * unverifiable) / legacyInterim).toFixed(1)}%) rest on`);
-say(`      the legacy ETL alone. The corpus records no appointment-scoped title for most`);
-say(`      dean seats, and \`notes\` is not appointment-scoped -- see seat-identity.mjs.`);
-tally(appts.filter((a) => a.is_interim_legacy), (a) => a.interim_evidence).forEach(([k, v]) => say(`        ${k.padEnd(20)} ${v}`));
-void fromNarrative;
+say(`      allocated from narrative: ${allocated.length} interim + ${appts.filter((a) => a.interim_evidence === "title_plain_narrative_elsewhere").length} permanent`);
+say(`      NOT independently derivable: ${unverifiable} of ${legacyInterim} interim flags (${((100 * unverifiable) / legacyInterim).toFixed(1)}%) rest on`);
+say(`      the legacy ETL alone. That is UNALLOCATED evidence, not absent evidence: the`);
+say(`      word is in a real text field on most of these rows, but \`notes\` is stored at`);
+say(`      seat level, so a blob-level match cannot say which spell it belongs to. Each`);
+say(`      row below carries the reason its sentence could not be allocated.`);
+tally(appts.filter((a) => a.is_interim_legacy), (a) => a.interim_evidence).forEach(([k, v]) => say(`        ${k.padEnd(32)} ${v}`));
+
+// The allocation's own check. It is a derivation the legacy flag never informed, so
+// agreement with that flag is evidence about the rule rather than a design target --
+// and where the two disagree, closed-tenure length says which side is right.
+const agree = allocated.filter((a) => a.is_interim_legacy).length;
+const closed = (l) => l.map((a) => (a.end_date ? +a.end_date.slice(0, 4) - +a.start_date.slice(0, 4) : null)).filter((v) => v !== null);
+const profile = (l) => {
+  const d = closed(l).sort((x, y) => x - y);
+  return d.length ? `n=${String(d.length).padStart(4)}  median ${String(d[d.length >> 1]).padStart(2)}y  <=2y ${((100 * d.filter((v) => v <= 2).length) / d.length).toFixed(1)}%` : "n=0";
+};
+say(`      allocation check -- agreement with the legacy flag: ${agree} of ${allocated.length} (${((100 * agree) / allocated.length).toFixed(1)}%)`);
+say(`        of the ${allocated.length - agree} divergences, ${allocated.filter((a) => !a.is_interim_legacy && +a.start_date.slice(0, 4) >= 2023).length} start 2023 or later and ${allocated.filter((a) => !a.is_interim_legacy && a.is_current).length} are still sitting --`);
+say(`        current interim leaders the ETL never flagged. Closed-tenure profiles say`);
+say(`        which side is right, using a measure the allocation never consults:`);
+say(`          title says interim              ${profile(appts.filter((a) => a.interim_evidence === "title"))}`);
+say(`          allocated, agrees with legacy   ${profile(allocated.filter((a) => a.is_interim_legacy))}`);
+say(`          allocated, diverges from legacy ${profile(allocated.filter((a) => !a.is_interim_legacy))}`);
+say(`          title says permanent            ${profile(appts.filter((a) => a.interim_evidence === "title_plain"))}`);
 say(`9.  cannot_determine only after a recorded search ............. PASS (no row claims it; uncoded rows are null)`);
 const confDist = tally(exitRows, (e) => e.circumstance_confidence || "(empty)");
 say(`10. circumstance_confidence is not a defaulted constant ....... empty on all rows, by design (never assessed)`);

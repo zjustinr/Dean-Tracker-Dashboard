@@ -48,9 +48,29 @@ import {
   wilson,
   twoProportionP,
 } from "./lib/interim-panel.mjs";
+import { deriveInterim } from "./lib/seat-identity.mjs";
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
 const SWAP_VINTAGE = process.argv.includes("--swap-vintage");
+/**
+ * Which interim flag the analysis runs on.
+ *
+ * The corpus's own `isInterim` is the default and the published headline. The panel
+ * export re-derives the flag from source evidence without ever consulting it
+ * (scripts/lib/seat-identity.mjs), and the two disagree on 61 of 11,775 appointments
+ * -- 20 of them R1-R3 president spells inside this analysis's window. They do NOT miss
+ * it entirely, so the tier table reports BOTH columns rather than publishing one
+ * number while the panel asserts another. `--derived` swaps which one drives the rest
+ * of the analysis.
+ *
+ * The default stays legacy because the divergences are disagreements, not proven ETL
+ * errors: most are a bare "President" title with silent notes against an ETL interim
+ * flag, where the origin coding may well have known something the title does not say.
+ * Publishing the derived column as the headline would assert a re-derivation the
+ * corpus cannot yet adjudicate. The gap is stated instead, and it is small everywhere
+ * except R3.
+ */
+const USE_DERIVED = process.argv.includes("--derived");
 const EMIT_JSON = process.argv.includes("--json");
 
 /** Window every cross-tier comparison is computed on -- the R2/R3 research floor. */
@@ -71,18 +91,28 @@ const read = (f) => JSON.parse(readFileSync(join(SRC, f), "utf8"));
  * the title test; for B-school deans every row with a startYear already is a dean
  * spell (the associate deans are the rows without one), so it is the identity.
  */
-function spellsFrom(file, seatFilter) {
+function spellsFrom(file, seatFilter, seatLevel) {
   return read(file)
     .filter((r) => r.startYear && seatFilter(r, leaderTitleOf.get(keyOf(r.university))))
-    .map((r) => ({
-      institution: keyOf(r.university),
-      display: r.university,
-      person: r.dean,
-      surname: surnameKey(r.dean),
-      startYear: r.startYear,
-      endYear: r.endYear ?? null,
-      isInterim: Boolean(r.isInterim),
-    }));
+    .map((r) => {
+      // The derivation never sees `r.isInterim`; where it reaches no conclusion the
+      // legacy flag carries the row, exactly as the panel export does it.
+      const ev = deriveInterim(r, { seatLevel, startYear: r.startYear, rowEndYear: r.endYear ?? NOW });
+      const legacy = Boolean(r.isInterim);
+      const derived = ev.derived === null ? legacy : ev.derived;
+      return {
+        institution: keyOf(r.university),
+        display: r.university,
+        person: r.dean,
+        surname: surnameKey(r.dean),
+        startYear: r.startYear,
+        endYear: r.endYear ?? null,
+        isInterimLegacy: legacy,
+        isInterimDerived: derived,
+        interimEvidence: ev.evidence,
+        isInterim: USE_DERIVED ? derived : legacy,
+      };
+    });
 }
 
 // Carnegie tier per institution, from the schools files.
@@ -105,7 +135,7 @@ for (const s of read("r1-r2public-schools.json")) {
 }
 const r1Index = new Set(read("r1-university-schools.json").map((s) => keyOf(s.university)));
 
-const deans = dedupeSpells(spellsFrom("r1-bschool-deans.json", () => true));
+const deans = dedupeSpells(spellsFrom("r1-bschool-deans.json", () => true, "dean"));
 const dualVintage = new Set([...r1Index].filter((k) => tierOf.has(k)));
 for (const k of r1Index) if (!SWAP_VINTAGE || !tierOf.has(k)) tierOf.set(k, "R1");
 
@@ -114,10 +144,10 @@ for (const k of r1Index) if (!SWAP_VINTAGE || !tierOf.has(k)) tierOf.set(k, "R1"
 // in the other). Reconciling row by row would mean adjudicating those disagreements;
 // taking whichever file the tier decision assigned them to keeps one institution on
 // one source's editorial judgement, which is the cleaner of the two options.
-const presR1 = spellsFrom("r1-university-deans.json", isChiefExecutiveSeat).filter(
+const presR1 = spellsFrom("r1-university-deans.json", isChiefExecutiveSeat, "president").filter(
   (s) => !(SWAP_VINTAGE && dualVintage.has(s.institution)),
 );
-const presR23 = spellsFrom("r1-r2public-deans.json", isChiefExecutiveSeat).filter(
+const presR23 = spellsFrom("r1-r2public-deans.json", isChiefExecutiveSeat, "president").filter(
   (s) => !(!SWAP_VINTAGE && dualVintage.has(s.institution)),
 );
 const presidents = dedupeSpells([...presR1, ...presR23]).map((s) => ({
@@ -226,6 +256,63 @@ console.log("misses first. Read the R3 rate as a floor.");
 
 // Pairwise tests between tiers on the appointment rate.
 console.log();
+// ---------------------------------------------------------------------------
+// Legacy flag vs. re-derived flag
+// ---------------------------------------------------------------------------
+//
+// The question this answers, asked at review: does the tier table above use the
+// corpus's `isInterim` or the panel's re-derivation? It uses the legacy flag by
+// default, and the two do not agree, so both are printed. Each panel is deduped on
+// its own flag -- interim status is part of the dedupe key, because an
+// interim-to-permanent conversion is two appointments and must not collapse into one
+// -- so this is a full recomputation, not a recount over one panel.
+const altPanel = dedupeSpells(
+  [...presR1, ...presR23].map((x) => ({ ...x, isInterim: USE_DERIVED ? x.isInterimLegacy : x.isInterimDerived })),
+).map((x) => ({ ...x, tier: tierOf.get(x.institution) || "Unclassified" }));
+
+console.log("Legacy ETL flag vs. the panel's re-derivation from source evidence:");
+console.log("tier   published (" + (USE_DERIVED ? "derived" : "legacy") + ")      alternative (" + (USE_DERIVED ? "legacy" : "derived") + ")     gap");
+out.derivationSensitivity = { published: USE_DERIVED ? "derived" : "legacy", tiers: {} };
+for (const t of TIERS) {
+  const a = rate(tierSpells[t].filter(inWindow));
+  const b = rate(altPanel.filter((x) => x.tier === t).filter(inWindow));
+  out.derivationSensitivity.tiers[t] = { published: a, alternative: b };
+  console.log(
+    `${t.padEnd(6)} ${pct(a.p).padStart(6)} (${a.k}/${a.n})`.padEnd(28) +
+      `${pct(b.p).padStart(6)} (${b.k}/${b.n})`.padEnd(22) +
+      `${(100 * (b.p - a.p) >= 0 ? "+" : "") + (100 * (b.p - a.p)).toFixed(1)}pp`,
+  );
+}
+const divergent = presidents.filter(
+  (x) => inWindow(x) && TIERS.includes(x.tier) && x.isInterimLegacy !== x.isInterimDerived,
+);
+console.log();
+console.log(
+  `${divergent.length} in-window president spells carry different values under the two flags,`,
+);
+console.log(
+  "so the re-derivation is NOT confined to rows outside this analysis. R1 and R2 move by",
+);
+console.log(
+  "a tenth of a point either way; R3 is where it matters, and it moves in the direction",
+);
+console.log(
+  "the coverage check already warned about -- the tier with the thinnest research is the",
+);
+console.log(
+  "tier whose interim flags rest most heavily on the ETL alone. The R1-R3 gap is the",
+);
+console.log(
+  "finding, and it survives the swap; the R3 LEVEL does not, and should be read as the",
+);
+console.log(
+  "floor the coverage note says it is. Evidence behind the divergent spells:",
+);
+const evTally = new Map();
+for (const x of divergent) evTally.set(x.interimEvidence, (evTally.get(x.interimEvidence) || 0) + 1);
+for (const [k, v] of [...evTally].sort((a, b) => b[1] - a[1])) console.log(`    ${k.padEnd(34)} ${v}`);
+console.log();
+
 console.log("Pairwise two-proportion tests (appointment rate):");
 for (const [a, b] of [["R1", "R2"], ["R1", "R3"], ["R2", "R3"]]) {
   const ra = rate(tierSpells[a].filter(inWindow));
