@@ -1,0 +1,141 @@
+QC report - succession panel export
+generated 2026-09-13 from artifacts/dean-dashboard/src/data
+========================================================================
+
+1. Key integrity
+   duplicate appointment_id: 0
+   appointments with an unresolved institution_id or unit_id: 0
+   appointments with an unresolved person_id: 0
+
+2. Every appointment row has a start_date
+   rows without one: 0 (roster rows are excluded by construction)
+   source rows dropped as roster (no start date): 10071
+   source rows dropped as associate/assistant dean despite a start date: 420
+   source rows dropped as not the chief executive seat: 191
+   source rows dropped as outside the Carnegie scope: 1089
+   duplicate rows collapsed (same seat, same person, same interim status): 44
+
+3. Overlapping permanent spells in the same seat (reported, not resolved)
+   count: 41
+     US-UNIVERSITY-OF-SOUTH-CAROLINA-PHARMACY: Joseph DiPiro (2005-2014) vs Randall Rowen (2005)
+     US-UNIVERSITY-OF-TENNESSEE-KNOXVILLE-LAW: Thomas J. Freeman (1890-2026) vs Marilyn V. Yarbrough (1987)
+     US-UNIVERSITY-OF-HAWAII-MANOA-AGRICULTURE: E.V. Wilcox (1908-1914) vs John Gilmore (1908)
+     US-UNIVERSITY-OF-HAWAII-MANOA-AGRICULTURE: John M. Westgate (1915-1935) vs Royal Chapman (1931)
+     US-UNIVERSITY-OF-HAWAII-MANOA-AGRICULTURE: Royal Chapman (1931-1939) vs Oscar C. Magistad (1935)
+     US-MISSISSIPPI-STATE-UNIVERSITY-AGRICULTURE-COLLEGE-OF-AGRICULTURE-AND-LIFE-SCIENCES: William Fox (1989-2001) vs J. Charles Lee (2000)
+     US-UNIVERSITY-OF-UTAH-MEDICINE: A. Lorris Betz (1999-2011) vs David J. Bjorkman (2004)
+     US-UNIVERSITY-OF-UTAH-MEDICINE: David J. Bjorkman (2004-2026) vs Vivian S. Lee (2011)
+     US-COLLEGE-OF-WILLIAM-AND-MARY-ARTS_SCIENCES: James Wilkinson Miller (1938-1952) vs Sharvy G. Umbeck (1946)
+     US-COLLEGE-OF-WILLIAM-AND-MARY-ARTS_SCIENCES: Jack D. Edwards (1974-1984) vs Zeddie Paul Bowen (1981)
+
+4. At most one is_current row per unit
+   units with more than one: 16
+     US-UNIVERSITY-OF-FLORIDA-VETERINARY: 2
+     US-UNIVERSITY-OF-CALIFORNIA-LOS-ANGELES-GRADUATE: 2
+     US-SANTA-CLARA-UNIVERSITY-BUSINESS: 2
+     US-UNIVERSITY-OF-ALASKA-FAIRBANKS-CENTRAL: 2
+     US-BOISE-STATE-UNIVERSITY-GRADUATE: 2
+     US-UNIVERSITY-OF-VIRGINIA-BUSINESS: 2
+     US-BOISE-STATE-UNIVERSITY-ENGINEERING: 2
+     US-UNIVERSITY-OF-TEXAS-AUSTIN-ARTS_SCIENCES-COLLEGE-OF-LIBERAL-ARTS: 2
+     US-OREGON-STATE-UNIVERSITY-GRADUATE: 2
+     US-CHAPMAN-UNIVERSITY-BUSINESS: 2
+
+5. converted_to_permanent rows link correctly
+   conversions found: 144   malformed links: 0
+   of which president seats: 37
+
+6. Appointments by start_precision  <-- how much of the panel supports month resolution
+   year     9733  94.3%
+   month     586  5.7%
+   day         1  0.0%
+   month-precision rows by unit type:
+     business       585
+     arts_sciences  1
+     other          1
+
+7. Appointments by decade x research_depth  <-- the H5 diagnostic
+   decade   deep_archival  standard_web         light
+   1850                 0             4             0
+   1860                 0             3             0
+   1870                 0             8             0
+   1880                 0            16             0
+   1890                 0            37             2
+   1900                 0            73             2
+   1910                 0            66             3
+   1920                 1            75             3
+   1930                 1            91             1
+   1940                 0           135             6
+   1950                 6           156            13
+   1960                22           228            15
+   1970               137           371            40
+   1980               258           465            94
+   1990               363           760           183
+   2000               440          1138           292
+   2010               523          1581           511
+   2020               471          1276           450
+
+8. is_interim by unit_type and seat_level
+   unit_type          appts  interim    rate
+   central             2706      574   21.2%
+   other               1760      294   16.7%
+   arts_sciences       1142      221   19.4%
+   law                 1009      174   17.2%
+   business             854      256   30.0%
+   education            807      146   18.1%
+   nursing              698       99   14.2%
+   medicine             626       96   15.3%
+   engineering          564       86   15.2%
+   public_health        154       14    9.1%
+   seat_level=president  2706 appts, 574 interim = 21.2%
+   seat_level=dean       7614 appts, 1386 interim = 18.2%
+   cross-check vs the published 32.4% business figure (1996+): 242/736 = 32.9%
+
+9. Row counts and deliberate exclusions
+   appointments.csv               10320 rows
+   appointments_provost.csv        1377 rows
+   institutions.csv                 459 rows
+   units.csv                       1966 rows
+   people.csv                      9196 rows
+   exits.csv                       8421 rows
+   institution_year.csv           11262 rows
+   institutions in scope: 459   units: 1966   people: 9196
+
+   Excluded on purpose:
+     r1-provost-deans.json        provosts are outside the president|dean enum;
+                                  exported separately as appointments_provost.csv
+     r1-system-deans.json         system heads sit above the institution
+     r1-lac-*, r1-communitycollege-*  outside both Carnegie indexes
+     r1-adminleaders-*, r1-advancement-*  vice presidents, not deans
+     deans.json                   Top-100 business cut; overlaps r1-bschool
+
+Gaps against the request, stated plainly
+------------------------------------------------------------------------
+  VACANT rows: none. The corpus records occupants, not seat states, so a gap
+    between spells cannot be told apart from an unresearched stretch. Gaps of two
+    years or more between consecutive spells in the same seat: 379.
+  reports_to: empty on all 1966 units. The corpus has no reporting line.
+    This is the H2 moderator, so it is the highest-value field to collect next.
+  announcement_date, search_start_date, search_firm: empty. Never collected.
+  exit_announcement_date, successor_named_at_announcement: empty. Never collected,
+    so notice length is not derivable and H4 has no short-notice marker.
+  unplanned_basis distribution across 8421 completed spells:
+    undetermined                       7988
+    not_unplanned                      304
+    death                              75
+    abrupt_resignation_short_notice    38
+    board_dismissal                    16
+    The corpus flags carry 129 genuinely unplanned exits. H4 needs new coding.
+  institution_year.csv: only fall_enrollment_total is populated, 2000-2024, for
+    456 institutions. No IPEDS Finance or Admissions pull exists in this
+    repository, so endowment, appropriations, revenue, expenses, gifts, staff and
+    admissions are all empty, as are the three hand-coded distress flags.
+  earliest_year_researched: populated on 665 of 1966 units, from the R2/R3
+    build's own historyFrom. Empty elsewhere rather than guessed from the earliest
+    record found, which would confuse "researched, found nothing" with "not researched".
+  exit_date caution: 208 spells end in 2026, the extract year, and 11 of those
+    carry notes saying the end year was never documented -- the ETL used the extract
+    year as a placeholder. Treat 2026 exits as soft, especially for long-closed spells
+    (Tennessee's founding law dean is recorded 1890-2026).
+  person_id is name-derived. Two people with one name merge; one person under two
+    spellings splits. 9196 people across 10320 appointments.

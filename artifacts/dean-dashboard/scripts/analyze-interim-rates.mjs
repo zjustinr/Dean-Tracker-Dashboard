@@ -37,7 +37,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { snorm, vkey, MERGE, ALIAS } from "./lib/school-canon.mjs";
+import { keyOf } from "./lib/institution-key.mjs";
 import {
   isChiefExecutiveSeat,
   surnameKey,
@@ -59,34 +59,6 @@ const WINDOW = 1996;
 const NOW = 2026;
 
 const read = (f) => JSON.parse(readFileSync(join(SRC, f), "utf8"));
-
-// ---------------------------------------------------------------------------
-// Institution identity
-// ---------------------------------------------------------------------------
-
-/**
- * B-school-index spellings that name a flagship campus by its short form. Each was
- * confirmed against the B-school record's own city/state before being listed: the
- * Kelley School is in Bloomington, Smith is at College Park, Carlson at Twin Cities,
- * Haslam at Knoxville. Babson College is deliberately absent -- it has no row in
- * either president index, so it drops out of the within-university join rather than
- * being attached to something it is not.
- */
-const CAMPUS = {
-  "indiana university": "indiana university bloomington",
-  "penn state university": "pennsylvania state university",
-  "university of maryland": "university of maryland college park",
-  "university of minnesota": "university of minnesota twin cities",
-  "university of tennessee": "university of tennessee knoxville",
-  "washington university st louis": "washington university in st louis",
-};
-
-/** The one bucket key for an institution: school-canon's merges, then the campus map. */
-const keyOf = (raw) => {
-  const n = snorm(raw);
-  const merged = MERGE[n] || MERGE[vkey(n)] || ALIAS[n] || n;
-  return vkey(CAMPUS[vkey(merged)] || CAMPUS[merged] || merged);
-};
 
 // ---------------------------------------------------------------------------
 // Panel construction
