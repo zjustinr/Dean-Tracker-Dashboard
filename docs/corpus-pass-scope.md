@@ -126,6 +126,14 @@ decisions stay auditable and reversible.
 29 placeholder end dates set to null with `is_current = FALSE`. 65 compound titles
 flagged for splitting; the split itself needs a source, so it is research, not code.
 
+> **Corrected after the fact.** The 65 was measured with a detector that matches any
+> title naming more than one role, and three quarters of those are one person holding
+> two roles at once — `Vice President for Student Life/Dean of Students` is not two
+> appointments. 16 titles date their own parts, and of those only **2** hid an interim
+> spell, which is the only variant that biases an interim rate. Both were split from
+> the title itself, which states and dates both spells, so no new source was needed.
+> See `titleSpansSeveralSpells` and `titleHidesInterimSpell` in `lib/seat-identity.mjs`.
+
 ---
 
 ## What not to do

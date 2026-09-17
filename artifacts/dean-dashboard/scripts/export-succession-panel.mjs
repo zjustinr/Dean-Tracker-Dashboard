@@ -41,7 +41,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { keyOf, idOf } from "./lib/institution-key.mjs";
 import { isChiefExecutiveSeat, surnameKey } from "./lib/interim-panel.mjs";
-import { normSchool, slug, titleVerbatim, deriveInterim, isPlaceholderEnd } from "./lib/seat-identity.mjs";
+import { normSchool, slug, titleVerbatim, deriveInterim, isPlaceholderEnd, titleSpansSeveralSpells } from "./lib/seat-identity.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SRC = join(HERE, "..", "src", "data");
@@ -474,11 +474,30 @@ for (const [seatId] of seatRows) {
 /**
  * Exits, in the spec's Layer 0 / Layer 1 shape.
  *
- * `exit_circumstance` is populated only from evidence the corpus actually holds:
- * `nextRole = Deceased` supports `death_in_office`, and `involuntary` supports
- * `dismissal_by_board`. Everything else is left NULL -- not `cannot_determine`,
- * which the spec reserves for a coder who searched and found nothing. No row here
- * has been searched, so no row may claim that value.
+ * `exit_circumstance` is populated only from evidence the corpus actually holds.
+ * `involuntary` supports `dismissal_by_board`. Everything else is left NULL -- not
+ * `cannot_determine`, which the spec reserves for a coder who searched and found
+ * nothing. No row here has been searched, so no row may claim that value.
+ *
+ * WHY `nextRole = Deceased` NO LONGER SUPPORTS `death_in_office`
+ * -------------------------------------------------------------
+ * It was read that way, and it produced 76 `death_in_office` rows. An external audit
+ * sampled ten of them and found five wrong -- not wrong about the death, wrong about
+ * WHEN: David Topel left in 2000 and died in 2022; E. Jane Martin left the deanship in
+ * 2007 and died in 2023; Arnett C. Mace Jr. left in 2003 for a provostship and died in
+ * 2021.
+ *
+ * The field means "where this person ended up", which for anyone who has since died is
+ * "deceased" whether they died in office or twenty years after retiring. It records a
+ * fate, not a departure, and it carries no date, so nothing can align it to the end of
+ * the spell. Coding a departure circumstance from it conflates "reason for leaving"
+ * with "reason the record closed".
+ *
+ * This is the same error as reading a silent title as evidence of permanence: a field
+ * asked to support a claim it does not make. `destination_raw` still carries the
+ * `Deceased` value verbatim, which is what the corpus actually asserts, so nothing is
+ * lost -- only the unwarranted inference. Coding real deaths in office needs
+ * obituaries, and is research.
  */
 const exitRows = [];
 for (const a of appts) {
@@ -487,8 +506,7 @@ for (const a of appts) {
   const r = a._row;
   let circumstance = "";
   let evidence = "";
-  if (r.nextRole === "Deceased") { circumstance = "death_in_office"; evidence = "contemporaneous_reporting"; }
-  else if (r.involuntary === true) { circumstance = "dismissal_by_board"; evidence = "contemporaneous_reporting"; }
+  if (r.involuntary === true) { circumstance = "dismissal_by_board"; evidence = "contemporaneous_reporting"; }
   exitRows.push({
     appointment_id: a.appointment_id,
     seat_id: a.seat_id,
@@ -678,7 +696,11 @@ say(`        which side is right, using a measure the allocation never consults:
 say(`          title says interim              ${profile(appts.filter((a) => a.interim_evidence === "title"))}`);
 say(`          allocated, agrees with legacy   ${profile(allocated.filter((a) => a.is_interim_legacy))}`);
 say(`          allocated, diverges from legacy ${profile(allocated.filter((a) => !a.is_interim_legacy))}`);
-say(`          title says permanent            ${profile(appts.filter((a) => a.interim_evidence === "title_plain"))}`);
+say(`          titled, ETL says permanent      ${profile(appts.filter((a) => a.interim_evidence === "title_silent" && !a.is_interim_legacy))}`);
+// The demotions an earlier build made on a silent title, kept as a standing exhibit:
+// this row should stay empty, and if it ever refills, the same error is back.
+const demoted = appts.filter((a) => a.is_interim_legacy && !a.is_interim);
+say(`          legacy interim, derived permanent ${profile(demoted)}  (must stay empty: ${demoted.length} rows)`);
 say(`9.  cannot_determine only after a recorded search ............. PASS (no row claims it; uncoded rows are null)`);
 const confDist = tally(exitRows, (e) => e.circumstance_confidence || "(empty)");
 say(`10. circumstance_confidence is not a defaulted constant ....... empty on all rows, by design (never assessed)`);
@@ -723,11 +745,16 @@ const diverge = appts.filter((a) => a.interim_diverges_from_legacy);
 say(`      rows where the derivation disagrees with the legacy ETL flag: ${diverge.length}`);
 tally(diverge, (a) => `${a.seat_level}: legacy ${a.is_interim_legacy ? "interim" : "permanent"} -> derived ${a.is_interim ? "interim" : "permanent"}`)
   .forEach(([k, v]) => say(`        ${k.padEnd(46)} ${v}`));
-say(`      These are disagreements needing adjudication, not proven ETL errors: most are a`);
-say(`      bare "President"/"Chancellor" title with silent notes against an ETL interim`);
-say(`      flag, where the ETL's origin coding may well have known something the title`);
-say(`      does not say. Arizona pharmacy's "Acting Dean" flagged permanent is a plain`);
-say(`      error. Exhibit: interim_diverges_from_legacy in appointments.csv.`);
+say(`      EVERY divergence now runs one way: the derivation finds an interim spell the`);
+say(`      ETL missed, and never the reverse. That is a property of the evidence, not a`);
+say(`      choice -- of 13,499 dated rows whose title field holds a title, zero state`);
+say(`      permanence explicitly, so there is nothing to derive a permanent value FROM.`);
+say(`      An earlier build demoted 29 legacy-interim rows on a bare "President" title`);
+say(`      with silent notes, which dragged R3 from 19.9% to 17.5%; the duration test`);
+say(`      settled it, since the derivation never consults duration. Those 29 ran a`);
+say(`      median of 1 year with 96.6% at two years or less -- the profile of titles`);
+say(`      that SAY interim (1y, 93.1%), not of permanent spells (7y, 9.4%).`);
+say(`      Exhibit: interim_diverges_from_legacy in appointments.csv.`);
 say();
 
 say(`15. Every appointment has a source_index ...................... ${yn(appts.every((a) => a.source_index))}`);
@@ -764,15 +791,19 @@ function dualInstAcross() {
 }
 say();
 
-// Standing detector: a title naming an interim role on a row the corpus flags
-// permanent is a reliable signal that several spells were collapsed into one row.
+// Standing detector. NOTE the distinction the first version of this got wrong: a
+// title naming two roles is usually one person wearing two hats ("Vice President for
+// Student Life/Dean of Students"), not two appointments. Only a title that DATES its
+// own parts is a sequence, and only that subset is splittable.
 const compounds = appts.filter((a) => a.title_is_compound);
 const contradictions = appts.filter(
   (a) => a.title_verbatim && !a.title_is_compound && /\b(interim|acting)\b|pro\s*tem/i.test(a.title_verbatim) && !a.is_interim_legacy,
 );
 say("Collapsed-spell detector");
 say("-".repeat(74));
-say(`  titles that collapse several spells into one row: ${compounds.length}`);
+say(`  titles naming more than one role: ${compounds.length}`);
+say(`    ...of those, dating their own parts (a real sequence of appointments): ${compounds.filter((a) => titleSpansSeveralSpells(a.title_verbatim)).length}`);
+say(`    the rest are one person holding two roles at once, and must NOT be split.`);
 tally(compounds, (a) => a.seat_level).forEach(([k, v]) => say(`    ${k.padEnd(12)} ${v}`));
 compounds.slice(0, 6).forEach((a) => say(`    ${a.institution_id.replace("US-", "").slice(0, 30).padEnd(32)} ${a.title_verbatim.slice(0, 70)}`));
 say(`  interim-worded titles the ETL flagged permanent, not compound: ${contradictions.length}`);

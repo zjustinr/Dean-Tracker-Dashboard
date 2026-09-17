@@ -27,9 +27,17 @@
  *      their own cabinet -- Arizona State's Michael Crow beside his EVP and CFO.
  *   3. placeholder end dates  a spell ending exactly at the extract year after
  *      running more than fifteen years is the ETL writing "unknown" as a date.
- *   4. collapsed spells  a title naming several appointments ("Dean of Faculty
- *      (1962-67); Provost (1967-71)") is two rows wearing one, which deletes a
- *      conversion and biases every interim rate downward.
+ *   4. collapsed spells  a title that DATES several appointments ("Acting Provost
+ *      (1977-78); Senior Vice President and Provost (1978-83)") is two rows wearing
+ *      one, which deletes a conversion and biases every interim rate downward.
+ *
+ *      This check used to count any title naming more than one role, and reported 65.
+ *      Reading all 65 showed three quarters were dual-role titles -- "Vice President
+ *      for Student Life/Dean of Students" is one person with two hats, not two
+ *      appointments -- so the count overstated the defect roughly fourfold. It now
+ *      counts only titles that date their own parts or say "then", and reports the
+ *      subset that hides an interim spell separately, because that subset is the only
+ *      one that moves an interim rate.
  *
  * Exit status is 1 only on regression, so this is safe to wire into CI immediately.
  */
@@ -38,7 +46,7 @@ import { execFileSync } from "node:child_process";
 import { join, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { keyOf } from "./lib/institution-key.mjs";
-import { normSchool, isCompoundTitle, titleVerbatim, isPlaceholderEnd } from "./lib/seat-identity.mjs";
+import { normSchool, titleSpansSeveralSpells, titleHidesInterimSpell, titleVerbatim, isPlaceholderEnd } from "./lib/seat-identity.mjs";
 import { classifySeatRole, INDEX_ROLE } from "./lib/seat-role.mjs";
 import { UNREGISTERED_BY_DESIGN } from "./lib/indices.mjs";
 
@@ -78,7 +86,7 @@ function readAt(ref, f) {
 /** Count all four defect classes over a whole corpus snapshot. */
 function audit(ref) {
   const seats = new Map();
-  const out = { unclassified: [], twoSitting: [], placeholder: [], collapsed: [] };
+  const out = { unclassified: [], twoSitting: [], placeholder: [], collapsed: [], hiddenInterim: [] };
   for (const f of FILES) {
     const rows = readAt(ref, f);
     if (!rows) continue;
@@ -93,7 +101,8 @@ function audit(ref) {
       const seatRole =
         r.seatRole ?? classifySeatRole(r, { indexRole: INDEX_ROLE[f] ?? "", leaderTitle: leaderTitleOf.get(keyOf(r.university)) });
       if (isPlaceholderEnd(r.startYear, r.endYear, EXTRACT_YEAR)) out.placeholder.push(where);
-      if (isCompoundTitle(titleVerbatim(r))) out.collapsed.push(where);
+      if (titleSpansSeveralSpells(titleVerbatim(r))) out.collapsed.push(where);
+      if (titleHidesInterimSpell(r)) out.hiddenInterim.push(where);
 
       // Only the seat itself can have "two sitting holders". Cabinet officers and
       // the feeder bench legitimately overlap with the seat and with each other.
@@ -114,7 +123,8 @@ const LABELS = {
   unclassified: "dated rows with no seatRole",
   twoSitting: "seats with two sitting holders",
   placeholder: "placeholder end dates (extract year, run > 15y)",
-  collapsed: "titles collapsing several spells",
+  collapsed: "titles dating several appointments",
+  hiddenInterim: "  ...of those, hiding an interim spell",
 };
 
 // Institution leader titles, for on-the-fly classification of pre-backfill snapshots.

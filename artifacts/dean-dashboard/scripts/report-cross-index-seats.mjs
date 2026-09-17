@@ -20,12 +20,29 @@
  * A school appearing twice is not automatically wrong -- `r1-university` and
  * `r1-r2public` overlap on eleven institutions by Carnegie-vintage design, and that
  * is recorded rather than flagged. Everything else needs a human.
+ *
+ * THE KEY INCLUDES `seatRole`, AND THE FIRST VERSION'S DID NOT
+ * -----------------------------------------------------------
+ * That first version reported 220 schools, and the number was wrong by an order of
+ * magnitude. It keyed on institution plus school name -- and `school` is a catch-all:
+ * every cabinet officer at a liberal-arts college carries "Office of the President",
+ * the same string the president's own row carries. So a president in `r1-lac` and
+ * their VP for Finance in `r1-adminleaders` collided on one key and were reported as
+ * the same school recorded twice. They are two different seats, correctly filed in
+ * two different indexes. 202 of the 220 were that.
+ *
+ * The corpus pass's own scope document said "a corpus-wide seat identity needs a role
+ * dimension", and then this script was written without one. `seatRole` now exists, so
+ * the key carries it, and the worklist drops from 220 schools / 1,859 spells to 54 /
+ * 350 -- of which 13 are the expected Carnegie-vintage overlap and 18 are different
+ * people still colliding on that same catch-all school value. 23 are real.
  */
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { keyOf } from "./lib/institution-key.mjs";
 import { normSchool } from "./lib/seat-identity.mjs";
+import { classifySeatRole, INDEX_ROLE } from "./lib/seat-role.mjs";
 import { UNREGISTERED_BY_DESIGN } from "./lib/indices.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -45,12 +62,17 @@ const KNOWN_VINTAGE_OVERLAP = new Set(
     .filter((k) => new Set(read("r1-r2public-schools.json").map((x) => keyOf(x.university))).has(k)),
 );
 
+/** Institution leader titles, for classifying a row whose `seatRole` predates the backfill. */
+const leaderTitleOf = new Map();
+for (const s of read("r1-r2public-schools.json")) if (s.leaderTitle) leaderTitleOf.set(keyOf(s.university), s.leaderTitle);
+
 const seats = new Map();
 for (const f of FILES) {
   for (const r of read(f)) {
     if (!r.startYear) continue;
-    const k = `${keyOf(r.university)}||${normSchool(r.school || "")}`;
-    if (!seats.has(k)) seats.set(k, { display: `${r.university} / ${r.school || "(no school)"}`, inst: keyOf(r.university), byFile: new Map() });
+    const seatRole = r.seatRole ?? classifySeatRole(r, { indexRole: INDEX_ROLE[f] ?? "", leaderTitle: leaderTitleOf.get(keyOf(r.university)) });
+    const k = `${keyOf(r.university)}||${normSchool(r.school || "")}||${seatRole}`;
+    if (!seats.has(k)) seats.set(k, { display: `${r.university} / ${r.school || "(no school)"} [${seatRole || "unresolved"}]`, inst: keyOf(r.university), byFile: new Map() });
     const s = seats.get(k);
     if (!s.byFile.has(f)) s.byFile.set(f, []);
     s.byFile.get(f).push(r);
@@ -92,13 +114,18 @@ for (const [, s] of seats) {
     // A contradiction outranks a known overlap: the eleven Carnegie-vintage pairs are
     // expected duplication, but two copies disagreeing on whether a spell was interim
     // still needs settling. Ranking vintage first hid two of the three real ones.
+    // `shared_people` is what separates a real duplicate from a collision. Two copies
+    // of the same person is duplication; two different officers filed under the same
+    // catch-all school value is not, and 18 of the survivors are that.
     status: contradictions
       ? isVintage
         ? "vintage_overlap_but_contradicts"
         : "needs_review_contradiction"
       : isVintage
         ? "known_carnegie_vintage_overlap"
-        : "needs_review",
+        : shared
+          ? "needs_review"
+          : "distinct_people_shared_school_value",
   });
 }
 
