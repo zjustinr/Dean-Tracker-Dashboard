@@ -18,5 +18,25 @@
    "u:appointment:president:university:virginia-tech"
   ],
   "repeatOfPrior": false
+ },
+ {
+  "id": "2421240001",
+  "recorded": "2026-09-25",
+  "schoolType": "university",
+  "role": "president",
+  "type": "departure",
+  "interim": false,
+  "university": "Stanford University",
+  "school": "Office of the President",
+  "dean": null,
+  "date": "2026-09-24T18:13:55.000Z",
+  "url": "https://poetsandquants.com/2026/09/24/former-stanford-student-why-i-dropped-out-of-my-mba-and-why-you-shouldnt/?pq-category=students",
+  "title": "Former Stanford Student: Why I Dropped Out Of My MBA (And Why You Shouldn’t)",
+  "confidence": "medium",
+  "digested": false,
+  "storyKeys": [
+   "u:departure:president:university:stanford-university"
+  ],
+  "repeatOfPrior": false
  }
 ]
