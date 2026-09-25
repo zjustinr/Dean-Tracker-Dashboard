@@ -21,6 +21,7 @@ import NonAcademicExperience from "@/components/NonAcademicExperience";
 import Insights from "@/components/Insights";
 import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/FreeTierMeter";
 import ConsentGate from "@/components/ConsentGate";
+import { SignupDialog, useSignupDialog } from "@/components/SignupDialog";
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
@@ -106,6 +107,7 @@ function AppInner() {
   // Free-tier meter applies only to anonymous public visitors (armed gate, no
   // valid token). Owners and trial/day-pass holders (status "valid") are unmetered.
   const meter = useFreeMeter(trial.armed && trial.status !== "valid");
+  const signup = useSignupDialog();
   // If a trial is scoped and the active dataset falls outside it, jump to the
   // first in-scope index so the app never sits on a locked (403) dataset.
   useEffect(() => {
@@ -422,7 +424,8 @@ function AppInner() {
         {aboutOpen && <AboutDialog onClose={() => setAboutOpen(false)} onContact={() => setContactOpen(true)} />}
         <FreeTierNotice meter={meter} />
         <MeterBadge meter={meter} />
-        <Paywall meter={meter} />
+        <Paywall meter={meter} onSignIn={signup.show} />
+        <SignupDialog dialog={signup} />
         <ConsentGate />
         <FeatureRequestWidget />
       </div>

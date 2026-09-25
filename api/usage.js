@@ -229,6 +229,9 @@ function sharedVerdict(w) {
   };
 }
 const isOwnerAction = (e) => e.ev === "mint";
+// A sign-in link being requested is not use of the product: the person may
+// never click it. Kept out of engagement, still visible in the feed.
+const isAuditOnly = (e) => isOwnerAction(e) || e.ev === "signup-request";
 const isRejected = (e) => e.ev === "expired-open" || e.ev === "blocked-open";
 const dayKey = (t) => new Date(Number(t)).toISOString().slice(0, 10);
 const blankWin = () => ({
@@ -258,7 +261,7 @@ function infraAddresses(events) {
 function rollupClients(events, now, infra = new Set()) {
   const per = new Map();
   for (const e of events) {
-    if (!e || !e.t || isOwnerAction(e)) continue;
+    if (!e || !e.t || isAuditOnly(e)) continue;
     const age = now - Number(e.t);
     if (age < 0) continue;
     const c = e.c || PUBLIC_TAG;
@@ -353,6 +356,36 @@ module.exports = async function handler(req, res) {
     return;
   }
 
+  // Org allowlist for work-email signup (api/trial.js ?action=signup):
+  //   ?org=<domain>&label=<name>&scope=firm|all&until=YYYY-MM-DD  add/update
+  //   ?org=<domain>&remove=1                                       delete
+  // One shared end date per org. Cutting access early is the domain block
+  // (?block=@<domain>), which also stops tokens already issued; removing the
+  // org only stops new signups.
+  if (req.query && req.query.org) {
+    if (!kvCreds().url || !kvCreds().tok) { res.status(200).send("KV not enabled."); return; }
+    const domain = String(req.query.org).trim().toLowerCase().replace(/^@/, "");
+    const fail = (msg) => { res.setHeader("content-type", "text/html; charset=utf-8"); res.status(400).send(`<body style='font-family:sans-serif;padding:40px'><h2>Org update failed</h2><p>${esc(msg)}</p><p><a href="/api/usage?key=${encodeURIComponent(key)}">← back to usage</a></p></body>`); };
+    if (!/^[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(domain)) { fail(`"${domain}" is not a domain.`); return; }
+    try {
+      if (req.query.remove === "1") {
+        await kv([["DEL", `bi:org:${domain}`], ["SREM", "bi:orgs", domain]]);
+      } else {
+        const until = Math.floor(Date.parse(`${String(req.query.until || "")}T23:59:59Z`) / 1000);
+        if (!until || until <= Math.floor(Date.now() / 1000)) { fail("End date must be a future YYYY-MM-DD."); return; }
+        const scopeKey = req.query.scope === "all" ? "all" : "firm";
+        const org = {
+          domain, label: String(req.query.label || domain).trim().slice(0, 80),
+          scope: scopeKey === "all" ? ["*"] : ALL_IDS, until, updatedAt: Date.now(),
+        };
+        await kv([["SET", `bi:org:${domain}`, JSON.stringify(org)], ["SADD", "bi:orgs", domain]]);
+      }
+      res.setHeader("location", `/api/usage?key=${encodeURIComponent(key)}`);
+      res.status(302).send("");
+    } catch (e) { res.status(502).send("update failed: " + esc(e.message)); }
+    return;
+  }
+
   // Owner mint: ?key=...&mint=<tier>&client=<slug>[&days=N] — returns the link.
   if (req.query && req.query.mint) {
     const tierKey = String(req.query.mint);
@@ -406,6 +439,30 @@ module.exports = async function handler(req, res) {
     res.status(502).send("KV read failed: " + esc(e.message));
     return;
   }
+
+  // Signup orgs and the people who verified under each.
+  let orgs = [];
+  try {
+    const [domains] = await kv([["SMEMBERS", "bi:orgs"]]);
+    for (const domain of (domains || []).sort()) {
+      const [raw, blocked, emails] = await kv([["GET", `bi:org:${domain}`], ["GET", `bi:blocked:@${domain}`], ["SMEMBERS", `bi:org-users:${domain}`]]);
+      let org = {};
+      try { org = JSON.parse(raw || "{}") || {}; } catch { org = {}; }
+      const list = (emails || []).sort();
+      const [users, userBlocks] = list.length
+        ? await Promise.all([kv(list.map((u) => ["HGETALL", `bi:user:${u}`])), kv(list.map((u) => ["GET", `bi:blocked:${u}`]))])
+        : [[], []];
+      orgs.push({
+        domain, label: org.label || domain, until: org.until || 0, wildcard: Array.isArray(org.scope) && org.scope.includes("*"),
+        blocked: !!blocked,
+        users: list.map((email, i) => {
+          const flat = users[i] || [], h = {};
+          for (let j = 0; j < flat.length; j += 2) h[flat[j]] = flat[j + 1];
+          return { email, createdAt: Number(h.createdAt || 0), verifiedAt: Number(h.verifiedAt || 0), blocked: !!userBlocks[i] };
+        }),
+      });
+    }
+  } catch { orgs = []; /* the rest of the page still renders */ }
 
   // Per-client summary (HGETALL returns a flat [field,val,...] array).
   const rows = clients.map((c, i) => {
@@ -482,6 +539,11 @@ module.exports = async function handler(req, res) {
         allTimeHits: r.hits, lastSeen: r.last ? new Date(r.last).toISOString() : null,
         consentedAt: r.consentedAt ? new Date(r.consentedAt).toISOString() : null,
         possiblyShared: sharedVerdict(r.s.w30).shared,
+      })),
+      orgs: orgs.map((o) => ({
+        domain: o.domain, label: o.label, until: o.until ? new Date(o.until * 1000).toISOString().slice(0, 10) : null,
+        allIndicesIncludingFuture: o.wildcard, blocked: o.blocked,
+        users: o.users.map((u) => ({ email: u.email, firstVerified: u.createdAt ? new Date(u.createdAt).toISOString() : null, lastVerified: u.verifiedAt ? new Date(u.verifiedAt).toISOString() : null, blocked: u.blocked })),
       })),
       freeOpenLink: { last30d: win(free.w30), last7d: win(free.w7), lastSeen: free.last ? new Date(free.last).toISOString() : null },
       ips: ipRows.slice(0, 50).map((s) => ({ ip: s.ip, hits30d: s.hits, activeDays30d: s.days.size, rejected30d: s.rejected, clients: Array.from(s.clients), automated: s.bot, lastSeen: new Date(s.last).toISOString() })),
@@ -568,6 +630,26 @@ module.exports = async function handler(req, res) {
     ${ipFlagList}
     <table style="margin-top:10px"><tr><th>IP</th><th style="text-align:right">30d hits</th><th style="text-align:right">Days</th><th>Link tag(s)</th><th style="text-align:right">Rejected</th><th>Last seen</th></tr>${ipTable}</table>
     <div style="font-size:12px;color:#5B6B7B;margin-top:4px">Addresses are a weak identifier — mobile and corporate networks re-address constantly, and a VPN moves a person between them — so treat a flag as a prompt to look, never as proof a link was shared.</div>
+
+    <h2>Organizations — work-email signup</h2>
+    <div style="font-size:12px;color:#5B6B7B;margin-bottom:6px">Anyone with an address at a listed domain can sign up at <b>${esc(MINT_DOMAIN)}/?join</b>. Access for the whole org ends on its shared end date. Each person appears in the tables above under their own email. <b>Block domain</b> cuts off everyone at once, including people who already signed up.</div>
+    ${orgs.map((o) => `<table style="margin-bottom:10px"><tr><th colspan="3">${esc(o.label)} · @${esc(o.domain)} · until ${o.until ? new Date(o.until * 1000).toISOString().slice(0, 10) : "?"} · ${o.wildcard ? "all indices incl. future" : "all current indices"}${o.blocked ? ' <span style="color:#A31F34">· domain blocked</span>' : ""}
+      <span style="float:right;text-transform:none">
+        <a href="/api/usage?key=${encodeURIComponent(key)}&${o.blocked ? "unblock" : "block"}=${encodeURIComponent("@" + o.domain)}" style="color:${o.blocked ? "#1a7f4b" : "#A31F34"}">${o.blocked ? "Unblock domain" : "Block domain"}</a> ·
+        <a href="/api/usage?key=${encodeURIComponent(key)}&org=${encodeURIComponent(o.domain)}&remove=1" style="color:#5B6B7B" onclick="return confirm('Stop new signups from @${esc(o.domain)}? Existing users keep access until the end date.')">Remove</a>
+      </span></th></tr>
+      ${o.users.map((u) => `<tr><td><b>${esc(u.email)}</b>${u.blocked ? ' <span style="color:#A31F34;font-weight:700">· blocked</span>' : ""}</td>
+        <td style="color:#5B6B7B">signed up ${u.createdAt ? ago(u.createdAt) : "—"}${u.verifiedAt && u.verifiedAt !== u.createdAt ? ` · last sign-in ${ago(u.verifiedAt)}` : ""}</td>
+        <td><a href="/api/usage?key=${encodeURIComponent(key)}&${u.blocked ? "unblock" : "block"}=${encodeURIComponent(u.email)}" style="color:${u.blocked ? "#1a7f4b" : "#A31F34"};font-weight:600;text-decoration:none">${u.blocked ? "Unblock" : "Block"}</a></td></tr>`).join("") || `<tr><td colspan="3" style="color:#98A2AF">No one has signed up yet.</td></tr>`}
+    </table>`).join("")}
+    <form method="get" action="/api/usage" style="background:#fff;border-radius:10px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;font-size:13px">
+      <input type="hidden" name="key" value="${esc(key)}">
+      <label>Email domain<br><input name="org" placeholder="summitsearchsolutions.com" required style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
+      <label>Name<br><input name="label" placeholder="Summit Search Solutions" style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
+      <label>Indices<br><select name="scope" style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"><option value="all">All, incl. future</option><option value="firm">All current</option></select></label>
+      <label>End date<br><input name="until" type="date" required style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
+      <button style="padding:8px 14px;background:#A31F34;color:#fff;border:none;border-radius:7px;font-weight:600;cursor:pointer">Save org</button>
+    </form>
 
     <h2>Clients</h2>
     <table><tr><th>Client</th><th style="text-align:right">Hits</th><th>Last seen</th><th>Last event</th><th>Detail</th><th>Consented</th><th>Slate</th><th>Access</th></tr>${summary}</table>
