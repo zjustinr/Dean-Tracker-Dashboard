@@ -140,7 +140,7 @@ export function MeterBadge({ meter }: { meter: FreeMeter }) {
 }
 
 /** The day-pass paywall overlay. */
-export function Paywall({ meter }: { meter: FreeMeter }) {
+export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () => void }) {
   const { submitToken, status } = useTrial();
   const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
@@ -246,6 +246,17 @@ export function Paywall({ meter }: { meter: FreeMeter }) {
             </div>
             {rejected && <p className="text-xs text-[#A31F34] mt-1.5">That code isn't valid or has expired.</p>}
           </form>
+          {onSignIn && (
+            <p className="text-xs text-muted-foreground mt-4 text-center">
+              With a partner firm?{" "}
+              <button
+                onClick={() => { meter.dismissPaywall(); onSignIn(); }}
+                className="text-[#011F5B] dark:text-[#AFC4E8] font-semibold underline underline-offset-2 hover:opacity-80"
+              >
+                Sign in with your work email
+              </button>
+            </p>
+          )}
         </div>
       </div>
     </div>

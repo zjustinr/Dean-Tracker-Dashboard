@@ -342,6 +342,14 @@ genuine unknown.
 ### Daily news scout (automated dataset updates)
 GitHub Action `.github/workflows/news-scout.yml` runs daily (13:00 UTC) + manual dispatch: `scripts/news-scout.mjs` scans Google News RSS + Poets&Quants for dean events, matches against tracked universities/unique school names, and AUTO-APPLIES high-confidence appointments (max 5/run, ≤30 days old) to the v7 Excel + deans.json, closes the predecessor's open spell, then regenerates R1 JSONs and pushes (Vercel auto-deploys). Medium-confidence hits go to `attached_assets/news_scout_review.json`; every action logs to `news_scout_log.csv`; article-id + story dedup state in `news_scout_state.json` (see Story dedupe above). New rows carry `verification_sweep_2026 = "news-scout"` and origin/discipline "Unknown" pending review.
 
+### Work-email signup for partner firms (Sep 2026)
+Per-person access for an enrolled firm, on top of the existing trial-token gate (`api/trial.js`, kept there rather than in a new function because Hobby caps a deployment at 12 functions).
+- **Enroll an org** on the owner usage page (`/api/usage?key=…`, "Organizations" form): email domain, name, indices (all incl. future = `["*"]`, or all current), and **one shared end date** for the whole org. Stored at `bi:org:<domain>`, listed in `bi:orgs`.
+- **Signup**: send people to `/?join`. They enter a work email → `POST /api/trial?action=signup` → a one-time link (15 min, `bi:signup:<sha256(code)>`) by Resend. The emailed GET only renders a Continue button; the POST spends the code, so mail-security scanners that prefetch links can't burn it. Verify mints a normal trial token with `c = email` and `x = org end date`, set as an **HttpOnly** `bi_trial` cookie.
+- **Control**: each person is their own client tag, so the existing Block switch works per email. `bi:blocked:@<domain>` blocks the whole org, including tokens already issued (checked in `api/trial.js` and `api/data.js`). Removing an org stops new signups only.
+- Rate limits: 3 requests/email/hour, 10/IP/hour. `signup-request` events are audit-only and don't count as engagement.
+- Test: `node scripts/signup-flow-test.mjs`.
+
 ### Key Components
 - `SchoolExplorer.tsx` — Main school exploration view with list/map toggle
 - `USMap.tsx` — Interactive US map component using react-simple-maps

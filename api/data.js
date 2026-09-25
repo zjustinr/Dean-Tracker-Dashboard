@@ -172,19 +172,23 @@ function filteredNonAcademic(scope) {
 // revoked individually before their baked-in expiry without rotating
 // TRIAL_SECRET (which kills every link at once) -- this KV flag is the
 // per-client kill switch. Fail-open (never blocks) until KV is configured.
+// A signed-up user's client tag is their email, so the whole org can also be
+// cut at once by blocking "@<domain>" -- checked alongside the email itself.
 async function isBlocked(client) {
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
   const tok = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !tok || !client) return false;
+  const keys = [client];
+  const at = client.lastIndexOf("@");
+  if (at > 0) keys.push(client.slice(at));
   try {
     const r = await fetch(`${url}/pipeline`, {
       method: "POST",
       headers: { authorization: `Bearer ${tok}`, "content-type": "application/json" },
-      body: JSON.stringify([["GET", `bi:blocked:${client}`]]),
+      body: JSON.stringify(keys.map((k) => ["GET", `bi:blocked:${k}`])),
     });
     if (!r.ok) return false;
-    const [row] = await r.json();
-    return !!(row && row.result);
+    return (await r.json()).some((row) => row && row.result);
   } catch { return false; }
 }
 
