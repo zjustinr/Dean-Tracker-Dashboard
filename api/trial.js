@@ -11,6 +11,8 @@
 //   { armed: true, status: "invalid" }                       bad/tampered token
 //   { armed: true, status: "expired", expiry, client }       past expiry
 //   { armed: true, status: "valid", scope, expiry, client }  good token
+// Signed-up users also get `org` (its name), `expiry` = the org's live end date,
+// and `graceUntil` while the org is in its post-expiry grace window.
 const crypto = require("crypto");
 
 function b64urlDecode(s) {
@@ -37,29 +39,60 @@ function verify(token, secret) {
   return { ok: true, payload };
 }
 
-// Per-client revocation switch, set/cleared by the owner from the usage
-// dashboard (api/usage.js ?block=/?unblock=). Stateless HMAC tokens can't be
-// revoked individually before their baked-in expiry without rotating
+// Live access check, run on every request that carries a valid token.
+//
+// Blocks: a per-client revocation switch, set/cleared by the owner from the
+// usage dashboard (api/usage.js ?block=/?unblock=). Stateless HMAC tokens can't
+// be revoked individually before their baked-in expiry without rotating
 // TRIAL_SECRET (which kills every link at once) -- this KV flag is the
-// per-client kill switch. Fail-open (never blocks) until KV is configured.
-// A signed-up user's client tag is their email, so the whole org can also be
-// cut at once by blocking "@<domain>" -- checked alongside the email itself.
-async function isBlocked(client) {
+// per-client kill switch. A signed-up user's client tag is their email, so the
+// whole org can also be cut at once by blocking "@<domain>".
+//
+// Org entitlement: a token from work-email signup carries its org domain `o`,
+// and for those the token only says WHO you are. WHAT you get -- scope and end
+// date -- is read from the org's live record (bi:org:<domain>), so extending or
+// shortening an org's end date takes effect on the next request, with nobody
+// signing in again. After the end date there is a GRACE_DAYS window in which
+// access continues (the UI shows a renewal banner); after that, "ended".
+//
+// state: null for tokens without an org (owner-minted links, day passes) or if
+// the lookup failed -- callers then fall back to the token's own s/x claims.
+// Fail-open throughout until KV is configured, matching the rest of the gate.
+const GRACE_DAYS = 14;
+async function liveAccess(payload) {
+  const out = { blocked: false, state: null, org: null };
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
   const tok = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !tok || !client) return false;
+  const client = payload && payload.c;
+  const domain = payload && typeof payload.o === "string" ? payload.o : null;
+  if (!url || !tok || !client) return out;
   const keys = [client];
   const at = client.lastIndexOf("@");
   if (at > 0) keys.push(client.slice(at));
+  const cmds = keys.map((k) => ["GET", `bi:blocked:${k}`]);
+  if (domain) cmds.push(["GET", `bi:org:${domain}`]);
   try {
     const r = await fetch(`${url}/pipeline`, {
       method: "POST",
       headers: { authorization: `Bearer ${tok}`, "content-type": "application/json" },
-      body: JSON.stringify(keys.map((k) => ["GET", `bi:blocked:${k}`])),
+      body: JSON.stringify(cmds),
     });
-    if (!r.ok) return false;
-    return (await r.json()).some((row) => row && row.result);
-  } catch { return false; }
+    if (!r.ok) return out;
+    const rows = await r.json();
+    out.blocked = rows.slice(0, keys.length).some((row) => row && row.result);
+    if (domain) {
+      let org = null;
+      try { org = JSON.parse((rows[keys.length] || {}).result || "null"); } catch { org = null; }
+      if (!org || !Array.isArray(org.scope) || typeof org.until !== "number") {
+        out.state = "ended";               // org removed: its members have no plan
+      } else {
+        const now = Math.floor(Date.now() / 1000);
+        out.org = org;
+        out.state = now < org.until ? "active" : now < org.until + GRACE_DAYS * 86400 ? "grace" : "ended";
+      }
+    }
+    return out;
+  } catch { return out; }
 }
 
 // Lightweight usage logging to Vercel KV / Upstash (fail-safe: a no-op until the
@@ -102,11 +135,27 @@ async function logUsage(req, ev, client, file) {
 //
 // Fails closed: this mints real access, so no KV / no TRIAL_SECRET / no email
 // provider means no signup, never an unverified token.
+//
+// The token is a rolling SESSION_DAYS login, re-issued on use (see the status
+// handler). Access itself comes from the org's live record (liveAccess), so
+// renewing an org is just changing its end date.
 const SITE = (process.env.BI_DOMAIN || "https://batonindex.com").replace(/\/+$/, "");
 const LINK_TTL_SEC = 15 * 60;
 const RL_WINDOW_SEC = 3600;
 const RL_PER_EMAIL = 3;
 const RL_PER_IP = 10;
+const SESSION_DAYS = 90;
+const REFRESH_AFTER_SEC = 86400;  // re-issue the session cookie at most daily
+
+function sessionCookie(email, domain, secret) {
+  const now = Math.floor(Date.now() / 1000);
+  const maxAge = SESSION_DAYS * 86400;
+  // `s` is informational only for org tokens -- the live org record decides.
+  const token = mintToken({ c: email, s: [], x: now + maxAge, i: now, o: domain }, secret);
+  // HttpOnly, unlike the ?k= cookie: nothing client-side needs to read it
+  // (TrialContext asks /api/trial).
+  return `bi_trial=${encodeURIComponent(token)}; Path=/; Max-Age=${maxAge}; Secure; HttpOnly; SameSite=Lax`;
+}
 
 function kvCreds() {
   return {
@@ -234,10 +283,8 @@ async function handleVerify(req, res, secret) {
     if (!raw) { back("expired"); return; }
     const { email, domain } = JSON.parse(raw);
     const org = await activeOrg(domain);
-    if (!org || (await isBlocked(email))) { back("ineligible"); return; }
+    if (!org || (await liveAccess({ c: email })).blocked) { back("ineligible"); return; }
 
-    const now = Math.floor(Date.now() / 1000);
-    const token = mintToken({ c: email, s: org.scope, x: org.until, i: now, o: domain }, secret);
     const ms = String(Date.now());
     await kv([
       ["HSETNX", `bi:user:${email}`, "createdAt", ms],
@@ -245,9 +292,7 @@ async function handleVerify(req, res, secret) {
       ["SADD", `bi:org-users:${domain}`, email],
     ]);
     await logUsage(req, "signup-verified", email, domain);
-    // HttpOnly, unlike the ?k= cookie: this one is a year-long credential and
-    // nothing client-side needs to read it (TrialContext asks /api/trial).
-    res.setHeader("set-cookie", `bi_trial=${encodeURIComponent(token)}; Path=/; Max-Age=${Math.max(0, org.until - now)}; Secure; HttpOnly; SameSite=Lax`);
+    res.setHeader("set-cookie", sessionCookie(email, domain, secret));
     back("ok");
   } catch (e) {
     console.error("trial verify failed:", e && e.message);
@@ -278,17 +323,37 @@ module.exports = async function handler(req, res) {
   }
   if (!v.ok) { res.status(200).json({ armed: true, status: "invalid" }); return; }
 
-  if (await isBlocked(v.payload.c)) {
-    await logUsage(req, "blocked-open", v.payload.c, null);
-    res.status(200).json({ armed: true, status: "expired", expiry: Math.floor(Date.now() / 1000) - 1, client: v.payload.c });
+  const p = v.payload;
+  const live = await liveAccess(p);
+  const nowSec = Math.floor(Date.now() / 1000);
+  const orgName = live.org ? live.org.label || p.o : undefined;
+  if (live.blocked) {
+    await logUsage(req, "blocked-open", p.c, null);
+    res.status(200).json({ armed: true, status: "expired", expiry: nowSec - 1, client: p.c });
     return;
   }
-  await logUsage(req, "open", v.payload.c, null);
+  // The org's plan ran out (grace included). Keep the cookie: if the org is
+  // renewed, this same login is valid again with nothing for the user to do.
+  if (live.state === "ended") {
+    await logUsage(req, "expired-open", p.c, null);
+    res.status(200).json({ armed: true, status: "expired", expiry: live.org ? live.org.until : nowSec - 1, client: p.c, org: orgName });
+    return;
+  }
+  await logUsage(req, "open", p.c, null);
 
-  // Valid — persist the cookie if the token arrived via ?k= so refreshes work.
-  if (!cookieTok && queryK) {
-    const maxAge = Math.max(0, (v.payload.x || 0) - Math.floor(Date.now() / 1000));
+  if (p.o && live.state) {
+    // Rolling session: an active user never hits the 90-day login limit.
+    if (nowSec - (p.i || 0) > REFRESH_AFTER_SEC) res.setHeader("set-cookie", sessionCookie(p.c, p.o, secret));
+  } else if (!cookieTok && queryK) {
+    // Valid — persist the cookie if the token arrived via ?k= so refreshes work.
+    const maxAge = Math.max(0, (p.x || 0) - nowSec);
     res.setHeader("set-cookie", `bi_trial=${encodeURIComponent(token)}; Path=/; Max-Age=${maxAge}; Secure; SameSite=Lax`);
   }
-  res.status(200).json({ armed: true, status: "valid", scope: v.payload.s, expiry: v.payload.x, client: v.payload.c });
+  res.status(200).json({
+    armed: true, status: "valid", client: p.c,
+    scope: live.org ? live.org.scope : p.s,
+    expiry: live.org ? live.org.until : p.x,
+    org: orgName,
+    graceUntil: live.state === "grace" ? live.org.until + GRACE_DAYS * 86400 : undefined,
+  });
 };

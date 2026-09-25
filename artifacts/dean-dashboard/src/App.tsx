@@ -22,6 +22,7 @@ import Insights from "@/components/Insights";
 import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/FreeTierMeter";
 import ConsentGate from "@/components/ConsentGate";
 import { SignupDialog, useSignupDialog } from "@/components/SignupDialog";
+import OrgAccessNotice from "@/components/OrgAccessNotice";
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
@@ -272,6 +273,7 @@ function AppInner() {
         </header>
 
         <BreakingNews />
+        <OrgAccessNotice />
 
         <main className="max-w-[1400px] mx-auto px-4 py-6">
           <div className="space-y-6">
