@@ -54,6 +54,8 @@ function verify(token, secret) {
 // shortening an org's end date takes effect on the next request, with nobody
 // signing in again. After the end date there is a GRACE_DAYS window in which
 // access continues (the UI shows a renewal banner); after that, "ended".
+// Membership is live too: removing someone from bi:org-users:<domain> (which
+// frees their seat) ends their access -- state "removed".
 //
 // state: null for tokens without an org (owner-minted links, day passes) or if
 // the lookup failed -- callers then fall back to the token's own s/x claims.
@@ -70,7 +72,7 @@ async function liveAccess(payload) {
   const at = client.lastIndexOf("@");
   if (at > 0) keys.push(client.slice(at));
   const cmds = keys.map((k) => ["GET", `bi:blocked:${k}`]);
-  if (domain) cmds.push(["GET", `bi:org:${domain}`]);
+  if (domain) cmds.push(["GET", `bi:org:${domain}`], ["SISMEMBER", `bi:org-users:${domain}`, client]);
   try {
     const r = await fetch(`${url}/pipeline`, {
       method: "POST",
@@ -83,8 +85,11 @@ async function liveAccess(payload) {
     if (domain) {
       let org = null;
       try { org = JSON.parse((rows[keys.length] || {}).result || "null"); } catch { org = null; }
+      const member = Number((rows[keys.length + 1] || {}).result) === 1;
       if (!org || !Array.isArray(org.scope) || typeof org.until !== "number") {
         out.state = "ended";               // org removed: its members have no plan
+      } else if (!member) {
+        out.state = "removed";             // seat released by the owner
       } else {
         const now = Math.floor(Date.now() / 1000);
         out.org = org;
@@ -242,6 +247,11 @@ async function handleSignupRequest(req, res, secret) {
     }
     const org = await activeOrg(domain);
     if (!org) { res.status(200).json({ ok: false, error: "not_eligible" }); return; }
+    if (org.seats) {
+      // Existing members can always sign in again (new device, cleared cookies).
+      const [member, used] = await kv([["SISMEMBER", `bi:org-users:${domain}`, email], ["SCARD", `bi:org-users:${domain}`]]);
+      if (!Number(member) && Number(used) >= org.seats) { res.status(200).json({ ok: false, error: "no_seats" }); return; }
+    }
     const code = crypto.randomBytes(24).toString("base64url");
     await kv([["SET", `bi:signup:${sha256(code)}`, JSON.stringify({ email, domain, t: Date.now() }), "EX", String(LINK_TTL_SEC)]]);
     const sent = await sendSignInEmail(email, `${SITE}/api/trial?verify=${code}`, org);
@@ -285,11 +295,18 @@ async function handleVerify(req, res, secret) {
     const org = await activeOrg(domain);
     if (!org || (await liveAccess({ c: email })).blocked) { back("ineligible"); return; }
 
+    // Claim a seat. Adding first and checking after means two people racing
+    // for the last seat can't both win: the one who pushed it over backs out.
+    const members = `bi:org-users:${domain}`;
+    const [added, used] = await kv([["SADD", members, email], ["SCARD", members]]);
+    if (Number(added) && org.seats && Number(used) > org.seats) {
+      await kv([["SREM", members, email]]);
+      back("full"); return;
+    }
     const ms = String(Date.now());
     await kv([
       ["HSETNX", `bi:user:${email}`, "createdAt", ms],
       ["HSET", `bi:user:${email}`, "email", email, "domain", domain, "org", org.label || domain, "verifiedAt", ms],
-      ["SADD", `bi:org-users:${domain}`, email],
     ]);
     await logUsage(req, "signup-verified", email, domain);
     res.setHeader("set-cookie", sessionCookie(email, domain, secret));
@@ -334,6 +351,11 @@ module.exports = async function handler(req, res) {
   }
   // The org's plan ran out (grace included). Keep the cookie: if the org is
   // renewed, this same login is valid again with nothing for the user to do.
+  if (live.state === "removed") {
+    await logUsage(req, "removed-open", p.c, null);
+    res.status(200).json({ armed: true, status: "expired", expiry: nowSec - 1, client: p.c });
+    return;
+  }
   if (live.state === "ended") {
     await logUsage(req, "expired-open", p.c, null);
     res.status(200).json({ armed: true, status: "expired", expiry: live.org ? live.org.until : nowSec - 1, client: p.c, org: orgName });

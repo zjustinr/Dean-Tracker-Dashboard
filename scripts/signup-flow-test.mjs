@@ -35,8 +35,10 @@ function run([cmd, key, ...a]) {
     }
     case "DEL": return store.delete(key) ? 1 : 0;
     case "INCR": { const n = Number(get() || 0) + 1; store.set(key, String(n)); return n; }
-    case "SADD": { const s = get() || new Set(); a.forEach((m) => s.add(m)); store.set(key, s); return 1; }
+    case "SADD": { const s = get() || new Set(); const n = s.size; a.forEach((m) => s.add(m)); store.set(key, s); return s.size - n; }
     case "SREM": { const s = get(); if (s) a.forEach((m) => s.delete(m)); return 1; }
+    case "SISMEMBER": return get() && get().has(a[0]) ? 1 : 0;
+    case "SCARD": return get() ? get().size : 0;
     case "SMEMBERS": return [...(get() || [])];
     case "HSET": { const h = get() || {}; for (let i = 0; i < a.length; i += 2) h[a[i]] = a[i + 1]; store.set(key, h); return 1; }
     case "HSETNX": { const h = get() || {}; if (!(a[0] in h)) h[a[0]] = a[1]; store.set(key, h); return 1; }
@@ -193,7 +195,7 @@ setOrg({ until: nowSec() + 20 * DAY });
 r = await call(usage, { auth: "Bearer cron" });
 ok(r.json.sent[0] === "summitsearchsolutions.com:30d" && mail.length === 1, "30-day reminder sent");
 ok(mail[0].to[0] === "justin.ren@gmail.com" && /ends in 20 days/.test(mail[0].subject), "...to the owner, with days left");
-ok(/1 signed-up user/.test(mail[0].html) && !/key=/.test(mail[0].html), "...with usage numbers and no secret in the email");
+ok(/1 seat\(s\) taken/.test(mail[0].html) && !/key=/.test(mail[0].html), "...with usage numbers and no secret in the email");
 r = await call(usage, { auth: "Bearer cron" });
 ok(r.json.sent.length === 0 && mail.length === 1, "same stage is not re-sent the next day");
 setOrg({ until: nowSec() - DAY });
@@ -213,6 +215,56 @@ r = await call(trial, { cookie });
 ok(r.json.status === "expired", "removing the org ends access for its members");
 store.set(orgKey, orgBackup);
 store.get("bi:orgs").add("summitsearchsolutions.com");
+
+// --- seats -------------------------------------------------------------------
+// Save with only domain + end date: name and scope-independent fields are kept.
+await call(usage, { query: { key: "owner", org: "summitsearchsolutions.com", scope: "all", until: "2099-09-30", seats: "2" } });
+ok(JSON.parse(store.get(orgKey)).seats === 2 && JSON.parse(store.get(orgKey)).label === "Summit", "seats saved; blank name keeps the current one");
+await call(usage, { query: { key: "owner", org: "summitsearchsolutions.com", scope: "all", until: "2099-10-31" } });
+ok(JSON.parse(store.get(orgKey)).seats === 2, "renewing with blank seats keeps the seat count");
+
+async function signUp(email) {
+  const before = mail.length;
+  const req = await call(trial, { method: "POST", query: { action: "signup" }, body: { email }, ip: `192.0.2.${mail.length}` });
+  if (!req.json.ok) return { request: req.json };
+  const c = mail[before].html.match(/verify=([A-Za-z0-9_-]+)/)[1];
+  const v = await call(trial, { method: "POST", query: { verify: c } });
+  return { request: req.json, location: v.headers.location, cookie: (v.headers["set-cookie"] || "").split(";")[0] };
+}
+const second = await signUp("colleague@summitsearchsolutions.com");
+ok(second.location === "/?signup=ok", "second seat (of 2) can sign up");
+const third = await signUp("third@summitsearchsolutions.com");
+ok(third.request.error === "no_seats" && !third.location, "third person is refused when seats are full, and no email is sent");
+const again = await signUp("lyndi@summitsearchsolutions.com");
+ok(again.location === "/?signup=ok", "an existing member can always sign in again when full");
+
+// Race: a code requested while a seat was free, verified after it filled.
+await call(usage, { query: { key: "owner", org: "summitsearchsolutions.com", scope: "all", until: "2099-10-31", seats: "3" } });
+const pendingBefore = mail.length;
+await call(trial, { method: "POST", query: { action: "signup" }, body: { email: "late@summitsearchsolutions.com" }, ip: "192.0.2.200" });
+const lateCode = mail[pendingBefore].html.match(/verify=([A-Za-z0-9_-]+)/)[1];
+const fourth = await signUp("fourth@summitsearchsolutions.com");
+ok(fourth.location === "/?signup=ok", "last seat taken by someone else first");
+r = await call(trial, { method: "POST", query: { verify: lateCode } });
+ok(r.headers.location === "/?signup=full" && !store.get("bi:org-users:summitsearchsolutions.com").has("late@summitsearchsolutions.com"), "a pending link can't overfill the seats");
+
+// Freeing a seat ends that person's access and lets someone else in.
+await call(usage, { query: { key: "owner", unseat: "colleague@summitsearchsolutions.com" } });
+r = await call(trial, { cookie: second.cookie });
+ok(r.json.status === "expired" && !r.json.org, "removed person loses access (no renewal banner)");
+r = await call(data, { query: { f: "r1law.json" }, cookie: second.cookie });
+ok(r.status === 403, "...in the data API too");
+r = await call(trial, { cookie });
+ok(r.json.status === "valid", "other members are unaffected");
+const replacement = await signUp("third@summitsearchsolutions.com");
+ok(replacement.location === "/?signup=ok", "the freed seat can be taken by someone new");
+
+r = await call(usage, { query: { key: "owner" } });
+ok(/3 \/ 3 seats/.test(r.body) && /unseat=/.test(r.body), "dashboard shows seats used and a Remove link");
+r = await call(usage, { query: { key: "owner", json: "1" } });
+ok(r.json.orgs[0].seats === 3 && r.json.orgs[0].seatsUsed === 3, "JSON twin reports seats");
+await call(usage, { query: { key: "owner", org: "summitsearchsolutions.com", scope: "all", until: "2099-10-31", seats: "0" } });
+ok(JSON.parse(store.get(orgKey)).seats === null, "seats 0 = unlimited");
 
 // Rate limit per email.
 for (let i = 0; i < 3; i++) await call(trial, { method: "POST", query: { action: "signup" }, body: { email: "spam@summitsearchsolutions.com" }, ip: `198.51.100.${i}` });

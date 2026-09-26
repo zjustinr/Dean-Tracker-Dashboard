@@ -354,7 +354,7 @@ function reminderText(stage, org, stats) {
       : `Their access ends on ${end}.`;
   const html = `
     <p><b>${esc(label)}</b> (@${esc(org.domain)}) — ${esc(status)}</p>
-    <p>Usage: ${stats.users} signed-up user(s), ${stats.active30} active in the last 30 days, ${stats.hits} request(s) all-time.</p>
+    <p>Usage: ${stats.users}${org.seats ? ` of ${org.seats}` : ""} seat(s) taken, ${stats.active30} active in the last 30 days, ${stats.hits} request(s) all-time.</p>
     <p style="color:#5B6B7B;font-size:13px">To renew, open the usage page (${esc(MINT_DOMAIN)}/api/usage), enter @${esc(org.domain)} in the Organizations form with a new end date and click Save org. Everyone's access resumes right away; no one needs to sign in again.</p>`;
   return { subject, html };
 }
@@ -435,6 +435,21 @@ module.exports = async function handler(req, res) {
   // Per-client revocation switch — instantly cuts one client's access without
   // rotating TRIAL_SECRET (which would kill every trial/paid link at once).
   // Checked by api/data.js + api/trial.js on every request.
+  // Release a seat: ?unseat=<email>. Takes the person off their org's member
+  // list, which frees the seat and (via liveAccess) ends their access at once.
+  // They can sign up again later if a seat is free.
+  if (req.query && req.query.unseat) {
+    if (!kvCreds().url || !kvCreds().tok) { res.status(200).send("KV not enabled."); return; }
+    const email = String(req.query.unseat).trim().toLowerCase().slice(0, 254);
+    const domain = email.slice(email.lastIndexOf("@") + 1);
+    try {
+      await kv([["SREM", `bi:org-users:${domain}`, email]]);
+      res.setHeader("location", `/api/usage?key=${encodeURIComponent(key)}`);
+      res.status(302).send("");
+    } catch (e) { res.status(502).send("update failed: " + esc(e.message)); }
+    return;
+  }
+
   const blockTarget = req.query && (req.query.block || req.query.unblock);
   if (blockTarget) {
     if (!kvCreds().url || !kvCreds().tok) { res.status(200).send("KV not enabled."); return; }
@@ -449,7 +464,9 @@ module.exports = async function handler(req, res) {
   }
 
   // Org allowlist for work-email signup (api/trial.js ?action=signup):
-  //   ?org=<domain>&label=<name>&scope=firm|all&until=YYYY-MM-DD  add/update
+  //   ?org=<domain>&label=<name>&scope=firm|all&until=YYYY-MM-DD[&seats=N]  add/update
+  //   (seats blank/0 = unlimited; lowering it below the current count keeps
+  //   everyone already in, but no one new can join until seats free up)
   //   ?org=<domain>&remove=1                                       delete
   // One shared end date per org, read live by api/trial.js + api/data.js on
   // every request: saving a new date renews (or shortens) everyone's access at
@@ -467,9 +484,17 @@ module.exports = async function handler(req, res) {
         const until = Math.floor(Date.parse(`${String(req.query.until || "")}T23:59:59Z`) / 1000);
         if (!until || until <= Math.floor(Date.now() / 1000)) { fail("End date must be a future YYYY-MM-DD."); return; }
         const scopeKey = req.query.scope === "all" ? "all" : "firm";
+        // Blank name/seats keep the current values, so renewing is just the
+        // domain + a new end date. Seats 0 = unlimited.
+        const [prevRaw] = await kv([["GET", `bi:org:${domain}`]]);
+        let prev = {};
+        try { prev = JSON.parse(prevRaw || "{}") || {}; } catch { prev = {}; }
+        const label = String(req.query.label || "").trim().slice(0, 80);
+        const seatsIn = String(req.query.seats ?? "").trim();
         const org = {
-          domain, label: String(req.query.label || domain).trim().slice(0, 80),
+          domain, label: label || prev.label || domain,
           scope: scopeKey === "all" ? ["*"] : ALL_IDS, until, updatedAt: Date.now(),
+          seats: seatsIn === "" ? (prev.seats || null) : (Math.max(0, parseInt(seatsIn, 10) || 0) || null),
         };
         await kv([["SET", `bi:org:${domain}`, JSON.stringify(org)], ["SADD", "bi:orgs", domain]]);
       }
@@ -547,6 +572,7 @@ module.exports = async function handler(req, res) {
         : [[], []];
       orgs.push({
         domain, label: org.label || domain, until: org.until || 0, wildcard: Array.isArray(org.scope) && org.scope.includes("*"),
+        seats: org.seats || null,
         state: !org.until ? "?" : Date.now() < org.until * 1000 ? "active" : Date.now() < (org.until + GRACE_DAYS * 86400) * 1000 ? "grace" : "ended",
         blocked: !!blocked,
         users: list.map((email, i) => {
@@ -636,7 +662,7 @@ module.exports = async function handler(req, res) {
       })),
       orgs: orgs.map((o) => ({
         domain: o.domain, label: o.label, until: o.until ? new Date(o.until * 1000).toISOString().slice(0, 10) : null,
-        allIndicesIncludingFuture: o.wildcard, blocked: o.blocked,
+        allIndicesIncludingFuture: o.wildcard, blocked: o.blocked, seats: o.seats, seatsUsed: o.users.length,
         users: o.users.map((u) => ({ email: u.email, firstVerified: u.createdAt ? new Date(u.createdAt).toISOString() : null, lastVerified: u.verifiedAt ? new Date(u.verifiedAt).toISOString() : null, blocked: u.blocked })),
       })),
       freeOpenLink: { last30d: win(free.w30), last7d: win(free.w7), lastSeen: free.last ? new Date(free.last).toISOString() : null },
@@ -727,21 +753,23 @@ module.exports = async function handler(req, res) {
 
     <h2>Organizations — work-email signup</h2>
     <div style="font-size:12px;color:#5B6B7B;margin-bottom:6px">Anyone with an address at a listed domain can sign up at <b>${esc(MINT_DOMAIN)}/?join</b>. Access for the whole org ends on its shared end date, followed by a ${GRACE_DAYS}-day grace period with a renewal banner. To renew, save the same domain with a new end date — it applies to everyone immediately. You get reminder emails 60, 30 and 7 days before the end date. Each person appears in the tables above under their own email. <b>Block domain</b> cuts off everyone at once, including people who already signed up.</div>
-    ${orgs.map((o) => `<table style="margin-bottom:10px"><tr><th colspan="3">${esc(o.label)} · @${esc(o.domain)} · until ${o.until ? new Date(o.until * 1000).toISOString().slice(0, 10) : "?"} · ${o.wildcard ? "all indices incl. future" : "all current indices"} · <span style="color:${o.state === "active" ? "#1A7F4B" : o.state === "grace" ? "#C77700" : "#A31F34"}">${o.state === "active" ? `${Math.ceil((o.until * 1000 - now) / DAY_MS)} days left` : o.state === "grace" ? `in grace until ${new Date((o.until + GRACE_DAYS * 86400) * 1000).toISOString().slice(0, 10)}` : "ended"}</span>${o.blocked ? ' <span style="color:#A31F34">· domain blocked</span>' : ""}
+    ${orgs.map((o) => `<table style="margin-bottom:10px"><tr><th colspan="3">${esc(o.label)} · @${esc(o.domain)} · until ${o.until ? new Date(o.until * 1000).toISOString().slice(0, 10) : "?"} · ${o.wildcard ? "all indices incl. future" : "all current indices"} · <span style="color:${o.seats && o.users.length > o.seats ? "#A31F34" : "inherit"}">${o.seats ? `${o.users.length} / ${o.seats} seats` : `${o.users.length} user(s), unlimited seats`}</span> · <span style="color:${o.state === "active" ? "#1A7F4B" : o.state === "grace" ? "#C77700" : "#A31F34"}">${o.state === "active" ? `${Math.ceil((o.until * 1000 - now) / DAY_MS)} days left` : o.state === "grace" ? `in grace until ${new Date((o.until + GRACE_DAYS * 86400) * 1000).toISOString().slice(0, 10)}` : "ended"}</span>${o.blocked ? ' <span style="color:#A31F34">· domain blocked</span>' : ""}
       <span style="float:right;text-transform:none">
         <a href="/api/usage?key=${encodeURIComponent(key)}&${o.blocked ? "unblock" : "block"}=${encodeURIComponent("@" + o.domain)}" style="color:${o.blocked ? "#1a7f4b" : "#A31F34"}">${o.blocked ? "Unblock domain" : "Block domain"}</a> ·
         <a href="/api/usage?key=${encodeURIComponent(key)}&org=${encodeURIComponent(o.domain)}&remove=1" style="color:#5B6B7B" onclick="return confirm('Remove @${esc(o.domain)}? Everyone signed up under it loses access now. (Block domain is the reversible option.)')">Remove</a>
       </span></th></tr>
       ${o.users.map((u) => `<tr><td><b>${esc(u.email)}</b>${u.blocked ? ' <span style="color:#A31F34;font-weight:700">· blocked</span>' : ""}</td>
         <td style="color:#5B6B7B">signed up ${u.createdAt ? ago(u.createdAt) : "—"}${u.verifiedAt && u.verifiedAt !== u.createdAt ? ` · last sign-in ${ago(u.verifiedAt)}` : ""}</td>
-        <td><a href="/api/usage?key=${encodeURIComponent(key)}&${u.blocked ? "unblock" : "block"}=${encodeURIComponent(u.email)}" style="color:${u.blocked ? "#1a7f4b" : "#A31F34"};font-weight:600;text-decoration:none">${u.blocked ? "Unblock" : "Block"}</a></td></tr>`).join("") || `<tr><td colspan="3" style="color:#98A2AF">No one has signed up yet.</td></tr>`}
+        <td style="white-space:nowrap"><a href="/api/usage?key=${encodeURIComponent(key)}&${u.blocked ? "unblock" : "block"}=${encodeURIComponent(u.email)}" style="color:${u.blocked ? "#1a7f4b" : "#A31F34"};font-weight:600;text-decoration:none">${u.blocked ? "Unblock" : "Block"}</a> ·
+          <a href="/api/usage?key=${encodeURIComponent(key)}&unseat=${encodeURIComponent(u.email)}" style="color:#5B6B7B;text-decoration:none" onclick="return confirm('Remove ${esc(u.email)} and free their seat? Their access ends now; they can sign up again if a seat is free.')">Remove</a></td></tr>`).join("") || `<tr><td colspan="3" style="color:#98A2AF">No one has signed up yet.</td></tr>`}
     </table>`).join("")}
     <form method="get" action="/api/usage" style="background:#fff;border-radius:10px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;font-size:13px">
       <input type="hidden" name="key" value="${esc(key)}">
       <label>Email domain<br><input name="org" placeholder="summitsearchsolutions.com" required style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
-      <label>Name<br><input name="label" placeholder="Summit Search Solutions" style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
+      <label>Name<br><input name="label" placeholder="blank = keep current" style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
       <label>Indices<br><select name="scope" style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"><option value="all">All, incl. future</option><option value="firm">All current</option></select></label>
       <label>End date<br><input name="until" type="date" required style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
+      <label>Seats (blank = keep, 0 = unlimited)<br><input name="seats" type="number" min="0" placeholder="5" style="width:90px;padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
       <button style="padding:8px 14px;background:#A31F34;color:#fff;border:none;border-radius:7px;font-weight:600;cursor:pointer">Save org</button>
     </form>
 

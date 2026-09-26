@@ -182,6 +182,8 @@ function filteredNonAcademic(scope) {
 // shortening an org's end date takes effect on the next request, with nobody
 // signing in again. After the end date there is a GRACE_DAYS window in which
 // access continues (the UI shows a renewal banner); after that, "ended".
+// Membership is live too: removing someone from bi:org-users:<domain> (which
+// frees their seat) ends their access -- state "removed".
 //
 // state: null for tokens without an org (owner-minted links, day passes) or if
 // the lookup failed -- callers then fall back to the token's own s/x claims.
@@ -198,7 +200,7 @@ async function liveAccess(payload) {
   const at = client.lastIndexOf("@");
   if (at > 0) keys.push(client.slice(at));
   const cmds = keys.map((k) => ["GET", `bi:blocked:${k}`]);
-  if (domain) cmds.push(["GET", `bi:org:${domain}`]);
+  if (domain) cmds.push(["GET", `bi:org:${domain}`], ["SISMEMBER", `bi:org-users:${domain}`, client]);
   try {
     const r = await fetch(`${url}/pipeline`, {
       method: "POST",
@@ -211,8 +213,11 @@ async function liveAccess(payload) {
     if (domain) {
       let org = null;
       try { org = JSON.parse((rows[keys.length] || {}).result || "null"); } catch { org = null; }
+      const member = Number((rows[keys.length + 1] || {}).result) === 1;
       if (!org || !Array.isArray(org.scope) || typeof org.until !== "number") {
         out.state = "ended";               // org removed: its members have no plan
+      } else if (!member) {
+        out.state = "removed";             // seat released by the owner
       } else {
         const now = Math.floor(Date.now() / 1000);
         out.org = org;
@@ -276,7 +281,7 @@ module.exports = async function handler(req, res) {
     const v = token ? verify(token, secret) : { ok: false, reason: "no_token" };
     const live = v.ok ? await liveAccess(v.payload) : {};
     const blocked = !!live.blocked;
-    const lapsed = live.state === "ended";
+    const lapsed = live.state === "ended" || live.state === "removed";
     if (v.ok && !blocked && !lapsed) {
       // UNION, not replace. A token widens access on top of the free tier -- it
       // must never narrow it, or a trial link ends up with LESS than an
