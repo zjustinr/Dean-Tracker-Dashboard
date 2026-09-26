@@ -25,6 +25,24 @@
 // KV_REST_API_URL + KV_REST_API_TOKEN. Until then this reports "not enabled".
 const crypto = require("crypto");
 
+// Event log, three layers (readers and the nightly archive live in api/usage.js):
+//   bi:events       short live feed (last 2,000) for the recent-activity list
+//   bi:ev:<day>     every event of one UTC day; expires after EVENT_DAY_TTL and
+//                   is copied nightly to a private GitHub repo before then
+//   bi:daily:<day>  per-day counts keyed "<client>|<event>", kept indefinitely
+// Keep this helper identical in every api/*.js file that logs events.
+const EVENT_DAY_TTL = 92 * 86400;
+function eventCmds(rec) {
+  let o = {};
+  try { o = JSON.parse(rec) || {}; } catch { o = {}; }
+  const day = new Date(Number(o.t) || Date.now()).toISOString().slice(0, 10);
+  return [
+    ["LPUSH", "bi:events", rec], ["LTRIM", "bi:events", "0", "1999"],
+    ["RPUSH", `bi:ev:${day}`, rec], ["EXPIRE", `bi:ev:${day}`, String(EVENT_DAY_TTL)],
+    ["HINCRBY", `bi:daily:${day}`, `${o.c || "public"}|${o.ev || "unknown"}`, "1"],
+  ];
+}
+
 function eq(a, b) {
   const ba = Buffer.from(String(a)), bb = Buffer.from(String(b));
   return ba.length === bb.length && crypto.timingSafeEqual(ba, bb);
@@ -374,6 +392,87 @@ async function sendOwnerEmail(subject, html) {
   } catch { return false; }
 }
 
+// --- nightly archive to a private GitHub repo -------------------------------
+// The per-day event lists (bi:ev:<day>) expire after ~90 days, so the same
+// daily cron copies each finished day out of Vercel before that happens:
+//   events/YYYY/MM/YYYY-MM-DD.jsonl   every raw event, one JSON object per line
+//   daily/YYYY/MM/YYYY-MM-DD.json     that day's per-client counts
+//   events/legacy/…                   one-time snapshot of the old capped log
+// The repo MUST be private: events carry emails and IP addresses. The
+// dashboard's own repo is public, so it is never used. Configure with
+// ARCHIVE_GITHUB_REPO ("owner/name") and ARCHIVE_GITHUB_TOKEN (a fine-grained
+// token with Contents: read & write on that one repo). Unconfigured = skipped.
+// bi:archive:last is the last day copied; a failed run resumes from there.
+const ARCHIVE_DAYS_PER_RUN = 5;              // keeps one cron run well inside its time limit
+const ARCHIVE_LOOKBACK_DAYS = 90;
+const dayStr = (ms) => new Date(ms).toISOString().slice(0, 10);
+
+async function ghPut(path, content, message) {
+  const api = `https://api.github.com/repos/${process.env.ARCHIVE_GITHUB_REPO}/contents/${path}`;
+  const h = {
+    authorization: `Bearer ${process.env.ARCHIVE_GITHUB_TOKEN}`, accept: "application/vnd.github+json",
+    "user-agent": "batonindex-archive", "x-github-api-version": "2022-11-28",
+  };
+  let sha;
+  const g = await fetch(api, { headers: h });
+  if (g.ok) sha = (await g.json()).sha;               // re-running a day overwrites it
+  else if (g.status !== 404) throw new Error(`GitHub read ${path}: ${g.status}`);
+  const r = await fetch(api, {
+    method: "PUT", headers: Object.assign({ "content-type": "application/json" }, h),
+    body: JSON.stringify({ message, content: Buffer.from(content, "utf8").toString("base64"), sha }),
+  });
+  if (!r.ok) throw new Error(`GitHub write ${path}: ${r.status}`);
+}
+
+function toJsonl(raw) {
+  return (raw || []).map((line) => { try { return JSON.parse(line); } catch { return null; } })
+    .filter(Boolean).sort((a, b) => Number(a.t || 0) - Number(b.t || 0))
+    .map((e) => JSON.stringify(e)).join("\n") + "\n";
+}
+function dailyCounts(flat) {
+  const out = {};
+  for (let j = 0; j < (flat || []).length; j += 2) {
+    const [c, ev] = String(flat[j]).split("|");
+    (out[c] = out[c] || {})[ev] = Number(flat[j + 1]);
+  }
+  return out;
+}
+
+async function runArchive() {
+  if (!process.env.ARCHIVE_GITHUB_REPO || !process.env.ARCHIVE_GITHUB_TOKEN) return { status: "not_configured" };
+  const out = { status: "ok", archived: [], legacy: null };
+  const [backfilled, last] = await kv([["GET", "bi:archive:backfilled"], ["GET", "bi:archive:last"]]);
+
+  // One-time: the old capped log predates the per-day lists; keep a copy of it.
+  if (!backfilled) {
+    const [raw] = await kv([["LRANGE", "bi:events", "0", "-1"]]);
+    const stamp = dayStr(Date.now());
+    if ((raw || []).length) {
+      await ghPut(`events/legacy/capped-log-snapshot-${stamp}.jsonl`, toJsonl(raw), `Archive: snapshot of the capped event log (${raw.length} events)`);
+    }
+    await kv([["SET", "bi:archive:backfilled", stamp]]);
+    out.legacy = (raw || []).length;
+  }
+
+  const yesterday = dayStr(Date.now() - DAY_MS);
+  let day = last ? dayStr(Date.parse(`${last}T00:00:00Z`) + DAY_MS) : dayStr(Date.now() - ARCHIVE_LOOKBACK_DAYS * DAY_MS);
+  const floor = dayStr(Date.now() - ARCHIVE_LOOKBACK_DAYS * DAY_MS);
+  if (day < floor) day = floor;                          // anything older has expired anyway
+  while (day <= yesterday && out.archived.length < ARCHIVE_DAYS_PER_RUN) {
+    const [raw, flat] = await kv([["LRANGE", `bi:ev:${day}`, "0", "-1"], ["HGETALL", `bi:daily:${day}`]]);
+    if ((raw || []).length || (flat || []).length) {
+      const [y, m] = day.split("-");
+      await ghPut(`events/${y}/${m}/${day}.jsonl`, toJsonl(raw), `Archive: events for ${day} (${(raw || []).length})`);
+      await ghPut(`daily/${y}/${m}/${day}.json`, JSON.stringify({ day, counts: dailyCounts(flat) }, null, 1) + "\n", `Archive: daily counts for ${day}`);
+      out.archived.push(day);
+    }
+    await kv([["SET", "bi:archive:last", day]]);
+    day = dayStr(Date.parse(`${day}T00:00:00Z`) + DAY_MS);
+  }
+  out.upTo = day <= yesterday ? "catching up" : yesterday;
+  return out;
+}
+
 async function runRenewalReminders(res) {
   if (!kvCreds().url || !kvCreds().tok) { res.status(200).json({ ok: false, error: "kv_not_enabled" }); return; }
   const sent = [];
@@ -403,7 +502,11 @@ async function runRenewalReminders(res) {
     if (await sendOwnerEmail(subject, html)) sent.push(`${domain}:${stage.key}`);
     else await kv([["DEL", flag]]);          // retry on tomorrow's run
   }
-  res.status(200).json({ ok: true, checked: (domains || []).length, sent });
+  // Same daily run copies finished days to the archive. Its failure must not
+  // hide the reminders' result, so it reports separately.
+  let archive;
+  try { archive = await runArchive(); } catch (e) { archive = { status: "error", error: e.message }; }
+  res.status(200).json({ ok: true, checked: (domains || []).length, sent, archive });
 }
 
 module.exports = async function handler(req, res) {
@@ -426,9 +529,19 @@ module.exports = async function handler(req, res) {
       const [clients] = await kv([["SMEMBERS", "bi:clients"]]);
       const cmds = [["DEL", "bi:events"], ["DEL", "bi:clients"]];
       for (const c of clients || []) cmds.push(["DEL", `bi:client:${c}`]);
+      for (let d = 0; d <= 92; d++) cmds.push(["DEL", `bi:ev:${dayStr(Date.now() - d * DAY_MS)}`]);
       await kv(cmds);
-      res.status(200).send("Usage log cleared.");
+      res.status(200).send("Usage log cleared. Daily summaries and anything already archived to GitHub are kept.");
     } catch (e) { res.status(502).send("clear failed: " + esc(e.message)); }
+    return;
+  }
+
+  // Owner: run the archive now (?archive=1) instead of waiting for the cron.
+  if (req.query && req.query.archive === "1") {
+    if (!kvCreds().url || !kvCreds().tok) { res.status(200).send("KV not enabled."); return; }
+    let result;
+    try { result = await runArchive(); } catch (e) { result = { status: "error", error: e.message }; }
+    res.status(200).json(result);
     return;
   }
 
@@ -523,7 +636,7 @@ module.exports = async function handler(req, res) {
     // Audit trail only: record the mint in the event feed, but don't touch the
     // bi:client:<c> hash — hits/last-seen must stay pure client activity.
     if (kvCreds().url && kvCreds().tok) {
-      try { await kv([["LPUSH", "bi:events", JSON.stringify({ c: client, ev: "mint", f: `${tierKey} · ${days}d`, t: Date.now() })], ["LTRIM", "bi:events", "0", "1999"]]); } catch { /* best-effort */ }
+      try { await kv([...eventCmds(JSON.stringify({ c: client, ev: "mint", f: `${tierKey} · ${days}d`, t: Date.now() }))]); } catch { /* best-effort */ }
     }
     res.setHeader("content-type", "text/html; charset=utf-8");
     res.status(200).send(`<body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;padding:40px;max-width:760px">
@@ -541,10 +654,31 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  let events = [], clients = [], hashes = [], blockedFlags = [], slateBlobs = [];
+  // Two sources: bi:events is the capped live feed (recent-activity list); the
+  // 30-day engagement window is read from the per-day lists, which aren't
+  // capped. Days from before the per-day lists existed fall back to the feed.
+  const parse = (arr) => (arr || []).map((s) => { try { return JSON.parse(s); } catch { return null; } }).filter(Boolean);
+  const windowDays = Array.from({ length: 31 }, (_, i) => dayStr(Date.now() - i * DAY_MS));
+  let events = [], feedEvents = [], clients = [], hashes = [], blockedFlags = [], slateBlobs = [];
+  let daysFromFeed = 0, archiveState = [];
   try {
-    const [ev, cl] = await kv([["LRANGE", "bi:events", "0", "-1"], ["SMEMBERS", "bi:clients"]]);
-    events = (ev || []).map((s) => { try { return JSON.parse(s); } catch { return null; } }).filter(Boolean);
+    const [ev, cl, ...rest] = await kv([
+      ["LRANGE", "bi:events", "0", "-1"], ["SMEMBERS", "bi:clients"],
+      ["GET", "bi:archive:last"], ["GET", "bi:archive:backfilled"],
+      ...windowDays.map((d) => ["LRANGE", `bi:ev:${d}`, "0", "-1"]),
+    ]);
+    archiveState = rest.slice(0, 2);
+    feedEvents = parse(ev);
+    const perDay = rest.slice(2);
+    windowDays.forEach((d, i) => {
+      if ((perDay[i] || []).length) events.push(...parse(perDay[i]));
+      else {
+        const fromFeed = feedEvents.filter((e) => e.t && dayStr(Number(e.t)) === d);
+        if (fromFeed.length) daysFromFeed++;
+        events.push(...fromFeed);
+      }
+    });
+    events.sort((a, b) => Number(b.t || 0) - Number(a.t || 0));
     clients = cl || [];
     if (clients.length) {
       [hashes, blockedFlags, slateBlobs] = await Promise.all([
@@ -614,13 +748,45 @@ module.exports = async function handler(req, res) {
     })
     .sort((a, b) => b.s.w7.events - a.s.w7.events || b.s.w30.events - a.s.w30.events || b.last - a.last);
 
-  // The log is a capped list, so a 30-day window is only honest if the oldest
-  // retained event is actually 30+ days old. Say so rather than quietly
-  // under-reporting a busy month.
+  // Days read from the capped feed (before the per-day lists existed) can be
+  // cut short if the feed was full. Say so rather than quietly under-reporting.
   const stamps = events.map((e) => Number(e && e.t)).filter((t) => t > 0);
   const oldest = stamps.length ? Math.min(...stamps) : 0;
   const horizonDays = oldest ? (now - oldest) / DAY_MS : 0;
-  const truncated = events.length >= EVENT_CAP && horizonDays < 30;
+  const feedStamps = feedEvents.map((e) => Number(e && e.t)).filter((t) => t > 0);
+  const feedHorizon = feedStamps.length ? (now - Math.min(...feedStamps)) / DAY_MS : 0;
+  const truncated = daysFromFeed > 0 && feedEvents.length >= EVENT_CAP && feedHorizon < 30;
+
+  // Long-term view from the daily summaries (kept indefinitely): events per
+  // client per month for the last 12 months. Audit-only events don't count.
+  const months = Array.from({ length: 12 }, (_, i) => { const d = new Date(now); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() - i); return d.toISOString().slice(0, 7); }).reverse();
+  const monthly = new Map();
+  let dailyByDay = {};
+  try {
+    const yearDays = Array.from({ length: 366 }, (_, i) => dayStr(now - i * DAY_MS)).filter((d) => d.slice(0, 7) >= months[0]);
+    const flats = await kv(yearDays.map((d) => ["HGETALL", `bi:daily:${d}`]));
+    yearDays.forEach((d, i) => {
+      const counts = dailyCounts(flats[i]);
+      if (Object.keys(counts).length) dailyByDay[d] = counts;
+      for (const c in counts) {
+        for (const ev in counts[c]) {
+          if (ev === "mint" || ev === "signup-request") continue;
+          if (!monthly.has(c)) monthly.set(c, {});
+          const row = monthly.get(c);
+          row[d.slice(0, 7)] = (row[d.slice(0, 7)] || 0) + counts[c][ev];
+        }
+      }
+    });
+  } catch { /* the rest of the page still renders */ }
+  const monthlyRows = [...monthly.entries()]
+    .map(([c, row]) => ({ c, row, total: months.reduce((n, m) => n + (row[m] || 0), 0) }))
+    .filter((r) => r.total > 0)
+    .sort((a, b) => (b.c === PUBLIC_TAG) - (a.c === PUBLIC_TAG) || b.total - a.total)
+    .slice(0, 30);
+  const archiveConfigured = !!(process.env.ARCHIVE_GITHUB_REPO && process.env.ARCHIVE_GITHUB_TOKEN);
+  const archiveLine = archiveConfigured
+    ? `archived to GitHub through ${archiveState[0] || "— (first run pending)"}`
+    : "GitHub archive not configured";
 
   // IPs. Two things are worth an owner's attention: one link tag arriving from
   // many addresses (forwarded link), and one address arriving under several tags
@@ -652,6 +818,8 @@ module.exports = async function handler(req, res) {
     res.setHeader("content-type", "application/json; charset=utf-8");
     res.status(200).json({
       generatedAt: new Date(now).toISOString(),
+      archive: { configured: archiveConfigured, lastArchivedDay: archiveState[0] || null, legacySnapshot: archiveState[1] || null },
+      daily: dailyByDay,
       log: { retained: events.length, cap: EVENT_CAP, oldestEvent: oldest ? new Date(oldest).toISOString() : null, horizonDays: Number(horizonDays.toFixed(1)), truncated },
       clients: engagement.map((r) => ({
         client: r.c, status: r.status.label, blocked: r.blocked,
@@ -718,7 +886,7 @@ module.exports = async function handler(req, res) {
     </td>
   </tr>`).join("") || `<tr><td colspan="8" style="color:#98A2AF">No activity logged yet.</td></tr>`;
 
-  const feed = events.slice(0, 200).map((e) => `<tr>
+  const feed = feedEvents.slice(0, 200).map((e) => `<tr>
     <td style="white-space:nowrap;color:#5B6B7B">${hhmm(e.t)}</td>
     <td><b>${esc(e.c)}</b></td><td>${esc(e.ev)}</td>
     <td style="color:#5B6B7B">${esc(describeEvent(e))}</td>
@@ -733,8 +901,8 @@ module.exports = async function handler(req, res) {
   table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;font-size:13px}
   th,td{padding:8px 12px;border-bottom:1px solid #E6E9EE;text-align:left}th{background:#fafbfc;color:#5B6B7B;font-size:11px;text-transform:uppercase}</style></head>
   <body><div class="wrap">
-    <h1>Baton Index — usage</h1><div style="font-size:13px;color:#5B6B7B">${rows.length} client(s) · ${events.length} event(s) retained${oldest ? ` · log reaches back ${horizonDays.toFixed(1)} day(s)` : ""} · <a href="/api/usage?key=${encodeURIComponent(key)}&json=1" style="color:#011F5B">JSON</a></div>
-    ${truncated ? `<div style="margin-top:10px;padding:10px 12px;background:#FFF4E5;border:1px solid #F0D9B5;border-radius:8px;font-size:13px;color:#7A5200">The event log is full (${EVENT_CAP} events) and only reaches back ${horizonDays.toFixed(1)} days, so the 30-day column is cut short — real 30-day totals are higher than shown. The 7-day column is unaffected.</div>` : ""}
+    <h1>Baton Index — usage</h1><div style="font-size:13px;color:#5B6B7B">${rows.length} client(s) · ${events.length} event(s) in the last 30 days · ${esc(archiveLine)} · <a href="/api/usage?key=${encodeURIComponent(key)}&json=1" style="color:#011F5B">JSON</a></div>
+    ${truncated ? `<div style="margin-top:10px;padding:10px 12px;background:#FFF4E5;border:1px solid #F0D9B5;border-radius:8px;font-size:13px;color:#7A5200">Some of the last 30 days predate the per-day event lists and come from the old capped log, which only reaches back ${feedHorizon.toFixed(1)} days — real 30-day totals are higher than shown. This goes away once the per-day lists cover a full 30 days.</div>` : ""}
 
     <h2>Engagement — customised links</h2>
     <div style="font-size:12px;color:#5B6B7B;margin-bottom:6px">One row per link tag. <b>Active</b> = used in the last 7 days, <b>Fading</b> = used in the last 30 but not 7, <b>Dormant</b> = nothing in 30 days, <b>Locked out</b> = only expired/blocked attempts, <b>Bot only</b> = fetched by a crawler or email scanner but never opened by a person. Every count is HUMAN activity; automated fetches show separately as "+N bot" and are excluded from the columns and the status. ✕ marks expired/blocked attempts. ⚑ marks a link that looks forwarded — ${SHARED_MIN_IPS}+ human addresses, ${SHARED_MIN_RECURRING}+ of them returning on a second day (the <b>Recur</b> column), across ${SHARED_MIN_NETS}+ networks — which is a prompt to look, never proof.</div>
@@ -750,6 +918,12 @@ module.exports = async function handler(req, res) {
     ${ipFlagList}
     <table style="margin-top:10px"><tr><th>IP</th><th style="text-align:right">30d hits</th><th style="text-align:right">Days</th><th>Link tag(s)</th><th style="text-align:right">Rejected</th><th>Last seen</th></tr>${ipTable}</table>
     <div style="font-size:12px;color:#5B6B7B;margin-top:4px">Addresses are a weak identifier — mobile and corporate networks re-address constantly, and a VPN moves a person between them — so treat a flag as a prompt to look, never as proof a link was shared.</div>
+
+    <h2>Monthly activity — last 12 months</h2>
+    <div style="font-size:12px;color:#5B6B7B;margin-bottom:6px">From the daily summaries, which are kept indefinitely (the detailed event log keeps ~90 days in Vercel${archiveConfigured ? " and everything older in the GitHub archive" : ""}). Counts every logged event, including automated fetches; the engagement table above filters those out.</div>
+    <div style="overflow-x:auto"><table><tr><th>Client</th>${months.map((m) => `<th style="text-align:right">${new Date(m + "-01T00:00:00Z").toLocaleDateString("en-US", { month: "short", year: "2-digit", timeZone: "UTC" })}</th>`).join("")}<th style="text-align:right">Total</th></tr>
+      ${monthlyRows.map((r) => `<tr><td><b>${esc(r.c === PUBLIC_TAG ? "free tier (public)" : r.c)}</b></td>${months.map((m) => `<td style="text-align:right;color:${r.row[m] ? "inherit" : "#C9CFD8"}">${r.row[m] || "·"}</td>`).join("")}<td style="text-align:right"><b>${r.total}</b></td></tr>`).join("") || `<tr><td colspan="${months.length + 2}" style="color:#98A2AF">No daily summaries yet — they start filling in from this release.</td></tr>`}
+    </table></div>
 
     <h2>Organizations — work-email signup</h2>
     <div style="font-size:12px;color:#5B6B7B;margin-bottom:6px">Anyone with an address at a listed domain can sign up at <b>${esc(MINT_DOMAIN)}/?join</b>. Access for the whole org ends on its shared end date, followed by a ${GRACE_DAYS}-day grace period with a renewal banner. To renew, save the same domain with a new end date — it applies to everyone immediately. You get reminder emails 60, 30 and 7 days before the end date. Each person appears in the tables above under their own email. <b>Block domain</b> cuts off everyone at once, including people who already signed up.</div>

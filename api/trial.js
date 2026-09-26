@@ -15,6 +15,24 @@
 // and `graceUntil` while the org is in its post-expiry grace window.
 const crypto = require("crypto");
 
+// Event log, three layers (readers and the nightly archive live in api/usage.js):
+//   bi:events       short live feed (last 2,000) for the recent-activity list
+//   bi:ev:<day>     every event of one UTC day; expires after EVENT_DAY_TTL and
+//                   is copied nightly to a private GitHub repo before then
+//   bi:daily:<day>  per-day counts keyed "<client>|<event>", kept indefinitely
+// Keep this helper identical in every api/*.js file that logs events.
+const EVENT_DAY_TTL = 92 * 86400;
+function eventCmds(rec) {
+  let o = {};
+  try { o = JSON.parse(rec) || {}; } catch { o = {}; }
+  const day = new Date(Number(o.t) || Date.now()).toISOString().slice(0, 10);
+  return [
+    ["LPUSH", "bi:events", rec], ["LTRIM", "bi:events", "0", "1999"],
+    ["RPUSH", `bi:ev:${day}`, rec], ["EXPIRE", `bi:ev:${day}`, String(EVENT_DAY_TTL)],
+    ["HINCRBY", `bi:daily:${day}`, `${o.c || "public"}|${o.ev || "unknown"}`, "1"],
+  ];
+}
+
 function b64urlDecode(s) {
   return Buffer.from(s.replace(/-/g, "+").replace(/_/g, "/"), "base64").toString("utf8");
 }
@@ -116,8 +134,7 @@ async function logUsage(req, ev, client, file) {
       method: "POST",
       headers: { authorization: `Bearer ${tok}`, "content-type": "application/json" },
       body: JSON.stringify([
-        ["LPUSH", "bi:events", rec],
-        ["LTRIM", "bi:events", "0", "1999"],
+        ...eventCmds(rec),
         ["SADD", "bi:clients", c],
         ["HSET", `bi:client:${c}`, "last", String(Date.now()), "lastEvent", ev, "lastFile", file || ""],
         ["HINCRBY", `bi:client:${c}`, "hits", "1"],

@@ -57,19 +57,35 @@ for (const d of [1, 2, 4]) for (let k = 0; k < 5; k++) push({ c: "steady", ev: "
 push({ c: "minted-never-used", ev: "mint", f: "project · 30d", t: ago(3) });
 
 const clients = [...new Set(events.map((e) => e.c))];
+const dayOf = (t) => new Date(t).toISOString().slice(0, 10);
+// Key-aware KV. The engagement window reads the per-day lists (bi:ev:<day>),
+// falling back to the capped feed (bi:events) for days that have none -- run
+// the whole scenario both ways, since production has both kinds of day.
+let perDayLists = true;
 global.fetch = async (_u, o) => ({
   ok: true,
-  json: async () => JSON.parse(o.body).map(([op]) =>
-    ({ result: op === "LRANGE" ? events.map((e) => JSON.stringify(e)) : op === "SMEMBERS" ? clients : null })),
+  json: async () => JSON.parse(o.body).map(([op, key]) => {
+    if (op === "LRANGE" && key === "bi:events") return { result: events.map((e) => JSON.stringify(e)) };
+    if (op === "LRANGE" && key.startsWith("bi:ev:")) {
+      return { result: perDayLists ? events.filter((e) => dayOf(e.t) === key.slice(6)).map((e) => JSON.stringify(e)) : [] };
+    }
+    if (op === "SMEMBERS") return { result: key === "bi:clients" ? clients : [] };
+    return { result: null };
+  }),
 });
 
 const handler = require(join(ROOT, "api/usage.js"));
-const res = await new Promise((resolve) => {
+const fetchJson = () => new Promise((resolve) => {
   const r = { _c: 0, setHeader() {}, status(c) { this._c = c; return this; },
               send(b) { resolve({ code: this._c, body: b }); },
               json(b) { resolve({ code: this._c, body: b }); } };
   handler({ query: { key: process.env.USAGE_SECRET, json: "1" } }, r);
 });
+let pass = true;
+for (const mode of ["per-day lists", "legacy feed fallback"]) {
+perDayLists = mode === "per-day lists";
+console.log(`-- ${mode}`);
+const res = await fetchJson();
 
 const by = Object.fromEntries(res.body.clients.map((c) => [c.client, c]));
 const cases = [
@@ -95,7 +111,6 @@ const cases = [
   ["...and has no events",              by["minted-never-used"].last30d.events, 0],
 ];
 
-let pass = true;
 for (const [name, got, want] of cases) {
   const ok = got === want;
   if (!ok) pass = false;
@@ -108,6 +123,7 @@ const flagged = res.body.clients.filter((c) => c.possiblyShared).map((c) => c.cl
 const flaggedOk = flagged.length === 1 && flagged[0] === "forwarded";
 if (!flaggedOk) pass = false;
 console.log(`${flaggedOk ? "✓" : "✗"} exactly one link flagged, and it is the forwarded one  (flagged: ${flagged.join(", ") || "none"})`);
+}
 
 console.log(pass ? "\nROLLUP TEST PASS" : "\nROLLUP TEST FAIL");
 process.exit(pass ? 0 : 1);

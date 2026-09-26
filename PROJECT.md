@@ -356,6 +356,14 @@ Per-person access for an enrolled firm, on top of the existing trial-token gate 
 - Rate limits: 3 requests/email/hour, 10/IP/hour. `signup-request` events are audit-only and don't count as engagement.
 - Test: `node scripts/signup-flow-test.mjs`.
 
+### Event history & archive (Sep 2026)
+Every logged event goes through `eventCmds()` (identical copy in each `api/*.js` that logs) into three layers:
+- `bi:events` — the capped live feed (last 2,000), used only for the usage page's recent-activity list.
+- `bi:ev:<YYYY-MM-DD>` — every event of one UTC day, expires after ~92 days. The usage page's 30-day engagement window reads these (days from before they existed fall back to the feed, with a banner).
+- `bi:daily:<YYYY-MM-DD>` — hash of counts keyed `<client>|<event>`, never expires. Drives the "Monthly activity — last 12 months" table and `daily` in the JSON view.
+
+**Archive**: the daily cron (`/api/usage`, after renewal reminders) copies each finished day to a **private** GitHub repo — `events/YYYY/MM/<day>.jsonl` and `daily/YYYY/MM/<day>.json` — 5 days per run, resuming from `bi:archive:last`. The first run also snapshots the old capped log to `events/legacy/`. Needs `ARCHIVE_GITHUB_REPO` (`owner/name`) and `ARCHIVE_GITHUB_TOKEN` (fine-grained, Contents read/write on that repo only); skipped when unset. Owner can run it on demand with `?key=…&archive=1`. **Never point it at this repo — it is public and events contain emails and IPs.** Test: `node scripts/event-history-test.mjs`.
+
 ### Key Components
 - `SchoolExplorer.tsx` — Main school exploration view with list/map toggle
 - `USMap.tsx` — Interactive US map component using react-simple-maps

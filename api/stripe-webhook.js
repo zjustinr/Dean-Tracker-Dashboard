@@ -20,6 +20,24 @@
 // crypto + a manual stream read), mirroring the rest of api/*.js.
 const crypto = require("crypto");
 
+// Event log, three layers (readers and the nightly archive live in api/usage.js):
+//   bi:events       short live feed (last 2,000) for the recent-activity list
+//   bi:ev:<day>     every event of one UTC day; expires after EVENT_DAY_TTL and
+//                   is copied nightly to a private GitHub repo before then
+//   bi:daily:<day>  per-day counts keyed "<client>|<event>", kept indefinitely
+// Keep this helper identical in every api/*.js file that logs events.
+const EVENT_DAY_TTL = 92 * 86400;
+function eventCmds(rec) {
+  let o = {};
+  try { o = JSON.parse(rec) || {}; } catch { o = {}; }
+  const day = new Date(Number(o.t) || Date.now()).toISOString().slice(0, 10);
+  return [
+    ["LPUSH", "bi:events", rec], ["LTRIM", "bi:events", "0", "1999"],
+    ["RPUSH", `bi:ev:${day}`, rec], ["EXPIRE", `bi:ev:${day}`, String(EVENT_DAY_TTL)],
+    ["HINCRBY", `bi:daily:${day}`, `${o.c || "public"}|${o.ev || "unknown"}`, "1"],
+  ];
+}
+
 // Must match scripts/mint-trial.mjs's TIERS.day exactly, or a webhook-minted
 // link would grant different access than one minted by hand.
 const DAY_TIER_SCOPE = ["r1bschool", "r1university", "r1provost"];
@@ -149,8 +167,7 @@ module.exports = async function handler(req, res) {
   const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
   const t = Date.now();
   await kv([
-    ["LPUSH", "bi:events", JSON.stringify({ c: email, ev: "daypass-issued", f: emailed ? "emailed" : "email-failed", t, ip })],
-    ["LTRIM", "bi:events", "0", "1999"],
+    ...eventCmds(JSON.stringify({ c: email, ev: "daypass-issued", f: emailed ? "emailed" : "email-failed", t, ip })),
     ["SADD", "bi:clients", email],
     ["HSET", `bi:client:${email}`, "last", String(t), "lastEvent", "daypass-issued"],
     ["HINCRBY", `bi:client:${email}`, "hits", "1"],
