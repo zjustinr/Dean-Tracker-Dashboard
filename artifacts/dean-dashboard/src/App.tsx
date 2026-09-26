@@ -23,6 +23,7 @@ import { useFreeMeter, MeterBadge, Paywall, FreeTierNotice } from "@/components/
 import ConsentGate from "@/components/ConsentGate";
 import { SignupDialog, useSignupDialog } from "@/components/SignupDialog";
 import OrgAccessNotice from "@/components/OrgAccessNotice";
+import { AccountDialog, useAccountDialog } from "@/components/AccountDialog";
 import BreakingNews from "@/components/BreakingNews";
 import ContactDialog from "@/components/ContactDialog";
 import AboutDialog from "@/components/AboutDialog";
@@ -109,6 +110,7 @@ function AppInner() {
   // valid token). Owners and trial/day-pass holders (status "valid") are unmetered.
   const meter = useFreeMeter(trial.armed && trial.status !== "valid");
   const signup = useSignupDialog();
+  const account = useAccountDialog();
   // If a trial is scoped and the active dataset falls outside it, jump to the
   // first in-scope index so the app never sits on a locked (403) dataset.
   useEffect(() => {
@@ -235,6 +237,28 @@ function AppInner() {
               </p>
             </div>
             <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+            {/* Account entry point. Hidden while the gate is disarmed (no
+                accounts to speak of); otherwise signed-in users get their
+                initial + first name, everyone else a Sign in button. */}
+            {trial.armed && (trial.status === "valid" ? (
+              <button
+                onClick={account.show}
+                title="Your account"
+                className="flex items-center gap-2 pl-1.5 pr-3 py-1.5 rounded-full border border-border text-sm font-semibold text-foreground hover:bg-muted"
+              >
+                <span className="h-7 w-7 rounded-full bg-[#011F5B] text-white text-xs font-bold flex items-center justify-center" aria-hidden>
+                  {(trial.firstName || trial.client || "?").charAt(0).toUpperCase()}
+                </span>
+                <span className="max-w-[9rem] truncate">{trial.firstName || "Account"}</span>
+              </button>
+            ) : (
+              <button
+                onClick={signup.show}
+                className="px-3 py-2 rounded-lg text-sm font-semibold text-[#011F5B] dark:text-[#AFC4E8] hover:bg-muted"
+              >
+                Sign in
+              </button>
+            ))}
             <button
               onClick={() => setInsightsOpen(true)}
               className="px-3 py-2 rounded-lg text-sm font-semibold text-foreground hover:bg-muted"
@@ -428,6 +452,7 @@ function AppInner() {
         <MeterBadge meter={meter} />
         <Paywall meter={meter} onSignIn={signup.show} />
         <SignupDialog dialog={signup} />
+        <AccountDialog dialog={account} onSignIn={signup.show} />
         <ConsentGate />
         <FeatureRequestWidget />
       </div>

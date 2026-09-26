@@ -212,21 +212,74 @@ async function overLimit(key, max) {
   return Number(n) > max;
 }
 
-async function sendSignInEmail(to, link, org) {
+// --- the sign-in email ----------------------------------------------------------
+// Table layout + inline styles, because that is all Gmail/Outlook reliably
+// render: no SVG (hence the PNG logo), no web fonts (Georgia stands in for the
+// site's EB Garamond), no flex. Colours match the app: Penn navy #011F5B for
+// type, crimson #A31F34 for the brand bar and button. A plain-text part rides
+// along -- HTML-only mail scores worse with spam filters.
+function signInEmail({ link, org, firstName }) {
+  const until = new Date(org.until * 1000).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+  const hi = firstName ? `Hi ${esc(firstName)},` : "Hello,";
+  const orgLine = org.label ? ` with your <b>${esc(org.label)}</b> account` : "";
+  const serif = "Georgia,'Times New Roman',serif";
+  const sans = "-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
+  const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Sign in to Baton Index</title></head>
+<body style="margin:0;padding:0;background:#EEF1F6">
+<span style="display:none;max-height:0;overflow:hidden;opacity:0">Your one-time sign-in link — it expires in 15 minutes.</span>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EEF1F6"><tr><td align="center" style="padding:32px 16px">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:520px;background:#FFFFFF;border-radius:12px;border-top:4px solid #A31F34">
+    <tr><td align="center" style="padding:32px 32px 8px">
+      <a href="${SITE}" style="text-decoration:none"><img src="${SITE}/email-logo.png" width="72" height="72" alt="Baton Index" style="display:block;border:0;border-radius:10px"></a>
+      <p style="margin:16px 0 0;font-family:${serif};font-size:20px;line-height:26px;color:#011F5B">Leadership succession, decoded.</p>
+    </td></tr>
+    <tr><td style="padding:24px 40px 0;font-family:${sans};font-size:15px;line-height:23px;color:#1F2A3C">
+      <p style="margin:0 0 12px">${hi}</p>
+      <p style="margin:0">Use the button below to sign in to Baton Index${orgLine}.</p>
+    </td></tr>
+    <tr><td align="center" style="padding:28px 40px">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#A31F34" style="border-radius:8px">
+        <a href="${link}" style="display:inline-block;padding:14px 36px;font-family:${sans};font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:8px">Sign in to Baton Index</a>
+      </td></tr></table>
+    </td></tr>
+    <tr><td style="padding:0 40px;font-family:${sans};font-size:13px;line-height:20px;color:#5B6B7B">
+      <p style="margin:0 0 12px">This link works once and expires in 15 minutes.${org.label ? ` ${esc(org.label)}'s access runs through ${until}.` : ""}</p>
+      <p style="margin:0 0 4px">Button not working? Paste this address into your browser:</p>
+      <p style="margin:0;word-break:break-all"><a href="${link}" style="color:#011F5B">${link}</a></p>
+    </td></tr>
+    <tr><td style="padding:28px 40px 32px">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top:1px solid #E6E9EE;padding-top:16px;font-family:${sans};font-size:12px;line-height:18px;color:#98A2AF">
+        You're receiving this because this address was entered at batonindex.com. If that wasn't you, ignore this email — nothing happens without the link.
+      </td></tr></table>
+    </td></tr>
+  </table>
+  <p style="margin:16px 0 0;font-family:${sans};font-size:12px;color:#98A2AF"><a href="${SITE}" style="color:#98A2AF;text-decoration:none">batonindex.com</a></p>
+</td></tr></table>
+</body></html>`;
+  const text = [
+    firstName ? `Hi ${firstName},` : "Hello,",
+    "",
+    `Use this link to sign in to Baton Index${org.label ? ` with your ${org.label} account` : ""}:`,
+    link,
+    "",
+    `The link works once and expires in 15 minutes.${org.label ? ` ${org.label}'s access runs through ${until}.` : ""}`,
+    "",
+    "If you didn't ask for this, ignore this email — nothing happens without the link.",
+    "— Baton Index · batonindex.com",
+  ].join("\n");
+  return { html, text };
+}
+
+async function sendSignInEmail(to, link, org, firstName) {
   const RESEND_KEY = process.env.RESEND_API_KEY || "";
   if (!RESEND_KEY) { console.log(`trial signup: RESEND_API_KEY unset -- sign-in link for ${to} not emailed.`); return false; }
   const FROM = process.env.FEATURE_REQUEST_FROM || "Baton Index <alerts@batonindex.com>";
-  const until = new Date(org.until * 1000).toISOString().slice(0, 10);
-  const html = `
-    <p>Here is your Baton Index sign-in link${org.label ? ` for <b>${esc(org.label)}</b>` : ""}:</p>
-    <p><a href="${link}">Sign in to Baton Index</a></p>
-    <p style="color:#5B6B7B;font-size:13px">The link works once and expires in 15 minutes. Your access runs through ${until}.
-    If you didn't ask for this, you can ignore this email.</p>`;
+  const { html, text } = signInEmail({ link, org, firstName });
   try {
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { authorization: `Bearer ${RESEND_KEY}`, "content-type": "application/json" },
-      body: JSON.stringify({ from: FROM, to: [to], subject: "Your Baton Index sign-in link", html }),
+      body: JSON.stringify({ from: FROM, to: [to], subject: "Your Baton Index sign-in link", html, text }),
     });
     return r.ok;
   } catch { return false; }
@@ -254,7 +307,8 @@ async function handleSignupRequest(req, res, secret) {
     }
     const code = crypto.randomBytes(24).toString("base64url");
     await kv([["SET", `bi:signup:${sha256(code)}`, JSON.stringify({ email, domain, t: Date.now() }), "EX", String(LINK_TTL_SEC)]]);
-    const sent = await sendSignInEmail(email, `${SITE}/api/trial?verify=${code}`, org);
+    const [firstName] = await kv([["HGET", `bi:user:${email}`, "firstName"]]);
+    const sent = await sendSignInEmail(email, `${SITE}/api/trial?verify=${code}`, org, firstName || "");
     if (!sent) { res.status(503).json({ ok: false, error: "email_failed" }); return; }
     await logUsage(req, "signup-request", email, domain);
     res.status(200).json({ ok: true });
@@ -267,31 +321,106 @@ async function handleSignupRequest(req, res, secret) {
 // Mail-security gateways (Safe Links, Proofpoint, ...) open every URL in an
 // email before the recipient does. If a GET consumed the one-time code, the
 // scanner would burn it and the person would click a dead link. So the emailed
-// GET only renders a button; the POST behind it -- which scanners don't submit
-// -- is what spends the code.
-function confirmPage(res, code) {
+// GET only renders a page; the POST behind its button -- which scanners don't
+// submit -- is what spends the code.
+//
+// That page is also where a first-time user gives their name. Asking there
+// keeps the first step a single email field, and it lands after the person has
+// already committed by opening the email. Returning users just see Continue.
+const cleanName = (v) => String(v || "").replace(/[\u0000-\u001f<>]/g, "").replace(/\s+/g, " ").trim().slice(0, 60);
+
+function page(res, status, title, inner) {
   res.setHeader("content-type", "text/html; charset=utf-8");
-  res.status(200).send(`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex"><title>Sign in · Baton Index</title></head>
-  <body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#F4F6F8;margin:0;display:flex;min-height:100vh;align-items:center;justify-content:center">
-  <form method="post" action="/api/trial?verify=${encodeURIComponent(code)}" style="background:#fff;border-radius:12px;padding:32px;max-width:360px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.08)">
-    <h1 style="font-size:18px;color:#011F5B;margin:0 0 8px">Sign in to Baton Index</h1>
-    <p style="font-size:14px;color:#5B6B7B;margin:0 0 20px">Confirm to finish signing in on this device.</p>
-    <button type="submit" style="width:100%;padding:11px;border:none;border-radius:8px;background:#A31F34;color:#fff;font-size:14px;font-weight:600;cursor:pointer">Continue</button>
-  </form></body></html>`);
+  res.status(status).send(`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex"><title>${esc(title)} · Baton Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px;box-sizing:border-box;
+      font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1F2A3C;background:linear-gradient(#F6F8FB,#E7EBF2)}
+    .card{background:#fff;border-radius:14px;border-top:4px solid #A31F34;box-shadow:0 1px 3px rgba(1,31,91,.08);padding:32px 28px;width:100%;max-width:380px;box-sizing:border-box;text-align:center}
+    .tag{font-family:'EB Garamond',Georgia,serif;font-size:20px;color:#011F5B;margin:14px 0 20px}
+    h1{font-size:18px;color:#011F5B;margin:0 0 6px}
+    p{font-size:14px;color:#5B6B7B;margin:0 0 18px;line-height:1.5}
+    .row{display:flex;gap:10px;text-align:left}.row label{flex:1}
+    label{display:block;font-size:12px;font-weight:600;color:#1F2A3C;margin-bottom:12px}
+    input{display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:10px 11px;border:1px solid #CBD2DC;border-radius:8px;font-size:14px}
+    input:focus{outline:2px solid rgba(1,31,91,.25);border-color:#011F5B}
+    .btn{display:block;width:100%;padding:12px;border:0;border-radius:8px;background:#A31F34;color:#fff;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;box-sizing:border-box}
+    .btn:hover{background:#8C1A2C}.err{color:#A31F34;font-size:13px;margin:-4px 0 12px}
+    .who{font-size:13px;color:#5B6B7B;margin:0 0 18px}.who b{color:#1F2A3C}
+  </style></head>
+  <body><div class="card"><img src="/logo.svg" width="64" height="64" alt="Baton Index" style="display:block;margin:0 auto">
+  <div class="tag">Leadership succession, decoded.</div>${inner}</div></body></html>`);
+}
+
+async function confirmPage(res, code, error) {
+  let email = null, needName = false;
+  try {
+    if (kvCreds().url && kvCreds().tok) {
+      const [raw] = await kv([["GET", `bi:signup:${sha256(code)}`]]);   // read, never consume
+      if (raw) {
+        email = JSON.parse(raw).email;
+        const [first] = await kv([["HGET", `bi:user:${email}`, "firstName"]]);
+        needName = !first;
+      }
+    }
+  } catch { email = null; }
+  if (!email) {
+    page(res, 200, "Link expired", `<h1>This sign-in link has expired</h1>
+      <p>Links work once and last 15 minutes. You can request a new one in a few seconds.</p>
+      <a class="btn" href="/?join">Get a new link</a>`);
+    return;
+  }
+  const action = `/api/trial?verify=${encodeURIComponent(code)}`;
+  if (!needName) {
+    page(res, 200, "Sign in", `<h1>Welcome back</h1>
+      <p class="who">Signing in as <b>${esc(email)}</b></p>
+      <form method="post" action="${action}"><button class="btn" type="submit">Continue</button></form>`);
+    return;
+  }
+  page(res, 200, "Finish signing in", `<h1>Finish signing in</h1>
+    <p class="who">Signing in as <b>${esc(email)}</b></p>
+    <form method="post" action="${action}">
+      <div class="row">
+        <label>First name<input name="firstName" autocomplete="given-name" required maxlength="60" autofocus></label>
+        <label>Last name<input name="lastName" autocomplete="family-name" required maxlength="60"></label>
+      </div>
+      ${error ? `<div class="err">${esc(error)}</div>` : ""}
+      <button class="btn" type="submit">Continue</button>
+    </form>`);
+}
+
+function formBody(req) {
+  const b = req.body;
+  if (b && typeof b === "object") return b;
+  if (typeof b === "string") {
+    try { return JSON.parse(b); } catch { /* not JSON */ }
+    return Object.fromEntries(new URLSearchParams(b));
+  }
+  return {};
 }
 
 async function handleVerify(req, res, secret) {
   const code = String(req.query.verify || "").slice(0, 100);
-  if (req.method === "GET") { confirmPage(res, code); return; }
+  if (req.method === "GET") { await confirmPage(res, code); return; }
   if (req.method !== "POST") { res.status(405).send("Method not allowed"); return; }
   const back = (result) => { res.setHeader("location", `/?signup=${result}`); res.status(303).send(""); };
   if (!secret || !kvCreds().url || !kvCreds().tok) { back("unavailable"); return; }
   try {
     const key = `bi:signup:${sha256(code)}`;
-    const [raw] = await kv([["GET", key], ["DEL", key]]);
+    const [raw] = await kv([["GET", key]]);
     if (!raw) { back("expired"); return; }
     const { email, domain } = JSON.parse(raw);
+
+    // First sign-in must carry a name. Check before spending the code, so a
+    // blank submit just shows the form again with the same link still good.
+    const body = formBody(req);
+    const firstName = cleanName(body.firstName), lastName = cleanName(body.lastName);
+    const [haveFirst] = await kv([["HGET", `bi:user:${email}`, "firstName"]]);
+    if (!haveFirst && (!firstName || !lastName)) { await confirmPage(res, code, "Please enter your first and last name."); return; }
+
+    const [still] = await kv([["GET", key], ["DEL", key]]);
+    if (!still) { back("expired"); return; }            // lost a race with another tab
     const org = await activeOrg(domain);
     if (!org || (await liveAccess({ c: email })).blocked) { back("ineligible"); return; }
 
@@ -304,10 +433,9 @@ async function handleVerify(req, res, secret) {
       back("full"); return;
     }
     const ms = String(Date.now());
-    await kv([
-      ["HSETNX", `bi:user:${email}`, "createdAt", ms],
-      ["HSET", `bi:user:${email}`, "email", email, "domain", domain, "org", org.label || domain, "verifiedAt", ms],
-    ]);
+    const fields = ["email", email, "domain", domain, "org", org.label || domain, "verifiedAt", ms];
+    if (!haveFirst) fields.push("firstName", firstName, "lastName", lastName);
+    await kv([["HSETNX", `bi:user:${email}`, "createdAt", ms], ["HSET", `bi:user:${email}`, ...fields]]);
     await logUsage(req, "signup-verified", email, domain);
     res.setHeader("set-cookie", sessionCookie(email, domain, secret));
     back("ok");
@@ -317,65 +445,146 @@ async function handleVerify(req, res, secret) {
   }
 }
 
-module.exports = async function handler(req, res) {
-  res.setHeader("cache-control", "no-store");
-  const secret = process.env.TRIAL_SECRET;
-  if (req.query && req.query.action === "signup") { await handleSignupRequest(req, res, secret); return; }
-  if (req.query && req.query.verify) { await handleVerify(req, res, secret); return; }
-
-  if (!secret) { res.status(200).json({ armed: false }); return; }
-
+// --- session resolution (shared by status, account, profile) -----------------
+// Verifies the bi_trial token and applies the live checks. Returns one of:
+//   { kind: "none" | "invalid" }
+//   { kind: "expired", p, expiry }                         token past its own x
+//   { kind: "blocked" | "removed", p }
+//   { kind: "ended", p, live }                             org plan + grace over
+//   { kind: "valid", p, live, token, cookieTok, queryK }
+async function resolveSession(req, secret) {
   const cookie = req.headers.cookie || "";
   const m = cookie.match(/(?:^|;\s*)bi_trial=([^;]+)/);
   const cookieTok = m ? decodeURIComponent(m[1]) : "";
   const queryK = (req.query && req.query.k) || "";
   const token = cookieTok || queryK || "";
-  if (!token) { res.status(200).json({ armed: true, status: "none" }); return; }
-
+  if (!token) return { kind: "none" };
   const v = verify(token, secret);
-  if (!v.ok && v.reason === "expired") {
-    await logUsage(req, "expired-open", v.payload && v.payload.c, null);
-    res.status(200).json({ armed: true, status: "expired", expiry: v.payload.x, client: v.payload.c });
-    return;
-  }
-  if (!v.ok) { res.status(200).json({ armed: true, status: "invalid" }); return; }
-
+  if (!v.ok && v.reason === "expired") return { kind: "expired", p: v.payload, expiry: v.payload.x };
+  if (!v.ok) return { kind: "invalid" };
   const p = v.payload;
   const live = await liveAccess(p);
+  if (live.blocked) return { kind: "blocked", p };
+  if (live.state === "removed") return { kind: "removed", p };
+  if (live.state === "ended") return { kind: "ended", p, live };
+  return { kind: "valid", p, live, token, cookieTok, queryK };
+}
+
+const CLEAR_COOKIE = "bi_trial=; Path=/; Max-Age=0; Secure; HttpOnly; SameSite=Lax";
+
+// GET ?action=account -- everything the Account page shows.
+async function handleAccount(req, res, secret) {
+  if (!secret) { res.status(200).json({ ok: false, error: "disarmed" }); return; }
+  const sess = await resolveSession(req, secret);
+  if (sess.kind === "none" || sess.kind === "invalid") { res.status(200).json({ ok: false, error: "signed_out" }); return; }
+  const p = sess.p || {};
+  const isEmail = typeof p.c === "string" && p.c.includes("@");
+  let user = {}, seatsUsed = null;
+  if (isEmail && kvCreds().url && kvCreds().tok) {
+    try {
+      const cmds = [["HGETALL", `bi:user:${p.c}`]];
+      if (p.o) cmds.push(["SCARD", `bi:org-users:${p.o}`]);
+      const [flat, n] = await kv(cmds);
+      for (let j = 0; j < (flat || []).length; j += 2) user[flat[j]] = flat[j + 1];
+      if (n !== undefined) seatsUsed = Number(n);
+    } catch { user = {}; }
+  }
+  const org = sess.live && sess.live.org;
+  const scope = org ? org.scope : (p.s || []);
+  const state = { valid: sess.live && sess.live.state === "grace" ? "grace" : "active", ended: "ended", expired: "ended", blocked: "suspended", removed: "removed" }[sess.kind];
+  res.status(200).json({
+    ok: true,
+    email: isEmail ? p.c : null,
+    client: p.c,
+    firstName: user.firstName || "",
+    lastName: user.lastName || "",
+    memberSince: user.createdAt ? Number(user.createdAt) : null,
+    plan: {
+      kind: p.o ? "org" : "link",
+      org: org ? org.label || p.o : p.o || null,
+      state,
+      allIndices: scope.includes("*"),
+      indices: scope.includes("*") ? null : scope.length,
+      expiry: org ? org.until : (sess.expiry || p.x || null),
+      graceUntil: sess.live && sess.live.state === "grace" ? org.until + GRACE_DAYS * 86400 : null,
+      seats: org && org.seats ? org.seats : null,
+      seatsUsed,
+    },
+  });
+}
+
+// POST ?action=profile { firstName, lastName } -- only for signed-up users.
+async function handleProfile(req, res, secret) {
+  if (req.method !== "POST") { res.status(405).json({ ok: false, error: "method_not_allowed" }); return; }
+  if (!secret || !kvCreds().url || !kvCreds().tok) { res.status(503).json({ ok: false, error: "unavailable" }); return; }
+  const sess = await resolveSession(req, secret);
+  if (sess.kind !== "valid" || !sess.p.o) { res.status(403).json({ ok: false, error: "not_signed_in" }); return; }
+  const body = formBody(req);
+  const firstName = cleanName(body.firstName), lastName = cleanName(body.lastName);
+  if (!firstName || !lastName) { res.status(400).json({ ok: false, error: "name_required" }); return; }
+  await kv([["HSET", `bi:user:${sess.p.c}`, "firstName", firstName, "lastName", lastName]]);
+  res.status(200).json({ ok: true, firstName, lastName });
+}
+
+module.exports = async function handler(req, res) {
+  res.setHeader("cache-control", "no-store");
+  const secret = process.env.TRIAL_SECRET;
+  const action = req.query && req.query.action;
+  if (action === "signup") { await handleSignupRequest(req, res, secret); return; }
+  if (action === "account") { await handleAccount(req, res, secret); return; }
+  if (action === "profile") { await handleProfile(req, res, secret); return; }
+  if (action === "signout") {
+    if (req.method !== "POST") { res.status(405).json({ ok: false }); return; }
+    res.setHeader("set-cookie", CLEAR_COOKIE);
+    res.status(200).json({ ok: true });
+    return;
+  }
+  if (req.query && req.query.verify) { await handleVerify(req, res, secret); return; }
+
+  if (!secret) { res.status(200).json({ armed: false }); return; }
+
+  const sess = await resolveSession(req, secret);
   const nowSec = Math.floor(Date.now() / 1000);
-  const orgName = live.org ? live.org.label || p.o : undefined;
-  if (live.blocked) {
-    await logUsage(req, "blocked-open", p.c, null);
+  if (sess.kind === "none") { res.status(200).json({ armed: true, status: "none" }); return; }
+  if (sess.kind === "invalid") { res.status(200).json({ armed: true, status: "invalid" }); return; }
+  const p = sess.p;
+  if (sess.kind === "expired") {
+    await logUsage(req, "expired-open", p && p.c, null);
+    res.status(200).json({ armed: true, status: "expired", expiry: sess.expiry, client: p.c });
+    return;
+  }
+  if (sess.kind === "blocked" || sess.kind === "removed") {
+    await logUsage(req, `${sess.kind}-open`, p.c, null);
     res.status(200).json({ armed: true, status: "expired", expiry: nowSec - 1, client: p.c });
     return;
   }
   // The org's plan ran out (grace included). Keep the cookie: if the org is
   // renewed, this same login is valid again with nothing for the user to do.
-  if (live.state === "removed") {
-    await logUsage(req, "removed-open", p.c, null);
-    res.status(200).json({ armed: true, status: "expired", expiry: nowSec - 1, client: p.c });
-    return;
-  }
-  if (live.state === "ended") {
+  const live = sess.live;
+  const orgName = live.org ? live.org.label || p.o : undefined;
+  if (sess.kind === "ended") {
     await logUsage(req, "expired-open", p.c, null);
     res.status(200).json({ armed: true, status: "expired", expiry: live.org ? live.org.until : nowSec - 1, client: p.c, org: orgName });
     return;
   }
   await logUsage(req, "open", p.c, null);
 
+  let firstName;
   if (p.o && live.state) {
     // Rolling session: an active user never hits the 90-day login limit.
     if (nowSec - (p.i || 0) > REFRESH_AFTER_SEC) res.setHeader("set-cookie", sessionCookie(p.c, p.o, secret));
-  } else if (!cookieTok && queryK) {
+    try { [firstName] = await kv([["HGET", `bi:user:${p.c}`, "firstName"]]); } catch { firstName = undefined; }
+  } else if (!sess.cookieTok && sess.queryK) {
     // Valid — persist the cookie if the token arrived via ?k= so refreshes work.
     const maxAge = Math.max(0, (p.x || 0) - nowSec);
-    res.setHeader("set-cookie", `bi_trial=${encodeURIComponent(token)}; Path=/; Max-Age=${maxAge}; Secure; SameSite=Lax`);
+    res.setHeader("set-cookie", `bi_trial=${encodeURIComponent(sess.token)}; Path=/; Max-Age=${maxAge}; Secure; SameSite=Lax`);
   }
   res.status(200).json({
     armed: true, status: "valid", client: p.c,
     scope: live.org ? live.org.scope : p.s,
     expiry: live.org ? live.org.until : p.x,
     org: orgName,
+    firstName: firstName || undefined,
     graceUntil: live.state === "grace" ? live.org.until + GRACE_DAYS * 86400 : undefined,
   });
 };

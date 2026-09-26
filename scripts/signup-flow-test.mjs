@@ -44,6 +44,7 @@ function run([cmd, key, ...a]) {
     case "HSETNX": { const h = get() || {}; if (!(a[0] in h)) h[a[0]] = a[1]; store.set(key, h); return 1; }
     case "HINCRBY": { const h = get() || {}; h[a[0]] = String(Number(h[a[0]] || 0) + Number(a[1])); store.set(key, h); return 1; }
     case "HGETALL": return Object.entries(get() || {}).flat();
+    case "HGET": return (get() || {})[a[0]] ?? null;
     case "LPUSH": { const l = get() || []; l.unshift(...a); store.set(key, l); return l.length; }
     case "LTRIM": return "OK";
     case "LRANGE": return get() || [];
@@ -107,9 +108,20 @@ ok([...ttl.entries()].some(([k, v]) => k.startsWith("bi:signup:") && v === 900),
 r = await call(trial, { method: "GET", query: { verify: code } });
 ok(r.status === 200 && /<form method="post"/.test(r.body), "GET renders a confirm button");
 ok([...store.keys()].some((k) => k.startsWith("bi:signup:")), "...and does not consume the code");
+ok(/name="firstName"/.test(r.body) && /name="lastName"/.test(r.body) && r.body.includes("lyndi@summitsearchsolutions.com"), "first sign-in page asks for first and last name");
+
+// The branded email.
+ok(/email-logo\.png/.test(mail[0].html) && /#A31F34/.test(mail[0].html) && /#011F5B/.test(mail[0].html), "email carries the logo and brand colours");
+ok(typeof mail[0].text === "string" && mail[0].text.includes(`verify=${code}`), "email has a plain-text part with the link");
+ok(/Summit/.test(mail[0].html) && /Hello,/.test(mail[0].html), "email names the org; no name yet, so a neutral greeting");
+
+// A blank name re-shows the form and does NOT spend the code.
+r = await call(trial, { method: "POST", query: { verify: code }, body: { firstName: " ", lastName: "" } });
+ok(r.status === 200 && /Please enter your first and last name/.test(r.body), "missing name re-shows the form with an error");
+ok([...store.keys()].some((k) => k.startsWith("bi:signup:")), "...and the link still works");
 
 // Confirming mints a token bound to the person, expiring on the org date.
-r = await call(trial, { method: "POST", query: { verify: code } });
+r = await call(trial, { method: "POST", query: { verify: code }, body: "firstName=Lyndi&lastName=%3Cb%3EParker%3C%2Fb%3E" });
 ok(r.status === 303 && r.headers.location === "/?signup=ok", "POST verifies and redirects");
 const setCookie = r.headers["set-cookie"];
 ok(/HttpOnly/.test(setCookie) && /Secure/.test(setCookie), "cookie is HttpOnly + Secure");
@@ -122,6 +134,39 @@ r = await call(trial, { cookie });
 ok(r.json.status === "valid" && r.json.client === "lyndi@summitsearchsolutions.com", "status is valid, client = email");
 ok(r.json.expiry === org.until, "expiry is the org's shared end date");
 ok(store.get("bi:org-users:summitsearchsolutions.com").has("lyndi@summitsearchsolutions.com"), "user recorded under org");
+ok(store.get("bi:user:lyndi@summitsearchsolutions.com").firstName === "Lyndi" && store.get("bi:user:lyndi@summitsearchsolutions.com").lastName === "bParker/b", "names saved from a form post, with markup stripped");
+ok(r.json.firstName === "Lyndi", "status carries the first name for the header");
+
+// Account page data.
+r = await call(trial, { query: { action: "account" }, cookie });
+ok(r.json.ok && r.json.email === "lyndi@summitsearchsolutions.com" && r.json.firstName === "Lyndi", "account: identity and name");
+ok(r.json.plan.kind === "org" && r.json.plan.org === "Summit" && r.json.plan.allIndices && r.json.plan.state === "active" && r.json.plan.expiry === org.until, "account: plan, coverage, state and end date");
+r = await call(trial, { query: { action: "account" } });
+ok(r.json.ok === false && r.json.error === "signed_out", "account needs a session");
+
+// Editing the name.
+r = await call(trial, { method: "POST", query: { action: "profile" }, body: { firstName: "Lyndi", lastName: "Parker" }, cookie });
+ok(r.json.ok && store.get("bi:user:lyndi@summitsearchsolutions.com").lastName === "Parker", "profile: name can be edited");
+r = await call(trial, { method: "POST", query: { action: "profile" }, body: { firstName: "", lastName: "X" }, cookie });
+ok(r.status === 400, "profile: both names required");
+r = await call(trial, { method: "POST", query: { action: "profile" }, body: { firstName: "A", lastName: "B" } });
+ok(r.status === 403, "profile: needs a signed-in user");
+
+// Returning user: no name form, personal greeting in the email.
+mail.length = 0;
+await call(trial, { method: "POST", query: { action: "signup" }, body: { email: "lyndi@summitsearchsolutions.com" }, ip: "198.18.0.1" });
+ok(/Hi Lyndi,/.test(mail[0].html), "returning user's email greets them by name");
+const code2 = mail[0].html.match(/verify=([A-Za-z0-9_-]+)/)[1];
+r = await call(trial, { method: "GET", query: { verify: code2 } });
+ok(/Welcome back/.test(r.body) && !/name="firstName"/.test(r.body), "returning user just sees Continue");
+r = await call(trial, { method: "POST", query: { verify: code2 } });
+ok(r.headers.location === "/?signup=ok", "returning user signs in without re-entering a name");
+r = await call(trial, { method: "GET", query: { verify: "bogus" } });
+ok(/has expired/.test(r.body) && /\?join/.test(r.body), "a dead link explains itself and offers a new one");
+
+// Sign out clears the HttpOnly cookie server-side.
+r = await call(trial, { method: "POST", query: { action: "signout" }, cookie });
+ok(/bi_trial=;/.test(r.headers["set-cookie"]) && /Max-Age=0/.test(r.headers["set-cookie"]), "sign out clears the cookie");
 r = await call(data, { query: { f: "r1law.json" }, cookie });
 ok(r.status === 200, "signed-up user can open a non-free index");
 
@@ -228,7 +273,7 @@ async function signUp(email) {
   const req = await call(trial, { method: "POST", query: { action: "signup" }, body: { email }, ip: `192.0.2.${mail.length}` });
   if (!req.json.ok) return { request: req.json };
   const c = mail[before].html.match(/verify=([A-Za-z0-9_-]+)/)[1];
-  const v = await call(trial, { method: "POST", query: { verify: c } });
+  const v = await call(trial, { method: "POST", query: { verify: c }, body: { firstName: "Test", lastName: "User" } });
   return { request: req.json, location: v.headers.location, cookie: (v.headers["set-cookie"] || "").split(";")[0] };
 }
 const second = await signUp("colleague@summitsearchsolutions.com");
@@ -245,7 +290,7 @@ await call(trial, { method: "POST", query: { action: "signup" }, body: { email: 
 const lateCode = mail[pendingBefore].html.match(/verify=([A-Za-z0-9_-]+)/)[1];
 const fourth = await signUp("fourth@summitsearchsolutions.com");
 ok(fourth.location === "/?signup=ok", "last seat taken by someone else first");
-r = await call(trial, { method: "POST", query: { verify: lateCode } });
+r = await call(trial, { method: "POST", query: { verify: lateCode }, body: { firstName: "Late", lastName: "Comer" } });
 ok(r.headers.location === "/?signup=full" && !store.get("bi:org-users:summitsearchsolutions.com").has("late@summitsearchsolutions.com"), "a pending link can't overfill the seats");
 
 // Freeing a seat ends that person's access and lets someone else in.
