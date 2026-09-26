@@ -10,10 +10,10 @@
 export const DAY_PASS_URL = "https://buy.stripe.com/6oUfZ9bu78pccgy80gebu02";
 
 /** $99/month Monthly Pass — Stripe Payment Link for the subscription. */
-export const MONTHLY_PASS_URL = "";
+export const MONTHLY_PASS_URL = "https://buy.stripe.com/00w6oz41FcFscgygwMebu03";
 
 /** Stripe customer-portal login link (Settings → Billing → Customer portal). */
-export const BILLING_PORTAL_URL = "";
+export const BILLING_PORTAL_URL = "https://billing.stripe.com/p/login/dRmdR17dRbBo3K2eoEebu00";
 
 /** Monthly checkout with the buyer's email filled in, when we know it. */
 export function monthlyCheckoutUrl(email?: string | null): string {
