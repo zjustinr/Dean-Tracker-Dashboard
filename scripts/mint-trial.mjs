@@ -38,12 +38,13 @@ const DEFAULT_EXPIRY_DAYS = 21;
 const INDICES = Object.entries(INDEX_LABEL);
 const ALL_IDS = INDICES.map(([id]) => id);
 
-// Paid-tier presets — the enforceable scope guard. The $99 Day Pass is a limited
-// 3-index taster (Business + Presidents + Provost) so a cheap 24h pass can't pull
-// the whole database; api/data.js 403s anything outside a token's scope. Project/
-// Firm get all 12. Mint:  node scripts/mint-trial.mjs --tier day --client acme
+// Paid-tier presets — the enforceable scope guard (api/data.js 403s anything
+// outside a token's scope). The $49 Day Pass is every index for 24 hours, new
+// ones included ("*" wildcard); its short life is the limit, not its scope.
+// Keep TIERS.day in sync with api/usage.js and api/stripe-webhook.js.
+// Mint:  node scripts/mint-trial.mjs --tier day --client acme
 const TIERS = {
-  day:     { label: "Day Pass",     scope: ["r1bschool", "r1university", "r1provost"], days: 1 },
+  day:     { label: "Day Pass",     scope: ["*"],                                      days: 1 },
   project: { label: "Project Pass", scope: ALL_IDS,                                    days: 30 },
   firm:    { label: "Firm Plan",    scope: ALL_IDS,                                    days: 365 },
   // Owner link: "*" wildcard = every index, present AND future, so new indices

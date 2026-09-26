@@ -19,12 +19,12 @@ const WINDOW_MS = 24 * 3600 * 1000;
 const KEY = "bi_free_meter";
 const CONTACT = "ren@bu.edu";
 
-// One simple paid option for now: a $99 day pass that unlocks a 3-index taster
-// (scope enforced server-side in api/data.js). Everything beyond that — all
-// indices, firm plans — is a "Contact us" conversation while we validate demand.
-const DAY_PASS_URL = "https://buy.stripe.com/dRm3cn69N8pc5Sa2FWebu01";
+// One simple paid option for now: a $49 day pass that unlocks every index,
+// including new ones, for 24 hours (scope "*", enforced server-side in
+// api/data.js). Longer access and firm plans are a "Contact us" conversation.
+const DAY_PASS_URL = "https://buy.stripe.com/6oUfZ9bu78pccgy80gebu02"; // $49 all-index day pass
 const PASSES = [
-  { key: "day", name: "Day Pass", price: "$99", unit: "24 hours", blurb: "R1 Business, Presidents & Provost", url: DAY_PASS_URL, featured: true },
+  { key: "day", name: "Day Pass", price: "$49", unit: "24 hours", blurb: "Every index, including new ones as they're added", url: DAY_PASS_URL, featured: true },
 ];
 
 type MeterState = { start: number; count: number };
@@ -175,7 +175,7 @@ export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () =
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed max-w-xl">
                 {atLimit
                   ? <>You've opened <b>{meter.limit}</b> leaders on the free <b>R1 Business</b> tier today (resets in {fmtReset(meter.resetInMs)}). Grab a day pass to keep going.</>
-                  : <>The free tier covers <b>R1 Business</b>. A day pass adds <b>Presidents</b> & <b>Provost</b> — need all indices? Just ask.</>}
+                  : <>The free tier covers <b>R1 Business</b>. A day pass unlocks <b>every index</b> for 24 hours.</>}
               </p>
             </div>
             <button onClick={meter.dismissPaywall} aria-label="Close" className="text-muted-foreground hover:text-foreground text-xl leading-none px-1 shrink-0">×</button>
@@ -226,8 +226,8 @@ export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () =
           </div>
 
           <p className="text-[11px] text-muted-foreground mt-3 text-center">
-            Access activates shortly after checkout — paste the access link you receive below. Need all indices or a firm plan?{" "}
-            <a href={`mailto:${CONTACT}?subject=${encodeURIComponent("BatonIndex - full access / firm plan")}`} className="text-[#011F5B] dark:text-[#AFC4E8] font-medium underline underline-offset-2">
+            Access activates shortly after checkout — paste the access link you receive below. Need longer access or a firm plan?{" "}
+            <a href={`mailto:${CONTACT}?subject=${encodeURIComponent("BatonIndex - longer access / firm plan")}`} className="text-[#011F5B] dark:text-[#AFC4E8] font-medium underline underline-offset-2">
               Contact us
             </a>.
           </p>

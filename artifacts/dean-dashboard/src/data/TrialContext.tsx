@@ -36,7 +36,7 @@ interface TrialCtx extends TrialState {
 const Ctx = createContext<TrialCtx | null>(null);
 
 // Freemium: indices open to everyone on the free tier (no token needed). A valid
-// token widens access to its own scope; the day pass grants all twelve. Keep in
+// token widens access to its own scope; the day pass grants every index. Keep in
 // sync with PUBLIC_SCOPE in api/data.js.
 export const PUBLIC_SCOPE = ["r1bschool"];
 
