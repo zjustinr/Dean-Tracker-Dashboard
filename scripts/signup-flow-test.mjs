@@ -47,6 +47,8 @@ function run([cmd, key, ...a]) {
     case "HGET": return (get() || {})[a[0]] ?? null;
     case "LPUSH": { const l = get() || []; l.unshift(...a); store.set(key, l); return l.length; }
     case "LTRIM": return "OK";
+    case "RPUSH": { const l = get() || []; l.push(...a); store.set(key, l); return l.length; }
+    case "EXPIRE": ttl.set(key, Number(a[0])); return 1;
     case "LRANGE": return get() || [];
     default: throw new Error("unmocked KV command " + cmd);
   }
@@ -54,8 +56,9 @@ function run([cmd, key, ...a]) {
 const mail = [];
 globalThis.fetch = async (url, init) => {
   if (String(url).startsWith("https://kv.test")) {
-    const cmds = JSON.parse(init.body);
-    return { ok: true, json: async () => cmds.map((c) => ({ result: run(c) })) };
+    // Run eagerly, like the real server: logUsage never reads the response.
+    const results = JSON.parse(init.body).map((c) => ({ result: run(c) }));
+    return { ok: true, json: async () => results };
   }
   if (String(url) === "https://api.resend.com/emails") { mail.push(JSON.parse(init.body)); return { ok: true }; }
   throw new Error("unexpected fetch " + url);
