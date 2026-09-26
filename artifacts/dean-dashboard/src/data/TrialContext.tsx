@@ -16,6 +16,10 @@ export interface TrialState {
   scope?: string[];
   expiry?: number;  // unix seconds
   client?: string;
+  /** Signed-up users: their organization's name. */
+  org?: string;
+  /** Set while the org is past its end date but still in the grace window (unix s). */
+  graceUntil?: number;
 }
 interface TrialCtx extends TrialState {
   /** Whether a dataset id may be opened (always true when disarmed). */
@@ -84,7 +88,7 @@ export function TrialProvider({ children }: { children: ReactNode }) {
       const ct = r.headers.get("content-type") || "";
       if (!r.ok || !ct.includes("json")) { setState({ loading: false, armed: false }); return; }
       const j = await r.json();
-      setState({ loading: false, armed: !!j.armed, status: j.status, scope: j.scope, expiry: j.expiry, client: j.client });
+      setState({ loading: false, armed: !!j.armed, status: j.status, scope: j.scope, expiry: j.expiry, client: j.client, org: j.org, graceUntil: j.graceUntil });
     } catch {
       // No endpoint (e.g. vite dev) or network error -> treat as disarmed/public.
       setState({ loading: false, armed: false });

@@ -19,12 +19,14 @@ const RESULT_TEXT: Record<string, { title: string; body: string; ok?: boolean }>
   expired: { title: "That link has expired", body: "Sign-in links work once and last 15 minutes. Request a new one below." },
   ineligible: { title: "Access isn't available", body: "Your organization's access has ended or is paused. Get in touch if you think this is a mistake." },
   unavailable: { title: "Sign-in is temporarily unavailable", body: "Please try again in a few minutes." },
+  full: { title: "No seats available", body: "All of your firm's Baton Index seats are taken. Ask a colleague to free one, or get in touch to add seats." },
 };
 
 const ERROR_TEXT: Record<string, string> = {
   invalid_email: "That doesn't look like an email address.",
   not_eligible: "That email domain isn't enrolled. Use your work email, or get in touch for access.",
   rate_limited: "Too many requests. Please wait a while and try again.",
+  no_seats: "All of your firm's seats are taken. Ask a colleague to free one, or get in touch to add seats.",
   email_failed: "We couldn't send the email just now. Please try again shortly.",
 };
 

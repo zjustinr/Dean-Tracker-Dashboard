@@ -167,29 +167,65 @@ function filteredNonAcademic(scope) {
   return Object.assign({}, full, { people });
 }
 
-// Per-client revocation switch, set/cleared by the owner from the usage
-// dashboard (api/usage.js ?block=/?unblock=). Stateless HMAC tokens can't be
-// revoked individually before their baked-in expiry without rotating
+// Live access check, run on every request that carries a valid token.
+//
+// Blocks: a per-client revocation switch, set/cleared by the owner from the
+// usage dashboard (api/usage.js ?block=/?unblock=). Stateless HMAC tokens can't
+// be revoked individually before their baked-in expiry without rotating
 // TRIAL_SECRET (which kills every link at once) -- this KV flag is the
-// per-client kill switch. Fail-open (never blocks) until KV is configured.
-// A signed-up user's client tag is their email, so the whole org can also be
-// cut at once by blocking "@<domain>" -- checked alongside the email itself.
-async function isBlocked(client) {
+// per-client kill switch. A signed-up user's client tag is their email, so the
+// whole org can also be cut at once by blocking "@<domain>".
+//
+// Org entitlement: a token from work-email signup carries its org domain `o`,
+// and for those the token only says WHO you are. WHAT you get -- scope and end
+// date -- is read from the org's live record (bi:org:<domain>), so extending or
+// shortening an org's end date takes effect on the next request, with nobody
+// signing in again. After the end date there is a GRACE_DAYS window in which
+// access continues (the UI shows a renewal banner); after that, "ended".
+// Membership is live too: removing someone from bi:org-users:<domain> (which
+// frees their seat) ends their access -- state "removed".
+//
+// state: null for tokens without an org (owner-minted links, day passes) or if
+// the lookup failed -- callers then fall back to the token's own s/x claims.
+// Fail-open throughout until KV is configured, matching the rest of the gate.
+const GRACE_DAYS = 14;
+async function liveAccess(payload) {
+  const out = { blocked: false, state: null, org: null };
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
   const tok = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !tok || !client) return false;
+  const client = payload && payload.c;
+  const domain = payload && typeof payload.o === "string" ? payload.o : null;
+  if (!url || !tok || !client) return out;
   const keys = [client];
   const at = client.lastIndexOf("@");
   if (at > 0) keys.push(client.slice(at));
+  const cmds = keys.map((k) => ["GET", `bi:blocked:${k}`]);
+  if (domain) cmds.push(["GET", `bi:org:${domain}`], ["SISMEMBER", `bi:org-users:${domain}`, client]);
   try {
     const r = await fetch(`${url}/pipeline`, {
       method: "POST",
       headers: { authorization: `Bearer ${tok}`, "content-type": "application/json" },
-      body: JSON.stringify(keys.map((k) => ["GET", `bi:blocked:${k}`])),
+      body: JSON.stringify(cmds),
     });
-    if (!r.ok) return false;
-    return (await r.json()).some((row) => row && row.result);
-  } catch { return false; }
+    if (!r.ok) return out;
+    const rows = await r.json();
+    out.blocked = rows.slice(0, keys.length).some((row) => row && row.result);
+    if (domain) {
+      let org = null;
+      try { org = JSON.parse((rows[keys.length] || {}).result || "null"); } catch { org = null; }
+      const member = Number((rows[keys.length + 1] || {}).result) === 1;
+      if (!org || !Array.isArray(org.scope) || typeof org.until !== "number") {
+        out.state = "ended";               // org removed: its members have no plan
+      } else if (!member) {
+        out.state = "removed";             // seat released by the owner
+      } else {
+        const now = Math.floor(Date.now() / 1000);
+        out.org = org;
+        out.state = now < org.until ? "active" : now < org.until + GRACE_DAYS * 86400 ? "grace" : "ended";
+      }
+    }
+    return out;
+  } catch { return out; }
 }
 
 // Lightweight usage logging to Vercel KV / Upstash (fail-safe: a no-op until the
@@ -243,14 +279,18 @@ module.exports = async function handler(req, res) {
     const queryK = (req.query && req.query.k) || "";
     const token = cookieTok || queryK || "";
     const v = token ? verify(token, secret) : { ok: false, reason: "no_token" };
-    const blocked = v.ok && (await isBlocked(v.payload.c));
-    if (v.ok && !blocked) {
+    const live = v.ok ? await liveAccess(v.payload) : {};
+    const blocked = !!live.blocked;
+    const lapsed = live.state === "ended" || live.state === "removed";
+    if (v.ok && !blocked && !lapsed) {
       // UNION, not replace. A token widens access on top of the free tier -- it
       // must never narrow it, or a trial link ends up with LESS than an
       // anonymous visitor: every scoped link 403'd on r1bschool while the UI
       // (TrialContext.allowed(), which does union PUBLIC_SCOPE) showed it as
       // open, so the switcher advertised an index the API refused.
-      scope = new Set([...PUBLIC_SCOPE, ...(v.payload.s || [])]);
+      // Signed-up users get their org's live scope, not the token's copy.
+      const granted = live.org ? live.org.scope : (v.payload.s || []);
+      scope = new Set([...PUBLIC_SCOPE, ...granted]);
       reason = "armed";
       client = v.payload.c || null;
       if (!cookieTok && queryK) {
@@ -258,10 +298,10 @@ module.exports = async function handler(req, res) {
         setCookie = `bi_trial=${encodeURIComponent(token)}; Path=/; Max-Age=${maxAge}; Secure; SameSite=Lax`;
       }
     } else {
-      // No / invalid / expired / blocked token -> the public free tier.
-      if (blocked) client = v.payload.c || null;
+      // No / invalid / expired / blocked / lapsed token -> the public free tier.
+      if (blocked || lapsed) client = v.payload.c || null;
       scope = new Set(PUBLIC_SCOPE);
-      reason = blocked ? "blocked" : "public";
+      reason = blocked ? "blocked" : lapsed ? "lapsed" : "public";
     }
     // Enforce dataset scope. Photos are public; research is served filtered below.
     // A "*" wildcard scope (owner link) grants every index, present and future.
