@@ -20,6 +20,8 @@ export interface TrialState {
   org?: string;
   /** Set while the org is past its end date but still in the grace window (unix s). */
   graceUntil?: number;
+  /** Signed-up users: first name, for the header. */
+  firstName?: string;
 }
 interface TrialCtx extends TrialState {
   /** Whether a dataset id may be opened (always true when disarmed). */
@@ -27,6 +29,8 @@ interface TrialCtx extends TrialState {
   /** Paste a token or a full ?k= link to unlock; re-checks with the server. */
   submitToken: (raw: string) => Promise<void>;
   refresh: () => Promise<void>;
+  /** End the session (the cookie is HttpOnly, so the server clears it). */
+  signOut: () => Promise<void>;
 }
 
 const Ctx = createContext<TrialCtx | null>(null);
@@ -88,7 +92,7 @@ export function TrialProvider({ children }: { children: ReactNode }) {
       const ct = r.headers.get("content-type") || "";
       if (!r.ok || !ct.includes("json")) { setState({ loading: false, armed: false }); return; }
       const j = await r.json();
-      setState({ loading: false, armed: !!j.armed, status: j.status, scope: j.scope, expiry: j.expiry, client: j.client, org: j.org, graceUntil: j.graceUntil });
+      setState({ loading: false, armed: !!j.armed, status: j.status, scope: j.scope, expiry: j.expiry, client: j.client, org: j.org, graceUntil: j.graceUntil, firstName: j.firstName });
     } catch {
       // No endpoint (e.g. vite dev) or network error -> treat as disarmed/public.
       setState({ loading: false, armed: false });
@@ -114,6 +118,11 @@ export function TrialProvider({ children }: { children: ReactNode }) {
     await refresh();
   }, [refresh]);
 
+  const signOut = useCallback(async () => {
+    try { await fetch("/api/trial?action=signout", { method: "POST" }); } catch { /* still refresh */ }
+    await refresh();
+  }, [refresh]);
+
   const allowed = useCallback(
     (id: string) =>
       !state.armed ||
@@ -125,7 +134,7 @@ export function TrialProvider({ children }: { children: ReactNode }) {
     [state.armed, state.status, state.scope],
   );
 
-  return <Ctx.Provider value={{ ...state, allowed, submitToken, refresh }}>{children}</Ctx.Provider>;
+  return <Ctx.Provider value={{ ...state, allowed, submitToken, refresh, signOut }}>{children}</Ctx.Provider>;
 }
 
 export function useTrial(): TrialCtx {

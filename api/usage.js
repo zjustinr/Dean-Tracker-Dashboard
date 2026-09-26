@@ -578,7 +578,7 @@ module.exports = async function handler(req, res) {
         users: list.map((email, i) => {
           const flat = users[i] || [], h = {};
           for (let j = 0; j < flat.length; j += 2) h[flat[j]] = flat[j + 1];
-          return { email, createdAt: Number(h.createdAt || 0), verifiedAt: Number(h.verifiedAt || 0), blocked: !!userBlocks[i] };
+          return { email, name: [h.firstName, h.lastName].filter(Boolean).join(" "), createdAt: Number(h.createdAt || 0), verifiedAt: Number(h.verifiedAt || 0), blocked: !!userBlocks[i] };
         }),
       });
     }
@@ -663,7 +663,7 @@ module.exports = async function handler(req, res) {
       orgs: orgs.map((o) => ({
         domain: o.domain, label: o.label, until: o.until ? new Date(o.until * 1000).toISOString().slice(0, 10) : null,
         allIndicesIncludingFuture: o.wildcard, blocked: o.blocked, seats: o.seats, seatsUsed: o.users.length,
-        users: o.users.map((u) => ({ email: u.email, firstVerified: u.createdAt ? new Date(u.createdAt).toISOString() : null, lastVerified: u.verifiedAt ? new Date(u.verifiedAt).toISOString() : null, blocked: u.blocked })),
+        users: o.users.map((u) => ({ email: u.email, name: u.name || null, firstVerified: u.createdAt ? new Date(u.createdAt).toISOString() : null, lastVerified: u.verifiedAt ? new Date(u.verifiedAt).toISOString() : null, blocked: u.blocked })),
       })),
       freeOpenLink: { last30d: win(free.w30), last7d: win(free.w7), lastSeen: free.last ? new Date(free.last).toISOString() : null },
       ips: ipRows.slice(0, 50).map((s) => ({ ip: s.ip, hits30d: s.hits, activeDays30d: s.days.size, rejected30d: s.rejected, clients: Array.from(s.clients), automated: s.bot, lastSeen: new Date(s.last).toISOString() })),
@@ -758,7 +758,7 @@ module.exports = async function handler(req, res) {
         <a href="/api/usage?key=${encodeURIComponent(key)}&${o.blocked ? "unblock" : "block"}=${encodeURIComponent("@" + o.domain)}" style="color:${o.blocked ? "#1a7f4b" : "#A31F34"}">${o.blocked ? "Unblock domain" : "Block domain"}</a> ·
         <a href="/api/usage?key=${encodeURIComponent(key)}&org=${encodeURIComponent(o.domain)}&remove=1" style="color:#5B6B7B" onclick="return confirm('Remove @${esc(o.domain)}? Everyone signed up under it loses access now. (Block domain is the reversible option.)')">Remove</a>
       </span></th></tr>
-      ${o.users.map((u) => `<tr><td><b>${esc(u.email)}</b>${u.blocked ? ' <span style="color:#A31F34;font-weight:700">· blocked</span>' : ""}</td>
+      ${o.users.map((u) => `<tr><td>${u.name ? `<b>${esc(u.name)}</b> <span style="color:#5B6B7B">${esc(u.email)}</span>` : `<b>${esc(u.email)}</b>`}${u.blocked ? ' <span style="color:#A31F34;font-weight:700">· blocked</span>' : ""}</td>
         <td style="color:#5B6B7B">signed up ${u.createdAt ? ago(u.createdAt) : "—"}${u.verifiedAt && u.verifiedAt !== u.createdAt ? ` · last sign-in ${ago(u.verifiedAt)}` : ""}</td>
         <td style="white-space:nowrap"><a href="/api/usage?key=${encodeURIComponent(key)}&${u.blocked ? "unblock" : "block"}=${encodeURIComponent(u.email)}" style="color:${u.blocked ? "#1a7f4b" : "#A31F34"};font-weight:600;text-decoration:none">${u.blocked ? "Unblock" : "Block"}</a> ·
           <a href="/api/usage?key=${encodeURIComponent(key)}&unseat=${encodeURIComponent(u.email)}" style="color:#5B6B7B;text-decoration:none" onclick="return confirm('Remove ${esc(u.email)} and free their seat? Their access ends now; they can sign up again if a seat is free.')">Remove</a></td></tr>`).join("") || `<tr><td colspan="3" style="color:#98A2AF">No one has signed up yet.</td></tr>`}
