@@ -17,7 +17,8 @@ type Phase = "form" | "sent";
 const RESULT_TEXT: Record<string, { title: string; body: string; ok?: boolean }> = {
   // Stripe's "after payment" redirect for the Monthly Pass lands on /?signup=paid.
   paid: { title: "Payment received — check your email", body: "We've emailed a sign-in link to the address you paid with. Open it on this device to start using your Monthly Pass. It's good for 24 hours; you can always request a new one below." },
-  ok: { title: "You're signed in", body: "Welcome to Baton Index. Your access is tied to your work email.", ok: true },
+  // Replaced by welcomeText() once the new session has loaded.
+  ok: { title: "You're signed in", body: "Welcome to Baton Index.", ok: true },
   expired: { title: "That link has expired", body: "Sign-in links work once and last 15 minutes. Request a new one below." },
   ineligible: { title: "Access isn't available", body: "Your organization's access has ended or is paused. Get in touch if you think this is a mistake." },
   unavailable: { title: "Sign-in is temporarily unavailable", body: "Please try again in a few minutes." },
@@ -31,6 +32,17 @@ const ERROR_TEXT: Record<string, string> = {
   no_seats: "All of your firm's seats are taken. Ask a colleague to free one, or get in touch to add seats.",
   email_failed: "We couldn't send the email just now. Please try again shortly.",
 };
+
+/** The "you're signed in" message, worded for the plan the person is on. */
+function welcomeText(t: { firstName?: string; plan?: "org" | "sub"; org?: string; client?: string }) {
+  const title = t.firstName ? `Welcome, ${t.firstName}` : "You're signed in";
+  const who = t.client && t.client.includes("@") ? ` as ${t.client}` : "";
+  if (t.plan === "sub")
+    return { title, body: `Your Monthly Pass is active and you're signed in${who}. Every index is open. You can see your renewal date or manage your subscription under Account.`, ok: true };
+  if (t.plan === "org")
+    return { title, body: `You're signed in${who} through ${t.org || "your firm"}'s Baton Index plan. Every index your firm's plan includes is open. See your plan details under Account.`, ok: true };
+  return { title, body: `Welcome to Baton Index. You're signed in${who}.`, ok: true };
+}
 
 /** Read and strip ?join / ?signup=<result> from the URL once, on load. */
 function takeUrlFlags(): { join: boolean; result: string | null } {
@@ -61,7 +73,8 @@ export function useSignupDialog() {
 }
 
 export function SignupDialog({ dialog }: { dialog: ReturnType<typeof useSignupDialog> }) {
-  const { refresh } = useTrial();
+  const trial = useTrial();
+  const { refresh } = trial;
   const [email, setEmail] = useState("");
   const [phase, setPhase] = useState<Phase>("form");
   const [busy, setBusy] = useState(false);
@@ -71,7 +84,9 @@ export function SignupDialog({ dialog }: { dialog: ReturnType<typeof useSignupDi
   useEffect(() => { if (dialog.result === "ok") refresh(); }, [dialog.result, refresh]);
 
   if (!dialog.open) return null;
-  const outcome = dialog.result ? RESULT_TEXT[dialog.result] : null;
+  const outcome = dialog.result === "ok" && !trial.loading
+    ? welcomeText(trial)
+    : dialog.result ? RESULT_TEXT[dialog.result] : null;
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
