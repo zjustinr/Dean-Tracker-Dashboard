@@ -194,31 +194,43 @@ function filteredNonAcademic(scope) {
 // per-client kill switch. A signed-up user's client tag is their email, so the
 // whole org can also be cut at once by blocking "@<domain>".
 //
-// Org entitlement: a token from work-email signup carries its org domain `o`,
-// and for those the token only says WHO you are. WHAT you get -- scope and end
-// date -- is read from the org's live record (bi:org:<domain>), so extending or
-// shortening an org's end date takes effect on the next request, with nobody
-// signing in again. After the end date there is a GRACE_DAYS window in which
-// access continues (the UI shows a renewal banner); after that, "ended".
-// Membership is live too: removing someone from bi:org-users:<domain> (which
-// frees their seat) ends their access -- state "removed".
+// Plans. For a signed-in person the token only says WHO you are; WHAT you get
+// -- scope and end date -- is read live on every request, so renewals,
+// cancellations and changes apply at once with nobody signing in again:
+//   * org member (token `o` = domain): the org record bi:org:<domain>, plus
+//     live membership in bi:org-users:<domain> (removing someone frees their
+//     seat and ends their access -- state "removed").
+//   * monthly subscriber (token `k` = "sub"): bi:sub:<email>, kept current by
+//     api/stripe-webhook.js from Stripe's billing events.
+// After a plan's end date there is a GRACE_DAYS window (renewal banner, or
+// Stripe retrying a failed card) before "ended". A subscription the customer
+// cancelled has no grace: it simply ends when the paid month runs out.
 //
-// state: null for tokens without an org (owner-minted links, day passes) or if
-// the lookup failed -- callers then fall back to the token's own s/x claims.
+// Returns { blocked, state, org, plan } where plan = { kind, name, scope,
+// until, graceUntil, sub } for signed-in people. state is null for tokens
+// without a plan (owner-minted links, day passes) or if the lookup failed --
+// callers then fall back to the token's own s/x claims.
 // Fail-open throughout until KV is configured, matching the rest of the gate.
 const GRACE_DAYS = 14;
+function planState(until, noGrace) {
+  const now = Math.floor(Date.now() / 1000);
+  if (now < until) return "active";
+  return !noGrace && now < until + GRACE_DAYS * 86400 ? "grace" : "ended";
+}
 async function liveAccess(payload) {
-  const out = { blocked: false, state: null, org: null };
+  const out = { blocked: false, state: null, org: null, plan: null };
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
   const tok = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
   const client = payload && payload.c;
   const domain = payload && typeof payload.o === "string" ? payload.o : null;
+  const isSub = !domain && payload && payload.k === "sub";
   if (!url || !tok || !client) return out;
   const keys = [client];
   const at = client.lastIndexOf("@");
   if (at > 0) keys.push(client.slice(at));
   const cmds = keys.map((k) => ["GET", `bi:blocked:${k}`]);
   if (domain) cmds.push(["GET", `bi:org:${domain}`], ["SISMEMBER", `bi:org-users:${domain}`, client]);
+  if (isSub) cmds.push(["GET", `bi:sub:${client}`]);
   try {
     const r = await fetch(`${url}/pipeline`, {
       method: "POST",
@@ -228,18 +240,27 @@ async function liveAccess(payload) {
     if (!r.ok) return out;
     const rows = await r.json();
     out.blocked = rows.slice(0, keys.length).some((row) => row && row.result);
+    const rec = (i) => { try { return JSON.parse((rows[keys.length + i] || {}).result || "null"); } catch { return null; } };
     if (domain) {
-      let org = null;
-      try { org = JSON.parse((rows[keys.length] || {}).result || "null"); } catch { org = null; }
+      const org = rec(0);
       const member = Number((rows[keys.length + 1] || {}).result) === 1;
       if (!org || !Array.isArray(org.scope) || typeof org.until !== "number") {
         out.state = "ended";               // org removed: its members have no plan
       } else if (!member) {
         out.state = "removed";             // seat released by the owner
       } else {
-        const now = Math.floor(Date.now() / 1000);
         out.org = org;
-        out.state = now < org.until ? "active" : now < org.until + GRACE_DAYS * 86400 ? "grace" : "ended";
+        out.state = planState(org.until);
+        out.plan = { kind: "org", name: org.label || domain, scope: org.scope, until: org.until, graceUntil: org.until + GRACE_DAYS * 86400 };
+      }
+    } else if (isSub) {
+      const sub = rec(0);
+      if (!sub || typeof sub.until !== "number") {
+        out.state = "ended";               // no subscription on record
+      } else {
+        const noGrace = sub.status === "canceled";
+        out.state = planState(sub.until, noGrace);
+        out.plan = { kind: "sub", name: "Monthly pass", scope: ["*"], until: sub.until, graceUntil: noGrace ? sub.until : sub.until + GRACE_DAYS * 86400, sub };
       }
     }
     return out;
@@ -305,8 +326,8 @@ module.exports = async function handler(req, res) {
       // anonymous visitor: every scoped link 403'd on r1bschool while the UI
       // (TrialContext.allowed(), which does union PUBLIC_SCOPE) showed it as
       // open, so the switcher advertised an index the API refused.
-      // Signed-up users get their org's live scope, not the token's copy.
-      const granted = live.org ? live.org.scope : (v.payload.s || []);
+      // Signed-in users get their plan's live scope, not the token's copy.
+      const granted = live.plan ? live.plan.scope : (v.payload.s || []);
       scope = new Set([...PUBLIC_SCOPE, ...granted]);
       reason = "armed";
       client = v.payload.c || null;

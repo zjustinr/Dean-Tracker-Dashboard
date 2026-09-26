@@ -66,31 +66,43 @@ function verify(token, secret) {
 // per-client kill switch. A signed-up user's client tag is their email, so the
 // whole org can also be cut at once by blocking "@<domain>".
 //
-// Org entitlement: a token from work-email signup carries its org domain `o`,
-// and for those the token only says WHO you are. WHAT you get -- scope and end
-// date -- is read from the org's live record (bi:org:<domain>), so extending or
-// shortening an org's end date takes effect on the next request, with nobody
-// signing in again. After the end date there is a GRACE_DAYS window in which
-// access continues (the UI shows a renewal banner); after that, "ended".
-// Membership is live too: removing someone from bi:org-users:<domain> (which
-// frees their seat) ends their access -- state "removed".
+// Plans. For a signed-in person the token only says WHO you are; WHAT you get
+// -- scope and end date -- is read live on every request, so renewals,
+// cancellations and changes apply at once with nobody signing in again:
+//   * org member (token `o` = domain): the org record bi:org:<domain>, plus
+//     live membership in bi:org-users:<domain> (removing someone frees their
+//     seat and ends their access -- state "removed").
+//   * monthly subscriber (token `k` = "sub"): bi:sub:<email>, kept current by
+//     api/stripe-webhook.js from Stripe's billing events.
+// After a plan's end date there is a GRACE_DAYS window (renewal banner, or
+// Stripe retrying a failed card) before "ended". A subscription the customer
+// cancelled has no grace: it simply ends when the paid month runs out.
 //
-// state: null for tokens without an org (owner-minted links, day passes) or if
-// the lookup failed -- callers then fall back to the token's own s/x claims.
+// Returns { blocked, state, org, plan } where plan = { kind, name, scope,
+// until, graceUntil, sub } for signed-in people. state is null for tokens
+// without a plan (owner-minted links, day passes) or if the lookup failed --
+// callers then fall back to the token's own s/x claims.
 // Fail-open throughout until KV is configured, matching the rest of the gate.
 const GRACE_DAYS = 14;
+function planState(until, noGrace) {
+  const now = Math.floor(Date.now() / 1000);
+  if (now < until) return "active";
+  return !noGrace && now < until + GRACE_DAYS * 86400 ? "grace" : "ended";
+}
 async function liveAccess(payload) {
-  const out = { blocked: false, state: null, org: null };
+  const out = { blocked: false, state: null, org: null, plan: null };
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
   const tok = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
   const client = payload && payload.c;
   const domain = payload && typeof payload.o === "string" ? payload.o : null;
+  const isSub = !domain && payload && payload.k === "sub";
   if (!url || !tok || !client) return out;
   const keys = [client];
   const at = client.lastIndexOf("@");
   if (at > 0) keys.push(client.slice(at));
   const cmds = keys.map((k) => ["GET", `bi:blocked:${k}`]);
   if (domain) cmds.push(["GET", `bi:org:${domain}`], ["SISMEMBER", `bi:org-users:${domain}`, client]);
+  if (isSub) cmds.push(["GET", `bi:sub:${client}`]);
   try {
     const r = await fetch(`${url}/pipeline`, {
       method: "POST",
@@ -100,18 +112,27 @@ async function liveAccess(payload) {
     if (!r.ok) return out;
     const rows = await r.json();
     out.blocked = rows.slice(0, keys.length).some((row) => row && row.result);
+    const rec = (i) => { try { return JSON.parse((rows[keys.length + i] || {}).result || "null"); } catch { return null; } };
     if (domain) {
-      let org = null;
-      try { org = JSON.parse((rows[keys.length] || {}).result || "null"); } catch { org = null; }
+      const org = rec(0);
       const member = Number((rows[keys.length + 1] || {}).result) === 1;
       if (!org || !Array.isArray(org.scope) || typeof org.until !== "number") {
         out.state = "ended";               // org removed: its members have no plan
       } else if (!member) {
         out.state = "removed";             // seat released by the owner
       } else {
-        const now = Math.floor(Date.now() / 1000);
         out.org = org;
-        out.state = now < org.until ? "active" : now < org.until + GRACE_DAYS * 86400 ? "grace" : "ended";
+        out.state = planState(org.until);
+        out.plan = { kind: "org", name: org.label || domain, scope: org.scope, until: org.until, graceUntil: org.until + GRACE_DAYS * 86400 };
+      }
+    } else if (isSub) {
+      const sub = rec(0);
+      if (!sub || typeof sub.until !== "number") {
+        out.state = "ended";               // no subscription on record
+      } else {
+        const noGrace = sub.status === "canceled";
+        out.state = planState(sub.until, noGrace);
+        out.plan = { kind: "sub", name: "Monthly pass", scope: ["*"], until: sub.until, graceUntil: noGrace ? sub.until : sub.until + GRACE_DAYS * 86400, sub };
       }
     }
     return out;
@@ -169,11 +190,13 @@ const RL_PER_IP = 10;
 const SESSION_DAYS = 90;
 const REFRESH_AFTER_SEC = 86400;  // re-issue the session cookie at most daily
 
-function sessionCookie(email, domain, secret) {
+// planClaim is { o: domain } for an org member or { k: "sub" } for a monthly
+// subscriber -- it tells liveAccess which live record to read.
+function sessionCookie(email, secret, planClaim) {
   const now = Math.floor(Date.now() / 1000);
   const maxAge = SESSION_DAYS * 86400;
-  // `s` is informational only for org tokens -- the live org record decides.
-  const token = mintToken({ c: email, s: [], x: now + maxAge, i: now, o: domain }, secret);
+  // `s` is informational only for these tokens -- the live plan record decides.
+  const token = mintToken(Object.assign({ c: email, s: [], x: now + maxAge, i: now }, planClaim), secret);
   // HttpOnly, unlike the ?k= cookie: nothing client-side needs to read it
   // (TrialContext asks /api/trial).
   return `bi_trial=${encodeURIComponent(token)}; Path=/; Max-Age=${maxAge}; Secure; HttpOnly; SameSite=Lax`;
@@ -223,6 +246,17 @@ async function activeOrg(domain) {
   return org;
 }
 
+// A monthly subscriber may sign in while their pass is current, or in the
+// grace window while Stripe retries a failed card.
+async function activeSub(email) {
+  const [raw, b1, b2] = await kv([["GET", `bi:sub:${email}`], ["GET", `bi:blocked:${email}`], ["GET", `bi:blocked:${email.slice(email.lastIndexOf("@"))}`]]);
+  if (!raw || b1 || b2) return null;
+  let sub;
+  try { sub = JSON.parse(raw); } catch { return null; }
+  if (!sub || typeof sub.until !== "number") return null;
+  return planState(sub.until, sub.status === "canceled") === "ended" ? null : sub;
+}
+
 // Counts toward a limit and reports whether it has been exceeded.
 async function overLimit(key, max) {
   const [, n] = await kv([["SET", key, "0", "EX", String(RL_WINDOW_SEC), "NX"], ["INCR", key]]);
@@ -235,10 +269,16 @@ async function overLimit(key, max) {
 // site's EB Garamond), no flex. Colours match the app: Penn navy #011F5B for
 // type, crimson #A31F34 for the brand bar and button. A plain-text part rides
 // along -- HTML-only mail scores worse with spam filters.
-function signInEmail({ link, org, firstName }) {
-  const until = new Date(org.until * 1000).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+// target: { kind: "org", org } or { kind: "sub", sub }.
+function signInEmail({ link, target, firstName, ttlSec = LINK_TTL_SEC }) {
+  const isSub = target.kind === "sub";
+  const plan = isSub ? target.sub : target.org;
+  const until = new Date(plan.until * 1000).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
   const hi = firstName ? `Hi ${esc(firstName)},` : "Hello,";
-  const orgLine = org.label ? ` with your <b>${esc(org.label)}</b> account` : "";
+  const label = isSub ? "" : plan.label || "";
+  const orgLine = isSub ? " with your <b>monthly pass</b>" : label ? ` with your <b>${esc(label)}</b> account` : "";
+  const ttl = ttlSec >= 86400 ? "24 hours" : "15 minutes";
+  const note = isSub ? `Your monthly pass is active through ${until}.` : label ? `${label}'s access runs through ${until}.` : "";
   const serif = "Georgia,'Times New Roman',serif";
   const sans = "-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
   const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Sign in to Baton Index</title></head>
@@ -260,7 +300,7 @@ function signInEmail({ link, org, firstName }) {
       </td></tr></table>
     </td></tr>
     <tr><td style="padding:0 40px;font-family:${sans};font-size:13px;line-height:20px;color:#5B6B7B">
-      <p style="margin:0 0 12px">This link works once and expires in 15 minutes.${org.label ? ` ${esc(org.label)}'s access runs through ${until}.` : ""}</p>
+      <p style="margin:0 0 12px">This link works once and expires in ${ttl}.${note ? ` ${esc(note)}` : ""}</p>
       <p style="margin:0 0 4px">Button not working? Paste this address into your browser:</p>
       <p style="margin:0;word-break:break-all"><a href="${link}" style="color:#011F5B">${link}</a></p>
     </td></tr>
@@ -276,10 +316,10 @@ function signInEmail({ link, org, firstName }) {
   const text = [
     firstName ? `Hi ${firstName},` : "Hello,",
     "",
-    `Use this link to sign in to Baton Index${org.label ? ` with your ${org.label} account` : ""}:`,
+    `Use this link to sign in to Baton Index${isSub ? " with your monthly pass" : label ? ` with your ${label} account` : ""}:`,
     link,
     "",
-    `The link works once and expires in 15 minutes.${org.label ? ` ${org.label}'s access runs through ${until}.` : ""}`,
+    `The link works once and expires in ${ttl}.${note ? ` ${note}` : ""}`,
     "",
     "If you didn't ask for this, ignore this email — nothing happens without the link.",
     "— Baton Index · batonindex.com",
@@ -287,11 +327,11 @@ function signInEmail({ link, org, firstName }) {
   return { html, text };
 }
 
-async function sendSignInEmail(to, link, org, firstName) {
+async function sendSignInEmail(to, link, target, firstName, ttlSec) {
   const RESEND_KEY = process.env.RESEND_API_KEY || "";
   if (!RESEND_KEY) { console.log(`trial signup: RESEND_API_KEY unset -- sign-in link for ${to} not emailed.`); return false; }
   const FROM = process.env.FEATURE_REQUEST_FROM || "Baton Index <alerts@batonindex.com>";
-  const { html, text } = signInEmail({ link, org, firstName });
+  const { html, text } = signInEmail({ link, target, firstName, ttlSec });
   try {
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -300,6 +340,17 @@ async function sendSignInEmail(to, link, org, firstName) {
     });
     return r.ok;
   } catch { return false; }
+}
+
+// Creates a one-time sign-in code and emails the link. Also used by
+// api/stripe-webhook.js to send a new subscriber their link right after
+// payment (with a 24-hour life, since they may not open it straight away).
+async function issueSignInLink(email, target, ttlSec = LINK_TTL_SEC) {
+  const code = crypto.randomBytes(24).toString("base64url");
+  const record = { email, kind: target.kind, domain: target.kind === "org" ? target.domain : null, t: Date.now() };
+  await kv([["SET", `bi:signup:${sha256(code)}`, JSON.stringify(record), "EX", String(ttlSec)]]);
+  const [firstName] = await kv([["HGET", `bi:user:${email}`, "firstName"]]);
+  return sendSignInEmail(email, `${SITE}/api/trial?verify=${code}`, target, firstName || "", ttlSec);
 }
 
 async function handleSignupRequest(req, res, secret) {
@@ -315,17 +366,17 @@ async function handleSignupRequest(req, res, secret) {
         await overLimit(`bi:rl:signup-email:${email}`, RL_PER_EMAIL)) {
       res.status(429).json({ ok: false, error: "rate_limited" }); return;
     }
+    // Eligible if the email's domain is an enrolled firm, or the email itself
+    // has a current monthly pass. A firm plan wins if both apply.
     const org = await activeOrg(domain);
-    if (!org) { res.status(200).json({ ok: false, error: "not_eligible" }); return; }
-    if (org.seats) {
+    const sub = org ? null : await activeSub(email);
+    if (!org && !sub) { res.status(200).json({ ok: false, error: "not_eligible" }); return; }
+    if (org && org.seats) {
       // Existing members can always sign in again (new device, cleared cookies).
       const [member, used] = await kv([["SISMEMBER", `bi:org-users:${domain}`, email], ["SCARD", `bi:org-users:${domain}`]]);
       if (!Number(member) && Number(used) >= org.seats) { res.status(200).json({ ok: false, error: "no_seats" }); return; }
     }
-    const code = crypto.randomBytes(24).toString("base64url");
-    await kv([["SET", `bi:signup:${sha256(code)}`, JSON.stringify({ email, domain, t: Date.now() }), "EX", String(LINK_TTL_SEC)]]);
-    const [firstName] = await kv([["HGET", `bi:user:${email}`, "firstName"]]);
-    const sent = await sendSignInEmail(email, `${SITE}/api/trial?verify=${code}`, org, firstName || "");
+    const sent = await issueSignInLink(email, org ? { kind: "org", domain, org } : { kind: "sub", sub });
     if (!sent) { res.status(503).json({ ok: false, error: "email_failed" }); return; }
     await logUsage(req, "signup-request", email, domain);
     res.status(200).json({ ok: true });
@@ -427,7 +478,7 @@ async function handleVerify(req, res, secret) {
     const key = `bi:signup:${sha256(code)}`;
     const [raw] = await kv([["GET", key]]);
     if (!raw) { back("expired"); return; }
-    const { email, domain } = JSON.parse(raw);
+    const { email, domain, kind } = JSON.parse(raw);
 
     // First sign-in must carry a name. Check before spending the code, so a
     // blank submit just shows the form again with the same link still good.
@@ -438,6 +489,19 @@ async function handleVerify(req, res, secret) {
 
     const [still] = await kv([["GET", key], ["DEL", key]]);
     if (!still) { back("expired"); return; }            // lost a race with another tab
+    const ms = String(Date.now());
+    const names = haveFirst ? [] : ["firstName", firstName, "lastName", lastName];
+
+    if (kind === "sub") {
+      // Monthly subscriber: access comes from bi:sub:<email>, no seats.
+      if (!(await activeSub(email))) { back("ineligible"); return; }
+      await kv([["HSETNX", `bi:user:${email}`, "createdAt", ms], ["HSET", `bi:user:${email}`, "email", email, "plan", "monthly", "verifiedAt", ms, ...names]]);
+      await logUsage(req, "signup-verified", email, "monthly");
+      res.setHeader("set-cookie", sessionCookie(email, secret, { k: "sub" }));
+      back("ok");
+      return;
+    }
+
     const org = await activeOrg(domain);
     if (!org || (await liveAccess({ c: email })).blocked) { back("ineligible"); return; }
 
@@ -449,12 +513,10 @@ async function handleVerify(req, res, secret) {
       await kv([["SREM", members, email]]);
       back("full"); return;
     }
-    const ms = String(Date.now());
-    const fields = ["email", email, "domain", domain, "org", org.label || domain, "verifiedAt", ms];
-    if (!haveFirst) fields.push("firstName", firstName, "lastName", lastName);
+    const fields = ["email", email, "domain", domain, "org", org.label || domain, "verifiedAt", ms, ...names];
     await kv([["HSETNX", `bi:user:${email}`, "createdAt", ms], ["HSET", `bi:user:${email}`, ...fields]]);
     await logUsage(req, "signup-verified", email, domain);
-    res.setHeader("set-cookie", sessionCookie(email, domain, secret));
+    res.setHeader("set-cookie", sessionCookie(email, secret, { o: domain }));
     back("ok");
   } catch (e) {
     console.error("trial verify failed:", e && e.message);
@@ -507,7 +569,9 @@ async function handleAccount(req, res, secret) {
     } catch { user = {}; }
   }
   const org = sess.live && sess.live.org;
-  const scope = org ? org.scope : (p.s || []);
+  const lp = sess.live && sess.live.plan;          // org or monthly plan, when there is one
+  const sub = lp && lp.sub;
+  const scope = lp ? lp.scope : (p.s || []);
   const state = { valid: sess.live && sess.live.state === "grace" ? "grace" : "active", ended: "ended", expired: "ended", blocked: "suspended", removed: "removed" }[sess.kind];
   res.status(200).json({
     ok: true,
@@ -517,15 +581,18 @@ async function handleAccount(req, res, secret) {
     lastName: user.lastName || "",
     memberSince: user.createdAt ? Number(user.createdAt) : null,
     plan: {
-      kind: p.o ? "org" : "link",
+      kind: p.o ? "org" : p.k === "sub" ? "sub" : "link",
       org: org ? org.label || p.o : p.o || null,
       state,
       allIndices: scope.includes("*"),
       indices: scope.includes("*") ? null : scope.length,
-      expiry: org ? org.until : (sess.expiry || p.x || null),
-      graceUntil: sess.live && sess.live.state === "grace" ? org.until + GRACE_DAYS * 86400 : null,
+      expiry: lp ? lp.until : (sess.expiry || p.x || null),
+      graceUntil: state === "grace" && lp ? lp.graceUntil : null,
       seats: org && org.seats ? org.seats : null,
       seatsUsed,
+      // Monthly pass only: whether it renews, and whether Stripe is retrying a card.
+      renews: sub ? sub.status !== "canceled" && !sub.cancelAtPeriodEnd : null,
+      paymentProblem: sub ? sub.status === "past_due" : false,
     },
   });
 }
@@ -535,7 +602,7 @@ async function handleProfile(req, res, secret) {
   if (req.method !== "POST") { res.status(405).json({ ok: false, error: "method_not_allowed" }); return; }
   if (!secret || !kvCreds().url || !kvCreds().tok) { res.status(503).json({ ok: false, error: "unavailable" }); return; }
   const sess = await resolveSession(req, secret);
-  if (sess.kind !== "valid" || !sess.p.o) { res.status(403).json({ ok: false, error: "not_signed_in" }); return; }
+  if (sess.kind !== "valid" || !(sess.p.o || sess.p.k === "sub")) { res.status(403).json({ ok: false, error: "not_signed_in" }); return; }
   const body = formBody(req);
   const firstName = cleanName(body.firstName), lastName = cleanName(body.lastName);
   if (!firstName || !lastName) { res.status(400).json({ ok: false, error: "name_required" }); return; }
@@ -543,7 +610,11 @@ async function handleProfile(req, res, secret) {
   res.status(200).json({ ok: true, firstName, lastName });
 }
 
-module.exports = async function handler(req, res) {
+module.exports = handler;
+module.exports.issueSignInLink = issueSignInLink;
+module.exports.planState = planState;
+
+async function handler(req, res) {
   res.setHeader("cache-control", "no-store");
   const secret = process.env.TRIAL_SECRET;
   const action = req.query && req.query.action;
@@ -578,18 +649,18 @@ module.exports = async function handler(req, res) {
   // The org's plan ran out (grace included). Keep the cookie: if the org is
   // renewed, this same login is valid again with nothing for the user to do.
   const live = sess.live;
-  const orgName = live.org ? live.org.label || p.o : undefined;
+  const orgName = live.plan && live.plan.kind === "org" ? live.plan.name : undefined;
   if (sess.kind === "ended") {
     await logUsage(req, "expired-open", p.c, null);
-    res.status(200).json({ armed: true, status: "expired", expiry: live.org ? live.org.until : nowSec - 1, client: p.c, org: orgName });
+    res.status(200).json({ armed: true, status: "expired", expiry: live.plan ? live.plan.until : nowSec - 1, client: p.c, org: orgName, plan: live.plan ? live.plan.kind : undefined });
     return;
   }
   await logUsage(req, "open", p.c, null);
 
   let firstName;
-  if (p.o && live.state) {
+  if ((p.o || p.k === "sub") && live.state) {
     // Rolling session: an active user never hits the 90-day login limit.
-    if (nowSec - (p.i || 0) > REFRESH_AFTER_SEC) res.setHeader("set-cookie", sessionCookie(p.c, p.o, secret));
+    if (nowSec - (p.i || 0) > REFRESH_AFTER_SEC) res.setHeader("set-cookie", sessionCookie(p.c, secret, p.o ? { o: p.o } : { k: "sub" }));
     try { [firstName] = await kv([["HGET", `bi:user:${p.c}`, "firstName"]]); } catch { firstName = undefined; }
   } else if (!sess.cookieTok && sess.queryK) {
     // Valid — persist the cookie if the token arrived via ?k= so refreshes work.
@@ -598,10 +669,11 @@ module.exports = async function handler(req, res) {
   }
   res.status(200).json({
     armed: true, status: "valid", client: p.c,
-    scope: live.org ? live.org.scope : p.s,
-    expiry: live.org ? live.org.until : p.x,
+    scope: live.plan ? live.plan.scope : p.s,
+    expiry: live.plan ? live.plan.until : p.x,
+    plan: live.plan ? live.plan.kind : undefined,
     org: orgName,
     firstName: firstName || undefined,
-    graceUntil: live.state === "grace" ? live.org.until + GRACE_DAYS * 86400 : undefined,
+    graceUntil: live.state === "grace" && live.plan ? live.plan.graceUntil : undefined,
   });
 };

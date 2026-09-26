@@ -1,4 +1,5 @@
-// Baton Index — Stripe webhook: auto-issue the $49 day pass on payment.
+// Baton Index — Stripe webhook: issues the $49 day pass on payment, and keeps
+// $99/month subscriptions (the Monthly pass) in sync with Stripe billing.
 //
 // Closes the gap FreeTierMeter.tsx's own comment calls out ("automatic pass
 // issuance after payment... is the planned v2"): today a day-pass buyer pays
@@ -13,8 +14,22 @@
 //
 // Setup (manual, one-time, in the Stripe Dashboard):
 //   Developers -> Webhooks -> Add endpoint -> https://batonindex.com/api/stripe-webhook
-//   Event: checkout.session.completed
+//   Events: checkout.session.completed, invoice.paid, invoice.payment_failed,
+//           customer.subscription.updated, customer.subscription.deleted
 //   Copy the resulting signing secret into Vercel as STRIPE_WEBHOOK_SECRET.
+//
+// Monthly pass. A subscription's state lives at bi:sub:<email>
+//   { email, status: active|past_due|canceled, until, cancelAtPeriodEnd,
+//     subscription, customer, provisional, createdAt, updatedAt }
+// and is read live by api/trial.js + api/data.js (liveAccess), so a renewal,
+// failed card or cancellation takes effect on the subscriber's next request.
+// bi:sub-id:<subscription id> maps back to the email, because later billing
+// events carry the subscription id but not always the email.
+//   checkout (mode=subscription) -> provisional 32-day record + sign-in email
+//   invoice.paid                 -> until = end of the paid period, active
+//   invoice.payment_failed       -> past_due (Stripe retries; grace applies)
+//   subscription.updated         -> cancelAtPeriodEnd / status
+//   subscription.deleted         -> canceled; access ends at ended_at
 //
 // Self-contained CommonJS (no `stripe` SDK, no `raw-body` package -- plain
 // crypto + a manual stream read), mirroring the rest of api/*.js.
@@ -121,6 +136,102 @@ async function sendPassEmail(to, link, expiryISO) {
   } catch { return false; }
 }
 
+// --- monthly pass ------------------------------------------------------------
+const SUB_EVENTS = new Set(["invoice.paid", "invoice.payment_failed", "customer.subscription.updated", "customer.subscription.deleted"]);
+const PROVISIONAL_DAYS = 32;   // until invoice.paid reports the real period end
+
+function subStatus(stripeStatus) {
+  if (stripeStatus === "canceled" || stripeStatus === "incomplete_expired") return "canceled";
+  if (stripeStatus === "past_due" || stripeStatus === "unpaid") return "past_due";
+  return "active";
+}
+async function readSub(email) {
+  const r = await kv([["GET", `bi:sub:${email}`]]);
+  try { return r && r[0] ? JSON.parse(r[0]) : null; } catch { return null; }
+}
+async function writeSub(sub) {
+  sub.updatedAt = Date.now();
+  const cmds = [["SET", `bi:sub:${sub.email}`, JSON.stringify(sub)], ["SADD", "bi:subs", sub.email]];
+  if (sub.subscription) cmds.push(["SET", `bi:sub-id:${sub.subscription}`, sub.email]);
+  return kv(cmds);
+}
+// Stripe moved an invoice's subscription id under `parent` in newer API
+// versions; accept both shapes.
+function invoiceSubscriptionId(inv) {
+  return inv.subscription
+    || (inv.parent && inv.parent.subscription_details && inv.parent.subscription_details.subscription)
+    || (inv.lines && inv.lines.data && inv.lines.data.map((l) => l.subscription || (l.parent && l.parent.subscription_item_details && l.parent.subscription_item_details.subscription)).find(Boolean))
+    || null;
+}
+async function emailForSubscription(subId, fallback) {
+  if (fallback) return String(fallback).trim().toLowerCase();
+  if (!subId) return null;
+  const r = await kv([["GET", `bi:sub-id:${subId}`]]);
+  return r && r[0] ? r[0] : null;
+}
+function logSub(req, email, ev, detail) {
+  const t = Date.now();
+  const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  return kv([
+    ...eventCmds(JSON.stringify({ c: email, ev, f: detail || null, t, ip })),
+    ["SADD", "bi:clients", email],
+    ["HSET", `bi:client:${email}`, "last", String(t), "lastEvent", ev],
+  ]);
+}
+
+async function handleSubscriptionCheckout(req, res, session, email) {
+  const now = Math.floor(Date.now() / 1000);
+  const existing = await readSub(email);
+  const sub = Object.assign({ email, createdAt: Date.now() }, existing || {}, {
+    status: "active",
+    subscription: session.subscription || (existing && existing.subscription) || null,
+    customer: session.customer || (existing && existing.customer) || null,
+    cancelAtPeriodEnd: false,
+  });
+  // Grant access now; invoice.paid (usually seconds later) sets the real end.
+  if (!existing || !(existing.until > now)) { sub.until = now + PROVISIONAL_DAYS * 86400; sub.provisional = true; }
+  await writeSub(sub);
+  // Their first sign-in link, good for 24 hours. Later they can ask for a new
+  // one at /?join with the same email.
+  let emailed = false;
+  try { emailed = await require("./trial.js").issueSignInLink(email, { kind: "sub", sub }, 86400); } catch (e) { console.error("stripe-webhook: sign-in email failed:", e && e.message); }
+  await logSub(req, email, "subscription-started", emailed ? "emailed" : "email-failed");
+  res.status(200).json({ ok: true, subscription: true, emailed });
+}
+
+async function handleSubscriptionEvent(req, res, event) {
+  const obj = event.data && event.data.object || {};
+  const isInvoice = event.type.startsWith("invoice.");
+  const subId = isInvoice ? invoiceSubscriptionId(obj) : obj.id;
+  if (!subId) { res.status(200).json({ ok: true, skipped: "not_a_subscription" }); return; }
+  const email = await emailForSubscription(subId, isInvoice ? obj.customer_email : null);
+  if (!email) { res.status(200).json({ ok: true, skipped: "unknown_subscription" }); return; }
+  const sub = (await readSub(email)) || { email, createdAt: Date.now(), until: 0 };
+  sub.subscription = subId;
+  if (obj.customer) sub.customer = typeof obj.customer === "string" ? obj.customer : obj.customer.id;
+
+  if (event.type === "invoice.paid") {
+    const ends = ((obj.lines && obj.lines.data) || []).map((l) => l.period && l.period.end).filter(Number.isFinite);
+    const periodEnd = ends.length ? Math.max(...ends) : 0;
+    if (periodEnd && (sub.provisional || !(sub.until >= periodEnd))) sub.until = periodEnd;
+    sub.provisional = false;
+    sub.status = "active";
+  } else if (event.type === "invoice.payment_failed") {
+    if (sub.status !== "canceled") sub.status = "past_due";
+  } else if (event.type === "customer.subscription.updated") {
+    sub.status = subStatus(obj.status);
+    sub.cancelAtPeriodEnd = !!obj.cancel_at_period_end;
+  } else if (event.type === "customer.subscription.deleted") {
+    sub.status = "canceled";
+    sub.cancelAtPeriodEnd = false;
+    const endedAt = Number(obj.ended_at) || Math.floor(Date.now() / 1000);
+    if (!(sub.until <= endedAt)) sub.until = endedAt;   // never extends; an immediate cancel ends now
+  }
+  await writeSub(sub);
+  await logSub(req, email, event.type.replace("customer.", ""), sub.status);
+  res.status(200).json({ ok: true, subscription: sub.status, until: sub.until });
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader("cache-control", "no-store");
   if (req.method !== "POST") { res.status(405).json({ ok: false, error: "method_not_allowed" }); return; }
@@ -144,7 +255,16 @@ module.exports = async function handler(req, res) {
   let event;
   try { event = JSON.parse(rawBody.toString("utf8")); } catch { res.status(400).json({ ok: false, error: "bad_json" }); return; }
 
-  // Acknowledge every event type quickly; only checkout.session.completed
+  // Idempotency for billing events: Stripe can deliver the same event twice.
+  if (SUB_EVENTS.has(event.type)) {
+    const seenEvt = await kv([["SET", `bi:stripe-evt:${event.id}`, "1", "NX", "EX", "2592000"]]);
+    if (!seenEvt) { res.status(503).json({ ok: false, error: "storage_unavailable" }); return; }   // Stripe retries
+    if (seenEvt[0] !== "OK") { res.status(200).json({ ok: true, skipped: "duplicate" }); return; }
+    await handleSubscriptionEvent(req, res, event);
+    return;
+  }
+
+  // Acknowledge every other event type quickly; only checkout.session.completed
   // triggers issuance. Stripe retries on non-2xx, so unhandled types still
   // get a 200.
   if (event.type !== "checkout.session.completed") { res.status(200).json({ ok: true, ignored: event.type }); return; }
@@ -159,6 +279,13 @@ module.exports = async function handler(req, res) {
   // the first time this session is seen.
   const seen = await kv([["SET", `bi:stripe-seen:${sessionId}`, "1", "NX", "EX", "2592000"]]);
   if (seen && seen[0] !== "OK") { res.status(200).json({ ok: true, skipped: "duplicate" }); return; }
+
+  // A Monthly-pass checkout: set up the subscription, never a day pass.
+  if (session.mode === "subscription") {
+    if (!seen) { res.status(503).json({ ok: false, error: "storage_unavailable" }); return; }   // Stripe retries
+    await handleSubscriptionCheckout(req, res, session, email);
+    return;
+  }
 
   const { token, expSec } = mintDayPassToken(email, trialSecret);
   const link = `${DOMAIN}/?k=${token}`;

@@ -356,6 +356,9 @@ Per-person access for an enrolled firm, on top of the existing trial-token gate 
 - Rate limits: 3 requests/email/hour, 10/IP/hour. `signup-request` events are audit-only and don't count as engagement.
 - Test: `node scripts/signup-flow-test.mjs`.
 
+### Monthly Pass — $99/month subscription (Sep 2026)
+Self-serve alongside the $49 Day Pass (both scope `"*"`). Stripe Payment Link (`MONTHLY_PASS_URL` in `FreeTierMeter.tsx`; the card is hidden while it's empty) → `api/stripe-webhook.js` keeps `bi:sub:<email>` in sync: checkout (mode=subscription) creates a provisional 32-day record and emails a 24-hour sign-in link (via `issueSignInLink`, exported from `api/trial.js`); `invoice.paid` sets `until` to the paid period's end; `invoice.payment_failed` → `past_due` (14-day grace); `customer.subscription.updated` records `cancelAtPeriodEnd`; `customer.subscription.deleted` → `canceled`, access ends at `ended_at` and is never extended. `bi:sub-id:<subscription>` maps billing events back to the email. Subscribers sign in at `/?join` like firm members (token claim `k: "sub"`; `liveAccess` reads the record live and returns `plan`). Account page shows renew/cancel/payment status and a "Manage subscription" link (`BILLING_PORTAL_URL` in `AccountDialog.tsx`, Stripe customer portal). Usage page lists subscribers. Stripe webhook must subscribe to all five events above. Test: `node scripts/subscription-test.mjs`.
+
 ### Event history & archive (Sep 2026)
 Every logged event goes through `eventCmds()` (identical copy in each `api/*.js` that logs) into three layers:
 - `bi:events` — the capped live feed (last 2,000), used only for the usage page's recent-activity list.

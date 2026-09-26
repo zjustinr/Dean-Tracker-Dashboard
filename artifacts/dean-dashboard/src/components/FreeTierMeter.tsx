@@ -19,13 +19,20 @@ const WINDOW_MS = 24 * 3600 * 1000;
 const KEY = "bi_free_meter";
 const CONTACT = "ren@bu.edu";
 
-// One simple paid option for now: a $49 day pass that unlocks every index,
-// including new ones, for 24 hours (scope "*", enforced server-side in
-// api/data.js). Longer access and firm plans are a "Contact us" conversation.
+// Two self-serve options, both every index including new ones (scope "*",
+// enforced server-side in api/data.js):
+//   * $49 Day Pass -- 24 hours; the webhook emails an access link.
+//   * $99 Monthly Pass -- auto-renewing subscription; the webhook keeps
+//     bi:sub:<email> in sync with Stripe and emails a sign-in link.
+// Firm plans are a "Contact us" conversation.
 const DAY_PASS_URL = "https://buy.stripe.com/6oUfZ9bu78pccgy80gebu02"; // $49 all-index day pass
+// Stripe Payment Link for the $99/month subscription. Until it's set the
+// Monthly card stays hidden, so this can ship before the link exists.
+const MONTHLY_PASS_URL = "";
 const PASSES = [
-  { key: "day", name: "Day Pass", price: "$49", unit: "24 hours", blurb: "Every index, including new ones as they're added", url: DAY_PASS_URL, featured: true },
-];
+  { key: "monthly", name: "Monthly Pass", price: "$99", unit: "month", blurb: "Every index · renews monthly · cancel anytime", url: MONTHLY_PASS_URL, badge: "Best value" },
+  { key: "day", name: "Day Pass", price: "$49", unit: "24 hours", blurb: "Every index, including new ones as they're added", url: DAY_PASS_URL, badge: "" },
+].filter((p) => p.url);
 
 type MeterState = { start: number; count: number };
 
@@ -134,12 +141,12 @@ export function MeterBadge({ meter }: { meter: FreeMeter }) {
       <span className={low ? "text-white" : "text-[#A31F34]"} aria-hidden>●</span>
       {meter.remaining > 0
         ? <span><b>{meter.remaining}</b> free view{meter.remaining === 1 ? "" : "s"} left today</span>
-        : <span>Free views used · <u>Get a day pass</u></span>}
+        : <span>Free views used · <u>Get full access</u></span>}
     </button>
   );
 }
 
-/** The day-pass paywall overlay. */
+/** The paywall overlay: Monthly and Day passes. */
 export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () => void }) {
   const { submitToken, status } = useTrial();
   const [code, setCode] = useState("");
@@ -164,25 +171,27 @@ export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () =
       role="dialog" aria-modal="true" aria-label="Get access"
       onClick={meter.dismissPaywall}
     >
-      <div className="w-full max-w-lg my-8 rounded-2xl border border-border bg-card shadow-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+      <div className="w-full max-w-2xl my-8 rounded-2xl border border-border bg-card shadow-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
         <div className="h-1.5 bg-[#A31F34]" />
         <div className="p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">
-                {atLimit ? "You've reached today's free limit" : "Get a day pass"}
+                {atLimit ? "You've reached today's free limit" : "Get full access"}
               </h2>
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed max-w-xl">
                 {atLimit
-                  ? <>You've opened <b>{meter.limit}</b> leaders on the free <b>R1 Business</b> tier today (resets in {fmtReset(meter.resetInMs)}). Grab a day pass to keep going.</>
-                  : <>The free tier covers <b>R1 Business</b>. A day pass unlocks <b>every index</b> for 24 hours.</>}
+                  ? <>You've opened <b>{meter.limit}</b> leaders on the free <b>R1 Business</b> tier today (resets in {fmtReset(meter.resetInMs)}). Get a pass to keep going.</>
+                  : <>The free tier covers <b>R1 Business</b>. A pass unlocks <b>every index</b>, including new ones as they're added.</>}
               </p>
             </div>
             <button onClick={meter.dismissPaywall} aria-label="Close" className="text-muted-foreground hover:text-foreground text-xl leading-none px-1 shrink-0">×</button>
           </div>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            {PASSES.map((p) => {
+            {PASSES.map((p, i) => {
+              // The first card is the recommended one (Monthly when it's offered).
+              const featured = i === 0;
               const external = !!p.url;
               const href = external
                 ? p.url
@@ -192,14 +201,14 @@ export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () =
                   key={p.key}
                   className={[
                     "relative rounded-xl border p-4 flex flex-col w-full sm:w-72",
-                    p.featured
+                    featured
                       ? "border-[#A31F34] ring-1 ring-[#A31F34]/30 bg-slate-50 dark:bg-slate-800/50"
                       : "border-slate-200 dark:border-slate-700 bg-card",
                   ].join(" ")}
                 >
-                  {p.featured && PASSES.length > 1 && (
+                  {p.badge && PASSES.length > 1 && (
                     <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#A31F34] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                      Most popular
+                      {p.badge}
                     </span>
                   )}
                   <div className="text-sm font-bold text-foreground">{p.name}</div>
@@ -213,7 +222,7 @@ export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () =
                     {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className={[
                       "mt-3 inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
-                      p.featured
+                      featured
                         ? "bg-[#A31F34] text-white hover:bg-[#8c1a2c]"
                         : "border border-border text-foreground hover:bg-muted",
                     ].join(" ")}
@@ -226,8 +235,8 @@ export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () =
           </div>
 
           <p className="text-[11px] text-muted-foreground mt-3 text-center">
-            Access activates shortly after checkout — paste the access link you receive below. Need longer access or a firm plan?{" "}
-            <a href={`mailto:${CONTACT}?subject=${encodeURIComponent("BatonIndex - longer access / firm plan")}`} className="text-[#011F5B] dark:text-[#AFC4E8] font-medium underline underline-offset-2">
+            After checkout we email you an access link (Day Pass) or a sign-in link (Monthly Pass). Need a plan for your whole firm?{" "}
+            <a href={`mailto:${CONTACT}?subject=${encodeURIComponent("BatonIndex - firm plan")}`} className="text-[#011F5B] dark:text-[#AFC4E8] font-medium underline underline-offset-2">
               Contact us
             </a>.
           </p>
@@ -248,12 +257,12 @@ export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () =
           </form>
           {onSignIn && (
             <p className="text-xs text-muted-foreground mt-4 text-center">
-              With a partner firm?{" "}
+              Already have a Monthly Pass or a firm plan?{" "}
               <button
                 onClick={() => { meter.dismissPaywall(); onSignIn(); }}
                 className="text-[#011F5B] dark:text-[#AFC4E8] font-semibold underline underline-offset-2 hover:opacity-80"
               >
-                Sign in with your work email
+                Sign in
               </button>
             </p>
           )}

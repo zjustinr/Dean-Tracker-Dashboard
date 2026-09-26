@@ -15,6 +15,8 @@ const CONTACT = "ren@bu.edu";
 type Phase = "form" | "sent";
 
 const RESULT_TEXT: Record<string, { title: string; body: string; ok?: boolean }> = {
+  // Stripe's "after payment" redirect for the Monthly Pass lands on /?signup=paid.
+  paid: { title: "Payment received — check your email", body: "We've emailed a sign-in link to the address you paid with. Open it on this device to start using your Monthly Pass. It's good for 24 hours; you can always request a new one below." },
   ok: { title: "You're signed in", body: "Welcome to Baton Index. Your access is tied to your work email.", ok: true },
   expired: { title: "That link has expired", body: "Sign-in links work once and last 15 minutes. Request a new one below." },
   ineligible: { title: "Access isn't available", body: "Your organization's access has ended or is paused. Get in touch if you think this is a mistake." },
@@ -24,7 +26,7 @@ const RESULT_TEXT: Record<string, { title: string; body: string; ok?: boolean }>
 
 const ERROR_TEXT: Record<string, string> = {
   invalid_email: "That doesn't look like an email address.",
-  not_eligible: "That email domain isn't enrolled. Use your work email, or get in touch for access.",
+  not_eligible: "We couldn't find access for that email. Use your work email if your firm has a plan, or the email you subscribed with.",
   rate_limited: "Too many requests. Please wait a while and try again.",
   no_seats: "All of your firm's seats are taken. Ask a colleague to free one, or get in touch to add seats.",
   email_failed: "We couldn't send the email just now. Please try again shortly.",
@@ -93,7 +95,7 @@ export function SignupDialog({ dialog }: { dialog: ReturnType<typeof useSignupDi
   return (
     <div
       className="fixed inset-0 z-[60] flex items-start justify-center bg-black/50 p-4 overflow-y-auto"
-      role="dialog" aria-modal="true" aria-label="Sign in with work email"
+      role="dialog" aria-modal="true" aria-label="Sign in"
       onClick={dialog.close}
     >
       <div className="w-full max-w-md my-16 rounded-2xl border border-border bg-card shadow-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
@@ -101,7 +103,7 @@ export function SignupDialog({ dialog }: { dialog: ReturnType<typeof useSignupDi
         <div className="p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">
             <h2 className="text-xl font-bold text-foreground leading-tight">
-              {outcome ? outcome.title : phase === "sent" ? "Check your email" : "Sign in with your work email"}
+              {outcome ? outcome.title : phase === "sent" ? "Check your email" : "Sign in"}
             </h2>
             <button onClick={dialog.close} aria-label="Close" className="text-muted-foreground hover:text-foreground text-xl leading-none px-1 shrink-0">×</button>
           </div>
@@ -121,7 +123,7 @@ export function SignupDialog({ dialog }: { dialog: ReturnType<typeof useSignupDi
             <>
               {!outcome && (
                 <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                  Partner firms get access through their work email. We'll email you a one-time sign-in link.
+                  Use your work email if your firm has a plan, or the email you bought your Monthly Pass with. We'll email you a one-time sign-in link.
                 </p>
               )}
               <form onSubmit={onSubmit} className="mt-4 space-y-2">

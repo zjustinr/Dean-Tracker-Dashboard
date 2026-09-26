@@ -718,6 +718,33 @@ module.exports = async function handler(req, res) {
     }
   } catch { orgs = []; /* the rest of the page still renders */ }
 
+  // Monthly-pass subscribers, kept in sync by api/stripe-webhook.js.
+  let subs = [];
+  try {
+    const [emails] = await kv([["SMEMBERS", "bi:subs"]]);
+    const list = (emails || []).sort();
+    if (list.length) {
+      const [raws, blocks, users] = await Promise.all([
+        kv(list.map((e) => ["GET", `bi:sub:${e}`])),
+        kv(list.map((e) => ["GET", `bi:blocked:${e}`])),
+        kv(list.map((e) => ["HGETALL", `bi:user:${e}`])),
+      ]);
+      subs = list.map((email, i) => {
+        let sub = {};
+        try { sub = JSON.parse(raws[i] || "{}") || {}; } catch { sub = {}; }
+        const flat = users[i] || [], h = {};
+        for (let j = 0; j < flat.length; j += 2) h[flat[j]] = flat[j + 1];
+        const until = Number(sub.until || 0);
+        const live = until * 1000 > Date.now();
+        return {
+          email, name: [h.firstName, h.lastName].filter(Boolean).join(" "), until, blocked: !!blocks[i],
+          status: sub.status || "?", cancelAtPeriodEnd: !!sub.cancelAtPeriodEnd, createdAt: Number(sub.createdAt || 0),
+          label: !live && sub.status === "canceled" ? "ended" : sub.status === "past_due" ? "payment failing" : sub.status === "canceled" ? "cancelled, access until end" : sub.cancelAtPeriodEnd ? "cancels at period end" : live ? "active, renews" : "lapsed",
+        };
+      }).sort((a, b) => b.until - a.until);
+    }
+  } catch { subs = []; }
+
   // Per-client summary (HGETALL returns a flat [field,val,...] array).
   const rows = clients.map((c, i) => {
     const flat = hashes[i] || [];
@@ -828,6 +855,7 @@ module.exports = async function handler(req, res) {
         consentedAt: r.consentedAt ? new Date(r.consentedAt).toISOString() : null,
         possiblyShared: sharedVerdict(r.s.w30).shared,
       })),
+      subscribers: subs.map((u) => ({ email: u.email, name: u.name || null, status: u.status, cancelAtPeriodEnd: u.cancelAtPeriodEnd, paidThrough: u.until ? new Date(u.until * 1000).toISOString().slice(0, 10) : null, since: u.createdAt ? new Date(u.createdAt).toISOString() : null, blocked: u.blocked })),
       orgs: orgs.map((o) => ({
         domain: o.domain, label: o.label, until: o.until ? new Date(o.until * 1000).toISOString().slice(0, 10) : null,
         allIndicesIncludingFuture: o.wildcard, blocked: o.blocked, seats: o.seats, seatsUsed: o.users.length,
@@ -946,6 +974,16 @@ module.exports = async function handler(req, res) {
       <label>Seats (blank = keep, 0 = unlimited)<br><input name="seats" type="number" min="0" placeholder="5" style="width:90px;padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
       <button style="padding:8px 14px;background:#A31F34;color:#fff;border:none;border-radius:7px;font-weight:600;cursor:pointer">Save org</button>
     </form>
+
+    <h2>Monthly pass subscribers</h2>
+    <div style="font-size:12px;color:#5B6B7B;margin-bottom:6px">$99/month, billed by Stripe. Status and paid-through date update automatically from Stripe; manage refunds and cancellations in the Stripe dashboard. A failed card keeps access for ${GRACE_DAYS} days while Stripe retries.</div>
+    <table><tr><th>Subscriber</th><th>Status</th><th>Paid through</th><th>Since</th><th>Access</th></tr>
+    ${subs.map((u) => `<tr><td>${u.name ? `<b>${esc(u.name)}</b> <span style="color:#5B6B7B">${esc(u.email)}</span>` : `<b>${esc(u.email)}</b>`}</td>
+      <td style="color:${u.label.startsWith("active") ? "#1A7F4B" : u.label === "ended" || u.label === "lapsed" ? "#98A2AF" : "#C77700"};font-weight:600">${esc(u.label)}</td>
+      <td>${u.until ? new Date(u.until * 1000).toISOString().slice(0, 10) : "—"}</td>
+      <td>${u.createdAt ? ago(u.createdAt) : "—"}</td>
+      <td><a href="/api/usage?key=${encodeURIComponent(key)}&${u.blocked ? "unblock" : "block"}=${encodeURIComponent(u.email)}" style="color:${u.blocked ? "#1a7f4b" : "#A31F34"};font-weight:600;text-decoration:none">${u.blocked ? "Unblock" : "Block"}</a></td></tr>`).join("") || `<tr><td colspan="5" style="color:#98A2AF">No subscribers yet.</td></tr>`}
+    </table>
 
     <h2>Clients</h2>
     <table><tr><th>Client</th><th style="text-align:right">Hits</th><th>Last seen</th><th>Last event</th><th>Detail</th><th>Consented</th><th>Slate</th><th>Access</th></tr>${summary}</table>

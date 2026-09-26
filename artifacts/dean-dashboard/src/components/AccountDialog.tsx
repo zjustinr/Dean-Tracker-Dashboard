@@ -11,6 +11,10 @@ import { useEffect, useState } from "react";
 import { useTrial } from "@/data/TrialContext";
 
 const CONTACT = "ren@bu.edu";
+// Stripe customer-portal login link (Stripe: Settings → Billing → Customer
+// portal). Monthly Pass holders manage their card, invoices and cancellation
+// there. Empty = the "Manage subscription" link is hidden.
+const BILLING_PORTAL_URL = "";
 
 interface Account {
   ok: boolean;
@@ -20,7 +24,7 @@ interface Account {
   lastName: string;
   memberSince: number | null;
   plan: {
-    kind: "org" | "link";
+    kind: "org" | "sub" | "link";
     org: string | null;
     state: "active" | "grace" | "ended" | "suspended" | "removed";
     allIndices: boolean;
@@ -29,6 +33,8 @@ interface Account {
     graceUntil: number | null;
     seats: number | null;
     seatsUsed: number | null;
+    renews: boolean | null;
+    paymentProblem: boolean;
   };
 }
 
@@ -61,6 +67,19 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 function PlanStatus({ plan }: { plan: Account["plan"] }) {
+  if (plan.kind === "sub") {
+    if (plan.state === "ended") return <p className="text-sm text-[#A31F34]">Ended{plan.expiry ? ` on ${fmt(plan.expiry)}` : ""}. You're on the free tier.</p>;
+    if (plan.paymentProblem) {
+      return <p className="text-sm text-amber-700 dark:text-amber-400">Your last payment didn't go through. Access continues{plan.graceUntil ? <> until <b>{fmt(plan.graceUntil)}</b></> : ""} while it's retried — update your card to keep it.</p>;
+    }
+    if (!plan.expiry) return <p className="text-sm text-[#1A7F4B]">Active</p>;
+    return (
+      <p className="text-sm">
+        <span className="text-[#1A7F4B] font-semibold">Active</span>
+        <span className="text-muted-foreground"> · {plan.renews ? `renews ${fmt(plan.expiry)}` : `ends ${fmt(plan.expiry)} (renewal cancelled)`}</span>
+      </p>
+    );
+  }
   if (plan.state === "grace" && plan.graceUntil) {
     return <p className="text-sm text-amber-700 dark:text-amber-400">Ended {plan.expiry ? fmt(plan.expiry) : ""} · full access continues until <b>{fmt(plan.graceUntil)}</b> while it's renewed.</p>;
   }
@@ -95,7 +114,7 @@ export function AccountDialog({ dialog, onSignIn }: { dialog: ReturnType<typeof 
         setAcct(j);
         setFirst(j.firstName || ""); setLast(j.lastName || "");
         // Accounts made before names were collected: go straight to the form.
-        if (j.ok && j.plan?.kind === "org" && !j.firstName) setEditing(true);
+        if (j.ok && j.plan?.kind !== "link" && !j.firstName) setEditing(true);
       })
       .catch(() => setAcct(null))
       .finally(() => setLoading(false));
@@ -146,9 +165,9 @@ export function AccountDialog({ dialog, onSignIn }: { dialog: ReturnType<typeof 
 
           {signedOut && (
             <div>
-              <p className="text-sm text-muted-foreground">You're not signed in. Partner firms sign in with their work email.</p>
+              <p className="text-sm text-muted-foreground">You're not signed in. Sign in with your work email if your firm has a plan, or the email you bought your Monthly Pass with.</p>
               <button onClick={() => { dialog.close(); onSignIn(); }} className="mt-4 w-full rounded-lg bg-gradient-to-b from-[#0a2a63] to-[#01143f] px-4 py-2.5 text-sm font-semibold text-white hover:brightness-110">
-                Sign in with work email
+                Sign in
               </button>
             </div>
           )}
@@ -176,7 +195,7 @@ export function AccountDialog({ dialog, onSignIn }: { dialog: ReturnType<typeof 
                       <p className="text-sm text-muted-foreground break-all">{acct.email || acct.client}</p>
                       {acct.memberSince && <p className="text-xs text-muted-foreground mt-1">Member since {fmt(acct.memberSince / 1000)}</p>}
                     </div>
-                    {plan.kind === "org" && (
+                    {plan.kind !== "link" && (
                       <button onClick={() => setEditing(true)} className="text-xs font-semibold text-[#011F5B] dark:text-[#AFC4E8] underline underline-offset-2 shrink-0">Edit</button>
                     )}
                   </div>
@@ -185,7 +204,7 @@ export function AccountDialog({ dialog, onSignIn }: { dialog: ReturnType<typeof 
 
               <Section title="Plan">
                 <p className="text-sm font-semibold text-foreground">
-                  {plan.kind === "org" ? <>Firm plan{plan.org ? <> · {plan.org}</> : null}</> : "Access link"}
+                  {plan.kind === "org" ? <>Firm plan{plan.org ? <> · {plan.org}</> : null}</> : plan.kind === "sub" ? "Monthly Pass · $99/month" : "Access link"}
                 </p>
                 <p className="text-sm text-muted-foreground">
                   {plan.allIndices ? "All indices, including new ones as they're added" : `${plan.indices} ${plan.indices === 1 ? "index" : "indices"}`}
@@ -196,6 +215,11 @@ export function AccountDialog({ dialog, onSignIn }: { dialog: ReturnType<typeof 
                 <div className="mt-1.5"><PlanStatus plan={plan} /></div>
                 {plan.kind === "org" && (
                   <p className="text-xs text-muted-foreground mt-2">Your firm manages this plan. Renewals apply to everyone automatically.</p>
+                )}
+                {plan.kind === "sub" && BILLING_PORTAL_URL && (
+                  <a href={BILLING_PORTAL_URL} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-xs font-semibold text-[#011F5B] dark:text-[#AFC4E8] underline underline-offset-2">
+                    Manage subscription, card & invoices →
+                  </a>
                 )}
               </Section>
 
