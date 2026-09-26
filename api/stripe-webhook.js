@@ -1,4 +1,4 @@
-// Baton Index — Stripe webhook: auto-issue the $99 day pass on payment.
+// Baton Index — Stripe webhook: auto-issue the $49 day pass on payment.
 //
 // Closes the gap FreeTierMeter.tsx's own comment calls out ("automatic pass
 // issuance after payment... is the planned v2"): today a day-pass buyer pays
@@ -40,7 +40,9 @@ function eventCmds(rec) {
 
 // Must match scripts/mint-trial.mjs's TIERS.day exactly, or a webhook-minted
 // link would grant different access than one minted by hand.
-const DAY_TIER_SCOPE = ["r1bschool", "r1university", "r1provost"];
+// "*" = every index, including ones added later -- a day pass is all-access
+// for 24 hours.
+const DAY_TIER_SCOPE = ["*"];
 const DAY_TIER_DAYS = 1;
 const DOMAIN = (process.env.BI_DOMAIN || "https://batonindex.com").replace(/\/+$/, "");
 const SIG_TOLERANCE_SEC = 5 * 60; // reject replayed webhooks older than this
@@ -108,7 +110,7 @@ async function sendPassEmail(to, link, expiryISO) {
   const html = `
     <p>Thanks for your Baton Index day pass — you're all set.</p>
     <p><a href="${link}">${link}</a></p>
-    <p style="color:#5B6B7B;font-size:13px">Access expires ${expiryISO}. Covers R1 Business, R1 Presidents, and R1 Provost.</p>`;
+    <p style="color:#5B6B7B;font-size:13px">Access expires ${expiryISO}. Covers every Baton Index index, including any added during your pass.</p>`;
   try {
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",

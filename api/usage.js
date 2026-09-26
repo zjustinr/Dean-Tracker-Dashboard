@@ -68,7 +68,7 @@ const ALL_IDS = [
   "usadvancement", "uslac", "usadminleaders", "uscommunitycollege",
 ];
 const TIERS = {
-  day:     { label: "Day Pass",     scope: ["r1bschool", "r1university", "r1provost"], days: 1 },
+  day:     { label: "Day Pass",     scope: ["*"],                                      days: 1 },
   project: { label: "Project Pass", scope: ALL_IDS,                                    days: 30 },
   firm:    { label: "Firm Plan",    scope: ALL_IDS,                                    days: 365 },
   owner:   { label: "Owner (all indices + future)", scope: ["*"],                      days: 3650 },
@@ -956,7 +956,7 @@ module.exports = async function handler(req, res) {
       <input type="hidden" name="key" value="${esc(key)}">
       <label>Client<br><input name="client" placeholder="opus-associate" required style="padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>
       <label>Tier<br><select name="mint" style="padding:7px;border:1px solid #E6E9EE;border-radius:7px">
-        <option value="project">Project Pass (all indices)</option><option value="day">Day Pass (3 indices)</option>
+        <option value="project">Project Pass (all indices)</option><option value="day">Day Pass (all indices, 24h)</option>
         <option value="firm">Firm Plan (all indices)</option><option value="owner">Owner (wildcard)</option>
       </select></label>
       <label>Days (blank = tier default)<br><input name="days" type="number" min="1" max="3650" placeholder="21" style="width:90px;padding:7px;border:1px solid #E6E9EE;border-radius:7px"></label>

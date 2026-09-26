@@ -114,7 +114,7 @@ function assemble(id) {
 const DATASET_IDS = new Set(Object.keys(SPEC));
 
 // Freemium: these indices are open to everyone (no token). A valid token widens
-// access to its own scope; the paywall/day-pass grants all twelve. Keep in sync
+// access to its own scope; the day pass grants every index ("*"). Keep in sync
 // with PUBLIC_SCOPE in src/data/TrialContext.tsx.
 const PUBLIC_SCOPE = ["r1bschool"];
 
