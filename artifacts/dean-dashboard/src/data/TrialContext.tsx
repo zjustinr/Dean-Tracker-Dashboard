@@ -22,6 +22,10 @@ export interface TrialState {
   graceUntil?: number;
   /** Signed-up users: first name, for the header. */
   firstName?: string;
+  /** Signed-in users: which plan is in use ("org" firm plan or "sub" Monthly Pass). */
+  plan?: "org" | "sub";
+  /** Covered by their firm but still paying for their own Monthly Pass. */
+  overlap?: boolean;
 }
 interface TrialCtx extends TrialState {
   /** Whether a dataset id may be opened (always true when disarmed). */
@@ -92,7 +96,7 @@ export function TrialProvider({ children }: { children: ReactNode }) {
       const ct = r.headers.get("content-type") || "";
       if (!r.ok || !ct.includes("json")) { setState({ loading: false, armed: false }); return; }
       const j = await r.json();
-      setState({ loading: false, armed: !!j.armed, status: j.status, scope: j.scope, expiry: j.expiry, client: j.client, org: j.org, graceUntil: j.graceUntil, firstName: j.firstName });
+      setState({ loading: false, armed: !!j.armed, status: j.status, scope: j.scope, expiry: j.expiry, client: j.client, org: j.org, graceUntil: j.graceUntil, firstName: j.firstName, plan: j.plan, overlap: j.overlap });
     } catch {
       // No endpoint (e.g. vite dev) or network error -> treat as disarmed/public.
       setState({ loading: false, armed: false });

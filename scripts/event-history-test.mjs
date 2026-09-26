@@ -36,6 +36,7 @@ function run([cmd, key, ...a]) {
     case "SMEMBERS": return [...(get() || [])];
     case "HSET": { const h = get() || {}; for (let i = 0; i < a.length; i += 2) h[a[i]] = a[i + 1]; store.set(key, h); return 1; }
     case "HINCRBY": { const h = get() || {}; h[a[0]] = String(Number(h[a[0]] || 0) + Number(a[1])); store.set(key, h); return 1; }
+    case "HDEL": { const h = get() || {}; a.forEach((f) => delete h[f]); store.set(key, h); return 1; }
     case "HGETALL": return Object.entries(get() || {}).flat();
     default: throw new Error("unmocked KV command " + cmd);
   }
