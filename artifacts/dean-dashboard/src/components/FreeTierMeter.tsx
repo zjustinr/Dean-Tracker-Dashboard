@@ -22,7 +22,7 @@ const CONTACT = "ren@bu.edu";
 // One simple paid option for now: a $49 day pass that unlocks every index,
 // including new ones, for 24 hours (scope "*", enforced server-side in
 // api/data.js). Longer access and firm plans are a "Contact us" conversation.
-const DAY_PASS_URL = "https://buy.stripe.com/dRm3cn69N8pc5Sa2FWebu01";
+const DAY_PASS_URL = "https://buy.stripe.com/6oUfZ9bu78pccgy80gebu02"; // $49 all-index day pass
 const PASSES = [
   { key: "day", name: "Day Pass", price: "$49", unit: "24 hours", blurb: "Every index, including new ones as they're added", url: DAY_PASS_URL, featured: true },
 ];
