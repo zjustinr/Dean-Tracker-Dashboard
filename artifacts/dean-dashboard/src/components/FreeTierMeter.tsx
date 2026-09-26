@@ -13,6 +13,7 @@
  */
 import { useState, useEffect, useCallback } from "react";
 import { useTrial } from "@/data/TrialContext";
+import { DAY_PASS_URL, MONTHLY_PASS_URL } from "@/config/pricing";
 
 const LIMIT = 50;
 const WINDOW_MS = 24 * 3600 * 1000;
@@ -25,10 +26,8 @@ const CONTACT = "ren@bu.edu";
 //   * $99 Monthly Pass -- auto-renewing subscription; the webhook keeps
 //     bi:sub:<email> in sync with Stripe and emails a sign-in link.
 // Firm plans are a "Contact us" conversation.
-const DAY_PASS_URL = "https://buy.stripe.com/6oUfZ9bu78pccgy80gebu02"; // $49 all-index day pass
-// Stripe Payment Link for the $99/month subscription. Until it's set the
-// Monthly card stays hidden, so this can ship before the link exists.
-const MONTHLY_PASS_URL = "";
+// Links live in src/config/pricing.ts; the Monthly card stays hidden until its
+// Stripe link is set there.
 const PASSES = [
   { key: "monthly", name: "Monthly Pass", price: "$99", unit: "month", blurb: "Every index · renews monthly · cancel anytime", url: MONTHLY_PASS_URL, badge: "Best value" },
   { key: "day", name: "Day Pass", price: "$49", unit: "24 hours", blurb: "Every index, including new ones as they're added", url: DAY_PASS_URL, badge: "" },
@@ -188,6 +187,19 @@ export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () =
             <button onClick={meter.dismissPaywall} aria-label="Close" className="text-muted-foreground hover:text-foreground text-xl leading-none px-1 shrink-0">×</button>
           </div>
 
+          {onSignIn && (
+            <p className="mt-4 text-xs text-muted-foreground text-center">
+              Already have a Monthly Pass, or is your firm on Baton Index?{" "}
+              <button
+                onClick={() => { meter.dismissPaywall(); onSignIn(); }}
+                className="text-[#011F5B] dark:text-[#AFC4E8] font-semibold underline underline-offset-2 hover:opacity-80"
+              >
+                Sign in first
+              </button>{" "}
+              — a firm plan may already cover you.
+            </p>
+          )}
+
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {PASSES.map((p, i) => {
               // The first card is the recommended one (Monthly when it's offered).
@@ -255,17 +267,7 @@ export function Paywall({ meter, onSignIn }: { meter: FreeMeter; onSignIn?: () =
             </div>
             {rejected && <p className="text-xs text-[#A31F34] mt-1.5">That code isn't valid or has expired.</p>}
           </form>
-          {onSignIn && (
-            <p className="text-xs text-muted-foreground mt-4 text-center">
-              Already have a Monthly Pass or a firm plan?{" "}
-              <button
-                onClick={() => { meter.dismissPaywall(); onSignIn(); }}
-                className="text-[#011F5B] dark:text-[#AFC4E8] font-semibold underline underline-offset-2 hover:opacity-80"
-              >
-                Sign in
-              </button>
-            </p>
-          )}
+
         </div>
       </div>
     </div>

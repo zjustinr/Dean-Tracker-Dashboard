@@ -9,12 +9,10 @@
  */
 import { useEffect, useState } from "react";
 import { useTrial } from "@/data/TrialContext";
+import { BILLING_PORTAL_URL, monthlyCheckoutUrl } from "@/config/pricing";
 
 const CONTACT = "ren@bu.edu";
-// Stripe customer-portal login link (Stripe: Settings → Billing → Customer
-// portal). Monthly Pass holders manage their card, invoices and cancellation
-// there. Empty = the "Manage subscription" link is hidden.
-const BILLING_PORTAL_URL = "";
+
 
 interface Account {
   ok: boolean;
@@ -35,6 +33,7 @@ interface Account {
     seatsUsed: number | null;
     renews: boolean | null;
     paymentProblem: boolean;
+    overlap: boolean;
   };
 }
 
@@ -215,6 +214,19 @@ export function AccountDialog({ dialog, onSignIn }: { dialog: ReturnType<typeof 
                 <div className="mt-1.5"><PlanStatus plan={plan} /></div>
                 {plan.kind === "org" && (
                   <p className="text-xs text-muted-foreground mt-2">Your firm manages this plan. Renewals apply to everyone automatically.</p>
+                )}
+                {plan.overlap && (
+                  <div className="mt-3 rounded-lg border border-amber-200 bg-amber-50 dark:border-amber-900 dark:bg-amber-950/40 p-3 text-xs text-foreground/90">
+                    <b>Your firm now covers you.</b> You're still paying for your own Monthly Pass, which you no longer need.{" "}
+                    {BILLING_PORTAL_URL
+                      ? <a href={BILLING_PORTAL_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#011F5B] dark:text-[#AFC4E8] underline underline-offset-2">Cancel it here →</a>
+                      : <a href={`mailto:${CONTACT}?subject=${encodeURIComponent("Cancel my Monthly Pass")}`} className="font-semibold text-[#011F5B] dark:text-[#AFC4E8] underline underline-offset-2">Ask us to cancel it →</a>}
+                  </div>
+                )}
+                {(plan.state === "ended" || plan.state === "removed") && monthlyCheckoutUrl(acct.email) && (
+                  <a href={monthlyCheckoutUrl(acct.email)} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex rounded-lg bg-[#A31F34] px-4 py-2 text-sm font-semibold text-white hover:bg-[#8c1a2c]">
+                    {plan.kind === "sub" ? "Renew your Monthly Pass — $99/month" : "Continue on your own — $99/month"}
+                  </a>
                 )}
                 {plan.kind === "sub" && BILLING_PORTAL_URL && (
                   <a href={BILLING_PORTAL_URL} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-xs font-semibold text-[#011F5B] dark:text-[#AFC4E8] underline underline-offset-2">

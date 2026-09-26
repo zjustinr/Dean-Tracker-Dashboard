@@ -194,22 +194,28 @@ function filteredNonAcademic(scope) {
 // per-client kill switch. A signed-up user's client tag is their email, so the
 // whole org can also be cut at once by blocking "@<domain>".
 //
-// Plans. For a signed-in person the token only says WHO you are; WHAT you get
-// -- scope and end date -- is read live on every request, so renewals,
-// cancellations and changes apply at once with nobody signing in again:
-//   * org member (token `o` = domain): the org record bi:org:<domain>, plus
-//     live membership in bi:org-users:<domain> (removing someone frees their
-//     seat and ends their access -- state "removed").
-//   * monthly subscriber (token `k` = "sub"): bi:sub:<email>, kept current by
-//     api/stripe-webhook.js from Stripe's billing events.
-// After a plan's end date there is a GRACE_DAYS window (renewal banner, or
-// Stripe retrying a failed card) before "ended". A subscription the customer
-// cancelled has no grace: it simply ends when the paid month runs out.
+// Plans. For a signed-in person (token claim `o` = firm domain, or `k` = "sub")
+// the token only says WHO you are; WHAT you get is read live, per request, from
+// every plan that person could have, and the best one wins:
+//   * firm plan  -- bi:org:<domain> + membership in bi:org-users:<domain>
+//   * own plan   -- bi:sub:<email>, the Monthly Pass, kept in sync by
+//                   api/stripe-webhook.js from Stripe billing events
+// Order: an active firm plan, then an active Monthly Pass, then either one in
+// its grace window. So when a firm enrolls, its subscribers move onto it; when
+// a firm plan ends, anyone still paying for their own pass carries on with it
+// -- nobody signs in again either way. After a plan's end date there is a
+// GRACE_DAYS window (renewal banner, or Stripe retrying a failed card) before
+// "ended"; a Monthly Pass the customer cancelled has no grace.
 //
-// Returns { blocked, state, org, plan } where plan = { kind, name, scope,
-// until, graceUntil, sub } for signed-in people. state is null for tokens
-// without a plan (owner-minted links, day passes) or if the lookup failed --
-// callers then fall back to the token's own s/x claims.
+// Returns { blocked, state, org, plan, sub, overlap, claimable }:
+//   plan      { kind: "org"|"sub", name, scope, until, graceUntil } in use
+//   org       the firm record when the firm plan is the one in use
+//   sub       the Monthly Pass record, if any (whether or not it's in use)
+//   overlap   covered by the firm AND still paying for a renewing pass
+//   claimable not yet a member, but the firm has a free seat and the owner
+//             hasn't removed them -- api/trial.js moves them onto it
+// state is null for tokens without a plan (owner-minted links, day passes) or
+// if the lookup failed -- callers then fall back to the token's own s/x claims.
 // Fail-open throughout until KV is configured, matching the rest of the gate.
 const GRACE_DAYS = 14;
 function planState(until, noGrace) {
@@ -218,19 +224,24 @@ function planState(until, noGrace) {
   return !noGrace && now < until + GRACE_DAYS * 86400 ? "grace" : "ended";
 }
 async function liveAccess(payload) {
-  const out = { blocked: false, state: null, org: null, plan: null };
+  const out = { blocked: false, state: null, org: null, plan: null, sub: null, overlap: false, claimable: false };
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
   const tok = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
   const client = payload && payload.c;
-  const domain = payload && typeof payload.o === "string" ? payload.o : null;
-  const isSub = !domain && payload && payload.k === "sub";
   if (!url || !tok || !client) return out;
-  const keys = [client];
+  const orgClaim = typeof payload.o === "string" ? payload.o : null;
+  const signedIn = !!orgClaim || payload.k === "sub";
   const at = client.lastIndexOf("@");
+  const domain = orgClaim || (at > 0 ? client.slice(at + 1) : null);
+  const keys = [client];
   if (at > 0) keys.push(client.slice(at));
   const cmds = keys.map((k) => ["GET", `bi:blocked:${k}`]);
-  if (domain) cmds.push(["GET", `bi:org:${domain}`], ["SISMEMBER", `bi:org-users:${domain}`, client]);
-  if (isSub) cmds.push(["GET", `bi:sub:${client}`]);
+  if (signedIn) {
+    cmds.push(
+      ["GET", `bi:org:${domain}`], ["SISMEMBER", `bi:org-users:${domain}`, client], ["SCARD", `bi:org-users:${domain}`],
+      ["GET", `bi:sub:${client}`], ["HGET", `bi:user:${client}`, "removedFrom"],
+    );
+  }
   try {
     const r = await fetch(`${url}/pipeline`, {
       method: "POST",
@@ -240,29 +251,38 @@ async function liveAccess(payload) {
     if (!r.ok) return out;
     const rows = await r.json();
     out.blocked = rows.slice(0, keys.length).some((row) => row && row.result);
-    const rec = (i) => { try { return JSON.parse((rows[keys.length + i] || {}).result || "null"); } catch { return null; } };
-    if (domain) {
-      const org = rec(0);
-      const member = Number((rows[keys.length + 1] || {}).result) === 1;
-      if (!org || !Array.isArray(org.scope) || typeof org.until !== "number") {
-        out.state = "ended";               // org removed: its members have no plan
-      } else if (!member) {
-        out.state = "removed";             // seat released by the owner
-      } else {
-        out.org = org;
-        out.state = planState(org.until);
-        out.plan = { kind: "org", name: org.label || domain, scope: org.scope, until: org.until, graceUntil: org.until + GRACE_DAYS * 86400 };
-      }
-    } else if (isSub) {
-      const sub = rec(0);
-      if (!sub || typeof sub.until !== "number") {
-        out.state = "ended";               // no subscription on record
-      } else {
-        const noGrace = sub.status === "canceled";
-        out.state = planState(sub.until, noGrace);
-        out.plan = { kind: "sub", name: "Monthly pass", scope: ["*"], until: sub.until, graceUntil: noGrace ? sub.until : sub.until + GRACE_DAYS * 86400, sub };
-      }
+    if (!signedIn) return out;
+    const val = (i) => (rows[keys.length + i] || {}).result;
+    const json = (i) => { try { return JSON.parse(val(i) || "null"); } catch { return null; } };
+    const org = json(0), member = Number(val(1)) === 1, used = Number(val(2)) || 0, sub = json(3), removedFrom = val(4);
+
+    const orgOk = !!org && Array.isArray(org.scope) && typeof org.until === "number";
+    const subOk = !!sub && typeof sub.until === "number";
+    out.sub = subOk ? sub : null;
+    const cands = [];
+    if (orgOk && member) {
+      cands.push({ state: planState(org.until), plan: { kind: "org", name: org.label || domain, scope: org.scope, until: org.until, graceUntil: org.until + GRACE_DAYS * 86400 } });
     }
+    if (subOk) {
+      const noGrace = sub.status === "canceled";
+      cands.push({ state: planState(sub.until, noGrace), plan: { kind: "sub", name: "Monthly Pass", scope: ["*"], until: sub.until, graceUntil: noGrace ? sub.until : sub.until + GRACE_DAYS * 86400 } });
+    }
+    const rank = { active: 0, grace: 1, ended: 2 };
+    const best = cands.slice().sort((a, b) => rank[a.state] - rank[b.state])[0];   // stable: firm first on ties
+    out.claimable = orgOk && !member && planState(org.until) === "active" && removedFrom !== domain && (!org.seats || used < org.seats);
+
+    if (best && best.state !== "ended") {
+      out.state = best.state;
+      out.plan = best.plan;
+    } else if (orgClaim && orgOk && !member && !out.claimable) {
+      out.state = "removed";               // seat released by the owner, nothing else to fall back on
+    } else {
+      out.state = "ended";                 // plan(s) ran out, or none on record
+      out.plan = best ? best.plan : null;  // kept for the end date / firm name
+    }
+    if (out.plan && out.plan.kind === "org") out.org = org;
+    out.overlap = !!(out.plan && out.plan.kind === "org" && out.state === "active" && subOk
+      && sub.status !== "canceled" && !sub.cancelAtPeriodEnd && planState(sub.until, false) !== "ended");
     return out;
   } catch { return out; }
 }

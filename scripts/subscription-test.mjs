@@ -16,7 +16,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 Object.assign(process.env, {
   STRIPE_WEBHOOK_SECRET: "whsec_test", TRIAL_SECRET: "test-secret", RESEND_API_KEY: "re_test",
-  KV_REST_API_URL: "https://kv.test", KV_REST_API_TOKEN: "t", USAGE_SECRET: "owner",
+  KV_REST_API_URL: "https://kv.test", KV_REST_API_TOKEN: "t", USAGE_SECRET: "owner", CRON_SECRET: "cron",
 });
 
 // --- in-memory KV (runs eagerly, like the real server) ---------------------------
@@ -42,6 +42,7 @@ function run([cmd, key, ...a]) {
     case "HSETNX": { const h = get() || {}; if (!(a[0] in h)) h[a[0]] = a[1]; store.set(key, h); return 1; }
     case "HGET": return (get() || {})[a[0]] ?? null;
     case "HINCRBY": { const h = get() || {}; h[a[0]] = String(Number(h[a[0]] || 0) + Number(a[1])); store.set(key, h); return 1; }
+    case "HDEL": { const h = get() || {}; a.forEach((f) => delete h[f]); store.set(key, h); return 1; }
     case "HGETALL": return Object.entries(get() || {}).flat();
     default: throw new Error("unmocked KV command " + cmd);
   }
@@ -67,8 +68,8 @@ function stripe(type, object, id = `evt_${crypto.randomBytes(6).toString("hex")}
 }
 function call(handler, req) {
   if (!(req instanceof Readable)) {
-    const { method = "GET", query = {}, body, cookie = "", ip = "203.0.113.7" } = req;
-    req = { method, query, body, headers: { cookie, "x-forwarded-for": ip, "user-agent": "test" } };
+    const { method = "GET", query = {}, body, cookie = "", ip = "203.0.113.7", auth } = req;
+    req = { method, query, body, headers: { cookie, "x-forwarded-for": ip, "user-agent": "test", ...(auth ? { authorization: auth } : {}) } };
   }
   return new Promise((resolve) => {
     const headers = {};
@@ -185,6 +186,75 @@ ok(r.json.subscribers[0].email === EMAIL && r.json.subscribers[0].status === "ca
 mail.length = 0;
 r = await call(webhook, stripe("checkout.session.completed", { id: "cs_day_1", mode: "payment", customer_details: { email: "dayer@example.com" } }));
 ok(r.json.ok && r.json.emailed && /\?k=/.test(mail[0].html) && !store.get("bi:sub:dayer@example.com"), "a one-time checkout is still a day pass, not a subscription");
+
+// --- 9. firm plan arrives / ends while someone has their own pass ---------------------
+const tokenClaims = (setCookie) => JSON.parse(Buffer.from(decodeURIComponent(setCookie.split(";")[0].split("=")[1]).split(".")[0], "base64url").toString());
+async function subscribe(email, subId) {
+  mail.length = 0;
+  await call(webhook, stripe("checkout.session.completed", { id: `cs_${subId}`, mode: "subscription", subscription: subId, customer: `cus_${subId}`, customer_details: { email } }));
+  await call(webhook, stripe("invoice.paid", { customer_email: email, subscription: subId, lines: { data: [{ period: { end: now() + 30 * DAY } }] } }));
+  const c = mail[0].html.match(/verify=([\w-]+)/)[1];
+  const v = await call(trial, { method: "POST", query: { verify: c }, body: { firstName: "A", lastName: "B" } });
+  return v.headers["set-cookie"].split(";")[0];
+}
+const AMY = "amy@acme.com";
+let amy = await subscribe(AMY, "sub_amy");
+r = await call(trial, { cookie: amy });
+ok(r.json.plan === "sub", "Amy starts on her own Monthly Pass");
+
+await call(usage, { query: { key: "owner", org: "acme.com", label: "Acme", scope: "all", until: "2099-01-31", seats: "2" } });
+r = await call(trial, { cookie: amy });
+ok(r.json.status === "valid" && r.json.plan === "org" && r.json.org === "Acme", "firm enrolls: Amy is moved onto the firm plan on her next visit");
+ok(store.get("bi:org-users:acme.com").has(AMY) && tokenClaims(r.headers["set-cookie"]).o === "acme.com", "...taking a seat, with her login re-issued as a firm login");
+amy = r.headers["set-cookie"].split(";")[0];
+ok(r.json.overlap === true, "...and flagged as still paying for her own pass");
+r = await call(trial, { query: { action: "account" }, cookie: amy });
+ok(r.json.plan.kind === "org" && r.json.plan.overlap === true && r.json.plan.renews === null, "account: firm plan, with the 'cancel your Monthly Pass' notice");
+
+mail.length = 0;
+r = await call(usage, { auth: "Bearer cron" });
+ok(r.json.overlaps.alerted === 1 && mail.some((m) => m.subject.includes("covered by a firm plan") && m.html.includes(AMY)), "daily job emails the owner about the double charge");
+r = await call(usage, { auth: "Bearer cron" });
+ok(r.json.overlaps.alerted === 0, "...once");
+r = await call(usage, { query: { key: "owner" } });
+ok(/also covered by Acme — cancel in Stripe/.test(r.body), "usage page flags the overlap");
+
+// She cancels her own pass at period end: no longer an overlap.
+await call(webhook, stripe("customer.subscription.updated", { id: "sub_amy", status: "active", cancel_at_period_end: true }));
+r = await call(trial, { cookie: amy });
+ok(r.json.plan === "org" && !r.json.overlap, "after she cancels her own pass, only the firm plan remains");
+await call(webhook, stripe("customer.subscription.updated", { id: "sub_amy", status: "active", cancel_at_period_end: false }));
+
+// Firm plan ends: her own pass carries on, no sign-in needed.
+const orgKey = "bi:org:acme.com";
+const setOrg = (patch) => store.set(orgKey, JSON.stringify(Object.assign(JSON.parse(store.get(orgKey)), patch)));
+setOrg({ until: now() - 20 * DAY });
+r = await call(trial, { cookie: amy });
+ok(r.json.status === "valid" && r.json.plan === "sub", "firm plan ends: she carries on with her own Monthly Pass");
+r = await call(data, { query: { f: "r1law.json" }, cookie: amy });
+ok(r.status === 200, "...with full access");
+setOrg({ until: now() - DAY });
+r = await call(trial, { cookie: amy });
+ok(r.json.plan === "sub" && !r.json.graceUntil, "an active own pass beats a firm plan that's only in grace");
+setOrg({ until: now() + 365 * DAY });
+
+// The owner removes her from the firm: never moved back automatically.
+await call(usage, { query: { key: "owner", unseat: AMY } });
+r = await call(trial, { cookie: amy });
+ok(r.json.status === "valid" && r.json.plan === "sub" && !store.get("bi:org-users:acme.com").has(AMY), "removed from the firm: stays on her own pass, not re-added");
+
+// A full firm doesn't absorb a subscriber.
+const bob = await subscribe("bob@acme.com", "sub_bob");
+store.get("bi:org-users:acme.com").add("carol@acme.com").add("dan@acme.com");
+r = await call(trial, { cookie: bob });
+ok(r.json.plan === "sub" && !store.get("bi:org-users:acme.com").has("bob@acme.com"), "firm at its seat limit: Bob stays on his own pass");
+
+// Firm ended and her own pass cancelled: expired, with the firm named (UI offers the Monthly Pass).
+store.get("bi:org-users:acme.com").add(AMY);
+store.set(`bi:sub:${AMY}`, JSON.stringify(Object.assign(JSON.parse(store.get(`bi:sub:${AMY}`)), { status: "canceled", until: now() - DAY })));
+setOrg({ until: now() - 20 * DAY });
+r = await call(trial, { cookie: amy });
+ok(r.json.status === "expired" && r.json.org === "Acme", "both ended: expired, firm named for the 'continue on your own' offer");
 
 console.log(fails ? `\nSUBSCRIPTION TEST FAIL (${fails})` : "\nSUBSCRIPTION TEST PASS");
 process.exit(fails ? 1 : 0);

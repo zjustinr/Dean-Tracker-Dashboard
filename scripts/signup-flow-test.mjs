@@ -43,6 +43,7 @@ function run([cmd, key, ...a]) {
     case "HSET": { const h = get() || {}; for (let i = 0; i < a.length; i += 2) h[a[i]] = a[i + 1]; store.set(key, h); return 1; }
     case "HSETNX": { const h = get() || {}; if (!(a[0] in h)) h[a[0]] = a[1]; store.set(key, h); return 1; }
     case "HINCRBY": { const h = get() || {}; h[a[0]] = String(Number(h[a[0]] || 0) + Number(a[1])); store.set(key, h); return 1; }
+    case "HDEL": { const h = get() || {}; a.forEach((f) => delete h[f]); store.set(key, h); return 1; }
     case "HGETALL": return Object.entries(get() || {}).flat();
     case "HGET": return (get() || {})[a[0]] ?? null;
     case "LPUSH": { const l = get() || []; l.unshift(...a); store.set(key, l); return l.length; }

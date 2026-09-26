@@ -473,6 +473,45 @@ async function runArchive() {
   return out;
 }
 
+// --- overlaps: paying for a Monthly Pass while their firm covers them ---------
+// The site already gives them the firm plan (api/trial.js moves them onto a
+// free seat); this is about the money. Cancelling or refunding is done by the
+// owner in Stripe, so the owner is told once per person per firm plan.
+async function findOverlaps() {
+  const [emails] = await kv([["SMEMBERS", "bi:subs"]]);
+  const list = emails || [];
+  if (!list.length) return [];
+  const domains = list.map((e) => e.slice(e.lastIndexOf("@") + 1));
+  const rows = await kv(list.flatMap((e, i) => [["GET", `bi:sub:${e}`], ["GET", `bi:org:${domains[i]}`], ["SISMEMBER", `bi:org-users:${domains[i]}`, e]]));
+  const now = Math.floor(Date.now() / 1000);
+  const out = [];
+  list.forEach((email, i) => {
+    let sub, org;
+    try { sub = JSON.parse(rows[i * 3] || "null"); org = JSON.parse(rows[i * 3 + 1] || "null"); } catch { return; }
+    const member = Number(rows[i * 3 + 2]) === 1;
+    if (!sub || !org || !member) return;
+    if (sub.status === "canceled" || sub.cancelAtPeriodEnd || !(sub.until > now) || !(org.until > now)) return;
+    out.push({ email, domain: domains[i], org: org.label || domains[i], orgUntil: org.until, paidThrough: sub.until, customer: sub.customer || null });
+  });
+  return out;
+}
+
+async function runOverlapAlerts() {
+  const overlaps = await findOverlaps();
+  const fresh = [];
+  for (const o of overlaps) {
+    const [claimed] = await kv([["SET", `bi:overlap-alerted:${o.email}:${o.orgUntil}`, "1", "EX", String(400 * 86400), "NX"]]);
+    if (claimed === "OK") fresh.push(o);
+  }
+  if (!fresh.length) return { overlaps: overlaps.length, alerted: 0 };
+  const rowsHtml = fresh.map((o) => `<li><b>${esc(o.email)}</b> — covered by <b>${esc(o.org)}</b>, still paying for a Monthly Pass (paid through ${isoDay(o.paidThrough)})${o.customer ? ` · Stripe customer ${esc(o.customer)}` : ""}</li>`).join("");
+  const html = `<p>${fresh.length} ${fresh.length === 1 ? "person is" : "people are"} now covered by a firm plan but still paying $99/month:</p><ul>${rowsHtml}</ul>
+    <p style="color:#5B6B7B;font-size:13px">They already get the firm plan on the site. To stop the double charge, open each customer in Stripe → Subscriptions → Cancel (at period end, or immediately with a prorated refund). They can also cancel themselves from their Account page.</p>`;
+  const sent = await sendOwnerEmail(`Baton Index: ${fresh.length} Monthly Pass ${fresh.length === 1 ? "holder is" : "holders are"} now covered by a firm plan`, html);
+  if (!sent) for (const o of fresh) await kv([["DEL", `bi:overlap-alerted:${o.email}:${o.orgUntil}`]]);
+  return { overlaps: overlaps.length, alerted: sent ? fresh.length : 0 };
+}
+
 async function runRenewalReminders(res) {
   if (!kvCreds().url || !kvCreds().tok) { res.status(200).json({ ok: false, error: "kv_not_enabled" }); return; }
   const sent = [];
@@ -504,9 +543,10 @@ async function runRenewalReminders(res) {
   }
   // Same daily run copies finished days to the archive. Its failure must not
   // hide the reminders' result, so it reports separately.
-  let archive;
+  let archive, overlaps;
   try { archive = await runArchive(); } catch (e) { archive = { status: "error", error: e.message }; }
-  res.status(200).json({ ok: true, checked: (domains || []).length, sent, archive });
+  try { overlaps = await runOverlapAlerts(); } catch (e) { overlaps = { error: e.message }; }
+  res.status(200).json({ ok: true, checked: (domains || []).length, sent, archive, overlaps });
 }
 
 module.exports = async function handler(req, res) {
@@ -556,7 +596,9 @@ module.exports = async function handler(req, res) {
     const email = String(req.query.unseat).trim().toLowerCase().slice(0, 254);
     const domain = email.slice(email.lastIndexOf("@") + 1);
     try {
-      await kv([["SREM", `bi:org-users:${domain}`, email]]);
+      // removedFrom stops the site from automatically moving them back onto
+      // the firm plan (api/trial.js); signing up again clears it.
+      await kv([["SREM", `bi:org-users:${domain}`, email], ["HSET", `bi:user:${email}`, "removedFrom", domain]]);
       res.setHeader("location", `/api/usage?key=${encodeURIComponent(key)}`);
       res.status(302).send("");
     } catch (e) { res.status(502).send("update failed: " + esc(e.message)); }
@@ -744,6 +786,10 @@ module.exports = async function handler(req, res) {
       }).sort((a, b) => b.until - a.until);
     }
   } catch { subs = []; }
+  try {
+    const byEmail = new Map((await findOverlaps()).map((o) => [o.email, o]));
+    for (const u of subs) if (byEmail.has(u.email)) { u.label = `also covered by ${byEmail.get(u.email).org} — cancel in Stripe`; u.overlap = true; }
+  } catch { /* flags are a nicety */ }
 
   // Per-client summary (HGETALL returns a flat [field,val,...] array).
   const rows = clients.map((c, i) => {
@@ -855,7 +901,7 @@ module.exports = async function handler(req, res) {
         consentedAt: r.consentedAt ? new Date(r.consentedAt).toISOString() : null,
         possiblyShared: sharedVerdict(r.s.w30).shared,
       })),
-      subscribers: subs.map((u) => ({ email: u.email, name: u.name || null, status: u.status, cancelAtPeriodEnd: u.cancelAtPeriodEnd, paidThrough: u.until ? new Date(u.until * 1000).toISOString().slice(0, 10) : null, since: u.createdAt ? new Date(u.createdAt).toISOString() : null, blocked: u.blocked })),
+      subscribers: subs.map((u) => ({ email: u.email, name: u.name || null, status: u.status, alsoCoveredByFirm: !!u.overlap, cancelAtPeriodEnd: u.cancelAtPeriodEnd, paidThrough: u.until ? new Date(u.until * 1000).toISOString().slice(0, 10) : null, since: u.createdAt ? new Date(u.createdAt).toISOString() : null, blocked: u.blocked })),
       orgs: orgs.map((o) => ({
         domain: o.domain, label: o.label, until: o.until ? new Date(o.until * 1000).toISOString().slice(0, 10) : null,
         allIndicesIncludingFuture: o.wildcard, blocked: o.blocked, seats: o.seats, seatsUsed: o.users.length,
@@ -979,7 +1025,7 @@ module.exports = async function handler(req, res) {
     <div style="font-size:12px;color:#5B6B7B;margin-bottom:6px">$99/month, billed by Stripe. Status and paid-through date update automatically from Stripe; manage refunds and cancellations in the Stripe dashboard. A failed card keeps access for ${GRACE_DAYS} days while Stripe retries.</div>
     <table><tr><th>Subscriber</th><th>Status</th><th>Paid through</th><th>Since</th><th>Access</th></tr>
     ${subs.map((u) => `<tr><td>${u.name ? `<b>${esc(u.name)}</b> <span style="color:#5B6B7B">${esc(u.email)}</span>` : `<b>${esc(u.email)}</b>`}</td>
-      <td style="color:${u.label.startsWith("active") ? "#1A7F4B" : u.label === "ended" || u.label === "lapsed" ? "#98A2AF" : "#C77700"};font-weight:600">${esc(u.label)}</td>
+      <td style="color:${u.overlap ? "#A31F34" : u.label.startsWith("active") ? "#1A7F4B" : u.label === "ended" || u.label === "lapsed" ? "#98A2AF" : "#C77700"};font-weight:600">${esc(u.label)}</td>
       <td>${u.until ? new Date(u.until * 1000).toISOString().slice(0, 10) : "—"}</td>
       <td>${u.createdAt ? ago(u.createdAt) : "—"}</td>
       <td><a href="/api/usage?key=${encodeURIComponent(key)}&${u.blocked ? "unblock" : "block"}=${encodeURIComponent(u.email)}" style="color:${u.blocked ? "#1a7f4b" : "#A31F34"};font-weight:600;text-decoration:none">${u.blocked ? "Unblock" : "Block"}</a></td></tr>`).join("") || `<tr><td colspan="5" style="color:#98A2AF">No subscribers yet.</td></tr>`}
